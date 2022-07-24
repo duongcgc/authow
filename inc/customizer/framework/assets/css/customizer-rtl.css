@@ -1,0 +1,34 @@
+#customize-header-actions {
+    position: relative;
+    padding-left: 60px;
+    padding-right: auto;
+}
+#customize-header-actions {
+    border-left: none;
+    border-right: none;
+}
+
+#customize-header-actions .button-primary {
+    margin-right: unset;
+}
+
+.customizer-search-wrapper .customizer-search-toggle {
+    left: 0;
+    right: auto;
+    border-right: 1px solid #ddd;
+    border-left: none;
+}
+
+.customizer-search-wrapper .customizer-form-search {
+    padding: 0 20px 0 65px;
+}
+
+#accordion-panel-authow_fw_global_panel > .accordion-section-title, #accordion-panel-authow_fw_header > .accordion-section-title, #accordion-panel-authow_fw_footer > .accordion-section-title, #accordion-panel-authow_fw_single_post_panel > .accordion-section-title, #accordion-section-authow_fw_social_like_section > .accordion-section-title, #accordion-section-authow_fw_review_section > .accordion-section-title, #accordion-panel-authow_fw_category_panel > .accordion-section-title, #accordion-panel-authow_fw_archive > .accordion-section-title, #accordion-section-authow_fw_mobile_option_section > .accordion-section-title, #accordion-panel-authow_fw_font > .accordion-section-title, #accordion-section-authow_fw_social_icon_section > .accordion-section-title, #accordion-panel-authow_fw_disable_panel > .accordion-section-title {
+    padding-left: 0;
+    padding-right: 40px;
+}
+
+#accordion-panel-authow_fw_global_panel > .accordion-section-title::before, #accordion-panel-authow_fw_header > .accordion-section-title::before, #accordion-panel-authow_fw_footer > .accordion-section-title::before, #accordion-panel-authow_fw_single_post_panel > .accordion-section-title::before, #accordion-section-authow_fw_social_like_section > .accordion-section-title::before, #accordion-section-authow_fw_review_section > .accordion-section-title::before, #accordion-panel-authow_fw_category_panel > .accordion-section-title::before, #accordion-panel-authow_fw_archive > .accordion-section-title::before, #accordion-section-authow_fw_mobile_option_section > .accordion-section-title::before, #accordion-panel-authow_fw_font > .accordion-section-title::before, #accordion-section-authow_fw_social_icon_section > .accordion-section-title::before, #accordion-panel-authow_fw_disable_panel > .accordion-section-title::before {
+    right: 0;
+    left: auto;
+}

@@ -1,0 +1,70 @@
+<?php
+vc_map( array(
+	'base'                    => 'penci_container',
+	'class'                   => '',
+	'icon'                    => get_template_directory_uri() . '/images/vc-icon.png',
+	'category'                => penci_get_theme_name('Authow'),
+	'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/container/frontend.php',
+	'name'                    => penci_get_theme_name('Goso').' '.__( 'Container', 'authow' ),
+	'description'             => esc_html__( 'Place content elements inside the container', 'js_composer' ),
+	'weight'                  => 1000,
+	'is_container'            => true,
+	'show_settings_on_create' => false,
+	'params'                  => array(
+		array(
+			'type'       => 'hidden',
+			'param_name' => 'container_layout',
+		),
+		array(
+			'type'       => 'dropdown',
+			'heading'    => esc_html__( 'Choose with container', 'authow' ),
+			'param_name' => 'el_width',
+			'value'      => array(
+				esc_html__( 'Container ( width: 1080px ) ', 'authow' )        => 'w1080',
+				esc_html__( 'Container normal ( width: 1170px ) ', 'authow' ) => 'w1170',
+				esc_html__( 'Container fluid ( width: 1400px ) ', 'authow' )  => 'w1400',
+			),
+			'std'        => 'w1170',
+		),
+		array(
+			'type'       => 'dropdown',
+			'heading'    => esc_html__( 'Custom position of content and sidebar on mobile', 'authow' ),
+			'param_name' => 'ctsidebar_mb',
+			'value'      => array(
+				esc_html__( 'Content + Sidebar left + Sidebar right', 'authow' ) => 'con_sb2_sb1',
+				esc_html__( 'Content + Sidebar right + Sidebar left', 'authow' ) => 'con_sb1_sb2',
+				esc_html__( 'Sidebar left + Content + Sidebar right', 'authow' ) => 'sb2_con_sb1',
+				esc_html__( 'Sidebar left + Sidebar right + Content', 'authow' ) => 'sb2_sb1_con',
+				esc_html__( 'Sidebar right + Content + Sidebar left', 'authow' ) => 'sb1_con_sb2',
+				esc_html__( 'Sidebar right + Sidebar left + Content', 'authow' ) => 'sb1_sb2_con',
+			),
+			'std'        => '',
+		),
+		array(
+			'type'       => 'checkbox',
+			'heading'    => __( 'Enable sticky content & sidebar.', 'authow' ),
+			'param_name' => 'el_enable_sticky',
+			'value'      => array( __( 'Yes', 'authow' ) => 'yes' ),
+		),
+		array(
+			'type'        => 'el_id',
+			'heading'     => __( 'Container ID', 'authow' ),
+			'param_name'  => 'el_id',
+			'description' => sprintf( __( 'Enter optional row ID. Make sure it is unique, and it is valid as w3c specification: %s (Must not have spaces)', 'authow' ), '<a target="_blank" href="http://www.w3schools.com/tags/att_global_id.asp">' . __( 'link', 'authow' ) . '</a>' ),
+		),
+		array(
+			'type' => 'textfield',
+			'heading' => esc_html__( 'Extra class name', 'js_composer' ),
+			'param_name' => 'el_class',
+			'description' => esc_html__( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+		),
+		array(
+			'type' => 'css_editor',
+			'heading' => esc_html__( 'CSS box', 'js_composer' ),
+			'param_name' => 'css',
+			'group' => esc_html__( 'Design Options', 'js_composer' ),
+		),
+	),
+	'js_view'                 => 'VcGosoContainerView',
+	'default_content'         => '[penci_column width="11"][/penci_column]',
+) );

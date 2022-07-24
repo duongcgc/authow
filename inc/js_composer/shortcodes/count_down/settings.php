@@ -1,0 +1,415 @@
+<?php
+$group_color = 'Typo & Color';
+$group_trans = 'Strings Translation';
+
+vc_map( array(
+	'base'          => 'penci_count_down',
+	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
+	'category'      => penci_get_theme_name('Authow'),
+	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/count_down/frontend.php',
+	'weight'        => 700,
+	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Count Down', 'authow' ),
+	'description'   => __( 'Count Down Block', 'authow' ),
+	'controls'      => 'full',
+	'params'        => array_merge(
+		Goso_Vc_Params_Helper::params_container_width(),
+		array(
+			array(
+				'type'       => 'dropdown',
+				'heading'    => __( 'Choose Skin', 'authow' ),
+				'param_name' => 'count_down_style',
+				'std'        => 's1',
+				'value'      => array(
+					__( 'Style 1', 'authow' ) => 's1',
+					__( 'Style 2', 'authow' ) => 's2',
+					__( 'Style 3', 'authow' ) => 's3',
+					__( 'Style 4', 'authow' ) => 's4',
+				),
+			),
+			array(
+				'type'       => 'dropdown',
+				'heading'    => __( 'Posttion', 'authow' ),
+				'param_name' => 'count_down_posttion',
+				'std'        => 'center',
+				'value'      => array(
+					__( 'Left', 'authow' )   => 'left',
+					__( 'Center', 'authow' ) => 'center',
+					__( 'Right', 'authow' )  => 'right',
+				),
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Year', 'authow' ),
+				'param_name'       => 'count_year',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Month', 'authow' ),
+				'param_name'       => 'count_month',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Day', 'authow' ),
+				'param_name'       => 'count_day',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Hour', 'authow' ),
+				'param_name'       => 'count_hour',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Minus', 'authow' ),
+				'param_name'       => 'count_minus',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+
+			),
+			array(
+				'type'             => 'textfield',
+				'heading'          => esc_html__( 'Sec', 'authow' ),
+				'param_name'       => 'count_sec',
+				'admin_label'      => true,
+				'edit_field_class' => 'vc_col-sm-2',
+			),
+
+			array(
+				"type"       => "checkbox",
+				"class"      => "",
+				"heading"    => esc_html__( "Select time units to display in countdown timer", "penci-framework" ),
+				"param_name" => "countdown_opts",
+				"value"      => array(
+					esc_html__( "Years", "penci-framework" )   => "Y",
+					esc_html__( "Months", "penci-framework" )  => "O",
+					esc_html__( "Weeks", "penci-framework" )   => "W",
+					esc_html__( "Days", "penci-framework" )    => "D",
+					esc_html__( "Hours", "penci-framework" )   => "H",
+					esc_html__( "Minutes", "penci-framework" ) => "M",
+					esc_html__( "Seconds", "penci-framework" ) => "S",
+				)
+			),
+			array(
+				'type'       => 'dropdown',
+				'heading'    => esc_html__( 'Timer digit border style', 'authow' ),
+				'param_name' => 'digit_border',
+				'value'      => array(
+					esc_html__( 'None', 'authow' )   => '',
+					esc_html__( 'Solid', 'authow' )  => 'solid',
+					esc_html__( 'Dashed', 'authow' ) => 'dashed',
+					esc_html__( 'Dotted', 'authow' ) => 'dotted',
+					esc_html__( 'Double', 'authow' ) => 'double',
+				),
+				'dependency' => array( 'element' => 'count_down_style', 'value' => array( 's1' ) ),
+			),
+			array(
+				'type'       => 'penci_number',
+				'param_name' => 'digit_border_width',
+				'heading'    => __( 'Timer digit border width', 'authow' ),
+				'value'      => '',
+				'std'        => '1px',
+				'suffix'     => 'px',
+				'min'        => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency' => array( 'element' => 'digit_border', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
+			),
+			array(
+				'type'       => 'penci_number',
+				'param_name' => 'digit_border_radius',
+				'heading'    => __( 'Timer digit border radius', 'authow' ),
+				'value'      => '',
+				'std'        => '',
+				'suffix'     => 'px',
+				'min'        => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency' => array( 'element' => 'digit_border', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
+			),
+			array(
+				'type'             => 'penci_number',
+				'param_name'       => 'digit_padding',
+				'heading'          => __( 'Timer digit padding', 'authow' ),
+				'value'            => '',
+				'std'              => '',
+				'suffix'           => 'px',
+				'min'              => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'             => 'penci_number',
+				'param_name'       => 'unit_margin_top',
+				'heading'          => __( 'Timer unit margin top', 'authow' ),
+				'value'            => '',
+				'std'              => '',
+				'suffix'           => 'px',
+				'min'              => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'             => 'penci_number',
+				'param_name'       => 'countdown_item_width',
+				'heading'          => __( 'Width of Countdown Section', 'authow' ),
+				'value'            => '',
+				'std'              => '',
+				'suffix'           => 'px',
+				'min'              => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'             => 'penci_number',
+				'param_name'       => 'countdown_item_height',
+				'heading'          => __( 'Height of Countdown Section', 'authow' ),
+				'value'            => '',
+				'std'              => '',
+				'suffix'           => 'px',
+				'min'              => 1,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'       => 'checkbox',
+				'heading'    => __( 'Turn on uppearcase for label count down?', 'authow' ),
+				'param_name' => 'cdtitle_upper'
+			),
+			// Transition
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Day (Singular)', 'authow' ),
+				'param_name' => 'str_days',
+				'value'      => esc_html__( 'Day', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Days (Plural)', 'authow' ),
+				'param_name' => 'str_days2',
+				'value'      => esc_html__( 'Days', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Week (Singular)', 'authow' ),
+				'param_name' => 'str_weeks',
+				'value'      => esc_html__( 'Week', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Weeks (Plural)', 'authow' ),
+				'param_name' => 'str_weeks2',
+				'value'      => esc_html__( 'Weeks', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Month (Singular)', 'authow' ),
+				'param_name' => 'str_months',
+				'value'      => esc_html__( 'Month', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Months (Plural)', 'authow' ),
+				'param_name' => 'str_months2',
+				'value'      => esc_html__( 'Months', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Year (Singular)', 'authow' ),
+				'param_name' => 'str_years',
+				'value'      => esc_html__( 'Year', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Years (Plural)', 'authow' ),
+				'param_name' => 'str_years2',
+				'value'      => esc_html__( 'Years', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Hour (Singular)', 'authow' ),
+				'param_name' => 'str_hours',
+				'value'      => esc_html__( 'Hour', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Hours (Plural)', 'authow' ),
+				'param_name' => 'str_hours2',
+				'value'      => esc_html__( 'Hours', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Minute (Singular)', 'authow' ),
+				'param_name' => 'str_minutes',
+				'value'      => esc_html__( 'Minute', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Minutes (Plural)', 'authow' ),
+				'param_name' => 'str_minutes2',
+				'value'      => esc_html__( 'Minutes', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Second (Singular)', 'authow' ),
+				'param_name' => 'str_seconds',
+				'value'      => esc_html__( 'Second', 'authow' ),
+				'group'      => $group_trans
+			),
+			array(
+				'type'       => 'textfield',
+				'class'      => '',
+				'heading'    => esc_html__( 'Seconds (Plural)', 'authow' ),
+				'param_name' => 'str_seconds2',
+				'value'      => esc_html__( 'Seconds', 'authow' ),
+				'group'      => $group_trans
+			),
+			// Color
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer background color', 'authow' ),
+				'param_name'       => 'time_bgcolor',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency'       => array( 'element' => 'count_down_style', 'value' => array( 's2', 's3', 's4' ) ),
+			),
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer border color', 'authow' ),
+				'param_name'       => 'time_bordercolor',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency'       => array( 'element' => 'count_down_style', 'value' => array( 's2', 's3', 's4' ) ),
+			),
+			array(
+				'type'             => 'textfield',
+				'param_name'       => 'time_digit_heading',
+				'heading'          => esc_html__( 'Timer digit', 'authow' ),
+				'value'            => '',
+				'group'            => $group_color,
+				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+			),
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer digit border color', 'authow' ),
+				'param_name'       => 'time_digit_bordercolor',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer digit background color', 'authow' ),
+				'param_name'       => 'time_digit_bgcolor',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency'       => array( 'element' => 'count_down_style', 'value' => array( 's1' ) ),
+			),
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer digit color', 'authow' ),
+				'param_name'       => 'time_digit_color',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+				'dependency'       => array( 'element' => 'count_down_style', 'value' => array( 's1' ) ),
+			),
+			array(
+				'type'       => 'google_fonts',
+				'group'      => $group_color,
+				'param_name' => 'time_digit_typo',
+				'value'      => '',
+			),
+			array(
+				'type'       => 'penci_number',
+				'param_name' => 'time_digit_size',
+				'heading'    => __( 'Font Size for Timer Digit', 'authow' ),
+				'value'      => '',
+				'std'        => '',
+				'suffix'     => 'px',
+				'min'        => 1,
+				'group'      => $group_color,
+			),
+			array(
+				'type'       => 'dropdown',
+				'heading'    => __( 'Font Weight for Timer Digit', 'authow' ),
+				'param_name' => 'time_weight',
+				'std'        => 'center',
+				'value'      => array(
+					__( 'Default', 'authow' ) => '',
+					'normal'                   => 'Normal',
+					'bold'                     => 'Bold',
+					'bolder'                   => 'Bolder',
+					'lighter'                  => 'Lighter',
+					'100'                      => '100',
+					'200'                      => '200',
+					'300'                      => '300',
+					'400'                      => '400',
+					'500'                      => '500',
+					'600'                      => '600',
+					'700'                      => '700',
+					'800'                      => '800',
+					'900'                      => '900'
+				),
+				'group'      => $group_color,
+			),
+			array(
+				'type'             => 'textfield',
+				'param_name'       => 'unit_heading',
+				'heading'          => esc_html__( 'Timer unit', 'authow' ),
+				'value'            => '',
+				'group'            => $group_color,
+				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+			),
+			array(
+				'type'             => 'colorpicker',
+				'heading'          => esc_html__( 'Timer unit color', 'authow' ),
+				'param_name'       => 'unit_color',
+				'group'            => $group_color,
+				'edit_field_class' => 'vc_col-sm-6',
+			),
+			array(
+				'type'       => 'google_fonts',
+				'group'      => $group_color,
+				'param_name' => 'unit_typo',
+				'value'      => '',
+			),
+			array(
+				'type'       => 'penci_number',
+				'param_name' => 'unit_size',
+				'heading'    => __( 'Font Size for Timer Unit', 'authow' ),
+				'value'      => '',
+				'std'        => '',
+				'suffix'     => 'px',
+				'min'        => 1,
+				'group'      => $group_color,
+			),
+		),
+		Goso_Vc_Params_Helper::extra_params()
+	)
+) );
