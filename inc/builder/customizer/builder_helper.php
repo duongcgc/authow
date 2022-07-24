@@ -76,45 +76,45 @@ if ( ! function_exists( 'goso_can_render_header' ) ) {
 }
 
 function goso_hb_element_desktop_top_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-top.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-top.php' );
 }
 
 function goso_hb_element_desktop_topblock_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-topblock.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-topblock.php' );
 }
 
 function goso_hb_element_desktop_mid_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-mid.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-mid.php' );
 }
 
 function goso_hb_element_desktop_bottom_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-bottom.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-bottom.php' );
 }
 
 function goso_hb_element_desktop_bottomblock_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-bottomblock.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-bottomblock.php' );
 }
 
 function goso_hb_element_mobile_top_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/mobile-top.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/mobile-top.php' );
 }
 
 function goso_hb_element_mobile_mid_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/mobile-mid.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/mobile-mid.php' );
 }
 
 function goso_hb_element_mobile_bottom_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/mobile-bottom.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/mobile-bottom.php' );
 }
 
 function goso_hb_element_desktop_sticky_top_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-top.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-sticky-top.php' );
 }
 
 function goso_hb_element_desktop_sticky_mid_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-mid.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-sticky-mid.php' );
 }
 
 function goso_hb_element_desktop_sticky_bottom_preview_render() {
-	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-bottom.php' );
+	load_template( GOSO_BUILDER_PATH . '/template/desktop-sticky-bottom.php' );
 }

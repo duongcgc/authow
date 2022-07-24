@@ -15,7 +15,7 @@ class Select2 extends Base_Data_Control {
 	}
 
 	public function enqueue() {
-		wp_register_script( 'goso-select2', PENCI_ELEMENTOR_URL . 'assets/js/goso-select2.js', [ 'jquery-elementor-select2' ], '1.0.0', true );
+		wp_register_script( 'goso-select2', GOSO_ELEMENTOR_URL . 'assets/js/goso-select2.js', [ 'jquery-elementor-select2' ], '1.0.0', true );
 		wp_localize_script( 'goso-select2', 'goso_select2_localize', [
 				'ajaxurl'     => admin_url( 'admin-ajax.php' ),
 				'search_text' => esc_html__( 'Search', 'authow' ),

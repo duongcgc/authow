@@ -36,7 +36,7 @@ class Autocomplete extends Base_Data_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'goso_el_autocomplete-control', get_template_directory_uri() . '/inc/elementor/assets/js/goso-el-autocomplete.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, false );
+		wp_enqueue_script( 'goso_el_autocomplete-control', get_template_directory_uri() . '/inc/elementor/assets/js/goso-el-autocomplete.js', array( 'jquery' ), GOSO_SOLEDAD_VERSION, false );
 	}
 
 	/**

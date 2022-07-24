@@ -113,11 +113,11 @@
                 var data = {
                     action: 'goso_check_envato_code',
                     code: evatoCode,
-                    domain: PENCIDASHBOARD.domain,
+                    domain: GOSODASHBOARD.domain,
                     item_id: 12945398
                 };
 
-                $.post(PENCIDASHBOARD.ajaxUrl, data, function (response) {
+                $.post(GOSODASHBOARD.ajaxUrl, data, function (response) {
                     if (!response.success) {
                         $spinner.removeClass('active');
                         $activateButton.prop('disabled', false);

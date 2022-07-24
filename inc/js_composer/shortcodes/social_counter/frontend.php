@@ -87,7 +87,7 @@ $block_id  = Goso_Vc_Helper::get_unique_id_block( 'social_counter' );
 							continue;
 						}
 
-						$social_info = \PENCI_FW_Social_Counter::get_social_counter( $social );
+						$social_info = \GOSO_FW_Social_Counter::get_social_counter( $social );
 
 						$social_info_name = $social_info['name'] ?? '';
 
@@ -99,7 +99,7 @@ $block_id  = Goso_Vc_Helper::get_unique_id_block( 'social_counter' );
 						if ( 'tiktok' === $social ) {
 							$count = $social_info['count'];
 						} else {
-							$count = \PENCI_FW_Social_Counter::format_followers( $social_info['count'] );
+							$count = \GOSO_FW_Social_Counter::format_followers( $social_info['count'] );
 						}
 
 						$count = $count ? $count : '';

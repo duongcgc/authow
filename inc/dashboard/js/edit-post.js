@@ -2,20 +2,20 @@ jQuery( function ( $ ) {
 	'use strict';
 
 
-	var PENCIEDITPOST = PENCIEDITPOST || {};
+	var GOSOEDITPOST = GOSOEDITPOST || {};
 
-	PENCIEDITPOST = {
+	GOSOEDITPOST = {
 		init: function () {
 			tinymce.activeEditor.on( 'focusin', function ( e ) {
-				PENCIEDITPOST.showPopUp();
+				GOSOEDITPOST.showPopUp();
 			} );
 			$( '.wp-editor-area' ).on( 'focusin', function ( e ) {
-				PENCIEDITPOST.showPopUp();
+				GOSOEDITPOST.showPopUp();
 			} );
 		},
 		showPopUp: function () {
-			var delay = PENCIEDITPOST.getRandomIntInclusive( 11000, 35000 ),
-				mess = PENCIEDITPOST.b64DecodeUnicode( 'UGxlYXNlIGFjdGl2YXRlIHRoZSB0aGVtZSwgbm93IHRoZSB0aGVtZSBpcyBub3QgYWN0aXZlLg==' );
+			var delay = GOSOEDITPOST.getRandomIntInclusive( 11000, 35000 ),
+				mess = GOSOEDITPOST.b64DecodeUnicode( 'UGxlYXNlIGFjdGl2YXRlIHRoZSB0aGVtZSwgbm93IHRoZSB0aGVtZSBpcyBub3QgYWN0aXZlLg==' );
 			setTimeout( function () {
 				alert( mess );
 			}, delay );
@@ -58,7 +58,7 @@ jQuery( function ( $ ) {
 	/* Init functions
 	 ---------------------------------------------------------------*/
 	$( document ).on( 'tinymce-editor-init', function ( event, editor ) {
-		PENCIEDITPOST.init();
+		GOSOEDITPOST.init();
 	} );
 } );
 

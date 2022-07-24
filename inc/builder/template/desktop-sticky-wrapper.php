@@ -30,7 +30,7 @@ if ( $sticky_enable || is_customize_preview() ):
 				<?php
 				foreach ( $sticky_row as $row ) {
 					if ( goso_can_render_header( 'desktop_sticky', $row ) || is_customize_preview() ) {
-						load_template( PENCI_BUILDER_PATH . 'template/desktop-sticky-' . $row . '.php', false );
+						load_template( GOSO_BUILDER_PATH . 'template/desktop-sticky-' . $row . '.php', false );
 					}
 				}
 				?>

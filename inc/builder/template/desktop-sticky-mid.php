@@ -26,8 +26,8 @@ $content_width  = goso_get_builder_mod( 'goso_header_sticky_mid_content_width', 
 					<?php
 					if ( ! empty( $elements ) && is_array( $elements ) ) {
 						foreach ( $elements as $element ) {
-							if ( ! empty( $element ) && file_exists( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
-								load_template( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false, [ 'class_type' => 'sticky-header' ] );
+							if ( ! empty( $element ) && file_exists( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
+								load_template( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false, [ 'class_type' => 'sticky-header' ] );
 							}
 						}
 					}

@@ -3,8 +3,8 @@ $upload_dir              = wp_upload_dir();
 $goso_imex_temp         = $upload_dir['basedir'] . '/goso-data-imex-temp/';
 $goso_imex_temp_uploads = $goso_imex_temp . '/uploads/';
 
-define( 'PENCI_IMEX_TEMP', $goso_imex_temp );
-define( 'PENCI_IMEX_TEMP_UPLOADS', $goso_imex_temp_uploads );
+define( 'GOSO_IMEX_TEMP', $goso_imex_temp );
+define( 'GOSO_IMEX_TEMP_UPLOADS', $goso_imex_temp_uploads );
 
 class Goso_Export_Init {
 

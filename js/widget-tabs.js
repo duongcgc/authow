@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
-    PENCI.tabswidget = function () {
+    var GOSO = GOSO || {};
+    GOSO.tabswidget = function () {
         $(document).on('click', '.penc-posts-tabs .tabs li a', function (e) {
             var parent = $(this).closest('.penc-posts-tabs'),
                 li = $(this).parent('li'),
@@ -18,6 +18,6 @@
     };
 
     $(document).ready(function () {
-        PENCI.tabswidget();
+        GOSO.tabswidget();
     });
 })(jQuery);

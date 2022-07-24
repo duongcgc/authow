@@ -11,11 +11,11 @@ function goso_vc_param_post_metas( $settings, $value ) {
 	$output = '';
 
 	$post_metas = array(
-		'pauthor'    => __( 'Author', PENCI_SNORLAX_FW ),
-		'pdate'      => __( 'Date', PENCI_SNORLAX_FW ),
-		'minread'    => __( 'Min Read', PENCI_SNORLAX_FW ),
-		'pcomment'   => __( 'Comments', PENCI_SNORLAX_FW ),
-		'pcountview' => __( 'Post Count Views', PENCI_SNORLAX_FW ),
+		'pauthor'    => __( 'Author', GOSO_SNORLAX_FW ),
+		'pdate'      => __( 'Date', GOSO_SNORLAX_FW ),
+		'minread'    => __( 'Min Read', GOSO_SNORLAX_FW ),
+		'pcomment'   => __( 'Comments', GOSO_SNORLAX_FW ),
+		'pcountview' => __( 'Post Count Views', GOSO_SNORLAX_FW ),
 	);
 
 	foreach ( $post_metas as $k => $v ) {

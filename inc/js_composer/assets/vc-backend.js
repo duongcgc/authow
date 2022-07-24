@@ -319,10 +319,10 @@ if (!window.vc) var vc = {};
 					action: 'goso_save_video_playlist',
 					videoList: this.model.getParam("videos_list"),
 					shortcodeId: this.model.getParam("video_shortcode_id"),
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {});
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {});
 			},
 			deleteShortcode: function(e) {
 
@@ -331,10 +331,10 @@ if (!window.vc) var vc = {};
 				var data = {
 					action: 'goso_remove_video_playlist',
 					shortcodeId: this.model.getParam("video_shortcode_id"),
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {});
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {});
 			},
 		});
 		window.VcGosoVideoList = vc.shortcode_view.extend({
@@ -371,10 +371,10 @@ if (!window.vc) var vc = {};
 					action: 'goso_save_video_playlist',
 					videoList: this.model.getParam("videos_list"),
 					shortcodeId: this.model.getParam("block_id"),
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {});
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {});
 			},
 			deleteShortcode: function(e) {
 
@@ -383,10 +383,10 @@ if (!window.vc) var vc = {};
 				var data = {
 					action: 'goso_remove_video_playlist',
 					shortcodeId: this.model.getParam("block_id"),
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {});
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {});
 			},
 		});
 		window.VcGosoShortcodeView = vc.shortcode_view.extend({

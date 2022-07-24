@@ -35,7 +35,7 @@ function goso_is_new_update( $version = null ){
 			if( 'version' == $version ){
 				return $current_version;
 			}
-			if( ! defined('PENCI_SOLEDAD_VERSION') || empty( PENCI_SOLEDAD_VERSION ) || version_compare( $current_version, PENCI_SOLEDAD_VERSION, '<=' ) ) {
+			if( ! defined('GOSO_SOLEDAD_VERSION') || empty( GOSO_SOLEDAD_VERSION ) || version_compare( $current_version, GOSO_SOLEDAD_VERSION, '<=' ) ) {
 				return false;
 			} else {
 				return true;

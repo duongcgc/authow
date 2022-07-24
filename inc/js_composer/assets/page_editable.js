@@ -1,22 +1,22 @@
 var vc_iframe = vc_iframe || {};
 !function($) {
 	'use strict';
-	var PENCI = PENCI || {};
-	PENCI.sticky = {
+	var GOSO = GOSO || {};
+	GOSO.sticky = {
 		init: function () {
 
-			PENCI.sticky.stickySidebar();
-			PENCI.sticky.headerSticky();
-			PENCI.sticky.headerMobileSticky();
+			GOSO.sticky.stickySidebar();
+			GOSO.sticky.headerSticky();
+			GOSO.sticky.headerMobileSticky();
 
 			$( window ).on( 'resize', function () {
 				$( ".site-header" ).unstick();
 
-				PENCI.sticky.headerSticky();
+				GOSO.sticky.headerSticky();
 
 				if ( ! $( '.goso-header-mobile' ).hasClass( 'mobile' ) ) {
 					$( '.goso-header-mobile' ).unstick();
-					PENCI.sticky.headerMobileSticky();
+					GOSO.sticky.headerMobileSticky();
 				}
 			} );
 		},
@@ -63,7 +63,7 @@ var vc_iframe = vc_iframe || {};
 			} );
 		}
 	};
-	PENCI.gosoVideo = function () {
+	GOSO.gosoVideo = function () {
 
 		if ( $().magnificPopup ) {
 			$( '.goso-popup-video' ).magnificPopup( {
@@ -73,7 +73,7 @@ var vc_iframe = vc_iframe || {};
 		}
 
 	};
-	PENCI.toggleSocialMedia = function () {
+	GOSO.toggleSocialMedia = function () {
 		var $socialToggle = $( ".social-buttons__toggle" ),
 			socialButtons = $( '.goso-block-vc .social-buttons' );
 
@@ -113,7 +113,7 @@ var vc_iframe = vc_iframe || {};
 
 		} );
 	}
-	PENCI.popupGallery = function () {
+	GOSO.popupGallery = function () {
 		if ( ! $().magnificPopup ) {
 			return false;
 		}
@@ -160,14 +160,14 @@ var vc_iframe = vc_iframe || {};
 			} );
 		} );
 	}
-	PENCI.ajaxDoBlockRequest = {
+	GOSO.ajaxDoBlockRequest = {
 		// Init the module
 		init: function () {
-			PENCI.ajaxDoBlockRequest.link();
-			PENCI.ajaxDoBlockRequest.nextPrev();
-			PENCI.ajaxDoBlockRequest.loadMore();
-			PENCI.ajaxDoBlockRequest.infinityScroll();
-			PENCI.ajaxDoBlockRequest.megamenu();
+			GOSO.ajaxDoBlockRequest.link();
+			GOSO.ajaxDoBlockRequest.nextPrev();
+			GOSO.ajaxDoBlockRequest.loadMore();
+			GOSO.ajaxDoBlockRequest.infinityScroll();
+			GOSO.ajaxDoBlockRequest.megamenu();
 		},
 		megamenu: function () {
 
@@ -186,7 +186,7 @@ var vc_iframe = vc_iframe || {};
 					blockHeight = $currentBlockObj.height(),
 					$is_cache = false;
 
-				var OBjBlockData = PENCI.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
+				var OBjBlockData = GOSO.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
 				dataFilter = OBjBlockData.atts_json ? JSON.parse( OBjBlockData.atts_json ) : OBjBlockData.atts_json;
 
 				if ( $( this ).hasClass( 'goso-slider-next' ) ) {
@@ -207,21 +207,21 @@ var vc_iframe = vc_iframe || {};
 					datafilter: dataFilter,
 					paged: paged.toString(),
 					styleAction: 'next_prev',
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
 				var currentBlockObjSignature = JSON.stringify( data );
 
-				if ( PENCILOCALCACHE.exist( currentBlockObjSignature ) ) {
-					var responseData = PENCILOCALCACHE.get( currentBlockObjSignature );
+				if ( GOSOLOCALCACHE.exist( currentBlockObjSignature ) ) {
+					var responseData = GOSOLOCALCACHE.get( currentBlockObjSignature );
 
 					$is_cache = true;
 					setTimeout( function () {
 						$blockVC.attr( 'data-current', paged );
 						$currentBlockObj.html( responseData.items ).removeClass( 'ajax-loading' );
 
-						PENCI.ajaxDoBlockRequest.animateMegaLoadITems( $currentBlockObj, $is_cache );
-						PENCI.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
+						GOSO.ajaxDoBlockRequest.animateMegaLoadITems( $currentBlockObj, $is_cache );
+						GOSO.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
 					}, 300 );
 
 					return false;
@@ -229,15 +229,15 @@ var vc_iframe = vc_iframe || {};
 
 				$currentBlockObj.addClass( 'ajax-loading' );
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {
 					$blockVC.attr( 'data-current', paged );
 
 
 					$currentBlockObj.html( response.data.items );
 
-					PENCI.ajaxDoBlockRequest.animateMegaLoadITems( $currentBlockObj, $is_cache );
-					PENCI.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
-					PENCI.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
+					GOSO.ajaxDoBlockRequest.animateMegaLoadITems( $currentBlockObj, $is_cache );
+					GOSO.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
+					GOSO.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
 				} );
 
 				// Save items page 1 of block
@@ -248,11 +248,11 @@ var vc_iframe = vc_iframe || {};
 						datafilter: dataFilter,
 						paged: '1',
 						styleAction: 'next_prev',
-						nonce: PENCILOCALIZE.nonce
+						nonce: GOSOLOCALIZE.nonce
 					};
 
-					$.post( PENCILOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
-						PENCI.ajaxDoBlockRequest.saveAjaxData( JSON.stringify( dataFirstItems ), response.data );
+					$.post( GOSOLOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
+						GOSO.ajaxDoBlockRequest.saveAjaxData( JSON.stringify( dataFirstItems ), response.data );
 					} );
 				}
 
@@ -279,7 +279,7 @@ var vc_iframe = vc_iframe || {};
 					dataContent = $blockVC.data( 'content' ),
 					filterValue = $( this ).data( 'filter_value' );
 
-				var OBjBlockData = PENCI.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
+				var OBjBlockData = GOSO.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
 				dataFilter = JSON.parse( OBjBlockData.atts_json );
 				dataContent = OBjBlockData.content;
 
@@ -292,7 +292,7 @@ var vc_iframe = vc_iframe || {};
 					datafilter: dataFilter,
 					datacontent: dataContent,
 					styleAction: 'link',
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
 				// Fix height block
@@ -300,16 +300,16 @@ var vc_iframe = vc_iframe || {};
 
 				var currentBlockObjSignature = JSON.stringify( data );
 
-				if ( PENCILOCALCACHE.exist( currentBlockObjSignature ) ) {
-					var responseData = PENCILOCALCACHE.get( currentBlockObjSignature );
+				if ( GOSOLOCALCACHE.exist( currentBlockObjSignature ) ) {
+					var responseData = GOSOLOCALCACHE.get( currentBlockObjSignature );
 					$is_cache = true;
 					setTimeout( function () {
 						$blockVC.attr( 'data-atts_json', JSON.stringify( dataFilter ) ).attr( 'data-current', 1 );
 
 						$currentBlockObj.html( responseData.items ).removeClass( 'ajax-loading' );
 
-						PENCI.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, '1', $is_cache );
-						PENCI.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
+						GOSO.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, '1', $is_cache );
+						GOSO.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
 					}, 300 );
 
 					return false;
@@ -317,15 +317,15 @@ var vc_iframe = vc_iframe || {};
 
 				$currentBlockObj.addClass( 'ajax-loading' );
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {
 
 					$blockVC.attr( 'data-atts_json', JSON.stringify( dataFilter ) ).attr( 'data-current', 1 );
 
 					$currentBlockObj.html( response.data.items ).removeClass( 'ajax-loading' );
 
-					PENCI.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, '1', $is_cache );
-					PENCI.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
-					PENCI.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
+					GOSO.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, '1', $is_cache );
+					GOSO.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
+					GOSO.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
 				} );
 
 				// Save items page 1 of block
@@ -337,15 +337,15 @@ var vc_iframe = vc_iframe || {};
 					datafilter: dataFilter,
 					datacontent: dataContent,
 					styleAction: 'link',
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
 				var currentBlockObjFirstItems = JSON.stringify( dataFirstItems );
 
-				if ( filterValue && ! PENCILOCALCACHE.exist( currentBlockObjFirstItems ) ) {
-					$.post( PENCILOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
+				if ( filterValue && ! GOSOLOCALCACHE.exist( currentBlockObjFirstItems ) ) {
+					$.post( GOSOLOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
 
-						PENCI.ajaxDoBlockRequest.saveAjaxData( currentBlockObjFirstItems, response.data );
+						GOSO.ajaxDoBlockRequest.saveAjaxData( currentBlockObjFirstItems, response.data );
 					} );
 				}
 			} );
@@ -370,7 +370,7 @@ var vc_iframe = vc_iframe || {};
 					$is_cache = false;
 
 
-				var OBjBlockData = PENCI.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
+				var OBjBlockData = GOSO.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
 
 				dataFilter = OBjBlockData.atts_json ? JSON.parse( OBjBlockData.atts_json ) : OBjBlockData.atts_json;
 				dataContent = OBjBlockData.content;
@@ -398,14 +398,14 @@ var vc_iframe = vc_iframe || {};
 					paged: paged.toString(),
 					styleAction: 'next_prev',
 					datacontent: dataContent,
-					nonce: PENCILOCALIZE.nonce
+					nonce: GOSOLOCALIZE.nonce
 				};
 
 				var currentBlockObjSignature = JSON.stringify( data );
 
-				if ( PENCILOCALCACHE.exist( currentBlockObjSignature ) ) {
+				if ( GOSOLOCALCACHE.exist( currentBlockObjSignature ) ) {
 
-					var responseData = PENCILOCALCACHE.get( currentBlockObjSignature );
+					var responseData = GOSOLOCALCACHE.get( currentBlockObjSignature );
 					$is_cache = true;
 
 					$blockVC.attr( 'data-current', paged );
@@ -413,23 +413,23 @@ var vc_iframe = vc_iframe || {};
 					var content = jQuery( responseData.items );
 					$currentBlockObj.html( content );
 
-					PENCI.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
-					PENCI.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
+					GOSO.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
+					GOSO.ajaxDoBlockRequest.hidePag( $blockVC, responseData );
 
 					return false;
 				}
 
 				$currentBlockObj.addClass( 'ajax-loading' );
 
-				$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {
+				$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {
 
 					$blockVC.attr( 'data-current', paged );
 
 					var content = jQuery( response.data.items );
 					$currentBlockObj.html( content );
-					PENCI.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
-					PENCI.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
-					PENCI.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
+					GOSO.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
+					GOSO.ajaxDoBlockRequest.hidePag( $blockVC, response.data );
+					GOSO.ajaxDoBlockRequest.saveAjaxData( currentBlockObjSignature, response.data );
 
 				} );
 
@@ -442,11 +442,11 @@ var vc_iframe = vc_iframe || {};
 						paged: '1',
 						styleAction: 'next_prev',
 						datacontent: dataContent,
-						nonce: PENCILOCALIZE.nonce
+						nonce: GOSOLOCALIZE.nonce
 					};
 
-					$.post( PENCILOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
-						PENCI.ajaxDoBlockRequest.saveAjaxData( JSON.stringify( dataFirstItems ), response.data );
+					$.post( GOSOLOCALIZE.ajaxUrl, dataFirstItems, function ( response ) {
+						GOSO.ajaxDoBlockRequest.saveAjaxData( JSON.stringify( dataFirstItems ), response.data );
 					} );
 				}
 
@@ -454,7 +454,7 @@ var vc_iframe = vc_iframe || {};
 		},
 		loadMore: function () {
 			$( 'body' ).on( 'click', '.goso-block-ajax-more-button', function ( event ) {
-				PENCI.ajaxDoBlockRequest.actionLoadMore( $( this ) );
+				GOSO.ajaxDoBlockRequest.actionLoadMore( $( this ) );
 			} );
 		},
 
@@ -475,7 +475,7 @@ var vc_iframe = vc_iframe || {};
 						hT + hH - wH
 					) ) {
 
-					PENCI.ajaxDoBlockRequest.actionLoadMore( $this_scroll );
+					GOSO.ajaxDoBlockRequest.actionLoadMore( $this_scroll );
 				}
 			} ).trigger('scroll');
 		},
@@ -509,7 +509,7 @@ var vc_iframe = vc_iframe || {};
 				paged = $blockVC.attr( 'data-current' ),
 				$is_cache = false;
 
-			var OBjBlockData = PENCI.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
+			var OBjBlockData = GOSO.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
 			dataFilter = JSON.parse( OBjBlockData.atts_json );
 			dataContent = OBjBlockData.content;
 
@@ -527,10 +527,10 @@ var vc_iframe = vc_iframe || {};
 				styleAction: 'load_more',
 				paged: paged,
 				datacontent: dataContent,
-				nonce: PENCILOCALIZE.nonce
+				nonce: GOSOLOCALIZE.nonce
 			};
 
-			$.post( PENCILOCALIZE.ajaxUrl, data, function ( response ) {
+			$.post( GOSOLOCALIZE.ajaxUrl, data, function ( response ) {
 
 				if ( response.data.items ) {
 
@@ -548,7 +548,7 @@ var vc_iframe = vc_iframe || {};
 				}
 
 				$blockVC.attr( 'data-current', paged );
-				PENCI.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
+				GOSO.ajaxDoBlockRequest.animateLoadITems( $currentBlockObj, paged, $is_cache );
 			} );
 		},
 
@@ -563,7 +563,7 @@ var vc_iframe = vc_iframe || {};
 				duration: 500,
 				complete: function () {
 					$currentBlockObj.attr( 'style', '' );
-					PENCI.ajaxDoBlockRequest.ajaxSuccess( $currentBlockObj, $is_cache );
+					GOSO.ajaxDoBlockRequest.ajaxSuccess( $currentBlockObj, $is_cache );
 				}
 			} );
 
@@ -576,7 +576,7 @@ var vc_iframe = vc_iframe || {};
 				stagger: 100,
 				duration: 200,
 				complete: function () {
-					PENCI.ajaxDoBlockRequest.ajaxSuccess( $currentBlockObj, $is_cache );
+					GOSO.ajaxDoBlockRequest.ajaxSuccess( $currentBlockObj, $is_cache );
 					$currentBlockObj.attr( 'style', '' );
 				}
 			} );
@@ -605,15 +605,15 @@ var vc_iframe = vc_iframe || {};
 
 		ajaxSuccess: function ( $currentBlockObj, $is_cache ) {
 			if ( ! $is_cache ) {
-				PENCI.gosoLazy();
+				GOSO.gosoLazy();
 			}
 
-			PENCI.general.fitvids( $currentBlockObj );
-			PENCI.toggleSocialMedia();
-			PENCI.popupGallery();
-			PENCI.gosoVideo();
-			PENCI.sticky.stickySidebar();
-			PENCI.EasyPieChart();
+			GOSO.general.fitvids( $currentBlockObj );
+			GOSO.toggleSocialMedia();
+			GOSO.popupGallery();
+			GOSO.gosoVideo();
+			GOSO.sticky.stickySidebar();
+			GOSO.EasyPieChart();
 		},
 
 		saveAjaxData: function ( key, data ) {
@@ -628,10 +628,10 @@ var vc_iframe = vc_iframe || {};
 				}
 			} );
 
-			PENCILOCALCACHE.set( key, data );
+			GOSOLOCALCACHE.set( key, data );
 		}
 	};
-	PENCI.gosoLazy = function () {
+	GOSO.gosoLazy = function () {
 
 		/*$( '.goso-lazy' ).Lazy( {
 			effect: 'fadeIn',
@@ -640,7 +640,7 @@ var vc_iframe = vc_iframe || {};
 		} );*/
 		//lazySizes.init();
 	};
-	PENCI.sliderOwl = function ( $item ) {
+	GOSO.sliderOwl = function ( $item ) {
 		$item.each( function () {
 			var $this = $( this ),
 				$gosoBlock = $this.closest( '.goso-block-vc' ),
@@ -757,7 +757,7 @@ var vc_iframe = vc_iframe || {};
 			} );
 
 			$this.on( 'initialized.owl.carousel', function ( event ) {
-				PENCI.gosoLazy();
+				GOSO.gosoLazy();
 
 				var $jarallax = $this.find( '.goso-jarallax-slider' );
 
@@ -783,7 +783,7 @@ var vc_iframe = vc_iframe || {};
 
 		} );
 	},
-	PENCI.Jarallax = function () {
+	GOSO.Jarallax = function () {
 		if ( ! $.fn.jarallax || ! $( '.goso-jarallax' ).length ) {
 			return false;
 		}
@@ -804,7 +804,7 @@ var vc_iframe = vc_iframe || {};
 
 		} );
 	},
-	PENCI.sliderSync = function () {
+	GOSO.sliderSync = function () {
 			if ( ! $().owlCarousel ) {
 				return false;
 			}
@@ -879,7 +879,7 @@ var vc_iframe = vc_iframe || {};
 				} );
 
 				sync1.on( 'changed.owl.carousel', function ( event ) {
-					PENCI.gosoLazy();
+					GOSO.gosoLazy();
 				} );
 
 				sync2.imagesLoaded( function () {
@@ -955,7 +955,7 @@ var vc_iframe = vc_iframe || {};
 			} );
 
 		};
-	PENCI.postLike = function () {
+	GOSO.postLike = function () {
 		$( 'body' ).on( 'click', '.goso-post-like', function ( event ) {
 			event.preventDefault();
 			var $this = $( this ),
@@ -990,14 +990,14 @@ var vc_iframe = vc_iframe || {};
 				action: 'goso_post_like',
 				post_id: post_id,
 				goso_post_like: '',
-				nonce: PENCILOCALIZE.nonce
+				nonce: GOSOLOCALIZE.nonce
 			};
 
-			$.post( PENCILOCALIZE.ajaxUrl, data, function ( r ) {
+			$.post( GOSOLOCALIZE.ajaxUrl, data, function ( r ) {
 			} );
 		} );
 	};
-	PENCI.gallery = function () {
+	GOSO.gallery = function () {
 		var $justified_gallery = $( '.goso-post-gallery-container.justified' );
 		var $masonry_gallery = $( '.goso-post-gallery-container.masonry' );
 		if ( $().justifiedGallery && $justified_gallery.length ) {
@@ -1047,7 +1047,7 @@ var vc_iframe = vc_iframe || {};
 		}
 
 	};
-	PENCI.EasyPieChart = function () {
+	GOSO.EasyPieChart = function () {
 
 		$( '.goso-review-process' ).each( function () {
 			var $this = $( this ),
@@ -1083,8 +1083,8 @@ var vc_iframe = vc_iframe || {};
 			, $carousel = ($el.find("img").length,
 			$el.find('[data-ride="goso_sliders"]'));
 
-		return $carousel.find("img:first").length ? $carousel.find("img:first").prop("complete") ? void PENCI.sliderOwl( $carousel ) : void window.setTimeout(function() {
+		return $carousel.find("img:first").length ? $carousel.find("img:first").prop("complete") ? void GOSO.sliderOwl( $carousel ) : void window.setTimeout(function() {
 			vc_iframe.gosoSliders(model_id)
-		}, 500) : PENCI.sliderOwl( $carousel )
+		}, 500) : GOSO.sliderOwl( $carousel )
 	}
 }(window.jQuery);

@@ -115,7 +115,7 @@ class Customizer {
 	 * Get theme version if using themes
 	 */
 	public function set_version() {
-		$this->version = PENCI_SOLEDAD_VERSION;
+		$this->version = GOSO_SOLEDAD_VERSION;
 	}
 
 	/**
@@ -1194,25 +1194,25 @@ class Customizer {
 		$wp_scripts = wp_scripts();
 
 		$handle    = 'authow-fw-extend-widget';
-		$src       = PENCI_URL . '/assets/js/customizer/widget-extend.js';
+		$src       = GOSO_URL . '/assets/js/customizer/widget-extend.js';
 		$deps      = array( 'jquery', 'customize-widgets' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'selectize';
-		$src       = PENCI_URL . '/assets/js/vendor/selectize.js';
+		$src       = GOSO_URL . '/assets/js/vendor/selectize.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'serialize-js';
-		$src       = PENCI_URL . '/assets/js/vendor/serialize.js';
+		$src       = GOSO_URL . '/assets/js/vendor/serialize.js';
 		$deps      = array();
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'wp-color-picker-alpha';
-		$src       = PENCI_URL . '/assets/js/vendor/wp-color-picker-alpha.js';
+		$src       = GOSO_URL . '/assets/js/vendor/wp-color-picker-alpha.js';
 		$deps      = array( 'wp-color-picker' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
@@ -1231,68 +1231,68 @@ class Customizer {
 		);
 
 		$handle    = 'codemirror';
-		$src       = PENCI_URL . '/assets/js/vendor/codemirror/lib/codemirror.js';
+		$src       = GOSO_URL . '/assets/js/vendor/codemirror/lib/codemirror.js';
 		$deps      = array( 'jquery', 'jquery-ui-core', 'jquery-ui-button' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-validate-css';
-		$src       = PENCI_URL . '/assets/js/customizer/validate-css-value.js';
+		$src       = GOSO_URL . '/assets/js/customizer/validate-css-value.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-active-callback';
-		$src       = PENCI_URL . '/assets/js/customizer/active-callback.js';
+		$src       = GOSO_URL . '/assets/js/customizer/active-callback.js';
 		$deps      = array( 'underscore' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-search-customizer';
-		$src       = PENCI_URL . '/assets/js/customizer/search-control.js';
+		$src       = GOSO_URL . '/assets/js/customizer/search-control.js';
 		$deps      = array( 'jquery', 'underscore' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-customizer-late-init';
-		$src       = PENCI_URL . '/assets/js/customizer/late-init-customizer.js';
+		$src       = GOSO_URL . '/assets/js/customizer/late-init-customizer.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'ion-range-slider';
-		$src       = PENCI_URL . '/assets/js/vendor/ion.rangeSlider.min.js';
+		$src       = GOSO_URL . '/assets/js/vendor/ion.rangeSlider.min.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-set-setting-value';
-		$src       = PENCI_URL . '/assets/js/customizer/set-setting-value.js';
+		$src       = GOSO_URL . '/assets/js/customizer/set-setting-value.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		// ... Control
 		$handle    = 'authow-fw-default-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-default.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-default.js';
 		$deps      = array( 'customize-controls', 'underscore' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-alert-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-alert.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-alert.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-header-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-header.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-header.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-color-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-color.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-color.js';
 		$deps      = array(
 			'jquery',
 			'customize-controls',
@@ -1303,109 +1303,109 @@ class Customizer {
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-toggle-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-toggle.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-toggle.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-slider-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-slider.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-slider.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-number-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-number.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-number.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'jquery-ui-spinner' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-select-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-select.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-select.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'selectize' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-ajax-select-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-ajax-select.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-ajax-select.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'selectize' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-range-slider-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-range-slider.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-range-slider.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'ion-range-slider' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-radio-image-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-radio-image.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-radio-image.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-radio-buttonset-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-radio-buttonset.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-radio-buttonset.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-preset-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-preset.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-preset.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'authow-fw-set-setting-value' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-preset-image-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-preset-image.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-preset-image.js';
 		$deps      = array( 'jquery', 'authow-fw-default-control', 'selectize' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-text-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-text.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-text.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-password-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-text.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-text.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-textarea-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-textarea.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-textarea.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-radio-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-radio.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-radio.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-image-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-image.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-image.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-upload-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-upload.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-upload.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-spacing-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-spacing.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-spacing.js';
 		$deps      = array( 'authow-fw-default-control', 'authow-fw-validate-css' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-repeater-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-repeater.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-repeater.js';
 		$deps      = array(
 			'authow-fw-default-control',
 			'jquery-ui-sortable',
@@ -1417,62 +1417,62 @@ class Customizer {
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-typography-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-typography.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-typography.js';
 		$deps      = array( 'authow-fw-default-control', 'selectize', 'wp-color-picker-alpha' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-gradient-control';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-gradient.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-gradient.js';
 		$deps      = array( 'authow-fw-default-control', 'selectize', 'wp-color-picker-alpha' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-size';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-size.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-size.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-box-model';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-box-model.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-box-model.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-button';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-button.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-button.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-code';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-code.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-code.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-multi-check';
-		$src       = PENCI_URL . '/assets/js/customizer-control/control-multi-check.js';
+		$src       = GOSO_URL . '/assets/js/customizer-control/control-multi-check.js';
 		$deps      = array( 'authow-fw-default-control' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		// ... Section
 		$handle    = 'authow-fw-default-section';
-		$src       = PENCI_URL . '/assets/js/customizer-section/default-section.js';
+		$src       = GOSO_URL . '/assets/js/customizer-section/default-section.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-link-section';
-		$src       = PENCI_URL . '/assets/js/customizer-section/link-section.js';
+		$src       = GOSO_URL . '/assets/js/customizer-section/link-section.js';
 		$deps      = array( 'jquery' );
 		$in_footer = 1;
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-lazy-section';
-		$src       = PENCI_URL . '/assets/js/customizer-section/lazy-section.js';
+		$src       = GOSO_URL . '/assets/js/customizer-section/lazy-section.js';
 		$deps      = array(
 			'jquery',
 			'underscore',
@@ -1510,7 +1510,7 @@ class Customizer {
 
 		// ... Connect To Previewer
 		$handle    = 'authow-fw-previewer-sync';
-		$src       = PENCI_URL . '/assets/js/customizer/previewer-sync.js';
+		$src       = GOSO_URL . '/assets/js/customizer/previewer-sync.js';
 		$deps      = array(
 			'underscore',
 			'customize-controls',
@@ -1523,16 +1523,16 @@ class Customizer {
 	 * Load css on Customizer Panel
 	 */
 	public function customizer_styles() {
-		wp_enqueue_style( 'selectize', PENCI_URL . '/assets/css/selectize.default.css', null, $this->version );
-		wp_enqueue_style( 'authow-fw-customizer-css', PENCI_URL . '/assets/css/customizer.css', array( 'wp-color-picker' ), $this->version );
-		wp_enqueue_style( 'codemirror', PENCI_URL . '/assets/js/vendor/codemirror/lib/codemirror.css', null, $this->version );
-		wp_enqueue_style( 'font-awesome', PENCI_URL . '/assets/font/font-awesome/font-awesome.css', null, $this->version );
+		wp_enqueue_style( 'selectize', GOSO_URL . '/assets/css/selectize.default.css', null, $this->version );
+		wp_enqueue_style( 'authow-fw-customizer-css', GOSO_URL . '/assets/css/customizer.css', array( 'wp-color-picker' ), $this->version );
+		wp_enqueue_style( 'codemirror', GOSO_URL . '/assets/js/vendor/codemirror/lib/codemirror.css', null, $this->version );
+		wp_enqueue_style( 'font-awesome', GOSO_URL . '/assets/font/font-awesome/font-awesome.css', null, $this->version );
 
-		wp_enqueue_style( 'ion-range-slider', PENCI_URL . '/assets/css/ion.rangeSlider.css', null, $this->version );
-		wp_enqueue_style( 'ion-range-slider-skin', PENCI_URL . '/assets/css/ion.rangeSlider.skinFlat.css', null, $this->version );
+		wp_enqueue_style( 'ion-range-slider', GOSO_URL . '/assets/css/ion.rangeSlider.css', null, $this->version );
+		wp_enqueue_style( 'ion-range-slider-skin', GOSO_URL . '/assets/css/ion.rangeSlider.skinFlat.css', null, $this->version );
 
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'authow-fw-customizer-css-rtl', PENCI_URL . '/assets/css/customizer-rtl.css', null, $this->version );
+			wp_enqueue_style( 'authow-fw-customizer-css-rtl', GOSO_URL . '/assets/css/customizer-rtl.css', null, $this->version );
 		}
 	}
 
@@ -1583,7 +1583,7 @@ class Customizer {
 
 		// ... Customizer Preview Script
 		$handle    = 'authow-fw-customizer-preview';
-		$src       = PENCI_URL . '/assets/js/customizer/customizer-preview.js';
+		$src       = GOSO_URL . '/assets/js/customizer/customizer-preview.js';
 		$deps      = array(
 			'underscore',
 			'customize-preview',
@@ -1592,7 +1592,7 @@ class Customizer {
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'authow-fw-customizer-partial-preview';
-		$src       = PENCI_URL . '/assets/js/customizer/partial-refresh-preview.js';
+		$src       = GOSO_URL . '/assets/js/customizer/partial-refresh-preview.js';
 		$deps      = array(
 			'jquery',
 			'underscore',
@@ -1602,7 +1602,7 @@ class Customizer {
 		$wp_scripts->add( $handle, $src, $deps, $this->version, $in_footer );
 
 		$handle    = 'vex';
-		$src       = PENCI_URL . '/assets/js/customizer/vex.combined.min.js';
+		$src       = GOSO_URL . '/assets/js/customizer/vex.combined.min.js';
 		$deps      = array(
 			'jquery',
 		);
@@ -1611,7 +1611,7 @@ class Customizer {
 
 
 		$handle    = 'authow-fw-customizer-redirect-tag-preview';
-		$src       = PENCI_URL . '/assets/js/customizer/redirect-tag-preview.js';
+		$src       = GOSO_URL . '/assets/js/customizer/redirect-tag-preview.js';
 		$deps      = array(
 			'vex',
 			'jquery',
@@ -1626,7 +1626,7 @@ class Customizer {
 		wp_enqueue_script( 'authow-fw-customizer-partial-preview' );
 
 		// ... Load style
-		wp_enqueue_style( 'vex', PENCI_URL . '/assets/css/vex.css', null, $this->version );
-		wp_enqueue_style( 'theme-customizer', PENCI_URL . '/assets/css/theme-customizer.css', null, $this->version );
+		wp_enqueue_style( 'vex', GOSO_URL . '/assets/css/vex.css', null, $this->version );
+		wp_enqueue_style( 'theme-customizer', GOSO_URL . '/assets/css/theme-customizer.css', null, $this->version );
 	}
 }

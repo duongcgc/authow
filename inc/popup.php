@@ -16,7 +16,7 @@ class GosoPopup {
 	}
 
 	public function popup_assets() {
-		wp_enqueue_script( 'goso-popup', get_template_directory_uri() . '/js/goso-popup.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-popup', get_template_directory_uri() . '/js/goso-popup.js', [ 'js-cookies' ], GOSO_SOLEDAD_VERSION, true );
 		wp_localize_script( 'goso-popup', 'goso_popup_settings', [
 			'promo_version' => get_theme_mod( 'goso_popup_version', '1' ),
 			'close'         => true,

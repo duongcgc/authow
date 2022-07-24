@@ -47,12 +47,12 @@ if( ! class_exists( 'Goso_WPB_VC' ) ):
 		}
 
 		function frontend_editor_render() {
-			wp_enqueue_script( 'goso-frontend_editor', get_template_directory_uri() . '/inc/js_composer/assets/frontend-editor.js', array( 'vc-frontend-editor-min-js','underscore' ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-frontend_editor', get_template_directory_uri() . '/inc/js_composer/assets/frontend-editor.js', array( 'vc-frontend-editor-min-js','underscore' ), GOSO_SOLEDAD_VERSION, true );
 		}
 
 		function load_iframe_jscss() {
-			wp_enqueue_style( 'goso-frontend_editor', get_template_directory_uri() . '/inc/js_composer/assets/frontend-editor.css', '', PENCI_SOLEDAD_VERSION );
-			wp_enqueue_script( 'goso_inline_iframe_js',get_template_directory_uri() . '/inc/js_composer/assets/page_editable.js', array( 'vc_inline_iframe_js' ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_style( 'goso-frontend_editor', get_template_directory_uri() . '/inc/js_composer/assets/frontend-editor.css', '', GOSO_SOLEDAD_VERSION );
+			wp_enqueue_script( 'goso_inline_iframe_js',get_template_directory_uri() . '/inc/js_composer/assets/page_editable.js', array( 'vc_inline_iframe_js' ), GOSO_SOLEDAD_VERSION, true );
 		}
 
 		protected function load_shortcodes() {
@@ -90,14 +90,14 @@ if( ! class_exists( 'Goso_WPB_VC' ) ):
 		 */
 		public function printScriptsMessages() {
 			if ( ! vc_is_frontend_editor() && $this->isValidPostType( get_post_type() ) ) {
-				wp_enqueue_script( 'pen-vc-backend', get_template_directory_uri() . '/inc/js_composer/assets/vc-backend.js', array( 'jquery','vc-backend-min-js' ), PENCI_SOLEDAD_VERSION, true );
-				wp_enqueue_style( 'pen-vc-backend', get_template_directory_uri() . '/inc/js_composer/assets/admin.css','',PENCI_SOLEDAD_VERSION );
+				wp_enqueue_script( 'pen-vc-backend', get_template_directory_uri() . '/inc/js_composer/assets/vc-backend.js', array( 'jquery','vc-backend-min-js' ), GOSO_SOLEDAD_VERSION, true );
+				wp_enqueue_style( 'pen-vc-backend', get_template_directory_uri() . '/inc/js_composer/assets/admin.css','',GOSO_SOLEDAD_VERSION );
 
 				$localize_script = array(
 					'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
 					'nonce'     => wp_create_nonce( 'ajax-nonce' ),
 				);
-				wp_localize_script( 'pen-vc-backend', 'PENCILOCALIZE', $localize_script );
+				wp_localize_script( 'pen-vc-backend', 'GOSOLOCALIZE', $localize_script );
 			}
 		}
 

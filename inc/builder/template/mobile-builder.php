@@ -12,7 +12,7 @@ if ( 'enable' == goso_get_builder_mod( 'goso_header_mobile_sticky_hide_down' ) )
 	$rows = array( 'top', 'mid', 'bottom' );
 	foreach ( $rows as $row ) {
 		if ( goso_can_render_header( 'mobile', $row ) || is_customize_preview() ) {
-			load_template( PENCI_BUILDER_PATH . 'template/mobile-' . $row . '.php' );
+			load_template( GOSO_BUILDER_PATH . 'template/mobile-' . $row . '.php' );
 		}
 	}
 	?>

@@ -1999,7 +1999,7 @@ if ( ! class_exists( 'Authow_VC_Shortcodes' ) ) {
 			$output .= "function gosoBlock() { this.atts_json = ''; this.content = ''; }";
 			$output .= '}';
 			$output .= 'var gosoBlocksArray = gosoBlocksArray || [];';
-			$output .= 'var PENCILOCALCACHE = PENCILOCALCACHE || {};';
+			$output .= 'var GOSOLOCALCACHE = GOSOLOCALCACHE || {};';
 			$output .= 'var ' . $unique_id . ' = new gosoBlock();';
 			$output .= $unique_id . '.blockID="' . $unique_id . '";';
 			$output .= $unique_id . ".atts_json = '" . json_encode( $atts ) . "';";

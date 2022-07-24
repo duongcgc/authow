@@ -30,9 +30,9 @@ window.onload = function () {
 };
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
+    var GOSO = GOSO || {};
 
-    PENCI.googleMapInit = function () {
+    GOSO.googleMapInit = function () {
         $('.google-map-container').each(function () {
             var $map = $(this);
             var data = $map.data('map-args');
@@ -105,14 +105,14 @@ window.onload = function () {
     };
 
     $(document).ready(function () {
-        PENCI.googleMapInit();
+        GOSO.googleMapInit();
     });
 
     $( window ).on( 'elementor/frontend/init', function() {
         if ( window.elementorFrontend ) {
 
             elementorFrontend.hooks.addAction('frontend/element_ready/goso-map.default', function ($scope) {
-                PENCI.googleMapInit();
+                GOSO.googleMapInit();
             });
         }
     });

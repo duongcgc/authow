@@ -48,12 +48,12 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 		public static function enqueueScripts() {
 			$js_vars = array();
 			wp_enqueue_script( 'js-cookies' );
-			wp_register_script( 'goso-smoothscroll', get_template_directory_uri() . '/js/smooth-scroll.min.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, true );
+			wp_register_script( 'goso-smoothscroll', get_template_directory_uri() . '/js/smooth-scroll.min.js', array( 'jquery' ), GOSO_SOLEDAD_VERSION, true );
 			wp_register_script( 'goso-toc-lib', get_template_directory_uri() . '/inc/toc/goso-toc.js', array(
 				'jquery',
 				'js-cookies',
 				'goso-smoothscroll',
-			), PENCI_SOLEDAD_VERSION, true );
+			), GOSO_SOLEDAD_VERSION, true );
 			if ( get_theme_mod( 'goso_toc_smooth_scroll', true ) ) {
 				$js_vars['smooth_scroll'] = true;
 			}

@@ -33,10 +33,10 @@ class Goso_Dropdown_Select2_Custom_Control extends WP_Customize_Control {
 	 * Enqueue our scripts and styles
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'goso-select2-js', get_template_directory_uri() . '/inc/customizer/js/select2.full.min.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, true );
-		wp_enqueue_script( 'goso-custom-controls-js', get_template_directory_uri() . '/inc/customizer/js/customizer.js', array( 'goso-select2-js' ), PENCI_SOLEDAD_VERSION, true );
-		wp_enqueue_style( 'goso-custom-controls-css', get_template_directory_uri() . '/inc/customizer/css/customizer.css', array(), PENCI_SOLEDAD_VERSION, 'all' );
-		wp_enqueue_style( 'goso-select2-css', get_template_directory_uri() . '/inc/customizer/css/select2.min.css', array(), PENCI_SOLEDAD_VERSION, 'all' );
+		wp_enqueue_script( 'goso-select2-js', get_template_directory_uri() . '/inc/customizer/js/select2.full.min.js', array( 'jquery' ), GOSO_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-custom-controls-js', get_template_directory_uri() . '/inc/customizer/js/customizer.js', array( 'goso-select2-js' ), GOSO_SOLEDAD_VERSION, true );
+		wp_enqueue_style( 'goso-custom-controls-css', get_template_directory_uri() . '/inc/customizer/css/customizer.css', array(), GOSO_SOLEDAD_VERSION, 'all' );
+		wp_enqueue_style( 'goso-select2-css', get_template_directory_uri() . '/inc/customizer/css/select2.min.css', array(), GOSO_SOLEDAD_VERSION, 'all' );
 	}
 
 	/**

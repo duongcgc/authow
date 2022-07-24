@@ -213,7 +213,7 @@ return $options;
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/elements/pb_social_icon_mobile/front-end.php' );
+		load_template( GOSO_BUILDER_PATH . '/elements/pb_social_icon_mobile/front-end.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

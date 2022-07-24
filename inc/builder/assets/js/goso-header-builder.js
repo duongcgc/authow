@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
-    PENCI.sticky_header = function () {
+    var GOSO = GOSO || {};
+    GOSO.sticky_header = function () {
         var headersticky = $('.goso_header.goso_builder_sticky_header_desktop'),
             headertop = $('.goso_header.goso-header-builder.main-builder-header'),
             headernormal = headertop.outerHeight(),
@@ -40,7 +40,7 @@
         });
     }
 
-    PENCI.main_menu = function () {
+    GOSO.main_menu = function () {
         $('.navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
                 $row_active = $this.find('.row-active'),
@@ -71,7 +71,7 @@
         });
     }
 
-    PENCI.mobile_menu = function () {
+    GOSO.mobile_menu = function () {
         // Add indicator
 
         // Toggle menu when click show/hide menu
@@ -98,8 +98,8 @@
     /* Init functions
 	 ---------------------------------------------------------------*/
     $(document).ready(function () {
-        PENCI.sticky_header();
-        PENCI.mobile_menu();
-        PENCI.main_menu();
+        GOSO.sticky_header();
+        GOSO.mobile_menu();
+        GOSO.main_menu();
     });
 })(jQuery);	// EOF

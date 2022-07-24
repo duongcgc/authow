@@ -2,8 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if( ! class_exists( 'PENCI_FW_MetaBox' ) ):
-	class PENCI_FW_MetaBox{
+if( ! class_exists( 'GOSO_FW_MetaBox' ) ):
+	class GOSO_FW_MetaBox{
 
 		private static $_instance = null;
 
@@ -54,7 +54,7 @@ if( ! class_exists( 'PENCI_FW_MetaBox' ) ):
 				wp_enqueue_script( 'wp-color-picker' );
 				wp_enqueue_media();
 
-				wp_enqueue_script(  'goso-custom-gallery-options', get_stylesheet_directory_uri() .'/js/admin-gallery.js', array( 'jquery','media-views', 'wp-color-picker' ), PENCI_SOLEDAD_VERSION, true );
+				wp_enqueue_script(  'goso-custom-gallery-options', get_stylesheet_directory_uri() .'/js/admin-gallery.js', array( 'jquery','media-views', 'wp-color-picker' ), GOSO_SOLEDAD_VERSION, true );
 				wp_localize_script( 'goso-custom-gallery-options', 'GosoObject', array(
 					'WidgetImageTitle'   => esc_html__( 'Select an image', 'authow' ),
 					'WidgetImageButton'  => esc_html__( 'Insert into widget', 'authow' ),
@@ -62,10 +62,10 @@ if( ! class_exists( 'PENCI_FW_MetaBox' ) ):
 					'nonce'              => wp_create_nonce( 'ajax-nonce' ),
 				) );
 
-				wp_enqueue_style( 'goso-admin-post', get_stylesheet_directory_uri() . '/css/admin.css', '', PENCI_SOLEDAD_VERSION );
+				wp_enqueue_style( 'goso-admin-post', get_stylesheet_directory_uri() . '/css/admin.css', '', GOSO_SOLEDAD_VERSION );
 			}
 		}
 	}
 
-	new PENCI_FW_MetaBox;
+	new GOSO_FW_MetaBox;
 endif;

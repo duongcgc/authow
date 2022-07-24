@@ -1,6 +1,6 @@
 <?php
 
-class PENCI_Custom_Sarch_Walker_Category extends Walker_Category {
+class GOSO_Custom_Sarch_Walker_Category extends Walker_Category {
 
 	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
 		/** This filter is documented in wp-includes/category-template.php */

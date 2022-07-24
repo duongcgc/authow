@@ -9,24 +9,24 @@ if( ! function_exists('goso_global_js') ) {
 		$output = '<script>' . "\n";
 		$output .= 'var gosoBlocksArray=[];' . "\n";
 		$output .= 'var portfolioDataJs = portfolioDataJs || [];';
-		$output .= 'var PENCILOCALCACHE = {};
+		$output .= 'var GOSOLOCALCACHE = {};
 		(function () {
 				"use strict";
 		
-				PENCILOCALCACHE = {
+				GOSOLOCALCACHE = {
 					data: {},
 					remove: function ( ajaxFilterItem ) {
-						delete PENCILOCALCACHE.data[ajaxFilterItem];
+						delete GOSOLOCALCACHE.data[ajaxFilterItem];
 					},
 					exist: function ( ajaxFilterItem ) {
-						return PENCILOCALCACHE.data.hasOwnProperty( ajaxFilterItem ) && PENCILOCALCACHE.data[ajaxFilterItem] !== null;
+						return GOSOLOCALCACHE.data.hasOwnProperty( ajaxFilterItem ) && GOSOLOCALCACHE.data[ajaxFilterItem] !== null;
 					},
 					get: function ( ajaxFilterItem ) {
-						return PENCILOCALCACHE.data[ajaxFilterItem];
+						return GOSOLOCALCACHE.data[ajaxFilterItem];
 					},
 					set: function ( ajaxFilterItem, cachedData ) {
-						PENCILOCALCACHE.remove( ajaxFilterItem );
-						PENCILOCALCACHE.data[ajaxFilterItem] = cachedData;
+						GOSOLOCALCACHE.remove( ajaxFilterItem );
+						GOSOLOCALCACHE.data[ajaxFilterItem] = cachedData;
 					}
 				};
 			}

@@ -26,8 +26,8 @@ $classes        .= goso_can_render_header( 'mobile', 'mid' ) ? ' pc-hasel' : ' p
 					<?php
 					if ( ! empty( $elements ) ) {
 						foreach ( $elements as $element ) {
-							if ( ! empty( $element ) && file_exists( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
-								load_template( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false );
+							if ( ! empty( $element ) && file_exists( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
+								load_template( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false );
 							}
 						}
 					}

@@ -3,7 +3,7 @@
  * Running autoload next/prev posts based on the settings from Customize > Single Posts
  * 
  */
-class PENCI_SINGLE_LOAD_POSTS {
+class GOSO_SINGLE_LOAD_POSTS {
 	
 	function __construct() {
 		/* Main hooks */
@@ -416,4 +416,4 @@ class PENCI_SINGLE_LOAD_POSTS {
 
 }
 
-new PENCI_SINGLE_LOAD_POSTS();
+new GOSO_SINGLE_LOAD_POSTS();

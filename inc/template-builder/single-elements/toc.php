@@ -252,7 +252,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 		$tags          = $settings['html_tag'];
 		$marker        = $settings['marker_view'];
 		$validate_tags = is_array( $tags ) ? implode( ',', $settings['html_tag'] ) : $settings['html_tag'];
-		wp_enqueue_script( 'goso-toc', get_template_directory_uri() . '/js/jquery.toc.js', '', PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-toc', get_template_directory_uri() . '/js/jquery.toc.js', '', GOSO_SOLEDAD_VERSION, true );
 		wp_add_inline_script( 'goso-toc', 'jQuery(".js-toc").toc({content: "div.post-entry", headings: "' . $validate_tags . '"})' );
 		?>
         <div class="goso-toc-wrapper style-<?php echo esc_attr( $marker ); ?>">

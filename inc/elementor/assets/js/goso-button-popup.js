@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
-    PENCI.elButtonPopup = function () {
+    var GOSO = GOSO || {};
+    GOSO.elButtonPopup = function () {
         $('.pc-popup-btn').magnificPopup({
             type: 'inline',
             removalDelay: 500, //delay removal by X to allow out-animation
@@ -16,13 +16,13 @@
     };
 
     $(document).ready(function () {
-        PENCI.elButtonPopup();
+        GOSO.elButtonPopup();
     });
     $(window).on('elementor/frontend/init', function () {
         if (window.elementorFrontend) {
 
             elementorFrontend.hooks.addAction('frontend/element_ready/goso-button-popup.default', function ($scope) {
-                PENCI.elButtonPopup();
+                GOSO.elButtonPopup();
             });
         }
     });

@@ -179,7 +179,7 @@ class Authow_Social_Counter extends WP_Widget {
 						continue;
 					}
 
-					$social_info = \PENCI_FW_Social_Counter::get_social_counter( $social );
+					$social_info = \GOSO_FW_Social_Counter::get_social_counter( $social );
 
 					$social_info_name = isset( $social_info['name'] ) && $social_info['name'] ? $social_info['name'] : '';
 
@@ -190,7 +190,7 @@ class Authow_Social_Counter extends WP_Widget {
 					if ( strpos( $social_info['count'], '.' ) !== false ) {
 						$count = $social_info['count'];
 					} else {
-						$count = \PENCI_FW_Social_Counter::format_followers( $social_info['count'] );
+						$count = \GOSO_FW_Social_Counter::format_followers( $social_info['count'] );
 					}
 
 					$count = $count ? $count : '';

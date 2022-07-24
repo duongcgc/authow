@@ -390,7 +390,7 @@ $options[] = array(
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+		load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

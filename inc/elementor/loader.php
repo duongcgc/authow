@@ -28,9 +28,9 @@ class Loader {
 	}
 
 	private function includes() {
-		require PENCI_ELEMENTOR_PATH . 'includes/modules-manager.php';
-		require PENCI_ELEMENTOR_PATH . 'includes/helper.php';
-		require PENCI_ELEMENTOR_PATH . 'includes/utils.php';
+		require GOSO_ELEMENTOR_PATH . 'includes/modules-manager.php';
+		require GOSO_ELEMENTOR_PATH . 'includes/helper.php';
+		require GOSO_ELEMENTOR_PATH . 'includes/utils.php';
 	}
 
 	private function setup_hooks() {
@@ -100,7 +100,7 @@ class Loader {
 						'/_/',
 						'/\\\/'
 					), array( '', '$1-$2', '-', DIRECTORY_SEPARATOR ), $class_to_load ) );
-			$filename = PENCI_ELEMENTOR_PATH . $filename . '.php';
+			$filename = GOSO_ELEMENTOR_PATH . $filename . '.php';
 
 			if ( is_readable( $filename ) ) {
 				include( $filename );
@@ -143,7 +143,7 @@ class Loader {
 	 *  Editor enqueue styles.
 	 */
 	public function enqueue_editor_styles() {
-		wp_enqueue_style( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/css/editor.css', array( 'elementor-editor' ), '' );
+		wp_enqueue_style( 'goso-elementor', GOSO_ELEMENTOR_URL . 'assets/css/editor.css', array( 'elementor-editor' ), '' );
 	}
 
 	public function enqueue_editor_scripts() {
@@ -152,14 +152,14 @@ class Loader {
 		}
 
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ) {
-			wp_enqueue_script( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.bak.js', array( 'backbone-marionette' ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-elementor', GOSO_ELEMENTOR_URL . 'assets/js/editor.bak.js', array( 'backbone-marionette' ), GOSO_SOLEDAD_VERSION, true );
 		} else {
-			wp_enqueue_script( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.min.js', array(
+			wp_enqueue_script( 'goso-elementor', GOSO_ELEMENTOR_URL . 'assets/js/editor.min.js', array(
 				'backbone-marionette',
 				'elementor-common',
 				'elementor-editor-modules',
 				'elementor-editor-document',
-			), PENCI_SOLEDAD_VERSION, true );
+			), GOSO_SOLEDAD_VERSION, true );
 		}
 
 		wp_localize_script( 'goso-elementor', 'GosoElementorConfig', array(
@@ -178,7 +178,7 @@ class Loader {
 		} else {
 			$map_url = get_template_directory_uri() . '/js/mapsJavaScriptAPI.js';
 		}
-		wp_register_script( 'google-map', esc_url( $map_url ), array(), PENCI_SOLEDAD_VERSION, true );
+		wp_register_script( 'google-map', esc_url( $map_url ), array(), GOSO_SOLEDAD_VERSION, true );
 		wp_register_script( 'jquery.plugin', get_template_directory_uri() . '/js/jquery.plugin.min.js', array( 'jquery' ), '2.0.2', true );
 		wp_register_script( 'countdown', get_template_directory_uri() . '/js/jquery.countdown.min.js', array( 'jquery' ), '2.0.2', true );
 		wp_register_script( 'waypoints', get_template_directory_uri() . '/js/waypoints.min.js', array( 'jquery' ), '2.0.3', true );

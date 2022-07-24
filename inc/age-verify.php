@@ -14,7 +14,7 @@ class GosoAgeVerify {
 	}
 
 	public function scripts() {
-		wp_enqueue_script( 'goso-age-verify', get_template_directory_uri() . '/js/age-verify.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-age-verify', get_template_directory_uri() . '/js/age-verify.js', [ 'js-cookies' ], GOSO_SOLEDAD_VERSION, true );
 		wp_localize_script( 'goso-age-verify', 'goso_age_settings', [
 			'age_verify'         => (bool) get_theme_mod( 'goso_agepopup_enable' ),
 			'age_verify_expires' => 30,

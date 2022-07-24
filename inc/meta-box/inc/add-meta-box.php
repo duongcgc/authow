@@ -111,7 +111,7 @@ class Goso_Add_Meta_Box {
 
 				echo '<div class="goso-tab-panel goso-tab-panel-' . esc_attr( $tab ) . '">';
 				foreach ( (array)$fields as  $field ){
-					PENCI_FW_MetaBox_Fields::html_field( $field, $post->ID, 'post', $tab );
+					GOSO_FW_MetaBox_Fields::html_field( $field, $post->ID, 'post', $tab );
 				}
 				echo '</div>';
 			}
@@ -119,7 +119,7 @@ class Goso_Add_Meta_Box {
 		}else{
 			echo '<div class="goso-metabox-fields">';
 			foreach ( (array)$fields as  $field ){
-				PENCI_FW_MetaBox_Fields::html_field( $field, $post->ID );
+				GOSO_FW_MetaBox_Fields::html_field( $field, $post->ID );
 			}
 			echo '</div>';
 		}

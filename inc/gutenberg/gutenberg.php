@@ -32,7 +32,7 @@ if ( ! class_exists( 'Goso_Authow_Gutenberg' ) ):
 
 		function register_block() {
 			if( is_admin() ){
-				wp_enqueue_style( 'goso-gutenberg', get_template_directory_uri() . '/inc/gutenberg/style.css', array( 'wp-edit-blocks' ), PENCI_SOLEDAD_VERSION );
+				wp_enqueue_style( 'goso-gutenberg', get_template_directory_uri() . '/inc/gutenberg/style.css', array( 'wp-edit-blocks' ), GOSO_SOLEDAD_VERSION );
 			}
 		}
 

@@ -28,8 +28,8 @@ $classes        .= goso_can_render_header( 'desktop', 'bottom' ) ? ' pc-hasel' :
 						<?php
 						if ( ! empty( $elements ) && is_array( $elements ) ) {
 							foreach ( $elements as $element ) {
-								if ( ! empty( $element ) && file_exists( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
-									load_template( PENCI_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false, [ 'class_type' => 'normal-header' ] );
+								if ( ! empty( $element ) && file_exists( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php' ) ) {
+									load_template( GOSO_BUILDER_PATH . 'elements/' . $element . '/front-end.php', false, [ 'class_type' => 'normal-header' ] );
 								}
 							}
 						}

@@ -263,7 +263,7 @@ foreach ( $builder_row_sidebar as $row ) {
 			],
 			'container_inclusive' => true,
 			'render_callback'     => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/mobile-menu-content.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/mobile-menu-content.php' );
 			},
 			'fallback_refresh'    => false,
 		) );

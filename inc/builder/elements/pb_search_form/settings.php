@@ -278,7 +278,7 @@ $options[] = array(
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/elements/pb_search_form/front-end.php' );
+		load_template( GOSO_BUILDER_PATH . '/elements/pb_search_form/front-end.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

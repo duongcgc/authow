@@ -61,7 +61,7 @@ return $options;
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/elements/pb_vertical_line_1/front-end.php' );
+		load_template( GOSO_BUILDER_PATH . '/elements/pb_vertical_line_1/front-end.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

@@ -2708,8 +2708,8 @@
  * @package Photographus
  */
 (function ($) {
-    var PENCI = PENCI || {};
-    PENCI.sticky_header = function () {
+    var GOSO = GOSO || {};
+    GOSO.sticky_header = function () {
         var headersticky = $('.goso_header.goso_builder_sticky_header_desktop'),
             headernormal = $('.goso_header.goso-header-builder.main-builder-header').outerHeight(),
             headermobile = $('.goso_navbar_mobile'),
@@ -2741,7 +2741,7 @@
         });
     }
 
-    PENCI.main_menu = function () {
+    GOSO.main_menu = function () {
         $('.navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
                 $row_active = $this.find('.row-active'),
@@ -2766,7 +2766,7 @@
         });
     }
 
-    PENCI.mobile_menu = function () {
+    GOSO.mobile_menu = function () {
         // Add indicator
         $('.goso-menu-hbg.goso-builder-mobile-sidebar-nav .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
 
@@ -2792,7 +2792,7 @@
         });
     }
 
-    PENCI.general = function () {
+    GOSO.general = function () {
         $('.pcheader-icon a.search-click').on('click', function (e) {
             var $this = $(this),
                 $closet = $this.closest('.wrapper-boxed'),
@@ -2820,7 +2820,7 @@
         });
     }
 
-    PENCI.owl_slider = function () {
+    GOSO.owl_slider = function () {
         if ($().owlCarousel) {
             $('.goso-owl-carousel-slider').each(function () {
                 var $this = $(this),
@@ -2969,25 +2969,25 @@
         );
         if (hasSelectiveRefresh) {
             wp.customize.selectiveRefresh.bind('partial-content-rendered', function (placement) {
-                PENCI.sticky_header();
-                PENCI.mobile_menu();
-                PENCI.main_menu();
-                PENCI.general();
-                PENCI.owl_slider();
+                GOSO.sticky_header();
+                GOSO.mobile_menu();
+                GOSO.main_menu();
+                GOSO.general();
+                GOSO.owl_slider();
             });
             wp.customize.selectiveRefresh.bind('render-partials-response', function (placement) {
-                PENCI.sticky_header();
-                PENCI.mobile_menu();
-                PENCI.main_menu();
-                PENCI.general();
-                PENCI.owl_slider();
+                GOSO.sticky_header();
+                GOSO.mobile_menu();
+                GOSO.main_menu();
+                GOSO.general();
+                GOSO.owl_slider();
             });
             wp.customize.selectiveRefresh.bind('partial-content-moved', function (placement) {
-                PENCI.sticky_header();
-                PENCI.mobile_menu();
-                PENCI.main_menu();
-                PENCI.general();
-                PENCI.owl_slider();
+                GOSO.sticky_header();
+                GOSO.mobile_menu();
+                GOSO.main_menu();
+                GOSO.general();
+                GOSO.owl_slider();
             });
         }
     });

@@ -1,6 +1,6 @@
 <div class="pc-wrapbuilder-header-inner">
 	<?php
-	load_template( PENCI_BUILDER_PATH . 'template/desktop-sticky-wrapper.php' );
+	load_template( GOSO_BUILDER_PATH . 'template/desktop-sticky-wrapper.php' );
 	$overlap           = goso_get_builder_mod( 'goso_header_overlap_setting' );
 	$header_width      = goso_get_builder_mod( 'goso_header_wrap_all', 'normal-width' );
 	$header_shadow     = goso_get_builder_mod( 'goso_header_shadow' );
@@ -21,13 +21,13 @@
 
 		foreach ( $rows as $row ) {
 			if ( ( ! empty( $row ) && goso_can_render_header( 'desktop', $row ) ) || is_customize_preview() ) {
-				load_template( PENCI_BUILDER_PATH . 'template/desktop-' . $row . '.php' );
+				load_template( GOSO_BUILDER_PATH . 'template/desktop-' . $row . '.php' );
 			}
 		}
 		?>
 	</div>
 	<?php
-	load_template( PENCI_BUILDER_PATH . 'template/mobile-builder.php' );
-	load_template( PENCI_BUILDER_PATH . 'template/mobile-menu.php' );
+	load_template( GOSO_BUILDER_PATH . 'template/mobile-builder.php' );
+	load_template( GOSO_BUILDER_PATH . 'template/mobile-menu.php' );
 	?>
 </div>

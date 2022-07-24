@@ -9,7 +9,7 @@
 spl_autoload_register(
 	function ( $class ) {
 		$prefix   = 'AuthowFW\\';
-		$base_dir = PENCI_CLASSPATH;
+		$base_dir = GOSO_CLASSPATH;
 		$len      = strlen( $prefix );
 
 		if ( strncmp( $prefix, $class, $len ) !== 0 ) {

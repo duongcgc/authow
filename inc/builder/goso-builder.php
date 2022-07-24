@@ -7,8 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Plugin;
 use AuthowFW\Customizer\CustomizerOptionAbstract;
 
-define( 'PENCI_BUILDER_PATH', get_template_directory() . '/inc/builder/' );
-define( 'PENCI_BUILDER_URL', get_template_directory_uri() . '/inc/builder/' );
+define( 'GOSO_BUILDER_PATH', get_template_directory() . '/inc/builder/' );
+define( 'GOSO_BUILDER_URL', get_template_directory_uri() . '/inc/builder/' );
 require_once get_template_directory() . '/inc/builder/class/template.php';
 require_once get_template_directory() . '/inc/builder/customizer/menu-callback.php';
 require_once get_template_directory() . '/inc/builder/customizer/builder_helper.php';
@@ -211,7 +211,7 @@ if ( ! function_exists( 'goso_get_builder_mod' ) ) {
 add_action( 'wp_enqueue_scripts', function () {
 	if ( goso_check_theme_mod( 'goso_enable_builder' ) ) {
 		if ( goso_builder_fonts_url() ) {
-			wp_register_style( 'goso-header-builder-fonts', goso_builder_fonts_url(), array(), PENCI_SOLEDAD_VERSION );
+			wp_register_style( 'goso-header-builder-fonts', goso_builder_fonts_url(), array(), GOSO_SOLEDAD_VERSION );
 		}
 
 		// Enqueue style
@@ -222,11 +222,11 @@ add_action( 'wp_enqueue_scripts', function () {
 			$data_fonts = goso_builder_fonts_url( 'earlyaccess' );
 			if ( is_array( $data_fonts ) && ! empty( $data_fonts ) ) {
 				foreach ( $data_fonts as $fontname ) {
-					wp_enqueue_style( 'goso-font-' . $fontname, '//fonts.googleapis.com/earlyaccess/' . esc_attr( $fontname ) . '.css', array(), PENCI_SOLEDAD_VERSION );
+					wp_enqueue_style( 'goso-font-' . $fontname, '//fonts.googleapis.com/earlyaccess/' . esc_attr( $fontname ) . '.css', array(), GOSO_SOLEDAD_VERSION );
 				}
 			}
 		}
-		wp_enqueue_script( 'goso-header-builder', get_template_directory_uri() . '/inc/builder/assets/js/goso-header-builder.js', array(), PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-header-builder', get_template_directory_uri() . '/inc/builder/assets/js/goso-header-builder.js', array(), GOSO_SOLEDAD_VERSION, true );
 	}
 } );
 

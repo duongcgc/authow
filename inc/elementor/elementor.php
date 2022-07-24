@@ -1,6 +1,6 @@
 <?php
-define( 'PENCI_ELEMENTOR_PATH', get_template_directory()  . '/inc/elementor/'  );
-define( 'PENCI_ELEMENTOR_URL', get_template_directory_uri()  . '/inc/elementor/'  );
+define( 'GOSO_ELEMENTOR_PATH', get_template_directory()  . '/inc/elementor/'  );
+define( 'GOSO_ELEMENTOR_URL', get_template_directory_uri()  . '/inc/elementor/'  );
 
 if ( ! class_exists( 'Goso_Authow_Elementor_Extension' ) ):
 	final class Goso_Authow_Elementor_Extension {
@@ -15,7 +15,7 @@ if ( ! class_exists( 'Goso_Authow_Elementor_Extension' ) ):
 		}
 		
 		public function __construct() {
-			require PENCI_ELEMENTOR_PATH . 'loader.php';
+			require GOSO_ELEMENTOR_PATH . 'loader.php';
 		}
 	}
 

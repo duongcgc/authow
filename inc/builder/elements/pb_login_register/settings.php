@@ -12,7 +12,7 @@ $options[] = array(
 		'goso_header_pb_login_register_goso_tblogin_text' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],

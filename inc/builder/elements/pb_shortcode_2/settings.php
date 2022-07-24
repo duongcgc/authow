@@ -50,7 +50,7 @@ $wp_customize->selective_refresh->add_partial( 'goso_header_builder_pb_shortcode
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+		load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

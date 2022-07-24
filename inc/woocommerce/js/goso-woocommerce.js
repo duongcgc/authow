@@ -1,10 +1,10 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
+    var GOSO = GOSO || {};
 
     /* Check mobile device
 	 ---------------------------------------------------------------*/
-    PENCI.isMobile = function () {
+    GOSO.isMobile = function () {
         var isMobile = false;
         if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
             || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) {
@@ -15,7 +15,7 @@
 
     /* Elementor Edit Mode
 	---------------------------------------------------------------*/
-    PENCI.elAction = function (name, callback) {
+    GOSO.elAction = function (name, callback) {
         $(window).on(
             'elementor/frontend/init',
             function () {
@@ -30,7 +30,7 @@
 
     /* YITH Plugin loading icon
 	 ---------------------------------------------------------------*/
-    PENCI.yith = function () {
+    GOSO.yith = function () {
         var $list_producs = $('ul.products');
 
         $list_producs.on(
@@ -87,7 +87,7 @@
 
     /* Product Image Slider
 	 ---------------------------------------------------------------*/
-    PENCI.productslider = function (zoom = true, quickview = false) {
+    GOSO.productslider = function (zoom = true, quickview = false) {
 
         var $slider = $('.goso-product-gallery-slider.splide'),
             $thumbnail_slider = $('.goso-thumbnail-slider.splide'),
@@ -282,7 +282,7 @@
 
     /* Product Quick View
 	 ---------------------------------------------------------------*/
-    PENCI.quickview = function () {
+    GOSO.quickview = function () {
         $('body').on(
             'click',
             '.goso-quickview-button',
@@ -320,7 +320,7 @@
                                             $(this).wc_variation_form().find('.variations select:eq(0)').change();
                                         }
                                     );
-                                    PENCI.productslider(false, true);
+                                    GOSO.productslider(false, true);
                                     $form.trigger('wc_variation_form');
                                 }
                             }
@@ -338,9 +338,9 @@
                         },
                         complete: function () {
                             $this.removeClass('loading');
-                            PENCI.swatches('.quick-view-wrapper .variations_form');
-                            PENCI.select2button();
-                            PENCI.loadingicon();
+                            GOSO.swatches('.quick-view-wrapper .variations_form');
+                            GOSO.select2button();
+                            GOSO.loadingicon();
                         }
                     }
                 );
@@ -357,7 +357,7 @@
 
     /* Product Wish List
 	 ---------------------------------------------------------------*/
-    PENCI.wishlist = function () {
+    GOSO.wishlist = function () {
         $(document).on(
             'click',
             '.goso-addtowishlist:not(.added)',
@@ -382,8 +382,8 @@
                             $this.addClass('added').attr('href', response.data.url).html(gosowoo.browsewishlist).attr('title', gosowoo.browsewishlist).attr('data-tippy-content', gosowoo.browsewishlist);
                             $('.top-search-classes.wishlist-icon .wishlist-contents > span').html(response.data.total);
                             $('.goso-mobile-bottom-nav li.wishlist span.current-item').html(response.data.total);
-                            PENCI.tippyContent();
-                            PENCI.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.addwishlist + '.</p></div>', '<div class="woocommerce notify_bottom"><a class="button wishlist_url" href="' + response.data.url + '">' + gosowoo.browsewishlist + '</a></div>', 'added_to_cart');
+                            GOSO.tippyContent();
+                            GOSO.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.addwishlist + '.</p></div>', '<div class="woocommerce notify_bottom"><a class="button wishlist_url" href="' + response.data.url + '">' + gosowoo.browsewishlist + '</a></div>', 'added_to_cart');
                         },
                         complete: function () {
                             $this.removeClass('loading');
@@ -420,7 +420,7 @@
                             if (0 === response.data.total) {
                                 $container.append('<div class="goso-wishlist-products-empty-text"><h3 class="goso-wishlist-empty-title">' + gosowoo.wishlist_empty_heading + '</h3>' + gosowoo.wishlist_empty_text + '<p class="return-to-shop"><a class="button" href="' + gosowoo.shoppage + '">' + gosowoo.returnshop + '</a></p></div>');
                             }
-                            PENCI.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.removewishlist + '.</p></div>', ' ', 'added_to_cart');
+                            GOSO.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.removewishlist + '.</p></div>', ' ', 'added_to_cart');
 
                         },
                         complete: function () {
@@ -435,7 +435,7 @@
 
     /* Product Compare
 	 ---------------------------------------------------------------*/
-    PENCI.compare = function () {
+    GOSO.compare = function () {
         $('body').on(
             'click',
             '.goso-compare:not(.added)',
@@ -463,7 +463,7 @@
                                 compare_footer = '<div class="woocommerce notify_bottom"><a class="button compare_url" href="' + response.data.url + '">' + gosowoo.browsecompare + '</a></div>';
                             if ('add' === method) {
                                 $this.addClass('added').attr('href', response.data.url).attr('title', gosowoo.browsecompare).html(gosowoo.browsecompare).attr('data-tippy-content', gosowoo.browsecompare);
-                                PENCI.tippyContent();
+                                GOSO.tippyContent();
                             } else {
                                 var currentId = $this.closest('.goso-products-compare-table');
                                 currentId.find('[data-productid="' + productID + '"]').remove();
@@ -476,7 +476,7 @@
                             if (0 === response.data.total) {
                                 $container.empty().append('<div class="goso-empty-compare goso-empty-page goso-empty-page-text"><h3 class="goso-compare-empty-title">' + gosowoo.compare_empty_heading + '</h3>' + gosowoo.compare_empty_text + '</p><p class="return-to-shop"><a class="button" href="' + gosowoo.shoppage + '">' + gosowoo.returnshop + '</a></div>');
                             }
-                            PENCI.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + comparetext + '.</p></div>', compare_footer, 'added_to_cart');
+                            GOSO.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + comparetext + '.</p></div>', compare_footer, 'added_to_cart');
                         },
                         complete: function () {
                             $this.removeClass('loading');
@@ -489,7 +489,7 @@
 
     /* Product Swatches
 	 ---------------------------------------------------------------*/
-    PENCI.swatches = function (selector) {
+    GOSO.swatches = function (selector) {
         $(selector).each(
             function () {
                 var $form = $(this);
@@ -601,7 +601,7 @@
 
     /* Product Quantity
 	 ---------------------------------------------------------------*/
-    PENCI.quantity = function () {
+    GOSO.quantity = function () {
         if (!String.prototype.getDecimals) {
             String.prototype.getDecimals = function () {
                 var num = this,
@@ -660,7 +660,7 @@
 
     /* Product Loop
 	 ---------------------------------------------------------------*/
-    PENCI.productLoop = function () {
+    GOSO.productLoop = function () {
         $('body').on(
             'click',
             '.goso-swatch-item',
@@ -693,8 +693,8 @@
 
     /* Product Tippy
 	 ---------------------------------------------------------------*/
-    PENCI.tippyContent = function () {
-        if (PENCI.isMobile() || window.matchMedia('(max-width: 768px)').matches) {
+    GOSO.tippyContent = function () {
+        if (GOSO.isMobile() || window.matchMedia('(max-width: 768px)').matches) {
             return false;
         }
 
@@ -731,7 +731,7 @@
     /* Product Ajax Filter
 	 ---------------------------------------------------------------*/
 
-    PENCI.updateURL = function (uri, key, value) {
+    GOSO.updateURL = function (uri, key, value) {
         var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
         var separator = uri.indexOf('?') !== -1 ? "&" : "?";
         if (uri.match(re)) {
@@ -741,7 +741,7 @@
         }
     }
 
-    PENCI.ajaxfilter = function () {
+    GOSO.ajaxfilter = function () {
 
         $(document).on(
             'change',
@@ -766,7 +766,7 @@
             function (event) {
                 var $form = $(this).closest('form'),
                     $attr_name = $(this).data('slug'),
-                    $updateURL = PENCI.updateURL(window.location.href, 'filter_' + $attr_name, $(this).val());
+                    $updateURL = GOSO.updateURL(window.location.href, 'filter_' + $attr_name, $(this).val());
                 $form.find('[name="_pjax"]').remove();
                 $form.find('[name="filter_' + $attr_name + '"]').val(this.value);
                 $.pjax(
@@ -849,15 +849,15 @@
             'pjax:complete',
             function () {
                 $('body').removeClass('pre-load-content');
-                PENCI.tippyContent();
-                PENCI.pagination();
-                PENCI.loadingicon();
-                PENCI.productQuery();
-                PENCI.productCarousel();
-                PENCI.fixproductIconsize();
-                PENCI.quickshop();
-                PENCI.misc();
-                PENCI.product_sticky_sidebar();
+                GOSO.tippyContent();
+                GOSO.pagination();
+                GOSO.loadingicon();
+                GOSO.productQuery();
+                GOSO.productCarousel();
+                GOSO.fixproductIconsize();
+                GOSO.quickshop();
+                GOSO.misc();
+                GOSO.product_sticky_sidebar();
                 $(document.body).trigger('wc_fragment_refresh');
                 $(document.body).trigger('init_price_filter');
                 if (!$('body').hasClass('hpp-loading')) {
@@ -903,10 +903,10 @@
                                 innerRes = $(result).html();
                             $contentParent.removeClass('pre-load-content');
                             $contentParent.find('.' + $contentID).empty().html(innerRes);
-                            PENCI.tippyContent();
-                            PENCI.loadingicon();
-                            PENCI.fixproductIconsize();
-                            PENCI.quickshop();
+                            GOSO.tippyContent();
+                            GOSO.loadingicon();
+                            GOSO.fixproductIconsize();
+                            GOSO.quickshop();
                         },
                     }
                 );
@@ -923,10 +923,10 @@
                                 innerRes = $(result).html();
                             $contentParent.removeClass('pre-load-content');
                             $contentParent.find('.' + $contentID).empty().html(innerRes);
-                            PENCI.tippyContent();
-                            PENCI.loadingicon();
-                            PENCI.fixproductIconsize();
-                            PENCI.quickshop();
+                            GOSO.tippyContent();
+                            GOSO.loadingicon();
+                            GOSO.fixproductIconsize();
+                            GOSO.quickshop();
                         },
                     }
                 );
@@ -936,7 +936,7 @@
 
     /* Product Ajax ATC
 	 ---------------------------------------------------------------*/
-    PENCI.productATC = function () {
+    GOSO.productATC = function () {
         $.fn.GososerializeArrayAll = function () {
             var rCRLF = /\r?\n/g;
             return this.map(
@@ -1022,7 +1022,7 @@
 
     /* Product Ajax Variable Add to Cart
     ---------------------------------------------------------------*/
-    PENCI.productVATC = function () {
+    GOSO.productVATC = function () {
         // wc_add_to_cart_params is required to continue, ensure the object exists
         if (typeof wc_add_to_cart_params === 'undefined' || gosowoo.addtocart_jax)
             return false;
@@ -1145,7 +1145,7 @@
 
     /* Product Ajax Quick Shop
 	 ---------------------------------------------------------------*/
-    PENCI.quickshop = function () {
+    GOSO.quickshop = function () {
 
         if (gosowoo.quickshop == 0) {
             return false;
@@ -1187,8 +1187,8 @@
                             $content.append(data);
                             $product.find('.variations_form').wc_variation_form().find('.variations select:eq(0)').change();
                             $product.find('.variations_form').trigger('wc_variation_form');
-                            PENCI.loadingicon();
-                            PENCI.swatches(formSelect);
+                            GOSO.loadingicon();
+                            GOSO.swatches(formSelect);
                         },
                         complete: function () {
                             setTimeout(
@@ -1227,7 +1227,7 @@
 
     /* Product Accordion
 	 ---------------------------------------------------------------*/
-    PENCI.accordion = function () {
+    GOSO.accordion = function () {
         $('.woocommerce-accordion-title').click(
             function (j) {
                 var $parent = $(this).parent(),
@@ -1243,7 +1243,7 @@
 
     /* Product Product Carousel
 	---------------------------------------------------------------*/
-    PENCI.productCarousel = function () {
+    GOSO.productCarousel = function () {
 
         var goso_product_section_carousel = function (selector, columns) {
             var sectionProduct, mobilecol;
@@ -1311,7 +1311,7 @@
 
     /* Product Product Sticky
 	---------------------------------------------------------------*/
-    PENCI.productSticky = function () {
+    GOSO.productSticky = function () {
         $('body.single-product').on(
             'click',
             '.goso-sticky-cart .button.product_type_variable',
@@ -1348,7 +1348,7 @@
 
     /* Product Pagination
 	---------------------------------------------------------------*/
-    PENCI.pagination = function () {
+    GOSO.pagination = function () {
         var nextPage = $('.woocommerce-pagination .next.page-numbers');
         if ($.isFunction($.fn.infiniteScroll) && nextPage.length > 0) {
             var pPath = '.woocommerce-pagination .next.page-numbers',
@@ -1421,7 +1421,7 @@
             ).on(
                 'append.infiniteScroll',
                 function (event, body, path, response) {
-                    PENCI.tippyContent();
+                    GOSO.tippyContent();
                 }
             ).on(
                 'last.infiniteScroll',
@@ -1455,10 +1455,10 @@
                                     thisBtn.removeClass('loading-posts');
                                     contentContainer.find('ul.products').append(content);
                                     contentContainer.find('.woocommerce-pagination').html(pagination);
-                                    PENCI.tippyContent();
-                                    PENCI.loadingicon();
-                                    PENCI.fixproductIconsize();
-                                    PENCI.quickshop();
+                                    GOSO.tippyContent();
+                                    GOSO.loadingicon();
+                                    GOSO.fixproductIconsize();
+                                    GOSO.quickshop();
                                     if (next.length === 0) {
                                         thisBtn.hide();
                                     }
@@ -1473,7 +1473,7 @@
 
     /* Product Select2button
 	---------------------------------------------------------------*/
-    PENCI.select2button = function () {
+    GOSO.select2button = function () {
         if (gosowoo.select2button > 0) {
             $('.variations_form.cart table.variations .value').each(
                 function () {
@@ -1499,7 +1499,7 @@
 
     /* Product Sidebar
 	---------------------------------------------------------------*/
-    PENCI.sidecart = function () {
+    GOSO.sidecart = function () {
         $(document).on(
             'click',
             '.shoping-cart-icon a',
@@ -1518,7 +1518,7 @@
 
     /* Top Widget Trigger
 	---------------------------------------------------------------*/
-    PENCI.topWidgets = function () {
+    GOSO.topWidgets = function () {
 
         var scrollEnable = true,
             bdY = $('body'),
@@ -1562,7 +1562,7 @@
 
     /* Goso Ajax Product Query
 	---------------------------------------------------------------*/
-    PENCI.productQuery = function () {
+    GOSO.productQuery = function () {
 
         var loadCarouselProduct = function (selector) {
             var tabProduct = $(selector).find('ul.products'),
@@ -1674,10 +1674,10 @@
                                 $contentContainer.find($queryClass).addClass('active');
                                 $elementClass.find('.products-tabs-title li').removeClass('active-tab-title');
                                 $this.addClass('active-tab-title');
-                                PENCI.tippyContent();
-                                PENCI.loadingicon();
-                                PENCI.fixproductIconsize();
-                                PENCI.quickshop();
+                                GOSO.tippyContent();
+                                GOSO.loadingicon();
+                                GOSO.fixproductIconsize();
+                                GOSO.quickshop();
                                 if ('carousel' === $layout) {
                                     loadCarouselProduct($queryClass);
                                 }
@@ -1711,7 +1711,7 @@
                                 parentConent.append(data);
                                 parentConent.removeClass('pre-load-content');
                                 parentConent.find(containerUnit).addClass('active');
-                                PENCI.tippyContent();
+                                GOSO.tippyContent();
                             },
                         }
                     );
@@ -1732,7 +1732,7 @@
 
     /* Goso Notify
 	---------------------------------------------------------------*/
-    PENCI.notify = function (title, message, type) {
+    GOSO.notify = function (title, message, type) {
         if (gosowoo.toast_notify > 0 && title && message && type) {
 
             var $icon = type;
@@ -1759,7 +1759,7 @@
 
     /* Goso Misc Template
    ---------------------------------------------------------------*/
-    PENCI.ajaxNotify = function ($id) {
+    GOSO.ajaxNotify = function ($id) {
         $.ajax(
             {
                 url: gosowoo.ajaxUrl,
@@ -1770,7 +1770,7 @@
                 },
                 method: 'get',
                 success: function (response) {
-                    PENCI.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.addtocart + '.</p></div>', gosowoo.toast_notify_shop_sucess_text + '<div class="woocommerce notify_bottom"><a class="button shop_url" href="' + gosowoo.toast_notify_shop_url + '">' + gosowoo.toast_notify_shop_text + '</a><a class="button checkout_url" href="' + gosowoo.checkout_url + '">' + gosowoo.checkout_text + '</a></div>', 'added_to_cart');
+                    GOSO.notify('<a href="' + response.data.item_link + '"><img class="product_image" src="' + response.data.img + '" alt=""/></a><div><a class="toast-title" href="' + response.data.item_link + '">' + response.data.title + '</a><p>' + gosowoo.addtocart + '.</p></div>', gosowoo.toast_notify_shop_sucess_text + '<div class="woocommerce notify_bottom"><a class="button shop_url" href="' + gosowoo.toast_notify_shop_url + '">' + gosowoo.toast_notify_shop_text + '</a><a class="button checkout_url" href="' + gosowoo.checkout_url + '">' + gosowoo.checkout_text + '</a></div>', 'added_to_cart');
                 },
             }
         );
@@ -1778,7 +1778,7 @@
 
     /* Goso Misc Template
 	---------------------------------------------------------------*/
-    PENCI.getURLparam = function (sParam) {
+    GOSO.getURLparam = function (sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
@@ -1794,7 +1794,7 @@
         return false;
     }
 
-    PENCI.misc = function () {
+    GOSO.misc = function () {
         var body = $('body');
         if (body.find('.goso-mobile-bottom-nav').length > 0) {
             body.addClass('mobile-bottom-nav-active');
@@ -1816,7 +1816,7 @@
         );
         $('.goso-top-relate-post .top-ralate-item').each(
             function () {
-                if (PENCI.isMobile()) {
+                if (GOSO.isMobile()) {
                     var tItem = $(this),
                         title = tItem.find('h4').text(),
                         link = tItem.find('a').attr('href');
@@ -1839,9 +1839,9 @@
                 $.each(
                     theme_demo_mods,
                     function (index, attr) {
-                        var value = PENCI.getURLparam(attr);
+                        var value = GOSO.getURLparam(attr);
                         if (value.length > 0) {
-                            currentURL = PENCI.updateURL(currentURL, attr, value);
+                            currentURL = GOSO.updateURL(currentURL, attr, value);
                         }
                     }
                 );
@@ -1854,7 +1854,7 @@
     /* Goso Woo Extra
 	---------------------------------------------------------------*/
 
-    PENCI.wooextra = function () {
+    GOSO.wooextra = function () {
 
         $('body').on('wc_cart_button_updated', function () {
             $('.goso-product-loop-button').find('a.added_to_cart.wc-forward').remove();
@@ -1883,7 +1883,7 @@
                     }
 
                     if ($id) {
-                        PENCI.ajaxNotify($id);
+                        GOSO.ajaxNotify($id);
                         return false;
                     }
 
@@ -1894,7 +1894,7 @@
 
     /* Goso Loading
 	---------------------------------------------------------------*/
-    PENCI.loadingicon = function () {
+    GOSO.loadingicon = function () {
 
         var goso_loading_icon = '<span class="goso-loading-icon"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></span>',
             elAdd = [
@@ -1917,7 +1917,7 @@
 
     /* Goso Product Filter
 	---------------------------------------------------------------*/
-    PENCI.productFilters = function () {
+    GOSO.productFilters = function () {
         var removeValue = function ($mainInput, currentVal) {
             if ($mainInput.length === 0) {
                 return;
@@ -2252,7 +2252,7 @@
 
     /* Goso Category Dropdown
 	---------------------------------------------------------------*/
-    PENCI.categoryDropdown = function () {
+    GOSO.categoryDropdown = function () {
         $('.goso-search-cat').each(
             function () {
                 var dd = $(this),
@@ -2360,7 +2360,7 @@
 
     /* Goso Ajax Search
 	---------------------------------------------------------------*/
-    PENCI.ajaxsearch = function () {
+    GOSO.ajaxsearch = function () {
         if (typeof ($.fn.devbridgeAutocomplete) == 'undefined') {
             return;
         }
@@ -2543,7 +2543,7 @@
 
     /* Countdown
 	 ---------------------------------------------------------------*/
-    PENCI.product_countdown = function () {
+    GOSO.product_countdown = function () {
         $('.goso-time-countdown').each(
             function () {
                 var $this = $(this);
@@ -2570,7 +2570,7 @@
 
     /* Product Sticky sidebar
 	 ----------------------------------------------------------------*/
-    PENCI.product_sticky_sidebar = function () {
+    GOSO.product_sticky_sidebar = function () {
         if ($().theiaStickySidebar) {
             var top_margin = 90;
             if ($('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
@@ -2604,7 +2604,7 @@
 
     /* Product Sidebar Quantity
 	 ----------------------------------------------------------------*/
-    PENCI.sidecartQuantity = function () {
+    GOSO.sidecartQuantity = function () {
         var timeout;
         $(document).on(
             'change input',
@@ -2665,7 +2665,7 @@
 
     /* Product Sticky sidebar
 	----------------------------------------------------------------*/
-    PENCI.fixproductIconsize = function () {
+    GOSO.fixproductIconsize = function () {
         $('ul.products').find('li.product').each(
             function (e) {
                 var productC = $(this),
@@ -2684,7 +2684,7 @@
                 height = $(this).find('ul.swatches-display-list li').outerHeight(),
                 standard = gosowoo.wdgh;
 
-            if (PENCI.isMobile() || window.matchMedia('(max-width: 768px)').matches) {
+            if (GOSO.isMobile() || window.matchMedia('(max-width: 768px)').matches) {
                 standard = gosowoo.wdgmh;
             }
 
@@ -2698,7 +2698,7 @@
 
     /* Product OWL sidebar
 	----------------------------------------------------------------*/
-    PENCI.product_owl_slider = function () {
+    GOSO.product_owl_slider = function () {
         if ($().owlCarousel) {
             $('.goso-owl-carousel-slider').each(function () {
                 var $this = $(this),
@@ -2850,7 +2850,7 @@
 
     /* Hotspot Product
 	----------------------------------------------------------------*/
-    PENCI.producthotspot = function () {
+    GOSO.producthotspot = function () {
         $('.goso-image-hotspot').each(function () {
             var _this = $(this);
             var btn = _this.find('.hotspot-btn');
@@ -2917,7 +2917,7 @@
 
     /* Authow on Mobile
 	----------------------------------------------------------------*/
-    PENCI.mobileTrigger = function () {
+    GOSO.mobileTrigger = function () {
         $(document).on('mouseenter mousemove touchstart', '.goso-authow-product', function (e) {
             var $this = $(this);
             $this.closest('ul.products').find('.goso-authow-product').removeClass('goso-hover');
@@ -2929,49 +2929,49 @@
 	 ---------------------------------------------------------------*/
     $(document).ready(
         function () {
-            PENCI.yith();
-            PENCI.quickview();
-            PENCI.wishlist();
-            PENCI.compare();
-            PENCI.swatches('.entry-summary .variations_form');
-            PENCI.productslider();
-            PENCI.quantity();
-            PENCI.productLoop();
-            PENCI.productATC();
-            PENCI.productVATC();
-            PENCI.quickshop();
-            PENCI.accordion();
-            PENCI.productCarousel();
-            PENCI.productSticky();
-            PENCI.tippyContent();
-            PENCI.pagination();
-            PENCI.select2button();
-            PENCI.topWidgets();
-            PENCI.productQuery();
-            PENCI.productFilters();
-            PENCI.misc();
-            PENCI.ajaxsearch();
-            PENCI.categoryDropdown();
-            PENCI.product_countdown();
-            PENCI.product_sticky_sidebar();
-            PENCI.loadingicon();
-            PENCI.sidecartQuantity();
-            PENCI.producthotspot();
-            PENCI.fixproductIconsize();
-            PENCI.wooextra();
+            GOSO.yith();
+            GOSO.quickview();
+            GOSO.wishlist();
+            GOSO.compare();
+            GOSO.swatches('.entry-summary .variations_form');
+            GOSO.productslider();
+            GOSO.quantity();
+            GOSO.productLoop();
+            GOSO.productATC();
+            GOSO.productVATC();
+            GOSO.quickshop();
+            GOSO.accordion();
+            GOSO.productCarousel();
+            GOSO.productSticky();
+            GOSO.tippyContent();
+            GOSO.pagination();
+            GOSO.select2button();
+            GOSO.topWidgets();
+            GOSO.productQuery();
+            GOSO.productFilters();
+            GOSO.misc();
+            GOSO.ajaxsearch();
+            GOSO.categoryDropdown();
+            GOSO.product_countdown();
+            GOSO.product_sticky_sidebar();
+            GOSO.loadingicon();
+            GOSO.sidecartQuantity();
+            GOSO.producthotspot();
+            GOSO.fixproductIconsize();
+            GOSO.wooextra();
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                PENCI.mobileTrigger();
+                GOSO.mobileTrigger();
             }
             if ('dropdown' !== gosowoo.cartstyle.toString()) {
-                PENCI.sidecart();
+                GOSO.sidecart();
             }
             if (gosowoo.ajaxshop > 0) {
-                PENCI.ajaxfilter();
+                GOSO.ajaxfilter();
             }
             $(window).on(
                 'resize',
                 function () {
-                    PENCI.fixproductIconsize();
+                    GOSO.fixproductIconsize();
                 }
             );
         }
@@ -2981,10 +2981,10 @@
     $.each(
         ['frontend/element_ready/goso_product_deals.default'],
         function (index, value) {
-            PENCI.elAction(
+            GOSO.elAction(
                 value,
                 function () {
-                    PENCI.fixproductIconsize();
+                    GOSO.fixproductIconsize();
                 }
             );
         }
@@ -2993,12 +2993,12 @@
     $.each(
         ['frontend/element_ready/goso_products_tabs.default'],
         function (index, value) {
-            PENCI.elAction(
+            GOSO.elAction(
                 value,
                 function () {
-                    PENCI.productQuery();
-                    PENCI.fixproductIconsize();
-                    PENCI.tippyContent();
+                    GOSO.productQuery();
+                    GOSO.fixproductIconsize();
+                    GOSO.tippyContent();
                 }
             );
         }
@@ -3007,10 +3007,10 @@
     $.each(
         ['frontend/element_ready/goso_product_hotspot.default'],
         function (index, value) {
-            PENCI.elAction(
+            GOSO.elAction(
                 value,
                 function () {
-                    PENCI.producthotspot();
+                    GOSO.producthotspot();
                 }
             );
         }
@@ -3023,13 +3023,13 @@
             'frontend/element_ready/goso_products_brands.default'
         ],
         function (index, value) {
-            PENCI.elAction(
+            GOSO.elAction(
                 value,
                 function () {
-                    PENCI.product_owl_slider();
-                    PENCI.misc();
-                    PENCI.fixproductIconsize();
-                    PENCI.tippyContent();
+                    GOSO.product_owl_slider();
+                    GOSO.misc();
+                    GOSO.fixproductIconsize();
+                    GOSO.tippyContent();
                 }
             );
         }
@@ -3038,7 +3038,7 @@
     $.each(
         ['frontend/element_ready/goso_product_categories_grid.default'],
         function (index, value) {
-            PENCI.elAction(
+            GOSO.elAction(
                 value,
                 function () {
                     /*$('.goso-lazy').Lazy(

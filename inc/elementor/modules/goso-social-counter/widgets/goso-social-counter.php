@@ -532,7 +532,7 @@ class GosoSocialCounter extends Base_Widget {
 						continue;
 					}
 
-					$social_info = \PENCI_FW_Social_Counter::get_social_counter( $social );
+					$social_info = \GOSO_FW_Social_Counter::get_social_counter( $social );
 
 					$social_info_name = $social_info['name'] ?? '';
 
@@ -544,7 +544,7 @@ class GosoSocialCounter extends Base_Widget {
 					if ( 'tiktok' === $social ) {
 						$count = $social_info['count'];
 					} else {
-						$count = \PENCI_FW_Social_Counter::format_followers( $social_info['count'] );
+						$count = \GOSO_FW_Social_Counter::format_followers( $social_info['count'] );
 					}
 
 					$count = $count ? $count : '';

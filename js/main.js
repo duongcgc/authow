@@ -44,14 +44,14 @@
     }
 })(this);
 
-/* global PENCILOCALIZE */
+/* global GOSOLOCALIZE */
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
+    var GOSO = GOSO || {};
 
     /* General functions
 	 ---------------------------------------------------------------*/
-    PENCI.general = function () {
+    GOSO.general = function () {
         // Top search
         $('.pcheader-icon a.search-click').on('click',function (e) {
             var $this = $(this),
@@ -162,7 +162,7 @@
 
     /* Block Heading Lists
 	 ---------------------------------------------------------------*/
-    PENCI.blockheadinglist = function () {
+    GOSO.blockheadinglist = function () {
         $('.pcnav-lgroup').each(function () {
             var lgroup = $(this),
                 maintitle = $(this).closest('.goso-homepage-title'),
@@ -220,7 +220,7 @@
 
     /* Share Expand
 	 ---------------------------------------------------------------*/
-    PENCI.shareexpand = function () {
+    GOSO.shareexpand = function () {
 
         if ( ! $('.tags-share-box').length ) {
             return;
@@ -294,7 +294,7 @@
     }
 
     /* Smooth Scroll */
-    PENCI.smoothlinkscroll = function () {
+    GOSO.smoothlinkscroll = function () {
         $('a[href^="#"]').on('click', function (e) {
             // e.preventDefault();
 
@@ -310,7 +310,7 @@
     }
     /* Cookie Law
 	 ---------------------------------------------------------------*/
-    PENCI.cookie = function () {
+    GOSO.cookie = function () {
         var wrapCookie = '.goso-wrap-gprd-law',
             $wrapCookie = $(wrapCookie),
             classAction = 'goso-wrap-gprd-law-close',
@@ -378,7 +378,7 @@
 
     /* Sticky main navigation
 	 ---------------------------------------------------------------*/
-    PENCI.main_sticky = function () {
+    GOSO.main_sticky = function () {
         if ($("nav#navigation").length && $().pensticky && !$("nav#navigation").hasClass('goso-disable-sticky-nav')) {
             var spaceTop = 0;
             if ($('body').hasClass('admin-bar')) {
@@ -392,7 +392,7 @@
 
     /* Homepage Featured Slider
 	 ---------------------------------------------------------------*/
-    PENCI.featured_slider = function () {
+    GOSO.featured_slider = function () {
         if ($().owlCarousel) {
             $('.featured-area .goso-owl-featured-area').each(function () {
                 var $this = $(this),
@@ -515,7 +515,7 @@
 
     /* Owl Slider General
 	 ---------------------------------------------------------------*/
-    PENCI.owl_slider = function () {
+    GOSO.owl_slider = function () {
         if ($().owlCarousel) {
             $('.goso-owl-carousel-slider').each(function () {
                 var $this = $(this),
@@ -665,7 +665,7 @@
 
     /* Fitvids
 	 ---------------------------------------------------------------*/
-    PENCI.fitvids = function () {
+    GOSO.fitvids = function () {
         // Target your .container, .wrapper, .post, etc.
         if ($().fitVids) {
             $(".container").fitVids();
@@ -674,7 +674,7 @@
 
     /* Sticky sidebar
 	 ----------------------------------------------------------------*/
-    PENCI.sticky_sidebar = function () {
+    GOSO.sticky_sidebar = function () {
         if ($().theiaStickySidebar) {
             var top_margin = 80;
             if ($('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
@@ -718,7 +718,7 @@
 
     /* Mega menu
 	 ----------------------------------------------------------------*/
-    PENCI.mega_menu = function () {
+    GOSO.mega_menu = function () {
         // Hover parent
         $('#navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
@@ -758,7 +758,7 @@
 
     /* Mobile menu responsive
 	 ----------------------------------------------------------------*/
-    PENCI.mobile_menu = function () {
+    GOSO.mobile_menu = function () {
         // Add indicator
         $('#sidebar-nav .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
 
@@ -791,7 +791,7 @@
         });
     }
 
-    PENCI.toggleMenuHumburger = function () {
+    GOSO.toggleMenuHumburger = function () {
         var $menuhumburger = $('.goso-menu-hbg');
         if ($menuhumburger.length) {
             var $body = $('body'),
@@ -858,7 +858,7 @@
 
     /* Light box
 	 ----------------------------------------------------------------*/
-    PENCI.lightbox = function () {
+    GOSO.lightbox = function () {
         if ($().magnificPopup) {
             $('a[data-rel^="goso-gallery-image-content"], .goso-enable-lightbox .gallery-item a').magnificPopup({
                 type: 'image',
@@ -948,7 +948,7 @@
 
     /* Masonry layout
 	 ----------------------------------------------------------------*/
-    PENCI.masonry = function () {
+    GOSO.masonry = function () {
         var $masonry_container = $('.goso-masonry, .goso-bgstyle-2 .goso-biggrid-data');
         if ($masonry_container.length) {
             $masonry_container.each(function () {
@@ -967,7 +967,7 @@
 
     /* Video Background
 	 ----------------------------------------------------------------*/
-    PENCI.video_background = function () {
+    GOSO.video_background = function () {
         var $goso_videobg = $('#goso-featured-video-bg');
         if ($goso_videobg.length) {
             $($goso_videobg).each(function () {
@@ -991,7 +991,7 @@
 
     /* Portfolio
 	 ----------------------------------------------------------------*/
-    PENCI.portfolio = function () {
+    GOSO.portfolio = function () {
         var $goso_portfolio = $('.goso-portfolio');
 
 
@@ -1127,8 +1127,8 @@
                     return false;
                 });
 
-                PENCI.portfolioLoadMore.loadMore($this, DataFilter);
-                PENCI.portfolioLoadMore.infinityScroll(DataFilter);
+                GOSO.portfolioLoadMore.loadMore($this, DataFilter);
+                GOSO.portfolioLoadMore.infinityScroll(DataFilter);
 
             }); // each .goso-portfolio
 
@@ -1141,7 +1141,7 @@
         }
     }
 
-    PENCI.portfolioLoadMore = {
+    GOSO.portfolioLoadMore = {
         btnLoadMore: $('.goso-plf-loadmore'),
         loadMore: function ($pfl_wapper, DataFilter) {
             var self = this;
@@ -1268,7 +1268,7 @@
 
     /* Gallery
 	 ----------------------------------------------------------------*/
-    PENCI.gallery = function () {
+    GOSO.gallery = function () {
         var $justified_gallery = $('.goso-post-gallery-container.justified');
         var $masonry_gallery = $('.goso-post-gallery-container.masonry');
         if ($().justifiedGallery && $justified_gallery.length) {
@@ -1324,7 +1324,7 @@
 
         /* Jarallax
 	 ----------------------------------------------------------------*/
-        PENCI.Jarallax = function () {
+        GOSO.Jarallax = function () {
             if (!$.fn.jarallax || !$('.goso-jarallax').length) {
                 return false;
             }
@@ -1340,7 +1340,7 @@
 
         /* Related Popup
 	 ----------------------------------------------------------------*/
-        PENCI.RelatedPopup = function () {
+        GOSO.RelatedPopup = function () {
             if ($('.goso-rlt-popup').length) {
                 var rltpopup = $('.goso-rlt-popup'),
                     rltclose = $('.goso-rlt-popup .goso-close-rltpopup'),
@@ -1368,7 +1368,7 @@
             }
         },
 
-        PENCI.extraFunction = {
+        GOSO.extraFunction = {
             init: function () {
                 this.counterUp();
                 this.progressBar();
@@ -1962,10 +1962,10 @@
             },
         },
 
-        PENCI.VideosList = {
+        GOSO.VideosList = {
             // Init the module
             init: function () {
-                PENCI.VideosList.play();
+                GOSO.VideosList.play();
             },
             play: function () {
                 if (!$('.goso-video_playlist').length) {
@@ -1981,7 +1981,7 @@
                     $blockVideo.find('.goso-video-playlist-nav').css('height', $height - $heightTitle);
                     // Init
                     $VideoF.video();
-                    PENCI.VideosList.updateStatus($blockVideo);
+                    GOSO.VideosList.updateStatus($blockVideo);
 
                     // Show First video and remove the loader icon
                     $VideoF.addVideoEvent('ready', function () {
@@ -2029,7 +2029,7 @@
 
                         $thisFrame.css('visibility', 'visible').fadeIn();
 
-                        PENCI.VideosList.updateStatus($blockVideo);
+                        GOSO.VideosList.updateStatus($blockVideo);
 
                     });
                 });
@@ -2054,7 +2054,7 @@
             }
         },
 
-        PENCI.JumtoRecipe = function () {
+        GOSO.JumtoRecipe = function () {
 
 
             $(".goso-jump-recipe").on('click', function (e) {
@@ -2091,7 +2091,7 @@
             });
         },
 
-        PENCI.Single_Loadmore = function () {
+        GOSO.Single_Loadmore = function () {
             var $wrapper_loadmore = $('.goso-single-infiscroll');
             if ($wrapper_loadmore.length) {
                 var adsHTML = $wrapper_loadmore.data('infiads');
@@ -2125,19 +2125,19 @@
                                     }
                                     $wrapper_loadmore.removeClass('goso-disable-sendajax');
 
-                                    PENCI.featured_slider();
-                                    PENCI.owl_slider();
-                                    PENCI.fitvids();
-                                    PENCI.sticky_sidebar();
-                                    PENCI.lightbox();
-                                    PENCI.masonry();
-                                    PENCI.portfolio();
-                                    PENCI.gallery();
-                                    PENCI.Jarallax();
-                                    PENCI.extraFunction.init();
-                                    PENCI.VideosList.init();
-                                    PENCI.JumtoRecipe();
-                                    PENCI.shareexpand();
+                                    GOSO.featured_slider();
+                                    GOSO.owl_slider();
+                                    GOSO.fitvids();
+                                    GOSO.sticky_sidebar();
+                                    GOSO.lightbox();
+                                    GOSO.masonry();
+                                    GOSO.portfolio();
+                                    GOSO.gallery();
+                                    GOSO.Jarallax();
+                                    GOSO.extraFunction.init();
+                                    GOSO.VideosList.init();
+                                    GOSO.JumtoRecipe();
+                                    GOSO.shareexpand();
                                     var owlcarousel = $('.goso-owl-carousel-slider, .featured-area .goso-owl-featured-area');
                                     if (owlcarousel.length) {
                                         owlcarousel.on('mouseleave', function (e) {
@@ -2243,51 +2243,51 @@
     /* Init functions
 	 ---------------------------------------------------------------*/
     $(document).ready(function () {
-        PENCI.general();
-        PENCI.cookie();
-        PENCI.main_sticky();
-        PENCI.featured_slider();
-        PENCI.owl_slider();
-        PENCI.fitvids();
-        PENCI.sticky_sidebar();
-        PENCI.mega_menu();
-        PENCI.mobile_menu();
-        PENCI.toggleMenuHumburger();
-        PENCI.lightbox();
-        PENCI.masonry();
-        PENCI.video_background();
-        PENCI.portfolio();
-        PENCI.gallery();
-        PENCI.Jarallax();
-        PENCI.RelatedPopup();
-        PENCI.extraFunction.init();
-        PENCI.VideosList.init();
-        PENCI.JumtoRecipe();
-        PENCI.Single_Loadmore();
+        GOSO.general();
+        GOSO.cookie();
+        GOSO.main_sticky();
+        GOSO.featured_slider();
+        GOSO.owl_slider();
+        GOSO.fitvids();
+        GOSO.sticky_sidebar();
+        GOSO.mega_menu();
+        GOSO.mobile_menu();
+        GOSO.toggleMenuHumburger();
+        GOSO.lightbox();
+        GOSO.masonry();
+        GOSO.video_background();
+        GOSO.portfolio();
+        GOSO.gallery();
+        GOSO.Jarallax();
+        GOSO.RelatedPopup();
+        GOSO.extraFunction.init();
+        GOSO.VideosList.init();
+        GOSO.JumtoRecipe();
+        GOSO.Single_Loadmore();
         setTimeout(function () {
-            PENCI.shareexpand();
+            GOSO.shareexpand();
         }, 100);
-        PENCI.blockheadinglist();
+        GOSO.blockheadinglist();
         $('body').on('goso-block-heading', function () {
-            PENCI.blockheadinglist();
+            GOSO.blockheadinglist();
         });
         $(window).on('resize', function () {
-            PENCI.sticky_sidebar();
-            PENCI.blockheadinglist();
+            GOSO.sticky_sidebar();
+            GOSO.blockheadinglist();
             setTimeout(function () {
-                PENCI.shareexpand();
+                GOSO.shareexpand();
             }, 100);
         });
         $(document).on('goso-mega-loaded', function () {
-            PENCI.featured_slider();
-            PENCI.owl_slider();
-            PENCI.fitvids();
-            PENCI.lightbox();
-            PENCI.masonry();
-            PENCI.portfolio();
-            PENCI.gallery();
-            PENCI.extraFunction.init();
-            PENCI.VideosList.init();
+            GOSO.featured_slider();
+            GOSO.owl_slider();
+            GOSO.fitvids();
+            GOSO.lightbox();
+            GOSO.masonry();
+            GOSO.portfolio();
+            GOSO.gallery();
+            GOSO.extraFunction.init();
+            GOSO.VideosList.init();
         });
     });
 })(jQuery);	// EOF

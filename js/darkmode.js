@@ -1,10 +1,10 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
+    var GOSO = GOSO || {};
 
     /* General functions
 	 ---------------------------------------------------------------*/
-    PENCI.darkmode = function () {
+    GOSO.darkmode = function () {
         $(document).on('click', '.pcdm-slider', function () {
             var t = $(this);
 
@@ -26,6 +26,6 @@
         });
     }
     $(document).ready(function () {
-        PENCI.darkmode();
+        GOSO.darkmode();
     });
 })(jQuery);

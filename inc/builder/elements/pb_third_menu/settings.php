@@ -18,7 +18,7 @@ $options[]           = array(
 		$third_menu_settings . 'name' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],
@@ -404,7 +404,7 @@ return $options;
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
-		load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+		load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 	},
 	'fallback_refresh'    => false,
 ) );*/

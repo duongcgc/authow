@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
-    PENCI.promoPopup = function () {
+    var GOSO = GOSO || {};
+    GOSO.promoPopup = function () {
 
         if ($('body').hasClass('pc-age-verify') && Cookies.get('goso_age_verify') !== 'confirmed') {
             return false;
@@ -63,6 +63,6 @@
     };
 
     $(document).ready(function () {
-        PENCI.promoPopup();
+        GOSO.promoPopup();
     });
 })(jQuery);

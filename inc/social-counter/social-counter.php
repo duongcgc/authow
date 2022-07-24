@@ -22,8 +22,8 @@ if ( ! function_exists( 'goso_get_social_counter_option' ) ):
 	}
 endif;
 
-if ( ! class_exists( 'PENCI_FW_Social_Counter' ) ):
-	class PENCI_FW_Social_Counter {
+if ( ! class_exists( 'GOSO_FW_Social_Counter' ) ):
+	class GOSO_FW_Social_Counter {
 
 		private static $_instance = null;
 
@@ -110,7 +110,7 @@ if ( ! class_exists( 'PENCI_FW_Social_Counter' ) ):
 		}
 	}
 
-	new PENCI_FW_Social_Counter;
+	new GOSO_FW_Social_Counter;
 endif;
 
 if ( ! function_exists( 'goso_get_the_number' ) ) :

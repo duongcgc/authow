@@ -16,7 +16,7 @@ $options[] = array(
 		'goso_header_pb_logo_mobile_logo_display' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],
@@ -34,7 +34,7 @@ $options[] = array(
 		'goso_header_pb_logo_mobile_image_setting_url' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],
@@ -101,7 +101,7 @@ $options[] = array(
 		'goso_header_pb_logo_mobile_site_title' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],
@@ -118,7 +118,7 @@ $options[] = array(
 		'goso_header_pb_logo_mobile_site_description' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],

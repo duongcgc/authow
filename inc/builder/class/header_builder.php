@@ -481,16 +481,16 @@ class HeaderBuilder {
 	public function header_builder_js() {
 		if ( isset( $_GET['layout_id'] ) && ! empty( $_GET['layout_id'] ) ) {
 			wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' );
-			wp_enqueue_style( 'goso-header-builder', PENCI_BUILDER_URL . 'assets/css/header-builder.css' );
-			wp_enqueue_script( 'selectize', PENCI_BUILDER_URL . 'assets/js/selectize.min.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'goso-builder-saved', PENCI_BUILDER_URL . 'assets/js/control-saved.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'goso-header-builder', PENCI_BUILDER_URL . 'assets/js/header-builder.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'goso-customizer-builder', PENCI_BUILDER_URL . 'assets/js/customizer.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_style( 'goso-header-builder', GOSO_BUILDER_URL . 'assets/css/header-builder.css' );
+			wp_enqueue_script( 'selectize', GOSO_BUILDER_URL . 'assets/js/selectize.min.js', array( 'jquery', ), GOSO_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-builder-saved', GOSO_BUILDER_URL . 'assets/js/control-saved.js', array( 'jquery', ), GOSO_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-header-builder', GOSO_BUILDER_URL . 'assets/js/header-builder.js', array( 'jquery', ), GOSO_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-customizer-builder', GOSO_BUILDER_URL . 'assets/js/customizer.js', array( 'jquery', ), GOSO_SOLEDAD_VERSION, true );
 		}
 	}
 
 	public function header_builder_html() {
-		$template = new Template( PENCI_BUILDER_PATH . 'customizer-template/' );
+		$template = new Template( GOSO_BUILDER_PATH . 'customizer-template/' );
 		$template->render( 'header-builder', array( 'template' => $template ), true );
 	}
 
@@ -667,8 +667,8 @@ class HeaderBuilder {
 	}
 
 	public function goso_builder_admin_css() {
-		wp_enqueue_style( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/css/admin.css', array(), PENCI_SOLEDAD_VERSION );
-		wp_enqueue_script( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/js/admin.js', array(), PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_style( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/css/admin.css', array(), GOSO_SOLEDAD_VERSION );
+		wp_enqueue_script( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/js/admin.js', array(), GOSO_SOLEDAD_VERSION, true );
 	}
 
 	public function preview_body_class( $class ) {
@@ -682,7 +682,7 @@ class HeaderBuilder {
 	public function live_preview() {
 		wp_enqueue_script( 'web-font-loader', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.0', true );
 		wp_enqueue_script( 'goso-builder-preview', get_template_directory_uri() . '/inc/builder/assets/js/customizer-preview.js', // Define the path to the JS file
-			array( 'jquery', 'customize-preview' ), PENCI_SOLEDAD_VERSION, true );
+			array( 'jquery', 'customize-preview' ), GOSO_SOLEDAD_VERSION, true );
 	}
 
 	public function get_css() {

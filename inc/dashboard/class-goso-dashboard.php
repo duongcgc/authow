@@ -172,7 +172,7 @@ class Goso_Authow_Dashboard {
 			'nonce'   => wp_create_nonce( 'ajax-nonce' ),
 			'domain'  => get_home_url( '/' )
 		);
-		wp_localize_script( "authow-dashboard-script", 'PENCIDASHBOARD', $localize_script );
+		wp_localize_script( "authow-dashboard-script", 'GOSODASHBOARD', $localize_script );
 	}
 	
 	/**

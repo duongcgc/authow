@@ -14,7 +14,7 @@ $options[] = array(
 		'goso_header_pb_main_menu_name' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
-				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
+				load_template( GOSO_BUILDER_PATH . '/template/desktop-builder.php' );
 			},
 		],
 	],

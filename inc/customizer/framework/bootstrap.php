@@ -1,16 +1,16 @@
 <?php
-defined( 'PENCI_FW' ) || define( 'PENCI_FW', 'authow' );
-defined( 'PENCI_FW_VERSION' ) || define( 'PENCI_FW_VERSION', '10.0.0' );
-defined( 'PENCI_FW_URL' ) || define( 'PENCI_FW_URL', get_template_directory_uri() );
-defined( 'PENCI_FW_FILE' ) || define( 'PENCI_FW_FILE', __FILE__ );
-defined( 'PENCI_FW_DIR' ) || define( 'PENCI_FW_DIR', get_template_directory_uri() );
-defined( 'PENCI_THEME_URL' ) || define( 'PENCI_THEME_URL', PENCI_FW_URL );
+defined( 'GOSO_FW' ) || define( 'GOSO_FW', 'authow' );
+defined( 'GOSO_FW_VERSION' ) || define( 'GOSO_FW_VERSION', '10.0.0' );
+defined( 'GOSO_FW_URL' ) || define( 'GOSO_FW_URL', get_template_directory_uri() );
+defined( 'GOSO_FW_FILE' ) || define( 'GOSO_FW_FILE', __FILE__ );
+defined( 'GOSO_FW_DIR' ) || define( 'GOSO_FW_DIR', get_template_directory_uri() );
+defined( 'GOSO_THEME_URL' ) || define( 'GOSO_THEME_URL', GOSO_FW_URL );
 
-// Need to define PENCI_URL on plugin / Themes.
-defined( 'PENCI_URL' ) || define( 'PENCI_URL', PENCI_THEME_URL . '/inc/customizer/framework' );
-defined( 'PENCI_VERSION' ) || define( 'PENCI_VERSION', '1.2.6' );
-defined( 'PENCI_DIR' ) || define( 'PENCI_DIR', dirname( __FILE__ ) );
-defined( 'PENCI_CLASSPATH' ) || define( 'PENCI_CLASSPATH', PENCI_DIR );
+// Need to define GOSO_URL on plugin / Themes.
+defined( 'GOSO_URL' ) || define( 'GOSO_URL', GOSO_THEME_URL . '/inc/customizer/framework' );
+defined( 'GOSO_VERSION' ) || define( 'GOSO_VERSION', '1.2.6' );
+defined( 'GOSO_DIR' ) || define( 'GOSO_DIR', dirname( __FILE__ ) );
+defined( 'GOSO_CLASSPATH' ) || define( 'GOSO_CLASSPATH', GOSO_DIR );
 
 require_once 'autoload.php';
 require_once get_template_directory() . '/inc/customizer/config/autoload.php';

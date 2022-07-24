@@ -1,14 +1,14 @@
 jQuery( function ( $ ) {
 	'use strict';
 
-	var PENCIPOSTADMIN = PENCIPOSTADMIN || {};
+	var GOSOPOSTADMIN = GOSOPOSTADMIN || {};
 
-	PENCIPOSTADMIN.colorPicker = function () {
+	GOSOPOSTADMIN.colorPicker = function () {
 		$( function() {
 			$('.goso-color-picker').wpColorPicker();
 		});
 	},
-	PENCIPOSTADMIN.imageSelect = function () {
+	GOSOPOSTADMIN.imageSelect = function () {
 		$( 'body' ).on( 'change', '.goso-image-select input', function () {
 			var $this = $( this ),
 				type = $this.attr( 'type' ),
@@ -26,7 +26,7 @@ jQuery( function ( $ ) {
 		} );
 		$( '.goso-image-select input' ).trigger( 'change' );
 	},
-	PENCIPOSTADMIN.metaboxTab = function () {
+	GOSOPOSTADMIN.metaboxTab = function () {
 		$( '.goso-metabox-tabs' ).on( 'click', 'a', function ( e ) {
 			e.preventDefault();
 
@@ -39,7 +39,7 @@ jQuery( function ( $ ) {
 			$panel.show().siblings().hide();
 		} );
 	},
-	PENCIPOSTADMIN.metaboxAccordion = function () {
+	GOSOPOSTADMIN.metaboxAccordion = function () {
 		var acc = document.getElementsByClassName("goso-accordion-name");
 		var i;
 
@@ -58,7 +58,7 @@ jQuery( function ( $ ) {
 		}
 		return false;
 	},
-	PENCIPOSTADMIN.uploadImg = function () {
+	GOSOPOSTADMIN.uploadImg = function () {
 			var frame = wp.media( {
 				title: GosoObject.WidgetImageTitle,
 				multiple: false,
@@ -116,11 +116,11 @@ jQuery( function ( $ ) {
 	/* Init functions
 	 ---------------------------------------------------------------*/
 	$( document ).ready( function () {
-		PENCIPOSTADMIN.colorPicker();
-		PENCIPOSTADMIN.uploadImg();
-		PENCIPOSTADMIN.imageSelect();
-		PENCIPOSTADMIN.metaboxTab();
-		PENCIPOSTADMIN.metaboxAccordion();
+		GOSOPOSTADMIN.colorPicker();
+		GOSOPOSTADMIN.uploadImg();
+		GOSOPOSTADMIN.imageSelect();
+		GOSOPOSTADMIN.metaboxTab();
+		GOSOPOSTADMIN.metaboxAccordion();
 	});
 } );
 

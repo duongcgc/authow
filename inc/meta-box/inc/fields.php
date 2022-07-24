@@ -2,8 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
-	class PENCI_FW_MetaBox_Fields {
+if ( ! class_exists( 'GOSO_FW_MetaBox_Fields' ) ):
+	class GOSO_FW_MetaBox_Fields {
 
 		public static $post_id = 0;
 		public static $type = 'post';

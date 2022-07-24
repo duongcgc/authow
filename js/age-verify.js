@@ -1,8 +1,8 @@
 /* global authow_settings */
 (function ($) {
     "use strict";
-    var PENCI = PENCI || {};
-    PENCI.ageVerify = function () {
+    var GOSO = GOSO || {};
+    GOSO.ageVerify = function () {
         if (Cookies.get('goso_age_verify') === 'confirmed') {
             return;
         }
@@ -41,6 +41,6 @@
     };
 
     $(document).ready(function () {
-        PENCI.ageVerify();
+        GOSO.ageVerify();
     });
 })(jQuery);
