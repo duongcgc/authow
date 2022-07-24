@@ -6,26 +6,26 @@
  */
 
 // Create markup
-if ( ! function_exists( 'penci_category_fields_meta' ) ) {
-	add_action( 'category_edit_form_fields', 'penci_category_fields_meta' );
-	function penci_category_fields_meta( $tag ) {
+if ( ! function_exists( 'goso_category_fields_meta' ) ) {
+	add_action( 'category_edit_form_fields', 'goso_category_fields_meta' );
+	function goso_category_fields_meta( $tag ) {
 		$t_id                = $tag->term_id;
-		$penci_categories    = get_option( "category_$t_id" );
-		$mag_layout          = isset( $penci_categories['mag_layout'] ) ? $penci_categories['mag_layout'] : 'style-1';
-		$mag_ads             = isset( $penci_categories['mag_ads'] ) ? $penci_categories['mag_ads'] : '';
-		$cat_layout          = isset( $penci_categories['cat_layout'] ) ? $penci_categories['cat_layout'] : '';
-		$cat_sidebar         = isset( $penci_categories['cat_sidebar'] ) ? $penci_categories['cat_sidebar'] : '';
-		$cat_sidebar_left    = isset( $penci_categories['cat_sidebar_left'] ) ? $penci_categories['cat_sidebar_left'] : '';
-		$cat_sidebar_display = isset( $penci_categories['cat_sidebar_display'] ) ? $penci_categories['cat_sidebar_display'] : '';
-		$penci_critical_css  = isset( $penci_categories['penci_critical_css'] ) ? $penci_categories['penci_critical_css'] : '';
-		$alayout_save_slug   = isset( $penci_categories['penci_archive_layout'] ) ? $penci_categories['penci_archive_layout'] : '';
+		$goso_categories    = get_option( "category_$t_id" );
+		$mag_layout          = isset( $goso_categories['mag_layout'] ) ? $goso_categories['mag_layout'] : 'style-1';
+		$mag_ads             = isset( $goso_categories['mag_ads'] ) ? $goso_categories['mag_ads'] : '';
+		$cat_layout          = isset( $goso_categories['cat_layout'] ) ? $goso_categories['cat_layout'] : '';
+		$cat_sidebar         = isset( $goso_categories['cat_sidebar'] ) ? $goso_categories['cat_sidebar'] : '';
+		$cat_sidebar_left    = isset( $goso_categories['cat_sidebar_left'] ) ? $goso_categories['cat_sidebar_left'] : '';
+		$cat_sidebar_display = isset( $goso_categories['cat_sidebar_display'] ) ? $goso_categories['cat_sidebar_display'] : '';
+		$goso_critical_css  = isset( $goso_categories['goso_critical_css'] ) ? $goso_categories['goso_critical_css'] : '';
+		$alayout_save_slug   = isset( $goso_categories['goso_archive_layout'] ) ? $goso_categories['goso_archive_layout'] : '';
 		?>
         <tr class="form-field">
             <th scope="row" valign="top">
                 <label for="cat_layout"><?php esc_html_e( 'Select Layout For This Category', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[cat_layout]" id="penci_categories[cat_layout]">
+                <select name="goso_categories[cat_layout]" id="goso_categories[cat_layout]">
                     <option value="" <?php selected( $cat_layout, '' ); ?>>None</option>
                     <option value="standard" <?php selected( $cat_layout, 'standard' ); ?>>Standard Posts</option>
                     <option value="classic" <?php selected( $cat_layout, 'classic' ); ?>>Classic Posts</option>
@@ -87,7 +87,7 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
                 <label for="cat_sidebar"><?php esc_html_e( 'Display sidebar on this category', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[cat_sidebar_display]" id="penci_categories[cat_sidebar_display]">
+                <select name="goso_categories[cat_sidebar_display]" id="goso_categories[cat_sidebar_display]">
                     <option value="">Default ( follow Customize )</option>
                     <option value="left" <?php selected( $cat_sidebar_display, 'left' ); ?>>Left Sidebar</option>
                     <option value="right" <?php selected( $cat_sidebar_display, 'right' ); ?>>Right Sidebar</option>
@@ -101,7 +101,7 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
                 <label for="cat_sidebar"><?php esc_html_e( 'Select Custom Sidebar for This Category', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[cat_sidebar]" id="penci_categories[cat_sidebar]">
+                <select name="goso_categories[cat_sidebar]" id="goso_categories[cat_sidebar]">
                     <option value="">Default ( follow Customize )</option>
                     <option value="main-sidebar" <?php selected( $cat_sidebar, 'main-sidebar' ); ?>>Main Sidebar
                     </option>
@@ -144,7 +144,7 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
                 <label for="cat_sidebar_left"><?php esc_html_e( 'Select Custom Sidebar Left for This Category', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[cat_sidebar_left]" id="penci_categories[cat_sidebar_left]">
+                <select name="goso_categories[cat_sidebar_left]" id="goso_categories[cat_sidebar_left]">
                     <option value="">Default ( follow Customize )</option>
                     <option value="main-sidebar" <?php selected( $cat_sidebar_left, 'main-sidebar' ); ?>>Main Sidebar
                     </option>
@@ -187,7 +187,7 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
                 <label for="mag_layout"><?php esc_html_e( 'Select Featured Layout for Magazine Layout', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[mag_layout]" id="penci_categories[mag_layout]">
+                <select name="goso_categories[mag_layout]" id="goso_categories[mag_layout]">
                     <option value="style-1" <?php selected( $mag_layout, 'style-1' ); ?>>Style 1 - 1st Post Grid
                         Featured on Left
                     </option>
@@ -234,7 +234,7 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
                 <label for="mag_ads"><?php esc_html_e( 'Add Google Adsense/Custom HTML Code below this category', 'authow' ); ?></label>
             </th>
             <td>
-                <textarea name="penci_categories[mag_ads]" id="penci_categories[mag_ads]" rows="5"
+                <textarea name="goso_categories[mag_ads]" id="goso_categories[mag_ads]" rows="5"
                           cols="50"><?php echo stripslashes( $mag_ads ); ?></textarea>
             </td>
         </tr>
@@ -251,25 +251,25 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
 		?>
         <tr class="form-field">
             <th scope="row" valign="top">
-                <label for="penci_categories[penci_archive_layout]"><?php esc_html_e( 'Select Custom Archive Template for this Category', 'authow' ); ?></label>
+                <label for="goso_categories[goso_archive_layout]"><?php esc_html_e( 'Select Custom Archive Template for this Category', 'authow' ); ?></label>
             </th>
             <td>
-                <select name="penci_categories[penci_archive_layout]" id="penci_categories[penci_archive_layout]">
+                <select name="goso_categories[goso_archive_layout]" id="goso_categories[goso_archive_layout]">
 					<?php foreach ( $archive_layout as $alayout_slug => $alayout_name ): ?>
                         <option value="<?php echo $alayout_slug; ?>" <?php selected( $alayout_slug, $alayout_save_slug ); ?>><?php echo $alayout_name; ?></option>
 					<?php endforeach; ?>
                 </select>
             </td>
         </tr>
-		<?php if ( get_theme_mod( 'penci_speed_remove_css' ) ): ?>
+		<?php if ( get_theme_mod( 'goso_speed_remove_css' ) ): ?>
             <tr class="form-field">
                 <th scope="row">
-                    <label for="penci_categories[penci_critical_css]"><?php esc_html_e( 'Create a Separate Critical CSS cache for this Category?', 'authow' ); ?></label>
+                    <label for="goso_categories[goso_critical_css]"><?php esc_html_e( 'Create a Separate Critical CSS cache for this Category?', 'authow' ); ?></label>
                 </th>
                 <td>
-                    <select name="penci_categories[penci_critical_css]" id="penci_categories[penci_critical_css]">
+                    <select name="goso_categories[goso_critical_css]" id="goso_categories[goso_critical_css]">
                         <option value="">No</option>
-                        <option value="yes" <?php selected( $penci_critical_css, 'yes' ); ?>>Yes</option>
+                        <option value="yes" <?php selected( $goso_critical_css, 'yes' ); ?>>Yes</option>
                     </select>
                 </td>
             </tr>
@@ -278,20 +278,20 @@ if ( ! function_exists( 'penci_category_fields_meta' ) ) {
 }
 
 // Save data
-if ( ! function_exists( 'penci_save_category_fileds_meta' ) ) {
-	add_action( 'edited_category', 'penci_save_category_fileds_meta' );
-	function penci_save_category_fileds_meta( $term_id ) {
-		if ( isset( $_POST['penci_categories'] ) ) {
+if ( ! function_exists( 'goso_save_category_fileds_meta' ) ) {
+	add_action( 'edited_category', 'goso_save_category_fileds_meta' );
+	function goso_save_category_fileds_meta( $term_id ) {
+		if ( isset( $_POST['goso_categories'] ) ) {
 			$t_id             = $term_id;
-			$penci_categories = get_option( "category_$t_id" );
-			$cat_keys         = array_keys( $_POST['penci_categories'] );
+			$goso_categories = get_option( "category_$t_id" );
+			$cat_keys         = array_keys( $_POST['goso_categories'] );
 			foreach ( $cat_keys as $key ) {
-				if ( isset( $_POST['penci_categories'][ $key ] ) ) {
-					$penci_categories[ $key ] = $_POST['penci_categories'][ $key ];
+				if ( isset( $_POST['goso_categories'][ $key ] ) ) {
+					$goso_categories[ $key ] = $_POST['goso_categories'][ $key ];
 				}
 			}
 			//save the option array
-			update_option( "category_$t_id", $penci_categories );
+			update_option( "category_$t_id", $goso_categories );
 		}
 	}
 }

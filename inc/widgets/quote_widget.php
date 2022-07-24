@@ -7,14 +7,14 @@
  * @since   1.0
  */
 
-add_action( 'widgets_init', 'penci_quote_load_widget' );
+add_action( 'widgets_init', 'goso_quote_load_widget' );
 
-function penci_quote_load_widget() {
-	register_widget( 'penci_quote_widget' );
+function goso_quote_load_widget() {
+	register_widget( 'goso_quote_widget' );
 }
 
-if ( ! class_exists( 'penci_quote_widget' ) ) {
-	class penci_quote_widget extends WP_Widget {
+if ( ! class_exists( 'goso_quote_widget' ) ) {
+	class goso_quote_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_quote_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_quote_widget',
+				'classname'   => 'goso_quote_widget',
 				'description' => esc_html__( 'A widget that displays an quote widget on your sidebar', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_quote_widget' );
+			$control_ops = array( 'id_base' => 'goso_quote_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_quote_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Quote', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_quote_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Quote', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_quote_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Quote', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_quote_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Quote', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -61,7 +61,7 @@ if ( ! class_exists( 'penci_quote_widget' ) ) {
 
 			<?php if ( $description ) : ?>
                 <div class="quote-widget">
-					<?php penci_fawesome_icon( 'fas fa-quote-left' ); ?>
+					<?php goso_fawesome_icon( 'fas fa-quote-left' ); ?>
                     <p><?php echo do_shortcode( $description ); ?></p>
                 </div>
 			<?php endif; ?>

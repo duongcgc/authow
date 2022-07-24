@@ -12,13 +12,13 @@
 
             if (t.hasClass('activate')) {
                 $('body').addClass('dark-layout-enabled').addClass('pcdark-mode');
-                Cookies.set('penci_dark_enable', 'enable', {
+                Cookies.set('goso_dark_enable', 'enable', {
                     expires: 86400,
                     path: '/'
                 });
             } else {
                 $('body').removeClass('dark-layout-enabled').removeClass('pcdark-mode');
-                Cookies.set('penci_dark_enable', 'disable', {
+                Cookies.set('goso_dark_enable', 'disable', {
                     expires: 86400,
                     path: '/'
                 });

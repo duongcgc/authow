@@ -40,35 +40,35 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueueScripts' ) );
 			// Run after shortcodes are interpreted (priority 10).
 			add_filter( 'the_content', array( __CLASS__, 'the_content' ), 100 );
-			add_shortcode( 'penci-toc', array( __CLASS__, 'shortcode' ) );
-			add_shortcode( apply_filters( 'penci_toc_shortcode', 'toc' ), array( __CLASS__, 'shortcode' ) );
-			add_action( 'authow_theme/custom_css', array( __CLASS__, 'penci_toc_style' ) );
+			add_shortcode( 'goso-toc', array( __CLASS__, 'shortcode' ) );
+			add_shortcode( apply_filters( 'goso_toc_shortcode', 'toc' ), array( __CLASS__, 'shortcode' ) );
+			add_action( 'authow_theme/custom_css', array( __CLASS__, 'goso_toc_style' ) );
 		}
 
 		public static function enqueueScripts() {
 			$js_vars = array();
 			wp_enqueue_script( 'js-cookies' );
-			wp_register_script( 'penci-smoothscroll', get_template_directory_uri() . '/js/smooth-scroll.min.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, true );
-			wp_register_script( 'penci-toc-lib', get_template_directory_uri() . '/inc/toc/penci-toc.js', array(
+			wp_register_script( 'goso-smoothscroll', get_template_directory_uri() . '/js/smooth-scroll.min.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, true );
+			wp_register_script( 'goso-toc-lib', get_template_directory_uri() . '/inc/toc/goso-toc.js', array(
 				'jquery',
 				'js-cookies',
-				'penci-smoothscroll',
+				'goso-smoothscroll',
 			), PENCI_SOLEDAD_VERSION, true );
-			if ( get_theme_mod( 'penci_toc_smooth_scroll', true ) ) {
+			if ( get_theme_mod( 'goso_toc_smooth_scroll', true ) ) {
 				$js_vars['smooth_scroll'] = true;
 			}
-			if ( penci_get_setting( 'penci_toc_heading_text' ) && ! get_theme_mod( 'penci_toc_visibility' ) ) {
-				$width                                 = get_theme_mod( 'penci_toc_styles_width', '320' ) . 'px';
-				$js_vars['visibility_hide_by_default'] = get_theme_mod( 'penci_toc_visibility_hide_by_default' );
+			if ( goso_get_setting( 'goso_toc_heading_text' ) && ! get_theme_mod( 'goso_toc_visibility' ) ) {
+				$width                                 = get_theme_mod( 'goso_toc_styles_width', '320' ) . 'px';
+				$js_vars['visibility_hide_by_default'] = get_theme_mod( 'goso_toc_visibility_hide_by_default' );
 				$js_vars['width']                      = esc_js( $width );
 			}
-			$prefix                   = get_theme_mod( 'penci_toc_prefix', 'penci' );
+			$prefix                   = get_theme_mod( 'goso_toc_prefix', 'goso' );
 			$js_vars['prefix']        = (string) $prefix ? $prefix : '';
-			$offset                   = wp_is_mobile() ? get_theme_mod( 'penci_toc_mobile_smooth_scroll_offset', 90 ) : get_theme_mod( 'penci_toc_smooth_scroll_offset', 120 );
+			$offset                   = wp_is_mobile() ? get_theme_mod( 'goso_toc_mobile_smooth_scroll_offset', 90 ) : get_theme_mod( 'goso_toc_smooth_scroll_offset', 120 );
 			$js_vars['scroll_offset'] = esc_js( $offset );
 			if ( ! empty( $js_vars ) ) {
-				wp_enqueue_script( 'penci-toc-lib' );
-				wp_localize_script( 'penci-toc-lib', 'GosoTOC', $js_vars );
+				wp_enqueue_script( 'goso-toc-lib' );
+				wp_localize_script( 'goso-toc-lib', 'GosoTOC', $js_vars );
 			}
 		}
 
@@ -86,20 +86,20 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 			if ( empty( $post ) || ! $post instanceof WP_Post ) {
 				return false;
 			}
-			if ( has_shortcode( $post->post_content, apply_filters( 'penci_toc_shortcode', 'toc' ) ) || has_shortcode( $post->post_content, 'penci-toc' ) ) {
+			if ( has_shortcode( $post->post_content, apply_filters( 'goso_toc_shortcode', 'toc' ) ) || has_shortcode( $post->post_content, 'goso-toc' ) ) {
 				return true;
 			}
 			if ( is_front_page() ) {
 				return false;
 			}
 			$type    = get_post_type( $post->ID );
-			$enabled = get_theme_mod( 'penci_toc_enabled_post_types' ) && in_array( $type, get_theme_mod( 'penci_toc_enabled_post_types', array() ), true );
+			$enabled = get_theme_mod( 'goso_toc_enabled_post_types' ) && in_array( $type, get_theme_mod( 'goso_toc_enabled_post_types', array() ), true );
 
 			if ( $enabled && is_singular( $type ) ) {
 				return true;
 			}
 
-			if ( 'yes' == get_post_meta( $post->ID, 'penci_toc_enable', true ) ) {
+			if ( 'yes' == get_post_meta( $post->ID, 'goso_toc_enable', true ) ) {
 				return true;
 			}
 
@@ -147,7 +147,7 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 				$apply = false;
 			}
 
-			return apply_filters( 'penci_toc_maybe_apply_the_content_filter', $apply );
+			return apply_filters( 'goso_toc_maybe_apply_the_content_filter', $apply );
 		}
 
 		public static function the_content( $content ) {
@@ -157,7 +157,7 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 			}
 			// Bail if post not eligible and widget is not active.
 			$isEligible = self::is_eligible( get_post() );
-			if ( ! $isEligible && ! is_active_widget( false, false, 'penciw_tco' ) ) {
+			if ( ! $isEligible && ! is_active_widget( false, false, 'gosow_tco' ) ) {
 				return $content;
 			}
 			$post = self::get( get_the_ID() );
@@ -171,10 +171,10 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 			$find    = $post->getHeadings();
 			$replace = $post->getHeadingsWithAnchors();
 			$toc     = $post->getTOC();            // If shortcode used or post not eligible, return content with anchored headings.
-			if ( strpos( $content, 'penci-toc-container' ) || ! $isEligible ) {
+			if ( strpos( $content, 'goso-toc-container' ) || ! $isEligible ) {
 				return mb_find_replace( $find, $replace, $content );
 			}
-			$position = get_theme_mod( 'penci_toc_position', 'top' );            // else also add toc to content
+			$position = get_theme_mod( 'goso_toc_position', 'top' );            // else also add toc to content
 			switch ( $position ) {
 				case 'top':
 					$content = $toc . mb_find_replace( $find, $replace, $content );
@@ -211,49 +211,49 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 			return $content;
 		}
 
-		public static function penci_toc_style() {
+		public static function goso_toc_style() {
 			$css       = '';
 			$toc_style = [
-				'penci_toc_styles_width'          => [ 'max-width' => '.penci-toc-wrapper,.penci-toc-wrapper.penci-toc-default' ],
-				'penci_toc_styles_swidth'         => [ 'max-width' => '.penci-sticky-toc' ],
-				'penci_toc_heading_mfs'           => [ 'font-size' => '.penci-toc-wrapper .penci-toc-title' ],
-				'penci_toc_heading_fs'            => [ 'font-size' => '.penci-toc-wrapper .penci-toc-title' ],
-				'penci_toc_l1_mfs'                => [ 'font-size' => '.post-entry .penci-toc ul a,.penci-toc ul a' ],
-				'penci_toc_l1_fs'                 => [ 'font-size' => '.post-entry .penci-toc ul a,.penci-toc ul a' ],
-				'penci_toc_l2_mfs'                => [ 'font-size' => '.post-entry .penci-toc ul ul a,.penci-toc ul ul a' ],
-				'penci_toc_l2_fs'                 => [ 'font-size' => '.post-entry .penci-toc ul ul a,.penci-toc ul ul a' ],
-				'penci_toc_heading_color'         => [ 'color' => '.post-entry .penci-toc-wrapper .penci-toc-title,.penci-toc-wrapper .penci-toc-title' ],
-				'penci_toc_l1_color'              => [ 'color' => '.post-entry .penci-toc ul a,.penci-toc ul a' ],
-				'penci_toc_l1_hcolor'             => [ 'color' => '.post-entry .penci-toc ul a:hover,.penci-toc ul a:hover' ],
-				'penci_toc_l2_color'              => [ 'color' => '.post-entry .penci-toc ul ul a,.penci-toc ul ul a' ],
-				'penci_toc_l2_hcolor'             => [ 'color' => '.post-entry .penci-toc ul ul a:hover,.penci-toc ul ul a:hover' ],
-				'penci_toc_bd_color'              => [ 'border-color' => '.penci-toc-wrapper,.penci-toc-wrapper .penci-toc > ul,.penci-toc ul li a' ],
-				'penci_toc_bg_color'              => [ 'background-color' => '.penci-toc-wrapper' ],
-				'penci_toc_tgbtn_color'           => [ 'color' => '.post-entry .penci-toc-wrapper .penci-toc-title-toggle' ],
-				'penci_toc_tgbtn_hcolor'          => [ 'color' => '.post-entry .penci-toc-wrapper .penci-toc-title-toggle:hover' ],
-				'penci_toc_tgbtn_bgcolor'         => [ 'background-color' => '.penci-toc-wrapper .penci-toc-title-toggle' ],
-				'penci_toc_tgbtn_hbgcolor'        => [ 'background-color' => '.penci-toc-wrapper .penci-toc-title-toggle:hover' ],
+				'goso_toc_styles_width'          => [ 'max-width' => '.goso-toc-wrapper,.goso-toc-wrapper.goso-toc-default' ],
+				'goso_toc_styles_swidth'         => [ 'max-width' => '.goso-sticky-toc' ],
+				'goso_toc_heading_mfs'           => [ 'font-size' => '.goso-toc-wrapper .goso-toc-title' ],
+				'goso_toc_heading_fs'            => [ 'font-size' => '.goso-toc-wrapper .goso-toc-title' ],
+				'goso_toc_l1_mfs'                => [ 'font-size' => '.post-entry .goso-toc ul a,.goso-toc ul a' ],
+				'goso_toc_l1_fs'                 => [ 'font-size' => '.post-entry .goso-toc ul a,.goso-toc ul a' ],
+				'goso_toc_l2_mfs'                => [ 'font-size' => '.post-entry .goso-toc ul ul a,.goso-toc ul ul a' ],
+				'goso_toc_l2_fs'                 => [ 'font-size' => '.post-entry .goso-toc ul ul a,.goso-toc ul ul a' ],
+				'goso_toc_heading_color'         => [ 'color' => '.post-entry .goso-toc-wrapper .goso-toc-title,.goso-toc-wrapper .goso-toc-title' ],
+				'goso_toc_l1_color'              => [ 'color' => '.post-entry .goso-toc ul a,.goso-toc ul a' ],
+				'goso_toc_l1_hcolor'             => [ 'color' => '.post-entry .goso-toc ul a:hover,.goso-toc ul a:hover' ],
+				'goso_toc_l2_color'              => [ 'color' => '.post-entry .goso-toc ul ul a,.goso-toc ul ul a' ],
+				'goso_toc_l2_hcolor'             => [ 'color' => '.post-entry .goso-toc ul ul a:hover,.goso-toc ul ul a:hover' ],
+				'goso_toc_bd_color'              => [ 'border-color' => '.goso-toc-wrapper,.goso-toc-wrapper .goso-toc > ul,.goso-toc ul li a' ],
+				'goso_toc_bg_color'              => [ 'background-color' => '.goso-toc-wrapper' ],
+				'goso_toc_tgbtn_color'           => [ 'color' => '.post-entry .goso-toc-wrapper .goso-toc-title-toggle' ],
+				'goso_toc_tgbtn_hcolor'          => [ 'color' => '.post-entry .goso-toc-wrapper .goso-toc-title-toggle:hover' ],
+				'goso_toc_tgbtn_bgcolor'         => [ 'background-color' => '.goso-toc-wrapper .goso-toc-title-toggle' ],
+				'goso_toc_tgbtn_hbgcolor'        => [ 'background-color' => '.goso-toc-wrapper .goso-toc-title-toggle:hover' ],
 
 				// sticky
-				'penci_toc_sticky_heading_color'  => [ 'color' => '.penci-toc-wrapper.penci-sticky-toc .penci-toc-title' ],
-				'penci_toc_sticky_l1_color'       => [ 'color' => '.penci-sticky-toc .penci-toc ul a' ],
-				'penci_toc_sticky_l1_hcolor'      => [ 'color' => '.penci-sticky-toc .penci-toc ul a:hover' ],
-				'penci_toc_sticky_l2_color'       => [ 'color' => '.penci-sticky-toc .penci-toc ul ul a' ],
-				'penci_toc_sticky_l2_hcolor'      => [ 'color' => '.penci-sticky-toc .penci-toc ul ul a:hover' ],
-				'penci_toc_sticky_bd_color'       => [ 'border-color' => '.penci-sticky-toc .penci-toc-wrapper,.penci-toc-wrapper .penci-toc > ul,.penci-toc ul li a' ],
-				'penci_toc_sticky_bg_color'       => [ 'background-color' => '.penci-sticky-toc .penci-toc-wrapper' ],
-				'penci_toc_sticky_tgbtn_color'    => [ 'color' => '.penci-sticky-toc .penci-toc-wrapper .penci-toc-title-toggle' ],
-				'penci_toc_sticky_tgbtn_hcolor'   => [ 'color' => '.penci-sticky-toc .penci-toc-wrapper .penci-toc-title-toggle:hover' ],
-				'penci_toc_sticky_tgbtn_bgcolor'  => [ 'background-color' => '.penci-sticky-toc .penci-toc-wrapper .penci-toc-title-toggle' ],
-				'penci_toc_sticky_tgbtn_hbgcolor' => [ 'background-color' => '.penci-sticky-toc .penci-toc-wrapper .penci-toc-title-toggle:hover' ],
+				'goso_toc_sticky_heading_color'  => [ 'color' => '.goso-toc-wrapper.goso-sticky-toc .goso-toc-title' ],
+				'goso_toc_sticky_l1_color'       => [ 'color' => '.goso-sticky-toc .goso-toc ul a' ],
+				'goso_toc_sticky_l1_hcolor'      => [ 'color' => '.goso-sticky-toc .goso-toc ul a:hover' ],
+				'goso_toc_sticky_l2_color'       => [ 'color' => '.goso-sticky-toc .goso-toc ul ul a' ],
+				'goso_toc_sticky_l2_hcolor'      => [ 'color' => '.goso-sticky-toc .goso-toc ul ul a:hover' ],
+				'goso_toc_sticky_bd_color'       => [ 'border-color' => '.goso-sticky-toc .goso-toc-wrapper,.goso-toc-wrapper .goso-toc > ul,.goso-toc ul li a' ],
+				'goso_toc_sticky_bg_color'       => [ 'background-color' => '.goso-sticky-toc .goso-toc-wrapper' ],
+				'goso_toc_sticky_tgbtn_color'    => [ 'color' => '.goso-sticky-toc .goso-toc-wrapper .goso-toc-title-toggle' ],
+				'goso_toc_sticky_tgbtn_hcolor'   => [ 'color' => '.goso-sticky-toc .goso-toc-wrapper .goso-toc-title-toggle:hover' ],
+				'goso_toc_sticky_tgbtn_bgcolor'  => [ 'background-color' => '.goso-sticky-toc .goso-toc-wrapper .goso-toc-title-toggle' ],
+				'goso_toc_sticky_tgbtn_hbgcolor' => [ 'background-color' => '.goso-sticky-toc .goso-toc-wrapper .goso-toc-title-toggle:hover' ],
 
 				// Mobile Sticky Button
-				'penci_toc_msticky_w_bgcolor'     => [ 'background-color' => '.penci-toc-wrapper.hide-table' ],
-				'penci_toc_msticky_w_bdcolor'     => [ 'border-color' => '.penci-toc-wrapper.hide-table' ],
-				'penci_toc_msticky_btn_bgcolor'   => [ 'background-color' => '.penci-toc-wrapper.hide-table .sticky-toggle' ],
-				'penci_toc_msticky_btn_bghcolor'  => [ 'background-color' => '.penci-toc-wrapper.hide-table .sticky-toggle:hover' ],
-				'penci_toc_msticky_btn_color'     => [ 'color' => '.penci-toc-wrapper.hide-table .sticky-toggle' ],
-				'penci_toc_msticky_btn_hcolor'    => [ 'color' => '.penci-toc-wrapper.hide-table .sticky-toggle:hover' ],
+				'goso_toc_msticky_w_bgcolor'     => [ 'background-color' => '.goso-toc-wrapper.hide-table' ],
+				'goso_toc_msticky_w_bdcolor'     => [ 'border-color' => '.goso-toc-wrapper.hide-table' ],
+				'goso_toc_msticky_btn_bgcolor'   => [ 'background-color' => '.goso-toc-wrapper.hide-table .sticky-toggle' ],
+				'goso_toc_msticky_btn_bghcolor'  => [ 'background-color' => '.goso-toc-wrapper.hide-table .sticky-toggle:hover' ],
+				'goso_toc_msticky_btn_color'     => [ 'color' => '.goso-toc-wrapper.hide-table .sticky-toggle' ],
+				'goso_toc_msticky_btn_hcolor'    => [ 'color' => '.goso-toc-wrapper.hide-table .sticky-toggle:hover' ],
 
 
 			];
@@ -276,9 +276,9 @@ if ( ! class_exists( 'GosoTOC' ) ) {
 		}
 	}
 
-	function penciTOC() {
-		return penciTOC::instance();
+	function gosoTOC() {
+		return gosoTOC::instance();
 	}
 
-	add_action( 'wp', 'penciTOC' );
+	add_action( 'wp', 'gosoTOC' );
 }

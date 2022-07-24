@@ -1,6 +1,6 @@
 <?php
 
-class penci_product_wishlist {
+class goso_product_wishlist {
 
 	protected static $instance = null;
 
@@ -8,40 +8,40 @@ class penci_product_wishlist {
 
 	function __construct() {
 
-		if ( get_theme_mod( 'penci_woocommerce_wishlist_only_logged_in', false ) && ! is_user_logged_in() ) {
+		if ( get_theme_mod( 'goso_woocommerce_wishlist_only_logged_in', false ) && ! is_user_logged_in() ) {
 			return false;
 		}
 
-		if ( get_theme_mod( 'penci_woocommerce_wishlist_show', true ) ) {
-			add_action( 'penci_loop_product_buttons', array( $this, 'wishlist_button' ) );
+		if ( get_theme_mod( 'goso_woocommerce_wishlist_show', true ) ) {
+			add_action( 'goso_loop_product_buttons', array( $this, 'wishlist_button' ) );
 		}
 
-		add_action( 'penci_single_product_extra_buttons', array( $this, 'wishlist_button' ), 5 );
+		add_action( 'goso_single_product_extra_buttons', array( $this, 'wishlist_button' ), 5 );
 
-		add_action( 'wp_ajax_nopriv_penci_add_to_wishlist', array( $this, 'add_to_wishlist' ) );
-		add_action( 'wp_ajax_penci_add_to_wishlist', array( $this, 'add_to_wishlist' ) );
+		add_action( 'wp_ajax_nopriv_goso_add_to_wishlist', array( $this, 'add_to_wishlist' ) );
+		add_action( 'wp_ajax_goso_add_to_wishlist', array( $this, 'add_to_wishlist' ) );
 
-		add_action( 'wp_ajax_nopriv_penci_remove_wishlist_item', array( $this, 'remove_wishlist_item' ) );
-		add_action( 'wp_ajax_penci_remove_wishlist_item', array( $this, 'remove_wishlist_item' ) );
-
-
-		add_action( 'penci_header_extra_icons', array( $this, 'header_icon' ), 15 );
+		add_action( 'wp_ajax_nopriv_goso_remove_wishlist_item', array( $this, 'remove_wishlist_item' ) );
+		add_action( 'wp_ajax_goso_remove_wishlist_item', array( $this, 'remove_wishlist_item' ) );
 
 
-		add_action( 'penci_current_wishlist', array( $this, 'current_wishlist' ) );
+		add_action( 'goso_header_extra_icons', array( $this, 'header_icon' ), 15 );
 
-		add_action( 'penci_before_product_loop', array( $this, 'wistlist_remove_icon' ), 10 );
 
-		add_shortcode( 'penci_wishlist', array( $this, 'wishlist_content_shortcode' ) );
+		add_action( 'goso_current_wishlist', array( $this, 'current_wishlist' ) );
 
-		$this->save_me = 'penci_authow_wishlist_products';
+		add_action( 'goso_before_product_loop', array( $this, 'wistlist_remove_icon' ), 10 );
+
+		add_shortcode( 'goso_wishlist', array( $this, 'wishlist_content_shortcode' ) );
+
+		$this->save_me = 'goso_authow_wishlist_products';
 		if ( is_multisite() ) {
 			$this->save_me .= '_' . get_current_blog_id();
 		}
 
 		add_action( 'admin_notices', array( $this, 'wishlist_admin_notice' ) );
 
-		add_action( 'penci_footer_nav_wishlist_item', array( $this, 'wishlist_footer_nav' ) );
+		add_action( 'goso_footer_nav_wishlist_item', array( $this, 'wishlist_footer_nav' ) );
 
 		add_action( 'display_post_states', array( $this, 'admin_wishlist_post_state' ), 10, 2 );
 
@@ -108,17 +108,17 @@ class penci_product_wishlist {
 
 		$class = '';
 		$href  = '?add-to-wishlist=' . get_the_id();
-		$text  = penci_woo_translate_text( 'penci_woo_trans_adtwilsh' );
+		$text  = goso_woo_translate_text( 'goso_woo_trans_adtwilsh' );
 
 		$save_wisthlist = $this->get_user_wishlist( $this->save_me );
 
 		if ( isset( $save_wisthlist ) && $save_wisthlist && in_array( get_the_ID(), $save_wisthlist ) ) {
 			$class = ' added';
-			$text  = penci_woo_translate_text( 'penci_woo_trans_brtwilsh' );
-			$href  = get_page_link( get_theme_mod( 'penci_woocommerce_wishlist_page' ) );
+			$text  = goso_woo_translate_text( 'goso_woo_trans_brtwilsh' );
+			$href  = get_page_link( get_theme_mod( 'goso_woocommerce_wishlist_page' ) );
 		}
 
-		echo '<a title="' . $text . '" href="' . $href . '" data-pid="' . get_the_ID() . '" class="penci-addtowishlist button ' . $class . '">' . $text . '</a>';
+		echo '<a title="' . $text . '" href="' . $href . '" data-pid="' . get_the_ID() . '" class="goso-addtowishlist button ' . $class . '">' . $text . '</a>';
 	}
 
 	public function add_to_wishlist() {
@@ -130,7 +130,7 @@ class penci_product_wishlist {
 
 		$productID        = ( isset( $_GET['pid'] ) ) ? $_GET['pid'] : '';
 		$productTitle     = get_the_title( $productID );
-		$wishlist_page_id = get_theme_mod( 'penci_woocommerce_wishlist_page' );
+		$wishlist_page_id = get_theme_mod( 'goso_woocommerce_wishlist_page' );
 
 		if ( ! $productID ) {
 			return false;
@@ -201,7 +201,7 @@ class penci_product_wishlist {
 
 		$this->delete_wishlist_item( $this->save_me, $productID );
 
-		$wishlist_page_id  = get_theme_mod( 'penci_woocommerce_wishlist_page' );
+		$wishlist_page_id  = get_theme_mod( 'goso_woocommerce_wishlist_page' );
 		$wishlist_page_url = $wishlist_page_id ? esc_url( get_page_link( $wishlist_page_id ) ) : get_home_url();
 
 		wp_send_json_success(
@@ -241,33 +241,33 @@ class penci_product_wishlist {
 
 	public function wistlist_remove_icon() {
 
-		$wishlist_page = get_theme_mod( 'penci_woocommerce_wishlist_page' );
+		$wishlist_page = get_theme_mod( 'goso_woocommerce_wishlist_page' );
 
 		if ( $wishlist_page && is_page( $wishlist_page ) ) {
 
 			$class = '';
-			$text  = penci_woo_translate_text( 'penci_woo_trans_rmproduct' );
+			$text  = goso_woo_translate_text( 'goso_woo_trans_rmproduct' );
 			$href  = '?remove-from-wishlist=' . get_the_id();
 
 			$save_wisthlist = $this->get_user_wishlist( $this->save_me );
 
 			if ( isset( $save_wisthlist ) && $save_wisthlist && in_array( get_the_ID(), $save_wisthlist ) ) {
-				echo '<a title="' . $text . '" href="' . $href . '" data-pID="' . get_the_ID() . '" class="penci-removewishlist button ' . $class . '">' . $text . '</a>'; //phpcs:ignore
+				echo '<a title="' . $text . '" href="' . $href . '" data-pID="' . get_the_ID() . '" class="goso-removewishlist button ' . $class . '">' . $text . '</a>'; //phpcs:ignore
 			}
 		}
 	}
 
 	public function wishlist_admin_notice() {
-		$query['autofocus[section]'] = 'pencidesign_woo_wishlist_settings';
+		$query['autofocus[section]'] = 'gosodesign_woo_wishlist_settings';
 		$section_link                = add_query_arg( $query, admin_url( 'customize.php' ) );
-		if ( get_theme_mod( 'penci_woocommerce_wishlist', false ) && ! get_theme_mod( 'penci_woocommerce_wishlist_page' ) ) {
+		if ( get_theme_mod( 'goso_woocommerce_wishlist', false ) && ! get_theme_mod( 'goso_woocommerce_wishlist_page' ) ) {
 			?>
             <div class="notice notice-warning is-dismissible">
-                <p><?php _e( 'Goso Wishlist need to assign the wishlist page. Please create a new page with <strong>[penci_wishlist]</strong> content shortcode, then go to <a href="' . esc_url( $section_link ) . '">this page</a> to configure.', 'authow' ); ?></p>
+                <p><?php _e( 'Goso Wishlist need to assign the wishlist page. Please create a new page with <strong>[goso_wishlist]</strong> content shortcode, then go to <a href="' . esc_url( $section_link ) . '">this page</a> to configure.', 'authow' ); ?></p>
             </div>
 			<?php
 		}
-		if ( get_theme_mod( 'penci_woocommerce_wishlist', false ) && class_exists( 'YITH_WCWL_Frontend' ) ) {
+		if ( get_theme_mod( 'goso_woocommerce_wishlist', false ) && class_exists( 'YITH_WCWL_Frontend' ) ) {
 			?>
             <div class="notice notice-error is-dismissible">
                 <p><?php _e( 'You\'ve activated the YITH WooCommerce Wishlist plugin, please go to <a href="' . esc_url( $section_link ) . '">this page</a> to disable default theme Wishlist.', 'authow' ); ?></p>
@@ -279,7 +279,7 @@ class penci_product_wishlist {
 
 	public function admin_wishlist_post_state( $post_states, $post ) {
 
-		$wishlist_page_id = get_theme_mod( 'penci_woocommerce_wishlist_page', false );
+		$wishlist_page_id = get_theme_mod( 'goso_woocommerce_wishlist_page', false );
 
 		if ( $wishlist_page_id && $post->ID == $wishlist_page_id ) {
 			$post_states[] = esc_attr__( 'Authow Wishlist Products', 'authow' );
@@ -289,7 +289,7 @@ class penci_product_wishlist {
 	}
 
 	public function wishlist_page_content( $content ) {
-		$wishlist_page_id = get_theme_mod( 'penci_woocommerce_wishlist_page', false );
+		$wishlist_page_id = get_theme_mod( 'goso_woocommerce_wishlist_page', false );
 
 		if ( is_page( $wishlist_page_id ) && empty( $content ) ) {
 			$content = $this->wishlist_content_shortcode();
@@ -308,23 +308,23 @@ class penci_product_wishlist {
 	public function get_wishlist_products() {
 
 		$classes   = array();
-		$classes[] = 'penci-wishlist-products';
+		$classes[] = 'goso-wishlist-products';
 
 		$post_ids = $this->get_user_wishlist( $this->save_me );
 
-		$icon_position = get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' );
-		$icon_style    = get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' );
+		$icon_position = get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' );
+		$icon_style    = get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' );
 
 		$settings = array(
 			'post_type'           => 'ids',
 			'items_per_page'      => - 1,
 			'include'             => $post_ids,
 			'loop_name'           => 'wishlist',
-			'icon_style'          => get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' ),
+			'icon_style'          => get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' ),
 			'icon_position'       => $icon_position,
-			'icon_animation'      => get_theme_mod( 'penci_woocommerce_product_icon_hover_animation', 'move-right' ),
-			'product_round_style' => penci_shop_product_round_style( $icon_style, $icon_position ),
-			'product_style'       => get_theme_mod( 'penci_woocommerce_product_style', 'style-1' ),
+			'icon_animation'      => get_theme_mod( 'goso_woocommerce_product_icon_hover_animation', 'move-right' ),
+			'product_round_style' => goso_shop_product_round_style( $icon_style, $icon_position ),
+			'product_style'       => get_theme_mod( 'goso_woocommerce_product_style', 'style-1' ),
 		);
 
 		$check_products = get_posts(
@@ -335,20 +335,20 @@ class penci_product_wishlist {
 		);
 
 		if ( ! empty( $check_products ) && $post_ids ) {
-			penci_elementor_products_template( $settings, true );
+			goso_elementor_products_template( $settings, true );
 		} else { ?>
 
             <div class="woocommerce">
 
-                <div class="penci-wishlist-products-empty-text">
-                    <h3 class="penci-wishlist-empty-title"><?php echo penci_woo_translate_text( 'penci_woo_trans_wishlist_empty_title' ); ?></h3>
-					<?php echo penci_woo_translate_text( 'penci_woocommerce_wishlist_empty_text' ); ?>
+                <div class="goso-wishlist-products-empty-text">
+                    <h3 class="goso-wishlist-empty-title"><?php echo goso_woo_translate_text( 'goso_woo_trans_wishlist_empty_title' ); ?></h3>
+					<?php echo goso_woo_translate_text( 'goso_woocommerce_wishlist_empty_text' ); ?>
                 </div>
 
                 <p class="return-to-shop">
                     <a class="button"
                        href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">
-						<?php echo penci_woo_translate_text( 'penci_woo_trans_returnshop' ); ?>
+						<?php echo goso_woo_translate_text( 'goso_woo_trans_returnshop' ); ?>
                     </a>
                 </p>
             </div>
@@ -359,4 +359,4 @@ class penci_product_wishlist {
 	}
 }
 
-$penci_product_wishlist = new penci_product_wishlist();
+$goso_product_wishlist = new goso_product_wishlist();

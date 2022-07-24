@@ -7,14 +7,14 @@
  * @since 1.2
  */
 
-add_action( 'widgets_init', 'penci_latest_tweets_load_widget' );
+add_action( 'widgets_init', 'goso_latest_tweets_load_widget' );
 
-function penci_latest_tweets_load_widget() {
-	register_widget( 'penci_latest_tweets_widget' );
+function goso_latest_tweets_load_widget() {
+	register_widget( 'goso_latest_tweets_widget' );
 }
 
-if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
-	class penci_latest_tweets_widget extends WP_Widget {
+if ( ! class_exists( 'goso_latest_tweets_widget' ) ) {
+	class goso_latest_tweets_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,18 +22,18 @@ if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_latest_tweets_widget',
+				'classname'   => 'goso_latest_tweets_widget',
 				'description' => esc_html__( 'A widget that displays your latest tweets with a slider', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_latest_tweets_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_latest_tweets_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_latest_tweets_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Twitter Feed', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_latest_tweets_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Twitter Feed', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_latest_tweets_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Twitter Feed', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_latest_tweets_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Twitter Feed', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -54,9 +54,9 @@ if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
 			$align    = isset( $instance['align'] ) ? $instance['align'] : '';
 			$style    = isset( $instance['style'] ) ? $instance['style'] : 'slider';
 			$number   = isset( $instance['number'] ) ? $instance['number'] : 5;
-			$classes  = 'slider' == $style ? 'penci-owl-carousel penci-owl-carousel-slider penci-tweets-slider' : 'penci-tweets-lists';
-			if ( function_exists( 'penci_getTweets' ) ) {
-				$tweets = penci_getTweets( $number );
+			$classes  = 'slider' == $style ? 'goso-owl-carousel goso-owl-carousel-slider goso-tweets-slider' : 'goso-tweets-lists';
+			if ( function_exists( 'goso_getTweets' ) ) {
+				$tweets = goso_getTweets( $number );
 
 				if ( ! empty( $tweets ) ):
 
@@ -72,9 +72,9 @@ if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
 					} else {
 						$df_align = is_rtl() ? 'right' : 'left';
 						?>
-                        <div class="penci-tweets-widget-content<?php echo $style == 'slider' ? ' ' . $align : ' pc_align' . $df_align; ?>">
+                        <div class="goso-tweets-widget-content<?php echo $style == 'slider' ? ' ' . $align : ' pc_align' . $df_align; ?>">
 							<?php if ( $style == 'slider' ): ?>
-                                <span class="icon-tweets"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></span>
+                                <span class="icon-tweets"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></span>
 							<?php endif; ?>
                             <div class="<?php echo esc_attr( $classes ); ?>" data-dots="true"
                                  data-nav="false" data-auto="<?php if ( $auto ) {
@@ -97,7 +97,7 @@ if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
 										}
 									}
 									?>
-                                    <div class="penci-tweet">
+                                    <div class="goso-tweet">
 
 										<?php if ( $style == 'list' ):
 											$reply = '<i class="fa fa-reply" aria-hidden="true"></i>';
@@ -196,7 +196,7 @@ if ( ! class_exists( 'penci_latest_tweets_widget' ) ) {
             <br>
             <p><span style="color: #ff0000;">Note Important:</span> To use this widget you need to connect your
                 twitter account <a
-                        href="<?php echo admin_url( 'admin.php?page=penci_twitter_token' ); ?>" target="_blank">here</a>.
+                        href="<?php echo admin_url( 'admin.php?page=goso_twitter_token' ); ?>" target="_blank">here</a>.
             </p>
 
             <!-- Widget Title: Text Input -->

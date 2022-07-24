@@ -1,6 +1,6 @@
 <?php
 
-class penci_product_swatches {
+class goso_product_swatches {
 
 	protected static $instance = null;
 
@@ -19,21 +19,21 @@ class penci_product_swatches {
 			add_action( 'admin_init', array( $this, 'restore_attribute_types' ) );
 			add_action( 'admin_print_scripts', array( $this, 'admin_enqueue_scripts' ) );
 			add_action( 'woocommerce_product_option_terms', array( $this, 'product_option_terms' ), 10, 2 );
-			add_action( 'wp_ajax_penci_add_new_attribute', array( $this, 'add_new_attribute_ajax' ) );
+			add_action( 'wp_ajax_goso_add_new_attribute', array( $this, 'add_new_attribute_ajax' ) );
 			add_action( 'admin_footer', array( $this, 'add_attribute_term_template' ) );
 			add_action( 'edit_post', array( $this, 'deleted_transitent' ) );
 		}
 
 		add_filter( 'product_attributes_type_selector', array( $this, 'add_attribute_types' ) );
-		add_action( 'penci_product_attribute_field', array( $this, 'attribute_fields' ), 10, 3 );
+		add_action( 'goso_product_attribute_field', array( $this, 'attribute_fields' ), 10, 3 );
 		add_filter( 'woocommerce_dropdown_variation_attribute_options_html', array(
 			$this,
 			'get_swatch_html'
 		), 100, 2 );
-		add_filter( 'penci_swatch_html', array( $this, 'swatch_html' ), 5, 4 );
+		add_filter( 'goso_swatch_html', array( $this, 'swatch_html' ), 5, 4 );
 
-		add_action( 'penci_swatches_loop', array( $this, 'product_swatches_list' ) );
-		add_action( 'penci_loop_product_image', array( $this, 'preload_icon' ) );
+		add_action( 'goso_swatches_loop', array( $this, 'product_swatches_list' ) );
+		add_action( 'goso_loop_product_image', array( $this, 'preload_icon' ) );
 	}
 
 	public static function instance() {
@@ -52,16 +52,16 @@ class penci_product_swatches {
 
 		wp_enqueue_media();
 
-		wp_enqueue_style( 'penci-admin', get_template_directory_uri() . '/inc/woocommerce/css/penci-admin.css', array( 'wp-color-picker' ), '1.0' );
-		wp_enqueue_script( 'penci-admin', get_template_directory_uri() . '/inc/woocommerce/js/penci-admin.js', array(
+		wp_enqueue_style( 'goso-admin', get_template_directory_uri() . '/inc/woocommerce/css/goso-admin.css', array( 'wp-color-picker' ), '1.0' );
+		wp_enqueue_script( 'goso-admin', get_template_directory_uri() . '/inc/woocommerce/js/goso-admin.js', array(
 			'jquery',
 			'wp-color-picker',
 			'wp-util'
 		), '1.0', true );
 
 		wp_localize_script(
-			'penci-admin',
-			'penci',
+			'goso-admin',
+			'goso',
 			array(
 				'i18n'        => array(
 					'mediaTitle'  => esc_html__( 'Choose an image', 'authow' ),
@@ -107,33 +107,33 @@ class penci_product_swatches {
 	}
 
 	public function restore_attributes_notice() {
-		if ( get_transient( 'penci_attribute_taxonomies' ) && ! get_option( 'penci_restore_attributes_time' ) ) {
+		if ( get_transient( 'goso_attribute_taxonomies' ) && ! get_option( 'goso_restore_attributes_time' ) ) {
 			?>
             <div class="notice-warning notice is-dismissible">
                 <p>
 					<?php
 					esc_html_e( 'Found a backup of product attributes types. This backup was generated at', 'authow' );
-					echo ' ' . date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), get_option( 'penci_backup_attributes_time' ) ) . '.';
+					echo ' ' . date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), get_option( 'goso_backup_attributes_time' ) ) . '.';
 					?>
                 </p>
                 <p>
                     <a href="<?php echo esc_url( add_query_arg( array(
-						'penci_action' => 'restore_attributes_types',
-						'penci_nonce'  => wp_create_nonce( 'restore_attributes_types' )
+						'goso_action' => 'restore_attributes_types',
+						'goso_nonce'  => wp_create_nonce( 'restore_attributes_types' )
 					) ) ); ?>">
                         <strong><?php esc_html_e( 'Restore product attributes types', 'authow' ); ?></strong>
                     </a>
                     |
                     <a href="<?php echo esc_url( add_query_arg( array(
-						'penci_action' => 'dismiss_restore_notice',
-						'penci_nonce'  => wp_create_nonce( 'dismiss_restore_notice' )
+						'goso_action' => 'dismiss_restore_notice',
+						'goso_nonce'  => wp_create_nonce( 'dismiss_restore_notice' )
 					) ) ); ?>">
                         <strong><?php esc_html_e( 'Dismiss this notice', 'authow' ); ?></strong>
                     </a>
                 </p>
             </div>
 			<?php
-		} elseif ( isset( $_GET['penci_message'] ) && 'restored' == $_GET['penci_message'] ) {
+		} elseif ( isset( $_GET['goso_message'] ) && 'restored' == $_GET['goso_message'] ) {
 			?>
             <div class="notice-warning settings-error notice is-dismissible">
                 <p><?php esc_html_e( 'All attributes types have been restored.', 'authow' ) ?></p>
@@ -143,18 +143,18 @@ class penci_product_swatches {
 	}
 
 	public function restore_attribute_types() {
-		if ( ! isset( $_GET['penci_action'] ) || ! isset( $_GET['penci_nonce'] ) ) {
+		if ( ! isset( $_GET['goso_action'] ) || ! isset( $_GET['goso_nonce'] ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_GET['penci_nonce'], $_GET['penci_action'] ) ) {
+		if ( ! wp_verify_nonce( $_GET['goso_nonce'], $_GET['goso_action'] ) ) {
 			return;
 		}
 
-		if ( 'restore_attributes_types' == $_GET['penci_action'] ) {
+		if ( 'restore_attributes_types' == $_GET['goso_action'] ) {
 			global $wpdb;
 
-			$attribute_taxnomies = get_transient( 'penci_attribute_taxonomies' );
+			$attribute_taxnomies = get_transient( 'goso_attribute_taxonomies' );
 
 			foreach ( $attribute_taxnomies as $id => $attribute ) {
 				$wpdb->update(
@@ -166,15 +166,15 @@ class penci_product_swatches {
 				);
 			}
 
-			update_option( 'penci_restore_attributes_time', time() );
-			delete_transient( 'penci_attribute_taxonomies' );
+			update_option( 'goso_restore_attributes_time', time() );
+			delete_transient( 'goso_attribute_taxonomies' );
 			delete_transient( 'wc_attribute_taxonomies' );
 
-			$url = remove_query_arg( array( 'penci_action', 'penci_nonce' ) );
-			$url = add_query_arg( array( 'penci_message' => 'restored' ), $url );
-		} elseif ( 'dismiss_restore_notice' == $_GET['penci_action'] ) {
-			update_option( 'penci_restore_attributes_time', 'ignored' );
-			$url = remove_query_arg( array( 'penci_action', 'penci_nonce' ) );
+			$url = remove_query_arg( array( 'goso_action', 'goso_nonce' ) );
+			$url = add_query_arg( array( 'goso_message' => 'restored' ), $url );
+		} elseif ( 'dismiss_restore_notice' == $_GET['goso_action'] ) {
+			update_option( 'goso_restore_attributes_time', 'ignored' );
+			$url = remove_query_arg( array( 'goso_action', 'goso_nonce' ) );
 		}
 
 		if ( isset( $url ) ) {
@@ -186,7 +186,7 @@ class penci_product_swatches {
 	public function add_attribute_fields( $taxonomy ) {
 		$attr = $this->get_tax_attribute( $taxonomy );
 
-		do_action( 'penci_product_attribute_field', $attr->attribute_type, '', 'add' );
+		do_action( 'goso_product_attribute_field', $attr->attribute_type, '', 'add' );
 	}
 
 	public function get_tax_attribute( $taxonomy ) {
@@ -202,7 +202,7 @@ class penci_product_swatches {
 		$attr  = $this->get_tax_attribute( $taxonomy );
 		$value = get_term_meta( $term->term_id, $attr->attribute_type, true );
 
-		do_action( 'penci_product_attribute_field', $attr->attribute_type, $value, 'edit' );
+		do_action( 'goso_product_attribute_field', $attr->attribute_type, $value, 'edit' );
 	}
 
 	public function attribute_fields( $type, $value, $form ) {
@@ -224,16 +224,16 @@ class penci_product_swatches {
 				$image = $value ? wp_get_attachment_image_src( $value ) : '';
 				$image = $image ? $image[0] : WC()->plugin_url() . '/assets/images/placeholder.png';
 				?>
-                <div class="penci-term-image-thumbnail" style="float:left;margin-right:10px;">
+                <div class="goso-term-image-thumbnail" style="float:left;margin-right:10px;">
                     <img src="<?php echo esc_url( $image ) ?>" width="60px" height="60px"/>
                 </div>
                 <div style="line-height:60px;">
-                    <input type="hidden" class="penci-term-image" name="image"
+                    <input type="hidden" class="goso-term-image" name="image"
                            value="<?php echo esc_attr( $value ) ?>"/>
                     <button type="button"
-                            class="penci-upload-image-button button"><?php esc_html_e( 'Upload/Add image', 'authow' ); ?></button>
+                            class="goso-upload-image-button button"><?php esc_html_e( 'Upload/Add image', 'authow' ); ?></button>
                     <button type="button"
-                            class="penci-remove-image-button button <?php echo $value ? '' : 'hidden' ?>"><?php esc_html_e( 'Remove image', 'authow' ); ?></button>
+                            class="goso-remove-image-button button <?php echo $value ? '' : 'hidden' ?>"><?php esc_html_e( 'Remove image', 'authow' ); ?></button>
                 </div>
 				<?php
 				break;
@@ -311,7 +311,7 @@ class penci_product_swatches {
 		$swatches  = '';
 
 		// Add new option for tooltip to $args variable.
-		$args['tooltip'] = wc_string_to_bool( get_option( 'penci_enable_tooltip', 'yes' ) );
+		$args['tooltip'] = wc_string_to_bool( get_option( 'goso_enable_tooltip', 'yes' ) );
 
 		if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
 			$attributes = $product->get_variation_attributes();
@@ -325,14 +325,14 @@ class penci_product_swatches {
 
 				foreach ( $terms as $term ) {
 					if ( in_array( $term->slug, $options ) ) {
-						$swatches .= apply_filters( 'penci_swatch_html', '', $term, $attr->attribute_type, $args );
+						$swatches .= apply_filters( 'goso_swatch_html', '', $term, $attr->attribute_type, $args );
 					}
 				}
 			}
 
 			if ( ! empty( $swatches ) ) {
 				$class    .= ' hidden';
-				$swatches = '<div class="penci-swatches" data-attribute_name="attribute_' . esc_attr( $attribute ) . '">' . $swatches . '</div>';
+				$swatches = '<div class="goso-swatches" data-attribute_name="attribute_' . esc_attr( $attribute ) . '">' . $swatches . '</div>';
 				$html     = '<div class="' . esc_attr( $class ) . '">' . $html . '</div>' . $swatches;
 			}
 		}
@@ -427,7 +427,7 @@ class penci_product_swatches {
         </select>
         <button class="button plus select_all_attributes"><?php esc_html_e( 'Select all', 'authow' ); ?></button>
         <button class="button minus select_no_attributes"><?php esc_html_e( 'Select none', 'authow' ); ?></button>
-        <button class="button fr plus penci_add_new_attribute"
+        <button class="button fr plus goso_add_new_attribute"
                 data-type="<?php echo $taxonomy->attribute_type ?>"><?php esc_html_e( 'Add new', 'authow' ); ?></button>
 
 		<?php
@@ -441,7 +441,7 @@ class penci_product_swatches {
 		$slug   = isset( $_POST['slug'] ) ? sanitize_text_field( $_POST['slug'] ) : '';
 		$swatch = isset( $_POST['swatch'] ) ? sanitize_text_field( $_POST['swatch'] ) : '';
 
-		if ( ! wp_verify_nonce( $nonce, '_penci_create_attribute' ) ) {
+		if ( ! wp_verify_nonce( $nonce, '_goso_create_attribute' ) ) {
 			wp_send_json_error( esc_html__( 'Wrong request', 'authow' ) );
 		}
 
@@ -484,79 +484,79 @@ class penci_product_swatches {
 		}
 		?>
 
-        <div id="penci-modal-container" class="penci-modal-container">
-            <div class="penci-modal">
-                <button type="button" class="button-link media-modal-close penci-modal-close">
+        <div id="goso-modal-container" class="goso-modal-container">
+            <div class="goso-modal">
+                <button type="button" class="button-link media-modal-close goso-modal-close">
                     <span class="media-modal-icon"></span></button>
-                <div class="penci-modal-header"><h2><?php esc_html_e( 'Add new term', 'authow' ) ?></h2></div>
-                <div class="penci-modal-content">
-                    <p class="penci-term-name">
+                <div class="goso-modal-header"><h2><?php esc_html_e( 'Add new term', 'authow' ) ?></h2></div>
+                <div class="goso-modal-content">
+                    <p class="goso-term-name">
                         <label>
 							<?php esc_html_e( 'Name', 'authow' ) ?>
-                            <input type="text" class="widefat penci-input" name="name">
+                            <input type="text" class="widefat goso-input" name="name">
                         </label>
                     </p>
-                    <p class="penci-term-slug">
+                    <p class="goso-term-slug">
                         <label>
 							<?php esc_html_e( 'Slug', 'authow' ) ?>
-                            <input type="text" class="widefat penci-input" name="slug">
+                            <input type="text" class="widefat goso-input" name="slug">
                         </label>
                     </p>
-                    <div class="penci-term-swatch">
+                    <div class="goso-term-swatch">
 
                     </div>
-                    <div class="hidden penci-term-tax"></div>
+                    <div class="hidden goso-term-tax"></div>
 
-                    <input type="hidden" class="penci-input" name="nonce"
-                           value="<?php echo wp_create_nonce( '_penci_create_attribute' ) ?>">
+                    <input type="hidden" class="goso-input" name="nonce"
+                           value="<?php echo wp_create_nonce( '_goso_create_attribute' ) ?>">
                 </div>
-                <div class="penci-modal-footer">
-                    <button class="button button-secondary penci-modal-close"><?php esc_html_e( 'Cancel', 'authow' ) ?></button>
-                    <button class="button button-primary penci-new-attribute-submit"><?php esc_html_e( 'Add New', 'authow' ) ?></button>
+                <div class="goso-modal-footer">
+                    <button class="button button-secondary goso-modal-close"><?php esc_html_e( 'Cancel', 'authow' ) ?></button>
+                    <button class="button button-primary goso-new-attribute-submit"><?php esc_html_e( 'Add New', 'authow' ) ?></button>
                     <span class="message"></span>
                     <span class="spinner"></span>
                 </div>
             </div>
-            <div class="penci-modal-backdrop media-modal-backdrop"></div>
+            <div class="goso-modal-backdrop media-modal-backdrop"></div>
         </div>
 
-        <script type="text/template" id="tmpl-penci-input-color">
+        <script type="text/template" id="tmpl-goso-input-color">
 
-            <label><?php echo penci_woo_translate_text( 'penci_woo_trans_color' ); ?></label><br>
-            <input type="text" class="penci-input penci-input-color" name="swatch">
+            <label><?php echo goso_woo_translate_text( 'goso_woo_trans_color' ); ?></label><br>
+            <input type="text" class="goso-input goso-input-color" name="swatch">
 
         </script>
 
-        <script type="text/template" id="tmpl-penci-input-image">
+        <script type="text/template" id="tmpl-goso-input-image">
 
-            <label><?php penci_woo_translate_text( 'penci_woo_trans_image' ); ?></label><br>
-            <div class="penci-term-image-thumbnail" style="float:left;margin-right:10px;">
+            <label><?php goso_woo_translate_text( 'goso_woo_trans_image' ); ?></label><br>
+            <div class="goso-term-image-thumbnail" style="float:left;margin-right:10px;">
                 <img src="<?php echo esc_url( WC()->plugin_url() . '/assets/images/placeholder.png' ) ?>" width="60px"
                      height="60px"/>
             </div>
             <div style="line-height:60px;">
-                <input type="hidden" class="penci-input penci-input-image penci-term-image" name="swatch" value=""/>
+                <input type="hidden" class="goso-input goso-input-image goso-term-image" name="swatch" value=""/>
                 <button type="button"
-                        class="penci-upload-image-button button"><?php esc_html_e( 'Upload/Add image', 'authow' ); ?></button>
+                        class="goso-upload-image-button button"><?php esc_html_e( 'Upload/Add image', 'authow' ); ?></button>
                 <button type="button"
-                        class="penci-remove-image-button button hidden"><?php esc_html_e( 'Remove image', 'authow' ); ?></button>
+                        class="goso-remove-image-button button hidden"><?php esc_html_e( 'Remove image', 'authow' ); ?></button>
             </div>
 
         </script>
 
-        <script type="text/template" id="tmpl-penci-input-label">
+        <script type="text/template" id="tmpl-goso-input-label">
 
             <label>
 				<?php esc_html_e( 'Label', 'authow' ) ?>
-                <input type="text" class="widefat penci-input penci-input-label" name="swatch">
+                <input type="text" class="widefat goso-input goso-input-label" name="swatch">
             </label>
 
         </script>
 
-        <script type="text/template" id="tmpl-penci-input-tax">
+        <script type="text/template" id="tmpl-goso-input-tax">
 
-            <input type="hidden" class="penci-input" name="taxonomy" value="{{data.tax}}">
-            <input type="hidden" class="penci-input" name="type" value="{{data.type}}">
+            <input type="hidden" class="goso-input" name="taxonomy" value="{{data.tax}}">
+            <input type="hidden" class="goso-input" name="type" value="{{data.type}}">
 
         </script>
 		<?php
@@ -567,7 +567,7 @@ class penci_product_swatches {
 
 
 		$id             = $product->get_id();
-		$attribute_name = penci_get_single_product_meta( $id, 'product_extra_options', 'grid_swatch', get_theme_mod( 'penci_woocommerce_grid_swatch', 'pa_color' ) );
+		$attribute_name = goso_get_single_product_meta( $id, 'product_extra_options', 'grid_swatch', get_theme_mod( 'goso_woocommerce_grid_swatch', 'pa_color' ) );
 		if ( empty( $id ) || ! $product->is_type( 'variable' ) ) {
 			return false;
 		}
@@ -581,8 +581,8 @@ class penci_product_swatches {
 		}
 
 		// Swatches cache
-		$cache          = get_theme_mod( 'penci_woocommerce_grid_swatch_cache', true );
-		$transient_name = 'penci_loop_swatches_cache_' . $id;
+		$cache          = get_theme_mod( 'goso_woocommerce_grid_swatch_cache', true );
+		$transient_name = 'goso_loop_swatches_cache_' . $id;
 
 		if ( $cache ) {
 			$available_variations = get_transient( $transient_name );
@@ -593,7 +593,7 @@ class penci_product_swatches {
 		if ( ! $available_variations ) {
 			$available_variations = $product->get_available_variations();
 			if ( $cache ) {
-				set_transient( $transient_name, $available_variations, apply_filters( 'penci_swatches_cache_time', WEEK_IN_SECONDS ) );
+				set_transient( $transient_name, $available_variations, apply_filters( 'goso_swatches_cache_time', WEEK_IN_SECONDS ) );
 			}
 		}
 
@@ -608,9 +608,9 @@ class penci_product_swatches {
 		}
 		$out = '';
 
-		$out .= '<div class="penci-swatches-list swatches-select">';
+		$out .= '<div class="goso-swatches-list swatches-select">';
 
-		if ( apply_filters( 'penci_swatches_on_grid_right_order', true ) ) {
+		if ( apply_filters( 'goso_swatches_on_grid_right_order', true ) ) {
 			$terms = wc_get_product_terms( $product->get_id(), $attribute_name, array( 'fields' => 'slugs' ) );
 
 			$swatches_to_show_tmp = $swatches_to_show;
@@ -632,7 +632,7 @@ class penci_product_swatches {
 			$style = $class = '';
 			$term  = get_term_by( 'slug', $key, $attribute_name );
 
-			$swatch_limit                  = get_theme_mod( 'penci_woocommerce_grid_swatch_limit', 3 );
+			$swatch_limit                  = get_theme_mod( 'goso_woocommerce_grid_swatch_limit', 3 );
 			$swatches_limit                = true;
 			$swatches_use_variation_images = false;
 			if ( $swatches_limit && count( $swatches_to_show ) > (int) $swatch_limit ) {
@@ -640,7 +640,7 @@ class penci_product_swatches {
 					$class .= ' hidden';
 				}
 				if ( $index === (int) $swatch_limit ) {
-					$out .= '<div class="penci-swatches-divider">+' . ( count( $swatches_to_show ) - (int) $swatch_limit ) . '</div>';
+					$out .= '<div class="goso-swatches-divider">+' . ( count( $swatches_to_show ) - (int) $swatch_limit ) . '</div>';
 				}
 			}
 
@@ -653,7 +653,7 @@ class penci_product_swatches {
 				$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $swatch['variation_id'] ), $img_size );
 				if ( ! empty( $thumb ) ) {
 					$style = 'background-image: url(' . $thumb[0] . ')';
-					$class .= ' swatch-with-bg bg-image penci-tooltip';
+					$class .= ' swatch-with-bg bg-image goso-tooltip';
 				}
 			} elseif ( ! empty( $swatch['image'] ) ) {
 				$style = 'background-image: url(' . wp_get_attachment_image_url( $swatch['image'], 'thumbnail' ) . ')';
@@ -665,7 +665,7 @@ class penci_product_swatches {
 			} else {
 				$class      .= ' no-user-swatch ';
 				$label_text = strtolower( $term->slug );
-				if ( penci_product_is_color_name( $label_text ) ) {
+				if ( goso_product_is_color_name( $label_text ) ) {
 					$class .= ' has-define-bg-color swatch-with-bg ';
 					$style = 'background-color:' . $label_text;
 				}
@@ -686,7 +686,7 @@ class penci_product_swatches {
 			}
 
 
-			$out .= '<div data-tippy-content="' . $term->name . '" class="penci-swatch-item penci-swatch penci-tooltip' . esc_attr( $class ) . '" style="' . esc_attr( $style ) . '" ' . $data . '>' . $term->name . '</div>';
+			$out .= '<div data-tippy-content="' . $term->name . '" class="goso-swatch-item goso-swatch goso-tooltip' . esc_attr( $class ) . '" style="' . esc_attr( $style ) . '" ' . $data . '>' . $term->name . '</div>';
 		}
 
 		$out .= '</div>';
@@ -765,14 +765,14 @@ class penci_product_swatches {
 	}
 
 	public function deleted_transitent( $post ) {
-		$transient_name = 'penci_loop_swatches_cache_' . $post;
+		$transient_name = 'goso_loop_swatches_cache_' . $post;
 		delete_transient( $transient_name );
 	}
 
 	public function preload_icon() {
-		echo '<div class="penci-image-loader"></div>';
+		echo '<div class="goso-image-loader"></div>';
 	}
 
 }
 
-$penci_product_swatches = new penci_product_swatches();
+$goso_product_swatches = new goso_product_swatches();

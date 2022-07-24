@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSingleToc extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'penci-single-toc';
+		return 'goso-single-toc';
 	}
 
 	public function get_title() {
@@ -19,7 +19,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -89,7 +89,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .penci-toc-wrapper' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .goso-toc-wrapper' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -117,7 +117,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			[
 				'label'     => 'General Background Color',
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .penci-toc-wrapper' => 'background-color:{{VALUE}}' ],
+				'selectors' => [ '{{WRAPPER}} .goso-toc-wrapper' => 'background-color:{{VALUE}}' ],
 			]
 		);
 
@@ -126,7 +126,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			[
 				'label'     => 'General Borders Color',
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .penci-toc ol ol, {{WRAPPER}} .penci-toc ol li, {{WRAPPER}} .penci-toc ul li, {{WRAPPER}} .penci-toc ul ul, {{WRAPPER}} .penci-toc-wrapper .penci-toc-head' => 'border-color:{{VALUE}}' ],
+				'selectors' => [ '{{WRAPPER}} .goso-toc ol ol, {{WRAPPER}} .goso-toc ol li, {{WRAPPER}} .goso-toc ul li, {{WRAPPER}} .goso-toc ul ul, {{WRAPPER}} .goso-toc-wrapper .goso-toc-head' => 'border-color:{{VALUE}}' ],
 			]
 		);
 
@@ -134,7 +134,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(), array(
 				'name'     => 'toc_typo',
 				'label'    => __( 'Typography for Heading', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-toc-wrapper .penci-toc-head',
+				'selector' => '{{WRAPPER}} .goso-toc-wrapper .goso-toc-head',
 			)
 		);
 
@@ -143,7 +143,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			[
 				'label'     => 'Heading Color',
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .penci-toc-wrapper .penci-toc-head' => 'color:{{VALUE}}' ],
+				'selectors' => [ '{{WRAPPER}} .goso-toc-wrapper .goso-toc-head' => 'color:{{VALUE}}' ],
 			]
 		);
 
@@ -151,7 +151,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(), array(
 				'name'     => 'toc_1st_class',
 				'label'    => __( 'Typography for Parent Heading', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-toc ul a, {{WRAPPER}} .penci-toc ol a',
+				'selector' => '{{WRAPPER}} .goso-toc ul a, {{WRAPPER}} .goso-toc ol a',
 			)
 		);
 
@@ -160,7 +160,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			[
 				'label'     => 'Parent Color',
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .penci-toc ul > li > a, {{WRAPPER}} .penci-toc ol > li > a' => 'color:{{VALUE}}' ],
+				'selectors' => [ '{{WRAPPER}} .goso-toc ul > li > a, {{WRAPPER}} .goso-toc ol > li > a' => 'color:{{VALUE}}' ],
 			]
 		);
 
@@ -168,7 +168,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(), array(
 				'name'     => 'toc_child_class',
 				'label'    => __( 'Typography for Child Heading', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-toc ul ul a, {{WRAPPER}} .penci-toc ol ol a',
+				'selector' => '{{WRAPPER}} .goso-toc ul ul a, {{WRAPPER}} .goso-toc ol ol a',
 			)
 		);
 
@@ -177,7 +177,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 			[
 				'label'     => 'Child Color',
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [ '{{WRAPPER}} .penci-toc ul ul a, {{WRAPPER}} .penci-toc ol ol a' => 'color:{{VALUE}}' ],
+				'selectors' => [ '{{WRAPPER}} .goso-toc ul ul a, {{WRAPPER}} .goso-toc ol ol a' => 'color:{{VALUE}}' ],
 			]
 		);
 
@@ -186,7 +186,7 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -197,10 +197,10 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$marker   = $settings['marker_view'];
 		?>
-        <div class="penci-toc-wrapper style-<?php echo esc_attr( $marker ); ?>">
-            <div class="penci-toc-head"><?php echo esc_attr( $settings['heading_title'] ); ?></div>
+        <div class="goso-toc-wrapper style-<?php echo esc_attr( $marker ); ?>">
+            <div class="goso-toc-head"><?php echo esc_attr( $settings['heading_title'] ); ?></div>
 
-            <nav class="js-toc penci-toc">
+            <nav class="js-toc goso-toc">
                 <ol class="toc-list ">
                     <li class="toc-list-item is-active-li"><a href="#"
                                                               class="toc-link node-name--H2  is-active-link">Parent
@@ -252,12 +252,12 @@ class GosoSingleToc extends \Elementor\Widget_Base {
 		$tags          = $settings['html_tag'];
 		$marker        = $settings['marker_view'];
 		$validate_tags = is_array( $tags ) ? implode( ',', $settings['html_tag'] ) : $settings['html_tag'];
-		wp_enqueue_script( 'penci-toc', get_template_directory_uri() . '/js/jquery.toc.js', '', PENCI_SOLEDAD_VERSION, true );
-		wp_add_inline_script( 'penci-toc', 'jQuery(".js-toc").toc({content: "div.post-entry", headings: "' . $validate_tags . '"})' );
+		wp_enqueue_script( 'goso-toc', get_template_directory_uri() . '/js/jquery.toc.js', '', PENCI_SOLEDAD_VERSION, true );
+		wp_add_inline_script( 'goso-toc', 'jQuery(".js-toc").toc({content: "div.post-entry", headings: "' . $validate_tags . '"})' );
 		?>
-        <div class="penci-toc-wrapper style-<?php echo esc_attr( $marker ); ?>">
-            <div class="penci-toc-head"><?php echo esc_attr( $settings['heading_title'] ); ?></div>
-            <nav class="penci-toc">
+        <div class="goso-toc-wrapper style-<?php echo esc_attr( $marker ); ?>">
+            <div class="goso-toc-head"><?php echo esc_attr( $settings['heading_title'] ); ?></div>
+            <nav class="goso-toc">
                 <ul class="js-toc"></ul>
             </nav>
         </div>

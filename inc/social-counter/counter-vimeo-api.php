@@ -8,9 +8,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Vimeo_API' ) ):
 
 			$page_id       = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']   = "http://vimeo.com/$page_id";
-			$data['icon']  = penci_icon_by_ver( 'fab fa-vimeo-v' );
-			$default_count = penci_get_social_counter_option( 'vimeo_default' );
-			$cache_key     = 'penci_counter__vimeo' . $page_id;
+			$data['icon']  = goso_icon_by_ver( 'fab fa-vimeo-v' );
+			$default_count = goso_get_social_counter_option( 'vimeo_default' );
+			$cache_key     = 'goso_counter__vimeo' . $page_id;
 			$vimeo_count   = $default_count ? $default_count : get_transient( $cache_key );
 			if ( ! $vimeo_count ) {
 

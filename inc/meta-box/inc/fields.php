@@ -75,21 +75,21 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		public static function get_meta_box_general() {
 
 			// Add an nonce field so we can check for it later.
-			wp_nonce_field( 'penci_inner_custom_box', 'penci_inner_custom_box_nonce' );
+			wp_nonce_field( 'goso_inner_custom_box', 'goso_inner_custom_box_nonce' );
 
 			// Use get_post_meta to retrieve an existing value from the database.
-			$value                   = get_post_meta( self::$post_id, 'penci_custom_sidebar_page_display', true );
-			$value_left              = get_post_meta( self::$post_id, 'penci_custom_sidebar_left_page_field', true );
-			$slider                  = get_post_meta( self::$post_id, 'penci_page_slider', true );
-			$featured_boxes          = get_post_meta( self::$post_id, 'penci_page_display_featured_boxes', true );
-			$pagetitle               = get_post_meta( self::$post_id, 'penci_page_display_title', true );
-			$breadcrumb              = get_post_meta( self::$post_id, 'penci_page_breadcrumb', true );
-			$sharebox                = get_post_meta( self::$post_id, 'penci_page_sharebox', true );
-			$rev_shortcode           = get_post_meta( self::$post_id, 'penci_page_rev_shortcode', true );
-			$hide_header             = get_post_meta( self::$post_id, 'penci_page_hide_header', true );
-			$hide_footer             = get_post_meta( self::$post_id, 'penci_page_hide_footer', true );
-			$page_sidebar            = get_post_meta( self::$post_id, 'penci_sidebar_page_pos', true );
-			$penci_post_critical_css = get_post_meta( self::$post_id, 'penci_post_critical_css', true );
+			$value                   = get_post_meta( self::$post_id, 'goso_custom_sidebar_page_display', true );
+			$value_left              = get_post_meta( self::$post_id, 'goso_custom_sidebar_left_page_field', true );
+			$slider                  = get_post_meta( self::$post_id, 'goso_page_slider', true );
+			$featured_boxes          = get_post_meta( self::$post_id, 'goso_page_display_featured_boxes', true );
+			$pagetitle               = get_post_meta( self::$post_id, 'goso_page_display_title', true );
+			$breadcrumb              = get_post_meta( self::$post_id, 'goso_page_breadcrumb', true );
+			$sharebox                = get_post_meta( self::$post_id, 'goso_page_sharebox', true );
+			$rev_shortcode           = get_post_meta( self::$post_id, 'goso_page_rev_shortcode', true );
+			$hide_header             = get_post_meta( self::$post_id, 'goso_page_hide_header', true );
+			$hide_footer             = get_post_meta( self::$post_id, 'goso_page_hide_footer', true );
+			$page_sidebar            = get_post_meta( self::$post_id, 'goso_sidebar_page_pos', true );
+			$goso_post_critical_css = get_post_meta( self::$post_id, 'goso_post_critical_css', true );
 
 			?>
             <div class="pcmt-control-wrapper">
@@ -100,7 +100,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_page_slider_field" name="penci_page_slider_field">
+                        <select id="goso_page_slider_field" name="goso_page_slider_field">
                             <option value="">None</option>
                             <option value="style-1" <?php selected( $slider, 'style-1' ); ?>>Posts Featured Slider Style
                                 1
@@ -226,71 +226,71 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
             <p class="description">If you select Revolution Slider above, please fill Revolution Slider Shortcode here.
                 This option not apply for Page Template Full Width</p>
             <textarea style="width: 100%; height: 50px;"
-                      name="penci_page_rev_shortcode"><?php if ( $rev_shortcode ): echo $rev_shortcode; endif; ?></textarea>
+                      name="goso_page_rev_shortcode"><?php if ( $rev_shortcode ): echo $rev_shortcode; endif; ?></textarea>
 
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Display Featured
                     Boxes? </h2>
                 <p class="select-button-type">
-                    <select id="penci_page_display_featured_boxes" name="penci_page_display_featured_boxes">
+                    <select id="goso_page_display_featured_boxes" name="goso_page_display_featured_boxes">
                         <option value="">No</option>
                         <option value="yes" <?php selected( $featured_boxes, 'yes' ); ?>>Yes</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Display Page
                     Title? </h2>
                 <p class="select-button-type">
-                    <select id="penci_page_display_title_field" name="penci_page_display_title_field">
+                    <select id="goso_page_display_title_field" name="goso_page_display_title_field">
                         <option value="">Default</option>
                         <option value="yes" <?php selected( $pagetitle, 'yes' ); ?>>Yes</option>
                         <option value="no" <?php selected( $pagetitle, 'no' ); ?>>No</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Display Breadcrumb on
                     This Page?</h2>
                 <p class="select-button-type">
-                    <select id="penci_page_breadcrumb_field" name="penci_page_breadcrumb_field">
+                    <select id="goso_page_breadcrumb_field" name="goso_page_breadcrumb_field">
                         <option value="">Yes</option>
                         <option value="no" <?php selected( $breadcrumb, 'no' ); ?>>No</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Display Share Box on
                     This Page?</h2>
                 <p class="select-button-type">
-                    <select id="penci_page_sharebox_field" name="penci_page_sharebox_field">
+                    <select id="goso_page_sharebox_field" name="goso_page_sharebox_field">
                         <option value="">Yes</option>
                         <option value="no" <?php selected( $sharebox, 'no' ); ?>>No</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
 
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Hide Header on This
                     Page?</h2>
                 <p class="select-button-type">
-                    <select id="penci_page_hide_header_field" name="penci_page_hide_header_field">
+                    <select id="goso_page_hide_header_field" name="goso_page_hide_header_field">
                         <option value="">No</option>
                         <option value="yes" <?php selected( $hide_header, 'yes' ); ?>>Yes</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-metabox-row penci-col-6">
+            <div class="goso-metabox-row goso-col-6">
                 <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Hide Footer on This
                     Page?</h2>
                 <p class="select-button-type">
-                    <select id="penci_page_hide_footer_field" name="penci_page_hide_footer_field">
+                    <select id="goso_page_hide_footer_field" name="goso_page_hide_footer_field">
                         <option value="">No</option>
                         <option value="yes" <?php selected( $hide_footer, 'yes' ); ?>>Yes</option>
                     </select>
                 </p>
             </div>
-            <div class="penci-col-12 pcmt-control-wrapper">
+            <div class="goso-col-12 pcmt-control-wrapper">
                 <div class="pcmt-title">
                     <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Select Sidebar
                         Position
@@ -300,7 +300,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_sidebar_page_pos" name="penci_sidebar_page_pos">
+                        <select id="goso_sidebar_page_pos" name="goso_sidebar_page_pos">
                             <option value=""><?php esc_html_e( "Default", "authow" ); ?></option>
                             <option value="left-sidebar" <?php selected( $page_sidebar, 'left-sidebar' ); ?>><?php esc_html_e( "Left Sidebar", "authow" ); ?></option>
                             <option value="right-sidebar" <?php selected( $page_sidebar, 'right-sidebar' ); ?>><?php esc_html_e( "Right Sidebar", "authow" ); ?></option>
@@ -309,7 +309,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                     </p>
                 </div>
             </div>
-            <div class="penci-col-12 pcmt-control-wrapper">
+            <div class="goso-col-12 pcmt-control-wrapper">
                 <div class="pcmt-title">
                     <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Custom Sidebar for
                         This
@@ -318,7 +318,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_custom_sidebar_page_field" name="penci_custom_sidebar_page_field">
+                        <select id="goso_custom_sidebar_page_field" name="goso_custom_sidebar_page_field">
                             <option value=""><?php esc_html_e( "Default Sidebar( on Customize )", "authow" ); ?></option>
                             <option value="main-sidebar" <?php selected( $value, 'main-sidebar' ); ?>><?php esc_html_e( "Main Sidebar", "authow" ); ?></option>
                             <option value="main-sidebar-left" <?php selected( $value, 'main-sidebar-left' ); ?>><?php esc_html_e( "Main Sidebar Left", "authow" ); ?></option>
@@ -337,7 +337,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                     </p>
                 </div>
             </div>
-            <div class="penci-col-12 pcmt-control-wrapper">
+            <div class="goso-col-12 pcmt-control-wrapper">
                 <div class="pcmt-title">
                     <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Custom Sidebar Left
                         for
@@ -346,7 +346,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_custom_sidebar_left_page_field" name="penci_custom_sidebar_left_page_field">
+                        <select id="goso_custom_sidebar_left_page_field" name="goso_custom_sidebar_left_page_field">
                             <option value=""><?php esc_html_e( "Default Sidebar( on Customize )", "authow" ); ?></option>
                             <option value="main-sidebar" <?php selected( $value_left, 'main-sidebar' ); ?>><?php esc_html_e( "Main Sidebar", "authow" ); ?></option>
                             <option value="main-sidebar-left" <?php selected( $value_left, 'main-sidebar-left' ); ?>><?php esc_html_e( "Main Sidebar Left", "authow" ); ?></option>
@@ -365,15 +365,15 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
                     </p>
                 </div>
             </div>
-			<?php if ( get_theme_mod( 'penci_speed_remove_css' ) ): ?>
-                <div class="penci-metabox-row penci-col-12">
+			<?php if ( get_theme_mod( 'goso_speed_remove_css' ) ): ?>
+                <div class="goso-metabox-row goso-col-12">
 
                     <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;min-width: 200px;">Create a Separate
                         Critical CSS cache for this Page?</h2>
                     <p class="select-button-type">
-                        <select id="penci_post_critical_css" name="penci_post_critical_css">
+                        <select id="goso_post_critical_css" name="goso_post_critical_css">
                             <option value="">No</option>
-                            <option value="yes" <?php selected( $penci_post_critical_css, 'yes' ); ?>>Yes</option>
+                            <option value="yes" <?php selected( $goso_post_critical_css, 'yes' ); ?>>Yes</option>
                         </select>
                     </p>
                 </div>
@@ -387,13 +387,13 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 
 			if ( $tab ) {
 				if ( 'term' == self::$type ) {
-					$penci_pmeta = get_term_meta( self::$post_id, 'penci_pmeta_' . $tab, true );
+					$goso_pmeta = get_term_meta( self::$post_id, 'goso_pmeta_' . $tab, true );
 				} else {
-					$penci_pmeta = get_post_meta( self::$post_id, 'penci_pmeta_' . $tab, true );
+					$goso_pmeta = get_post_meta( self::$post_id, 'goso_pmeta_' . $tab, true );
 				}
 
-				if ( isset( $penci_pmeta[ $field_id ] ) ) {
-					$output = $penci_pmeta[ $field_id ];
+				if ( isset( $goso_pmeta[ $field_id ] ) ) {
+					$output = $goso_pmeta[ $field_id ];
 				}
 			} else {
 				if ( 'term' == self::$type ) {
@@ -410,10 +410,10 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_text( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
 			$placeholder = '';
 			if ( isset( $field['placeholder'] ) && $field['placeholder'] ) {
@@ -438,10 +438,10 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_number( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 			printf( '<input %s type="number" name="%s" id="%s" value="%s">',
 				self::html_attr_input( $field ),
 				$field['id'],
@@ -458,11 +458,11 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_textarea( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			self::html_field_desc( $field['desc'] );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
 			printf( '<textarea %s name="%s" id="%s">%s</textarea>',
 				self::html_attr_input( $field ),
@@ -476,16 +476,16 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		}
 
 		private static function html_field_wysiwyg( $field ) {
-			echo '<div class="penci-metabox-row ' . esc_attr( $field['id'] ) . ( $field['style'] ? ' ' . $field['style'] : '' ) . '">';
+			echo '<div class="goso-metabox-row ' . esc_attr( $field['id'] ) . ( $field['style'] ? ' ' . $field['style'] : '' ) . '">';
 
 			if ( isset( $field['name'] ) && $field['name'] ) {
-				echo '<div class="penci-mb-labeldesc">';
+				echo '<div class="goso-mb-labeldesc">';
 				self::html_field_label( $field );
 				self::html_field_desc( $field['desc'] );
 				echo '</div>';
 			}
 
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
 			$content = self::get_value_input( $field['id'] );
 
@@ -510,10 +510,10 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_checkbox( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
 			$selected = self::get_value_input( $field['id'] );
 
@@ -532,11 +532,11 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_select( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 			printf( '<select %s name="%s" id="%s">%s',
 				self::html_attr_input( $field ),
 				$field['id'],
@@ -562,11 +562,11 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_image_select( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			self::html_field_desc( $field['desc'] );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
 			$value_current = self::get_value_input( $field['id'] );
 
@@ -574,9 +574,9 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 				$value_current = $field['std'];
 			}
 
-			echo '<div class="penci-image-select-wrap">';
+			echo '<div class="goso-image-select-wrap">';
 			$options = $field['options'];
-			$tpl     = '<label class="penci-image-select"><img src="%s"><input type="%s" %s class="penci-image_select" name="%s" value="%s"%s></label>';
+			$tpl     = '<label class="goso-image-select"><img src="%s"><input type="%s" %s class="goso-image_select" name="%s" value="%s"%s></label>';
 
 			$value_current = (array) $value_current;
 			foreach ( (array) $options as $value => $image ) {
@@ -599,12 +599,12 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_color( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			echo '</div>';
-			echo '<div class="penci-mb-input">';
+			echo '<div class="goso-mb-input">';
 
-			printf( '<input class="penci-color-picker rwmb-color" type="text" %s name="%s" id="%s" value="%s">',
+			printf( '<input class="goso-color-picker rwmb-color" type="text" %s name="%s" id="%s" value="%s">',
 				self::html_attr_input( $field ),
 				$field['id'],
 				$field['id'],
@@ -622,7 +622,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		private static function html_field_image( $field ) {
 			self::html_field_div_before( $field['id'], $field['style'] );
 
-			echo '<div class="penci-mb-labeldesc">';
+			echo '<div class="goso-mb-labeldesc">';
 			self::html_field_label( $field );
 			self::html_field_desc( $field['desc'] );
 			echo '</div>';
@@ -630,28 +630,28 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 			$img_id = self::get_value_input( $field['id'] );
 			$url    = wp_get_attachment_thumb_url( $img_id );
 			?>
-            <div class="penci-mb-input penci-widget-image media-widget-control">
-                <input name="<?php echo $field['id']; ?>" type="hidden" class="penci-widget-image__input"
+            <div class="goso-mb-input goso-widget-image media-widget-control">
+                <input name="<?php echo $field['id']; ?>" type="hidden" class="goso-widget-image__input"
                        value="<?php echo esc_attr( $img_id ); ?>">
                 <img src="<?php echo esc_url( $url ); ?>"
-                     class="penci-widget-image__image<?php echo $img_id ? '' : ' hidden'; ?>">
+                     class="goso-widget-image__image<?php echo $img_id ? '' : ' hidden'; ?>">
                 <div class="placeholder <?php echo( $url ? 'hidden' : '' ); ?>"><?php _e( 'No image selected' ); ?></div>
-                <button class="button penci-widget-image__select"><?php esc_html_e( 'Select' ); ?></button>
-                <button class="button penci-widget-image__remove"><?php esc_html_e( 'Remove' ); ?></button>
+                <button class="button goso-widget-image__select"><?php esc_html_e( 'Select' ); ?></button>
+                <button class="button goso-widget-image__remove"><?php esc_html_e( 'Remove' ); ?></button>
             </div>
 			<?php
 			self::html_field_div_after();
 		}
 
 		private static function html_field_custom_html( $field ) {
-			echo '<div class="penci-metabox-row">';
+			echo '<div class="goso-metabox-row">';
 			echo $field['std'];
 			self::html_field_div_after();
 		}
 
 		private static function html_field_srart_accordion( $field ) {
-			echo '<div class="penci-accordion-name ' . $field['std'] . '"><h3>' . $field['name'] . '</h3><span class="handle-repeater"></span></div>';
-			echo '<div class="penci-panel-accordion">';
+			echo '<div class="goso-accordion-name ' . $field['std'] . '"><h3>' . $field['name'] . '</h3><span class="handle-repeater"></span></div>';
+			echo '<div class="goso-panel-accordion">';
 		}
 
 		private static function html_field_end_accordion( $field ) {
@@ -659,7 +659,7 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		}
 
 		private static function html_field_div_before( $field_id, $style ) {
-			echo '<div id="' . esc_attr( $field_id ) . '" class="penci-metabox-row ' . esc_attr( $field_id ) . ( $style ? ' ' . $style : $style ) . '">';
+			echo '<div id="' . esc_attr( $field_id ) . '" class="goso-metabox-row ' . esc_attr( $field_id ) . ( $style ? ' ' . $style : $style ) . '">';
 		}
 
 		private static function html_field_div_after() {
@@ -667,11 +667,11 @@ if ( ! class_exists( 'PENCI_FW_MetaBox_Fields' ) ):
 		}
 
 		private static function html_field_label( $field ) {
-			echo '<label for="' . esc_attr( $field['id'] ) . '" class="penci-metabox-label ' . esc_attr( $field['id'] ) . 'label">' . esc_attr( $field['name'] ) . '</label>';
+			echo '<label for="' . esc_attr( $field['id'] ) . '" class="goso-metabox-label ' . esc_attr( $field['id'] ) . 'label">' . esc_attr( $field['name'] ) . '</label>';
 		}
 
 		private static function html_field_desc( $desc ) {
-			echo '<span class="penci-metabox-desc">' . $desc . '</span>';
+			echo '<span class="goso-metabox-desc">' . $desc . '</span>';
 		}
 
 		private static function html_attr_input( $field ) {

@@ -15,7 +15,7 @@ class GosoSingleTitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoSingleTitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-single-title';
+		return 'goso-single-title';
 	}
 
 	protected function register_controls() {
@@ -188,7 +188,7 @@ class GosoSingleTitle extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();

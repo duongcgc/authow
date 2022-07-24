@@ -1,13 +1,13 @@
 <?php
 
-add_action( 'widgets_init', 'penci_advanced_categories_load_widget' );
+add_action( 'widgets_init', 'goso_advanced_categories_load_widget' );
 
-function penci_advanced_categories_load_widget() {
-	register_widget( 'penci_advanced_categories_widget' );
+function goso_advanced_categories_load_widget() {
+	register_widget( 'goso_advanced_categories_widget' );
 }
 
-if ( ! class_exists( 'penci_advanced_categories_widget' ) ) {
-	class penci_advanced_categories_widget extends WP_Widget {
+if ( ! class_exists( 'goso_advanced_categories_widget' ) ) {
+	class goso_advanced_categories_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -17,20 +17,20 @@ if ( ! class_exists( 'penci_advanced_categories_widget' ) ) {
 
 		function __construct() {
 			/* Widget settings. */
-			$this->classname[] = 'penci_advanced_categories_widget';
+			$this->classname[] = 'goso_advanced_categories_widget';
 			$widget_ops        = array(
 				'classname'   => implode( ',', $this->classname ),
 				'description' => esc_html__( 'A widget that displays a list of category', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_advanced_categories_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_advanced_categories_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_advanced_categories_widget', penci_get_theme_name( '.Authow',true ) . esc_html__( 'Advanced Categories', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_advanced_categories_widget', goso_get_theme_name( '.Authow',true ) . esc_html__( 'Advanced Categories', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_advanced_categories_widget', penci_get_theme_name( '.Authow',true ) . esc_html__( 'Advanced Categories', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_advanced_categories_widget', goso_get_theme_name( '.Authow',true ) . esc_html__( 'Advanced Categories', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -101,28 +101,28 @@ if ( ! class_exists( 'penci_advanced_categories_widget' ) ) {
 
 			$styles = [
 				'color'    => [
-					'color' => '#' . $this->id . '.penci_advanced_categories_widget span.category-item-count, #' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
+					'color' => '#' . $this->id . '.goso_advanced_categories_widget span.category-item-count, #' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
 				],
 				'hcolor'   => [
-					'color' => '#' . $this->id . '.penci_advanced_categories_widget a:hover span.category-item-count,#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
+					'color' => '#' . $this->id . '.goso_advanced_categories_widget a:hover span.category-item-count,#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
 				],
 				'bgcolor'  => [
-					'background-color' => '#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
+					'background-color' => '#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
 				],
 				'bghcolor' => [
-					'background-color' => '#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
+					'background-color' => '#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
 				],
 				'bdcolor'  => [
-					'border-color' => '#' . $this->id . '.penci_advanced_categories_widget ul li,#' . $this->id . '.penci_advanced_categories_widget ul ul, #' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
+					'border-color' => '#' . $this->id . '.goso_advanced_categories_widget ul li,#' . $this->id . '.goso_advanced_categories_widget ul ul, #' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
 				],
 				'bdhcolor' => [
-					'border-color' => '#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
+					'border-color' => '#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link:hover,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a:hover'
 				],
 				'fsize'    => [
-					'font-size' => '#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
+					'font-size' => '#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li a'
 				],
 				'fsizec'   => [
-					'font-size' => '#' . $this->id . '.penci_advanced_categories_widget a.tag-cloud-link .tag-link-count,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li .category-item-count'
+					'font-size' => '#' . $this->id . '.goso_advanced_categories_widget a.tag-cloud-link .tag-link-count,#' . $this->id . ' .pc-widget-advanced-tax.tax-style-1 ul li .category-item-count'
 				],
 			];
 

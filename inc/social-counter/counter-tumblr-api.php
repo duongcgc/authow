@@ -8,9 +8,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Tumblr_API' ) ):
 
 			$page_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = $page_id;
-			$data['icon'] = penci_icon_by_ver( 'fab fa-tumblr' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-tumblr' );
 
-			$default_count = penci_get_social_counter_option( 'tumblr_default' );
+			$default_count = goso_get_social_counter_option( 'tumblr_default' );
 
 
 			$data['count'] = $default_count ? $default_count : 0;

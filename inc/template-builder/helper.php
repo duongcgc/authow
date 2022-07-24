@@ -1,19 +1,19 @@
 <?php
-if ( ! function_exists( 'penci_should_render_archive_template' ) ) {
-	function penci_should_render_archive_template() {
+if ( ! function_exists( 'goso_should_render_archive_template' ) ) {
+	function goso_should_render_archive_template() {
 		$render = false;
 
-		$cat_pages     = get_theme_mod( 'penci_archive_cat_template' );
-		$tag_pages     = get_theme_mod( 'penci_archive_tag_template' );
-		$author_pages  = get_theme_mod( 'penci_archive_author_template' );
-		$date_pages    = get_theme_mod( 'penci_archive_date_template' );
-		$search_paeges = get_theme_mod( 'penci_archive_search_template' );
+		$cat_pages     = get_theme_mod( 'goso_archive_cat_template' );
+		$tag_pages     = get_theme_mod( 'goso_archive_tag_template' );
+		$author_pages  = get_theme_mod( 'goso_archive_author_template' );
+		$date_pages    = get_theme_mod( 'goso_archive_date_template' );
+		$search_paeges = get_theme_mod( 'goso_archive_search_template' );
 
 		if ( is_category() ) {
 			$cat_data          = get_queried_object();
 			$cat_id            = $cat_data->term_id;
 			$custom_cat        = get_option( "category_$cat_id" );
-			$alayout_save_slug = isset( $custom_cat['penci_archive_layout'] ) ? $custom_cat['penci_archive_layout'] : '';
+			$alayout_save_slug = isset( $custom_cat['goso_archive_layout'] ) ? $custom_cat['goso_archive_layout'] : '';
 			$cat_pages         = $alayout_save_slug ? $alayout_save_slug : $cat_pages;
 
 			if ( $cat_pages ) {
@@ -41,13 +41,13 @@ if ( ! function_exists( 'penci_should_render_archive_template' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_should_render_single_template' ) ) {
-	function penci_should_render_single_template() {
+if ( ! function_exists( 'goso_should_render_single_template' ) ) {
+	function goso_should_render_single_template() {
 		$render = false;
 
 		if ( is_singular('post')  ) {
-			$customize_template = get_theme_mod( 'penci_single_custom_template' );
-			$post_template      = get_post_meta( get_the_ID(), 'penci_single_builder_layout', true );
+			$customize_template = get_theme_mod( 'goso_single_custom_template' );
+			$post_template      = get_post_meta( get_the_ID(), 'goso_single_builder_layout', true );
 			$template           = $post_template ? $post_template : $customize_template;
 			$render             = ! empty( $template ) ? $template : false;
 		}
@@ -55,8 +55,8 @@ if ( ! function_exists( 'penci_should_render_single_template' ) ) {
 		return $render;
 	}
 }
-if ( ! function_exists( 'penci_is_builder_template' ) ) {
-	function penci_is_builder_template(): bool {
+if ( ! function_exists( 'goso_is_builder_template' ) ) {
+	function goso_is_builder_template(): bool {
 		global $wp_query;
 		$post_type = get_post( $wp_query->query['p'] )->post_type;
 

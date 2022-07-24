@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoArchivePosts extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-archive-posts';
+		return 'goso-archive-posts';
 	}
 
 	public function get_title() {
@@ -25,7 +25,7 @@ class GosoArchivePosts extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-custom-archive-builder' ];
+		return [ 'goso-custom-archive-builder' ];
 	}
 
 	public function get_keywords() {
@@ -63,7 +63,7 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_style', array(
+			'goso_style', array(
 				'label'   => __( 'Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'grid',
@@ -103,7 +103,7 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_mixed_style', array(
+			'goso_mixed_style', array(
 				'label'     => __( 'Mixed Post Style', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 's1',
@@ -111,7 +111,7 @@ class GosoArchivePosts extends Base_Widget {
 					's1' => esc_html__( 'Style 1', 'authow' ),
 					's2' => esc_html__( 'Style 2', 'authow' ),
 				),
-				'condition' => array( 'penci_style' => array( 'mixed', 'mixed-2' ) ),
+				'condition' => array( 'goso_style' => array( 'mixed', 'mixed-2' ) ),
 			)
 		);
 		$this->add_control(
@@ -133,30 +133,30 @@ class GosoArchivePosts extends Base_Widget {
 						'icon'  => 'eicon-text-align-right'
 					)
 				),
-				'condition'   => array( 'penci_style!' => array( 'overlay', 'boxed-2', 'photography' ) ),
+				'condition'   => array( 'goso_style!' => array( 'overlay', 'boxed-2', 'photography' ) ),
 			)
 		);
 
 		$this->add_responsive_control(
-			'penci_items_martop',
+			'goso_items_martop',
 			array(
 				'label'       => __( 'Rows Gap Between Post Items', 'authow' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => '' ),
 				'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors'   => array(
-					'{{WRAPPER}} .penci-grid > li, {{WRAPPER}} .grid-featured, {{WRAPPER}} .penci-grid li.typography-style, {{WRAPPER}} .grid-mixed, {{WRAPPER}} .penci-grid .list-post.list-boxed-post, {{WRAPPER}} .penci-masonry .item-masonry, {{WRAPPER}} article.standard-article, {{WRAPPER}} .penci-grid li.list-post, {{WRAPPER}} .grid-overlay' => 'margin-bottom: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-grid li.list-post'                                                                                                                                                                                                                                                                                                => 'padding-bottom: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.penci-slistp'                                                                                                                                                                                            => 'padding-bottom: 0px; margin-bottom: 0px; padding-top: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.penci-slistp ~ .penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.penci-slistp ~ .penci-slistp'                                                                                                                                                            => 'margin-top: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.list-post.penci-slistp:last-child, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.list-post.penci-slistp:last-child'                                                                                                                                                  => 'margin-bottom: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-grid > li, {{WRAPPER}} .grid-featured, {{WRAPPER}} .goso-grid li.typography-style, {{WRAPPER}} .grid-mixed, {{WRAPPER}} .goso-grid .list-post.list-boxed-post, {{WRAPPER}} .goso-masonry .item-masonry, {{WRAPPER}} article.standard-article, {{WRAPPER}} .goso-grid li.list-post, {{WRAPPER}} .grid-overlay' => 'margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-grid li.list-post'                                                                                                                                                                                                                                                                                                => 'padding-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.goso-slistp'                                                                                                                                                                                            => 'padding-bottom: 0px; margin-bottom: 0px; padding-top: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.goso-slistp ~ .goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.goso-slistp ~ .goso-slistp'                                                                                                                                                            => 'margin-top: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.list-post.goso-slistp:last-child, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.list-post.goso-slistp:last-child'                                                                                                                                                  => 'margin-bottom: {{SIZE}}px;'
 				),
 				'label_block' => true,
 			)
 		);
 
 		$this->add_responsive_control(
-			'penci_bitems_martop',
+			'goso_bitems_martop',
 			array(
 				'label'       => __( 'Rows Gap for Big Post Items', 'authow' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -167,7 +167,7 @@ class GosoArchivePosts extends Base_Widget {
 				),
 				'label_block' => true,
 				'condition'   => array(
-					'penci_style' => array(
+					'goso_style' => array(
 						'mixed',
 						'mixed-2',
 						'mixed-4',
@@ -189,19 +189,19 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$this->add_responsive_control(
-			'penci_sitems_martop',
+			'goso_sitems_martop',
 			array(
 				'label'       => __( 'Rows Gap for Small List Post Items', 'authow' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => '' ),
 				'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors'   => array(
-					'{{WRAPPER}} .penci-grid li.penci-slistp'                                                                                                                                  => 'margin-bottom: {{SIZE}}px; padding-bottom: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.penci-slistp'                                 => 'padding-bottom: 0px; margin-bottom: 0px; padding-top: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.penci-slistp ~ .penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.penci-slistp ~ .penci-slistp' => 'margin-top: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-grid li.goso-slistp'                                                                                                                                  => 'margin-bottom: {{SIZE}}px; padding-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.goso-slistp'                                 => 'padding-bottom: 0px; margin-bottom: 0px; padding-top: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.goso-slistp ~ .goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.goso-slistp ~ .goso-slistp' => 'margin-top: {{SIZE}}px;',
 				),
 				'label_block' => true,
-				'condition'   => array( 'penci_style' => array( 'mixed-3', 'mixed-4' ) ),
+				'condition'   => array( 'goso_style' => array( 'mixed-3', 'mixed-4' ) ),
 			)
 		);
 
@@ -215,7 +215,7 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_paging', array(
+			'goso_paging', array(
 				'label'     => __( 'Page Navigation Style', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'numbers',
@@ -234,18 +234,18 @@ class GosoArchivePosts extends Base_Widget {
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => 6,
 				'label_block' => true,
-				'condition'   => array( 'penci_paging' => array( 'loadmore', 'scroll' ) ),
+				'condition'   => array( 'goso_paging' => array( 'loadmore', 'scroll' ) ),
 			)
 		);
 		$this->add_responsive_control(
-			'penci_paging_martop',
+			'goso_paging_martop',
 			array(
 				'label'       => __( 'Margin Top for Page Navigation', 'authow' ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => array( 'size' => '' ),
 				'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors'   => array(
-					'{{WRAPPER}} .penci-latest-posts-el .penci-pagination' => 'margin-top: {{SIZE}}{{UNIT}} !important'
+					'{{WRAPPER}} .goso-latest-posts-el .goso-pagination' => 'margin-top: {{SIZE}}{{UNIT}} !important'
 				),
 				'label_block' => true,
 			)
@@ -360,7 +360,7 @@ class GosoArchivePosts extends Base_Widget {
 					'center' => esc_html__( 'Center', 'authow' ),
 					'right'  => esc_html__( 'Right', 'authow' )
 				),
-				'condition' => array( 'penci_style!' => array( 'overlay', 'boxed-1', 'boxed-2', 'photography' ) ),
+				'condition' => array( 'goso_style!' => array( 'overlay', 'boxed-1', 'boxed-2', 'photography' ) ),
 			)
 		);
 
@@ -381,7 +381,7 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_featimg_size', array(
+			'goso_featimg_size', array(
 				'label'                => __( 'Image Size Type', 'authow' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => '',
@@ -392,17 +392,17 @@ class GosoArchivePosts extends Base_Widget {
 					'vertical'   => esc_html__( 'Vertical Size', 'authow' ),
 					'custom'     => esc_html__( 'Custom', 'authow' ),
 				),
-				'selectors'            => array( '{{WRAPPER}} .penci-image-holder:before' => '{{VALUE}}', ),
+				'selectors'            => array( '{{WRAPPER}} .goso-image-holder:before' => '{{VALUE}}', ),
 				'selectors_dictionary' => array(
 					'horizontal' => 'padding-top: 66.6667%;',
 					'square'     => 'padding-top: 100%;',
 					'vertical'   => 'padding-top: 135.4%;',
 				),
-				'condition'            => array( 'penci_style!' => array( 'masonry-2', 'masonry' ) ),
+				'condition'            => array( 'goso_style!' => array( 'masonry-2', 'masonry' ) ),
 			)
 		);
 		$this->add_responsive_control(
-			'penci_featimg_ratio', array(
+			'goso_featimg_ratio', array(
 				'label'          => __( 'Image Ratio', 'authow' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 0.66 ),
@@ -410,9 +410,9 @@ class GosoArchivePosts extends Base_Widget {
 				'mobile_default' => array( 'size' => 0.5 ),
 				'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 				'selectors'      => array(
-					'{{WRAPPER}} .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 				),
-				'condition'      => array( 'penci_featimg_size' => 'custom' ),
+				'condition'      => array( 'goso_featimg_size' => 'custom' ),
 			)
 		);
 
@@ -422,7 +422,7 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => $this->get_list_image_sizes( true ),
-				'condition' => array( 'penci_featimg_size' => 'custom' ),
+				'condition' => array( 'goso_featimg_size' => 'custom' ),
 			)
 		);
 
@@ -433,7 +433,7 @@ class GosoArchivePosts extends Base_Widget {
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '',
 				'options'     => $this->get_list_image_sizes( true ),
-				'condition'   => array( 'penci_featimg_size' => 'custom' ),
+				'condition'   => array( 'goso_featimg_size' => 'custom' ),
 			)
 		);
 
@@ -453,7 +453,7 @@ class GosoArchivePosts extends Base_Widget {
 					'5' => '5',
 					'6' => '6',
 				),
-				'condition'      => array( 'penci_style' => array( 'masonry-2', 'masonry' ) ),
+				'condition'      => array( 'goso_style' => array( 'masonry-2', 'masonry' ) ),
 			)
 		);
 
@@ -464,10 +464,10 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-wrap-masonry'          => 'margin-right: calc({{SIZE}}{{UNIT}} * -1 / 2); margin-left: calc( {{SIZE}}{{UNIT}} * -1 / 2 )',
-					'{{WRAPPER}} .penci-masonry .item-masonry' => 'padding-right: calc({{SIZE}}{{UNIT}} / 2); padding-left: calc({{SIZE}}{{UNIT}} / 2)',
+					'{{WRAPPER}} .goso-wrap-masonry'          => 'margin-right: calc({{SIZE}}{{UNIT}} * -1 / 2); margin-left: calc( {{SIZE}}{{UNIT}} * -1 / 2 )',
+					'{{WRAPPER}} .goso-masonry .item-masonry' => 'padding-right: calc({{SIZE}}{{UNIT}} / 2); padding-left: calc({{SIZE}}{{UNIT}} / 2)',
 				),
-				'condition' => array( 'penci_style' => array( 'masonry' ) ),
+				'condition' => array( 'goso_style' => array( 'masonry' ) ),
 			)
 		);
 
@@ -476,8 +476,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Remove Border Bottom on List Layouts', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-grid li.list-post'                                                                                                                                                                                                                                   => 'padding-bottom: 0; border-bottom: none;',
-					'{{WRAPPER}} .penci-layout-mixed-3 .penci-grid li.penci-slistp, {{WRAPPER}} .penci-layout-mixed-4 .penci-grid li.penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-3 .penci-grid li.penci-slistp, {{WRAPPER}} .penci-latest-posts-mixed-4 .penci-grid li.penci-slistp' => 'border-top: none; padding-top: 0;',
+					'{{WRAPPER}} .goso-grid li.list-post'                                                                                                                                                                                                                                   => 'padding-bottom: 0; border-bottom: none;',
+					'{{WRAPPER}} .goso-layout-mixed-3 .goso-grid li.goso-slistp, {{WRAPPER}} .goso-layout-mixed-4 .goso-grid li.goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-3 .goso-grid li.goso-slistp, {{WRAPPER}} .goso-latest-posts-mixed-4 .goso-grid li.goso-slistp' => 'border-top: none; padding-top: 0;',
 				),
 			)
 		);
@@ -487,8 +487,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Remove Border Left & Right on Share Box', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-post-box-meta.penci-post-box-grid .penci-post-share-box' => 'padding: 0; background: none;',
-					'{{WRAPPER}} .penci-post-box-meta.penci-post-box-grid:before'                => 'content: none;',
+					'{{WRAPPER}} .goso-post-box-meta.goso-post-box-grid .goso-post-share-box' => 'padding: 0; background: none;',
+					'{{WRAPPER}} .goso-post-box-meta.goso-post-box-grid:before'                => 'content: none;',
 				),
 			)
 		);
@@ -545,7 +545,7 @@ class GosoArchivePosts extends Base_Widget {
 						'icon'  => 'eicon-text-align-right'
 					)
 				),
-				'condition'   => array( 'penci_style!' => array( 'overlay', 'boxed-2', 'photography' ) ),
+				'condition'   => array( 'goso_style!' => array( 'overlay', 'boxed-2', 'photography' ) ),
 			)
 		);
 
@@ -600,12 +600,12 @@ class GosoArchivePosts extends Base_Widget {
 				),
 				'devices'     => array( 'desktop', 'tablet' ),
 				'selectors'   => array(
-					'{{WRAPPER}} .penci-grid li.list-post.penci-slistp .item > .thumbnail, {{WRAPPER}} .penci-latest-posts-sc .penci-grid li.list-post .item > .thumbnail' => 'width: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .penci-latest-posts-sc .penci-grid li.penci-item-listp .item .content-list-right'                                                         => 'width: calc( 100% - {{SIZE}}{{UNIT}} )',
+					'{{WRAPPER}} .goso-grid li.list-post.goso-slistp .item > .thumbnail, {{WRAPPER}} .goso-latest-posts-sc .goso-grid li.list-post .item > .thumbnail' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .goso-latest-posts-sc .goso-grid li.goso-item-listp .item .content-list-right'                                                         => 'width: calc( 100% - {{SIZE}}{{UNIT}} )',
 				),
 				'label_block' => true,
 				'condition'   => array(
-					'penci_style' => array(
+					'goso_style' => array(
 						'list',
 						'small-list',
 						'mixed-3',
@@ -681,13 +681,13 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Post Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-grid li.list-post'                          => 'border-color: {{VALUE}} !important;',
-					'{{WRAPPER}} .penci-grid .list-post.list-boxed-post'            => 'border-color: {{VALUE}} !important;',
-					'{{WRAPPER}} .penci-grid li.list-boxed-post-2 .content-boxed-2' => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .goso-grid li.list-post'                          => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .goso-grid .list-post.list-boxed-post'            => 'border-color: {{VALUE}} !important;',
+					'{{WRAPPER}} .goso-grid li.list-boxed-post-2 .content-boxed-2' => 'border-color: {{VALUE}} !important;',
 					'{{WRAPPER}} .grid-mixed'                                       => 'border-color: {{VALUE}} !important;',
 				),
 				'condition' => array(
-					'penci_style' => array(
+					'goso_style' => array(
 						'list',
 						'boxed-1',
 						'boxed-2',
@@ -708,8 +708,8 @@ class GosoArchivePosts extends Base_Widget {
 		$ptitle_typo .= '{{WRAPPER}} .header-standard .entry-title,{{WRAPPER}} .header-standard .entry-title a,';
 		$ptitle_typo .= '{{WRAPPER}} .overlay-header-box .entry-title,{{WRAPPER}} .overlay-header-box .entry-title a,';
 		$ptitle_typo .= '{{WRAPPER}} .header-standard h2, {{WRAPPER}} .header-standard h2 a,';
-		$ptitle_typo .= '{{WRAPPER}} .penci-grid li .item h2 a, {{WRAPPER}} .penci-grid li .item h2 a,';
-		$ptitle_typo .= '{{WRAPPER}} .penci-masonry .item-masonry h2 a,{{WRAPPER}} .penci-masonry .item-masonry h2 a';
+		$ptitle_typo .= '{{WRAPPER}} .goso-grid li .item h2 a, {{WRAPPER}} .goso-grid li .item h2 a,';
+		$ptitle_typo .= '{{WRAPPER}} .goso-masonry .item-masonry h2 a,{{WRAPPER}} .goso-masonry .item-masonry h2 a';
 		$this->add_control(
 			'ptitle_color', array(
 				'label'     => __( 'Color', 'authow' ),
@@ -728,7 +728,7 @@ class GosoArchivePosts extends Base_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .header-standard h2 a:hover,{{WRAPPER}} .entry-title a:hover'                        => 'color: {{VALUE}};',
 					'{{WRAPPER}} .overlay-header-box .overlay-title a:hover'                                          => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-grid li .item h2 a:hover,{{WRAPPER}} .penci-masonry .item-masonry h2 a:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-grid li .item h2 a:hover,{{WRAPPER}} .goso-masonry .item-masonry h2 a:hover' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -738,8 +738,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Color for Big Post', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .grid-overlay .penci-entry-title a' => 'color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'selectors' => array( '{{WRAPPER}} .grid-overlay .goso-entry-title a' => 'color: {{VALUE}};' ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 		$this->add_control(
@@ -747,8 +747,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Color for Big Post', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .grid-overlay .penci-entry-title a:hover' => 'color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'selectors' => array( '{{WRAPPER}} .grid-overlay .goso-entry-title a:hover' => 'color: {{VALUE}};' ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 
@@ -764,22 +764,22 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-latest-posts-mixed-2 .item.overlay-layout .entry-title a'             => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed .grid-mixed .entry-title a'                        => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid article.format-standard .entry-title a'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid-2 article.format-standard .entry-title a'  => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-list article.format-standard .entry-title a'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-boxed-1 article.format-standard .entry-title a' => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid article.format-standard .entry-title a'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid-2 article.format-standard .entry-title a'   => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-list article.format-standard .entry-title a'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid .overlay-header-box .entry-title a'         => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid-2 .overlay-header-box .entry-title a'       => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-list .overlay-header-box .entry-title a'         => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-boxed-1 .overlay-header-box .entry-title a'      => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed-4 .penci-featured-infor .entry-title a'            => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-2 .item.overlay-layout .entry-title a'             => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed .grid-mixed .entry-title a'                        => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid article.format-standard .entry-title a'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid-2 article.format-standard .entry-title a'  => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-list article.format-standard .entry-title a'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-boxed-1 article.format-standard .entry-title a' => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid article.format-standard .entry-title a'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid-2 article.format-standard .entry-title a'   => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-list article.format-standard .entry-title a'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid .overlay-header-box .entry-title a'         => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid-2 .overlay-header-box .entry-title a'       => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-list .overlay-header-box .entry-title a'         => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-boxed-1 .overlay-header-box .entry-title a'      => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-4 .goso-featured-infor .entry-title a'            => 'font-size: {{SIZE}}px !important',
 				),
-				'condition' => array( 'penci_style' => $style_big_post ),
+				'condition' => array( 'goso_style' => $style_big_post ),
 			)
 		);
 		// Post meta
@@ -799,8 +799,8 @@ class GosoArchivePosts extends Base_Widget {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .header-standard .author-post span,' .
-					'{{WRAPPER}} .penci-post-box-meta .penci-box-meta span,' .
-					'{{WRAPPER}} .penci-post-box-meta .penci-box-meta a'             => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-post-box-meta .goso-box-meta span,' .
+					'{{WRAPPER}} .goso-post-box-meta .goso-box-meta a'             => 'color: {{VALUE}};',
 					'{{WRAPPER}} .overlay-author span,{{WRAPPER}} .overlay-author a' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .overlay-post-box-meta .overlay-share span,' .
 					'{{WRAPPER}} .overlay-post-box-meta .overlay-share a,' .
@@ -828,7 +828,7 @@ class GosoArchivePosts extends Base_Widget {
 				'selectors' => array(
 					'{{WRAPPER}} .grid-overlay .overlay-author span,{{WRAPPER}} .grid-overlay .overlay-author a' => 'color: {{VALUE}};',
 				),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 
@@ -839,7 +839,7 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-post-box-meta .penci-box-meta a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-post-box-meta .goso-box-meta a:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .overlay-author a:hover'                      => 'color: {{VALUE}};',
 					'{{WRAPPER}} .grid-post-box-meta span a:hover'             => 'color: {{VALUE}};',
 				),
@@ -847,15 +847,15 @@ class GosoArchivePosts extends Base_Widget {
 		);
 
 		$pmeta_typo = '{{WRAPPER}} .header-standard .author-post,';
-		$pmeta_typo .= '{{WRAPPER}} .penci-post-box-meta .penci-box-meta span,';
-		$pmeta_typo .= '{{WRAPPER}} .penci-post-box-meta .penci-box-meta a,';
+		$pmeta_typo .= '{{WRAPPER}} .goso-post-box-meta .goso-box-meta span,';
+		$pmeta_typo .= '{{WRAPPER}} .goso-post-box-meta .goso-box-meta a,';
 		$pmeta_typo .= '{{WRAPPER}} .overlay-author a,';
 		$pmeta_typo .= '{{WRAPPER}} .overlay-header-box .overlay-author,';
 		$pmeta_typo .= '{{WRAPPER}} .grid-post-box-meta';
 
 		$pmeta_typo_bpost = '{{WRAPPER}} %1$s .header-standard .author-post,';
-		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .penci-post-box-meta .penci-box-meta span,';
-		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .penci-post-box-meta .penci-box-meta a,';
+		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .goso-post-box-meta .goso-box-meta span,';
+		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .goso-post-box-meta .goso-box-meta a,';
 		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .overlay-author a,';
 		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .overlay-header-box .overlay-author,';
 		$pmeta_typo_bpost .= '{{WRAPPER}} %1$s .grid-post-box-meta';
@@ -872,22 +872,22 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-mixed .grid-mixed' )                        => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-mixed-2 .item.overlay-layout' )             => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-standard-grid article.format-standard' )    => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-standard-grid-2 article.format-standard' )  => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-standard-list article.format-standard' )    => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-standard-boxed-1 article.format-standard' ) => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-classic-grid article.format-standard' )     => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-classic-grid-2 article.format-standard' )   => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-classic-list article.format-standard' )     => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-overlay-grid .overlay-layout' )             => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-overlay-grid-2 .overlay-layout' )           => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-overlay-list .overlay-layout' )             => 'font-size: {{SIZE}}px !important',
-					sprintf( $pmeta_typo_bpost, '.penci-latest-posts-overlay-boxed-1 .overlay-layout' )          => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed-4 .penci-featured-infor .grid-post-box-meta'          => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-mixed .grid-mixed' )                        => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-mixed-2 .item.overlay-layout' )             => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-standard-grid article.format-standard' )    => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-standard-grid-2 article.format-standard' )  => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-standard-list article.format-standard' )    => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-standard-boxed-1 article.format-standard' ) => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-classic-grid article.format-standard' )     => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-classic-grid-2 article.format-standard' )   => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-classic-list article.format-standard' )     => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-overlay-grid .overlay-layout' )             => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-overlay-grid-2 .overlay-layout' )           => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-overlay-list .overlay-layout' )             => 'font-size: {{SIZE}}px !important',
+					sprintf( $pmeta_typo_bpost, '.goso-latest-posts-overlay-boxed-1 .overlay-layout' )          => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-4 .goso-featured-infor .grid-post-box-meta'          => 'font-size: {{SIZE}}px !important',
 				),
-				'condition' => array( 'penci_style' => $style_big_post ),
+				'condition' => array( 'goso_style' => $style_big_post ),
 			)
 		);
 
@@ -899,9 +899,9 @@ class GosoArchivePosts extends Base_Widget {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .header-standard:after'                        => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-overlay-over .overlay-header-box:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-overlay-over .overlay-header-box:after' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .grid-header-box:after'                        => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-post-box-meta'                          => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-post-box-meta'                          => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -911,16 +911,16 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .grid-overlay .penci-overlay-over .overlay-header-box:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .grid-overlay .goso-overlay-over .overlay-header-box:after' => 'background-color: {{VALUE}};',
 				),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 
 
 		// Post Excrept
 		$markup_excrept = '{{WRAPPER}} .post-entry.standard-post-entry, {{WRAPPER}} .post-entry.standard-post-entry p,';
-		$markup_excrept .= '{{WRAPPER}} .penci-grid .entry-content,{{WRAPPER}} .penci-grid .entry-content p,';
+		$markup_excrept .= '{{WRAPPER}} .goso-grid .entry-content,{{WRAPPER}} .goso-grid .entry-content p,';
 		$markup_excrept .= '{{WRAPPER}} .entry-content,{{WRAPPER}} .entry-content p';
 
 		$this->add_control(
@@ -952,17 +952,17 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-latest-posts-mixed .grid-mixed .entry-content,{{WRAPPER}} .penci-latest-posts-mixed .grid-mixed .entry-content p'                                               => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-standard-grid article.format-standard .entry-content p'       => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid-2 article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-standard-grid-2 article.format-standard .entry-content p'   => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-list article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-standard-list article.format-standard .entry-content p'       => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-boxed-1 article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-standard-boxed-1 article.format-standard .entry-content p' => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-classic-grid article.format-standard .entry-content p'         => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid-2 article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-classic-grid-2 article.format-standard .entry-content p'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-list article.format-standard .entry-content,{{WRAPPER}} .penci-latest-posts-classic-list article.format-standard .entry-content p'         => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed .grid-mixed .entry-content,{{WRAPPER}} .goso-latest-posts-mixed .grid-mixed .entry-content p'                                               => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-standard-grid article.format-standard .entry-content p'       => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid-2 article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-standard-grid-2 article.format-standard .entry-content p'   => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-list article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-standard-list article.format-standard .entry-content p'       => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-boxed-1 article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-standard-boxed-1 article.format-standard .entry-content p' => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-classic-grid article.format-standard .entry-content p'         => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid-2 article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-classic-grid-2 article.format-standard .entry-content p'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-list article.format-standard .entry-content,{{WRAPPER}} .goso-latest-posts-classic-list article.format-standard .entry-content p'         => 'font-size: {{SIZE}}px !important',
 				),
 				'condition' => array(
-					'penci_style' => array(
+					'goso_style' => array(
 						'mixed',
 						'standard-grid',
 						'standard-grid-2',
@@ -990,9 +990,9 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .cat > a.penci-cat-name'                                                                        => 'color: {{VALUE}};',
-					'{{WRAPPER}} .cat > a.penci-cat-name:after, {{WRAPPER}} .overlay-header-box .cat > a.penci-cat-name:after'   => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-grid .cat a.penci-cat-name:after,{{WRAPPER}} .penci-masonry .cat a.penci-cat-name:after' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .cat > a.goso-cat-name'                                                                        => 'color: {{VALUE}};',
+					'{{WRAPPER}} .cat > a.goso-cat-name:after, {{WRAPPER}} .overlay-header-box .cat > a.goso-cat-name:after'   => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-grid .cat a.goso-cat-name:after,{{WRAPPER}} .goso-masonry .cat a.goso-cat-name:after' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1001,7 +1001,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .cat > a.penci-cat-name:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .cat > a.goso-cat-name:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1010,10 +1010,10 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .grid-overlay .cat > a.penci-cat-name'                                                                                            => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-featured-infor .cat > a.penci-cat-name:after, {{WRAPPER}} .grid-overlay .overlay-header-box .cat > a.penci-cat-name:after' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .grid-overlay .cat > a.goso-cat-name'                                                                                            => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-featured-infor .cat > a.goso-cat-name:after, {{WRAPPER}} .grid-overlay .overlay-header-box .cat > a.goso-cat-name:after' => 'border-color: {{VALUE}};',
 				),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 		$this->add_control(
@@ -1021,15 +1021,15 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Color for Big Post', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .grid-overlay .cat > a.penci-cat-name:hover' => 'color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $color_big_post ),
+				'selectors' => array( '{{WRAPPER}} .grid-overlay .cat > a.goso-cat-name:hover' => 'color: {{VALUE}};' ),
+				'condition' => array( 'goso_style' => $color_big_post ),
 			)
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pcat_typo',
-				'selector' => '{{WRAPPER}} .cat > a.penci-cat-name',
+				'selector' => '{{WRAPPER}} .cat > a.goso-cat-name',
 			)
 		);
 		$this->add_responsive_control(
@@ -1038,22 +1038,22 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-latest-posts-mixed .grid-mixed .cat > a.penci-cat-name'                        => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed-2 .item.overlay-layout .cat > a.penci-cat-name'             => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid article.format-standard .cat > a.penci-cat-name'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid-2 article.format-standard .cat > a.penci-cat-name'  => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-list article.format-standard .cat > a.penci-cat-name'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-boxed-1 article.format-standard .cat > a.penci-cat-name' => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid article.format-standard .cat > a.penci-cat-name'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid-2 article.format-standard .cat > a.penci-cat-name'   => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-list article.format-standard .cat > a.penci-cat-name'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid .grid-overlay .cat > a.penci-cat-name'               => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid-2 .grid-overlay .cat > a.penci-cat-name'             => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-list .grid-overlay .cat > a.penci-cat-name'               => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-boxed-1 .grid-overlay .cat > a.penci-cat-name'            => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed-4 .penci-featured-infor .cat > a.penci-cat-name'            => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed .grid-mixed .cat > a.goso-cat-name'                        => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-2 .item.overlay-layout .cat > a.goso-cat-name'             => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid article.format-standard .cat > a.goso-cat-name'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid-2 article.format-standard .cat > a.goso-cat-name'  => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-list article.format-standard .cat > a.goso-cat-name'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-boxed-1 article.format-standard .cat > a.goso-cat-name' => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid article.format-standard .cat > a.goso-cat-name'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid-2 article.format-standard .cat > a.goso-cat-name'   => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-list article.format-standard .cat > a.goso-cat-name'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid .grid-overlay .cat > a.goso-cat-name'               => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid-2 .grid-overlay .cat > a.goso-cat-name'             => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-list .grid-overlay .cat > a.goso-cat-name'               => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-boxed-1 .grid-overlay .cat > a.goso-cat-name'            => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-4 .goso-featured-infor .cat > a.goso-cat-name'            => 'font-size: {{SIZE}}px !important',
 				),
-				'condition' => array( 'penci_style' => $style_big_post ),
+				'condition' => array( 'goso_style' => $style_big_post ),
 			)
 		);
 
@@ -1072,7 +1072,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-more-link a.more-link' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-more-link a.more-link' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1081,7 +1081,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Text Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-more-link a.more-link:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-more-link a.more-link:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1090,7 +1090,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-readmore-btn a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-readmore-btn a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1099,7 +1099,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Text Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-readmore-btn a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-readmore-btn a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1108,7 +1108,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-readmore-btn.penci-btn-make-button a' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-readmore-btn.goso-btn-make-button a' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1117,21 +1117,21 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Background Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-readmore-btn.penci-btn-make-button a:hover' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-readmore-btn.goso-btn-make-button a:hover' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'label'    => __( 'Continue Reading Typography', 'authow' ),
 				'name'     => 'readmore_text_typo',
-				'selector' => '{{WRAPPER}} .penci-more-link a.more-link',
+				'selector' => '{{WRAPPER}} .goso-more-link a.more-link',
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'label'    => __( 'Read More Button Typography', 'authow' ),
 				'name'     => 'readmorebtn_text_typo',
-				'selector' => '{{WRAPPER}} .penci-readmore-btn a',
+				'selector' => '{{WRAPPER}} .goso-readmore-btn a',
 			)
 		);
 		$this->add_control(
@@ -1140,7 +1140,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Line Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-more-link a.more-link:before,{{WRAPPER}} .penci-more-link a.more-link:after' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-more-link a.more-link:before,{{WRAPPER}} .goso-more-link a.more-link:after' => 'border-color: {{VALUE}};' ),
 			)
 		);
 
@@ -1159,7 +1159,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-post-box-meta .penci-post-share-box a, {{WRAPPER}} .penci-featured-share-box a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-post-box-meta .goso-post-share-box a, {{WRAPPER}} .goso-featured-share-box a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1168,7 +1168,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-post-box-meta .penci-post-share-box a:hover, {{WRAPPER}} .penci-featured-share-box a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-post-box-meta .goso-post-share-box a:hover, {{WRAPPER}} .goso-featured-share-box a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1177,8 +1177,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-featured-share-box .penci-shareic, {{WRAPPER}} .penci-featured-share-box .penci-shareso' => 'background-color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $style_extra_post ),
+				'selectors' => array( '{{WRAPPER}} .goso-featured-share-box .goso-shareic, {{WRAPPER}} .goso-featured-share-box .goso-shareso' => 'background-color: {{VALUE}};' ),
+				'condition' => array( 'goso_style' => $style_extra_post ),
 			)
 		);
 		$this->add_control(
@@ -1187,13 +1187,13 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Line Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-post-box-meta.penci-post-box-grid:before' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-post-box-meta.goso-post-box-grid:before' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'socialshare_typo',
-				'selector' => '{{WRAPPER}} .penci-post-box-meta .penci-post-share-box a',
+				'selector' => '{{WRAPPER}} .goso-post-box-meta .goso-post-share-box a',
 			)
 		);
 		$this->add_responsive_control(
@@ -1202,22 +1202,22 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-latest-posts-mixed-2 .item.overlay-layout .penci-post-box-meta .penci-post-share-box a'             => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed .grid-mixed .penci-post-box-meta .penci-post-share-box a'                        => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid article.format-standard .penci-post-box-meta .penci-post-share-box a'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-grid-2 article.format-standard .penci-post-box-meta .penci-post-share-box a'  => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-list article.format-standard .penci-post-box-meta .penci-post-share-box a'    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-standard-boxed-1 article.format-standard .penci-post-box-meta .penci-post-share-box a' => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid article.format-standard .penci-post-box-meta .penci-post-share-box a'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-grid-2 article.format-standard .penci-post-box-meta .penci-post-share-box a'   => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-classic-list article.format-standard .penci-post-box-meta .penci-post-share-box a'     => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid .grid-overlay .penci-post-share-box a'                                    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-grid-2 .grid-overlay .penci-post-share-box a'                                  => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-list .grid-overlay .penci-post-share-box a'                                    => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-overlay-boxed-1 .grid-overlay .penci-post-share-box a'                                 => 'font-size: {{SIZE}}px !important',
-					'{{WRAPPER}} .penci-latest-posts-mixed-4 .grid-featured .penci-post-share-box a'                                        => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-2 .item.overlay-layout .goso-post-box-meta .goso-post-share-box a'             => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed .grid-mixed .goso-post-box-meta .goso-post-share-box a'                        => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid article.format-standard .goso-post-box-meta .goso-post-share-box a'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-grid-2 article.format-standard .goso-post-box-meta .goso-post-share-box a'  => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-list article.format-standard .goso-post-box-meta .goso-post-share-box a'    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-standard-boxed-1 article.format-standard .goso-post-box-meta .goso-post-share-box a' => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid article.format-standard .goso-post-box-meta .goso-post-share-box a'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-grid-2 article.format-standard .goso-post-box-meta .goso-post-share-box a'   => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-classic-list article.format-standard .goso-post-box-meta .goso-post-share-box a'     => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid .grid-overlay .goso-post-share-box a'                                    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-grid-2 .grid-overlay .goso-post-share-box a'                                  => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-list .grid-overlay .goso-post-share-box a'                                    => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-overlay-boxed-1 .grid-overlay .goso-post-share-box a'                                 => 'font-size: {{SIZE}}px !important',
+					'{{WRAPPER}} .goso-latest-posts-mixed-4 .grid-featured .goso-post-share-box a'                                        => 'font-size: {{SIZE}}px !important',
 				),
-				'condition' => array( 'penci_style' => $style_big_post ),
+				'condition' => array( 'goso_style' => $style_big_post ),
 			)
 		);
 
@@ -1228,7 +1228,7 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Extra Options', 'authow' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => array( 'penci_style' => $style_extra_post ),
+				'condition' => array( 'goso_style' => $style_extra_post ),
 			)
 		);
 
@@ -1239,7 +1239,7 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array( '{{WRAPPER}} .grid-featured' => 'border-color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $style_extra_post ),
+				'condition' => array( 'goso_style' => $style_extra_post ),
 			)
 		);
 
@@ -1250,7 +1250,7 @@ class GosoArchivePosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array( '{{WRAPPER}} .grid-featured' => 'background-color: {{VALUE}};' ),
-				'condition' => array( 'penci_style' => $style_extra_post ),
+				'condition' => array( 'goso_style' => $style_extra_post ),
 			)
 		);
 
@@ -1267,7 +1267,7 @@ class GosoArchivePosts extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pagination_typography',
-				'selector' => '{{WRAPPER}} .penci-pagination ul.page-numbers li a i, {{WRAPPER}} .penci-pagination ul.page-numbers li span,{{WRAPPER}} .penci-pagination ul.page-numbers li a, {{WRAPPER}}  .penci-pagination.penci-ajax-more a.penci-ajax-more-button'
+				'selector' => '{{WRAPPER}} .goso-pagination ul.page-numbers li a i, {{WRAPPER}} .goso-pagination ul.page-numbers li span,{{WRAPPER}} .goso-pagination ul.page-numbers li a, {{WRAPPER}}  .goso-pagination.goso-ajax-more a.goso-ajax-more-button'
 			)
 		);
 		$this->add_responsive_control(
@@ -1275,8 +1275,8 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Font size for Load More Icon', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pagination a.penci-ajax-more-button i, {{WRAPPER}}  .penci-pagination .disable-url i' => 'font-size: {{SIZE}}px' ),
-				'condition' => array( 'penci_paging' => array( 'loadmore', 'scroll' ) ),
+				'selectors' => array( '{{WRAPPER}} .goso-pagination a.goso-ajax-more-button i, {{WRAPPER}}  .goso-pagination .disable-url i' => 'font-size: {{SIZE}}px' ),
+				'condition' => array( 'goso_paging' => array( 'loadmore', 'scroll' ) ),
 			)
 		);
 		$this->add_control(
@@ -1300,9 +1300,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span,'                 => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a'                     => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span,'                 => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a'                     => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -1311,9 +1311,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span,'                 => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a'                     => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button' => 'border-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span,'                 => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a'                     => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button' => 'border-color: {{VALUE}};'
 				)
 			)
 		);
@@ -1322,9 +1322,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span,'                 => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a'                     => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span,'                 => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a'                     => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button' => 'background-color: {{VALUE}};'
 				)
 			)
 		);
@@ -1342,9 +1342,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}}  .penci-pagination.penci-ajax-more a.penci-ajax-more-button:hover' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'                      => 'color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current'                 => 'color: {{VALUE}}'
+					'{{WRAPPER}}  .goso-pagination.goso-ajax-more a.goso-ajax-more-button:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'                      => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current'                 => 'color: {{VALUE}}'
 				)
 			)
 		);
@@ -1353,9 +1353,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}}  .penci-pagination.penci-ajax-more a.penci-ajax-more-button:hover' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'                      => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current'                 => 'border-color: {{VALUE}}'
+					'{{WRAPPER}}  .goso-pagination.goso-ajax-more a.goso-ajax-more-button:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'                      => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current'                 => 'border-color: {{VALUE}}'
 				)
 			)
 		);
@@ -1364,9 +1364,9 @@ class GosoArchivePosts extends Base_Widget {
 				'label'     => __( 'Hover Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button:hover' => 'background-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'                     => 'background-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current'                => 'background-color: {{VALUE}}'
+					'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'                     => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current'                => 'background-color: {{VALUE}}'
 				)
 			)
 		);
@@ -1382,7 +1382,7 @@ class GosoArchivePosts extends Base_Widget {
 				'separator' => 'before',
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pagination' => 'margin-top: {{SIZE}}{{UNIT}}'
+					'{{WRAPPER}} .goso-pagination' => 'margin-top: {{SIZE}}{{UNIT}}'
 				)
 			)
 		);
@@ -1445,9 +1445,9 @@ class GosoArchivePosts extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$query_data_check = penci_elementor_is_edit_mode() ? 'post' : 'current_query';
+		$query_data_check = goso_elementor_is_edit_mode() ? 'post' : 'current_query';
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$query_data = [
 				'posts_post_type' => 'post',
 			];
@@ -1479,9 +1479,9 @@ class GosoArchivePosts extends Base_Widget {
 			'heading_title_align' => $settings['block_title_align'],
 			'heading_icon_pos'    => $settings['heading_icon_pos'],
 			'heading_icon'        => $settings['heading_icon'],
-			'style'               => $settings['penci_style'],
-			'paging'              => $settings['penci_paging'],
-			'penci_mixed_style'   => $settings['penci_mixed_style'],
+			'style'               => $settings['goso_style'],
+			'paging'              => $settings['goso_paging'],
+			'goso_mixed_style'   => $settings['goso_mixed_style'],
 			'morenum'             => $settings['morenum'],
 
 			'standard_meta_overlay'   => $settings['standard_meta_overlay'],
@@ -1526,8 +1526,8 @@ class GosoArchivePosts extends Base_Widget {
 			'grid_excerpt_align'      => $settings['grid_excerpt_align'],
 			'standard_title_length'   => $settings['standard_title_length'],
 			'grid_title_length'       => $settings['grid_title_length'],
-			'penci_featimg_size'      => $settings['penci_featimg_size'],
-			'penci_featimg_ratio'     => $settings['penci_featimg_ratio'],
+			'goso_featimg_size'      => $settings['goso_featimg_size'],
+			'goso_featimg_ratio'     => $settings['goso_featimg_ratio'],
 			'thumb_size'              => $settings['thumb_size'],
 			'thumb_bigsize'           => $settings['thumb_bigsize'],
 			'order_columns'           => $order_columns,

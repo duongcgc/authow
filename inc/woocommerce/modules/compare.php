@@ -1,33 +1,33 @@
 <?php
 
-class penci_product_compare {
+class goso_product_compare {
 
 	private $save_compare = '';
 
 	function __construct() {
 
-		add_action( 'wp_ajax_nopriv_penci_add_to_compare', array( $this, 'add_to_compare' ) );
-		add_action( 'wp_ajax_penci_add_to_compare', array( $this, 'add_to_compare' ) );
+		add_action( 'wp_ajax_nopriv_goso_add_to_compare', array( $this, 'add_to_compare' ) );
+		add_action( 'wp_ajax_goso_add_to_compare', array( $this, 'add_to_compare' ) );
 
-		if ( get_theme_mod( 'penci_woocommerce_compare_show', true ) ) {
-			add_action( 'penci_loop_product_buttons', array( $this, 'compare_button' ) );
+		if ( get_theme_mod( 'goso_woocommerce_compare_show', true ) ) {
+			add_action( 'goso_loop_product_buttons', array( $this, 'compare_button' ) );
 		}
 
-		add_action( 'penci_single_product_extra_buttons', array( $this, 'compare_button' ), 10 );
-		$this->save_compare = 'penci_compare_products';
+		add_action( 'goso_single_product_extra_buttons', array( $this, 'compare_button' ), 10 );
+		$this->save_compare = 'goso_compare_products';
 
 		if ( is_multisite() ) {
 			$this->save_compare .= '_' . get_current_blog_id();
 		}
 
-		add_shortcode( 'penci_compare_table', array( $this, 'compare_table_shortcode' ) );
-		add_action( 'penci_current_compare', array( $this, 'compare_header_menu' ) );
+		add_shortcode( 'goso_compare_table', array( $this, 'compare_table_shortcode' ) );
+		add_action( 'goso_current_compare', array( $this, 'compare_header_menu' ) );
 
-		add_action( 'penci_header_extra_icons', array( $this, 'compare_header_item' ), 10 );
+		add_action( 'goso_header_extra_icons', array( $this, 'compare_header_item' ), 10 );
 
 		add_action( 'admin_notices', array( $this, 'admin_notice' ), 85 );
 
-		add_action( 'penci_footer_nav_compare_item', array( $this, 'compare_footer_nav' ) );
+		add_action( 'goso_footer_nav_compare_item', array( $this, 'compare_footer_nav' ) );
 
 		add_filter( 'display_post_states', array( $this, 'admin_compare_post_state' ), 10, 2 );
 
@@ -81,19 +81,19 @@ class penci_product_compare {
 
 	public function compare_button() {
 		$product_id  = get_the_ID();
-		$button_text = penci_woo_translate_text( 'penci_woo_trans_addtocompare' );
+		$button_text = goso_woo_translate_text( 'goso_woo_trans_addtocompare' );
 		$url         = '?add-to-compare=' . $product_id;
 		$class       = '';
 
 		$compare_item = $this->get_compare_item( $this->save_compare );
 		if ( $compare_item && in_array( $product_id, $compare_item ) ) {
-			$button_text = penci_woo_translate_text( 'penci_woo_trans_viewallcompare' );
-			$url         = esc_url( get_page_link( get_theme_mod( 'penci_woocommerce_compare_page' ) ) );
+			$button_text = goso_woo_translate_text( 'goso_woo_trans_viewallcompare' );
+			$url         = esc_url( get_page_link( get_theme_mod( 'goso_woocommerce_compare_page' ) ) );
 			$class       = ' added';
 		}
 
 
-		echo '<a data-method="add" href="' . $url . '" class="button compare penci-compare' . $class . '" data-pID="' . $product_id . '">' . $button_text . '</a></span>';
+		echo '<a data-method="add" href="' . $url . '" class="button compare goso-compare' . $class . '" data-pID="' . $product_id . '">' . $button_text . '</a></span>';
 	}
 
 	function add_to_compare() {
@@ -104,7 +104,7 @@ class penci_product_compare {
 
 		$action          = isset( $_GET['method'] ) ? $_GET['method'] : '';
 		$productID       = ( isset( $_GET['pid'] ) ) ? $_GET['pid'] : '';
-		$compare_page_id = get_theme_mod( 'penci_woocommerce_compare_page' );
+		$compare_page_id = get_theme_mod( 'goso_woocommerce_compare_page' );
 
 		$return = array(
 			'message' => 'success',
@@ -181,16 +181,16 @@ class penci_product_compare {
 	}
 
 	public function admin_notice() {
-		$query['autofocus[section]'] = 'pencidesign_woo_compare_settings';
+		$query['autofocus[section]'] = 'gosodesign_woo_compare_settings';
 		$section_link                = add_query_arg( $query, admin_url( 'customize.php' ) );
-		if ( get_theme_mod( 'penci_woocommerce_compare', false ) && ! get_theme_mod( 'penci_woocommerce_compare_page' ) ) {
+		if ( get_theme_mod( 'goso_woocommerce_compare', false ) && ! get_theme_mod( 'goso_woocommerce_compare_page' ) ) {
 			?>
             <div class="notice notice-warning is-dismissible">
-                <p><?php _e( 'Goso Product Compare need to assign the compare page. Please create a new page with <strong>[penci_compare_table]</strong> content shortcode, then go to <a href="' . esc_url( $section_link ) . '">this page</a> to configure.', 'authow' ); ?></p>
+                <p><?php _e( 'Goso Product Compare need to assign the compare page. Please create a new page with <strong>[goso_compare_table]</strong> content shortcode, then go to <a href="' . esc_url( $section_link ) . '">this page</a> to configure.', 'authow' ); ?></p>
             </div>
 			<?php
 		}
-		if ( get_theme_mod( 'penci_woocommerce_compare', false ) && class_exists( 'YITH_Woocompare' ) ) {
+		if ( get_theme_mod( 'goso_woocommerce_compare', false ) && class_exists( 'YITH_Woocompare' ) ) {
 			?>
             <div class="notice notice-error is-dismissible">
                 <p><?php _e( 'You\'ve activated the YITH WooCommerce Compare plugin, please go to <a href="' . esc_url( $section_link ) . '">this page</a> to disable default theme Compare.', 'authow' ); ?></p>
@@ -202,7 +202,7 @@ class penci_product_compare {
 
 	public function admin_compare_post_state( $post_states, $post ) {
 
-		$compare_page_id = get_theme_mod( 'penci_woocommerce_compare_page', false );
+		$compare_page_id = get_theme_mod( 'goso_woocommerce_compare_page', false );
 
 		if ( $compare_page_id && $post->ID == $compare_page_id ) {
 			$post_states[] = esc_attr__( 'Authow Compare Product', 'authow' );
@@ -212,7 +212,7 @@ class penci_product_compare {
 	}
 
 	public function compare_page_content( $content ) {
-		$compare_page_id = get_theme_mod( 'penci_woocommerce_compare_page', false );
+		$compare_page_id = get_theme_mod( 'goso_woocommerce_compare_page', false );
 
 		if ( is_page( $compare_page_id ) && empty( $content ) ) {
 			$content = $this->compare_table_shortcode();
@@ -229,18 +229,18 @@ class penci_product_compare {
 	}
 
 	public function compare_html_table() {
-		$user_fields        = get_theme_mod( 'penci_woocommerce_compare_fields' );
+		$user_fields        = get_theme_mod( 'goso_woocommerce_compare_fields' );
 		$products           = $this->get_compared_products_data();
 		$fields             = $this->get_compare_fields( $user_fields );
-		$empty_compare_text = penci_woo_translate_text( 'penci_woocommerce_compare_empty_text' );
+		$empty_compare_text = goso_woo_translate_text( 'goso_woocommerce_compare_empty_text' );
 		$check_class        = '';
 		$total_producs      = count( $products );
 		if ( 3 < $total_producs ) {
-			$check_class = ' penci-multicompare';
+			$check_class = ' goso-multicompare';
 		}
 		?>
 
-        <div class="penci-products-compare-table woocommerce<?php echo esc_attr( $check_class ); ?>">
+        <div class="goso-products-compare-table woocommerce<?php echo esc_attr( $check_class ); ?>">
 			<?php
 			if ( ! empty( $products ) ) {
 				array_unshift( $products, array() );
@@ -249,17 +249,17 @@ class penci_product_compare {
 						continue;
 					}
 					?>
-                    <div class="penci-compare-row compare-<?php echo esc_attr( $field_id ); ?>">
+                    <div class="goso-compare-row compare-<?php echo esc_attr( $field_id ); ?>">
 						<?php foreach ( $products as $product_id => $product ) :
 							$idtag = isset( $product['id'] ) ? ' data-productid="' . esc_attr( $product['id'] ) . '"' : '';
 							?>
 							<?php if ( ! empty( $product ) ) : ?>
-                            <div<?php echo $idtag; ?> class="penci-compare-col compare-value"
+                            <div<?php echo $idtag; ?> class="goso-compare-col compare-value"
                                                       data-title="<?php echo esc_attr( $field ); ?>">
 								<?php $this->compare_display_field( $field_id, $product ); ?>
                             </div>
 						<?php else: ?>
-                            <div<?php echo $idtag; ?> class="penci-compare-col compare-field">
+                            <div<?php echo $idtag; ?> class="goso-compare-col compare-field">
 								<?php echo esc_html( $field ); ?>
                             </div>
 						<?php endif; ?>
@@ -270,14 +270,14 @@ class penci_product_compare {
 				}
 			} else {
 				?>
-                <div class="penci-empty-compare penci-empty-page penci-empty-page-text">
-                    <h3 class="penci-compare-empty-title"><?php echo penci_woo_translate_text( 'penci_woo_trans_compare_empty_title' ) ?></h3>
+                <div class="goso-empty-compare goso-empty-page goso-empty-page-text">
+                    <h3 class="goso-compare-empty-title"><?php echo goso_woo_translate_text( 'goso_woo_trans_compare_empty_title' ) ?></h3>
                     <p><?php echo $empty_compare_text; ?></p>
                 </div>
                 <p class="return-to-shop">
                     <a class="button"
                        href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">
-						<?php echo penci_woo_translate_text( 'penci_woo_trans_returnshop' ); ?>
+						<?php echo goso_woo_translate_text( 'goso_woo_trans_returnshop' ); ?>
                     </a>
                 </p>
 				<?php
@@ -306,7 +306,7 @@ class penci_product_compare {
 
 		$products_data = array();
 
-		$user_fields = get_theme_mod( 'penci_woocommerce_compare_fields' );
+		$user_fields = get_theme_mod( 'goso_woocommerce_compare_fields' );
 		$fields      = $this->get_compare_fields( $user_fields );
 
 		$fields = array_filter( $fields, function ( $field ) {
@@ -362,7 +362,7 @@ class penci_product_compare {
 
 	public function get_compare_fields( $user_field = array() ) {
 		$fields = array(
-			'basic' => penci_woo_translate_text( 'penci_woo_trans_compare_product' ),
+			'basic' => goso_woo_translate_text( 'goso_woo_trans_compare_product' ),
 		);
 
 		$fields_settings = is_array( $user_field ) && $user_field ? $user_field : '';
@@ -396,23 +396,23 @@ class penci_product_compare {
 		if ( $new ) {
 			$options = array(
 				'description'  => array(
-					'name'  => penci_woo_translate_text( 'penci_woo_trans_desc' ),
+					'name'  => goso_woo_translate_text( 'goso_woo_trans_desc' ),
 					'value' => 'description',
 				),
 				'dimensions'   => array(
-					'name'  => penci_woo_translate_text( 'penci_woo_trans_demensions' ),
+					'name'  => goso_woo_translate_text( 'goso_woo_trans_demensions' ),
 					'value' => 'dimensions',
 				),
 				'weight'       => array(
-					'name'  => penci_woo_translate_text( 'penci_woo_trans_weight' ),
+					'name'  => goso_woo_translate_text( 'goso_woo_trans_weight' ),
 					'value' => 'weight',
 				),
 				'availability' => array(
-					'name'  => penci_woo_translate_text( 'penci_woo_trans_availability' ),
+					'name'  => goso_woo_translate_text( 'goso_woo_trans_availability' ),
 					'value' => 'availability',
 				),
 				'sku'          => array(
-					'name'  => penci_woo_translate_text( 'penci_woo_trans_sku' ),
+					'name'  => goso_woo_translate_text( 'goso_woo_trans_sku' ),
 					'value' => 'sku',
 				),
 
@@ -432,13 +432,13 @@ class penci_product_compare {
 
 		$fields = array(
 			'enabled'  => array(
-				'description'  => penci_woo_translate_text( 'penci_woo_trans_desc' ),
-				'sku'          => penci_woo_translate_text( 'penci_woo_trans_sku' ),
-				'availability' => penci_woo_translate_text( 'penci_woo_trans_availability' ),
+				'description'  => goso_woo_translate_text( 'goso_woo_trans_desc' ),
+				'sku'          => goso_woo_translate_text( 'goso_woo_trans_sku' ),
+				'availability' => goso_woo_translate_text( 'goso_woo_trans_availability' ),
 			),
 			'disabled' => array(
-				'weight'     => penci_woo_translate_text( 'penci_woo_trans_weight' ),
-				'dimensions' => penci_woo_translate_text( 'penci_woo_trans_demensions' ),
+				'weight'     => goso_woo_translate_text( 'goso_woo_trans_weight' ),
+				'dimensions' => goso_woo_translate_text( 'goso_woo_trans_demensions' ),
 			)
 		);
 
@@ -533,21 +533,21 @@ class penci_product_compare {
 		switch ( $type ) {
 			case 'basic':
 				echo '<div class="compare-basic-content">';
-				echo '<div class="penci-top-button"><a title="' . penci_woo_translate_text( 'penci_woo_trans_remove_product' ) . '" href="#" rel="nofollow" data-method="remove" class="button penci-compare" data-pid="' . esc_attr( $product['id'] ) . '">' . penci_woo_translate_text( 'penci_woo_trans_remove_product' ) . '</a></div>';
+				echo '<div class="goso-top-button"><a title="' . goso_woo_translate_text( 'goso_woo_trans_remove_product' ) . '" href="#" rel="nofollow" data-method="remove" class="button goso-compare" data-pid="' . esc_attr( $product['id'] ) . '">' . goso_woo_translate_text( 'goso_woo_trans_remove_product' ) . '</a></div>';
 				echo '<a class="product-image" href="' . get_permalink( $product['id'] ) . '">' . $product['basic']['image'] . '</a>';
-				echo '<h4 class="penci-product-title"><a href="' . get_permalink( $product['id'] ) . '">' . $product['basic']['title'] . '</a></h4>';
+				echo '<h4 class="goso-product-title"><a href="' . get_permalink( $product['id'] ) . '">' . $product['basic']['title'] . '</a></h4>';
 				echo wp_kses_post( $product['basic']['rating'] );
 				echo '<div class="price">';
 				echo wp_kses_post( $product['basic']['price'] );
 				echo '</div>';
-				if ( ! get_theme_mod( 'penci_woo_catalog_mode' ) ) {
+				if ( ! get_theme_mod( 'goso_woo_catalog_mode' ) ) {
 					echo $product['basic']['add_to_cart'];
 				}
 				echo '</div>';
 				break;
 
 			case 'attribute':
-				if ( $field_id === get_theme_mod( 'penci_woocommerce_brand_attr' ) ) {
+				if ( $field_id === get_theme_mod( 'goso_woocommerce_brand_attr' ) ) {
 					$brands = wc_get_product_terms( $product['id'], $field_id, array( 'fields' => 'all' ) );
 
 					if ( empty( $brands ) ) {
@@ -560,7 +560,7 @@ class penci_product_compare {
 						$image = get_term_meta( $brand->term_id, 'image', true );
 
 						if ( ! empty( $image ) ) {
-							echo '<div class="penci-brand-compare">';
+							echo '<div class="goso-brand-compare">';
 							echo '<img src="' . esc_url( wp_get_attachment_image_url( $image, 'full' ) ) . '" title="' . esc_attr( $brand->name ) . '" alt="' . esc_attr( $brand->name ) . '" />';
 							echo '</div>';
 						} else {
@@ -591,4 +591,4 @@ class penci_product_compare {
 	}
 }
 
-$product_compare = new penci_product_compare();
+$product_compare = new goso_product_compare();

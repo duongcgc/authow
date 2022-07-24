@@ -15,7 +15,7 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-custom-archive-builder' ];
+		return [ 'goso-custom-archive-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-archive-breadcrumb';
+		return 'goso-archive-breadcrumb';
 	}
 
 	protected function register_controls() {
@@ -56,7 +56,7 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 				),
 			),
 			'toggle'    => true,
-			'selectors' => [ '{{WRAPPER}} .penci-breadcrumb' => 'text-align:{{VALUE}}' ],
+			'selectors' => [ '{{WRAPPER}} .goso-breadcrumb' => 'text-align:{{VALUE}}' ],
 		] );
 
 		$this->end_controls_section();
@@ -70,13 +70,13 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 		$this->add_group_control( \Elementor\Group_Control_Typography::get_type(), array(
 			'name'     => 'breadcrumb-typo',
 			'label'    => __( 'Typography for BreadCrumb', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-breadcrumb,{{WRAPPER}} .penci-breadcrumb *',
+			'selector' => '{{WRAPPER}} .goso-breadcrumb,{{WRAPPER}} .goso-breadcrumb *',
 		) );
 
 		$this->add_control( 'breadcrumb-t-color', [
 			'label'     => 'BreadCrumb Text Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-breadcrumb,{{WRAPPER}} .penci-breadcrumb span,{{WRAPPER}} .penci-breadcrumb i,{{WRAPPER}} .penci-breadcrumb a' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-breadcrumb,{{WRAPPER}} .goso-breadcrumb span,{{WRAPPER}} .goso-breadcrumb i,{{WRAPPER}} .goso-breadcrumb a' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->add_control( 'breadcrumb-l-hcolor', [

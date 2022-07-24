@@ -1,26 +1,26 @@
 jQuery(document).ready(function ($) {
 
-    $(document).on('mouseenter', '.penci-block-mega', function () {
+    $(document).on('mouseenter', '.goso-block-mega', function () {
         var t = $(this),
             left = 0,
             right = 0,
-            wappercontent = t.find('.penci-dropdown-menu'),
+            wappercontent = t.find('.goso-dropdown-menu'),
             itemoffset = t.offset(),
-            blockcontainer = t.find('.penci-mega-content-container'),
+            blockcontainer = t.find('.goso-mega-content-container'),
             blockw = wappercontent.outerWidth(),
             vw = $(window).width(),
             cw = t.closest('.container').outerWidth(),
             rightoff = vw - itemoffset.left - (vw - cw) / 2,
             blockid = blockcontainer.data('blockid');
 
-        if (t.hasClass('penci-megapos-center') && itemoffset.left > blockw / 2 && vw - itemoffset.left - t.outerWidth() > blockw / 2) {
+        if (t.hasClass('goso-megapos-center') && itemoffset.left > blockw / 2 && vw - itemoffset.left - t.outerWidth() > blockw / 2) {
             left = (blockw / 2 - t.outerWidth() / 2) * -1;
         } else if (rightoff < blockw) {
             left = (blockw - rightoff) * -1;
         }
 
 
-        if (t.hasClass('penci-megapos-center') && itemoffset.left > blockw / 2 && rightoff > blockw / 2) {
+        if (t.hasClass('goso-megapos-center') && itemoffset.left > blockw / 2 && rightoff > blockw / 2) {
             right = (blockw / 2 - t.outerWidth() / 2) * -1;
         } else if (itemoffset.left < blockw && $('body').hasClass('rtl')) {
             right = (vw - itemoffset.left - t.outerWidth() - (vw - cw) / 2 ) * -1;
@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
             $.ajax({
                 url: ajax_var_more.url,
                 data: {
-                    'action': 'penci_get_ajax_menu_mega_content',
+                    'action': 'goso_get_ajax_menu_mega_content',
                     'ids': blockid
                 },
                 dataType: 'json',
@@ -51,14 +51,14 @@ jQuery(document).ready(function ($) {
                     if (response.data.status === 'success') {
                         var dataInsert = response.data.data;
                         blockcontainer.html(dataInsert);
-                        $(document).trigger('penci-mega-loaded');
+                        $(document).trigger('goso-mega-loaded');
                         wappercontent.removeClass('loading');
                     } else {
                         console.log('loading html dropdowns returns wrong data - ', response.data.message);
                     }
                 },
                 complete: function () {
-                    $(document).trigger('penci-mega-complete');
+                    $(document).trigger('goso-mega-complete');
                 },
                 error: function () {
                     console.log('loading html dropdowns ajax error');

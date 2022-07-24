@@ -7,12 +7,12 @@
     border: 1px solid #ccc;
 }
 
-.penci-modal-container {
+.goso-modal-container {
     position: relative;
     display: none;
 }
 
-.penci-modal {
+.goso-modal {
     transform: translate(-50%, -50%);
     position: fixed;
     top: 50%;
@@ -23,40 +23,40 @@
     background-color: #fcfcfc;
 }
 
-.penci-modal input.error {
+.goso-modal input.error {
     border-color: #dc3232;
 }
 
-.penci-modal-header,
-.penci-modal-content,
-.penci-modal-footer {
+.goso-modal-header,
+.goso-modal-content,
+.goso-modal-footer {
     padding: 20px;
 }
 
-.penci-modal-header {
+.goso-modal-header {
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.penci-modal-content {
+.goso-modal-content {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     background-color: #fff;
 }
 
-.penci-modal-footer {
+.goso-modal-footer {
     text-align: right;
 }
 
-.penci-modal-footer .message,
-.penci-modal-footer .spinner {
+.goso-modal-footer .message,
+.goso-modal-footer .spinner {
     float: left;
 }
 
-.penci-modal-footer .message.error {
+.goso-modal-footer .message.error {
     color: #dc3232;
 }
 
-.penci-modal-footer .message.success {
+.goso-modal-footer .message.success {
     color: #46b450;
 }

@@ -1,8 +1,8 @@
 <?php
-add_action( 'wp_ajax_nopriv_penci_login_ajax', 'penci_login_ajax_callback' );
-add_action( 'wp_ajax_penci_login_ajax', 'penci_login_ajax_callback' );
+add_action( 'wp_ajax_nopriv_goso_login_ajax', 'goso_login_ajax_callback' );
+add_action( 'wp_ajax_goso_login_ajax', 'goso_login_ajax_callback' );
 
-function penci_login_ajax_callback() {
+function goso_login_ajax_callback() {
 	global $wpdb;
 	
 	check_ajax_referer( 'login', 'security' );
@@ -14,7 +14,7 @@ function penci_login_ajax_callback() {
 	$captcha = isset( $_POST['captcha'] ) ? $_POST['captcha'] : '';
 	
 	if( $captcha == '' ){
-		wp_send_json_error( '<p class="message message-error">' . penci_get_setting( 'penci_plogin_validate_robot' ) . '</p>' );
+		wp_send_json_error( '<p class="message message-error">' . goso_get_setting( 'goso_plogin_validate_robot' ) . '</p>' );
 	} else {
 		if ( $remember ) {
 			$remember = 'true';
@@ -29,7 +29,7 @@ function penci_login_ajax_callback() {
 		$user_verify                 = wp_signon( $login_data, false );
 
 		if ( is_wp_error( $user_verify ) ) {
-			wp_send_json_error( '<p class="message message-error">' . penci_get_setting( 'penci_plogin_wrong' ) . '</p>' );
+			wp_send_json_error( '<p class="message message-error">' . goso_get_setting( 'goso_plogin_wrong' ) . '</p>' );
 		}
 
 		if( isset( $user_verify->ID ) ){
@@ -37,15 +37,15 @@ function penci_login_ajax_callback() {
 			wp_set_auth_cookie( $user_verify->ID );
 		}
 
-		wp_send_json_success( '<p class="message message-success">' . penci_get_setting( 'penci_plogin_success' ) . '</p>' );
+		wp_send_json_success( '<p class="message message-success">' . goso_get_setting( 'goso_plogin_success' ) . '</p>' );
 	}
 }
 
 // Ajax widget pasword recovery
-add_action( 'wp_ajax_nopriv_penci_resetpass_ajax', 'penci_pass_recovery_ajax_callback' );
-add_action( 'wp_ajax_penci_resetpass_ajax', 'penci_pass_recovery_ajax_callback' );
+add_action( 'wp_ajax_nopriv_goso_resetpass_ajax', 'goso_pass_recovery_ajax_callback' );
+add_action( 'wp_ajax_goso_resetpass_ajax', 'goso_pass_recovery_ajax_callback' );
 
-function penci_pass_recovery_ajax_callback() {
+function goso_pass_recovery_ajax_callback() {
 	global $wpdb;
 	
 	check_ajax_referer( 'resetpassword', 'security' );
@@ -55,22 +55,22 @@ function penci_pass_recovery_ajax_callback() {
 	$error = '';
 	
 	if( $captcha == '' ){
-	    $error = penci_get_setting( 'penci_plogin_validate_robot' );
+	    $error = goso_get_setting( 'goso_plogin_validate_robot' );
 	} else {
 		if( is_email( $account ) ) {
 			if( email_exists( $account ) ){
 				$get_by = 'email';
 			} else {
-				$error = penci_get_setting( 'penci_preset_noemail' );			
+				$error = goso_get_setting( 'goso_preset_noemail' );			
 			}
 		} else {
-			$error = penci_get_setting( 'penci_plogin_mess_invalid_email' );
+			$error = goso_get_setting( 'goso_plogin_mess_invalid_email' );
 		}
 	}
 	
 	if( ! $error ) {
-		$text_from = penci_get_setting( 'penci_preset_from' );
-		$text_newpass = penci_get_setting( 'penci_preset_newpassis' );
+		$text_from = goso_get_setting( 'goso_preset_from' );
+		$text_newpass = goso_get_setting( 'goso_preset_newpassis' );
 		
 		// Generate our new password
 		$random_password = wp_generate_password();
@@ -91,7 +91,7 @@ function penci_pass_recovery_ajax_callback() {
 			$from = 'admin@'.$sitename;
 			
 			$to = $user->user_email;
-			$subject = penci_get_setting( 'penci_trans_recover_pass' );
+			$subject = goso_get_setting( 'goso_trans_recover_pass' );
 			$sender = $text_from . get_option('name') .' <'.$from.'>' . "\r\n";
 			
 			$message = $text_newpass . ' '.$random_password;
@@ -103,12 +103,12 @@ function penci_pass_recovery_ajax_callback() {
 				
 			$mail = wp_mail( $to, $subject, $message, $headers );
 			if( $mail ){
-				$success = penci_get_setting( 'penci_preset_checkinbox' );
+				$success = goso_get_setting( 'goso_preset_checkinbox' );
 			} else {
-				$error = penci_get_setting( 'penci_preset_cantsend' );
+				$error = goso_get_setting( 'goso_preset_cantsend' );
 			}
 		} else {
-			$error = penci_get_setting( 'penci_preset_somethingwrong' );
+			$error = goso_get_setting( 'goso_preset_somethingwrong' );
 		}
 	}
 	
@@ -124,10 +124,10 @@ function penci_pass_recovery_ajax_callback() {
 }
 
 //Ajax widget register popup
-add_action( 'wp_ajax_nopriv_penci_register_ajax', 'penci_register_ajax_callback' );
-add_action( 'wp_ajax_penci_register_ajax', 'penci_register_ajax_callback' );
+add_action( 'wp_ajax_nopriv_goso_register_ajax', 'goso_register_ajax_callback' );
+add_action( 'wp_ajax_goso_register_ajax', 'goso_register_ajax_callback' );
 
-function penci_register_ajax_callback() {
+function goso_register_ajax_callback() {
 	
 	check_ajax_referer( 'register', 'security' );
 
@@ -141,14 +141,14 @@ function penci_register_ajax_callback() {
 	$error = '';
 	
 	if( $captcha == '' ){
-	    $error = penci_get_setting( 'penci_plogin_validate_robot' );
+	    $error = goso_get_setting( 'goso_plogin_validate_robot' );
 	} else {
 		if ( ! is_email( $email ) ) {
-			$error = penci_get_setting( 'penci_plogin_mess_invalid_email' );
+			$error = goso_get_setting( 'goso_plogin_mess_invalid_email' );
 		}
 
 		if ( $confirmPass != $pass ) {
-			$error = penci_get_setting( 'penci_plogin_mess_error_email_pass' );
+			$error = goso_get_setting( 'goso_plogin_mess_error_email_pass' );
 		}
 	}
 
@@ -172,10 +172,10 @@ function penci_register_ajax_callback() {
 				wp_send_json_error( '<p class="message message-error">' . $user_register->get_error_message( 'empty_user_login' ) . '</p>' );
 
 			} elseif ( in_array( 'existing_user_login', $error ) ) {
-				wp_send_json_error( '<p class="message message-error">' . penci_get_setting( 'penci_plogin_mess_username_reg' ) . '</p>' );
+				wp_send_json_error( '<p class="message message-error">' . goso_get_setting( 'goso_plogin_mess_username_reg' ) . '</p>' );
 
 			} elseif ( in_array( 'existing_user_email', $error ) ) {
-				wp_send_json_error( '<p class="message message-error">' . penci_get_setting( 'penci_plogin_mess_email_reg' ) . '</p>' );
+				wp_send_json_error( '<p class="message message-error">' . goso_get_setting( 'goso_plogin_mess_email_reg' ) . '</p>' );
 			}
 		} else {
 			$login_data                         = array();
@@ -191,16 +191,16 @@ function penci_register_ajax_callback() {
 			}
 
 			if ( is_wp_error( $user_signon ) ) {
-				wp_send_json_error( '<p class="message message-error">' .  penci_get_setting( 'penci_plogin_mess_wrong_email_pass' ). '</p>' );
+				wp_send_json_error( '<p class="message message-error">' .  goso_get_setting( 'goso_plogin_mess_wrong_email_pass' ). '</p>' );
 			} else {
 				wp_set_current_user( $user_signon->ID );
-				wp_send_json_success( '<p class="message message-success">' . penci_get_setting( 'penci_plogin_mess_reg_succ' ) . '</p>' );
+				wp_send_json_success( '<p class="message message-success">' . goso_get_setting( 'goso_plogin_mess_reg_succ' ) . '</p>' );
 			}
 		}
 	}
 }
 
-function penci_add_captcha_login_form(){
+function goso_add_captcha_login_form(){
 	/* Support captcha plugin https://wordpress.org/plugins/login-security-recaptcha/ */
 	if( class_exists( 'STLSR_Captcha' ) ){
 		$login_captcha        = get_option( 'stlsr_login_captcha' );
@@ -213,7 +213,7 @@ function penci_add_captcha_login_form(){
 	}
 }
 
-function penci_add_captcha_getpass_form(){
+function goso_add_captcha_getpass_form(){
 	/* Support captcha plugin https://wordpress.org/plugins/login-security-recaptcha/ */
 	if( class_exists( 'STLSR_Captcha' ) ){
 		$lostpassword_captcha        = get_option( 'stlsr_lostpassword_captcha' );
@@ -226,102 +226,102 @@ function penci_add_captcha_getpass_form(){
 	}
 }
 
-function penci_authow_login_register_popup() {
+function goso_authow_login_register_popup() {
 	?>
 	<?php if ( ! is_user_logged_in() ): ?>
-		<div id="penci-login-popup" class="mfp-hide penci-popup-wrapper">
-			<div id="penci-popup-login" class="penci-login-register penci-popup-login">
-				<div class="penci-login-container">
-					<div class="penci-lgpop-title"><?php echo penci_get_setting( 'penci_trans_sign_in' ); ?></div>
-					<div class="penci-login">
-						<form name="penci-loginpopform" id="penci-loginpopform" action="<?php echo esc_url( site_url( 'wp-login.php' ) ); ?>" method="post" novalidate="novalidate">
-							<input type="hidden" name="_wpnonce" class="penci_form_nonce" value="<?php echo wp_create_nonce( 'login' ); ?>">
+		<div id="goso-login-popup" class="mfp-hide goso-popup-wrapper">
+			<div id="goso-popup-login" class="goso-login-register goso-popup-login">
+				<div class="goso-login-container">
+					<div class="goso-lgpop-title"><?php echo goso_get_setting( 'goso_trans_sign_in' ); ?></div>
+					<div class="goso-login">
+						<form name="goso-loginpopform" id="goso-loginpopform" action="<?php echo esc_url( site_url( 'wp-login.php' ) ); ?>" method="post" novalidate="novalidate">
+							<input type="hidden" name="_wpnonce" class="goso_form_nonce" value="<?php echo wp_create_nonce( 'login' ); ?>">
 							<div class="pclogin-input">
-								<input type="text" name="log" id="penci_user" class="input" placeholder="<?php echo penci_get_setting( 'penci_trans_usernameemail_text' ); ?>" size="20">
+								<input type="text" name="log" id="goso_user" class="input" placeholder="<?php echo goso_get_setting( 'goso_trans_usernameemail_text' ); ?>" size="20">
 							</div>
 							<div class="pclogin-input">
-								<input type="password" name="pwd" id="penci_pass" class="input" placeholder="<?php echo penci_get_setting( 'penci_trans_pass_text' ); ?>" size="20">
+								<input type="password" name="pwd" id="goso_pass" class="input" placeholder="<?php echo goso_get_setting( 'goso_trans_pass_text' ); ?>" size="20">
 							</div>
 							<?php do_action( 'login_form' ); ?>
-							<?php penci_add_captcha_login_form(); ?>
+							<?php goso_add_captcha_login_form(); ?>
 							<div class="pclogin-input pclogin-input-checkbox">
-								<p><input name="rememberme" type="checkbox" id="remembermepopup" value="forever"> <?php echo penci_get_setting( 'penci_plogin_label_remember' ); ?></p>
+								<p><input name="rememberme" type="checkbox" id="remembermepopup" value="forever"> <?php echo goso_get_setting( 'goso_plogin_label_remember' ); ?></p>
 							</div>
 							<div class="pclogin-input">
-								<input type="submit" name="penci_submit" class="pcpop-button" value="<?php echo penci_get_setting( 'penci_plogin_label_log_in' ); ?>">
+								<input type="submit" name="goso_submit" class="pcpop-button" value="<?php echo goso_get_setting( 'goso_plogin_label_log_in' ); ?>">
 							</div>
 						</form>
 					</div>
-					<div class="penci-popup-desc register register-popup">
-						<p><a class="penci-lostpassword-btn" href="#"><?php echo( penci_get_setting( 'penci_plogin_label_lostpassword' ) ); ?></a></p>
+					<div class="goso-popup-desc register register-popup">
+						<p><a class="goso-lostpassword-btn" href="#"><?php echo( goso_get_setting( 'goso_plogin_label_lostpassword' ) ); ?></a></p>
 						<?php if ( get_option( 'users_can_register' ) ) : ?>
-						<p><?php echo ( penci_get_setting( 'penci_plogin_text_has_account' ) ); ?> <a class="penci-register-popup-btn" href="<?php echo wp_registration_url(); ?>"><?php echo ( penci_get_setting( 'penci_plogin_label_registration' ) ); ?></a></p>
+						<p><?php echo ( goso_get_setting( 'goso_plogin_text_has_account' ) ); ?> <a class="goso-register-popup-btn" href="<?php echo wp_registration_url(); ?>"><?php echo ( goso_get_setting( 'goso_plogin_label_registration' ) ); ?></a></p>
 						<?php endif; ?>
 					</div>
 				</div>
 			</div>
-			<div id="penci-popup-passreset" class="penci-login-register penci-popup-passreset penci-hidden">
-				<div class="penci-login-container">
-					<div class="penci-lgpop-title"><?php echo penci_get_setting( 'penci_trans_recover_pass' ); ?></div>
-					<div class="penci-login">
-						<form id="penci-passreset-popup" class="penci-passreset-popup" action="<?php echo esc_url( site_url( 'wp-login.php?action=lostpassword' ) ); ?>" method="post" novalidate="novalidate">
-							<input type="hidden" class="penci_form_nonce" name="_wpnonce" value="<?php echo wp_create_nonce( 'resetpassword' ); ?>">
+			<div id="goso-popup-passreset" class="goso-login-register goso-popup-passreset goso-hidden">
+				<div class="goso-login-container">
+					<div class="goso-lgpop-title"><?php echo goso_get_setting( 'goso_trans_recover_pass' ); ?></div>
+					<div class="goso-login">
+						<form id="goso-passreset-popup" class="goso-passreset-popup" action="<?php echo esc_url( site_url( 'wp-login.php?action=lostpassword' ) ); ?>" method="post" novalidate="novalidate">
+							<input type="hidden" class="goso_form_nonce" name="_wpnonce" value="<?php echo wp_create_nonce( 'resetpassword' ); ?>">
 							<div class="passreset-input">
-								<input class="penci_user_email" name="penci_user_email" type="text" placeholder="<?php echo penci_get_setting( 'penci_plogin_email_place' ); ?>"/>
+								<input class="goso_user_email" name="goso_user_email" type="text" placeholder="<?php echo goso_get_setting( 'goso_plogin_email_place' ); ?>"/>
 							</div>
 							<?php do_action( 'lostpassword_form' ); ?>
-							<?php penci_add_captcha_getpass_form(); ?>
+							<?php goso_add_captcha_getpass_form(); ?>
 							<div class="passreset-input">
-								<input type="submit" name="penci_submit" class="pcpop-button" value="<?php echo penci_get_setting( 'penci_preset_submit' ); ?>"/>
+								<input type="submit" name="goso_submit" class="pcpop-button" value="<?php echo goso_get_setting( 'goso_preset_submit' ); ?>"/>
 							</div>
-							<div class="penci-popup-desc pass-revocer-popup">
-								<p><?php echo ( penci_get_setting( 'penci_preset_desc' ) ); ?></p>
-								<p><?php echo ( penci_get_setting( 'penci_preset_received' ) ); ?> <a class="penci-login-popup-btn" href="#login"><?php  echo penci_get_setting( 'penci_pregister_label_registration' ); ?></a></p>
+							<div class="goso-popup-desc pass-revocer-popup">
+								<p><?php echo ( goso_get_setting( 'goso_preset_desc' ) ); ?></p>
+								<p><?php echo ( goso_get_setting( 'goso_preset_received' ) ); ?> <a class="goso-login-popup-btn" href="#login"><?php  echo goso_get_setting( 'goso_pregister_label_registration' ); ?></a></p>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<?php if ( get_option( 'users_can_register' ) ) : ?>
-			<div id="penci-popup-register" class="penci-login-register penci-popup-register penci-hidden">
-				<div class="penci-login-container">
-					<div class="penci-lgpop-title"><?php echo penci_get_setting( 'penci_trans_register_new_account' ); ?></div>
-					<div class="penci-login">
-						<form name="form" id="penci-register-popup" action="<?php echo esc_url( site_url( 'wp-login.php?action=register' ) ); ?>" method="post" novalidate="novalidate">
-							<input type="hidden" name="_wpnonce" class="penci_form_nonce" value="<?php echo wp_create_nonce( 'register' ); ?>">
+			<div id="goso-popup-register" class="goso-login-register goso-popup-register goso-hidden">
+				<div class="goso-login-container">
+					<div class="goso-lgpop-title"><?php echo goso_get_setting( 'goso_trans_register_new_account' ); ?></div>
+					<div class="goso-login">
+						<form name="form" id="goso-register-popup" action="<?php echo esc_url( site_url( 'wp-login.php?action=register' ) ); ?>" method="post" novalidate="novalidate">
+							<input type="hidden" name="_wpnonce" class="goso_form_nonce" value="<?php echo wp_create_nonce( 'register' ); ?>">
 							<div class="pclg-2col">
 								<div class="register-input">
-									<input class="penci_first_name" name="penci_first_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_first_name' ); ?>"/>
+									<input class="goso_first_name" name="goso_first_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_first_name' ); ?>"/>
 								</div>
 								<div class="register-input">
-									<input class="penci_last_name" name="penci_last_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_last_name' ); ?>"/>
+									<input class="goso_last_name" name="goso_last_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_last_name' ); ?>"/>
 								</div>
 							</div>
 							<div class="register-input">
-								<input class="penci_user_name" name="penci_user_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_name' ); ?>"/>
+								<input class="goso_user_name" name="goso_user_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_name' ); ?>"/>
 							</div>
 							<div class="register-input">
-								<input class="penci_user_email" name="penci_user_email" type="email" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_email' ); ?>"/>
+								<input class="goso_user_email" name="goso_user_email" type="email" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_email' ); ?>"/>
 							</div>
 							<div class="register-input">
-								<input autocomplete="off" class="penci_user_pass" name="penci_user_pass" type="password" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_pass' ); ?>"/>
+								<input autocomplete="off" class="goso_user_pass" name="goso_user_pass" type="password" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_pass' ); ?>"/>
 							</div>
 							<div class="register-input">
-								<input autocomplete="off" class="penci_user_pass_confirm" name="penci_user_pass_confirm" type="password" placeholder="<?php echo penci_get_setting( 'penci_pregister_pass_confirm' ); ?>"/>
+								<input autocomplete="off" class="goso_user_pass_confirm" name="goso_user_pass_confirm" type="password" placeholder="<?php echo goso_get_setting( 'goso_pregister_pass_confirm' ); ?>"/>
 							</div>
 							<?php do_action( 'register_form' ); ?>
 							<div class="register-input">
-								<input type="submit" name="penci_submit" class="pcpop-button" value="<?php echo penci_get_setting( 'penci_pregister_button_submit' ); ?>"/>
+								<input type="submit" name="goso_submit" class="pcpop-button" value="<?php echo goso_get_setting( 'goso_pregister_button_submit' ); ?>"/>
 							</div>
-							<div class="penci-popup-desc register-input login login-popup">
-								<p><?php echo penci_get_setting( 'penci_pregister_has_account' ); ?> <a class="penci-login-popup-btn" href="#login"><?php  echo penci_get_setting( 'penci_pregister_label_registration' ); ?></a></p>
+							<div class="goso-popup-desc register-input login login-popup">
+								<p><?php echo goso_get_setting( 'goso_pregister_has_account' ); ?> <a class="goso-login-popup-btn" href="#login"><?php  echo goso_get_setting( 'goso_pregister_label_registration' ); ?></a></p>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 			<?php endif; ?>
-			<div class="penci-loader-effect penci-loading-animation"> <span class="penci-ld"> <span class="penci-ld1 penci-ldin"></span> <span class="penci-ld2 penci-ldin"></span> <span class="penci-ld3 penci-ldin"></span> <span class="penci-ld4 penci-ldin"></span> <span class="penci-ld5 penci-ldin"></span> <span class="penci-ld6 penci-ldin"></span> <span class="penci-ld7 penci-ldin"></span> <span class="penci-ld8 penci-ldin"></span> <span class="penci-ld9 penci-ldin"></span> <span class="penci-ld10 penci-ldin"></span> <span class="penci-ld11 penci-ldin"></span> <span class="penci-ld12 penci-ldin"></span> </span></div>
+			<div class="goso-loader-effect goso-loading-animation"> <span class="goso-ld"> <span class="goso-ld1 goso-ldin"></span> <span class="goso-ld2 goso-ldin"></span> <span class="goso-ld3 goso-ldin"></span> <span class="goso-ld4 goso-ldin"></span> <span class="goso-ld5 goso-ldin"></span> <span class="goso-ld6 goso-ldin"></span> <span class="goso-ld7 goso-ldin"></span> <span class="goso-ld8 goso-ldin"></span> <span class="goso-ld9 goso-ldin"></span> <span class="goso-ld10 goso-ldin"></span> <span class="goso-ld11 goso-ldin"></span> <span class="goso-ld12 goso-ldin"></span> </span></div>
 		</div>
 	<?php endif;
 }

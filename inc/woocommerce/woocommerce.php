@@ -5,20 +5,20 @@
  * ------------------------------------------------------------------------------------------------
  */
 
-$penci_modules = array(
-	'quick_view'         => ! penci_is_mobile() ? get_theme_mod( 'penci_woocommerce_quickview', true ) : false,
-	'wishlist'           => get_theme_mod( 'penci_woocommerce_wishlist', false ),
-	'compare'            => get_theme_mod( 'penci_woocommerce_compare', false ),
+$goso_modules = array(
+	'quick_view'         => ! goso_is_mobile() ? get_theme_mod( 'goso_woocommerce_quickview', true ) : false,
+	'wishlist'           => get_theme_mod( 'goso_woocommerce_wishlist', false ),
+	'compare'            => get_theme_mod( 'goso_woocommerce_compare', false ),
 	'metaboxes'          => true,
 	'progress-bar'       => true,
-	'quickshop'          => get_theme_mod( 'penci_woocommerce_product_quick_shop', false ),
+	'quickshop'          => get_theme_mod( 'goso_woocommerce_product_quick_shop', false ),
 	'swatches'           => true,
 	'brand'              => true,
 	'misc'               => true,
 	'search/ajax-search' => true,
 );
 
-foreach ( $penci_modules as $module => $enable ) {
+foreach ( $goso_modules as $module => $enable ) {
 	if ( $enable ) {
 		require get_template_directory() . '/inc/woocommerce/modules/' . $module . '.php';
 	}
@@ -42,17 +42,17 @@ require get_template_directory() . '/inc/widgets/product_lists.php';
  *
  * @since 2.2
  */
-add_filter( 'woocommerce_enqueue_styles', 'penci_woo_dequeue_styles' );
-function penci_woo_dequeue_styles( $enqueue_styles ) {
+add_filter( 'woocommerce_enqueue_styles', 'goso_woo_dequeue_styles' );
+function goso_woo_dequeue_styles( $enqueue_styles ) {
 	unset( $enqueue_styles['woocommerce-general'] );    // Remove the gloss.
 	unset( $enqueue_styles['woocommerce-layout'] );        // Remove the layout.
 
 	return $enqueue_styles;
 }
 
-if ( ! function_exists( 'penci_declare_woocommerce_support' ) ) {
-	add_action( 'after_setup_theme', 'penci_declare_woocommerce_support' );
-	function penci_declare_woocommerce_support() {
+if ( ! function_exists( 'goso_declare_woocommerce_support' ) ) {
+	add_action( 'after_setup_theme', 'goso_declare_woocommerce_support' );
+	function goso_declare_woocommerce_support() {
 
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
@@ -72,114 +72,114 @@ if ( ! function_exists( 'penci_declare_woocommerce_support' ) ) {
 			'id'            => 'sidebar-filter',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title penci-border-arrow"><span class="inner-arrow">',
+			'before_title'  => '<h3 class="widget-title goso-border-arrow"><span class="inner-arrow">',
 			'after_title'   => '</span></h3>',
 		) );
 	}
 }
-add_action( 'wp', 'penci_woo_remove_zoom_images', 100 );
-function penci_woo_remove_zoom_images() {
-	if ( get_theme_mod( 'penci_woo_disable_zoom' ) ) {
+add_action( 'wp', 'goso_woo_remove_zoom_images', 100 );
+function goso_woo_remove_zoom_images() {
+	if ( get_theme_mod( 'goso_woo_disable_zoom' ) ) {
 		remove_theme_support( 'wc-product-gallery-zoom' );
 	}
 }
 
-function penci_woo_get_translate_text() {
+function goso_woo_get_translate_text() {
 	return array(
-		'penci_woo_trans_about_brand'           => __( 'About brand', 'authow' ),
-		'penci_woo_trans_about_variable'        => __( 'About %s', 'authow' ),
-		'penci_woo_trans_addtocompare'          => __( 'Add to Compare', 'authow' ),
-		'penci_woo_trans_viewallcompare'        => __( 'View all Compare', 'authow' ),
-		'penci_woo_trans_returnshop'            => __( 'Return to shop', 'authow' ),
-		'penci_woo_trans_desc'                  => __( 'Description', 'authow' ),
-		'penci_woo_trans_demensions'            => __( 'Dimensions', 'authow' ),
-		'penci_woo_trans_weight'                => __( 'Weight', 'authow' ),
-		'penci_woo_trans_availability'          => __( 'Availability', 'authow' ),
-		'penci_woo_trans_sku'                   => __( 'Sku', 'authow' ),
-		'penci_woo_trans_instock'               => __( 'In stock', 'authow' ),
-		'penci_woo_trans_remove_product'        => __( 'Remove product', 'authow' ),
-		'penci_woo_trans_remove'                => __( 'Remove', 'authow' ),
-		'penci_woo_trans_sale'                  => __( 'Sale', 'authow' ),
-		'penci_woo_trans_sold_out'              => __( 'Sold out', 'authow' ),
-		'penci_woo_trans_hot'                   => __( 'Hot', 'authow' ),
-		'penci_woo_trans_new'                   => __( 'New', 'authow' ),
-		'penci_woo_trans_show'                  => __( 'Show', 'authow' ),
-		'penci_woo_trans_all'                   => __( 'All', 'authow' ),
-		'penci_woo_trans_lgtspr'                => __( 'Login to see prices', 'authow' ),
-		'penci_woo_trans_fasort'                => __( 'Filter & Sort', 'authow' ),
-		'penci_woo_trans_innumbeistock'         => __( 'Initial number in stock', 'authow' ),
-		'penci_woo_trans_rqinnumbeistock'       => __( 'Required for stock progress bar option', 'authow' ),
-		'penci_woo_trans_quickview'             => __( 'Quick view', 'authow' ),
-		'penci_woo_trans_close'                 => __( 'Close', 'authow' ),
-		'penci_woo_trans_color'                 => __( 'Color', 'authow' ),
-		'penci_woo_trans_image'                 => __( 'Image', 'authow' ),
-		'penci_woo_trans_label'                 => __( 'Label', 'authow' ),
-		'penci_woo_trans_canimage'              => __( 'Choose an image', 'authow' ),
-		'penci_woo_trans_usimage'               => __( 'Use image', 'authow' ),
-		'penci_woo_trans_upaddimg'              => __( 'Upload/Add Image', 'authow' ),
-		'penci_woo_trans_rimg'                  => __( 'Remove image', 'authow' ),
-		'penci_woo_trans_adtwilsh'              => __( 'Add to Wishlist', 'authow' ),
-		'penci_woo_trans_brtwilsh'              => __( 'Browse Wishlist', 'authow' ),
-		'penci_woo_trans_successrmwilish'       => __( 'The product %s has successfully removed.', 'authow' ),
-		'penci_woo_trans_rmproduct'             => __( 'Remove Product', 'authow' ),
-		'penci_woo_trans_sepproduct'            => __( 'Search for products', 'authow' ),
-		'penci_woo_trans_sepproduct_desc'       => __( 'Start typing to see products you are looking for.', 'authow' ),
-		'penci_woo_trans_sepproject'            => __( 'Search for projects.', 'authow' ),
-		'penci_woo_trans_sepproject_desc'       => __( 'Start typing to see projects you are looking for.', 'authow' ),
-		'penci_woo_trans_seppost'               => __( 'Search for posts', 'authow' ),
-		'penci_woo_trans_seppost_desc'          => __( 'Start typing to see posts you are looking for.', 'authow' ),
-		'penci_woo_trans_search'                => __( 'Search', 'authow' ),
-		'penci_woo_trans_selectcat'             => __( 'Select category', 'authow' ),
-		'penci_woo_trans_ffallpfuv'             => __( 'Feed for all posts filed under %s', 'authow' ),
-		'penci_woo_trans_vtspcart'              => __( 'View your shopping cart', 'authow' ),
-		'penci_woo_trans_loading'               => __( 'Loading...', 'authow' ),
-		'penci_woo_trans_eoc'                   => __( 'End of content', 'authow' ),
-		'penci_woo_trans_nmptl'                 => __( 'No more pages to load', 'authow' ),
-		'penci_woo_trans_vmproduct'             => __( 'View more products', 'authow' ),
-		'penci_woo_trans_products'              => __( 'products', 'authow' ),
-		'penci_woo_trans_noproductfount'        => __( 'No product found', 'authow' ),
-		'penci_woo_trans_shoppingcart'          => __( 'Shopping cart', 'authow' ),
-		'penci_woo_trans_checkout'              => __( 'Checkout', 'authow' ),
-		'penci_woo_trans_ordrcompleted'         => __( 'Order complete', 'authow' ),
-		'penci_woo_trans_npostfound'            => __( 'No posts found', 'authow' ),
-		'penci_woo_trans_allrs'                 => __( 'All results', 'authow' ),
-		'penci_woo_trans_cpproduct'             => __( 'Compare Products', 'authow' ),
-		'penci_woo_trans_day'                   => __( 'Day', 'authow' ),
-		'penci_woo_trans_hours'                 => __( 'Hours', 'authow' ),
-		'penci_woo_trans_second'                => __( 'Seconds', 'authow' ),
-		'penci_woo_trans_minutes'               => __( 'Minutes', 'authow' ),
-		'penci_woo_trans_vcart'                 => __( 'View Cart', 'authow' ),
-		'penci_woo_trans_checkout_text'         => __( 'Check out', 'authow' ),
-		'penci_woo_trans_addtocart'             => __( 'has been added to your cart', 'authow' ),
-		'penci_woo_trans_addtocompare_notice'   => __( 'has been added to compare', 'authow' ),
-		'penci_woo_trans_removecompare'         => __( 'has been removed from compare', 'authow' ),
-		'penci_woo_trans_removewishlist'        => __( 'has been removed from your wishlist', 'authow' ),
-		'penci_woo_trans_addwishlist'           => __( 'has been added to your wishlist', 'authow' ),
-		'penci_woo_trans_viewcart'              => __( 'View your shopping cart', 'authow' ),
-		'penci_woo_trans_productfilter'         => __( 'Product Filter', 'authow' ),
-		'penci_woo_trans_shopppingcart'         => __( 'Shopping Cart', 'authow' ),
-		'penci_woo_trans_viewcompare'           => __( 'View your compare products', 'authow' ),
-		'penci_woo_trans_viewwishlist'          => __( 'View your wishlist products', 'authow' ),
-		'penci_woo_trans_relatedproduct'        => __( 'Related products', 'authow' ),
-		'penci_woo_trans_upsell_title'          => __( 'You may also like&hellip;', 'authow' ),
-		'penci_woo_trans_compare_empty_title'   => __( 'Compare list is empty.', 'authow' ),
-		'penci_woo_trans_wishlist_empty_title'  => __( 'Wishlist is empty.', 'authow' ),
-		'penci_woocommerce_wishlist_empty_text' => __( 'You don\'t have any products in the wishlist yet. <br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
-		'penci_woocommerce_compare_empty_text'  => __( 'No products added in the compare list. You must add some products to compare them.<br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
-		'penci_woo_cart_empty_title'            => __( 'Your cart is currently empty.', 'authow' ),
-		'penci_woo_cart_empty_textarea'         => __( 'You don\'t have any products in the shop yet. <br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
-		'penci_woo_trans_sidebar_filter'        => __( 'Sidebar Filter', 'authow' ),
-		'penci_woo_trans_compare_product'       => __( 'Product', 'authow' ),
-		'penci_woo_trans_blog_search_result'    => __( 'Search Results from Blog', 'authow' ),
-		'penci_woo_trans_showmore_result'       => __( 'Show More Result', 'authow' ),
-		'penci_woo_trans_ordered'               => __( 'Ordered:', 'authow' ),
-		'penci_woo_trans_items_avail'           => __( 'Items available:', 'authow' ),
-		'penci_woo_trans_sold'                  => __( 'Sold', 'authow' ),
+		'goso_woo_trans_about_brand'           => __( 'About brand', 'authow' ),
+		'goso_woo_trans_about_variable'        => __( 'About %s', 'authow' ),
+		'goso_woo_trans_addtocompare'          => __( 'Add to Compare', 'authow' ),
+		'goso_woo_trans_viewallcompare'        => __( 'View all Compare', 'authow' ),
+		'goso_woo_trans_returnshop'            => __( 'Return to shop', 'authow' ),
+		'goso_woo_trans_desc'                  => __( 'Description', 'authow' ),
+		'goso_woo_trans_demensions'            => __( 'Dimensions', 'authow' ),
+		'goso_woo_trans_weight'                => __( 'Weight', 'authow' ),
+		'goso_woo_trans_availability'          => __( 'Availability', 'authow' ),
+		'goso_woo_trans_sku'                   => __( 'Sku', 'authow' ),
+		'goso_woo_trans_instock'               => __( 'In stock', 'authow' ),
+		'goso_woo_trans_remove_product'        => __( 'Remove product', 'authow' ),
+		'goso_woo_trans_remove'                => __( 'Remove', 'authow' ),
+		'goso_woo_trans_sale'                  => __( 'Sale', 'authow' ),
+		'goso_woo_trans_sold_out'              => __( 'Sold out', 'authow' ),
+		'goso_woo_trans_hot'                   => __( 'Hot', 'authow' ),
+		'goso_woo_trans_new'                   => __( 'New', 'authow' ),
+		'goso_woo_trans_show'                  => __( 'Show', 'authow' ),
+		'goso_woo_trans_all'                   => __( 'All', 'authow' ),
+		'goso_woo_trans_lgtspr'                => __( 'Login to see prices', 'authow' ),
+		'goso_woo_trans_fasort'                => __( 'Filter & Sort', 'authow' ),
+		'goso_woo_trans_innumbeistock'         => __( 'Initial number in stock', 'authow' ),
+		'goso_woo_trans_rqinnumbeistock'       => __( 'Required for stock progress bar option', 'authow' ),
+		'goso_woo_trans_quickview'             => __( 'Quick view', 'authow' ),
+		'goso_woo_trans_close'                 => __( 'Close', 'authow' ),
+		'goso_woo_trans_color'                 => __( 'Color', 'authow' ),
+		'goso_woo_trans_image'                 => __( 'Image', 'authow' ),
+		'goso_woo_trans_label'                 => __( 'Label', 'authow' ),
+		'goso_woo_trans_canimage'              => __( 'Choose an image', 'authow' ),
+		'goso_woo_trans_usimage'               => __( 'Use image', 'authow' ),
+		'goso_woo_trans_upaddimg'              => __( 'Upload/Add Image', 'authow' ),
+		'goso_woo_trans_rimg'                  => __( 'Remove image', 'authow' ),
+		'goso_woo_trans_adtwilsh'              => __( 'Add to Wishlist', 'authow' ),
+		'goso_woo_trans_brtwilsh'              => __( 'Browse Wishlist', 'authow' ),
+		'goso_woo_trans_successrmwilish'       => __( 'The product %s has successfully removed.', 'authow' ),
+		'goso_woo_trans_rmproduct'             => __( 'Remove Product', 'authow' ),
+		'goso_woo_trans_sepproduct'            => __( 'Search for products', 'authow' ),
+		'goso_woo_trans_sepproduct_desc'       => __( 'Start typing to see products you are looking for.', 'authow' ),
+		'goso_woo_trans_sepproject'            => __( 'Search for projects.', 'authow' ),
+		'goso_woo_trans_sepproject_desc'       => __( 'Start typing to see projects you are looking for.', 'authow' ),
+		'goso_woo_trans_seppost'               => __( 'Search for posts', 'authow' ),
+		'goso_woo_trans_seppost_desc'          => __( 'Start typing to see posts you are looking for.', 'authow' ),
+		'goso_woo_trans_search'                => __( 'Search', 'authow' ),
+		'goso_woo_trans_selectcat'             => __( 'Select category', 'authow' ),
+		'goso_woo_trans_ffallpfuv'             => __( 'Feed for all posts filed under %s', 'authow' ),
+		'goso_woo_trans_vtspcart'              => __( 'View your shopping cart', 'authow' ),
+		'goso_woo_trans_loading'               => __( 'Loading...', 'authow' ),
+		'goso_woo_trans_eoc'                   => __( 'End of content', 'authow' ),
+		'goso_woo_trans_nmptl'                 => __( 'No more pages to load', 'authow' ),
+		'goso_woo_trans_vmproduct'             => __( 'View more products', 'authow' ),
+		'goso_woo_trans_products'              => __( 'products', 'authow' ),
+		'goso_woo_trans_noproductfount'        => __( 'No product found', 'authow' ),
+		'goso_woo_trans_shoppingcart'          => __( 'Shopping cart', 'authow' ),
+		'goso_woo_trans_checkout'              => __( 'Checkout', 'authow' ),
+		'goso_woo_trans_ordrcompleted'         => __( 'Order complete', 'authow' ),
+		'goso_woo_trans_npostfound'            => __( 'No posts found', 'authow' ),
+		'goso_woo_trans_allrs'                 => __( 'All results', 'authow' ),
+		'goso_woo_trans_cpproduct'             => __( 'Compare Products', 'authow' ),
+		'goso_woo_trans_day'                   => __( 'Day', 'authow' ),
+		'goso_woo_trans_hours'                 => __( 'Hours', 'authow' ),
+		'goso_woo_trans_second'                => __( 'Seconds', 'authow' ),
+		'goso_woo_trans_minutes'               => __( 'Minutes', 'authow' ),
+		'goso_woo_trans_vcart'                 => __( 'View Cart', 'authow' ),
+		'goso_woo_trans_checkout_text'         => __( 'Check out', 'authow' ),
+		'goso_woo_trans_addtocart'             => __( 'has been added to your cart', 'authow' ),
+		'goso_woo_trans_addtocompare_notice'   => __( 'has been added to compare', 'authow' ),
+		'goso_woo_trans_removecompare'         => __( 'has been removed from compare', 'authow' ),
+		'goso_woo_trans_removewishlist'        => __( 'has been removed from your wishlist', 'authow' ),
+		'goso_woo_trans_addwishlist'           => __( 'has been added to your wishlist', 'authow' ),
+		'goso_woo_trans_viewcart'              => __( 'View your shopping cart', 'authow' ),
+		'goso_woo_trans_productfilter'         => __( 'Product Filter', 'authow' ),
+		'goso_woo_trans_shopppingcart'         => __( 'Shopping Cart', 'authow' ),
+		'goso_woo_trans_viewcompare'           => __( 'View your compare products', 'authow' ),
+		'goso_woo_trans_viewwishlist'          => __( 'View your wishlist products', 'authow' ),
+		'goso_woo_trans_relatedproduct'        => __( 'Related products', 'authow' ),
+		'goso_woo_trans_upsell_title'          => __( 'You may also like&hellip;', 'authow' ),
+		'goso_woo_trans_compare_empty_title'   => __( 'Compare list is empty.', 'authow' ),
+		'goso_woo_trans_wishlist_empty_title'  => __( 'Wishlist is empty.', 'authow' ),
+		'goso_woocommerce_wishlist_empty_text' => __( 'You don\'t have any products in the wishlist yet. <br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
+		'goso_woocommerce_compare_empty_text'  => __( 'No products added in the compare list. You must add some products to compare them.<br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
+		'goso_woo_cart_empty_title'            => __( 'Your cart is currently empty.', 'authow' ),
+		'goso_woo_cart_empty_textarea'         => __( 'You don\'t have any products in the shop yet. <br> You will find a lot of interesting products on our "Shop" page.', 'authow' ),
+		'goso_woo_trans_sidebar_filter'        => __( 'Sidebar Filter', 'authow' ),
+		'goso_woo_trans_compare_product'       => __( 'Product', 'authow' ),
+		'goso_woo_trans_blog_search_result'    => __( 'Search Results from Blog', 'authow' ),
+		'goso_woo_trans_showmore_result'       => __( 'Show More Result', 'authow' ),
+		'goso_woo_trans_ordered'               => __( 'Ordered:', 'authow' ),
+		'goso_woo_trans_items_avail'           => __( 'Items available:', 'authow' ),
+		'goso_woo_trans_sold'                  => __( 'Sold', 'authow' ),
 	);
 }
 
-function penci_woo_translate_text( $text ) {
-	$translate_text = penci_woo_get_translate_text();
+function goso_woo_translate_text( $text ) {
+	$translate_text = goso_woo_get_translate_text();
 
 	$default_translate = isset( $translate_text[ $text ] ) ? $translate_text[ $text ] : '';
 
@@ -191,9 +191,9 @@ function penci_woo_translate_text( $text ) {
  *
  * @since 2.2.4
  */
-if ( ! function_exists( 'penci_woocommerce_header_add_to_cart_fragment' ) ) {
-	add_filter( 'woocommerce_add_to_cart_fragments', 'penci_woocommerce_header_add_to_cart_fragment' );
-	function penci_woocommerce_header_add_to_cart_fragment( $fragments ) {
+if ( ! function_exists( 'goso_woocommerce_header_add_to_cart_fragment' ) ) {
+	add_filter( 'woocommerce_add_to_cart_fragments', 'goso_woocommerce_header_add_to_cart_fragment' );
+	function goso_woocommerce_header_add_to_cart_fragment( $fragments ) {
 		ob_start();
 		?>
         <a class="cart-contents" href="
@@ -202,8 +202,8 @@ if ( ! function_exists( 'penci_woocommerce_header_add_to_cart_fragment' ) ) {
 		echo esc_url( $cart_link );
 		?>
 		   "
-           title="<?php echo penci_woo_translate_text( 'penci_woo_trans_viewcart' ); ?>">
-            <i class="penciicon-shopping-cart"></i>
+           title="<?php echo goso_woo_translate_text( 'goso_woo_trans_viewcart' ); ?>">
+            <i class="gosoicon-shopping-cart"></i>
             <span><?php echo sprintf( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span></a>
 		<?php
 
@@ -218,15 +218,15 @@ if ( ! function_exists( 'penci_woocommerce_header_add_to_cart_fragment' ) ) {
  *
  * @since 2.2
  */
-if ( ! function_exists( 'penci_custom_woocommerce_breadcrumbs' ) ) {
-	add_filter( 'woocommerce_breadcrumb_defaults', 'penci_custom_woocommerce_breadcrumbs' );
-	function penci_custom_woocommerce_breadcrumbs() {
-		$home  = penci_get_setting( 'penci_trans_home' );
-		$class = get_theme_mod( 'penci_single_product_breadcrumb_position', 'top' );
+if ( ! function_exists( 'goso_custom_woocommerce_breadcrumbs' ) ) {
+	add_filter( 'woocommerce_breadcrumb_defaults', 'goso_custom_woocommerce_breadcrumbs' );
+	function goso_custom_woocommerce_breadcrumbs() {
+		$home  = goso_get_setting( 'goso_trans_home' );
+		$class = get_theme_mod( 'goso_single_product_breadcrumb_position', 'top' );
 
 		return array(
-			'delimiter'   => penci_icon_by_ver( 'fas fa-angle-right' ),
-			'wrap_before' => '<div class="container penci-breadcrumb penci-woo-breadcrumb ' . esc_attr( $class ) . '">',
+			'delimiter'   => goso_icon_by_ver( 'fas fa-angle-right' ),
+			'wrap_before' => '<div class="container goso-breadcrumb goso-woo-breadcrumb ' . esc_attr( $class ) . '">',
 			'wrap_after'  => '</div>',
 			'before'      => '<span>',
 			'after'       => '</span>',
@@ -241,8 +241,8 @@ if ( ! function_exists( 'penci_custom_woocommerce_breadcrumbs' ) ) {
  * @since 1.0
  */
 
-if ( ! function_exists( 'penci_is_product_attribute_archive' ) ) {
-	function penci_is_product_attribute_archive() {
+if ( ! function_exists( 'goso_is_product_attribute_archive' ) ) {
+	function goso_is_product_attribute_archive() {
 		$queried_object = get_queried_object();
 		if ( $queried_object && property_exists( $queried_object, 'taxonomy' ) ) {
 			$taxonomy = $queried_object->taxonomy;
@@ -254,15 +254,15 @@ if ( ! function_exists( 'penci_is_product_attribute_archive' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_is_shop_archive' ) ) {
-	function penci_is_shop_archive() {
-		return ( is_shop() || is_product_category() || is_product_tag() || is_singular( 'product' ) || penci_is_product_attribute_archive() );
+if ( ! function_exists( 'goso_is_shop_archive' ) ) {
+	function goso_is_shop_archive() {
+		return ( is_shop() || is_product_category() || is_product_tag() || is_singular( 'product' ) || goso_is_product_attribute_archive() );
 	}
 }
 
-if ( ! function_exists( 'penci_is_shop_catelog' ) ) {
-	function penci_is_shop_catelog() {
-		return ( is_shop() || is_product_category() || is_product_tag() || penci_is_product_attribute_archive() );
+if ( ! function_exists( 'goso_is_shop_catelog' ) ) {
+	function goso_is_shop_catelog() {
+		return ( is_shop() || is_product_category() || is_product_tag() || goso_is_product_attribute_archive() );
 	}
 }
 
@@ -272,12 +272,12 @@ if ( ! function_exists( 'penci_is_shop_catelog' ) ) {
  *
  * @since 2.2
  */
-if ( ! function_exists( 'penci_custom_number_related_products_args' ) ) {
-	add_filter( 'woocommerce_output_related_products_args', 'penci_custom_number_related_products_args' );
-	function penci_custom_number_related_products_args( $args ) {
+if ( ! function_exists( 'goso_custom_number_related_products_args' ) ) {
+	add_filter( 'woocommerce_output_related_products_args', 'goso_custom_number_related_products_args' );
+	function goso_custom_number_related_products_args( $args ) {
 		$number = 4;
-		if ( get_theme_mod( 'penci_woo_number_related_products' ) ) :
-			$number = absint( get_theme_mod( 'penci_woo_number_related_products' ) );
+		if ( get_theme_mod( 'goso_woo_number_related_products' ) ) :
+			$number = absint( get_theme_mod( 'goso_woo_number_related_products' ) );
 		endif;
 
 		$args['posts_per_page'] = $number; // 4 related products
@@ -304,12 +304,12 @@ add_filter( 'woocommerce_show_page_title', function () {
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
 
-if ( ! function_exists( 'penci_template_loop_product_title' ) ) {
+if ( ! function_exists( 'goso_template_loop_product_title' ) ) {
 
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
-	function penci_template_loop_product_title() {
+	function goso_template_loop_product_title() {
 
 		$length = wc_get_loop_prop( 'title-length' );
 		$title  = get_the_title();
@@ -318,39 +318,39 @@ if ( ! function_exists( 'penci_template_loop_product_title' ) ) {
 			$title = wp_trim_words( $title, $length );
 		}
 
-		echo '<h3 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title penci-loop-title' ) ) . '"><a href="' . get_permalink() . '">' . $title . '</a></h3>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<h3 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title goso-loop-title' ) ) . '"><a href="' . get_permalink() . '">' . $title . '</a></h3>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
-	add_action( 'woocommerce_shop_loop_item_title', 'penci_template_loop_product_title', 10 );
+	add_action( 'woocommerce_shop_loop_item_title', 'goso_template_loop_product_title', 10 );
 }
 
-add_action( 'woocommerce_archive_description', 'penci_woocommerce_before_main_content' );
-function penci_woocommerce_before_main_content() {
+add_action( 'woocommerce_archive_description', 'goso_woocommerce_before_main_content' );
+function goso_woocommerce_before_main_content() {
 	?>
-    <div class="penci-woo-before-main-content">
-        <div class="penci-woo-before-main-inner-content content-left">
-			<?php do_action( 'penci_woocommerce_before_main_shop_content_left' ); ?>
+    <div class="goso-woo-before-main-content">
+        <div class="goso-woo-before-main-inner-content content-left">
+			<?php do_action( 'goso_woocommerce_before_main_shop_content_left' ); ?>
         </div>
-        <div class="penci-woo-before-main-inner-content content-right">
-			<?php do_action( 'penci_woocommerce_before_main_shop_content_right' ); ?>
+        <div class="goso-woo-before-main-inner-content content-right">
+			<?php do_action( 'goso_woocommerce_before_main_shop_content_right' ); ?>
         </div>
     </div>
 	<?php
 }
 
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
-add_action( 'penci_woocommerce_before_main_shop_content_right', 'woocommerce_catalog_ordering', 10 );
+add_action( 'goso_woocommerce_before_main_shop_content_right', 'woocommerce_catalog_ordering', 10 );
 
-add_action( 'init', 'penci_woo_page_header_setup' );
-add_action( 'woocommerce_before_single_product', 'penci_woo_page_header_setup' );
-function penci_woo_page_header_setup() {
+add_action( 'init', 'goso_woo_page_header_setup' );
+add_action( 'woocommerce_before_single_product', 'goso_woo_page_header_setup' );
+function goso_woo_page_header_setup() {
 
-	$single_product_breadcrumb = get_theme_mod( 'penci_single_product_breadcrumb_position', 'top' );
+	$single_product_breadcrumb = get_theme_mod( 'goso_single_product_breadcrumb_position', 'top' );
 
 	if ( ! is_product() ) {
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-		add_action( 'penci_woocommerce_before_main_shop_content_left', 'woocommerce_breadcrumb', 30 );
+		add_action( 'goso_woocommerce_before_main_shop_content_left', 'woocommerce_breadcrumb', 30 );
 	}
 
 	if ( is_product() && 'top' === $single_product_breadcrumb ) {
@@ -366,13 +366,13 @@ function penci_woo_page_header_setup() {
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 	}
 
-	if ( get_theme_mod( 'penci_woo_disable_breadcrumb', false ) ) {
+	if ( get_theme_mod( 'goso_woo_disable_breadcrumb', false ) ) {
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-		remove_action( 'penci_woocommerce_before_main_shop_content_left', 'woocommerce_breadcrumb', 30 );
+		remove_action( 'goso_woocommerce_before_main_shop_content_left', 'woocommerce_breadcrumb', 30 );
 	}
 
-	if ( penci_is_mobile() || penci_is_tablet() ) {
-		add_action( 'penci_woocommerce_before_main_shop_content_left', 'woocommerce_result_count', 50 );
+	if ( goso_is_mobile() || goso_is_tablet() ) {
+		add_action( 'goso_woocommerce_before_main_shop_content_left', 'woocommerce_result_count', 50 );
 	}
 }
 
@@ -381,10 +381,10 @@ function penci_woo_page_header_setup() {
  * Add custom style
  * ------------------------------------------------------------------------------------------------
  */
-if ( ! function_exists( 'penci_woocommerc_custom_style' ) ) {
-	function penci_woocommerc_custom_style() {
+if ( ! function_exists( 'goso_woocommerc_custom_style' ) ) {
+	function goso_woocommerc_custom_style() {
 
-		$quick_view_width = get_theme_mod( 'penci_woocommerce_quickview_width', 960 );
+		$quick_view_width = get_theme_mod( 'goso_woocommerce_quickview_width', 960 );
 
 		$css_elements = '--pc-woo-quick-view-width: ' . $quick_view_width . 'px;';
 
@@ -398,29 +398,29 @@ if ( ! function_exists( 'penci_woocommerc_custom_style' ) ) {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_woocommerce_style' ) ) {
-	function penci_woocommerce_style() {
+if ( ! function_exists( 'goso_woocommerce_style' ) ) {
+	function goso_woocommerce_style() {
 
 		wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/inc/woocommerce/css/build/woocommerce.css', array(), PENCI_SOLEDAD_VERSION );
 		wp_enqueue_style( 'woocommerce-layout', get_template_directory_uri() . '/inc/woocommerce/css/build/woocommerce-layout.css', array(), PENCI_SOLEDAD_VERSION );
-		wp_enqueue_style( 'penci-woocommerce', get_template_directory_uri() . '/inc/woocommerce/css/penci-woocomerce.css', array(), PENCI_SOLEDAD_VERSION );
+		wp_enqueue_style( 'goso-woocommerce', get_template_directory_uri() . '/inc/woocommerce/css/goso-woocomerce.css', array(), PENCI_SOLEDAD_VERSION );
 
-		wp_enqueue_script( 'penci-slick', get_template_directory_uri() . '/inc/woocommerce/js/slick.min.js', array(), PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-slick', get_template_directory_uri() . '/inc/woocommerce/js/slick.min.js', array(), PENCI_SOLEDAD_VERSION, true );
 		wp_enqueue_script( 'jquery.pjax', get_template_directory_uri() . '/inc/woocommerce/js/jquery.pjax.js', array(), PENCI_SOLEDAD_VERSION, true );
 		wp_enqueue_script( 'popper', get_template_directory_uri() . '/inc/woocommerce/js/popper.min.js', array(), PENCI_SOLEDAD_VERSION, true );
 		wp_enqueue_script( 'tooltip', get_template_directory_uri() . '/inc/woocommerce/js/tippy-bundle.umd.min.js', array( 'popper' ), PENCI_SOLEDAD_VERSION, true );
 		wp_enqueue_script( 'jquery.autocomplete', get_template_directory_uri() . '/inc/woocommerce/js/jquery.autocomplete.min.js', array(), PENCI_SOLEDAD_VERSION, true );
-		wp_enqueue_script( 'penci-woocommerce', get_template_directory_uri() . '/inc/woocommerce/js/penci-woocommerce.js', array(), PENCI_SOLEDAD_VERSION, true );
+		wp_enqueue_script( 'goso-woocommerce', get_template_directory_uri() . '/inc/woocommerce/js/goso-woocommerce.js', array(), PENCI_SOLEDAD_VERSION, true );
 
 		wp_register_script( 'infinite-scroll', get_template_directory_uri() . '/inc/woocommerce/js/infinite-scroll.pkgd.min.js', array(), PENCI_SOLEDAD_VERSION, true );
 		wp_register_script( 'woo-countdown', get_template_directory_uri() . '/inc/woocommerce/js/jquery.countdown-pack.min.js', array(), PENCI_SOLEDAD_VERSION, true );
 
-		if ( get_theme_mod( 'penci_woo_notify', false ) ) {
+		if ( get_theme_mod( 'goso_woo_notify', false ) ) {
 			wp_enqueue_style( 'jquery.toast.min.css', get_template_directory_uri() . '/inc/woocommerce/css/jquery.toast.min.css', array(), PENCI_SOLEDAD_VERSION );
 			wp_enqueue_script( 'jquery.toast.min.js', get_template_directory_uri() . '/inc/woocommerce/js/jquery.toast.min.js', array(), PENCI_SOLEDAD_VERSION, true );
 		}
 
-		if ( 'pagination' !== get_theme_mod( 'penci_shop_product_pagination', 'pagination' ) ) {
+		if ( 'pagination' !== get_theme_mod( 'goso_shop_product_pagination', 'pagination' ) ) {
 			wp_enqueue_script( 'infinite-scroll' );
 		}
 
@@ -430,81 +430,81 @@ if ( ! function_exists( 'penci_woocommerce_style' ) ) {
 
 		wp_register_script( 'grid-picker', get_template_directory_uri() . '/inc/woocommerce/js/jquery-grid-picker.js', array(), PENCI_SOLEDAD_VERSION, true );
 
-		wp_add_inline_style( 'penci-woocommerce', penci_woocommerc_custom_style() );
+		wp_add_inline_style( 'goso-woocommerce', goso_woocommerc_custom_style() );
 
-		if ( get_theme_mod( 'pencidesign_woo_single_select2button', true ) ) {
+		if ( get_theme_mod( 'gosodesign_woo_single_select2button', true ) ) {
 			wp_enqueue_script( 'grid-picker' );
 		}
 
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'penci-woocommerce-rtl', get_template_directory_uri() . '/inc/woocommerce/css/penci-woocommerce-rtl.css', array(), PENCI_SOLEDAD_VERSION );
+			wp_enqueue_style( 'goso-woocommerce-rtl', get_template_directory_uri() . '/inc/woocommerce/css/goso-woocommerce-rtl.css', array(), PENCI_SOLEDAD_VERSION );
 		}
 
-		wp_localize_script( 'penci-woocommerce', 'penciwoo', array(
+		wp_localize_script( 'goso-woocommerce', 'gosowoo', array(
 			'ajaxUrl'                       => admin_url( 'admin-ajax.php' ),
 			'nonce'                         => wp_create_nonce( 'ajax-nonce' ),
 			'shoppage'                      => get_permalink( wc_get_page_id( 'shop' ) ),
 			'checkout_url'                  => get_permalink( wc_get_page_id( 'checkout' ) ),
-			'checkout_text'                 => penci_woo_translate_text( 'penci_woo_trans_checkout_text' ),
-			'addtocart_jax'                 => get_theme_mod( 'penci_single_product_disable_ajax_atc', false ),
-			'addtocart'                     => penci_woo_translate_text( 'penci_woo_trans_addtocart' ),
-			'addtocompare'                  => penci_woo_translate_text( 'penci_woo_trans_addtocompare_notice' ),
-			'removecompare'                 => penci_woo_translate_text( 'penci_woo_trans_removecompare' ),
-			'removewishlist'                => penci_woo_translate_text( 'penci_woo_trans_removewishlist' ),
-			'addwishlist'                   => penci_woo_translate_text( 'penci_woo_trans_addwishlist' ),
-			'browsewishlist'                => penci_woo_translate_text( 'penci_woo_trans_brtwilsh' ),
-			'browsecompare'                 => penci_woo_translate_text( 'penci_woo_trans_cpproduct' ),
-			'returnshop'                    => penci_woo_translate_text( 'penci_woo_trans_returnshop' ),
-			'allresults'                    => penci_woo_translate_text( 'penci_woo_trans_allrs' ),
-			'relateproduct'                 => (int) get_theme_mod( 'penci_shop_product_related_columns', 4 ),
-			'upsellproduct'                 => (int) get_theme_mod( 'penci_shop_product_up_sell_columns', 4 ),
-			'crosssellproduct'              => (int) get_theme_mod( 'penci_shop_product_cross_sell_columns', 4 ),
-			'catcolumns'                    => (int) get_theme_mod( 'penci_shop_cat_columns', 4 ),
-			'cartstyle'                     => get_theme_mod( 'penci_woo_cart_style', 'side-right' ),
-			'quickshop'                     => (int) get_theme_mod( 'penci_woocommerce_product_quick_shop', false ),
-			'cartnotify'                    => (int) get_theme_mod( 'penci_woo_add_to_cart_notify', false ),
-			'pagination'                    => get_theme_mod( 'penci_shop_product_pagination', 'pagination' ),
-			'ajaxshop'                      => (int) get_theme_mod( 'penci_woocommerce_ajax_shop', true ),
-			'scrolltotopajax'               => (int) get_theme_mod( 'penci_woocommerce_ajax_shop_auto_top', true ),
-			'pagination_ajax_threshold'     => get_theme_mod( 'penci_shop_product_pagination_ajax_threshold', 400 ),
-			'pagination_ajax_history'       => (int) get_theme_mod( 'penci_shop_product_pagination_ajax_history', false ),
-			'pagination_ajax_title'         => (int) get_theme_mod( 'penci_shop_product_pagination_ajax_title', false ),
-			'select2button'                 => (int) get_theme_mod( 'pencidesign_woo_single_select2button', true ),
-			'wishlist_empty_heading'        => penci_woo_translate_text( 'penci_woo_trans_wishlist_empty_title' ),
-			'wishlist_empty_text'           => penci_woo_translate_text( 'penci_woocommerce_wishlist_empty_text' ),
-			'compare_empty_heading'         => penci_woo_translate_text( 'penci_woo_trans_compare_empty_title' ),
-			'compare_empty_text'            => penci_woo_translate_text( 'penci_woocommerce_compare_empty_text' ),
-			'disable_mobile_autoscroll'     => (int) get_theme_mod( 'penci_woo_mobile_autoscroll', false ),
-			'toast_notify'                  => (int) get_theme_mod( 'penci_woo_notify', false ),
-			'toast_notify_position'         => get_theme_mod( 'penci_woo_notify_position', 'bottom-right' ),
-			'toast_notify_text_align'       => get_theme_mod( 'penci_woo_notify_text_align', 'left' ),
-			'toast_notify_transition'       => get_theme_mod( 'penci_woo_notify_transition', 'slide' ),
-			'toast_notify_hide_after'       => get_theme_mod( 'penci_woo_notify_hide_after', 5000 ),
-			'toast_notify_bg_color'         => get_theme_mod( 'penci_woo_notify_bg_color', '' ),
-			'toast_notify_text_color'       => get_theme_mod( 'penci_woo_notify_text_color', '' ),
+			'checkout_text'                 => goso_woo_translate_text( 'goso_woo_trans_checkout_text' ),
+			'addtocart_jax'                 => get_theme_mod( 'goso_single_product_disable_ajax_atc', false ),
+			'addtocart'                     => goso_woo_translate_text( 'goso_woo_trans_addtocart' ),
+			'addtocompare'                  => goso_woo_translate_text( 'goso_woo_trans_addtocompare_notice' ),
+			'removecompare'                 => goso_woo_translate_text( 'goso_woo_trans_removecompare' ),
+			'removewishlist'                => goso_woo_translate_text( 'goso_woo_trans_removewishlist' ),
+			'addwishlist'                   => goso_woo_translate_text( 'goso_woo_trans_addwishlist' ),
+			'browsewishlist'                => goso_woo_translate_text( 'goso_woo_trans_brtwilsh' ),
+			'browsecompare'                 => goso_woo_translate_text( 'goso_woo_trans_cpproduct' ),
+			'returnshop'                    => goso_woo_translate_text( 'goso_woo_trans_returnshop' ),
+			'allresults'                    => goso_woo_translate_text( 'goso_woo_trans_allrs' ),
+			'relateproduct'                 => (int) get_theme_mod( 'goso_shop_product_related_columns', 4 ),
+			'upsellproduct'                 => (int) get_theme_mod( 'goso_shop_product_up_sell_columns', 4 ),
+			'crosssellproduct'              => (int) get_theme_mod( 'goso_shop_product_cross_sell_columns', 4 ),
+			'catcolumns'                    => (int) get_theme_mod( 'goso_shop_cat_columns', 4 ),
+			'cartstyle'                     => get_theme_mod( 'goso_woo_cart_style', 'side-right' ),
+			'quickshop'                     => (int) get_theme_mod( 'goso_woocommerce_product_quick_shop', false ),
+			'cartnotify'                    => (int) get_theme_mod( 'goso_woo_add_to_cart_notify', false ),
+			'pagination'                    => get_theme_mod( 'goso_shop_product_pagination', 'pagination' ),
+			'ajaxshop'                      => (int) get_theme_mod( 'goso_woocommerce_ajax_shop', true ),
+			'scrolltotopajax'               => (int) get_theme_mod( 'goso_woocommerce_ajax_shop_auto_top', true ),
+			'pagination_ajax_threshold'     => get_theme_mod( 'goso_shop_product_pagination_ajax_threshold', 400 ),
+			'pagination_ajax_history'       => (int) get_theme_mod( 'goso_shop_product_pagination_ajax_history', false ),
+			'pagination_ajax_title'         => (int) get_theme_mod( 'goso_shop_product_pagination_ajax_title', false ),
+			'select2button'                 => (int) get_theme_mod( 'gosodesign_woo_single_select2button', true ),
+			'wishlist_empty_heading'        => goso_woo_translate_text( 'goso_woo_trans_wishlist_empty_title' ),
+			'wishlist_empty_text'           => goso_woo_translate_text( 'goso_woocommerce_wishlist_empty_text' ),
+			'compare_empty_heading'         => goso_woo_translate_text( 'goso_woo_trans_compare_empty_title' ),
+			'compare_empty_text'            => goso_woo_translate_text( 'goso_woocommerce_compare_empty_text' ),
+			'disable_mobile_autoscroll'     => (int) get_theme_mod( 'goso_woo_mobile_autoscroll', false ),
+			'toast_notify'                  => (int) get_theme_mod( 'goso_woo_notify', false ),
+			'toast_notify_position'         => get_theme_mod( 'goso_woo_notify_position', 'bottom-right' ),
+			'toast_notify_text_align'       => get_theme_mod( 'goso_woo_notify_text_align', 'left' ),
+			'toast_notify_transition'       => get_theme_mod( 'goso_woo_notify_transition', 'slide' ),
+			'toast_notify_hide_after'       => get_theme_mod( 'goso_woo_notify_hide_after', 5000 ),
+			'toast_notify_bg_color'         => get_theme_mod( 'goso_woo_notify_bg_color', '' ),
+			'toast_notify_text_color'       => get_theme_mod( 'goso_woo_notify_text_color', '' ),
 			'toast_notify_shop_url'         => esc_url( wc_get_cart_url() ),
-			'toast_notify_shop_sucess_text' => penci_woo_translate_text( 'penci_woo_trans_succatc' ),
-			'toast_notify_shop_text'        => penci_woo_translate_text( 'penci_woo_trans_vcart' ),
-			'fullpanelposition'             => get_theme_mod( 'penci_woo_fw_panel_pst', 'side-right' ),
-			'search_input_padding'          => get_theme_mod( 'penci_woo_search_input_padding', 'true' ),
-			'countdown_days'                => penci_woo_translate_text( 'penci_woo_trans_day' ),
-			'countdown_hours'               => penci_woo_translate_text( 'penci_woo_trans_hours' ),
-			'countdown_mins'                => penci_woo_translate_text( 'penci_woo_trans_minutes' ),
-			'countdown_sec'                 => penci_woo_translate_text( 'penci_woo_trans_second' ),
-			'wdgh'                          => (int) get_theme_mod( 'penci_woo_widgets_scroll_height', 275 ),
-			'wdgmh'                         => (int) get_theme_mod( 'penci_woo_widgets_scroll_m_height', 275 ),
+			'toast_notify_shop_sucess_text' => goso_woo_translate_text( 'goso_woo_trans_succatc' ),
+			'toast_notify_shop_text'        => goso_woo_translate_text( 'goso_woo_trans_vcart' ),
+			'fullpanelposition'             => get_theme_mod( 'goso_woo_fw_panel_pst', 'side-right' ),
+			'search_input_padding'          => get_theme_mod( 'goso_woo_search_input_padding', 'true' ),
+			'countdown_days'                => goso_woo_translate_text( 'goso_woo_trans_day' ),
+			'countdown_hours'               => goso_woo_translate_text( 'goso_woo_trans_hours' ),
+			'countdown_mins'                => goso_woo_translate_text( 'goso_woo_trans_minutes' ),
+			'countdown_sec'                 => goso_woo_translate_text( 'goso_woo_trans_second' ),
+			'wdgh'                          => (int) get_theme_mod( 'goso_woo_widgets_scroll_height', 275 ),
+			'wdgmh'                         => (int) get_theme_mod( 'goso_woo_widgets_scroll_m_height', 275 ),
 			'cart_hash_key'                 => apply_filters( 'woocommerce_cart_hash_key', 'wc_cart_hash_' . md5( get_current_blog_id() . '_' . get_site_url( get_current_blog_id(), '/' ) . get_template() ) ),
 			'fragment_name'                 => apply_filters( 'woocommerce_cart_fragment_name', 'wc_fragments_' . md5( get_current_blog_id() . '_' . get_site_url( get_current_blog_id(), '/' ) . get_template() ) ),
-			'demo_mods'                     => penci_woo_theme_mods_custom_link(),
+			'demo_mods'                     => goso_woo_theme_mods_custom_link(),
 		) );
 	}
 
-	add_action( 'wp_enqueue_scripts', 'penci_woocommerce_style', 99 );
+	add_action( 'wp_enqueue_scripts', 'goso_woocommerce_style', 99 );
 }
 
-if ( ! function_exists( 'penci_woocommerce_get_second_image' ) ) {
-	add_action( 'penci_loop_product_image', 'penci_woocommerce_get_second_image' );
-	function penci_woocommerce_get_second_image() {
+if ( ! function_exists( 'goso_woocommerce_get_second_image' ) ) {
+	add_action( 'goso_loop_product_image', 'goso_woocommerce_get_second_image' );
+	function goso_woocommerce_get_second_image() {
 		global $product;
 
 		$image_id       = (int) $product->get_image_id();
@@ -522,7 +522,7 @@ if ( ! function_exists( 'penci_woocommerce_get_second_image' ) ) {
 
 		$image_id = ! empty( $hover_id ) ? $hover_id : $image_id;
 
-		if ( get_theme_mod( 'penci_woocommerce_product_hover_img' ) ) :
+		if ( get_theme_mod( 'goso_woocommerce_product_hover_img' ) ) :
 			?>
             <div class="hover-img">
                 <a href="<?php echo esc_url( get_permalink() ); ?>">
@@ -535,8 +535,8 @@ if ( ! function_exists( 'penci_woocommerce_get_second_image' ) ) {
 }
 
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
-add_action( 'woocommerce_before_shop_loop_item_title', 'penci_woocommerce_product_thumbnail', 10 );
-function penci_woocommerce_product_thumbnail() {
+add_action( 'woocommerce_before_shop_loop_item_title', 'goso_woocommerce_product_thumbnail', 10 );
+function goso_woocommerce_product_thumbnail() {
 	global $product;
 	$size        = 'woocommerce_thumbnail';
 	$custom_size = wc_get_loop_prop( 'img_size' );
@@ -546,7 +546,7 @@ function penci_woocommerce_product_thumbnail() {
 	$thumb = $product ? $product->get_image( $image_size ) : '';
 
 	if ( $thumb ) {
-		echo '<a class="penci-main-loop-image" href="' . esc_url( get_permalink() ) . '">' . $thumb . '</a>';
+		echo '<a class="goso-main-loop-image" href="' . esc_url( get_permalink() ) . '">' . $thumb . '</a>';
 	}
 }
 
@@ -556,12 +556,12 @@ function penci_woocommerce_product_thumbnail() {
  * ------------------------------------------------------------------------------------------------
  */
 
-add_action( 'woocommerce_single_product_summary', 'penci_woocommerce_extra_single_product_extra_buttons', 35 );
-function penci_woocommerce_extra_single_product_extra_buttons() {
+add_action( 'woocommerce_single_product_summary', 'goso_woocommerce_extra_single_product_extra_buttons', 35 );
+function goso_woocommerce_extra_single_product_extra_buttons() {
 	?>
-    <div class="penci-extra-buttons">
+    <div class="goso-extra-buttons">
 		<?php
-		do_action( 'penci_single_product_extra_buttons' );
+		do_action( 'goso_single_product_extra_buttons' );
 		?>
     </div>
 	<?php
@@ -573,8 +573,8 @@ function penci_woocommerce_extra_single_product_extra_buttons() {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_product_attributes_array' ) ) {
-	function penci_product_attributes_array( $default = false ) {
+if ( ! function_exists( 'goso_product_attributes_array' ) ) {
+	function goso_product_attributes_array( $default = false ) {
 
 		if ( ! function_exists( 'wc_get_attribute_taxonomies' ) ) {
 			return;
@@ -599,27 +599,27 @@ if ( ! function_exists( 'penci_product_attributes_array' ) ) {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_is_shop_on_front' ) ) {
-	function penci_is_shop_on_front() {
+if ( ! function_exists( 'goso_is_shop_on_front' ) ) {
+	function goso_is_shop_on_front() {
 		return function_exists( 'wc_get_page_id' ) && 'page' === get_option( 'show_on_front' ) && wc_get_page_id( 'shop' ) == get_option( 'page_on_front' );
 	}
 }
 
 if ( class_exists( 'YITH_WCWL_Frontend' ) ) {
-	add_action( 'penci_single_product_extra_buttons', array( YITH_WCWL_Frontend::get_instance(), 'print_button' ) );
+	add_action( 'goso_single_product_extra_buttons', array( YITH_WCWL_Frontend::get_instance(), 'print_button' ) );
 	remove_action( 'init', array( YITH_WCWL_Frontend(), 'add_button' ) );
-	add_action( 'penci_loop_product_buttons', array( YITH_WCWL_Frontend(), 'print_button' ), 10 );
+	add_action( 'goso_loop_product_buttons', array( YITH_WCWL_Frontend(), 'print_button' ), 10 );
 }
 
 if ( function_exists( 'YITH_WCQV_Frontend' ) ) {
 	remove_action( 'init', array( YITH_WCQV_Frontend(), 'add_button' ) );
-	add_action( 'penci_loop_product_buttons', array( YITH_WCQV_Frontend(), 'yith_add_quick_view_button' ), 5 );
+	add_action( 'goso_loop_product_buttons', array( YITH_WCQV_Frontend(), 'yith_add_quick_view_button' ), 5 );
 }
 
 if ( class_exists( 'YITH_Woocompare_Frontend' ) ) {
 	$yith_woocompare_frontend = new YITH_Woocompare_Frontend();
-	add_action( 'penci_loop_product_buttons', array( $yith_woocompare_frontend, 'add_compare_link' ), 20 );
-	add_action( 'penci_single_product_extra_buttons', array( $yith_woocompare_frontend, 'add_compare_link' ), 20 );
+	add_action( 'goso_loop_product_buttons', array( $yith_woocompare_frontend, 'add_compare_link' ), 20 );
+	add_action( 'goso_single_product_extra_buttons', array( $yith_woocompare_frontend, 'add_compare_link' ), 20 );
 }
 
 /**
@@ -628,8 +628,8 @@ if ( class_exists( 'YITH_Woocompare_Frontend' ) ) {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_get_gallery_image_html' ) ) {
-	function penci_get_gallery_image_html( $attachment_id, $main_image = false, $slider = false ) {
+if ( ! function_exists( 'goso_get_gallery_image_html' ) ) {
+	function goso_get_gallery_image_html( $attachment_id, $main_image = false, $slider = false ) {
 		$flexslider        = (bool) apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) );
 		$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
 		$thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array(
@@ -671,12 +671,12 @@ if ( ! function_exists( 'penci_get_gallery_image_html' ) ) {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_top_cart_icon' ) ) {
-	function penci_top_cart_icon() {
+if ( ! function_exists( 'goso_top_cart_icon' ) ) {
+	function goso_top_cart_icon() {
 		get_template_part( 'template-parts/header/cart-icon' );
 	}
 
-	add_action( 'penci_header_extra_icons', 'penci_top_cart_icon', 5 );
+	add_action( 'goso_header_extra_icons', 'goso_top_cart_icon', 5 );
 }
 
 /**
@@ -685,8 +685,8 @@ if ( ! function_exists( 'penci_top_cart_icon' ) ) {
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_custom_product_query_default_args' ) ) {
-	function penci_custom_product_query_default_args() {
+if ( ! function_exists( 'goso_custom_product_query_default_args' ) ) {
+	function goso_custom_product_query_default_args() {
 		return array(
 			// General.
 			'element_title'              => '',
@@ -725,14 +725,14 @@ if ( ! function_exists( 'penci_custom_product_query_default_args' ) ) {
 			'product_categories'         => 1,
 
 			// Design.
-			'product_style'              => get_theme_mod( 'penci_woocommerce_product_style', 'style-1' ),
+			'product_style'              => get_theme_mod( 'goso_woocommerce_product_style', 'style-1' ),
 			'sale_countdown'             => 0,
 			'stock_progress_bar'         => 0,
 			'img_size'                   => 'woocommerce_thumbnail',
-			'icon_style'                 => get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' ),
-			'icon_position'              => get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' ),
-			'icon_animation'             => get_theme_mod( 'penci_woocommerce_product_icon_hover_animation', 'move-right' ),
-			'product_round_style'        => penci_shop_product_round_style( get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' ), get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' ) ),
+			'icon_style'                 => get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' ),
+			'icon_position'              => get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' ),
+			'icon_animation'             => get_theme_mod( 'goso_woocommerce_product_icon_hover_animation', 'move-right' ),
+			'product_round_style'        => goso_shop_product_round_style( get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' ), get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' ) ),
 
 			// Extra.
 			'loop_name'                  => 'custom',
@@ -747,14 +747,14 @@ if ( ! function_exists( 'penci_custom_product_query_default_args' ) ) {
  * WooCommerce pJax Preloader
  * ------------------------------------------------------------------------------------------------
  */
-if ( ! function_exists( 'penci_pjax_preloader' ) ) {
-	function penci_pjax_preloader() {
-		$html = '<div class="penci-products-preloader"><span class="penci-loading-icon"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></span></div>';
-		$html = apply_filters( 'penci_pjax_preloader', $html );
+if ( ! function_exists( 'goso_pjax_preloader' ) ) {
+	function goso_pjax_preloader() {
+		$html = '<div class="goso-products-preloader"><span class="goso-loading-icon"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></span></div>';
+		$html = apply_filters( 'goso_pjax_preloader', $html );
 		echo $html;
 	}
 
-	add_action( 'woocommerce_before_shop_loop', 'penci_pjax_preloader', 35 );
+	add_action( 'woocommerce_before_shop_loop', 'goso_pjax_preloader', 35 );
 }
 
 /**
@@ -762,62 +762,62 @@ if ( ! function_exists( 'penci_pjax_preloader' ) ) {
  * WooCommerce single class
  * ------------------------------------------------------------------------------------------------
  */
-if ( ! function_exists( 'penci_woo_single_product_class' ) ) {
-	function penci_woo_single_product_class( $classes, $product ) {
+if ( ! function_exists( 'goso_woo_single_product_class' ) ) {
+	function goso_woo_single_product_class( $classes, $product ) {
 		global $product;
 		if ( is_singular( 'product' ) ) {
 			$id = get_the_ID();
 
-			$img_width          = get_theme_mod( 'penci_single_product_img_width', 'standard' );
-			$img_width          = penci_get_single_product_meta( $id, 'product_general', 'penci_single_product_img_width', $img_width );
-			$thumbnail_position = get_theme_mod( 'penci_single_product_thumbnail_position', 'standard' );
-			$thumbnail_position = penci_get_single_product_meta( $id, 'product_general', 'penci_single_product_thumbnail_position', $thumbnail_position );
+			$img_width          = get_theme_mod( 'goso_single_product_img_width', 'standard' );
+			$img_width          = goso_get_single_product_meta( $id, 'product_general', 'goso_single_product_img_width', $img_width );
+			$thumbnail_position = get_theme_mod( 'goso_single_product_thumbnail_position', 'standard' );
+			$thumbnail_position = goso_get_single_product_meta( $id, 'product_general', 'goso_single_product_thumbnail_position', $thumbnail_position );
 
-			$summary_align = get_theme_mod( 'penci_single_product_summary_align', 'standard' );
-			$summary_align = penci_get_single_product_meta( $id, 'product_general', 'product_summary_align', $summary_align );
+			$summary_align = get_theme_mod( 'goso_single_product_summary_align', 'standard' );
+			$summary_align = goso_get_single_product_meta( $id, 'product_general', 'product_summary_align', $summary_align );
 
 
-			$top_related_posts = get_theme_mod( 'penci_single_product_top_related_product', true );
+			$top_related_posts = get_theme_mod( 'goso_single_product_top_related_product', true );
 
 			$classes[] = $top_related_posts ? 'top-related-posts-show' : 'top-related-posts-hidden';
-			$classes[] = 'pcw-breadcrumb-'.get_theme_mod('penci_single_product_breadcrumb_position','default');
+			$classes[] = 'pcw-breadcrumb-'.get_theme_mod('goso_single_product_breadcrumb_position','default');
 
 
-			if ( penci_woo_is_activate_sidebar() ) {
-				$classes[] = 'penci-sidebar-enable';
+			if ( goso_woo_is_activate_sidebar() ) {
+				$classes[] = 'goso-sidebar-enable';
 			}
 
-			$product_background = get_post_meta( $id, 'penci_pmeta_product_background', true );
+			$product_background = get_post_meta( $id, 'goso_pmeta_product_background', true );
 
 			$classes[] = ( isset( $product_background['product_wrap_bgcolor'] ) && $product_background['product_wrap_bgcolor'] ) || ( isset( $product_background['product_wrap_bgimg'] ) && $product_background['product_wrap_bgimg'] ) ? 'has-background' : 'no-background';
 
-			$img_width = 'fullwidth' == $img_width ? 'fullwidth penci-product-img-fullwidth-container' : $img_width;
+			$img_width = 'fullwidth' == $img_width ? 'fullwidth goso-product-img-fullwidth-container' : $img_width;
 
-			$classes[] = 'penci-product-img-' . $img_width;
-			$classes[] = 'penci-product-' . $thumbnail_position;
-			$classes[] = 'penci-summary-align-' . $summary_align;
+			$classes[] = 'goso-product-img-' . $img_width;
+			$classes[] = 'goso-product-' . $thumbnail_position;
+			$classes[] = 'goso-summary-align-' . $summary_align;
 
 			$attachment_ids     = $product->get_gallery_image_ids();
-			$thumbnail_position = get_theme_mod( 'penci_single_product_thumbnail_position', 'thumbnail-left' );
-			$thumbnail_position = penci_get_single_product_meta( get_the_ID(), 'product_general', 'penci_single_product_thumbnail_position', $thumbnail_position );
+			$thumbnail_position = get_theme_mod( 'goso_single_product_thumbnail_position', 'thumbnail-left' );
+			$thumbnail_position = goso_get_single_product_meta( get_the_ID(), 'product_general', 'goso_single_product_thumbnail_position', $thumbnail_position );
 			$thumbnail_position = $attachment_ids && $product->get_image_id() ? $thumbnail_position : 'no-thumbnail';
 
 			$classes[] = $thumbnail_position;
 		}
 
-		$social_share_style = get_theme_mod( 'penci_woo_social_share_style', 'style-1' );
-		$social_share_icon  = get_theme_mod( 'penci_woo_social_icon_style', 'circle' );
+		$social_share_style = get_theme_mod( 'goso_woo_social_share_style', 'style-1' );
+		$social_share_icon  = get_theme_mod( 'goso_woo_social_icon_style', 'circle' );
 
 		$attachment_ids = $product->get_gallery_image_ids();
 
-		$classes[] = 'penci-share-' . $social_share_style;
-		$classes[] = 'penci-share-icon-style-' . $social_share_icon;
+		$classes[] = 'goso-share-' . $social_share_style;
+		$classes[] = 'goso-share-icon-style-' . $social_share_icon;
 		$classes[] = ! empty( $attachment_ids ) ? 'has-product-gallery' : 'no-product-gallery';
 
 		return $classes;
 	}
 
-	add_filter( 'woocommerce_post_class', 'penci_woo_single_product_class', 10, 2 );
+	add_filter( 'woocommerce_post_class', 'goso_woo_single_product_class', 10, 2 );
 }
 
 /**
@@ -825,8 +825,8 @@ if ( ! function_exists( 'penci_woo_single_product_class' ) ) {
  * WooCommerce get shop link with the current query
  * ------------------------------------------------------------------------------------------------
  */
-if ( ! function_exists( 'penci_shop_page_link' ) ) {
-	function penci_shop_page_link( $keep_query = false, $taxonomy = '' ) {
+if ( ! function_exists( 'goso_shop_page_link' ) ) {
+	function goso_shop_page_link( $keep_query = false, $taxonomy = '' ) {
 		// Base Link decided by current page.
 		$link = '';
 
@@ -848,7 +848,7 @@ if ( ! function_exists( 'penci_shop_page_link' ) ) {
 
 		if ( $keep_query ) {
 
-			$link = apply_filters( 'penci_woo_filter_link', $link );
+			$link = apply_filters( 'goso_woo_filter_link', $link );
 
 			/**
 			 * Search Arg.
@@ -890,7 +890,7 @@ if ( ! function_exists( 'penci_shop_page_link' ) ) {
 			}
 		}
 
-		$link = apply_filters( 'penci_shop_page_link', $link, $keep_query, $taxonomy );
+		$link = apply_filters( 'goso_shop_page_link', $link, $keep_query, $taxonomy );
 
 		if ( is_string( $link ) ) {
 			return $link;
@@ -899,15 +899,15 @@ if ( ! function_exists( 'penci_shop_page_link' ) ) {
 		}
 	}
 }
-if ( ! function_exists( 'penci_woo_theme_mods_custom_link' ) ) {
-	function penci_woo_theme_mods_custom_link() {
+if ( ! function_exists( 'goso_woo_theme_mods_custom_link' ) ) {
+	function goso_woo_theme_mods_custom_link() {
 		$user_attr = array();
 
-		return apply_filters( 'penci_woo_allow_get_url', $user_attr );
+		return apply_filters( 'goso_woo_allow_get_url', $user_attr );
 	}
 }
 
-add_filter( 'penci_woo_filter_link', function ( $link ) {
+add_filter( 'goso_woo_filter_link', function ( $link ) {
 
 	$allow_get = array(
 		'min_price',
@@ -920,8 +920,8 @@ add_filter( 'penci_woo_filter_link', function ( $link ) {
 		'shortcode',
 	);
 
-	$allow_get = apply_filters( 'penci_woo_allow_get_default_url', $allow_get );
-	$mods_get  = penci_woo_theme_mods_custom_link();
+	$allow_get = apply_filters( 'goso_woo_allow_get_default_url', $allow_get );
+	$mods_get  = goso_woo_theme_mods_custom_link();
 
 	$allow_get = array_merge( $allow_get, $mods_get );
 
@@ -934,9 +934,9 @@ add_filter( 'penci_woo_filter_link', function ( $link ) {
 	return $link;
 } );
 
-if ( ! function_exists( 'penci_woo_get_products_per_page' ) ) {
-	function penci_woo_get_products_per_page() {
-		$products_per_page = get_theme_mod( 'penci_woo_post_per_page', 24 );
+if ( ! function_exists( 'goso_woo_get_products_per_page' ) ) {
+	function goso_woo_get_products_per_page() {
+		$products_per_page = get_theme_mod( 'goso_woo_post_per_page', 24 );
 
 		if ( isset( $_REQUEST['per_page'] ) && ! empty( $_REQUEST['per_page'] ) ) {
 			$products_per_page = $_REQUEST['per_page'];
@@ -948,18 +948,18 @@ if ( ! function_exists( 'penci_woo_get_products_per_page' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_products_per_page_action' ) ) {
-	add_action( 'init', 'penci_products_per_page_action', 100 );
-	function penci_products_per_page_action() {
-		if ( isset( $_REQUEST['per_page'] ) && 1 != $_REQUEST['per_page'] && ! isset( $_REQUEST['_locale'] ) && ! isset( $_REQUEST['shortcode'] ) && apply_filters( 'penci_per_page_custom_expression', true ) ) {
+if ( ! function_exists( 'goso_products_per_page_action' ) ) {
+	add_action( 'init', 'goso_products_per_page_action', 100 );
+	function goso_products_per_page_action() {
+		if ( isset( $_REQUEST['per_page'] ) && 1 != $_REQUEST['per_page'] && ! isset( $_REQUEST['_locale'] ) && ! isset( $_REQUEST['shortcode'] ) && apply_filters( 'goso_per_page_custom_expression', true ) ) {
 			setcookie( 'shop_per_page', intval( $_REQUEST['per_page'] ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_shop_view_action' ) ) {
-	add_action( 'init', 'penci_shop_view_action', 100 );
-	function penci_shop_view_action() {
+if ( ! function_exists( 'goso_shop_view_action' ) ) {
+	add_action( 'init', 'goso_shop_view_action', 100 );
+	function goso_shop_view_action() {
 		if ( isset( $_REQUEST['shop_view'] ) && ! isset( $_REQUEST['shortcode'] ) ) {
 			setcookie( 'shop_view', $_REQUEST['shop_view'], 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
 		}
@@ -969,26 +969,26 @@ if ( ! function_exists( 'penci_shop_view_action' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_products_columns_per_row' ) ) {
-	function penci_get_products_columns_per_row() {
+if ( ! function_exists( 'goso_get_products_columns_per_row' ) ) {
+	function goso_get_products_columns_per_row() {
 		if ( isset( $_REQUEST['per_row'] ) ) {
 			return intval( $_REQUEST['per_row'] );
 		} elseif ( isset( $_COOKIE['shop_per_row'] ) ) {
 			return intval( $_COOKIE['shop_per_row'] );
 		} else {
-			return intval( get_theme_mod( 'penci_shop_product_columns', 3 ) );
+			return intval( get_theme_mod( 'goso_shop_product_columns', 3 ) );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_get_shop_view' ) ) {
-	function penci_get_shop_view() {
+if ( ! function_exists( 'goso_get_shop_view' ) ) {
+	function goso_get_shop_view() {
 		if ( isset( $_REQUEST['shop_view'] ) ) {
 			$return = $_REQUEST['shop_view'];
 		} elseif ( isset( $_COOKIE['shop_view'] ) ) {
 			$return = $_COOKIE['shop_view'];
 		} else {
-			$shop_view = get_theme_mod( 'penci_shop_product_view', 'list-grid' );
+			$shop_view = get_theme_mod( 'goso_shop_product_view', 'list-grid' );
 			if ( $shop_view == 'grid_list' ) {
 				$return = 'grid';
 			} elseif ( $shop_view == 'list_grid' ) {
@@ -1002,64 +1002,64 @@ if ( ! function_exists( 'penci_get_shop_view' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_wc_main_loop_prop' ) ) {
-	function penci_wc_main_loop_prop() {
+if ( ! function_exists( 'goso_wc_main_loop_prop' ) ) {
+	function goso_wc_main_loop_prop() {
 
-		wc_set_loop_prop( 'per_page', (int) penci_woo_get_products_per_page() );
-		wc_set_loop_prop( 'columns', (int) penci_get_products_columns_per_row() );
-		wc_set_loop_prop( 'product_loop_style', get_theme_mod( 'penci_woocommerce_product_style', 'style-1' ) );
-		wc_set_loop_prop( 'products_view', penci_get_shop_view() );
-		wc_set_loop_prop( 'mobile-columns', get_theme_mod( 'penci_shop_product_mobile_columns', 2 ) );
-		wc_set_loop_prop( 'cat-loop-style', get_theme_mod( 'penci_woocommerce_product_cat_style', 'style-1' ) );
-		wc_set_loop_prop( 'title-length', get_theme_mod( 'penci_woo_limit_product_title' ) );
-		wc_set_loop_prop( 'loop_rating', get_theme_mod( 'penci_woocommerce_loop_rating', true ) );
-		wc_set_loop_prop( 'loop_categories', get_theme_mod( 'penci_woocommerce_loop_category', true ) );
-		wc_set_loop_prop( 'stock_progress_bar', get_theme_mod( 'penci_shop_stock_progress_bar', false ) );
+		wc_set_loop_prop( 'per_page', (int) goso_woo_get_products_per_page() );
+		wc_set_loop_prop( 'columns', (int) goso_get_products_columns_per_row() );
+		wc_set_loop_prop( 'product_loop_style', get_theme_mod( 'goso_woocommerce_product_style', 'style-1' ) );
+		wc_set_loop_prop( 'products_view', goso_get_shop_view() );
+		wc_set_loop_prop( 'mobile-columns', get_theme_mod( 'goso_shop_product_mobile_columns', 2 ) );
+		wc_set_loop_prop( 'cat-loop-style', get_theme_mod( 'goso_woocommerce_product_cat_style', 'style-1' ) );
+		wc_set_loop_prop( 'title-length', get_theme_mod( 'goso_woo_limit_product_title' ) );
+		wc_set_loop_prop( 'loop_rating', get_theme_mod( 'goso_woocommerce_loop_rating', true ) );
+		wc_set_loop_prop( 'loop_categories', get_theme_mod( 'goso_woocommerce_loop_category', true ) );
+		wc_set_loop_prop( 'stock_progress_bar', get_theme_mod( 'goso_shop_stock_progress_bar', false ) );
 
-		wc_set_loop_prop( 'product_loop_icon_style', get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' ) );
-		wc_set_loop_prop( 'product_loop_icon_position', get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' ) );
-		wc_set_loop_prop( 'product_loop_icon_animation', get_theme_mod( 'penci_woocommerce_product_icon_hover_animation', 'move-right' ) );
-		wc_set_loop_prop( 'product_round_style', penci_shop_product_round_style( get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' ), get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' ) ) );
+		wc_set_loop_prop( 'product_loop_icon_style', get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' ) );
+		wc_set_loop_prop( 'product_loop_icon_position', get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' ) );
+		wc_set_loop_prop( 'product_loop_icon_animation', get_theme_mod( 'goso_woocommerce_product_icon_hover_animation', 'move-right' ) );
+		wc_set_loop_prop( 'product_round_style', goso_shop_product_round_style( get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' ), get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' ) ) );
 
 
-		if ( 'list' === penci_get_shop_view() ) {
+		if ( 'list' === goso_get_shop_view() ) {
 			wc_set_loop_prop( 'columns', 1 );
 		}
 	}
 
-	add_action( 'woocommerce_before_shop_loop', 'penci_wc_main_loop_prop', 10 );
-	add_action( 'wp', 'penci_wc_main_loop_prop', 10 );
+	add_action( 'woocommerce_before_shop_loop', 'goso_wc_main_loop_prop', 10 );
+	add_action( 'wp', 'goso_wc_main_loop_prop', 10 );
 }
 
-if ( ! function_exists( 'penci_woocommerce_pre_get_posts' ) ) {
-	function penci_woocommerce_pre_get_posts( $query ) {
+if ( ! function_exists( 'goso_woocommerce_pre_get_posts' ) ) {
+	function goso_woocommerce_pre_get_posts( $query ) {
 
 		if ( ! is_admin() && is_post_type_archive( 'product' ) && $query->is_main_query() ) {
-			$query->set( 'posts_per_page', (int) penci_woo_get_products_per_page() );
+			$query->set( 'posts_per_page', (int) goso_woo_get_products_per_page() );
 		}
 	}
 
-	add_action( 'pre_get_posts', 'penci_woocommerce_pre_get_posts', 20 );
+	add_action( 'pre_get_posts', 'goso_woocommerce_pre_get_posts', 20 );
 }
 
-if ( ! function_exists( 'penci_woocommerce_get_product_loop_class' ) ) {
-	function penci_woocommerce_get_product_loop_class() {
+if ( ! function_exists( 'goso_woocommerce_get_product_loop_class' ) ) {
+	function goso_woocommerce_get_product_loop_class() {
 		$classes               = array();
-		$product_display_style = wc_get_loop_prop( 'products_view', penci_get_shop_view() );
-		$product_style         = wc_get_loop_prop( 'product_loop_style', get_theme_mod( 'penci_woocommerce_product_style', 'style-1' ) );
-		$product_style         = $product_style ? $product_style : get_theme_mod( 'penci_woocommerce_product_style', 'style-1' );
+		$product_display_style = wc_get_loop_prop( 'products_view', goso_get_shop_view() );
+		$product_style         = wc_get_loop_prop( 'product_loop_style', get_theme_mod( 'goso_woocommerce_product_style', 'style-1' ) );
+		$product_style         = $product_style ? $product_style : get_theme_mod( 'goso_woocommerce_product_style', 'style-1' );
 		$product_loop_name     = wc_get_loop_prop( 'name' );
 
 		$product_loop_icon_style     = wc_get_loop_prop( 'product_loop_icon_style' );
-		$product_loop_icon_style     = $product_loop_icon_style ? $product_loop_icon_style : get_theme_mod( 'penci_woocommerce_product_icon_hover_style', 'round' );
+		$product_loop_icon_style     = $product_loop_icon_style ? $product_loop_icon_style : get_theme_mod( 'goso_woocommerce_product_icon_hover_style', 'round' );
 		$product_loop_icon_position  = wc_get_loop_prop( 'product_loop_icon_position' );
-		$product_loop_icon_position  = $product_loop_icon_position ? $product_loop_icon_position : get_theme_mod( 'penci_woocommerce_product_icon_hover_position', 'top-left' );
+		$product_loop_icon_position  = $product_loop_icon_position ? $product_loop_icon_position : get_theme_mod( 'goso_woocommerce_product_icon_hover_position', 'top-left' );
 		$product_loop_icon_animation = wc_get_loop_prop( 'product_loop_icon_animation' );
-		$product_loop_icon_animation = $product_loop_icon_animation ? $product_loop_icon_animation : get_theme_mod( 'penci_woocommerce_product_icon_hover_animation', 'move-right' );
-		$product_loop_icon_alignment = penci_shop_product_round_style( $product_loop_icon_style, $product_loop_icon_position );
+		$product_loop_icon_animation = $product_loop_icon_animation ? $product_loop_icon_animation : get_theme_mod( 'goso_woocommerce_product_icon_hover_animation', 'move-right' );
+		$product_loop_icon_alignment = goso_shop_product_round_style( $product_loop_icon_style, $product_loop_icon_position );
 
-		$product_loop_name     = penci_is_mobile() ? 'mobile' : $product_loop_name;
-		$default_product_style = get_theme_mod( 'penci_woocommerce_product_style', 'style-1' );
+		$product_loop_name     = goso_is_mobile() ? 'mobile' : $product_loop_name;
+		$default_product_style = get_theme_mod( 'goso_woocommerce_product_style', 'style-1' );
 		$product_style         = 'list' == $product_display_style ? 'list' : $product_style;
 		$product_style         = in_array( $product_loop_name, array(
 			'up-sells',
@@ -1071,7 +1071,7 @@ if ( ! function_exists( 'penci_woocommerce_get_product_loop_class' ) ) {
 
 		$product_style = 'custom' == $product_loop_name && 'list' == $product_display_style ? $product_display_style : $product_style;
 
-		$classes[] = 'standard' != $product_style ? 'penci-quickshop-support' : '';
+		$classes[] = 'standard' != $product_style ? 'goso-quickshop-support' : '';
 		$classes[] = 'product-' . $product_style;
 
 
@@ -1084,8 +1084,8 @@ if ( ! function_exists( 'penci_woocommerce_get_product_loop_class' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_pages_option' ) ) {
-	function penci_get_pages_option() {
+if ( ! function_exists( 'goso_get_pages_option' ) ) {
+	function goso_get_pages_option() {
 		$pages    = array();
 		$op_pages = get_pages();
 		if ( $op_pages ) {
@@ -1098,32 +1098,32 @@ if ( ! function_exists( 'penci_get_pages_option' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_sticky_cart' ) ) {
-	add_action( 'woocommerce_after_single_product', 'penci_sticky_cart' );
-	function penci_sticky_cart() {
+if ( ! function_exists( 'goso_sticky_cart' ) ) {
+	add_action( 'woocommerce_after_single_product', 'goso_sticky_cart' );
+	function goso_sticky_cart() {
 
-		$custom_product_settings = get_post_meta( get_the_ID(), 'penci_pmeta_product_general', true );
-		$penci_single_sticky_atc = isset( $custom_product_settings['penci_single_sticky_atc'] ) && $custom_product_settings['penci_single_sticky_atc'] ? $custom_product_settings['penci_single_sticky_atc'] : get_theme_mod( 'pencidesign_woo_single_sticky_add_to_cart', 'disable' );
+		$custom_product_settings = get_post_meta( get_the_ID(), 'goso_pmeta_product_general', true );
+		$goso_single_sticky_atc = isset( $custom_product_settings['goso_single_sticky_atc'] ) && $custom_product_settings['goso_single_sticky_atc'] ? $custom_product_settings['goso_single_sticky_atc'] : get_theme_mod( 'gosodesign_woo_single_sticky_add_to_cart', 'disable' );
 
-		if ( 'disable' != $penci_single_sticky_atc ) {
+		if ( 'disable' != $goso_single_sticky_atc ) {
 			wc_get_template_part( 'single-product/sticky-cart' );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_single_product_tab' ) ) {
-	add_filter( 'woocommerce_product_tabs', 'penci_single_product_tab' );
-	function penci_single_product_tab( $tabs ) {
+if ( ! function_exists( 'goso_single_product_tab' ) ) {
+	add_filter( 'woocommerce_product_tabs', 'goso_single_product_tab' );
+	function goso_single_product_tab( $tabs ) {
 		global $product;
-		$tab_content = get_post_meta( get_the_ID(), 'penci_pmeta_product_custom_tab', true );
+		$tab_content = get_post_meta( get_the_ID(), 'goso_pmeta_product_custom_tab', true );
 		$title       = isset( $tab_content['tab_title'] ) ? $tab_content['tab_title'] : '';
 		$priority    = isset( $tab_content['tab_priority'] ) && $tab_content['tab_priority'] ? $tab_content['tab_priority'] : 50;
 		$content     = isset( $tab_content['tab_content'] ) ? $tab_content['tab_content'] : '';
 		if ( $title && $content ) {
-			$tabs['penci_user_tab'] = array(
+			$tabs['goso_user_tab'] = array(
 				'title'    => $title,
 				'priority' => $priority,
-				'callback' => 'penci_single_product_tab_content',
+				'callback' => 'goso_single_product_tab_content',
 			);
 		}
 
@@ -1131,15 +1131,15 @@ if ( ! function_exists( 'penci_single_product_tab' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_single_product_tab_content' ) ) {
-	function penci_single_product_tab_content() {
+if ( ! function_exists( 'goso_single_product_tab_content' ) ) {
+	function goso_single_product_tab_content() {
 		global $product;
-		$tab_content    = get_post_meta( get_the_ID(), 'penci_pmeta_product_custom_tab', true );
+		$tab_content    = get_post_meta( get_the_ID(), 'goso_pmeta_product_custom_tab', true );
 		$hidden_heading = isset( $tab_content['tab_title_visible'] ) ? $tab_content['tab_title_visible'] : '';
 		$title          = isset( $tab_content['tab_title'] ) ? $tab_content['tab_title'] : '';
 		$content        = isset( $tab_content['tab_content'] ) ? $tab_content['tab_content'] : '';
 		?>
-        <div class="penci-custom-user-content post-entry">
+        <div class="goso-custom-user-content post-entry">
 			<?php if ( ! $hidden_heading ) : ?>
                 <h2><?php echo esc_html( $title ); ?></h2>
 			<?php endif; ?>
@@ -1150,20 +1150,20 @@ if ( ! function_exists( 'penci_single_product_tab_content' ) ) {
 }
 
 /* Theme Mod Custom Tab */
-if ( ! function_exists( 'penci_user_custom_product_tab' ) ) {
-	if ( get_theme_mod( 'penci_woo_custom_tab', false ) ) {
-		add_filter( 'woocommerce_product_tabs', 'penci_user_custom_product_tab' );
+if ( ! function_exists( 'goso_user_custom_product_tab' ) ) {
+	if ( get_theme_mod( 'goso_woo_custom_tab', false ) ) {
+		add_filter( 'woocommerce_product_tabs', 'goso_user_custom_product_tab' );
 	}
 
-	function penci_user_custom_product_tab( $tabs ) {
-		$title    = get_theme_mod( 'penci_woo_custom_tab_title' );
-		$priority = get_theme_mod( 'penci_woo_custom_tab_priority' );
-		$content  = get_theme_mod( 'penci_woo_custom_tab_content' );
+	function goso_user_custom_product_tab( $tabs ) {
+		$title    = get_theme_mod( 'goso_woo_custom_tab_title' );
+		$priority = get_theme_mod( 'goso_woo_custom_tab_priority' );
+		$content  = get_theme_mod( 'goso_woo_custom_tab_content' );
 		if ( $title && $content ) {
-			$tabs['penci_custom_tab'] = array(
+			$tabs['goso_custom_tab'] = array(
 				'title'    => $title,
 				'priority' => $priority,
-				'callback' => 'penci_user_custom_product_tab_content',
+				'callback' => 'goso_user_custom_product_tab_content',
 			);
 		}
 
@@ -1171,12 +1171,12 @@ if ( ! function_exists( 'penci_user_custom_product_tab' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_user_custom_product_tab_content' ) ) {
-	function penci_user_custom_product_tab_content() {
-		$title   = get_theme_mod( 'penci_woo_custom_tab_title' );
-		$content = get_theme_mod( 'penci_woo_custom_tab_content' );
+if ( ! function_exists( 'goso_user_custom_product_tab_content' ) ) {
+	function goso_user_custom_product_tab_content() {
+		$title   = get_theme_mod( 'goso_woo_custom_tab_title' );
+		$content = get_theme_mod( 'goso_woo_custom_tab_content' );
 		?>
-        <div class="penci-custom-user-content post-entry">
+        <div class="goso-custom-user-content post-entry">
             <h2><?php echo esc_html( $title ); ?></h2>
 			<?php echo do_shortcode( wpautop( $content ) ); ?>
         </div>
@@ -1184,16 +1184,16 @@ if ( ! function_exists( 'penci_user_custom_product_tab_content' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_single_product_custom_background' ) ) {
-	add_action( 'authow_theme/custom_css', 'penci_single_product_custom_background' );
-	function penci_single_product_custom_background() {
+if ( ! function_exists( 'goso_single_product_custom_background' ) ) {
+	add_action( 'authow_theme/custom_css', 'goso_single_product_custom_background' );
+	function goso_single_product_custom_background() {
 		if ( is_singular( 'product' ) ) {
 			$product_id         = get_the_ID();
-			$product_custom_css = get_post_meta( $product_id, 'penci_pmeta_product_custom_css', true );
+			$product_custom_css = get_post_meta( $product_id, 'goso_pmeta_product_custom_css', true );
 			if ( isset( $product_custom_css['product_custom_css'] ) && $product_custom_css['product_custom_css'] ) {
 				echo $product_custom_css['product_custom_css'];
 			}
-			$product_background = get_post_meta( $product_id, 'penci_pmeta_product_background', true );
+			$product_background = get_post_meta( $product_id, 'goso_pmeta_product_background', true );
 			$css_product_wapper = '';
 
 			if ( isset( $product_background['product_wrap_bgcolor'] ) && $product_background['product_wrap_bgcolor'] ) {
@@ -1214,17 +1214,17 @@ if ( ! function_exists( 'penci_single_product_custom_background' ) ) {
 			}
 
 			if ( $css_product_wapper ) {
-				echo '#product-' . $product_id . ' .penci-single-product-top-container{' . $css_product_wapper . '}';
+				echo '#product-' . $product_id . ' .goso-single-product-top-container{' . $css_product_wapper . '}';
 			}
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_get_single_product_meta' ) ) {
-	function penci_get_single_product_meta( $id, $group, $key, $default = null ) {
+if ( ! function_exists( 'goso_get_single_product_meta' ) ) {
+	function goso_get_single_product_meta( $id, $group, $key, $default = null ) {
 		$return       = $default;
 		$product_id   = $id ? $id : get_the_ID();
-		$product_meta = get_post_meta( $product_id, 'penci_pmeta_' . $group, true );
+		$product_meta = get_post_meta( $product_id, 'goso_pmeta_' . $group, true );
 		if ( isset( $product_meta[ $key ] ) && $product_meta[ $key ] ) {
 			$return = $product_meta[ $key ];
 		}
@@ -1241,30 +1241,30 @@ if ( ! function_exists( 'penci_get_single_product_meta' ) ) {
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
-if ( ! function_exists( 'penci_woocommerce_custom_wrapper_start' ) ) {
-	add_action( 'woocommerce_before_main_content', 'penci_woocommerce_custom_wrapper_start', 10 );
-	function penci_woocommerce_custom_wrapper_start() {
+if ( ! function_exists( 'goso_woocommerce_custom_wrapper_start' ) ) {
+	add_action( 'woocommerce_before_main_content', 'goso_woocommerce_custom_wrapper_start', 10 );
+	function goso_woocommerce_custom_wrapper_start() {
 		$sidebar_class      = '';
 		$right_sidebar      = '';
 		$container_class    = 'no-container';
-		$penci_woo_class    = array();
-		$sidebar_enable     = get_theme_mod( 'penci_woo_shop_enable_sidebar', false );
-		$sidebar_cat_enable = get_theme_mod( 'penci_woo_cat_enable_sidebar', false );
-		$left_sidebar       = get_theme_mod( 'penci_woo_left_sidebar', false );
+		$goso_woo_class    = array();
+		$sidebar_enable     = get_theme_mod( 'goso_woo_shop_enable_sidebar', false );
+		$sidebar_cat_enable = get_theme_mod( 'goso_woo_cat_enable_sidebar', false );
+		$left_sidebar       = get_theme_mod( 'goso_woo_left_sidebar', false );
 		$right_sidebar      = $left_sidebar ? ' left-sidebar' : ' right-sidebar';
-		$single_sidebar     = penci_woo_is_activate_sidebar();
+		$single_sidebar     = goso_woo_is_activate_sidebar();
 
 
 		if ( is_shop() && $sidebar_enable ) {
-			$sidebar_class = ' penci_sidebar';
+			$sidebar_class = ' goso_sidebar';
 		}
 
-		if ( ( is_product_category() || is_product_tag() || penci_is_product_attribute_archive() ) && $sidebar_cat_enable ) {
-			$sidebar_class = ' penci_sidebar';
+		if ( ( is_product_category() || is_product_tag() || goso_is_product_attribute_archive() ) && $sidebar_cat_enable ) {
+			$sidebar_class = ' goso_sidebar';
 		}
 
 		if ( is_singular( 'product' ) && $single_sidebar ) {
-			$sidebar_class = ' penci_sidebar';
+			$sidebar_class = ' goso_sidebar';
 			$right_sidebar = 'left' == $single_sidebar ? ' left-sidebar' : ' right-sidebar';
 		}
 
@@ -1273,26 +1273,26 @@ if ( ! function_exists( 'penci_woocommerce_custom_wrapper_start' ) ) {
 		}
 
 		if ( is_singular( 'product' ) ) {
-			$penci_woo_class[] = 'sidebar-placement-' . penci_woo_sidebar_placement();
+			$goso_woo_class[] = 'sidebar-placement-' . goso_woo_sidebar_placement();
 		}
 
-		$penci_woo_class[] = get_theme_mod( 'penci_shop_product_pagination', 'pagination' );
-		$penci_woo_class   = apply_filters( 'penci_woo_shop_class', $penci_woo_class );
-		$penci_woo_class   = implode( ' ', $penci_woo_class );
+		$goso_woo_class[] = get_theme_mod( 'goso_shop_product_pagination', 'pagination' );
+		$goso_woo_class   = apply_filters( 'goso_woo_shop_class', $goso_woo_class );
+		$goso_woo_class   = implode( ' ', $goso_woo_class );
 
-		echo '<div class="' . $penci_woo_class . ' ' . $container_class . ' penci-woo-page-container' . $sidebar_class . $right_sidebar . '"><div id="main"><div class="theiaStickySidebar">';
+		echo '<div class="' . $goso_woo_class . ' ' . $container_class . ' goso-woo-page-container' . $sidebar_class . $right_sidebar . '"><div id="main"><div class="theiaStickySidebar">';
 
 		if ( is_singular( 'product' ) ) {
-			do_action( 'penci_woo_before_single_product' );
+			do_action( 'goso_woo_before_single_product' );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_woocommerce_custom_wrapper_end' ) ) {
-	add_action( 'woocommerce_after_main_content', 'penci_woocommerce_custom_wrapper_end', 10 );
-	function penci_woocommerce_custom_wrapper_end() {
+if ( ! function_exists( 'goso_woocommerce_custom_wrapper_end' ) ) {
+	add_action( 'woocommerce_after_main_content', 'goso_woocommerce_custom_wrapper_end', 10 );
+	function goso_woocommerce_custom_wrapper_end() {
 		echo '</div>';
-		if ( penci_is_shop_archive() ) {
+		if ( goso_is_shop_archive() ) {
 			wc_get_template_part( 'global/mobile-filter' );
 		}
 		echo '</div><!--end main-->';
@@ -1304,16 +1304,16 @@ if ( ! function_exists( 'penci_woocommerce_custom_wrapper_end' ) ) {
  *
  * @since 2.2
  */
-if ( ! function_exists( 'penci_custom_products_per_page' ) ) {
-	function penci_custom_products_per_page( $options = 24 ) {
-		if ( get_theme_mod( 'penci_woo_post_per_page' ) ) {
-			$options = absint( get_theme_mod( 'penci_woo_post_per_page' ) );
+if ( ! function_exists( 'goso_custom_products_per_page' ) ) {
+	function goso_custom_products_per_page( $options = 24 ) {
+		if ( get_theme_mod( 'goso_woo_post_per_page' ) ) {
+			$options = absint( get_theme_mod( 'goso_woo_post_per_page' ) );
 		}
 
 		return $options;
 	}
 
-	add_filter( 'loop_shop_per_page', 'penci_custom_products_per_page', 10, 1 );
+	add_filter( 'loop_shop_per_page', 'goso_custom_products_per_page', 10, 1 );
 }
 
 /**
@@ -1323,26 +1323,26 @@ if ( ! function_exists( 'penci_custom_products_per_page' ) ) {
  */
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
-if ( ! function_exists( 'penci_woocommerce_add_sidebar_custom' ) && function_exists( 'is_shop' ) && function_exists( 'is_product_category' ) && function_exists( 'is_product_tag' ) && function_exists( 'is_product' ) ) {
-	function penci_woocommerce_add_sidebar_custom() {
-		if ( ( is_shop() && get_theme_mod( 'penci_woo_shop_enable_sidebar', false ) ) || ( ( is_product_category() || is_product_tag() || penci_is_product_attribute_archive() ) && get_theme_mod( 'penci_woo_cat_enable_sidebar', false ) ) || ( is_singular( 'product' ) && get_theme_mod( 'penci_woo_single_enable_sidebar', false ) ) ) :
+if ( ! function_exists( 'goso_woocommerce_add_sidebar_custom' ) && function_exists( 'is_shop' ) && function_exists( 'is_product_category' ) && function_exists( 'is_product_tag' ) && function_exists( 'is_product' ) ) {
+	function goso_woocommerce_add_sidebar_custom() {
+		if ( ( is_shop() && get_theme_mod( 'goso_woo_shop_enable_sidebar', false ) ) || ( ( is_product_category() || is_product_tag() || goso_is_product_attribute_archive() ) && get_theme_mod( 'goso_woo_cat_enable_sidebar', false ) ) || ( is_singular( 'product' ) && get_theme_mod( 'goso_woo_single_enable_sidebar', false ) ) ) :
 			add_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		endif;
 	}
 
-	add_action( 'template_redirect', 'penci_woocommerce_add_sidebar_custom' );
+	add_action( 'template_redirect', 'goso_woocommerce_add_sidebar_custom' );
 }
 
-if ( ! function_exists( 'penci_woo_is_activate_sidebar' ) ) {
-	function penci_woo_is_activate_sidebar() {
+if ( ! function_exists( 'goso_woo_is_activate_sidebar' ) ) {
+	function goso_woo_is_activate_sidebar() {
 
 		$sidebar_positon = 'right';
-		if ( get_theme_mod( 'penci_woo_left_sidebar', false ) ) {
+		if ( get_theme_mod( 'goso_woo_left_sidebar', false ) ) {
 			$sidebar_positon = 'left';
 		}
-		$sidebar_enable         = get_theme_mod( 'penci_woo_single_enable_sidebar', false );
+		$sidebar_enable         = get_theme_mod( 'goso_woo_single_enable_sidebar', false );
 		$sidebar_positon        = $sidebar_enable ? $sidebar_positon : '';
-		$single_sidebar_positon = penci_get_single_product_meta( get_the_ID(), 'product_sidebar', 'sidebar_position', $sidebar_positon );
+		$single_sidebar_positon = goso_get_single_product_meta( get_the_ID(), 'product_sidebar', 'sidebar_position', $sidebar_positon );
 
 		if ( $sidebar_enable || 'disable' != $single_sidebar_positon ) {
 			return $single_sidebar_positon;
@@ -1353,56 +1353,56 @@ if ( ! function_exists( 'penci_woo_is_activate_sidebar' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woo_sidebar_placement' ) ) {
-	function penci_woo_sidebar_placement() {
+if ( ! function_exists( 'goso_woo_sidebar_placement' ) ) {
+	function goso_woo_sidebar_placement() {
 		if ( is_singular( 'product' ) ) {
-			$sidebar_placement = penci_get_single_product_meta( get_the_ID(), 'product_sidebar', 'sidebar_placement', get_theme_mod( 'penci_woo_single_sidebar_style', 'bottom' ) );
-			$sidebar_placement = penci_woo_is_activate_sidebar() ? $sidebar_placement : 'no-active-sidebar';
+			$sidebar_placement = goso_get_single_product_meta( get_the_ID(), 'product_sidebar', 'sidebar_placement', get_theme_mod( 'goso_woo_single_sidebar_style', 'bottom' ) );
+			$sidebar_placement = goso_woo_is_activate_sidebar() ? $sidebar_placement : 'no-active-sidebar';
 
 			return $sidebar_placement;
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_single_product_custom_options' ) ) {
-	add_action( 'woocommerce_before_single_product', 'penci_single_product_custom_options' );
-	function penci_single_product_custom_options() {
+if ( ! function_exists( 'goso_single_product_custom_options' ) ) {
+	add_action( 'woocommerce_before_single_product', 'goso_single_product_custom_options' );
+	function goso_single_product_custom_options() {
 
 		$quickview = wc_get_loop_prop( 'quickview', false );
 
-		if ( penci_get_single_product_meta( get_the_ID(), 'product_extra_options', 'hide_related_products' ) ) {
+		if ( goso_get_single_product_meta( get_the_ID(), 'product_extra_options', 'hide_related_products' ) ) {
 			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		}
 
-		$product_style = penci_get_single_product_meta( get_the_ID(), 'product_general', 'penci_single_product_style', get_theme_mod( 'penci_single_product_style' ) );
+		$product_style = goso_get_single_product_meta( get_the_ID(), 'product_general', 'goso_single_product_style', get_theme_mod( 'goso_single_product_style' ) );
 
 		if ( 'accordion-content' == $product_style && ! $quickview ) {
 			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 35 );
 		}
 
-		if ( penci_woo_is_activate_sidebar() ) {
+		if ( goso_woo_is_activate_sidebar() ) {
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-			add_action( 'penci_single_product_sidebar', 'woocommerce_get_sidebar', 10 );
+			add_action( 'goso_single_product_sidebar', 'woocommerce_get_sidebar', 10 );
 		}
 
 	}
 }
 
-if ( ! function_exists( 'penci_woo_sidebar_content' ) ) {
-	function penci_woo_sidebar_content() {
-		if ( penci_woo_is_activate_sidebar() && function_exists( 'woocommerce_get_sidebar' ) ) {
+if ( ! function_exists( 'goso_woo_sidebar_content' ) ) {
+	function goso_woo_sidebar_content() {
+		if ( goso_woo_is_activate_sidebar() && function_exists( 'woocommerce_get_sidebar' ) ) {
 			woocommerce_get_sidebar();
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_woo_infinit_load_button' ) ) {
-	add_action( 'woocommerce_after_shop_loop', 'penci_woo_infinit_load_button', 5 );
-	function penci_woo_infinit_load_button( $shortcode = '', $page = null ) {
+if ( ! function_exists( 'goso_woo_infinit_load_button' ) ) {
+	add_action( 'woocommerce_after_shop_loop', 'goso_woo_infinit_load_button', 5 );
+	function goso_woo_infinit_load_button( $shortcode = '', $page = null ) {
 		global $wp_query;
 		$pages       = $shortcode ? $page : $wp_query->max_num_pages;
-		$load_option = $shortcode ? $shortcode : get_theme_mod( 'penci_shop_product_pagination', 'pagination' );
+		$load_option = $shortcode ? $shortcode : get_theme_mod( 'goso_shop_product_pagination', 'pagination' );
 		if ( 'pagination' != $load_option ) {
 			?>
             <div class="page-load-status">
@@ -1414,11 +1414,11 @@ if ( ! function_exists( 'penci_woo_infinit_load_button' ) ) {
                 </div>
 				<?php if ( 'infinit' == $load_option ) : ?>
                     <div class="infinite-scroll-request">
-                        <div class="page-load-button penci-pagination penci-ajax-more">
-                            <a class="penci-ajax-more-button view-more-button button loading-posts" href="#">
-                                <span class="ajax-more-text"><?php echo penci_woo_translate_text( 'penci_woo_trans_loading' ); ?></span>
+                        <div class="page-load-button goso-pagination goso-ajax-more">
+                            <a class="goso-ajax-more-button view-more-button button loading-posts" href="#">
+                                <span class="ajax-more-text"><?php echo goso_woo_translate_text( 'goso_woo_trans_loading' ); ?></span>
                                 <span class="ajaxdot"></span>
-                                <i class="penci-faicon fa fa-refresh"></i>
+                                <i class="goso-faicon fa fa-refresh"></i>
                             </a>
                         </div>
                     </div>
@@ -1428,21 +1428,21 @@ if ( ! function_exists( 'penci_woo_infinit_load_button' ) ) {
 		}
 		if ( 'loadmore' == $load_option && $pages > 1 ) {
 			?>
-            <div class="page-load-button penci-pagination penci-ajax-more">
-                <a class="penci-ajax-more-button view-more-button button" href="#">
-                    <span class="ajax-more-text"><?php echo penci_woo_translate_text( 'penci_woo_trans_vmproduct' ); ?></span>
+            <div class="page-load-button goso-pagination goso-ajax-more">
+                <a class="goso-ajax-more-button view-more-button button" href="#">
+                    <span class="ajax-more-text"><?php echo goso_woo_translate_text( 'goso_woo_trans_vmproduct' ); ?></span>
                     <span class="ajaxdot"></span>
-                    <i class="penci-faicon fa fa-refresh"></i>
+                    <i class="goso-faicon fa fa-refresh"></i>
                 </a>
             </div>
 			<?php
 		}
 	}
 }
-if ( ! function_exists( 'penci_template_loop_category_title' ) ) {
+if ( ! function_exists( 'goso_template_loop_category_title' ) ) {
 	remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
-	add_action( 'woocommerce_shop_loop_subcategory_title', 'penci_template_loop_category_title', 10 );
-	function penci_template_loop_category_title( $category ) {
+	add_action( 'woocommerce_shop_loop_subcategory_title', 'goso_template_loop_category_title', 10 );
+	function goso_template_loop_category_title( $category ) {
 		?>
         <div class="woocommerce-loop-category__wrapper">
             <h2 class="woocommerce-loop-category__title">
@@ -1453,7 +1453,7 @@ if ( ! function_exists( 'penci_template_loop_category_title' ) ) {
 			<?php
 			if ( $category->count > 0 ) {
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo apply_filters( 'woocommerce_subcategory_count_html', ' <span class="count">' . esc_html( $category->count ) . ' ' . penci_woo_translate_text( 'penci_woo_trans_products' ) . '</span>', $category );
+				echo apply_filters( 'woocommerce_subcategory_count_html', ' <span class="count">' . esc_html( $category->count ) . ' ' . goso_woo_translate_text( 'goso_woo_trans_products' ) . '</span>', $category );
 			}
 			?>
         </div>
@@ -1461,8 +1461,8 @@ if ( ! function_exists( 'penci_template_loop_category_title' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_subcategory_get_first_product_image' ) ) {
-	function penci_subcategory_get_first_product_image( $category_id ) {
+if ( ! function_exists( 'goso_subcategory_get_first_product_image' ) ) {
+	function goso_subcategory_get_first_product_image( $category_id ) {
 		$product_img_id    = '';
 		$placeholder_image = get_option( 'woocommerce_placeholder_image', 0 );
 		$arg               = array(
@@ -1491,14 +1491,14 @@ if ( ! function_exists( 'penci_subcategory_get_first_product_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_subcategory_thumbnail' ) ) {
+if ( ! function_exists( 'goso_subcategory_thumbnail' ) ) {
 	remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10 );
-	add_action( 'woocommerce_before_subcategory_title', 'penci_subcategory_thumbnail', 10 );
-	function penci_subcategory_thumbnail( $category ) {
+	add_action( 'woocommerce_before_subcategory_title', 'goso_subcategory_thumbnail', 10 );
+	function goso_subcategory_thumbnail( $category ) {
 		$small_thumbnail_size = apply_filters( 'subcategory_archive_thumbnail_size', 'woocommerce_thumbnail' );
 		$dimensions           = wc_get_image_size( $small_thumbnail_size );
 		$thumbnail_id         = get_term_meta( $category->term_id, 'thumbnail_id', true );
-		$thumbnail_id         = $thumbnail_id ? $thumbnail_id : penci_subcategory_get_first_product_image( $category->term_id );
+		$thumbnail_id         = $thumbnail_id ? $thumbnail_id : goso_subcategory_get_first_product_image( $category->term_id );
 
 		if ( $thumbnail_id ) {
 			$image = wp_get_attachment_image_src( $thumbnail_id, $small_thumbnail_size );
@@ -1529,19 +1529,19 @@ if ( ! function_exists( 'penci_subcategory_thumbnail' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_subcategory_extract_img' ) ) {
-	function penci_subcategory_extract_img( $category ) {
+if ( ! function_exists( 'goso_subcategory_extract_img' ) ) {
+	function goso_subcategory_extract_img( $category ) {
 		$small_thumbnail_size = apply_filters( 'subcategory_archive_thumbnail_size', 'woocommerce_thumbnail' );
 		$dimensions           = wc_get_image_size( $small_thumbnail_size );
 		$thumbnail_id         = get_term_meta( $category->term_id, 'thumbnail_id', true );
-		$thumbnail_id         = $thumbnail_id ? $thumbnail_id : penci_subcategory_get_first_product_image( $category->term_id );
+		$thumbnail_id         = $thumbnail_id ? $thumbnail_id : goso_subcategory_get_first_product_image( $category->term_id );
 
 		return $thumbnail_id;
 	}
 }
 
-add_filter( 'product_cat_class', 'penci_custom_product_cat_class' );
-function penci_custom_product_cat_class( $classes ) {
+add_filter( 'product_cat_class', 'goso_custom_product_cat_class' );
+function goso_custom_product_cat_class( $classes ) {
 	$style   = wc_get_loop_prop( 'cat-loop-style' );
 	$index   = wc_get_loop_prop( 'loop' );
 	$loop_by = wc_get_loop_prop( 'loop_by' );
@@ -1549,19 +1549,19 @@ function penci_custom_product_cat_class( $classes ) {
 	if ( $index && $loop_by ) {
 		$loop_class = $index % $loop_by;
 		$loop_class = $loop_class ? $loop_class : $loop_by;
-		$classes[]  = 'penci-cat-item-' . $loop_class;
+		$classes[]  = 'goso-cat-item-' . $loop_class;
 	}
 
-	$classes[] = 'penci-product-cat-' . $style;
+	$classes[] = 'goso-product-cat-' . $style;
 
 	return $classes;
 }
 
-if ( ! function_exists( 'penci_woocommerce_get_customizer_font' ) ) {
-	function penci_woocommerce_get_customizer_font( $setting ) {
+if ( ! function_exists( 'goso_woocommerce_get_customizer_font' ) ) {
+	function goso_woocommerce_get_customizer_font( $setting ) {
 		$font_family_menu     = get_theme_mod( $setting );
 		$font_family_menu_end = $font_family_menu;
-		if ( ! array_key_exists( $font_family_menu, penci_font_browser() ) ) {
+		if ( ! array_key_exists( $font_family_menu, goso_font_browser() ) ) {
 			$font_family_menu = str_replace( '"', '', $font_family_menu );
 			$font_menu_explo  = explode( ', ', $font_family_menu );
 			$font_menu        = isset( $font_menu_explo[0] ) ? $font_menu_explo[0] : '';
@@ -1576,22 +1576,22 @@ if ( ! function_exists( 'penci_woocommerce_get_customizer_font' ) ) {
 		return $font_family_menu_end;
 	}
 }
-if ( ! function_exists( 'penci_woo_customizer_custom_css_rules' ) ) {
-	function penci_woo_customizer_custom_css_rules( $settings, $woocommerce_default_color = array(), $font_family_settings = array(), $defaut_font_size = array(), $echo = true ) {
+if ( ! function_exists( 'goso_woo_customizer_custom_css_rules' ) ) {
+	function goso_woo_customizer_custom_css_rules( $settings, $woocommerce_default_color = array(), $font_family_settings = array(), $defaut_font_size = array(), $echo = true ) {
 		$return = array();
 		$out    = '';
 		foreach ( $settings as $prop => $value ) {
 			$prop_value = get_theme_mod( $value );
 
-			$customize_accent_color = get_theme_mod( 'penci_color_accent' );
+			$customize_accent_color = get_theme_mod( 'goso_color_accent' );
 
-			$body_fontsize = get_theme_mod( 'penci_font_for_size_body' );
+			$body_fontsize = get_theme_mod( 'goso_font_for_size_body' );
 			if ( in_array( $prop, $defaut_font_size ) && ! $prop_value && '14' != $body_fontsize ) {
 				$prop_value = $body_fontsize;
 			}
 
 			if ( $font_family_settings && in_array( $value, $font_family_settings ) ) {
-				$prop_value = penci_woocommerce_get_customizer_font( $value );
+				$prop_value = goso_woocommerce_get_customizer_font( $value );
 			}
 
 			if ( $woocommerce_default_color && in_array( $value, $woocommerce_default_color ) ) {
@@ -1600,7 +1600,7 @@ if ( ! function_exists( 'penci_woo_customizer_custom_css_rules' ) ) {
 
 			// default int is font size
 			$unit       = 'px';
-			$unit       = 'penci_sidebar_width' == $value ? '%' : $unit;
+			$unit       = 'goso_sidebar_width' == $value ? '%' : $unit;
 			$prop_value = is_numeric( $prop_value ) && $prop_value > 0 ? $prop_value . $unit : $prop_value;
 
 			if ( $prop_value ) {
@@ -1620,8 +1620,8 @@ if ( ! function_exists( 'penci_woo_customizer_custom_css_rules' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woo_customizer_custom_css_prop' ) ) {
-	function penci_woo_customizer_custom_css_prop( $settings, $mobile = false ) {
+if ( ! function_exists( 'goso_woo_customizer_custom_css_prop' ) ) {
+	function goso_woo_customizer_custom_css_prop( $settings, $mobile = false ) {
 		$out = $before = $after = '';
 		foreach ( $settings as $prop => $rules ) {
 			$value = get_theme_mod( $prop );
@@ -1642,8 +1642,8 @@ if ( ! function_exists( 'penci_woo_customizer_custom_css_prop' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woo_hex2rgb' ) ) {
-	function penci_woo_hex2rgb( $color, $opacity = null ) {
+if ( ! function_exists( 'goso_woo_hex2rgb' ) ) {
+	function goso_woo_hex2rgb( $color, $opacity = null ) {
 
 		$out = '';
 
@@ -1657,421 +1657,421 @@ if ( ! function_exists( 'penci_woo_hex2rgb' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woocommerce_custom_style' ) ) {
-	add_action( 'authow_theme/custom_css', 'penci_woocommerce_custom_style' );
-	function penci_woocommerce_custom_style() {
+if ( ! function_exists( 'goso_woocommerce_custom_style' ) ) {
+	add_action( 'authow_theme/custom_css', 'goso_woocommerce_custom_style' );
+	function goso_woocommerce_custom_style() {
 		$product_customize_settings = array(
-			'--pccat_tt_cl'                 => 'penci_woo_product_loop_title_color',
-			'--pccat_price_cl'              => 'penci_woo_product_loop_price_color',
-			'--pccat_cat_cl'                => 'penci_woo_product_loop_cat_color',
-			'--pccat_cat_hv_cl'             => 'penci_woo_product_loop_cat_hover_color',
-			'--pccat_btn_groups_bgcl'       => 'penci_woo_product_loop_button_groups_bgcolor',
-			'--pccat_btn_cl'                => 'penci_woo_product_loop_button_color',
-			'--pccat_progress_bg_cl'        => 'penci_woo_product_loop_progress_bg_color',
-			'--pccat_progress_active_bg_cl' => 'penci_woo_product_loop_progress_active_bg_color',
-			'--pccat_progress_height'       => 'penci_woo_product_loop_progress_height',
-			'--pcpage_gtext_cl'             => 'penci_product_page_general_text_color',
-			'--pcpage_glink_cl'             => 'penci_product_page_general_link_color',
-			'--pcpage_glink_hv_cl'          => 'penci_product_page_general_link_hover_color',
-			'--pcpage_gbdr_cl'              => 'penci_product_page_general_border_color',
-			'--pcpage_btns_bdr_cl'          => 'penci_product_page_button_swatches_border_color',
-			'--pcpage_btns_bdr_hv_cl'       => 'penci_product_page_button_swatches_border_hover_color',
-			'--pcpage_btns_bg_cl'           => 'penci_product_page_button_swatches_bg_color',
-			'--pcpage_btns_bg_hv_cl'        => 'penci_product_page_button_swatches_bg_hover_color',
-			'--pcpage_btn_atc_bg_cl'        => 'penci_product_page_button_atc_bg_color',
-			'--pcpage_btn_atc_bg_hv_cl'     => 'penci_product_page_button_atc_bg_hover_color',
-			'--pcpage_meta_cl'              => 'penci_product_page_meta_color',
-			'--pcpage_meta_link_cl'         => 'penci_product_page_meta_link_color',
-			'--pcpage_meta_link_hv_cl'      => 'penci_product_page_meta_link_hover_color',
-			'--pcpage_tab_tt_cl'            => 'penci_product_page_tab_title_color',
-			'--pcpage_tab_tt_active_cl'     => 'penci_product_page_tab_title_active_color',
-			'--pcwp_tt_cl'                  => 'penci_woo_page_title_color',
-			'--pcwp_btn_bg_cl'              => 'penci_woo_page_button_bg_color',
-			'--pcwp_btn_bg_hv_cl'           => 'penci_woo_page_button_bg_hover_color',
-			'--pcwp_btn_alt_bg_cl'          => 'penci_woo_page_button_alt_bg_color',
-			'--pcwp_btn_alt_bg_hv_cl'       => 'penci_woo_page_button_alt_bg_hover_color',
-			'--pcsl_tt_fs'                  => 'pencidesign_woo_product_loop_title_font_size',
-			'--pcsl_tt_m_fs'                => 'pencidesign_woo_product_loop_title_m_font_size',
-			'--pcsl_tt_l_fs'                => 'pencidesign_woo_product_loop_list_title_font_size',
-			'--pcsl_tt_l_m_fs'              => 'pencidesign_woo_product_loop_list_title_m_font_size',
-			'--pcsl_meta_fs'                => 'pencidesign_woo_product_loop_meta_font_size',
-			'--pcsl_meta_m_fs'              => 'pencidesign_woo_product_loop_meta_m_font_size',
-			'--pcsl_price_fs'               => 'pencidesign_woo_product_loop_price_font_size',
-			'--pcsl_price_m_fs'             => 'pencidesign_woo_product_loop_price_m_font_size',
-			'--pcsl_btn_icon_size'          => 'pencidesign_woo_product_loop_button_icon_size',
-			'--pcs_fsp_single_m_tt'         => 'pencidesign_woo_fontsize_product_single_m_title',
-			'--pcs_fsp_single_tt'           => 'pencidesign_woo_fontsize_product_single_title',
-			'--pcs_fsp_price'               => 'pencidesign_woo_fontsize_product_price',
-			'--pcs_fsp_m_price'             => 'pencidesign_woo_fontsize_m_product_price',
-			'--pcs_fsp_breadcrumb'          => 'pencidesign_woo_fontsize_product_breadcrumb',
-			'--pcs_fsp_m_breadcrumb'        => 'pencidesign_woo_fontsize_m_product_breadcrumb',
-			'--pcs_fsp_general'             => 'pencidesign_woo_fontsize_product_general',
-			'--pcs_fsp_tab_tt'              => 'pencidesign_woo_fontsize_product_tab_title',
-			'--pcs_fsp_tab_m_tt'            => 'pencidesign_woo_fontsize_product_tab_m_title',
-			'--pcs_fsp_meta'                => 'pencidesign_woo_fontsize_product_meta',
-			'--pcs_fsp_m_meta'              => 'pencidesign_woo_fontsize_m_product_meta',
-			'--pcaccent-cl'                 => 'penci_color_accent',
-			'--pclabel_hot'                 => 'penci_woo_label_hot_color',
-			'--pclabel_new'                 => 'penci_woo_label_new_color',
-			'--pclabel_sale'                => 'penci_woo_label_sale_color',
-			'--pclabel_outstock'            => 'penci_woo_label_outstock_color',
-			'--pclabel_size'                => 'pencidesign_woo_product_loop_label_size',
-			'--pclabel_m_size'              => 'pencidesign_woo_product_loop_label_m_size',
+			'--pccat_tt_cl'                 => 'goso_woo_product_loop_title_color',
+			'--pccat_price_cl'              => 'goso_woo_product_loop_price_color',
+			'--pccat_cat_cl'                => 'goso_woo_product_loop_cat_color',
+			'--pccat_cat_hv_cl'             => 'goso_woo_product_loop_cat_hover_color',
+			'--pccat_btn_groups_bgcl'       => 'goso_woo_product_loop_button_groups_bgcolor',
+			'--pccat_btn_cl'                => 'goso_woo_product_loop_button_color',
+			'--pccat_progress_bg_cl'        => 'goso_woo_product_loop_progress_bg_color',
+			'--pccat_progress_active_bg_cl' => 'goso_woo_product_loop_progress_active_bg_color',
+			'--pccat_progress_height'       => 'goso_woo_product_loop_progress_height',
+			'--pcpage_gtext_cl'             => 'goso_product_page_general_text_color',
+			'--pcpage_glink_cl'             => 'goso_product_page_general_link_color',
+			'--pcpage_glink_hv_cl'          => 'goso_product_page_general_link_hover_color',
+			'--pcpage_gbdr_cl'              => 'goso_product_page_general_border_color',
+			'--pcpage_btns_bdr_cl'          => 'goso_product_page_button_swatches_border_color',
+			'--pcpage_btns_bdr_hv_cl'       => 'goso_product_page_button_swatches_border_hover_color',
+			'--pcpage_btns_bg_cl'           => 'goso_product_page_button_swatches_bg_color',
+			'--pcpage_btns_bg_hv_cl'        => 'goso_product_page_button_swatches_bg_hover_color',
+			'--pcpage_btn_atc_bg_cl'        => 'goso_product_page_button_atc_bg_color',
+			'--pcpage_btn_atc_bg_hv_cl'     => 'goso_product_page_button_atc_bg_hover_color',
+			'--pcpage_meta_cl'              => 'goso_product_page_meta_color',
+			'--pcpage_meta_link_cl'         => 'goso_product_page_meta_link_color',
+			'--pcpage_meta_link_hv_cl'      => 'goso_product_page_meta_link_hover_color',
+			'--pcpage_tab_tt_cl'            => 'goso_product_page_tab_title_color',
+			'--pcpage_tab_tt_active_cl'     => 'goso_product_page_tab_title_active_color',
+			'--pcwp_tt_cl'                  => 'goso_woo_page_title_color',
+			'--pcwp_btn_bg_cl'              => 'goso_woo_page_button_bg_color',
+			'--pcwp_btn_bg_hv_cl'           => 'goso_woo_page_button_bg_hover_color',
+			'--pcwp_btn_alt_bg_cl'          => 'goso_woo_page_button_alt_bg_color',
+			'--pcwp_btn_alt_bg_hv_cl'       => 'goso_woo_page_button_alt_bg_hover_color',
+			'--pcsl_tt_fs'                  => 'gosodesign_woo_product_loop_title_font_size',
+			'--pcsl_tt_m_fs'                => 'gosodesign_woo_product_loop_title_m_font_size',
+			'--pcsl_tt_l_fs'                => 'gosodesign_woo_product_loop_list_title_font_size',
+			'--pcsl_tt_l_m_fs'              => 'gosodesign_woo_product_loop_list_title_m_font_size',
+			'--pcsl_meta_fs'                => 'gosodesign_woo_product_loop_meta_font_size',
+			'--pcsl_meta_m_fs'              => 'gosodesign_woo_product_loop_meta_m_font_size',
+			'--pcsl_price_fs'               => 'gosodesign_woo_product_loop_price_font_size',
+			'--pcsl_price_m_fs'             => 'gosodesign_woo_product_loop_price_m_font_size',
+			'--pcsl_btn_icon_size'          => 'gosodesign_woo_product_loop_button_icon_size',
+			'--pcs_fsp_single_m_tt'         => 'gosodesign_woo_fontsize_product_single_m_title',
+			'--pcs_fsp_single_tt'           => 'gosodesign_woo_fontsize_product_single_title',
+			'--pcs_fsp_price'               => 'gosodesign_woo_fontsize_product_price',
+			'--pcs_fsp_m_price'             => 'gosodesign_woo_fontsize_m_product_price',
+			'--pcs_fsp_breadcrumb'          => 'gosodesign_woo_fontsize_product_breadcrumb',
+			'--pcs_fsp_m_breadcrumb'        => 'gosodesign_woo_fontsize_m_product_breadcrumb',
+			'--pcs_fsp_general'             => 'gosodesign_woo_fontsize_product_general',
+			'--pcs_fsp_tab_tt'              => 'gosodesign_woo_fontsize_product_tab_title',
+			'--pcs_fsp_tab_m_tt'            => 'gosodesign_woo_fontsize_product_tab_m_title',
+			'--pcs_fsp_meta'                => 'gosodesign_woo_fontsize_product_meta',
+			'--pcs_fsp_m_meta'              => 'gosodesign_woo_fontsize_m_product_meta',
+			'--pcaccent-cl'                 => 'goso_color_accent',
+			'--pclabel_hot'                 => 'goso_woo_label_hot_color',
+			'--pclabel_new'                 => 'goso_woo_label_new_color',
+			'--pclabel_sale'                => 'goso_woo_label_sale_color',
+			'--pclabel_outstock'            => 'goso_woo_label_outstock_color',
+			'--pclabel_size'                => 'gosodesign_woo_product_loop_label_size',
+			'--pclabel_m_size'              => 'gosodesign_woo_product_loop_label_m_size',
 
-			'--pcsl_tt_btn3_size'          => 'pencidesign_woo_product_loop_button_3_size',
-			'--pcsl_tt_btn3_m_size'        => 'pencidesign_woo_product_loop_button_3_m_size',
-			'--pcsl_tt_btn4_size'          => 'pencidesign_woo_product_loop_button_4_size',
-			'--pcsl_tt_btn4_m_size'        => 'pencidesign_woo_product_loop_button_4_m_size',
-			'--pcsl_tt_btn5_size'          => 'pencidesign_woo_product_loop_button_5_size',
-			'--pcsl_tt_btn5_m_size'        => 'pencidesign_woo_product_loop_button_5_m_size',
-			'--pcsl_tt_lb_size'            => 'pencidesign_woo_fontsize_product_label',
-			'--pcsl_tt_lb_m_size'          => 'pencidesign_woo_fontsize_m_product_label',
+			'--pcsl_tt_btn3_size'          => 'gosodesign_woo_product_loop_button_3_size',
+			'--pcsl_tt_btn3_m_size'        => 'gosodesign_woo_product_loop_button_3_m_size',
+			'--pcsl_tt_btn4_size'          => 'gosodesign_woo_product_loop_button_4_size',
+			'--pcsl_tt_btn4_m_size'        => 'gosodesign_woo_product_loop_button_4_m_size',
+			'--pcsl_tt_btn5_size'          => 'gosodesign_woo_product_loop_button_5_size',
+			'--pcsl_tt_btn5_m_size'        => 'gosodesign_woo_product_loop_button_5_m_size',
+			'--pcsl_tt_lb_size'            => 'gosodesign_woo_fontsize_product_label',
+			'--pcsl_tt_lb_m_size'          => 'gosodesign_woo_fontsize_m_product_label',
 
 			// overlay settings
-			'--pcl_o_bg'                   => 'penci_woo_product_overlay_bg_color',
-			'--pcl_o_opacity'              => 'penci_woo_product_overlay_opacity',
-			'--pcl_o_tt_cl'                => 'penci_woo_product_overlay_title_color',
-			'--pcl_o_l_cl'                 => 'penci_woo_product_overlay_link_color',
-			'--pcl_o_lhv_cl'               => 'penci_woo_product_overlay_link_hover_color',
-			'--pcl_o_btn_cl'               => 'penci_woo_product_overlay_button_color',
+			'--pcl_o_bg'                   => 'goso_woo_product_overlay_bg_color',
+			'--pcl_o_opacity'              => 'goso_woo_product_overlay_opacity',
+			'--pcl_o_tt_cl'                => 'goso_woo_product_overlay_title_color',
+			'--pcl_o_l_cl'                 => 'goso_woo_product_overlay_link_color',
+			'--pcl_o_lhv_cl'               => 'goso_woo_product_overlay_link_hover_color',
+			'--pcl_o_btn_cl'               => 'goso_woo_product_overlay_button_color',
 
 			// styl3
-			'--pcl_3_atc_bg_cl'            => 'penci_woo_product_item_style3_atc_bg_color',
-			'--pcl_3_atc_bg_hv_cl'         => 'penci_woo_product_item_style3_atc_bg_hover_color',
-			'--pcl_3_atc_txt_cl'           => 'penci_woo_product_item_style3_atc_text_color',
-			'--pcl_3_atc_txt_hv_cl'        => 'penci_woo_product_item_style3_atc_text_hover_color',
+			'--pcl_3_atc_bg_cl'            => 'goso_woo_product_item_style3_atc_bg_color',
+			'--pcl_3_atc_bg_hv_cl'         => 'goso_woo_product_item_style3_atc_bg_hover_color',
+			'--pcl_3_atc_txt_cl'           => 'goso_woo_product_item_style3_atc_text_color',
+			'--pcl_3_atc_txt_hv_cl'        => 'goso_woo_product_item_style3_atc_text_hover_color',
 
 			// style6
-			'--pcl_6_price_cl'             => 'penci_woo_product_item_style6_price_color',
-			'--pcl_6_l_cl'                 => 'penci_woo_product_item_style6_link_color',
-			'--pcl_6_lhv_cl'               => 'penci_woo_product_item_style6_link_hover_color',
-			'--pcl_6_tt_cl'                => 'penci_woo_product_item_style6_title_color',
-			'--pcl_6_txt_cl'               => 'penci_woo_product_item_style6_text_color',
-			'--pcl_6_bg_cl'                => 'penci_woo_product_item_style6_bg',
+			'--pcl_6_price_cl'             => 'goso_woo_product_item_style6_price_color',
+			'--pcl_6_l_cl'                 => 'goso_woo_product_item_style6_link_color',
+			'--pcl_6_lhv_cl'               => 'goso_woo_product_item_style6_link_hover_color',
+			'--pcl_6_tt_cl'                => 'goso_woo_product_item_style6_title_color',
+			'--pcl_6_txt_cl'               => 'goso_woo_product_item_style6_text_color',
+			'--pcl_6_bg_cl'                => 'goso_woo_product_item_style6_bg',
 
 			// style4
-			'--pcl_4_btn_txt_cl'           => 'penci_woo_product_item_style4_atc_txt_color',
-			'--pcl_4_btn_txt_hv_cl'        => 'penci_woo_product_item_style4_atc_hv_txt_color',
-			'--pcl_4_btn_bg_cl'            => 'penci_woo_product_item_style4_atc_bg_color',
-			'--pcl_4_btn_bg_hv_cl'         => 'penci_woo_product_item_style4_atc_hv_bg_color',
+			'--pcl_4_btn_txt_cl'           => 'goso_woo_product_item_style4_atc_txt_color',
+			'--pcl_4_btn_txt_hv_cl'        => 'goso_woo_product_item_style4_atc_hv_txt_color',
+			'--pcl_4_btn_bg_cl'            => 'goso_woo_product_item_style4_atc_bg_color',
+			'--pcl_4_btn_bg_hv_cl'         => 'goso_woo_product_item_style4_atc_hv_bg_color',
 
 			// style5
-			'--pcl_5_btn_txt_cl'           => 'penci_woo_product_item_style5_atc_text_color',
-			'--pcl_5_btn_txt_hv_cl'        => 'penci_woo_product_item_style5_atc_hv_text_color',
-			'--pcl_5_btn_bd_cl'            => 'penci_woo_product_item_style5_atc_border_color',
-			'--pcl_5_btn_bd_hv_cl'         => 'penci_woo_product_item_style5_atc_hv_border_color',
-			'--pcl_5_btn_bg_cl'            => 'penci_woo_product_item_style5_atc_bg_color',
-			'--pcl_5_btn_bg_hv_cl'         => 'penci_woo_product_item_style5_atc_hv_bg_color',
+			'--pcl_5_btn_txt_cl'           => 'goso_woo_product_item_style5_atc_text_color',
+			'--pcl_5_btn_txt_hv_cl'        => 'goso_woo_product_item_style5_atc_hv_text_color',
+			'--pcl_5_btn_bd_cl'            => 'goso_woo_product_item_style5_atc_border_color',
+			'--pcl_5_btn_bd_hv_cl'         => 'goso_woo_product_item_style5_atc_hv_border_color',
+			'--pcl_5_btn_bg_cl'            => 'goso_woo_product_item_style5_atc_bg_color',
+			'--pcl_5_btn_bg_hv_cl'         => 'goso_woo_product_item_style5_atc_hv_bg_color',
 
 
 			// button group
-			'--pcl_btn_group_bg_color'     => 'penci_woo_product_loop_button_bg_color',
-			'--pcl_btn_group_bg_hv_color'  => 'penci_woo_product_loop_button_bg_hover_color',
-			'--pcl_btn_group_txt_color'    => 'penci_woo_product_loop_button_color',
-			'--pcl_btn_group_txt_hv_color' => 'penci_woo_product_loop_button_hover_color',
+			'--pcl_btn_group_bg_color'     => 'goso_woo_product_loop_button_bg_color',
+			'--pcl_btn_group_bg_hv_color'  => 'goso_woo_product_loop_button_bg_hover_color',
+			'--pcl_btn_group_txt_color'    => 'goso_woo_product_loop_button_color',
+			'--pcl_btn_group_txt_hv_color' => 'goso_woo_product_loop_button_hover_color',
 
 
 			// product category loop
-			'--pcl_l_cat_fs'               => 'penci_woo_loop_meta_font_size',
-			'--pcl_l_cat_fs_m'             => 'penci_woo_loop_meta_font_size_m',
-			'--pcl_l_cat_tt_fs'            => 'penci_woo_loop_cat_font_size',
-			'--pcl_l_cat_tt_fs_m'          => 'penci_woo_loop_cat_font_size_m',
-			'--pcl_l_cat_cl'               => 'penci_woo_section_product_cat_loop_meta_color',
-			'--pcl_l_cat_tt_cl'            => 'penci_woo_section_product_cat_loop_title_color',
-			'--pcl_l_cat_o_cl'             => 'penci_woo_section_product_cat_loop_overlay_color',
+			'--pcl_l_cat_fs'               => 'goso_woo_loop_meta_font_size',
+			'--pcl_l_cat_fs_m'             => 'goso_woo_loop_meta_font_size_m',
+			'--pcl_l_cat_tt_fs'            => 'goso_woo_loop_cat_font_size',
+			'--pcl_l_cat_tt_fs_m'          => 'goso_woo_loop_cat_font_size_m',
+			'--pcl_l_cat_cl'               => 'goso_woo_section_product_cat_loop_meta_color',
+			'--pcl_l_cat_tt_cl'            => 'goso_woo_section_product_cat_loop_title_color',
+			'--pcl_l_cat_o_cl'             => 'goso_woo_section_product_cat_loop_overlay_color',
 
 			// theme settings
-			'--pc-sidebar-w'               => 'penci_sidebar_width',
-			'--pc-sf-sum-w'                => 'penci_single_product_summary_width',
+			'--pc-sidebar-w'               => 'goso_sidebar_width',
+			'--pc-sf-sum-w'                => 'goso_single_product_summary_width',
 
 			// widget extra
-			'--pc-w-mh'                    => 'penci_woo_widgets_scroll_height',
-			'--pc-w-mhm'                   => 'penci_woo_widgets_scroll_m_height',
+			'--pc-w-mh'                    => 'goso_woo_widgets_scroll_height',
+			'--pc-w-mhm'                   => 'goso_woo_widgets_scroll_m_height',
 		);
 
 		$cart_page_props = array(
-			'penci_woo_cart_breadcrumb_color'                => array(
-				'color' => '.woocommerce .penci_woo_pages_breadcrumbs ul li.active span, .woocommerce .penci_woo_pages_breadcrumbs ul li.active a',
+			'goso_woo_cart_breadcrumb_color'                => array(
+				'color' => '.woocommerce .goso_woo_pages_breadcrumbs ul li.active span, .woocommerce .goso_woo_pages_breadcrumbs ul li.active a',
 			),
-			'penci_woo_cart_breadcrumb_active_color'         => array(
-				'color' => '.woocommerce .penci_woo_pages_breadcrumbs ul li span,.woocommerce .penci_woo_pages_breadcrumbs ul li a',
+			'goso_woo_cart_breadcrumb_active_color'         => array(
+				'color' => '.woocommerce .goso_woo_pages_breadcrumbs ul li span,.woocommerce .goso_woo_pages_breadcrumbs ul li a',
 			),
-			'penci_woo_cart_tablehead_color'                 => array(
+			'goso_woo_cart_tablehead_color'                 => array(
 				'color' => '.woocommerce table.shop_table th',
 			),
-			'penci_woo_cart_table_border_color'              => array(
+			'goso_woo_cart_table_border_color'              => array(
 				'border-color' => '.woocommerce table.shop_table th,.woocommerce table.shop_table td,.post-entry td, .post-entry th',
 			),
-			'penci_woo_cart_table_txt_color'                 => array(),
-			'penci_woo_cart_table_product_title_color'       => array(
+			'goso_woo_cart_table_txt_color'                 => array(),
+			'goso_woo_cart_table_product_title_color'       => array(
 				'color' => '.woocommerce table.shop_table td.product-name a',
 			),
-			'penci_woo_cart_table_product_title_hover_color' => array(
+			'goso_woo_cart_table_product_title_hover_color' => array(
 				'color' => '.woocommerce table.shop_table td.product-name a:hover',
 			),
-			'penci_woo_cart_table_product_price_color'       => array(
+			'goso_woo_cart_table_product_price_color'       => array(
 				'color' => '.woocommerce table.shop_table td.product-subtotal span',
 			),
-			'penci_woo_cart_btn_bg_color'                    => array(
+			'goso_woo_cart_btn_bg_color'                    => array(
 				'background-color' => '.woocommerce-cart .wc-proceed-to-checkout a',
 			),
-			'penci_woo_cart_btn_txt_color'                   => array(
+			'goso_woo_cart_btn_txt_color'                   => array(
 				'color' => '.woocommerce-cart .wc-proceed-to-checkout a',
 			),
-			'penci_woo_cart_btn_hover_bg_color'              => array(
+			'goso_woo_cart_btn_hover_bg_color'              => array(
 				'background-color' => '.woocommerce-cart .wc-proceed-to-checkout a:hover',
 			),
-			'penci_woo_cart_btn_hover_txt_color'             => array(
+			'goso_woo_cart_btn_hover_txt_color'             => array(
 				'color' => '.woocommerce-cart .wc-proceed-to-checkout a:hover',
 			),
-			'penci_woo_cart_sbtn_bg_color'                   => array(
+			'goso_woo_cart_sbtn_bg_color'                   => array(
 				'background-color' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"], .woocommerce .woocommerce-cart-form .cart button.button, .woocommerce .woocommerce-cart-form .cart button.button:disabled, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled]',
 			),
-			'penci_woo_cart_sbtn_txt_color'                  => array(
+			'goso_woo_cart_sbtn_txt_color'                  => array(
 				'color' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"], .woocommerce .woocommerce-cart-form .cart button.button, .woocommerce .woocommerce-cart-form .cart button.button:disabled, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled]',
 			),
-			'penci_woo_cart_sbtn_hover_bg_color'             => array(
+			'goso_woo_cart_sbtn_hover_bg_color'             => array(
 				'background-color' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"]:hover, .woocommerce .woocommerce-cart-form .cart button.button:hover, .woocommerce .woocommerce-cart-form .cart button.button:disabled:hover, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled]:hover',
 			),
-			'penci_woo_cart_sbtn_hover_txt_color'            => array(
+			'goso_woo_cart_sbtn_hover_txt_color'            => array(
 				'color' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"]:hover, .woocommerce .woocommerce-cart-form .cart button.button:hover, .woocommerce .woocommerce-cart-form .cart button.button:disabled:hover, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled]:hover',
 			),
-			'penci_woo_cart_del_btn_color'                   => array(
+			'goso_woo_cart_del_btn_color'                   => array(
 				'color' => '.woocommerce table.shop_table a.remove',
 			),
-			'penci_woo_cart_del_btn_hv_color'                => array(
+			'goso_woo_cart_del_btn_hv_color'                => array(
 				'color' => '.woocommerce table.shop_table a.remove:hover',
 			),
 		);
 
 		$checkout_page_prop = array(
-			'penci_woo_checkout_breadcrumb_color'         => array(
-				'color' => '.woocommerce .penci_woo_pages_breadcrumbs ul li span, .woocommerce .penci_woo_pages_breadcrumbs ul li a',
+			'goso_woo_checkout_breadcrumb_color'         => array(
+				'color' => '.woocommerce .goso_woo_pages_breadcrumbs ul li span, .woocommerce .goso_woo_pages_breadcrumbs ul li a',
 			),
-			'penci_woo_checkout_breadcrumb_active_color'  => array(
-				'color' => '.woocommerce .penci_woo_pages_breadcrumbs ul li.active span, .woocommerce .penci_woo_pages_breadcrumbs ul li.active a',
+			'goso_woo_checkout_breadcrumb_active_color'  => array(
+				'color' => '.woocommerce .goso_woo_pages_breadcrumbs ul li.active span, .woocommerce .goso_woo_pages_breadcrumbs ul li.active a',
 			),
-			'penci_woo_checkout_form_label_color'         => array(
+			'goso_woo_checkout_form_label_color'         => array(
 				'color' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout label',
 			),
-			'penci_woo_checkout_form_border_color'        => array(
+			'goso_woo_checkout_form_border_color'        => array(
 				'border-color' => '.woocommerce form .form-row .input-text, .woocommerce-page form .form-row .input-text,.select2-dropdown, .select2-container--default .select2-selection--single',
 			),
-			'penci_woo_checkout_form_border_focus_color'  => array(
+			'goso_woo_checkout_form_border_focus_color'  => array(
 				'border-color' => '.woocommerce form .form-row .input-text:focus, .woocommerce-page form .form-row .input-text:focus',
 			),
-			'penci_woo_checkout_form_bg_color'            => array(
+			'goso_woo_checkout_form_bg_color'            => array(
 				'background-color' => '.woocommerce form .form-row .input-text, .woocommerce-page form .form-row .input-text',
 			),
-			'penci_woo_checkout_form_bg_focus_color'      => array(
+			'goso_woo_checkout_form_bg_focus_color'      => array(
 				'background-color' => '.woocommerce form .form-row .input-text:focus, .woocommerce-page form .form-row .input-text:focus',
 			),
-			'penci_woo_checkout_order_bg_color'           => array(
+			'goso_woo_checkout_order_bg_color'           => array(
 				'background-color' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner',
 			),
-			'penci_woo_checkout_order_table_bg_color'     => array(
+			'goso_woo_checkout_order_table_bg_color'     => array(
 				'background-color' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner table, body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner .woocommerce-checkout-payment',
 			),
-			'penci_woo_checkout_order_table_color'        => array(
+			'goso_woo_checkout_order_table_color'        => array(
 				'color' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner table, body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner .woocommerce-checkout-payment',
 			),
-			'penci_woo_checkout_order_head_color'         => array(
+			'goso_woo_checkout_order_head_color'         => array(
 				'color' => '.woocommerce table.shop_table th',
 			),
-			'penci_woo_checkout_order_accent_color'       => array(
+			'goso_woo_checkout_order_accent_color'       => array(
 				'color' => '.woocommerce form.checkout table.shop_table .order-total .amount',
 			),
-			'penci_woo_checkout_order_table_border_color' => array(
+			'goso_woo_checkout_order_table_border_color' => array(
 				'border-color' => '.woocommerce-checkout #payment ul.payment_methods,.woocommerce table.shop_table th,.woocommerce table.shop_table tr',
 			),
-			'penci_woo_checkout_btn_bg_color'             => array(
+			'goso_woo_checkout_btn_bg_color'             => array(
 				'background-color' => '.woocommerce button.button.alt',
 			),
-			'penci_woo_checkout_btn_txt_color'            => array(
+			'goso_woo_checkout_btn_txt_color'            => array(
 				'color' => '.woocommerce button.button.alt,body.woocommerce-checkout form.checkout.woocommerce-checkout button',
 			),
-			'penci_woo_checkout_btn_hover_bg_color'       => array(
+			'goso_woo_checkout_btn_hover_bg_color'       => array(
 				'background-color' => '.woocommerce button.button.alt:hover,body.woocommerce-checkout form.checkout.woocommerce-checkout button:hover',
 			),
-			'penci_woo_checkout_btn_hover_txt_color'      => array(
+			'goso_woo_checkout_btn_hover_txt_color'      => array(
 				'color' => '.woocommerce button.button.alt:hover,body.woocommerce-checkout form.checkout.woocommerce-checkout button:hover',
 			),
-			'penci_woo_checkout_review_order_bg_color'    => array(
+			'goso_woo_checkout_review_order_bg_color'    => array(
 				'background-color' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout .woocommerce-checkout-review-order-inner',
 			)
 		);
 
 		$completed_page_prop = array(
-			'penci_woo_checkout_txt_color'             => array(
+			'goso_woo_checkout_txt_color'             => array(
 				'color' => '.woocommerce-order',
 			),
-			'penci_woo_checkout_head_color'            => array(
+			'goso_woo_checkout_head_color'            => array(
 				'color' => '.post-entry h2,.woocommerce ul.order_details li strong,.woocommerce table.shop_table th,.woocommerce table.shop_table td.product-name a',
 			),
-			'penci_woo_checkout_border_color'          => array(
+			'goso_woo_checkout_border_color'          => array(
 				'border-color' => '.woocommerce table.shop_table tfoot td,.woocommerce table.shop_table tfoot th, body.woocommerce-order-received .woocommerce-order section,.woocommerce table.shop_table th,.woocommerce table.shop_table td',
 			),
-			'penci_woo_checkout_success_icon_color'    => array(
+			'goso_woo_checkout_success_icon_color'    => array(
 				'color' => 'body.woocommerce-order-received .woocommerce-order .woocommerce-notice:before',
 			),
-			'penci_woo_checkout_success_icon_bg_color' => array(
+			'goso_woo_checkout_success_icon_bg_color' => array(
 				'background-color' => 'body.woocommerce-order-received .woocommerce-order .woocommerce-notice:before',
 			),
 		);
 
 		$sidecar_props = array(
-			'penci_woo_section_sidebarcart_color'          => array(
+			'goso_woo_section_sidebarcart_color'          => array(
 				'color' => '.sidebar-cart-container',
 			),
-			'penci_woo_sidecart_bg_color'                  => array(
-				'background-color' => '.penci-sidebar-cart',
+			'goso_woo_sidecart_bg_color'                  => array(
+				'background-color' => '.goso-sidebar-cart',
 			),
-			'penci_woo_sidecart_heading_bg_color'          => array(
-				'background-color' => '.penci-sidebar-cart .sidecart-heading',
+			'goso_woo_sidecart_heading_bg_color'          => array(
+				'background-color' => '.goso-sidebar-cart .sidecart-heading',
 			),
-			'penci_woo_sidecart_heading_txt_color'         => array(
-				'color' => '.penci-sidebar-cart .sidecart-heading h3',
+			'goso_woo_sidecart_heading_txt_color'         => array(
+				'color' => '.goso-sidebar-cart .sidecart-heading h3',
 			),
-			'penci_woo_sidecart_product_title_color'       => array(
+			'goso_woo_sidecart_product_title_color'       => array(
 				'color' => '.woocommerce .sidebar-cart-container ul.cart_list li a, .woocommerce .sidebar-cart-container ul.product_list_widget li a',
 			),
-			'penci_woo_sidecart_product_title_hover_color' => array(
+			'goso_woo_sidecart_product_title_hover_color' => array(
 				'color' => '.woocommerce .sidebar-cart-container ul.cart_list li a:hover, .woocommerce .sidebar-cart-container ul.product_list_widget li a:hover',
 			),
-			'penci_woo_sidecart_border_color'              => array(
+			'goso_woo_sidecart_border_color'              => array(
 				'border-color' => '.woocommerce .sidebar-cart-container ul.cart_list li, .woocommerce .sidebar-cart-container ul.product_list_widget li',
 			),
-			'penci_woo_sidecart_price_color'               => array(
+			'goso_woo_sidecart_price_color'               => array(
 				'color' => '.woocommerce .sidebar-cart-container ul.cart_list li .amount, .woocommerce .sidebar-cart-container ul.product_list_widget li .amount',
 			),
-			'penci_woo_sidecart_pitem_bg_color'            => array(
-				'background-color' => '.penci-sidebar-cart .sidecart-content ul li',
+			'goso_woo_sidecart_pitem_bg_color'            => array(
+				'background-color' => '.goso-sidebar-cart .sidecart-content ul li',
 			),
-			'penci_woo_sidecart_pitem_bg_hover_color'      => array(
-				'background-color' => '.penci-sidebar-cart .sidecart-content ul li:hover',
+			'goso_woo_sidecart_pitem_bg_hover_color'      => array(
+				'background-color' => '.goso-sidebar-cart .sidecart-content ul li:hover',
 			),
-			'penci_woo_sidecart_pitem_bg_text_color'       => array(
-				'color' => '.penci-sidebar-cart .sidecart-content ul li:hover,.woocommerce .sidecart-content ul.cart_list li a, .woocommerce .sidecart-content ul.product_list_widget li a',
+			'goso_woo_sidecart_pitem_bg_text_color'       => array(
+				'color' => '.goso-sidebar-cart .sidecart-content ul li:hover,.woocommerce .sidecart-content ul.cart_list li a, .woocommerce .sidecart-content ul.product_list_widget li a',
 			),
-			'penci_woo_sidecart_accent_color'              => array(
-				'color' => '.penci-sidebar-cart .woocommerce-mini-cart__total.total .amount',
+			'goso_woo_sidecart_accent_color'              => array(
+				'color' => '.goso-sidebar-cart .woocommerce-mini-cart__total.total .amount',
 			),
-			'penci_woo_sidecart_heading_color'             => array(
-				'color' => '.penci-sidebar-cart strong',
+			'goso_woo_sidecart_heading_color'             => array(
+				'color' => '.goso-sidebar-cart strong',
 			),
-			'penci_woo_sidecart_btn_color'                 => array(
-				'background-color' => '.penci-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button',
+			'goso_woo_sidecart_btn_color'                 => array(
+				'background-color' => '.goso-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button',
 			),
-			'penci_woo_sidecart_btn_text_color'            => array(
-				'color' => '.penci-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button',
+			'goso_woo_sidecart_btn_text_color'            => array(
+				'color' => '.goso-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button',
 			),
-			'penci_woo_sidecart_btn_hover_color'           => array(
-				'background-color' => '.penci-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button:hover',
+			'goso_woo_sidecart_btn_hover_color'           => array(
+				'background-color' => '.goso-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button:hover',
 			),
-			'penci_woo_sidecart_btn_text_hover_color'      => array(
-				'color' => '.penci-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button:hover',
+			'goso_woo_sidecart_btn_text_hover_color'      => array(
+				'color' => '.goso-sidebar-cart .woocommerce-mini-cart__buttons.buttons .button:hover',
 			),
-			'penci_woo_sidecart_footer_bgcolor'            => array(
-				'background-color' => '.penci-sidebar-cart .woocommerce-mini-cart__total.total,.penci-sidebar-cart .woocommerce-mini-cart__buttons.buttons',
+			'goso_woo_sidecart_footer_bgcolor'            => array(
+				'background-color' => '.goso-sidebar-cart .woocommerce-mini-cart__total.total,.goso-sidebar-cart .woocommerce-mini-cart__buttons.buttons',
 			),
-			'penci_woo_notice_bg_color'                    => array(
+			'goso_woo_notice_bg_color'                    => array(
 				'background-color' => 'p.demo_store, .woocommerce-store-notice'
 			),
-			'penci_woo_notice_txt_color'                   => array(
+			'goso_woo_notice_txt_color'                   => array(
 				'color' => 'p.demo_store, .woocommerce-store-notice,p.demo_store a, .woocommerce-store-notice a'
 			),
 		);
 
 		$extra_font_size = array(
-			'pencidesign_woo_fontsize_pages_nav_font_size'          => array(
-				'font-size' => '.woocommerce .penci_woo_pages_breadcrumbs ul li span, .woocommerce .penci_woo_pages_breadcrumbs ul li a',
+			'gosodesign_woo_fontsize_pages_nav_font_size'          => array(
+				'font-size' => '.woocommerce .goso_woo_pages_breadcrumbs ul li span, .woocommerce .goso_woo_pages_breadcrumbs ul li a',
 			),
-			'pencidesign_woo_fontsize_pages_table_th'               => array(
+			'gosodesign_woo_fontsize_pages_table_th'               => array(
 				'font-size' => '.woocommerce table.shop_table th',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_title'    => array(
+			'gosodesign_woo_fontsize_pages_table_product_title'    => array(
 				'font-size' => '.woocommerce table.shop_table td.product-name a',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_price'    => array(
+			'gosodesign_woo_fontsize_pages_table_product_price'    => array(
 				'font-size' => '.woocommerce table.shop_table td.product-price span, .woocommerce table.shop_table td.product-subtotal span',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_subtotal' => array(
+			'gosodesign_woo_fontsize_pages_table_product_subtotal' => array(
 				'font-size' => '.woocommerce table.shop_table td.product-subtotal span',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_quantity' => array(
+			'gosodesign_woo_fontsize_pages_table_product_quantity' => array(
 				'font-size' => '.woocommerce .woocommerce-cart-form .quantity .qty',
 			),
-			'pencidesign_woo_fontsize_pages_cart_total_h2'          => array(
+			'gosodesign_woo_fontsize_pages_cart_total_h2'          => array(
 				'font-size' => '.woocommerce .cart-collaterals .cart_totals h2, .woocommerce-page .cart-collaterals .cart_totals h2',
 			),
-			'pencidesign_woo_fontsize_pages_button'                 => array(
+			'gosodesign_woo_fontsize_pages_button'                 => array(
 				'font-size' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"], .woocommerce .woocommerce-cart-form .cart button.button, .woocommerce .woocommerce-cart-form .cart button.button:disabled, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled],.woocommerce #respond .wc-proceed-to-checkout input#submit.alt, .woocommerce .wc-proceed-to-checkout a.button.alt, .woocommerce .wc-proceed-to-checkout button.button.alt, .woocommerce .wc-proceed-to-checkout input.button.alt',
 			),
-			'pencidesign_woo_fontsize_checkout_form_label'          => array(
+			'gosodesign_woo_fontsize_checkout_form_label'          => array(
 				'font-size' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout label',
 			),
-			'pencidesign_woo_fontsize_checkout_form_input'          => array(
+			'gosodesign_woo_fontsize_checkout_form_input'          => array(
 				'font-size' => '.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea, .woocommerce form .form-row select',
 			),
-			'pencidesign_woo_fontsize_checkout_order_heading'       => array(
+			'gosodesign_woo_fontsize_checkout_order_heading'       => array(
 				'font-size' => '.woocommerce form.checkout h3',
 			),
-			'pencidesign_woo_fontsize_checkout_order_button'        => array(
+			'gosodesign_woo_fontsize_checkout_order_button'        => array(
 				'font-size' => '.woocommerce button.button.alt, body.woocommerce-checkout form.checkout.woocommerce-checkout button',
 			),
 		);
 
 		$extra_font_size_m = array(
-			'pencidesign_woo_fontsize_pages_nav_font_size_m'          => array(
-				'font-size' => '.woocommerce .penci_woo_pages_breadcrumbs ul li span, .woocommerce .penci_woo_pages_breadcrumbs ul li a',
+			'gosodesign_woo_fontsize_pages_nav_font_size_m'          => array(
+				'font-size' => '.woocommerce .goso_woo_pages_breadcrumbs ul li span, .woocommerce .goso_woo_pages_breadcrumbs ul li a',
 			),
-			'pencidesign_woo_fontsize_pages_table_th_m'               => array(
+			'gosodesign_woo_fontsize_pages_table_th_m'               => array(
 				'font-size' => '.woocommerce table.shop_table th',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_title_m'    => array(
+			'gosodesign_woo_fontsize_pages_table_product_title_m'    => array(
 				'font-size' => '.woocommerce table.shop_table td.product-name a',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_price_m'    => array(
+			'gosodesign_woo_fontsize_pages_table_product_price_m'    => array(
 				'font-size' => '.woocommerce table.shop_table td.product-price span, .woocommerce table.shop_table td.product-subtotal span',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_subtotal_m' => array(
+			'gosodesign_woo_fontsize_pages_table_product_subtotal_m' => array(
 				'font-size' => '.woocommerce table.shop_table td.product-subtotal span',
 			),
-			'pencidesign_woo_fontsize_pages_table_product_quantity_m' => array(
+			'gosodesign_woo_fontsize_pages_table_product_quantity_m' => array(
 				'font-size' => '.woocommerce .woocommerce-cart-form .quantity .qty',
 			),
-			'pencidesign_woo_fontsize_pages_cart_total_h2_m'          => array(
+			'gosodesign_woo_fontsize_pages_cart_total_h2_m'          => array(
 				'font-size' => '.woocommerce .cart-collaterals .cart_totals h2, .woocommerce-page .cart-collaterals .cart_totals h2',
 			),
-			'pencidesign_woo_fontsize_pages_button_m'                 => array(
+			'gosodesign_woo_fontsize_pages_button_m'                 => array(
 				'font-size' => '.woocommerce .woocommerce-cart-form .cart .button[name="apply_coupon"], .woocommerce .woocommerce-cart-form .cart button.button, .woocommerce .woocommerce-cart-form .cart button.button:disabled, .woocommerce .woocommerce-cart-form .cart button.button:disabled[disabled],.woocommerce #respond .wc-proceed-to-checkout input#submit.alt, .woocommerce .wc-proceed-to-checkout a.button.alt, .woocommerce .wc-proceed-to-checkout button.button.alt, .woocommerce .wc-proceed-to-checkout input.button.alt',
 			),
-			'pencidesign_woo_fontsize_checkout_form_label_m'          => array(
+			'gosodesign_woo_fontsize_checkout_form_label_m'          => array(
 				'font-size' => 'body.woocommerce-checkout form.checkout.woocommerce-checkout label',
 			),
-			'pencidesign_woo_fontsize_checkout_form_input_m'          => array(
+			'gosodesign_woo_fontsize_checkout_form_input_m'          => array(
 				'font-size' => '.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea, .woocommerce form .form-row select',
 			),
-			'pencidesign_woo_fontsize_checkout_order_heading_m'       => array(
+			'gosodesign_woo_fontsize_checkout_order_heading_m'       => array(
 				'font-size' => '.woocommerce form.checkout h3',
 			),
-			'pencidesign_woo_fontsize_checkout_order_button_m'        => array(
+			'gosodesign_woo_fontsize_checkout_order_button_m'        => array(
 				'font-size' => '.woocommerce button.button.alt, body.woocommerce-checkout form.checkout.woocommerce-checkout button',
 			),
 		);
 
 		$custom_product_color = array(
-			'penci_woo_product_loop_title_color_reup'      => array(
-				'color' => '  .upsells.products .woocommerce-loop-product__title.penci-loop-title a,
-                              .upsells.products .penci-product-loop-title h3 a,
+			'goso_woo_product_loop_title_color_reup'      => array(
+				'color' => '  .upsells.products .woocommerce-loop-product__title.goso-loop-title a,
+                              .upsells.products .goso-product-loop-title h3 a,
                               .upsells.products .products.product-style-7 .price,
-                              .upsells.products .products.product-style-7 .penci-product-loop-title a,
-                              .related.products .woocommerce-loop-product__title.penci-loop-title a,
-                              .related.products .penci-product-loop-title h3 a,
+                              .upsells.products .products.product-style-7 .goso-product-loop-title a,
+                              .related.products .woocommerce-loop-product__title.goso-loop-title a,
+                              .related.products .goso-product-loop-title h3 a,
                               .related.products .products.product-style-7 .price,
-                              .related.products .products.product-style-7 .penci-product-loop-title a',
+                              .related.products .products.product-style-7 .goso-product-loop-title a',
 			),
-			'penci_woo_product_loop_price_color_reup'      => array(
+			'goso_woo_product_loop_price_color_reup'      => array(
 				'color' => '  .woocommerce .upsells.products div.product p.price ins,
                               .woocommerce .upsells.products div.product span.price ins,
                               .woocommerce .upsells.products div.product p.price,
@@ -2081,62 +2081,62 @@ if ( ! function_exists( 'penci_woocommerce_custom_style' ) ) {
                               .woocommerce .related.products div.product p.price,
                               .woocommerce .related.products div.product span.price',
 			),
-			'penci_woo_product_loop_cat_color_reup'        => array(
-				'color' => '  .upsells.products .products .penci-authow-product .penci-product-loop-title .penci-product-cats a,
-                              .related.products .products .penci-authow-product .penci-product-loop-title .penci-product-cats a',
+			'goso_woo_product_loop_cat_color_reup'        => array(
+				'color' => '  .upsells.products .products .goso-authow-product .goso-product-loop-title .goso-product-cats a,
+                              .related.products .products .goso-authow-product .goso-product-loop-title .goso-product-cats a',
 			),
-			'penci_woo_product_loop_cat_hover_color_reup'  => array(
-				'color' => '  .upsells.products .products .penci-authow-product .penci-product-loop-title .penci-product-cats a:hover,
-                              .related.products .products .penci-authow-product .penci-product-loop-title .penci-product-cats a:hover',
+			'goso_woo_product_loop_cat_hover_color_reup'  => array(
+				'color' => '  .upsells.products .products .goso-authow-product .goso-product-loop-title .goso-product-cats a:hover,
+                              .related.products .products .goso-authow-product .goso-product-loop-title .goso-product-cats a:hover',
 			),
-			'penci_woo_product_loop_title_color_cross'     => array(
-				'color' => ' .woocommerce .cross-sells .woocommerce-loop-product__title.penci-loop-title a,
-                             .woocommerce .cross-sells .penci-product-loop-title h3 a,
+			'goso_woo_product_loop_title_color_cross'     => array(
+				'color' => ' .woocommerce .cross-sells .woocommerce-loop-product__title.goso-loop-title a,
+                             .woocommerce .cross-sells .goso-product-loop-title h3 a,
                              .woocommerce .cross-sells .products.product-style-7 .price,
-                             .woocommerce .cross-sells .products.product-style-7 .penci-product-loop-title a',
+                             .woocommerce .cross-sells .products.product-style-7 .goso-product-loop-title a',
 			),
-			'penci_woo_product_loop_price_color_cross'     => array(
+			'goso_woo_product_loop_price_color_cross'     => array(
 				'color' => ' .woocommerce .cross-sells div.product p.price ins,
                              .woocommerce .cross-sells div.product span.price ins,
                              .woocommerce .cross-sells div.product p.price,
                              .woocommerce .cross-sells div.product span.price',
 			),
-			'penci_woo_product_loop_cat_color_cross'       => array(
-				'color' => ' .cross-sells .products .penci-authow-product .penci-product-loop-title .penci-product-cats a'
+			'goso_woo_product_loop_cat_color_cross'       => array(
+				'color' => ' .cross-sells .products .goso-authow-product .goso-product-loop-title .goso-product-cats a'
 			),
-			'penci_woo_product_loop_cat_hover_color_cross' => array(
-				'color' => ' .cross-sells .products .penci-authow-product .penci-product-loop-title .penci-product-cats a:hover'
+			'goso_woo_product_loop_cat_hover_color_cross' => array(
+				'color' => ' .cross-sells .products .goso-authow-product .goso-product-loop-title .goso-product-cats a:hover'
 			),
 		);
 
 		$font_family_settings = array(
-			'penci_font_for_menu',
+			'goso_font_for_menu',
 		);
 
 		$woocommerce_default_color = array(
-			'penci_woo_product_loop_progress_active_bg_color',
-			'penci_product_page_general_link_hover_color',
-			'penci_product_page_button_swatches_border_hover_color',
-			'penci_product_page_button_swatches_bg_color',
-			'penci_woo_page_button_bg_color',
-			'penci_woo_page_button_alt_bg_hover_color',
+			'goso_woo_product_loop_progress_active_bg_color',
+			'goso_product_page_general_link_hover_color',
+			'goso_product_page_button_swatches_border_hover_color',
+			'goso_product_page_button_swatches_bg_color',
+			'goso_woo_page_button_bg_color',
+			'goso_woo_page_button_alt_bg_hover_color',
 		);
 
-		$penci_default_body_font_size = array(
+		$goso_default_body_font_size = array(
 			'--pcs_fsp_general',
 			'--pcs_fsp_tab_tt',
 		);
 
-		penci_woo_customizer_custom_css_rules( $product_customize_settings, $woocommerce_default_color, $font_family_settings, $penci_default_body_font_size );
+		goso_woo_customizer_custom_css_rules( $product_customize_settings, $woocommerce_default_color, $font_family_settings, $goso_default_body_font_size );
 
-		$cart_css           = penci_woo_customizer_custom_css_prop( $cart_page_props );
-		$checkout_css       = penci_woo_customizer_custom_css_prop( $checkout_page_prop );
-		$completed_page_css = penci_woo_customizer_custom_css_prop( $completed_page_prop );
+		$cart_css           = goso_woo_customizer_custom_css_prop( $cart_page_props );
+		$checkout_css       = goso_woo_customizer_custom_css_prop( $checkout_page_prop );
+		$completed_page_css = goso_woo_customizer_custom_css_prop( $completed_page_prop );
 
-		echo penci_woo_customizer_custom_css_prop( $sidecar_props );
-		echo penci_woo_customizer_custom_css_prop( $extra_font_size );
-		echo penci_woo_customizer_custom_css_prop( $extra_font_size_m );
-		echo penci_woo_customizer_custom_css_prop( $custom_product_color );
+		echo goso_woo_customizer_custom_css_prop( $sidecar_props );
+		echo goso_woo_customizer_custom_css_prop( $extra_font_size );
+		echo goso_woo_customizer_custom_css_prop( $extra_font_size_m );
+		echo goso_woo_customizer_custom_css_prop( $custom_product_color );
 
 		if ( is_cart() && $cart_css ) {
 			echo $cart_css;
@@ -2151,45 +2151,45 @@ if ( ! function_exists( 'penci_woocommerce_custom_style' ) ) {
 		}
 
 		// Sidebar filter style.
-		$filterwidget_margin              = get_theme_mod( 'pencidesign_woo_filter_widget_margin' );
-		$filterwidget_heading_lowcase     = get_theme_mod( 'pencidesign_woo_filter_widget_heading_lowcase' );
-		$filterwidget_heading_size        = get_theme_mod( 'pencidesign_woo_filter_widget_heading_size' );
-		$filterwidget_heading_image_9     = get_theme_mod( 'pencidesign_woo_filter_widget_heading_image_9' );
-		$filterwidget_heading9_repeat     = get_theme_mod( 'pencidesign_woo_filter_widget_heading9_repeat' );
-		$filterwidget_remove_border_outer = get_theme_mod( 'pencidesign_woo_filter_widget_remove_border_outer' );
-		$filterwidget_remove_arrow_down   = get_theme_mod( 'pencidesign_woo_filter_widget_remove_arrow_down' );
+		$filterwidget_margin              = get_theme_mod( 'gosodesign_woo_filter_widget_margin' );
+		$filterwidget_heading_lowcase     = get_theme_mod( 'gosodesign_woo_filter_widget_heading_lowcase' );
+		$filterwidget_heading_size        = get_theme_mod( 'gosodesign_woo_filter_widget_heading_size' );
+		$filterwidget_heading_image_9     = get_theme_mod( 'gosodesign_woo_filter_widget_heading_image_9' );
+		$filterwidget_heading9_repeat     = get_theme_mod( 'gosodesign_woo_filter_widget_heading9_repeat' );
+		$filterwidget_remove_border_outer = get_theme_mod( 'gosodesign_woo_filter_widget_remove_border_outer' );
+		$filterwidget_remove_arrow_down   = get_theme_mod( 'gosodesign_woo_filter_widget_remove_arrow_down' );
 
 		if ( $filterwidget_margin ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content .widget{ margin-bottom: ' . esc_attr( $filterwidget_margin ) . 'px; }';
-			echo '.penci-sidebar-filter-widgets2{ margin-top: ' . esc_attr( $filterwidget_margin ) . 'px; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content .widget{ margin-bottom: ' . esc_attr( $filterwidget_margin ) . 'px; }';
+			echo '.goso-sidebar-filter-widgets2{ margin-top: ' . esc_attr( $filterwidget_margin ) . 'px; }';
 		}
 
 		if ( $filterwidget_heading_lowcase ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content .penci-border-arrow .inner-arrow{ text-transform: none; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content .goso-border-arrow .inner-arrow{ text-transform: none; }';
 		}
 
 		if ( $filterwidget_heading_size ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content .penci-border-arrow .inner-arrow { font-size: ' . $filterwidget_heading_size . 'px; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content .goso-border-arrow .inner-arrow { font-size: ' . $filterwidget_heading_size . 'px; }';
 		}
 		if ( $filterwidget_heading_image_9 ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content.style-8 .penci-border-arrow .inner-arrow { background-image: url(' . $filterwidget_heading_image_9 . '); }';
+			echo '.goso-sidebar-filter .goso-sidebar-content.style-8 .goso-border-arrow .inner-arrow { background-image: url(' . $filterwidget_heading_image_9 . '); }';
 		}
 		if ( $filterwidget_heading9_repeat ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content.style-8 .penci-border-arrow .inner-arrow{ background-repeat: ' . $filterwidget_heading9_repeat . '; background-size: auto; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content.style-8 .goso-border-arrow .inner-arrow{ background-repeat: ' . $filterwidget_heading9_repeat . '; background-size: auto; }';
 		}
 		if ( $filterwidget_remove_border_outer ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content .penci-border-arrow:after { content: none; display: none; }
-		.penci-sidebar-filter .penci-sidebar-content .widget-title{ margin-left: 0; margin-right: 0; margin-top: 0; }
-		.penci-sidebar-filter .penci-sidebar-content .penci-border-arrow:before{ bottom: -6px; border-width: 6px; margin-left: -6px; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content .goso-border-arrow:after { content: none; display: none; }
+		.goso-sidebar-filter .goso-sidebar-content .widget-title{ margin-left: 0; margin-right: 0; margin-top: 0; }
+		.goso-sidebar-filter .goso-sidebar-content .goso-border-arrow:before{ bottom: -6px; border-width: 6px; margin-left: -6px; }';
 		}
 
 		if ( $filterwidget_remove_arrow_down ) {
-			echo '.penci-sidebar-filter .penci-sidebar-content .penci-border-arrow:before, .penci-sidebar-content.style-2 .penci-border-arrow:after { content: none; display: none; }';
+			echo '.goso-sidebar-filter .goso-sidebar-content .goso-border-arrow:before, .goso-sidebar-content.style-2 .goso-border-arrow:after { content: none; display: none; }';
 		}
 
 		// Loading Icon
-		$circle_loading_cl1 = get_theme_mod( 'penci_woo_loading_cl1' );
-		$circle_loading_cl2 = get_theme_mod( 'penci_woo_loading_cl2' );
+		$circle_loading_cl1 = get_theme_mod( 'goso_woo_loading_cl1' );
+		$circle_loading_cl2 = get_theme_mod( 'goso_woo_loading_cl2' );
 
 		if ( $circle_loading_cl1 ) {
 			echo '.woocommerce a.button.loading:before, .woocommerce button.button.loading:before, .woocommerce input.button.loading:before, .woocommerce #respond input#submit.loading:before, .woocommerce a.button.loading:after, .woocommerce button.button.loading:after, .woocommerce input.button.loading:after, .woocommerce #respond input#submit.loading:after{ border-right-color: ' . $circle_loading_cl1 . '; border-bottom-color: ' . $circle_loading_cl1 . '; }';
@@ -2199,35 +2199,35 @@ if ( ! function_exists( 'penci_woocommerce_custom_style' ) ) {
 			echo '.woocommerce a.button.loading:before, .woocommerce button.button.loading:before, .woocommerce input.button.loading:before, .woocommerce #respond input#submit.loading:before, .woocommerce a.button.loading:after, .woocommerce button.button.loading:after, .woocommerce input.button.loading:after, .woocommerce #respond input#submit.loading:after{ border-right-color: ' . $circle_loading_cl2 . '; border-bottom-color: ' . $circle_loading_cl2 . '; }';
 		}
 
-		$product_cat_overlay = get_theme_mod( 'penci_woo_section_product_cat_loop_overlay_color' );
+		$product_cat_overlay = get_theme_mod( 'goso_woo_section_product_cat_loop_overlay_color' );
 		if ( $product_cat_overlay ) {
-			echo 'body{--pcl_l_cat_o_cl_rgba: linear-gradient(0deg, ' . penci_woo_hex2rgb( $product_cat_overlay, 1 ) . ' 0%, ' . penci_woo_hex2rgb( $product_cat_overlay, 0.5 ) . ' 50%, rgba(255,255,255,0) 100%);}';
+			echo 'body{--pcl_l_cat_o_cl_rgba: linear-gradient(0deg, ' . goso_woo_hex2rgb( $product_cat_overlay, 1 ) . ' 0%, ' . goso_woo_hex2rgb( $product_cat_overlay, 0.5 ) . ' 50%, rgba(255,255,255,0) 100%);}';
 		}
 	}
 }
 
 
-if ( ! function_exists( 'penci_is_layered_nav_active' ) ) {
-	add_filter( 'woocommerce_is_layered_nav_active', 'penci_is_layered_nav_active' );
-	function penci_is_layered_nav_active() {
+if ( ! function_exists( 'goso_is_layered_nav_active' ) ) {
+	add_filter( 'woocommerce_is_layered_nav_active', 'goso_is_layered_nav_active' );
+	function goso_is_layered_nav_active() {
 		return is_active_widget( false, false, 'authow-product-filter', true );
 	}
 }
 
-if ( ! function_exists( 'penci_is_layered_price_active' ) ) {
-	add_filter( 'woocommerce_is_price_filter_active', 'penci_is_layered_price_active' );
-	function penci_is_layered_price_active() {
+if ( ! function_exists( 'goso_is_layered_price_active' ) ) {
+	add_filter( 'woocommerce_is_price_filter_active', 'goso_is_layered_price_active' );
+	function goso_is_layered_price_active() {
 		$result = is_active_widget( false, false, 'authow-price-filter', true );
 		if ( ! $result ) {
-			$result = apply_filters( 'penci_use_custom_price_widget', true );
+			$result = apply_filters( 'goso_use_custom_price_widget', true );
 		}
 
 		return $result;
 	}
 }
 
-if ( ! function_exists( 'penci_get_filtered_price_new' ) ) {
-	function penci_get_filtered_price_new() {
+if ( ! function_exists( 'goso_get_filtered_price_new' ) ) {
+	function goso_get_filtered_price_new() {
 		global $wpdb;
 
 		if ( ! is_shop() && ! is_product_taxonomy() ) {
@@ -2281,19 +2281,19 @@ if ( ! function_exists( 'penci_get_filtered_price_new' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_sidecart_nav' ) ) {
-	add_action( 'wp_footer', 'penci_sidecart_nav', 10 );
-	function penci_sidecart_nav() {
-		if ( 'dropdown' != get_theme_mod( 'penci_woo_cart_style' ) ) {
+if ( ! function_exists( 'goso_sidecart_nav' ) ) {
+	add_action( 'wp_footer', 'goso_sidecart_nav', 10 );
+	function goso_sidecart_nav() {
+		if ( 'dropdown' != get_theme_mod( 'goso_woo_cart_style' ) ) {
 			wc_get_template_part( 'global/side-cart' );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_elementor_products_template' ) ) {
-	function penci_elementor_products_template( $settings, $preloader = '' ) {
+if ( ! function_exists( 'goso_elementor_products_template' ) ) {
+	function goso_elementor_products_template( $settings, $preloader = '' ) {
 		$classes  = array();
-		$settings = wp_parse_args( $settings, penci_custom_product_query_default_args() );
+		$settings = wp_parse_args( $settings, goso_custom_product_query_default_args() );
 
 		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 		if ( isset( $_GET['product-page'] ) ) { // phpcs:ignore
@@ -2316,8 +2316,8 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 		);
 
 		if ( 'new' === $settings['post_type'] ) {
-			$new_label = get_theme_mod( 'penci_woo_label_new_product', true );
-			$days      = get_theme_mod( 'penci_woo_label_new_product_period', 7 );
+			$new_label = get_theme_mod( 'goso_woo_label_new_product', true );
+			$days      = get_theme_mod( 'goso_woo_label_new_product_period', 7 );
 			if ( $new_label && $days ) {
 				$query_args['date_query'] = array(
 					'after' => date( 'Y-m-d', strtotime( '-' . $days . ' days' ) ),
@@ -2325,7 +2325,7 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 			} else {
 				$query_args['meta_query'][] = array(
 					array(
-						'key'     => 'penci_pmeta_product_extra_options',
+						'key'     => 'goso_pmeta_product_extra_options',
 						'value'   => '"permanent_new_label";s:1:"1"',
 						'compare' => 'LIKE',
 					),
@@ -2387,7 +2387,7 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 				'include_children' => false,
 			);
 		}
-		if ( apply_filters( 'penci_hide_out_of_stock_items', false ) && 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
+		if ( apply_filters( 'goso_hide_out_of_stock_items', false ) && 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
 			$query_args['meta_query'][] = array(
 				'key'     => '_stock_status',
 				'value'   => 'outofstock',
@@ -2446,7 +2446,7 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 			} elseif ( $settings['product_type'] == 'month' ) {
 				$date = '+1 month';
 			}
-			$query_args['meta_query'] = apply_filters( 'penci_product_deals_meta_query', array_merge( WC()->query->get_meta_query(), array(
+			$query_args['meta_query'] = apply_filters( 'goso_product_deals_meta_query', array_merge( WC()->query->get_meta_query(), array(
 				array(
 					'key'     => '_deal_quantity',
 					'value'   => 0,
@@ -2464,7 +2464,7 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 				),
 			) ) );
 		} elseif ( isset( $settings['product_type'] ) && $settings['product_type'] == 'deals' ) {
-			$query_args['meta_query'] = apply_filters( 'penci_product_deals_meta_query', array_merge( WC()->query->get_meta_query(), array(
+			$query_args['meta_query'] = apply_filters( 'goso_product_deals_meta_query', array_merge( WC()->query->get_meta_query(), array(
 				array(
 					'key'     => '_deal_quantity',
 					'value'   => 0,
@@ -2474,16 +2474,16 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 		}
 
 		if ( 'top_rated_products' === $settings['post_type'] ) {
-			add_filter( 'posts_clauses', 'penci_order_by_rating_post_clauses' );
-			$products = new WP_Query( apply_filters( 'penci_product_element_query_args', $query_args ) );
-			remove_filter( 'posts_clauses', 'penci_order_by_rating_post_clauses' );
+			add_filter( 'posts_clauses', 'goso_order_by_rating_post_clauses' );
+			$products = new WP_Query( apply_filters( 'goso_product_element_query_args', $query_args ) );
+			remove_filter( 'posts_clauses', 'goso_order_by_rating_post_clauses' );
 		} else {
-			$products = new WP_Query( apply_filters( 'penci_product_element_query_args', $query_args ) );
+			$products = new WP_Query( apply_filters( 'goso_product_element_query_args', $query_args ) );
 		}
 
 		// Element settings.
 		if ( 'inherit' === $settings['product_style'] ) {
-			$settings['product_style'] = get_theme_mod( 'penci_woocommerce_product_style', 'style-1' );
+			$settings['product_style'] = get_theme_mod( 'goso_woocommerce_product_style', 'style-1' );
 		}
 
 		$product_style = 'list' === $settings['layout'] ? 'list' : $settings['product_style'];
@@ -2543,14 +2543,14 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 		wc_set_loop_prop( 'product_loop_icon_style', $settings['icon_style'] );
 		wc_set_loop_prop( 'product_loop_icon_position', $settings['icon_position'] );
 		wc_set_loop_prop( 'product_loop_icon_animation', $settings['icon_animation'] );
-		wc_set_loop_prop( 'product_round_style', penci_shop_product_round_style( $settings['icon_style'], $settings['icon_position'] ) );
+		wc_set_loop_prop( 'product_round_style', goso_shop_product_round_style( $settings['icon_style'], $settings['icon_position'] ) );
 		wc_set_loop_prop( 'stock_progress_bar', (boolean) $settings['stock_progress_bar'] );
 		wc_set_loop_prop( 'img_size', $settings['img_size'] );
 		wc_set_loop_prop( 'pagination', $settings['pagination'] );
 		wc_set_loop_prop( 'loop_rating', $settings['product_rating'] );
 		wc_set_loop_prop( 'loop_categories', $settings['product_categories'] );
 
-		wc_set_loop_prop( 'penci_woo_settings', wp_json_encode( array_intersect_key( $settings, penci_custom_product_query_default_args() ) ) );
+		wc_set_loop_prop( 'goso_woo_settings', wp_json_encode( array_intersect_key( $settings, goso_custom_product_query_default_args() ) ) );
 
 		$classes[] = 'product-style-' . $product_style;
 		$classes[] = 'product-layout-' . $settings['layout'];
@@ -2567,27 +2567,27 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 			wp_enqueue_script( 'infinite-scroll' );
 		}
 
-		$section_id = 'penci-products-' . wp_rand( 0, 99999 );
+		$section_id = 'goso-products-' . wp_rand( 0, 99999 );
 		wc_set_loop_prop( 'loopid', $section_id );
 
 
 		$loop_wrapper_classes   = array();
-		$loop_wrapper_classes[] = penci_woocommerce_get_product_loop_class();
+		$loop_wrapper_classes[] = goso_woocommerce_get_product_loop_class();
 		$loop_wrapper_classes[] = 'products mobile-columns-' . wc_get_loop_prop( 'mobile-columns', 2 );
 		$loop_wrapper_classes[] = 'columns-' . esc_attr( $columns );
 
 		if ( 'carousel' === $settings['layout'] ) {
-			$loop_wrapper_classes[] = 'penci-owl-carousel penci-owl-carousel-slider display-style-carousel';
+			$loop_wrapper_classes[] = 'goso-owl-carousel goso-owl-carousel-slider display-style-carousel';
 		}
 
 		$classes[]              = $section_id;
 		$loop_wrapper_classes[] = $section_id . '-container';
 
-		echo '<div data-section="' . esc_attr( $section_id ) . '" class="penci-custom-products penci-woo-page-container ' . implode( ' ', $classes ) . '">';
+		echo '<div data-section="' . esc_attr( $section_id ) . '" class="goso-custom-products goso-woo-page-container ' . implode( ' ', $classes ) . '">';
 
 		if ( $products->have_posts() ) {
 			if ( $preloader ) {
-				echo '<div class="penci-products-preloader"><span class="penci-loading-icon"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></span></div>';
+				echo '<div class="goso-products-preloader"><span class="goso-loading-icon"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></span></div>';
 			}
 			echo '<ul ' . implode( ' ', $data_attr ) . ' data-columns="' . esc_attr( $columns ) . '" class="' . implode( ' ', $loop_wrapper_classes ) . '">';
 			while ( $products->have_posts() ) :
@@ -2596,13 +2596,13 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 			endwhile;
 			woocommerce_product_loop_end();
 			if ( 'none' !== $settings['pagination'] && 'carousel' !== $settings['layout'] ) {
-				echo '<div id="penci-load-' . esc_attr( $unique_class ) . '" data-part="' . esc_attr( $unique_class ) . '" class="page-unique-part">';
-				penci_woo_infinit_load_button( $settings['pagination'], $products->max_num_pages );
+				echo '<div id="goso-load-' . esc_attr( $unique_class ) . '" data-part="' . esc_attr( $unique_class ) . '" class="page-unique-part">';
+				goso_woo_infinit_load_button( $settings['pagination'], $products->max_num_pages );
 				woocommerce_pagination();
 				echo '</div>';
 			}
 		} else {
-			echo penci_woo_translate_text( 'penci_woo_trans_noproductfount' );
+			echo goso_woo_translate_text( 'goso_woo_trans_noproductfount' );
 		}
 
 		echo '</div>';
@@ -2612,8 +2612,8 @@ if ( ! function_exists( 'penci_elementor_products_template' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_order_by_rating_post_clauses' ) ) {
-	function penci_order_by_rating_post_clauses( $args ) {
+if ( ! function_exists( 'goso_order_by_rating_post_clauses' ) ) {
+	function goso_order_by_rating_post_clauses( $args ) {
 		global $wpdb;
 
 		$args['where']   .= " AND $wpdb->commentmeta.meta_key = 'rating' ";
@@ -2625,50 +2625,50 @@ if ( ! function_exists( 'penci_order_by_rating_post_clauses' ) ) {
 	}
 }
 
-add_action( 'woocommerce_before_cart_totals', 'penci_woo_before_cart_total_wrap' );
-function penci_woo_before_cart_total_wrap() {
-	echo '<div class="penci-woo-cart-total-wrap">';
+add_action( 'woocommerce_before_cart_totals', 'goso_woo_before_cart_total_wrap' );
+function goso_woo_before_cart_total_wrap() {
+	echo '<div class="goso-woo-cart-total-wrap">';
 }
 
-add_action( 'woocommerce_after_cart_totals', 'penci_woo_before_cart_end_wrap' );
-function penci_woo_before_cart_end_wrap() {
+add_action( 'woocommerce_after_cart_totals', 'goso_woo_before_cart_end_wrap' );
+function goso_woo_before_cart_end_wrap() {
 	echo '</div>';
 }
 
-add_action( 'woocommerce_share', 'penci_woo_social_share' );
-function penci_woo_social_share() {
+add_action( 'woocommerce_share', 'goso_woo_social_share' );
+function goso_woo_social_share() {
 	echo '<div class="single-product-share">';
-	echo '<span class="share-title">' . penci_get_setting( 'penci_trans_share' ) . '</span>';
-	penci_authow_social_share( 'single' );
+	echo '<span class="share-title">' . goso_get_setting( 'goso_trans_share' ) . '</span>';
+	goso_authow_social_share( 'single' );
 	echo '</div>';
 }
 
-add_action( 'woocommerce_before_cart', 'penci_woo_pages_breadcrumbs' );
-add_action( 'woocommerce_before_checkout_form', 'penci_woo_pages_breadcrumbs', 0 );
-function penci_woo_pages_breadcrumbs() {
+add_action( 'woocommerce_before_cart', 'goso_woo_pages_breadcrumbs' );
+add_action( 'woocommerce_before_checkout_form', 'goso_woo_pages_breadcrumbs', 0 );
+function goso_woo_pages_breadcrumbs() {
 	?>
-    <div class="penci_woo_pages_breadcrumbs">
+    <div class="goso_woo_pages_breadcrumbs">
         <ul>
             <li class="step-cart <?php echo ( is_cart() ) ? 'active' : 'inactive'; ?>">
                 <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
-                    <span><?php echo penci_woo_translate_text( 'penci_woo_trans_shoppingcart' ); ?></span>
+                    <span><?php echo goso_woo_translate_text( 'goso_woo_trans_shoppingcart' ); ?></span>
                 </a>
             </li>
             <li class="step-checkout <?php echo ( is_checkout() && ! is_order_received_page() ) ? 'active' : 'inactive'; ?>">
                 <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
-                    <span><?php echo penci_woo_translate_text( 'penci_woo_trans_checkout' ); ?></span>
+                    <span><?php echo goso_woo_translate_text( 'goso_woo_trans_checkout' ); ?></span>
                 </a>
             </li>
             <li class="step-complete <?php echo ( is_order_received_page() ) ? 'active' : 'inactive'; ?>">
-                <span><?php echo penci_woo_translate_text( 'penci_woo_trans_ordrcompleted' ); ?></span>
+                <span><?php echo goso_woo_translate_text( 'goso_woo_trans_ordrcompleted' ); ?></span>
             </li>
         </ul>
     </div>
 	<?php
 }
 
-if ( ! function_exists( 'penci_woo_get_custom_page_link' ) ) {
-	function penci_woo_get_custom_page_link( $page ) {
+if ( ! function_exists( 'goso_woo_get_custom_page_link' ) ) {
+	function goso_woo_get_custom_page_link( $page ) {
 		$url = '';
 		switch ( $page ) {
 			case 'home':
@@ -2684,10 +2684,10 @@ if ( ! function_exists( 'penci_woo_get_custom_page_link' ) ) {
 				$url = wc_get_page_permalink( 'myaccount' );
 				break;
 			case 'wishlist':
-				$url = get_page_link( get_theme_mod( 'penci_woocommerce_wishlist_page' ) );
+				$url = get_page_link( get_theme_mod( 'goso_woocommerce_wishlist_page' ) );
 				break;
 			case 'compare':
-				$url = get_page_link( get_theme_mod( 'penci_woocommerce_compare_page' ) );
+				$url = get_page_link( get_theme_mod( 'goso_woocommerce_compare_page' ) );
 				break;
 			case 'filer':
 				$url = '#productfilter';
@@ -2698,31 +2698,31 @@ if ( ! function_exists( 'penci_woo_get_custom_page_link' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woo_ele_lib_list' ) ) {
-	function penci_woo_ele_lib_list() {
+if ( ! function_exists( 'goso_woo_ele_lib_list' ) ) {
+	function goso_woo_ele_lib_list() {
 		$elementor_library_args = array(
 			'post_type'      => 'elementor_library',
 			'posts_per_page' => - 1,
 		);
 
-		if ( post_type_exists( 'penci-block' ) ) {
-			$elementor_library_args['post_type'] = 'penci-block';
+		if ( post_type_exists( 'goso-block' ) ) {
+			$elementor_library_args['post_type'] = 'goso-block';
 		}
 
 		$elementor_library = get_posts( $elementor_library_args );
 
-		$penci_elementor_library = array();
+		$goso_elementor_library = array();
 
 		foreach ( $elementor_library as $library ) {
-			$penci_elementor_library[ $library->post_title ] = $library->ID;
+			$goso_elementor_library[ $library->post_title ] = $library->ID;
 		}
 
-		return $penci_elementor_library;
+		return $goso_elementor_library;
 	}
 }
 
-if ( ! function_exists( 'penci_woo_cat_list_opt' ) ) {
-	function penci_woo_terms_list_opt( $tax ) {
+if ( ! function_exists( 'goso_woo_cat_list_opt' ) ) {
+	function goso_woo_terms_list_opt( $tax ) {
 
 		$terms_list = array();
 		$terms      = get_terms( array(
@@ -2740,19 +2740,19 @@ if ( ! function_exists( 'penci_woo_cat_list_opt' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_woo_cat_list_opt' ) ) {
-	add_action( 'init', 'penci_woo_cat_list_opt' );
-	function penci_woo_cat_list_opt() {
+if ( ! function_exists( 'goso_woo_cat_list_opt' ) ) {
+	add_action( 'init', 'goso_woo_cat_list_opt' );
+	function goso_woo_cat_list_opt() {
 		// Thank you text
-		$thank_you = get_theme_mod( 'penci_woo_checkout_success_thankyou_text' );
+		$thank_you = get_theme_mod( 'goso_woo_checkout_success_thankyou_text' );
 		if ( $thank_you ) {
 			add_filter( 'woocommerce_thankyou_order_received_text', function () {
-				echo get_theme_mod( 'penci_woo_checkout_success_thankyou_text' );
+				echo get_theme_mod( 'goso_woo_checkout_success_thankyou_text' );
 			} );
 		}
 
 		add_action( 'woocommerce_before_checkout_form', function () {
-			echo get_theme_mod( 'penci_woo_checkout_before_content' );
+			echo get_theme_mod( 'goso_woo_checkout_before_content' );
 		} );
 
 		add_action( 'woocommerce_before_checkout_form', function () {
@@ -2760,19 +2760,19 @@ if ( ! function_exists( 'penci_woo_cat_list_opt' ) ) {
 		} );
 
 		add_action( 'woocommerce_before_cart', function () {
-			echo get_theme_mod( 'penci_woo_cart_before_content' );
+			echo get_theme_mod( 'goso_woo_cart_before_content' );
 		} );
 
 		add_action( 'woocommerce_after_cart', function () {
-			echo get_theme_mod( 'penci_woo_cart_after_content' );
+			echo get_theme_mod( 'goso_woo_cart_after_content' );
 		} );
 
 		// product_excerpt_length
-		if ( ! empty( get_theme_mod( 'penci_woo_limit_product_excerpt' ) ) ) {
+		if ( ! empty( get_theme_mod( 'goso_woo_limit_product_excerpt' ) ) ) {
 			add_filter( 'woocommerce_short_description', function ( $excerpt ) {
 				global $post;
 				$quicview = wc_get_loop_prop( 'quickview', false );
-				$length   = get_theme_mod( 'penci_woo_limit_product_excerpt' );
+				$length   = get_theme_mod( 'goso_woo_limit_product_excerpt' );
 				if ( isset( $post->post_type ) && 'product' == $post->post_type && ! is_singular( 'product' ) && ! $quicview ) {
 					$excerpt = wp_trim_words( $excerpt, $length );
 				}
@@ -2783,18 +2783,18 @@ if ( ! function_exists( 'penci_woo_cat_list_opt' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_product_loop_class' ) ) {
+if ( ! function_exists( 'goso_get_product_loop_class' ) ) {
 	/**
 	 * Get Product Loop Class
 	 *
 	 * @return string
 	 */
-	function penci_get_product_loop_class() {
+	function goso_get_product_loop_class() {
 		$product_display_style = wc_get_loop_prop( 'products_view' );
 		$product_style         = wc_get_loop_prop( 'product_loop_style' );
 		$product_loop_name     = wc_get_loop_prop( 'name' );
-		$product_loop_name     = penci_is_mobile() ? 'mobile' : $product_loop_name;
-		$default_product_style = get_theme_mod( 'penci_woocommerce_product_style', 'style-1' );
+		$product_loop_name     = goso_is_mobile() ? 'mobile' : $product_loop_name;
+		$default_product_style = get_theme_mod( 'goso_woocommerce_product_style', 'style-1' );
 		$product_style         = 'list' == $product_display_style ? 'list' : $product_style;
 		$product_style         = in_array( $product_loop_name, array(
 			'up-sells',
@@ -2811,13 +2811,13 @@ if ( ! function_exists( 'penci_get_product_loop_class' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_shop_update_cart_item' ) ) {
+if ( ! function_exists( 'goso_shop_update_cart_item' ) ) {
 	/**
 	 * Update cart item.
 	 *
 	 * @return void
 	 */
-	function penci_shop_update_cart_item() {
+	function goso_shop_update_cart_item() {
 		if ( ( isset( $_GET['item_id'] ) && $_GET['item_id'] ) && ( isset( $_GET['qty'] ) ) ) {
 			global $woocommerce;
 			if ( $_GET['qty'] ) {
@@ -2830,11 +2830,11 @@ if ( ! function_exists( 'penci_shop_update_cart_item' ) ) {
 		WC_AJAX::get_refreshed_fragments();
 	}
 
-	add_action( 'wp_ajax_penci_shop_update_cart_item', 'penci_shop_update_cart_item' );
-	add_action( 'wp_ajax_nopriv_penci_shop_update_cart_item', 'penci_shop_update_cart_item' );
+	add_action( 'wp_ajax_goso_shop_update_cart_item', 'goso_shop_update_cart_item' );
+	add_action( 'wp_ajax_nopriv_goso_shop_update_cart_item', 'goso_shop_update_cart_item' );
 }
 
-function penci_shop_product_round_style( $icon, $setting ) {
+function goso_shop_product_round_style( $icon, $setting ) {
 	$direct = 'vertical';
 
 	$horizontal_class = array(
@@ -2861,8 +2861,8 @@ function penci_shop_product_round_style( $icon, $setting ) {
 	return $direct;
 }
 
-if ( ! function_exists( 'penci_product_is_color_name' ) ) {
-	function penci_product_is_color_name( $name ) {
+if ( ! function_exists( 'goso_product_is_color_name' ) ) {
+	function goso_product_is_color_name( $name ) {
 		$color = array(
 			'aliceblue',
 			'antiquewhite',
@@ -3019,34 +3019,34 @@ if ( ! function_exists( 'penci_product_is_color_name' ) ) {
 }
 
 add_filter( 'woocommerce_cross_sells_columns', function () {
-	return get_theme_mod( 'penci_shop_product_cross_sell_columns', 4 );
+	return get_theme_mod( 'goso_shop_product_cross_sell_columns', 4 );
 } );
 
 add_filter( 'woocommerce_upsells_columns', function () {
-	return get_theme_mod( 'penci_shop_product_up_sell_columns', 4 );
+	return get_theme_mod( 'goso_shop_product_up_sell_columns', 4 );
 } );
 
 add_filter( 'woocommerce_related_products_columns', function () {
-	return get_theme_mod( 'penci_shop_product_related_columns', 4 );
+	return get_theme_mod( 'goso_shop_product_related_columns', 4 );
 } );
 
 
 add_filter( 'woocommerce_before_output_product_categories', function () {
-	$columns        = get_theme_mod( 'penci_shop_cat_columns', 4 );
-	$mobile_columns = get_theme_mod( 'penci_shop_product_mobile_columns', 2 );
-	$display_type   = get_theme_mod( 'penci_shop_cat_display_type', 'grid' );
+	$columns        = get_theme_mod( 'goso_shop_cat_columns', 4 );
+	$mobile_columns = get_theme_mod( 'goso_shop_product_mobile_columns', 2 );
+	$display_type   = get_theme_mod( 'goso_shop_cat_display_type', 'grid' );
 
-	$classess = 'carousel' == $display_type ? ' penci-owl-carousel' : '';
+	$classess = 'carousel' == $display_type ? ' goso-owl-carousel' : '';
 
-	return '<ul class="products penci-woo-product-loop-categories mobile-columns-' . esc_attr( $mobile_columns ) . ' columns-' . esc_attr( $columns ) . ' display-style-' . esc_attr( $display_type . $classess ) . '">';
+	return '<ul class="products goso-woo-product-loop-categories mobile-columns-' . esc_attr( $mobile_columns ) . ' columns-' . esc_attr( $columns ) . ' display-style-' . esc_attr( $display_type . $classess ) . '">';
 } );
 
 add_filter( 'woocommerce_after_output_product_categories', function () {
 	return '</ul>';
 } );
 
-if ( ! function_exists( 'penci_woo_ajax_url' ) ) {
-	function penci_woo_ajax_url( $settings = null ) {
+if ( ! function_exists( 'goso_woo_ajax_url' ) ) {
+	function goso_woo_ajax_url( $settings = null ) {
 		$settings  = json_decode( $settings, true );
 		$ajax_args = array();
 		foreach ( $settings as $prop => $value ) {

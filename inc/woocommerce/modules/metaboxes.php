@@ -3,8 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_filter( 'penci_meta_boxes', 'penci_product_meta_box' );
-function penci_product_meta_box( $meta_boxes ) {
+add_filter( 'goso_meta_boxes', 'goso_product_meta_box' );
+function goso_product_meta_box( $meta_boxes ) {
 
 	$tabs = array(
 		'product_general'       => array(
@@ -37,12 +37,12 @@ function penci_product_meta_box( $meta_boxes ) {
 	$authow_sidebar_area['']                  = 'Default Value';
 	$authow_sidebar_area['main-sidebar']      = esc_attr__( "Main Sidebar", "authow" );
 	$authow_sidebar_area['main-sidebar-left'] = esc_attr__( "Main Sidebar Left", "authow" );
-	$authow_sidebar_area['penci-shop-single'] = esc_attr__( "Sidebar For Single Product", "authow" );
+	$authow_sidebar_area['goso-shop-single'] = esc_attr__( "Sidebar For Single Product", "authow" );
 	for ( $i = 1; $i <= 10; $i ++ ) {
 		$authow_sidebar_area[ 'custom-sidebar-' . $i ] = sprintf( esc_attr__( 'Custom Sidebar %s', 'authow' ), $i );
 	}
 
-	$authow_sidebar_area = apply_filters( 'penci_woo_settings_sidebars', $authow_sidebar_area );
+	$authow_sidebar_area = apply_filters( 'goso_woo_settings_sidebars', $authow_sidebar_area );
 
 	$fields = array(
 
@@ -62,7 +62,7 @@ function penci_product_meta_box( $meta_boxes ) {
 
 		array(
 			'tab'     => 'product_general',
-			'id'      => 'penci_single_product_img_width',
+			'id'      => 'goso_single_product_img_width',
 			'name'    => esc_html__( 'Product image width', 'authow' ),
 			'type'    => 'select',
 			'std'     => '',
@@ -79,7 +79,7 @@ function penci_product_meta_box( $meta_boxes ) {
 
 		array(
 			'tab'     => 'product_general',
-			'id'      => 'penci_single_product_thumbnail_position',
+			'id'      => 'goso_single_product_thumbnail_position',
 			'name'    => esc_html__( 'Thumbnails position', 'authow' ),
 			'type'    => 'select',
 			'std'     => '',
@@ -98,7 +98,7 @@ function penci_product_meta_box( $meta_boxes ) {
 
 		array(
 			'tab'     => 'product_general',
-			'id'      => 'penci_single_product_style',
+			'id'      => 'goso_single_product_style',
 			'name'    => esc_html__( 'Product Style', 'authow' ),
 			'type'    => 'select',
 			'std'     => '',
@@ -113,7 +113,7 @@ function penci_product_meta_box( $meta_boxes ) {
 
 		array(
 			'tab'     => 'product_general',
-			'id'      => 'penci_single_sticky_atc',
+			'id'      => 'goso_single_sticky_atc',
 			'name'    => esc_html__( 'Enable sticky add to cart ?', 'authow' ),
 			'type'    => 'select',
 			'options' => array(
@@ -208,7 +208,7 @@ function penci_product_meta_box( $meta_boxes ) {
 			),
 			'std'     => 'center',
 			'tab'     => 'product_background',
-			'style'   => 'penci-col-6'
+			'style'   => 'goso-col-6'
 		),
 		array(
 			'name'    => esc_html__( 'Background Size', 'authow' ),
@@ -221,7 +221,7 @@ function penci_product_meta_box( $meta_boxes ) {
 				'contain' => esc_html__( 'Contain', 'authow' ),
 			),
 			'tab'     => 'product_background',
-			'style'   => 'penci-col-6'
+			'style'   => 'goso-col-6'
 		),
 		array(
 			'name'    => esc_html__( 'Background Repeat', 'authow' ),
@@ -233,7 +233,7 @@ function penci_product_meta_box( $meta_boxes ) {
 				'no-repeat' => esc_html__( 'No repeat', 'authow' ),
 			),
 			'tab'     => 'product_background',
-			'style'   => 'penci-col-6'
+			'style'   => 'goso-col-6'
 		),
 
 		// Custom Tab
@@ -300,7 +300,7 @@ function penci_product_meta_box( $meta_boxes ) {
 			'id'      => 'grid_swatch',
 			'type'    => 'select',
 			'tab'     => 'product_extra_options',
-			'options' => penci_product_attributes_array( true ),
+			'options' => goso_product_attributes_array( true ),
 			'desc'    => __( 'Choose attribute that will be shown on products grid for this particular product', 'authow' ),
 		),
 
@@ -317,14 +317,14 @@ function penci_product_meta_box( $meta_boxes ) {
 	);
 
 	$meta_boxes[] = array(
-		'id'         => 'penci-metabox-product',
+		'id'         => 'goso-metabox-product',
 		'title'      => esc_html__( 'Product Options', 'authow' ),
 		'post_types' => array( 'product' ),
 		'context'    => 'advanced',
 		'priority'   => 'default',
 		'autosave'   => 'false',
-		'tabs'       => apply_filters( 'penci_product_meta_box_tabs', $tabs ),
-		'fields'     => apply_filters( 'penci_product_meta_box_fields', $fields ),
+		'tabs'       => apply_filters( 'goso_product_meta_box_tabs', $tabs ),
+		'fields'     => apply_filters( 'goso_product_meta_box_fields', $fields ),
 	);
 
 	return $meta_boxes;

@@ -46,8 +46,8 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$list_social_media = Goso_Social_Counter::$list_socials;
 
 			$settings_pages[] = array(
-				'id'          => 'penci_social_counter_settings',
-				'option_name' => 'penci_social_counter_settings',
+				'id'          => 'goso_social_counter_settings',
+				'option_name' => 'goso_social_counter_settings',
 				'menu_title'  => 'Social Counter',
 				'parent'      => 'authow_dashboard_welcome',
 				'style'       => 'no-boxes',
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'facebook',
 				'title'          => 'Facebook Settings',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'facebook',
 
 				'fields' => array(
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'vimeo',
 				'title'          => 'vimeo',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'vimeo',
 
 				'fields' => array(
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'youtube',
 				'title'          => 'youtube',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'youtube',
 
 				'fields' => array(
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'soundcloud',
 				'title'          => 'soundcloud',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'soundcloud',
 				'fields'         => array(
 					array(
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'twitter',
 				'title'          => 'twitter',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'twitter',
 
 				'fields' => array(
@@ -293,7 +293,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'instagram',
 				'title'          => 'instagram',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'instagram',
 
 				'fields' => array(
@@ -332,7 +332,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'linkedin',
 				'title'          => 'linkedin',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'linkedin',
 
 				'fields' => array(
@@ -369,7 +369,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'pinterest',
 				'title'          => 'pinterest',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'pinterest',
 
 				'fields' => array(
@@ -408,7 +408,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'flickr',
 				'title'          => 'flickr',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'flickr',
 
 				'fields' => array(
@@ -447,7 +447,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'dribbble',
 				'title'          => 'dribbble',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'dribbble',
 
 				'fields' => array(
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'delicious',
 				'title'          => 'delicious',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'delicious',
 
 				'fields' => array(
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'github',
 				'title'          => 'github',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'github',
 
 				'fields' => array(
@@ -581,7 +581,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'behance',
 				'title'          => 'behance',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'behance',
 
 				'fields' => array(
@@ -626,7 +626,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'vk',
 				'title'          => 'vk',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'vk',
 
 				'fields' => array(
@@ -672,7 +672,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'tiktok',
 				'title'          => 'tiktok',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'tiktok',
 
 				'fields' => array(
@@ -711,7 +711,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'twitch',
 				'title'          => 'twitch',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'twitch',
 
 				'fields' => array(
@@ -751,7 +751,7 @@ if ( ! class_exists( 'Goso_Social_Counter' ) ):
 			$meta_boxes[] = array(
 				'id'             => 'rss',
 				'title'          => 'rss',
-				'settings_pages' => 'penci_social_counter_settings',
+				'settings_pages' => 'goso_social_counter_settings',
 				'tab'            => 'rss',
 
 				'fields' => array(

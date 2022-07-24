@@ -7,14 +7,14 @@
  * @since 1.0
  */
 
-add_action( 'widgets_init', 'penci_social_load_widget' );
+add_action( 'widgets_init', 'goso_social_load_widget' );
 
-function penci_social_load_widget() {
-	register_widget( 'penci_social_widget' );
+function goso_social_load_widget() {
+	register_widget( 'goso_social_widget' );
 }
 
-if ( ! class_exists( 'penci_social_widget' ) ) {
-	class penci_social_widget extends WP_Widget {
+if ( ! class_exists( 'goso_social_widget' ) ) {
+	class goso_social_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_social_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_social_widget',
+				'classname'   => 'goso_social_widget',
 				'description' => esc_html__( 'A widget that displays your social icons', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_social_widget' );
+			$control_ops = array( 'id_base' => 'goso_social_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_social_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Social Media', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_social_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Social Media', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_social_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Social Media', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_social_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Social Media', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -70,19 +70,19 @@ if ( ! class_exists( 'penci_social_widget' ) ) {
 			?>
 
             <div class="widget-social<?php if ( $align ): echo ' ' . $align; endif; ?><?php if ( $text ): echo ' show-text'; endif; ?><?php if ( $circle ): echo ' remove-circle'; endif; ?><?php if ( $size_upper ): echo ' remove-uppercase-text'; endif; ?><?php if ( $border_radius ): echo ' remove-border-radius'; endif; ?><?php if ( $brand_color && ! $circle ) {
-				echo ' penci-social-colored';
+				echo ' goso-social-colored';
 			} elseif ( $brand_color && $circle ) {
-				echo ' penci-social-textcolored';
+				echo ' goso-social-textcolored';
 			} ?>">
 				<?php
-				$social_data = penci_social_media_array();
+				$social_data = goso_social_media_array();
 				foreach ( $social_data as $name => $sdata ) {
 					$showing = isset( $instance[ $name ] ) ? $instance[ $name ] : '';
 					if ( $showing ) {
-						$icon_html = penci_icon_by_ver( $sdata[1], $style_icon );
+						$icon_html = goso_icon_by_ver( $sdata[1], $style_icon );
 						?>
                         <a href="<?php echo esc_url( do_shortcode( $sdata[0] ) ); ?>"
-                           aria-label="<?php echo ucwords( $name ); ?>" <?php echo penci_reltag_social_icons(); ?>
+                           aria-label="<?php echo ucwords( $name ); ?>" <?php echo goso_reltag_social_icons(); ?>
                            target="_blank"><?php echo $icon_html; ?>
                             <span <?php echo $style_text; ?>><?php echo ucwords( $name ); ?></span></a>
 						<?php

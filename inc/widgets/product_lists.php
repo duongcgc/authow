@@ -14,17 +14,17 @@ if ( ! class_exists( 'Goso_Product_Lists' ) ) {
 		public function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'woocommerce widget_products penci-product-list',
+				'classname'   => 'woocommerce widget_products goso-product-list',
 				'description' => esc_html__( 'A widget that displays your recent products from all categories or a category', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops     = array( 'id_base' => 'penci_products_list' );
-			$this->widget_id = 'penci_products_list';
+			$control_ops     = array( 'id_base' => 'goso_products_list' );
+			$this->widget_id = 'goso_products_list';
 
 			/* Create the widget. */
 
-			parent::__construct( 'penci_products_list', penci_get_theme_name('.Authow',true).esc_html__( 'Products List', 'authow' ), $widget_ops, $control_ops );
+			parent::__construct( 'goso_products_list', goso_get_theme_name('.Authow',true).esc_html__( 'Products List', 'authow' ), $widget_ops, $control_ops );
 
 		}
 

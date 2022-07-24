@@ -1,12 +1,12 @@
-/* global penciBlock */
-/* global penciBlocksArray */
+/* global gosoBlock */
+/* global gosoBlocksArray */
 jQuery(document).ready(function ($) {
     var nav = [];
-    $('.elementor-widget-penci-big-grid').each(function () {
+    $('.elementor-widget-goso-big-grid').each(function () {
         var t = $(this),
             elID = t.data('id'),
             c = 'li.all .pc-ajaxfil-link',
-            datamax = t.find('.penci-biggrid-inner.default .penci-biggrid-data').data('maxp');
+            datamax = t.find('.goso-biggrid-inner.default .goso-biggrid-data').data('maxp');
 
         if (t.find(c).length) {
             t.find(c).attr('data-maxp', datamax);
@@ -16,19 +16,19 @@ jQuery(document).ready(function ($) {
             $(this).find('.pcflx-nav .pcaj-nav-link').addClass('disable');
         }
 
-        if(t.find('.penci-ajax-more').length) {
-            nav[elID] = t.find('.penci-ajax-more').prop('outerHTML');
+        if(t.find('.goso-ajax-more').length) {
+            nav[elID] = t.find('.goso-ajax-more').prop('outerHTML');
         }
     });
 
-    jQuery('body').on('click', '.elementor-widget-penci-big-grid .pc-ajaxfil-link', function (event) {
+    jQuery('body').on('click', '.elementor-widget-goso-big-grid .pc-ajaxfil-link', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('loading-posts')) {
             var $this = $(this),
-                parentID = $(this).closest('.elementor-widget-penci-big-grid').data('id'),
+                parentID = $(this).closest('.elementor-widget-goso-big-grid').data('id'),
                 $navthis = $this,
                 divid = $this.data('id'),
-                divc = 'penci-biggrid-tab-' + divid,
+                divc = 'goso-biggrid-tab-' + divid,
                 parent = $this.closest('.pcnav-lgroup'),
                 settings = parent.data('settings'),
                 layout = parent.data('layout'),
@@ -37,8 +37,8 @@ jQuery(document).ready(function ($) {
                 cat = $this.data('cat'),
                 tag = $this.data('tag'),
                 author = $this.data('author'),
-                wrap_content = $this.closest('.penci-biggrid-wrapper').find('.penci-biggrid'),
-                mainc = wrap_content.find('.penci-biggrid-data').attr('class'),
+                wrap_content = $this.closest('.goso-biggrid-wrapper').find('.goso-biggrid'),
+                mainc = wrap_content.find('.goso-biggrid-data').attr('class'),
                 pagednum = parseInt($this.attr('data-paged')),
                 curpaged = pagednum,
                 navlink = false,
@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
             if (navlink) {
                 $this = parent.find('.current-item');
                 divid = $this.data('id');
-                divc = 'penci-biggrid-tab-' + divid;
+                divc = 'goso-biggrid-tab-' + divid;
                 cat = $this.data('cat');
                 tag = $this.data('tag');
                 curpaged = parseInt($this.attr('data-paged'));
@@ -74,17 +74,17 @@ jQuery(document).ready(function ($) {
             $this.addClass('current-item');
 
             if (divid === 'default' && !navlink) {
-                wrap_content.find('.penci-biggrid-inner').hide();
-                wrap_content.find('.penci-biggrid-inner.default').show();
+                wrap_content.find('.goso-biggrid-inner').hide();
+                wrap_content.find('.goso-biggrid-inner.default').show();
                 wrap_content.removeClass('loading-posts pcftaj-ld');
                 $this.removeClass('loading-posts');
                 $navthis.removeClass('loading-posts');
 
                 var maxp = $(this).attr('data-maxp');
 
-                wrap_content.find('.penci-biggrid-inner.default .penci-bgitem').each(function () {
+                wrap_content.find('.goso-biggrid-inner.default .goso-bgitem').each(function () {
                     o++;
-                    $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                    $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                 });
 
                 if (pagednum <= 1) {
@@ -100,14 +100,14 @@ jQuery(document).ready(function ($) {
                 }
 
             } else if (wrap_content.find('.' + divc).length && !navlink) {
-                wrap_content.find('.penci-biggrid-inner').hide();
+                wrap_content.find('.goso-biggrid-inner').hide();
                 wrap_content.find('.' + divc).show();
                 wrap_content.removeClass('loading-posts pcftaj-ld');
                 $this.removeClass('loading-posts');
                 $navthis.removeClass('loading-posts');
-                wrap_content.find('.' + divc + ' .penci-bgitem').each(function () {
+                wrap_content.find('.' + divc + ' .goso-bgitem').each(function () {
                     o++;
-                    $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                    $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                 });
 
                 if (pagednum <= 1) {
@@ -125,7 +125,7 @@ jQuery(document).ready(function ($) {
             } else {
 
                 var data = {
-                    action: 'penci_bgmore_post_ajax',
+                    action: 'goso_bgmore_post_ajax',
                     settings: settings,
                     layout: layout,
                     pagednum: pagednum,
@@ -156,10 +156,10 @@ jQuery(document).ready(function ($) {
                                 data_paded = curpaged - 1;
                             }
 
-                            if (mainc.indexOf("penci-fixh") >= 0) {
-                                wrap_content.append('<div class="penci-biggrid-inner ' + divc + '"><div class="penci-big-grid-ajax-data"><div class="' + mainc + '"></div></div></div>');
+                            if (mainc.indexOf("goso-fixh") >= 0) {
+                                wrap_content.append('<div class="goso-biggrid-inner ' + divc + '"><div class="goso-big-grid-ajax-data"><div class="' + mainc + '"></div></div></div>');
                             } else {
-                                wrap_content.append('<div class="penci-biggrid-inner ' + divc + '"><div class="' + mainc + '"></div></div>');
+                                wrap_content.append('<div class="goso-biggrid-inner ' + divc + '"><div class="' + mainc + '"></div></div>');
                             }
 
                             if (data_paded <= 1) {
@@ -170,29 +170,29 @@ jQuery(document).ready(function ($) {
 
                             if (nav[parentID] !== undefined) {
                                 wrap_content.find('.' + divc).append($(nav[parentID]));
-                                wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button')
+                                wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button')
                                     .removeAttr('data-cat')
                                     .removeAttr('data-tag')
                                     .removeAttr('data-author');
                                 if (cat) {
-                                    wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button').attr('data-cat', cat);
+                                    wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button').attr('data-cat', cat);
                                 }
                                 if (tag) {
-                                    wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button').attr('data-tag', tag);
+                                    wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button').attr('data-tag', tag);
                                 }
                                 if (author) {
-                                    wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button').attr('data-author', author);
+                                    wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button').attr('data-author', author);
                                 }
-                                wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button').attr('data-pagednum', data_paded + 1);
-                                wrap_content.find('.' + divc + ' .penci-ajax-more .penci-ajax-more-button').attr('data-paged', data_paded + 1);
+                                wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button').attr('data-pagednum', data_paded + 1);
+                                wrap_content.find('.' + divc + ' .goso-ajax-more .goso-ajax-more-button').attr('data-paged', data_paded + 1);
                             }
 
                             $this.attr('data-paged', data_paded);
 
                             if (layout === 'style-2') {
 
-                                wrap_content.find('.' + divc + ' .penci-biggrid-data').append($data).imagesLoaded(function () {
-                                    wrap_content.find('.' + divc + ' .penci-biggrid-data').isotope({
+                                wrap_content.find('.' + divc + ' .goso-biggrid-data').append($data).imagesLoaded(function () {
+                                    wrap_content.find('.' + divc + ' .goso-biggrid-data').isotope({
                                         itemSelector: '.item-masonry',
                                         transitionDuration: '.55s',
                                         layoutMode: 'masonry'
@@ -200,7 +200,7 @@ jQuery(document).ready(function ($) {
                                 });
 
                                 if ($().easyPieChart) {
-                                    $('.penci-piechart').each(function () {
+                                    $('.goso-piechart').each(function () {
                                         var $this = $(this);
                                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                             var chart_args = {
@@ -217,14 +217,14 @@ jQuery(document).ready(function ($) {
                                 }
                             } else {
                                 if (layout === 'style-1') {
-                                    wrap_content.find('.' + divc + ' .penci-biggrid-data').append(data);
+                                    wrap_content.find('.' + divc + ' .goso-biggrid-data').append(data);
                                 } else {
                                     var filter_data = $(data).html();
-                                    wrap_content.find('.' + divc + ' .penci-biggrid-data').append(filter_data);
+                                    wrap_content.find('.' + divc + ' .goso-biggrid-data').append(filter_data);
                                 }
 
                                 if ($().easyPieChart) {
-                                    $('.penci-piechart').each(function () {
+                                    $('.goso-piechart').each(function () {
                                         var $this = $(this);
                                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                             var chart_args = {
@@ -247,23 +247,23 @@ jQuery(document).ready(function ($) {
                                 parent.find('.pc-ajaxfil-link.next').removeClass('disable');
                             }
 
-                            wrap_content.find('.penci-biggrid-inner').hide();
+                            wrap_content.find('.goso-biggrid-inner').hide();
                             wrap_content.find('.' + divc).show();
                             wrap_content.removeClass('loading-posts pcftaj-ld');
                             $this.removeClass('loading-posts');
                             $navthis.removeClass('loading-posts');
 
                             var o = 0;
-                            wrap_content.find('.' + divc + ' .penci-bgitem').each(function () {
+                            wrap_content.find('.' + divc + ' .goso-bgitem').each(function () {
                                 o++;
-                                $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                                $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                             });
                             $(document).trigger('bgajax_loaded');
                         } else {
                             if (navlink) {
                                 parent.find('.pc-ajaxfil-link.next').addClass('disable');
                             } else {
-                                wrap_content.find('.penci-biggrid-inner').hide();
+                                wrap_content.find('.goso-biggrid-inner').hide();
                                 wrap_content.find('.' + divc).append('<div class="pcajx-nopost"><span>No post found !</span></div>');
                                 wrap_content.find('.' + divc).show();
                             }

@@ -42,7 +42,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 			// Configure widget array
 			$args = array(
 				// Widget Backend label
-				'label'       => penci_get_theme_name('.Authow',true).esc_html__( 'Product Filter', 'authow' ),
+				'label'       => goso_get_theme_name('.Authow',true).esc_html__( 'Product Filter', 'authow' ),
 				// Widget Backend Description
 				'description' => esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'authow' ),
 				'slug'        => 'authow-product-filter',
@@ -316,8 +316,8 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 				}
 
 
-				echo '<form method="get" action="' . esc_url( $form_action ) . '" class="penci-widget-layered-nav-dropdown-form">';
-				echo '<select class="penci-widget-layered-nav-dropdown penci_woo_dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) . '"' . ( $multiple ? 'multiple="multiple"' : '' ) . ' data-placeholder="' . esc_attr( $any_label ) . '" data-noResults="' . esc_html__( 'No matches found', 'authow' ) . '" data-slug="' . esc_attr( $taxonomy_filter_name ) . '">';
+				echo '<form method="get" action="' . esc_url( $form_action ) . '" class="goso-widget-layered-nav-dropdown-form">';
+				echo '<select class="goso-widget-layered-nav-dropdown goso_woo_dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) . '"' . ( $multiple ? 'multiple="multiple"' : '' ) . ' data-placeholder="' . esc_attr( $any_label ) . '" data-noResults="' . esc_html__( 'No matches found', 'authow' ) . '" data-slug="' . esc_attr( $taxonomy_filter_name ) . '">';
 				echo '<option value="">' . esc_html( $any_label ) . '</option>';
 
 				foreach ( $terms as $term ) {
@@ -344,7 +344,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 				echo '</select>';
 
 				if ( $multiple ) {
-					echo '<button class="penci-widget-layered-nav-dropdown__submit" type="submit" value="' . esc_attr__( 'Apply', 'authow' ) . '">' . esc_html__( 'Apply', 'authow' ) . '</button>';
+					echo '<button class="goso-widget-layered-nav-dropdown__submit" type="submit" value="' . esc_attr__( 'Apply', 'authow' ) . '">' . esc_html__( 'Apply', 'authow' ) . '</button>';
 				}
 
 				if ( 'or' === $query_type ) {
@@ -479,7 +479,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 
 				$query['where'] .= ' AND ' . $search;
 
-				if ( get_theme_mod( 'penci_woo_search_by_sku' ) ) {
+				if ( get_theme_mod( 'goso_woo_search_by_sku' ) ) {
 					// search for variations with a matching sku and return the parent.
 					$sku_to_parent_id = $wpdb->get_col( $wpdb->prepare( "SELECT p.post_parent as post_id FROM {$wpdb->posts} as p join {$wpdb->postmeta} pm on p.ID = pm.post_id and pm.meta_key='_sku' and pm.meta_value LIKE '%%%s%%' where p.post_parent <> 0 group by p.post_parent", wc_clean( $_GET['s'] ) ) );
 
@@ -562,7 +562,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 
 				$query['where'] .= ' AND ' . $search;
 
-				if ( get_theme_mod( 'penci_woo_search_by_sku' ) ) {
+				if ( get_theme_mod( 'goso_woo_search_by_sku' ) ) {
 					// search for variations with a matching sku and return the parent.
 					$sku_to_parent_id = $wpdb->get_col( $wpdb->prepare( "SELECT p.post_parent as post_id FROM {$wpdb->posts} as p join {$wpdb->wc_product_meta_lookup} ml on p.ID = ml.product_id and ml.sku LIKE '%%%s%%' where p.post_parent <> 0 group by p.post_parent", wc_clean( $_GET['s'] ) ) );
 
@@ -623,9 +623,9 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 			$tooltips          = isset( $instance['tooltips'] ) ? $instance['tooltips'] : 'off';
 			$size              = isset( $instance['size'] ) ? $instance['size'] : 'normal';
 			$display           = isset( $instance['display'] ) ? $instance['display'] : 'list';
-			$scroll_for_widget = get_theme_mod( 'penci_woo_widgets_scroll', true );
+			$scroll_for_widget = get_theme_mod( 'goso_woo_widgets_scroll', true );
 
-			$is_brand = ( get_theme_mod( 'penci_woo_brands_attribute' ) == $taxonomy );
+			$is_brand = ( get_theme_mod( 'goso_woo_brands_attribute' ) == $taxonomy );
 
 			$class = 'show-labels-' . $labels;
 			$class .= ' show-count-' . $count;
@@ -634,8 +634,8 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 			$class .= ( $is_brand ) ? ' swatches-brands' : '';
 			// List display
 			if ( $scroll_for_widget ) {
-				echo '<div class="penci-scroll">';
-				$class .= ' penci-scroll-content';
+				echo '<div class="goso-scroll">';
+				$class .= ' goso-scroll-content';
 			}
 			echo '<ul class="' . esc_attr( $class ) . '">';
 
@@ -700,7 +700,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 						$link = add_query_arg( 'query_type_' . wc_attribute_taxonomy_slug( $taxonomy ), 'or', $link );
 					}
 
-					$link = apply_filters( 'penci_woo_filter_link', $link );
+					$link = apply_filters( 'goso_woo_filter_link', $link );
 
 					$link = str_replace( '%2C', ',', $link );
 
@@ -729,7 +729,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 				}
 
 				if ( ! empty( $swatch_style ) ) {
-					$swatch_div = '<span style="' . $swatch_style . '" class="' . ( ( $tooltips == 'on' ) ? 'penci-tooltip' : '' ) . '">' . $swatch_img . esc_html( $term->name ) . '</span>';
+					$swatch_div = '<span style="' . $swatch_style . '" class="' . ( ( $tooltips == 'on' ) ? 'goso-tooltip' : '' ) . '">' . $swatch_img . esc_html( $term->name ) . '</span>';
 				}
 				// END swatches customization
 
@@ -743,7 +743,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 					echo '<span class="filter-swatch">' . $swatch_div . '</span>';
 				}
 
-				echo '<span data-tippy-content="' . esc_html( $term->name ) . '" class="layer-term-name ' . ( ( $tooltips == 'on' ) ? 'penci-tooltip' : '' ) . '">' . $swatch_img . '<span class="term_name">' . esc_html( $term->name ) . '</span>' . '</span>';
+				echo '<span data-tippy-content="' . esc_html( $term->name ) . '" class="layer-term-name ' . ( ( $tooltips == 'on' ) ? 'goso-tooltip' : '' ) . '">' . $swatch_img . '<span class="term_name">' . esc_html( $term->name ) . '</span>' . '</span>';
 
 				echo '</span>';
 
@@ -774,7 +774,7 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 				return;
 			}
 
-			$is_brand = ( get_theme_mod( 'penci_woo_brands_attribute' ) == $taxonomy );
+			$is_brand = ( get_theme_mod( 'goso_woo_brands_attribute' ) == $taxonomy );
 
 			$classes      = ' show-labels-' . $labels;
 			$classes      .= ' show-count-' . $count;
@@ -797,14 +797,14 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 			$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 			$found              = false;
 
-			echo '<div class="penci-pf-checkboxes penci-pf-attributes' . esc_attr( $multi_select ) . '">';
+			echo '<div class="goso-pf-checkboxes goso-pf-attributes' . esc_attr( $multi_select ) . '">';
 			echo '<input class="result-input" name="filter_' . esc_attr( $taxonomy_filter_name ) . '" type="hidden" value="' . esc_attr( $current_value ) . '">';
 			if ( $query_type == 'or' ) {
 				echo '<input name="query_type_' . esc_attr( $taxonomy_filter_name ) . '" type="hidden" value="' . esc_attr( $query_type ) . '">';
 			}
-			echo '<div class="penci-pf-title"><span class="title-text">' . esc_html( $title ) . '</span><ul class="penci-pf-results"></ul></div>';
-			echo '<div class="penci-pf-dropdown penci-scroll">';
-			echo '<ul class="penci-scroll-content' . esc_attr( $classes ) . '">';
+			echo '<div class="goso-pf-title"><span class="title-text">' . esc_html( $title ) . '</span><ul class="goso-pf-results"></ul></div>';
+			echo '<div class="goso-pf-dropdown goso-scroll">';
+			echo '<ul class="goso-scroll-content' . esc_attr( $classes ) . '">';
 			foreach ( $terms as $term ) {
 				$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
 				$option_is_set  = in_array( $term->slug, $current_values );
@@ -842,16 +842,16 @@ if ( ! class_exists( 'Goso_Product_Filter' ) ) {
 				}
 
 				if ( ! empty( $swatch_style ) ) {
-					$swatch_div = '<span style="' . $swatch_style . '" class="' . ( ( $labels == 'off' ) ? 'penci-tooltip' : '' ) . '">' . esc_html( $term->name ) . '</span>';
+					$swatch_div = '<span style="' . $swatch_style . '" class="' . ( ( $labels == 'off' ) ? 'goso-tooltip' : '' ) . '">' . esc_html( $term->name ) . '</span>';
 				}
 				// END swatches customization
 
-				echo '<li class="penci-pf-' . esc_attr( $term->slug ) . esc_attr( $class ) . '">';
+				echo '<li class="goso-pf-' . esc_attr( $term->slug ) . esc_attr( $class ) . '">';
 				echo '<span class="swatch-inner pf-value" data-val="' . esc_attr( wc_attribute_taxonomy_slug( $term->slug ) ) . '" data-title="' . esc_attr( $term->name ) . '">';
 				if ( $swatch_div ) {
 					echo '<span class="filter-swatch">' . $swatch_div . '</span>';
 				}
-				echo '<span class="layer-term-name ' . ( ( $instance['tooltips'] == 'on' ) ? 'penci-tooltip' : '' ) . '">' . esc_html( $term->name ) . '</span>';
+				echo '<span class="layer-term-name ' . ( ( $instance['tooltips'] == 'on' ) ? 'goso-tooltip' : '' ) . '">' . esc_html( $term->name ) . '</span>';
 				echo '</span>';
 				echo '</li>';
 			}

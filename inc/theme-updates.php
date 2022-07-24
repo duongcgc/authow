@@ -1,11 +1,11 @@
 <?php
 // No direct access, please
-function penci_is_new_update( $version = null ){
-	if( ! is_admin() || get_theme_mod( 'penci_disable_notice_updates' ) ){
+function goso_is_new_update( $version = null ){
+	if( ! is_admin() || get_theme_mod( 'goso_disable_notice_updates' ) ){
 		return false;
 	}
 	
-	$url = 'https://penci-api.s3.amazonaws.com/datas.json';
+	$url = 'https://goso-api.s3.amazonaws.com/datas.json';
 	// Namespace in case of collision, since transients don't support groups like object caching.
 	$cache_key = md5( 'remote_apis|' . $url );
 	$request = get_transient( $cache_key );

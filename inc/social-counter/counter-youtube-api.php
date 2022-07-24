@@ -10,13 +10,13 @@ if ( ! class_exists( 'Goso_Social_Counter_Youtube_API' ) ):
 			}
 
 			$user_id      = preg_replace( '/\s+/', '', $data['name'] );
-			$data['icon'] = penci_icon_by_ver( 'fab fa-youtube' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-youtube' );
 
-			$default_count = penci_get_social_counter_option( 'youtube_default' );
-			$cache_key     = 'penci_counter_youtube' . $user_id;
+			$default_count = goso_get_social_counter_option( 'youtube_default' );
+			$cache_key     = 'goso_counter_youtube' . $user_id;
 			$youtube_count = $default_count ? $default_count : get_transient( $cache_key );
-			$youtube_type  = penci_get_social_counter_option( 'youtube_type', 'channel' );
-			$youtube_api   = penci_get_social_counter_option( 'youtube_api_key' );
+			$youtube_type  = goso_get_social_counter_option( 'youtube_type', 'channel' );
+			$youtube_api   = goso_get_social_counter_option( 'youtube_api_key' );
 
 			if ( 'channel' === $youtube_type ) {
 				$data['url'] = "https://www.youtube.com/c/$user_id";
@@ -27,9 +27,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Youtube_API' ) ):
 			if ( ! $youtube_count && $youtube_api ) {
 				$count = 0;
 				if ( $youtube_type == 'channel' ) {
-					$youtube_data = @penci_remote_get( "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=$user_id&key=$youtube_api" );
+					$youtube_data = @goso_remote_get( "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=$user_id&key=$youtube_api" );
 				} else {
-					$youtube_data = @penci_remote_get( "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=$user_id&key=$youtube_api" );
+					$youtube_data = @goso_remote_get( "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=$user_id&key=$youtube_api" );
 				}
 				if ( isset( $youtube_data['items'][0]['statistics']['subscriberCount'] ) && $youtube_data['items'][0]['statistics']['subscriberCount'] ) {
 					$count = (int) $youtube_data['items'][0]['statistics']['subscriberCount'];

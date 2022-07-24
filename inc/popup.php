@@ -3,10 +3,10 @@
 class GosoPopup {
 	function __construct() {
 
-		$popup_enable = get_theme_mod( 'penci_popup_enable' );
-		$popup_mobile = get_theme_mod( 'penci_popup_disable_mobile' );
+		$popup_enable = get_theme_mod( 'goso_popup_enable' );
+		$popup_mobile = get_theme_mod( 'goso_popup_disable_mobile' );
 
-		if ( ! $popup_enable || ( penci_is_mobile() && $popup_mobile ) || is_admin() ) {
+		if ( ! $popup_enable || ( goso_is_mobile() && $popup_mobile ) || is_admin() ) {
 			return;
 		}
 
@@ -16,29 +16,29 @@ class GosoPopup {
 	}
 
 	public function popup_assets() {
-		wp_enqueue_script( 'penci-popup', get_template_directory_uri() . '/js/penci-popup.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
-		wp_localize_script( 'penci-popup', 'penci_popup_settings', [
-			'promo_version' => get_theme_mod( 'penci_popup_version', '1' ),
+		wp_enqueue_script( 'goso-popup', get_template_directory_uri() . '/js/goso-popup.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
+		wp_localize_script( 'goso-popup', 'goso_popup_settings', [
+			'promo_version' => get_theme_mod( 'goso_popup_version', '1' ),
 			'close'         => true,
 			'loading'       => true,
-			'popup_pages'   => get_theme_mod( 'penci_popup_show_after_pages', 0 ),
-			'popup_event'   => get_theme_mod( 'penci_popup_show_after' ),
-			'popup_scroll'  => get_theme_mod( 'penci_popup_show_after_scroll', 1000 ),
-			'popup_delay'   => (int) get_theme_mod( 'penci_popup_show_after_time', 7 ),
+			'popup_pages'   => get_theme_mod( 'goso_popup_show_after_pages', 0 ),
+			'popup_event'   => get_theme_mod( 'goso_popup_show_after' ),
+			'popup_scroll'  => get_theme_mod( 'goso_popup_show_after_scroll', 1000 ),
+			'popup_delay'   => (int) get_theme_mod( 'goso_popup_show_after_time', 7 ),
 		] );
 	}
 
 	public function popup_content() {
 		$popup_render_content = $class = '';
 
-		$popup_content = get_theme_mod( 'penci_popup_html_content' );
-		$popup_block   = get_theme_mod( 'penci_popup_block' );
+		$popup_content = get_theme_mod( 'goso_popup_html_content' );
+		$popup_block   = get_theme_mod( 'goso_popup_block' );
 
 		if ( $popup_block == '' && $popup_content ) {
 			$popup_render_content = $popup_content;
 			$class                = 'normal-content';
 		} elseif ( $popup_block ) {
-			$popup_block_id = get_page_by_path( $popup_block, OBJECT, 'penci-block' )->ID;
+			$popup_block_id = get_page_by_path( $popup_block, OBJECT, 'goso-block' )->ID;
 			$class          = 'block-content';
 			if ( did_action( 'elementor/loaded' ) && \Elementor\Plugin::$instance->documents->get( $popup_block_id )->is_built_with_elementor() ) {
 				$popup_render_content .= \Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $popup_block_id );
@@ -56,28 +56,28 @@ class GosoPopup {
 		}
 
 		if ( $popup_render_content ) {
-			$version   = get_theme_mod( 'penci_popup_version' );
-			$animation = get_theme_mod( 'penci_popup_animation', 'move-to-top' );
-			echo '<div id="penci-popup-' . esc_attr( $version ) . '" class="mfp-with-anim penci-popup-content ' . $class . ' ' . $animation . '">' . $popup_render_content . '</div>';
+			$version   = get_theme_mod( 'goso_popup_version' );
+			$animation = get_theme_mod( 'goso_popup_animation', 'move-to-top' );
+			echo '<div id="goso-popup-' . esc_attr( $version ) . '" class="mfp-with-anim goso-popup-content ' . $class . ' ' . $animation . '">' . $popup_render_content . '</div>';
 		}
 	}
 
 	public function popup_style() {
-		$popup_bgimg       = get_theme_mod( 'penci_popup_bgimg' );
-		$popup_bgcl        = get_theme_mod( 'penci_popup_bgcolor' );
-		$popup_bgrepeat    = get_theme_mod( 'penci_popup_bgrepeat' );
-		$popup_bgposition  = get_theme_mod( 'penci_popup_bgposition' );
-		$popup_bgsize      = get_theme_mod( 'penci_popup_bgsize' );
-		$popup_bgscroll    = get_theme_mod( 'penci_popup_bgscroll' );
-		$popup_mw          = get_theme_mod( 'penci_popup_width_mobile' );
-		$popup_w           = get_theme_mod( 'penci_popup_width_desktop' );
-		$popup_cl          = get_theme_mod( 'penci_popup_txtcolor' );
-		$popup_tsize       = get_theme_mod( 'penci_popup_txt_size' );
-		$popup_tmsize      = get_theme_mod( 'penci_popup_txt_msize' );
-		$popup_spacing     = get_theme_mod( 'penci_popup_spacing' );
-		$popup_bordercolor = get_theme_mod( 'penci_popup_bordercolor' );
+		$popup_bgimg       = get_theme_mod( 'goso_popup_bgimg' );
+		$popup_bgcl        = get_theme_mod( 'goso_popup_bgcolor' );
+		$popup_bgrepeat    = get_theme_mod( 'goso_popup_bgrepeat' );
+		$popup_bgposition  = get_theme_mod( 'goso_popup_bgposition' );
+		$popup_bgsize      = get_theme_mod( 'goso_popup_bgsize' );
+		$popup_bgscroll    = get_theme_mod( 'goso_popup_bgscroll' );
+		$popup_mw          = get_theme_mod( 'goso_popup_width_mobile' );
+		$popup_w           = get_theme_mod( 'goso_popup_width_desktop' );
+		$popup_cl          = get_theme_mod( 'goso_popup_txtcolor' );
+		$popup_tsize       = get_theme_mod( 'goso_popup_txt_size' );
+		$popup_tmsize      = get_theme_mod( 'goso_popup_txt_msize' );
+		$popup_spacing     = get_theme_mod( 'goso_popup_spacing' );
+		$popup_bordercolor = get_theme_mod( 'goso_popup_bordercolor' );
 
-		echo '.penci-popup-content{';
+		echo '.goso-popup-content{';
 		if ( $popup_bgimg ) {
 			echo 'background-image:url("' . esc_url( $popup_bgimg ) . '");';
 		}
@@ -110,20 +110,20 @@ class GosoPopup {
 			echo 'border-style: solid;';
 		}
 		if ( $popup_spacing ) {
-			echo $this->penci_spacing_extract_data( $popup_spacing );
+			echo $this->goso_spacing_extract_data( $popup_spacing );
 		}
 		echo '}';
 
-		$popup_close_cl = get_theme_mod( 'penci_popup_closecolor' );
+		$popup_close_cl = get_theme_mod( 'goso_popup_closecolor' );
 
 		if ( $popup_close_cl ) {
-			echo '.mfp-close-btn-in .penci-popup-content .mfp-close{';
+			echo '.mfp-close-btn-in .goso-popup-content .mfp-close{';
 			echo 'color:' . esc_attr( $popup_close_cl ) . ';';
 			echo '}';
 		}
 
 
-		echo '@media only screen and (max-width:767px){.penci-popup-content{';
+		echo '@media only screen and (max-width:767px){.goso-popup-content{';
 		if ( $popup_tmsize ) {
 			echo 'font-size:' . esc_attr( $popup_tmsize ) . 'px;';
 		}
@@ -134,7 +134,7 @@ class GosoPopup {
 
 	}
 
-	public function penci_spacing_extract_data( $number = '', $out = '' ) {
+	public function goso_spacing_extract_data( $number = '', $out = '' ) {
 		$mpb = explode( ',', $number );
 		if ( isset( $mpb[0] ) && is_numeric( $mpb[0] ) ) {
 			$out .= 'padding-top:' . esc_attr( $mpb[0] ) . 'px;';

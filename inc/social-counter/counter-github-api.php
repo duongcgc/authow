@@ -8,14 +8,14 @@ if ( ! class_exists( 'Goso_Social_Counter_Github_API' ) ):
 
 			$user_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = "https://github.com/$user_id";
-			$data['icon'] = penci_icon_by_ver( 'fab fa-github' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-github' );
 
-			$cache_key     = 'penci_counter_github' . $user_id;
-			$default_count = penci_get_social_counter_option( 'github_default' );
+			$cache_key     = 'goso_counter_github' . $user_id;
+			$default_count = goso_get_social_counter_option( 'github_default' );
 			$github_count  = $default_count ? $default_count : get_transient( $cache_key );
 			if ( ! $github_count ) {
-				$penci_data = self::get_json( "https://api.github.com/users/$user_id" );
-				$count      = isset( $penci_data['followers'] ) ? intval( $penci_data['followers'] ) : 0;
+				$goso_data = self::get_json( "https://api.github.com/users/$user_id" );
+				$count      = isset( $goso_data['followers'] ) ? intval( $goso_data['followers'] ) : 0;
 
 				set_transient( $cache_key, $count, $cache_period );
 			} else {
@@ -41,13 +41,13 @@ if ( ! class_exists( 'Goso_Social_Counter_Github_API' ) ):
 				return false;
 			}
 
-			$penci_request_result = wp_remote_retrieve_body( $response );
+			$goso_request_result = wp_remote_retrieve_body( $response );
 
-			if ( empty( $penci_request_result ) ) {
+			if ( empty( $goso_request_result ) ) {
 				return false;
 			}
 
-			return $penci_request_result;
+			return $goso_request_result;
 		}
 
 		private static function get_url( $url ) {

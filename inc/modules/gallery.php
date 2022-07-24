@@ -53,15 +53,15 @@ if ( ! class_exists( 'Goso_Add_Options_To_Gallery_Setting' ) ) {
 
 			wp_enqueue_style( 'wp-color-picker');
 			wp_enqueue_script( 'wp-color-picker');
-			wp_enqueue_script( 'penci-custom-gallery-options', get_template_directory_uri() . '/js/admin-gallery.js', array( 'jquery', 'media-views' ) );
-			wp_localize_script( 'penci-custom-gallery-options', 'GosoObject', array(
+			wp_enqueue_script( 'goso-custom-gallery-options', get_template_directory_uri() . '/js/admin-gallery.js', array( 'jquery', 'media-views' ) );
+			wp_localize_script( 'goso-custom-gallery-options', 'GosoObject', array(
 				'WidgetImageTitle'   => esc_html__( 'Select an image', 'authow' ),
 				'WidgetImageButton'  => esc_html__( 'Insert into widget', 'authow' ),
 				'ajaxUrl'            => admin_url( 'admin-ajax.php' ),
 				'nonce'              => wp_create_nonce( 'ajax-nonce' ),
 			) );
 
-			wp_enqueue_script( 'penci-custom-gallery-options-new', get_template_directory_uri() . '/js/admin-gallery-new.js', array( 'jquery', 'media-views' ) );
+			wp_enqueue_script( 'goso-custom-gallery-options-new', get_template_directory_uri() . '/js/admin-gallery-new.js', array( 'jquery', 'media-views' ) );
 		}
 
 		/**
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Goso_Add_Options_To_Gallery_Setting' ) ) {
 				return;
 
 			?>
-			<script type="text/html" id="tmpl-penci-custom-gallery-options">
+			<script type="text/html" id="tmpl-goso-custom-gallery-options">
 				<label class="setting type">
 					<span>Style</span>
 					<select class="type" name="type" data-setting="type">

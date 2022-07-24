@@ -7,15 +7,15 @@ if ( ! class_exists( 'Goso_Social_Counter_Rss_API' ) ):
 		public static function get_count( $data, $cache_period ) {
 
 			$user_id      = preg_replace( '/\s+/', '', $data['name'] );
-			$data['icon'] = penci_icon_by_ver( 'fab fa-rss' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-rss' );
 
-			$cache_key = 'penci_counter__rss' . $user_id;
+			$cache_key = 'goso_counter__rss' . $user_id;
 			$rss_count = get_transient( $cache_key );
 
-			$rss_type        = penci_get_social_counter_option( 'rss_type' );
-			$rss_feedpress   = penci_get_social_counter_option( 'rss_feedpress' );
-			$rss_default     = penci_get_social_counter_option( 'rss_default' );
-			$rss_default_url = penci_get_social_counter_option( 'rss_feed_uri' );
+			$rss_type        = goso_get_social_counter_option( 'rss_type' );
+			$rss_feedpress   = goso_get_social_counter_option( 'rss_feedpress' );
+			$rss_default     = goso_get_social_counter_option( 'rss_default' );
+			$rss_default_url = goso_get_social_counter_option( 'rss_feed_uri' );
 
 			if ( $rss_type == 'feedpress' && $rss_feedpress ) {
 				$data['url'] = esc_url( $rss_feedpress );
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Goso_Social_Counter_Rss_API' ) ):
 						$feedpress_url = esc_url( $rss_feedpress );
 						$feedpress_url = str_replace( 'feedpress.it', 'feed.press', $feedpress_url );
 
-						$data   = @penci_remote_get( $feedpress_url );
+						$data   = @goso_remote_get( $feedpress_url );
 						$result = (int) $data['subscribers'];
 					} catch ( Exception $e ) {
 						$result = 0;

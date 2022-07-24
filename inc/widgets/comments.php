@@ -1,13 +1,13 @@
 <?php
 
-add_action( 'widgets_init', 'penci_comments_load_widget' );
+add_action( 'widgets_init', 'goso_comments_load_widget' );
 
-function penci_comments_load_widget() {
-	register_widget( 'penci_comments_widget' );
+function goso_comments_load_widget() {
+	register_widget( 'goso_comments_widget' );
 }
 
-if ( ! class_exists( 'penci_comments_widget' ) ) {
-	class penci_comments_widget extends WP_Widget {
+if ( ! class_exists( 'goso_comments_widget' ) ) {
+	class goso_comments_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -15,18 +15,18 @@ if ( ! class_exists( 'penci_comments_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_comments_widget',
+				'classname'   => 'goso_comments_widget',
 				'description' => esc_html__( 'A widget that displays the recent comments with avatar.', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_comments_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_comments_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_comments_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Comments', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_comments_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Comments', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_comments_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Comments', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_comments_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Comments', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 

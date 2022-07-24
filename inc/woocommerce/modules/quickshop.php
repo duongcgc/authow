@@ -1,10 +1,10 @@
 <?php
 
-class penci_product_quickshop {
+class goso_product_quickshop {
 	function __construct() {
-		add_action( 'wp_ajax_penci_quick_shop', array( $this, 'quick_shop' ) );
-		add_action( 'wp_ajax_nopriv_penci_quick_shop', array( $this, 'quick_shop' ) );
-		add_action( 'penci_loop_product_image', array( $this, 'quick_shop_wrapper' ) );
+		add_action( 'wp_ajax_goso_quick_shop', array( $this, 'quick_shop' ) );
+		add_action( 'wp_ajax_nopriv_goso_quick_shop', array( $this, 'quick_shop' ) );
+		add_action( 'goso_loop_product_image', array( $this, 'quick_shop_wrapper' ) );
 	}
 
 	public function quick_shop( $id = false ) {
@@ -35,7 +35,7 @@ class penci_product_quickshop {
 		?>
         <div class="quick-shop-wrapper">
             <div class="quick-shop-close"><a href="#"
-                                             rel="nofollow noopener"><?php penci_woo_translate_text( 'penci_woo_trans_close' ); ?></a>
+                                             rel="nofollow noopener"><?php goso_woo_translate_text( 'goso_woo_trans_close' ); ?></a>
             </div>
             <div class="quick-shop-form" data-pid="<?php echo get_the_ID(); ?>"></div>
         </div>
@@ -43,4 +43,4 @@ class penci_product_quickshop {
 	}
 }
 
-$penci_product_quickshop = new penci_product_quickshop();
+$goso_product_quickshop = new goso_product_quickshop();

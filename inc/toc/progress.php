@@ -60,7 +60,7 @@ class AuthowToc_Post {
 		//$tagFilterOptions['output_mode'] = 'xml';
 		$html = TagFilter::Explode( $content, $tagFilterOptions );
 
-		$selectors = apply_filters( 'penci_toc_exclude_by_selector', array( '.penci-toc-exclude-headings' ), $content );
+		$selectors = apply_filters( 'goso_toc_exclude_by_selector', array( '.goso-toc-exclude-headings' ), $content );
 		$nodes     = $html->Find( implode( ',', $selectors ) );
 		foreach ( $nodes['ids'] as $id ) {
 			//$this->excludedNodes[ $page ][ $id ] = $html->Implode( $id, $tagFilterOptions );
@@ -72,11 +72,11 @@ class AuthowToc_Post {
 	private function extractHeadings( $content ) {
 		$matches = array();
 
-		$content = apply_filters( 'penci_toc_extract_headings_content', wptexturize( $content ) );
+		$content = apply_filters( 'goso_toc_extract_headings_content', wptexturize( $content ) );
 		// get all headings
 		// the html spec allows for a maximum of 6 heading depths
 		if ( preg_match_all( '/(<h([1-6]{1})[^>]*>)(.*)<\/h\2>/msuU', $content, $matches, PREG_SET_ORDER ) ) {
-			$minimum = absint( get_theme_mod( 'penci_toc_start', 3 ) );
+			$minimum = absint( get_theme_mod( 'goso_toc_start', 3 ) );
 			$this->removeHeadingsFromExcludedNodes( $matches );
 			$this->removeHeadings( $matches );
 			$this->excludeHeadings( $matches );
@@ -135,12 +135,12 @@ class AuthowToc_Post {
 	}
 
 	private function getHeadingLevels() {
-		$levels = get_post_meta( $this->post->ID, '_penci-toc-heading-levels', true );
+		$levels = get_post_meta( $this->post->ID, '_goso-toc-heading-levels', true );
 		if ( ! is_array( $levels ) ) {
 			$levels = array();
 		}
 		if ( empty( $levels ) ) {
-			$levels = get_theme_mod( 'penci_toc_heading_levels', array( '2', '3', '4', '5', '6' ) );
+			$levels = get_theme_mod( 'goso_toc_heading_levels', array( '2', '3', '4', '5', '6' ) );
 		}
 		$this->headingLevels = $levels;
 
@@ -148,9 +148,9 @@ class AuthowToc_Post {
 	}
 
 	private function excludeHeadings( &$matches ) {
-		$exclude = get_post_meta( $this->post->ID, '_penci-toc-exclude', true );
+		$exclude = get_post_meta( $this->post->ID, '_goso-toc-exclude', true );
 		if ( empty( $exclude ) ) {
-			$exclude = get_theme_mod( 'penci_toc_exclude', '' );
+			$exclude = get_theme_mod( 'goso_toc_exclude', '' );
 		}
 		if ( $exclude ) {
 			$excluded_headings = explode( '|', $exclude );
@@ -248,7 +248,7 @@ class AuthowToc_Post {
 
 	private function getAlternateHeadings() {
 		$alternates = array();
-		$value      = get_post_meta( $this->post->ID, '_penci-toc-alttext', true );
+		$value      = get_post_meta( $this->post->ID, '_goso-toc-alttext', true );
 		if ( $value ) {
 			$headings = preg_split( '/\r\n|[\r\n]/', $value );
 			$count    = count( $headings );
@@ -356,13 +356,13 @@ class AuthowToc_Post {
 				return sprintf( '%%%02X', ord( $m[0] ) );
 			}, $return );
 			// lowercase everything?
-			if ( get_theme_mod( 'penci_toc_lowercase' ) ) {
+			if ( get_theme_mod( 'goso_toc_lowercase' ) ) {
 				$return = strtolower( $return );
 			}
 			// if blank, then prepend with the fragment prefix
 			// blank anchors normally appear on sites that don't use the latin charset
 			if ( ! $return ) {
-				$return = ( get_theme_mod( 'penci_toc_fragment_prefix' ) ) ? get_theme_mod( 'penci_toc_fragment_prefix' ) : '_';
+				$return = ( get_theme_mod( 'goso_toc_fragment_prefix' ) ) ? get_theme_mod( 'goso_toc_fragment_prefix' ) : '_';
 			}
 			// hyphenate?
 			$return = str_replace( '_', '-', $return );
@@ -375,7 +375,7 @@ class AuthowToc_Post {
 			$this->collision_collector[ $return ] = 1;
 		}
 
-		return apply_filters( 'penci_toc_url_anchor_target', $return, $heading );
+		return apply_filters( 'goso_toc_url_anchor_target', $return, $heading );
 	}
 
 	private function applyContentFilter() {
@@ -398,9 +398,9 @@ class AuthowToc_Post {
 	}
 
 	public static function stripShortcodes( $tags_to_remove, $content ) {
-		$tags_to_remove = apply_filters( 'penci_toc_strip_shortcodes_tagnames', array(
-			'penci_toc',
-			apply_filters( 'penci_toc_shortcode', 'toc' ),
+		$tags_to_remove = apply_filters( 'goso_toc_strip_shortcodes_tagnames', array(
+			'goso_toc',
+			apply_filters( 'goso_toc_shortcode', 'toc' ),
 		), $content );
 
 		return $tags_to_remove;
@@ -464,7 +464,7 @@ class AuthowToc_Post {
 		}
 		if ( isset( $this->pages[ $page ] ) ) {
 			$matches = $this->pages[ $page ]['headings'];
-			$prefix  = get_theme_mod( 'penci_toc_prefix', 'penci' );
+			$prefix  = get_theme_mod( 'goso_toc_prefix', 'goso' );
 			$prefix = $prefix ? $prefix.'-' : '';
 			foreach ( $matches as $i => $match ) {
 				$anchor     = $matches[ $i ]['id'];
@@ -472,7 +472,7 @@ class AuthowToc_Post {
 					$matches[ $i ][1],                // start of heading
 					'</h' . $matches[ $i ][2] . '>'   // end of heading
 				), array(
-					'><span class="penci-toc-section" id="' . $prefix .  $anchor . '">',
+					'><span class="goso-toc-section" id="' . $prefix .  $anchor . '">',
 					'</span></h' . $matches[ $i ][2] . '>'
 				), $matches[ $i ][0] );
 			}
@@ -486,27 +486,27 @@ class AuthowToc_Post {
 	}
 
 	public function getTOC() {
-		$class  = array( 'penci-toc-container' );
-		$max_lv = get_theme_mod( 'penci_toc_levels', 3 );
+		$class  = array( 'goso-toc-container' );
+		$max_lv = get_theme_mod( 'goso_toc_levels', 3 );
 		$html   = '';
 		if ( $this->hasTOCItems() ) {
 			// wrapping css classes
-			switch ( get_theme_mod( 'penci_toc_wrapping' ) ) {
+			switch ( get_theme_mod( 'goso_toc_wrapping' ) ) {
 				case 'left':
-					$class[] = 'penci-toc-wrap-left';
+					$class[] = 'goso-toc-wrap-left';
 					break;
 				case 'right':
-					$class[] = 'penci-toc-wrap-right';
+					$class[] = 'goso-toc-wrap-right';
 					break;
 				default:
-					$class[] = 'penci-toc-default';
+					$class[] = 'goso-toc-default';
 			}
-			if ( get_theme_mod( 'penci_toc_show_hierarchy', true ) ) {
+			if ( get_theme_mod( 'goso_toc_show_hierarchy', true ) ) {
 				$class[] = 'counter-hierarchy';
 			} else {
 				$class[] .= 'counter-flat';
 			}
-			switch ( get_theme_mod( 'penci_toc_counter', 'decimal' ) ) {
+			switch ( get_theme_mod( 'goso_toc_counter', 'decimal' ) ) {
 				case 'numeric':
 					$class[] .= 'counter-numeric';
 					break;
@@ -517,40 +517,40 @@ class AuthowToc_Post {
 					$class[] = 'counter-decimal';
 					break;
 			}
-			$class[] = get_theme_mod( 'penci_toc_visibility' ) ? 'dis-toggle' : 'enable-toggle';
-			$class[]      = get_theme_mod( 'penci_toc_theme' );
-			$class[]      = 'penci-toc-wrapper';
+			$class[] = get_theme_mod( 'goso_toc_visibility' ) ? 'dis-toggle' : 'enable-toggle';
+			$class[]      = get_theme_mod( 'goso_toc_theme' );
+			$class[]      = 'goso-toc-wrapper';
 			$class[]      = 'max-lv-' . $max_lv;
-			$sticky_class = 'sticky-' . get_theme_mod( 'penci_toc_sticky', 'left' );
+			$sticky_class = 'sticky-' . get_theme_mod( 'goso_toc_sticky', 'left' );
 			$class        = array_filter( $class );
 			$class        = array_map( 'trim', $class );
 			$class        = array_map( 'sanitize_html_class', $class );
-			$html         .= '<div class="penci-toc-container-wrapper ' . $sticky_class . '"><div id="penci-toc-container" class="' . implode( ' ', $class ) . '">' . PHP_EOL;
+			$html         .= '<div class="goso-toc-container-wrapper ' . $sticky_class . '"><div id="goso-toc-container" class="' . implode( ' ', $class ) . '">' . PHP_EOL;
 
-			$toc_title = penci_get_setting( 'penci_toc_heading_text' );
+			$toc_title = goso_get_setting( 'goso_toc_heading_text' );
 			if ( strpos( $toc_title, '%PAGE_TITLE%' ) !== false ) {
 				$toc_title = str_replace( '%PAGE_TITLE%', get_the_title(), $toc_title );
 			}
 			if ( strpos( $toc_title, '%PAGE_NAME%' ) !== false ) {
 				$toc_title = str_replace( '%PAGE_NAME%', get_the_title(), $toc_title );
 			}
-			$html .= '<div class="penci-toc-head penci-toc-title-container">' . PHP_EOL;
-			if ( penci_get_setting( 'penci_toc_heading_text' ) ) {
-				$html .= '<p class="penci-toc-title">' . esc_html__( htmlentities( $toc_title, ENT_COMPAT, 'UTF-8' ), 'authow' ) . '</p>' . PHP_EOL;
+			$html .= '<div class="goso-toc-head goso-toc-title-container">' . PHP_EOL;
+			if ( goso_get_setting( 'goso_toc_heading_text' ) ) {
+				$html .= '<p class="goso-toc-title">' . esc_html__( htmlentities( $toc_title, ENT_COMPAT, 'UTF-8' ), 'authow' ) . '</p>' . PHP_EOL;
 			}
-			$html .= '<span class="penci-toc-title-toggle">';
-			if ( ! get_theme_mod( 'penci_toc_visibility' ) ) {
-				$html .= '<a class="penci-toc-toggle penci-toc-title-toggle" style="display: none;"></a>';
+			$html .= '<span class="goso-toc-title-toggle">';
+			if ( ! get_theme_mod( 'goso_toc_visibility' ) ) {
+				$html .= '<a class="goso-toc-toggle goso-toc-title-toggle" style="display: none;"></a>';
 			}
 			$html .= '</span>';
 			$html .= '</div>' . PHP_EOL;
 
 			ob_start();
-			do_action( 'penci_toc_before' );
+			do_action( 'goso_toc_before' );
 			$html .= ob_get_clean();
-			$html .= '<nav class="penci-toc">' . $this->getTOCList() . '</nav>';
+			$html .= '<nav class="goso-toc">' . $this->getTOCList() . '</nav>';
 			ob_start();
-			do_action( 'penci_toc_after' );
+			do_action( 'goso_toc_after' );
 			$html .= ob_get_clean();
 			$html .= '</div></div>' . PHP_EOL;
 		}
@@ -568,7 +568,7 @@ class AuthowToc_Post {
 			foreach ( $this->pages as $page => $attribute ) {
 				$html .= $this->createTOC( $page, $attribute['headings'] );
 			}
-			$html = '<ul class="penci-toc-list">' . $html . '</ul>';
+			$html = '<ul class="goso-toc-list">' . $html . '</ul>';
 		}
 
 		return $html;
@@ -576,7 +576,7 @@ class AuthowToc_Post {
 
 	private function createTOC( $page, $matches ) {
 		// Whether or not the TOC should be built flat or hierarchical.
-		$hierarchical = get_theme_mod( 'penci_toc_show_hierarchy',true );
+		$hierarchical = get_theme_mod( 'goso_toc_show_hierarchy',true );
 		$html         = '';
 		if ( $hierarchical ) {
 			$current_depth      = 100;    // headings can't be larger than h6 but 100 as a default to be sure
@@ -593,18 +593,18 @@ class AuthowToc_Post {
 				$level = $matches[ $i ][2];
 				$count = $i + 1;
 				if ( $current_depth == (int) $matches[ $i ][2] ) {
-					$html .= '<li class="penci-tocli">';
+					$html .= '<li class="goso-tocli">';
 				}
 				// start lists
 				if ( $current_depth != (int) $matches[ $i ][2] ) {
 					for ( $current_depth; $current_depth < (int) $matches[ $i ][2]; $current_depth ++ ) {
 						$numbered_items[ $current_depth + 1 ] = 0;
-						$html                                 .= '<ul class="penci-tocul"><li class="penci-tocli">';
+						$html                                 .= '<ul class="goso-tocul"><li class="goso-tocli">';
 					}
 				}
 				$title = isset( $matches[ $i ]['alternate'] ) ? $matches[ $i ]['alternate'] : $matches[ $i ][0];
 				$title = br2( $title, ' ' );
-				$title = strip_tags( apply_filters( 'penci_toc_title', $title ), apply_filters( 'penci_toc_title_allowable_tags', '' ) );
+				$title = strip_tags( apply_filters( 'goso_toc_title', $title ), apply_filters( 'goso_toc_title_allowable_tags', '' ) );
 				$html  .= $this->createTOCItemAnchor( $page, $matches[ $i ]['id'], $title, $count );
 				// end lists
 				if ( $i != count( $matches ) - 1 ) {
@@ -632,8 +632,8 @@ class AuthowToc_Post {
 			foreach ( $matches as $i => $match ) {
 				$count = $i + 1;
 				$title = isset( $matches[ $i ]['alternate'] ) ? $matches[ $i ]['alternate'] : $matches[ $i ][0];
-				$title = strip_tags( apply_filters( 'penci_toc_title', $title ), apply_filters( 'penci_toc_title_allowable_tags', '' ) );
-				$html  .= '<li class="penci-tocli">';
+				$title = strip_tags( apply_filters( 'goso_toc_title', $title ), apply_filters( 'goso_toc_title_allowable_tags', '' ) );
+				$html  .= '<li class="goso-tocli">';
 				$html  .= $this->createTOCItemAnchor( $page, $matches[ $i ]['id'], $title, $count );
 				$html  .= '</li>';
 			}
@@ -643,13 +643,13 @@ class AuthowToc_Post {
 	}
 
 	private function createTOCItemAnchor( $page, $id, $title, $count ) {
-		$rel = get_theme_mod( 'penci_toc_nofollow_link' ) ? ' rel="nofollow" ' : ' ';
+		$rel = get_theme_mod( 'goso_toc_nofollow_link' ) ? ' rel="nofollow" ' : ' ';
 
-		return sprintf( '<a' . $rel . 'class="penci-toc-link penci-toc-heading-' . $count . '" href="%1$s" title="%2$s">%3$s</a>', esc_attr( $this->createTOCItemURL( $id, $page ) ), esc_attr( strip_tags( $title ) ), $title );
+		return sprintf( '<a' . $rel . 'class="goso-toc-link goso-toc-heading-' . $count . '" href="%1$s" title="%2$s">%3$s</a>', esc_attr( $this->createTOCItemURL( $id, $page ) ), esc_attr( strip_tags( $title ) ), $title );
 	}
 
 	private function createTOCItemURL( $id, $page ) {
-		$prefix       = get_theme_mod( 'penci_toc_prefix', 'penci' );
+		$prefix       = get_theme_mod( 'goso_toc_prefix', 'goso' );
 		$prefix = $prefix ? $prefix.'-' : '';
 		$current_post = $this->post->ID === $this->queriedObjectID;
 		$current_page = $this->getCurrentPage();

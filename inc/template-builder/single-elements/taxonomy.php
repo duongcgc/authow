@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSingleTaxonomy extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'penci-single-taxonomy';
+		return 'goso-single-taxonomy';
 	}
 
 	public function get_title() {
@@ -19,7 +19,7 @@ class GosoSingleTaxonomy extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -488,7 +488,7 @@ class GosoSingleTaxonomy extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();

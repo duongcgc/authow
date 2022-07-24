@@ -7,14 +7,14 @@
  * @since 1.0
  */
 
-add_action( 'widgets_init', 'penci_related_news_load_widget' );
+add_action( 'widgets_init', 'goso_related_news_load_widget' );
 
-function penci_related_news_load_widget() {
-	register_widget( 'penci_related_news_widget' );
+function goso_related_news_load_widget() {
+	register_widget( 'goso_related_news_widget' );
 }
 
-if ( ! class_exists( 'penci_related_news_widget' ) ) {
-	class penci_related_news_widget extends WP_Widget {
+if ( ! class_exists( 'goso_related_news_widget' ) ) {
+	class goso_related_news_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_related_news_widget',
+				'classname'   => 'goso_related_news_widget',
 				'description' => esc_html__( 'A widget that displays your related posts based on currently viewing posts. Note that this widget just appears on single post pages only.', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_related_news_widget' );
+			$control_ops = array( 'id_base' => 'goso_related_news_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_related_news_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Related Posts', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_related_news_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Related Posts', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_related_news_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Related Posts', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_related_news_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Related Posts', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -66,7 +66,7 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
 			$ptfs         = isset( $instance['ptfs'] ) ? absint( $instance['ptfs'] ) : '';
 			$pmfs         = isset( $instance['pmfs'] ) ? absint( $instance['pmfs'] ) : '';
 
-			$args = penci_get_query_related_posts( get_the_ID(), $type, $orderby, $order, $number );
+			$args = goso_get_query_related_posts( get_the_ID(), $type, $orderby, $order, $number );
 
 			if ( is_singular( 'post' ) && ! empty( $args ) ) {
 
@@ -83,16 +83,16 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
 
 					$rand = rand( 1000, 10000 );
 					?>
-                    <ul id="penci-relatedwg-<?php echo sanitize_text_field( $rand ); ?>"
-                        class="side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' penci-feed-2columns';
+                    <ul id="goso-relatedwg-<?php echo sanitize_text_field( $rand ); ?>"
+                        class="side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' goso-feed-2columns';
 						    if ( $featured ) {
-							    echo ' penci-2columns-featured';
+							    echo ' goso-2columns-featured';
 						    } else {
-							    echo ' penci-2columns-feed';
+							    echo ' goso-2columns-feed';
 						    } endif; if ( $dotstyle ) { echo ' pctlst pctl-' . $dotstyle; } ?>">
 						<?php $num = 1;
 						while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                            <li class="penci-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
+                            <li class="goso-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
 								if ( $featured2 ): echo ' featured-news2'; endif; endif; ?><?php if ( $allfeatured ): echo ' all-featured-news'; endif; ?>">
                                 <div class="side-item">
 
@@ -100,38 +100,38 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
                                         <div class="side-image<?php if ( $thumbright ): echo ' thumbnail-right'; endif; ?>">
 											<?php
 											/* Display Review Piechart  */
-											if ( function_exists( 'penci_display_piechart_review_html' ) ) {
+											if ( function_exists( 'goso_display_piechart_review_html' ) ) {
 												$size_pie = 'small';
 												if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $size_pie = 'normal'; endif;
-												penci_display_piechart_review_html( get_the_ID(), $size_pie );
+												goso_display_piechart_review_html( get_the_ID(), $size_pie );
 											}
-											$thumb = penci_featured_images_size( 'small' );
-											if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $thumb = penci_featured_images_size(); endif;
+											$thumb = goso_featured_images_size( 'small' );
+											if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $thumb = goso_featured_images_size(); endif;
 											if ( $image_type == 'horizontal' ) {
-												$thumb = 'penci-thumb-small';
-												if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $thumb = 'penci-thumb'; endif;
+												$thumb = 'goso-thumb-small';
+												if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $thumb = 'goso-thumb'; endif;
 											} elseif ( $image_type == 'square' ) {
-												$thumb = 'penci-thumb-square';
+												$thumb = 'goso-thumb-square';
 											} elseif ( $image_type == 'vertical' ) {
-												$thumb = 'penci-thumb-vertical';
+												$thumb = 'goso-thumb-vertical';
 											}
 											?>
-											<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                                                <a class="penci-image-holder penci-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+											<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                                                <a class="goso-image-holder goso-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 													echo '';
 												} else {
 													echo ' small-fix-size';
 												} ?>" rel="bookmark"
-                                                   data-bgset="<?php echo penci_image_srcset( get_the_ID(),$thumb ); ?>"
+                                                   data-bgset="<?php echo goso_image_srcset( get_the_ID(),$thumb ); ?>"
                                                    href="<?php the_permalink(); ?>"
                                                    title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 											<?php } else { ?>
-                                                <a class="penci-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+                                                <a class="goso-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 													echo '';
 												} else {
 													echo ' small-fix-size';
 												} ?>" rel="bookmark"
-                                                   style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
+                                                   style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
                                                    href="<?php the_permalink(); ?>"
                                                    title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 											<?php } ?>
@@ -139,31 +139,31 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
 											<?php if ( $icon ): ?>
 												<?php if ( has_post_format( 'video' ) ) : ?>
                                                     <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                       aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-play' ); ?></a>
+                                                       aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-play' ); ?></a>
 												<?php endif; ?>
 												<?php if ( has_post_format( 'audio' ) ) : ?>
                                                     <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                       aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-music' ); ?></a>
+                                                       aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-music' ); ?></a>
 												<?php endif; ?>
 												<?php if ( has_post_format( 'link' ) ) : ?>
                                                     <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                       aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-link' ); ?></a>
+                                                       aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-link' ); ?></a>
 												<?php endif; ?>
 												<?php if ( has_post_format( 'quote' ) ) : ?>
                                                     <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                       aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-quote-left' ); ?></a>
+                                                       aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-quote-left' ); ?></a>
 												<?php endif; ?>
 												<?php if ( has_post_format( 'gallery' ) ) : ?>
                                                     <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                       aria-label="Icon"><?php penci_fawesome_icon( 'far fa-image' ); ?></a>
+                                                       aria-label="Icon"><?php goso_fawesome_icon( 'far fa-image' ); ?></a>
 												<?php endif; ?>
 											<?php endif; ?>
                                         </div>
 									<?php endif; ?>
                                     <div class="side-item-text">
 										<?php if ( $movemeta && ! $postdate ): ?>
-											<div class="grid-post-box-meta penci-side-item-meta pcsnmt-above">
-												<span class="side-item-meta"><?php penci_authow_time_link(); ?></span>
+											<div class="grid-post-box-meta goso-side-item-meta pcsnmt-above">
+												<span class="side-item-meta"><?php goso_authow_time_link(); ?></span>
 											</div>
 										<?php endif; ?>
                                         <h4 class="side-title-post">
@@ -183,8 +183,8 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
                                             </a>
                                         </h4>
 										<?php if ( ! $movemeta && ! $postdate ): ?>
-											<div class="grid-post-box-meta penci-side-item-meta pcsnmt-below">
-												<span class="side-item-meta"><?php penci_authow_time_link(); ?></span>
+											<div class="grid-post-box-meta goso-side-item-meta pcsnmt-below">
+												<span class="side-item-meta"><?php goso_authow_time_link(); ?></span>
 											</div>
 										<?php endif; ?>
                                     </div>
@@ -196,20 +196,20 @@ if ( ! class_exists( 'penci_related_news_widget' ) ) {
 					<?php
 					$attrstyle = '';
 					if ( $ptfsfe ) {
-						$attrstyle .= '.widget ul#penci-relatedwg-' . $rand . ' li.featured-news .side-item .side-item-text h4 a{ font-size: ' . $ptfsfe . 'px; }';
+						$attrstyle .= '.widget ul#goso-relatedwg-' . $rand . ' li.featured-news .side-item .side-item-text h4 a{ font-size: ' . $ptfsfe . 'px; }';
 					}
 					if ( $ptfs ) {
-						$attrstyle .= '.widget ul#penci-relatedwg-' . $rand . ' li:not(.featured-news) .side-item .side-item-text h4 a{ font-size: ' . $ptfs . 'px; }';
+						$attrstyle .= '.widget ul#goso-relatedwg-' . $rand . ' li:not(.featured-news) .side-item .side-item-text h4 a{ font-size: ' . $ptfs . 'px; }';
 					}
 					if ( $pmfs ) {
-						$attrstyle .= '.widget ul#penci-relatedwg-' . $rand . ' li .side-item .side-item-text .side-item-meta{ font-size: ' . $pmfs . 'px; }';
+						$attrstyle .= '.widget ul#goso-relatedwg-' . $rand . ' li .side-item .side-item-text .side-item-meta{ font-size: ' . $pmfs . 'px; }';
 					}
 					if ( $image_type == 'horizontal' ) {
-						$attrstyle .= '#penci-relatedwg-' . $rand . ' .penci-image-holder:before{ padding-top: 66.6667%; }';
+						$attrstyle .= '#goso-relatedwg-' . $rand . ' .goso-image-holder:before{ padding-top: 66.6667%; }';
 					} elseif ( $image_type == 'square' ) {
-						$attrstyle .= '#penci-relatedwg-' . $rand . ' .penci-image-holder:before{ padding-top: 100%; }';
+						$attrstyle .= '#goso-relatedwg-' . $rand . ' .goso-image-holder:before{ padding-top: 100%; }';
 					} elseif ( $image_type == 'vertical' ) {
-						$attrstyle .= '#penci-relatedwg-' . $rand . ' .penci-image-holder:before{ padding-top: 135.4%; }';
+						$attrstyle .= '#goso-relatedwg-' . $rand . ' .goso-image-holder:before{ padding-top: 135.4%; }';
 					}
 
 					if ( $attrstyle ) {

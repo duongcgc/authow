@@ -28,7 +28,7 @@ class GosoTemplateBuilder {
 
 	function filter_main_archive_query( $limit, $query ) {
 
-		if ( ! is_admin() && $query->is_main_query() && penci_should_render_archive_template() ) {
+		if ( ! is_admin() && $query->is_main_query() && goso_should_render_archive_template() ) {
 			return 'LIMIT 0, 1';
 		}
 
@@ -41,14 +41,14 @@ class GosoTemplateBuilder {
 		if ( $pagenow == 'edit.php' && 'custom-post-template' == $post_type ) {
 			?>
             <div style="background: #e7ffe1;" class="notice notice-success">
-                <p style="font-size: 15px;"><?php _e( 'You can check <a href="https://authow.pencidesign.net/authow-document/#single-builder" target="_blank">this guide</a> to know how to create your own custom post template.', 'authow' ); ?></p>
+                <p style="font-size: 15px;"><?php _e( 'You can check <a href="https://authow.gosodesign.net/authow-document/#single-builder" target="_blank">this guide</a> to know how to create your own custom post template.', 'authow' ); ?></p>
             </div>
 			<?php
 		}
 		if ( $pagenow == 'edit.php' && 'archive-template' == $post_type ) {
 			?>
             <div style="background: #e7ffe1;" class="notice notice-success">
-                <p style="font-size: 15px;"><?php _e( 'You can check <a href="https://authow.pencidesign.net/authow-document/#archive-method2" target="_blank">this guide</a> to know how to create your own custom category, tag, search, author, archive templates.', 'authow' ); ?></p>
+                <p style="font-size: 15px;"><?php _e( 'You can check <a href="https://authow.gosodesign.net/authow-document/#archive-method2" target="_blank">this guide</a> to know how to create your own custom category, tag, search, author, archive templates.', 'authow' ); ?></p>
             </div>
 			<?php
 		}
@@ -101,7 +101,7 @@ class GosoTemplateBuilder {
 
 	public function archive_widget_categories( $elements_manager ) {
 		// Add our categories
-		$category_prefix = 'penci-';
+		$category_prefix = 'goso-';
 
 		$elements_manager->add_category( $category_prefix . 'elements', [
 			'title' => '[GosoDesign] Elements',
@@ -209,11 +209,11 @@ class GosoTemplateBuilder {
 			$template = locate_template( array( 'inc/template-builder/page-edit.php' ) );
 		}
 
-		if ( penci_should_render_archive_template() && ! $this->is_preview() ) {
+		if ( goso_should_render_archive_template() && ! $this->is_preview() ) {
 			$template = locate_template( array( 'inc/template-builder/archive-elements/render.php' ) );
 		}
 
-		if ( penci_should_render_single_template() && ! $this->is_preview() ) {
+		if ( goso_should_render_single_template() && ! $this->is_preview() ) {
 			$template = locate_template( array( 'inc/template-builder/single-elements/render.php' ) );
 		}
 
@@ -252,7 +252,7 @@ class GosoTemplateBuilder {
 	}
 
 	public function preview_image( $url, $postid ) {
-		if ( penci_elementor_is_edit_mode() && ( is_singular( 'custom-post-template' ) || is_singular( 'archive-template' ) ) ) {
+		if ( goso_elementor_is_edit_mode() && ( is_singular( 'custom-post-template' ) || is_singular( 'archive-template' ) ) ) {
 			$url = get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=1200&h=800';
 		}
 
@@ -260,7 +260,7 @@ class GosoTemplateBuilder {
 	}
 
 	public function preview_image_html( $html, $postid, $post_thumbnail_id, $size, $attr ) {
-		if ( penci_elementor_is_edit_mode() && ( is_singular( 'custom-post-template' ) || is_singular( 'archive-template' ) ) ) {
+		if ( goso_elementor_is_edit_mode() && ( is_singular( 'custom-post-template' ) || is_singular( 'archive-template' ) ) ) {
 			global $_wp_additional_image_sizes;
 			$w = 1200;
 			$h = 800;

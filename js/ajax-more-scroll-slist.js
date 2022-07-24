@@ -1,10 +1,10 @@
 jQuery(document).ready(function ($) {
-    if (!$('.penci-slajax-more-scroll .penci-ajax-more-button').length) {
+    if (!$('.goso-slajax-more-scroll .goso-ajax-more-button').length) {
         return;
     }
-    var penci_slajax_more_scroll = function () {
+    var goso_slajax_more_scroll = function () {
 
-        $('.penci-slajax-more-scroll .penci-ajax-more-button').each(function () {
+        $('.goso-slajax-more-scroll .goso-ajax-more-button').each(function () {
             var $this_scroll = $(this);
 
             $(document).on('scroll', $this_scroll, function () {
@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
                     if (!$this_scroll.hasClass('loading-posts')) {
                         var wrapId = $this_scroll.data('id'),
                             parentclass = $this_scroll.closest('.pcnav-lgroup'),
-                            wrapper = $this_scroll.closest('.penci-smalllist').find('.pcsl-inner'),
+                            wrapper = $this_scroll.closest('.goso-smalllist').find('.pcsl-inner'),
                             tag = $this_scroll.data('tag'),
                             cat = $this_scroll.data('cat'),
                             ppp = parentclass.data('ppp'),
@@ -28,13 +28,13 @@ jQuery(document).ready(function ($) {
                             pagednum = parseInt($this_scroll.attr('data-pagednum')),
                             curpaged = pagednum;
 
-                        var OBjBlockData = penciGetOBjBlockData($this_scroll.data('blockid')),
+                        var OBjBlockData = gosoGetOBjBlockData($this_scroll.data('blockid')),
                             dataFilter = OBjBlockData.atts_json ? JSON.parse(OBjBlockData.atts_json) : OBjBlockData.atts_json;
 
                         $this_scroll.addClass('loading-posts');
 
                         var data = {
-                            action: 'penci_more_slist_post_ajax',
+                            action: 'goso_more_slist_post_ajax',
                             datafilter: dataFilter,
                             id: wrapId,
                             tag: tag,
@@ -72,12 +72,12 @@ jQuery(document).ready(function ($) {
 
                                     wrapper.append(data);
 
-                                    $(".penci-wrapper-smalllist").fitVids();
+                                    $(".goso-wrapper-smalllist").fitVids();
 
                                     $('.pcsl-crs').owlCarousel();
 
                                     if ($().easyPieChart) {
-                                        $('.penci-piechart').each(function () {
+                                        $('.goso-piechart').each(function () {
                                             var $this = $(this);
                                             $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                 var chart_args = {
@@ -93,10 +93,10 @@ jQuery(document).ready(function ($) {
                                         }); // each
                                     }
 
-                                    var $justified_gallery = $('.penci-post-gallery-container.justified');
-                                    var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+                                    var $justified_gallery = $('.goso-post-gallery-container.justified');
+                                    var $masonry_gallery = $('.goso-post-gallery-container.masonry');
                                     if ($().justifiedGallery && $justified_gallery.length) {
-                                        $('.penci-post-gallery-container.justified').each(function () {
+                                        $('.goso-post-gallery-container.justified').each(function () {
                                             var $this = $(this);
                                             $this.justifiedGallery({
                                                 rowHeight: $this.data('height'),
@@ -104,12 +104,12 @@ jQuery(document).ready(function ($) {
                                                 margins: $this.data('margin'),
                                                 randomize: false
                                             });
-                                        }); // each .penci-post-gallery-container
+                                        }); // each .goso-post-gallery-container
                                     }
 
                                     if ($().isotope && $masonry_gallery.length) {
 
-                                        $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                        $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                             var $this = $(this);
                                             if ($this.attr('title')) {
                                                 var $title = $this.attr('title');
@@ -131,7 +131,7 @@ jQuery(document).ready(function ($) {
 
                                                 $this.addClass('loaded');
 
-                                                $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                                $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                                     var $this = $(this);
                                                     $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                         $this.addClass('animated');
@@ -146,7 +146,7 @@ jQuery(document).ready(function ($) {
                                         if ($('body').hasClass('admin-bar')) {
                                             top_margin = 122;
                                         }
-                                        $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+                                        $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                                             // settings
                                             additionalMarginTop: top_margin
                                         });
@@ -168,20 +168,20 @@ jQuery(document).ready(function ($) {
         });
     };
 
-    penci_slajax_more_scroll();
+    goso_slajax_more_scroll();
 
     $(document).on('pajax-tab-loaded',function (){
-        penci_slajax_more_scroll();
+        goso_slajax_more_scroll();
     });
 
 
-    function penciGetOBjBlockData($blockID) {
-        var $obj = new penciBlock();
+    function gosoGetOBjBlockData($blockID) {
+        var $obj = new gosoBlock();
 
-        jQuery.each(penciBlocksArray, function (index, block) {
+        jQuery.each(gosoBlocksArray, function (index, block) {
 
             if (block.blockID === $blockID) {
-                $obj = penciBlocksArray[index];
+                $obj = gosoBlocksArray[index];
             }
         });
 

@@ -1,6 +1,6 @@
 jQuery(function (r) {
     "use strict";
-    r(".penci-google-map").each(function () {
+    r(".goso-google-map").each(function () {
         var e = (n = r(this)).data("map_options"), o = n.attr("id"), a = google.maps.MapTypeId.ROADMAP;
         switch (e.map_type) {
             case"satellite":

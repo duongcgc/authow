@@ -5,42 +5,42 @@ jQuery( function ( $ ) {
 
 	PENCIPOSTADMIN.colorPicker = function () {
 		$( function() {
-			$('.penci-color-picker').wpColorPicker();
+			$('.goso-color-picker').wpColorPicker();
 		});
 	},
 	PENCIPOSTADMIN.imageSelect = function () {
-		$( 'body' ).on( 'change', '.penci-image-select input', function () {
+		$( 'body' ).on( 'change', '.goso-image-select input', function () {
 			var $this = $( this ),
 				type = $this.attr( 'type' ),
 				selected = $this.is( ':checked' ),
 				$parent = $this.parent(),
 				$others = $parent.siblings();
 			if ( selected ) {
-				$parent.addClass( 'penci-active' );
+				$parent.addClass( 'goso-active' );
 				if ( type === 'radio' ) {
-					$others.removeClass( 'penci-active' );
+					$others.removeClass( 'goso-active' );
 				}
 			} else {
-				$parent.removeClass( 'penci-active' );
+				$parent.removeClass( 'goso-active' );
 			}
 		} );
-		$( '.penci-image-select input' ).trigger( 'change' );
+		$( '.goso-image-select input' ).trigger( 'change' );
 	},
 	PENCIPOSTADMIN.metaboxTab = function () {
-		$( '.penci-metabox-tabs' ).on( 'click', 'a', function ( e ) {
+		$( '.goso-metabox-tabs' ).on( 'click', 'a', function ( e ) {
 			e.preventDefault();
 
 			var $li = $( this ).parent(),
 				panel = $li.data( 'panel' ),
-				$wrapper = $li.closest( '.penci-metabox-wrap' ),
-				$panel = $wrapper.find( '.penci-tab-panel-' + panel );
+				$wrapper = $li.closest( '.goso-metabox-wrap' ),
+				$panel = $wrapper.find( '.goso-tab-panel-' + panel );
 
 			$li.addClass( 'tab-active' ).siblings().removeClass( 'tab-active' );
 			$panel.show().siblings().hide();
 		} );
 	},
 	PENCIPOSTADMIN.metaboxAccordion = function () {
-		var acc = document.getElementsByClassName("penci-accordion-name");
+		var acc = document.getElementsByClassName("goso-accordion-name");
 		var i;
 
 		for (i = 0; i < acc.length; i++) {
@@ -66,7 +66,7 @@ jQuery( function ( $ ) {
 				button: { text: GosoObject.WidgetImageButton }
 			} );
 
-			$( 'body' ).on( 'click', '.penci-widget-image__select', function ( e ) {
+			$( 'body' ).on( 'click', '.goso-widget-image__select', function ( e ) {
 
 					e.preventDefault();
 					var $this = $( this ),
@@ -87,7 +87,7 @@ jQuery( function ( $ ) {
 					     } )
 					     .open();
 				} )
-				.on( 'click', '.penci-widget-image__remove', function ( e ) {
+				.on( 'click', '.goso-widget-image__remove', function ( e ) {
 					e.preventDefault();
 					var $this = $( this ),
 						$input = $this.siblings( 'input' ),
@@ -100,7 +100,7 @@ jQuery( function ( $ ) {
 					$placeholder.removeClass( 'hidden' );
 					$savewidget.prop( "disabled", false );
 				} )
-				.on( 'change', '.penci-widget-image__input', function ( e ) {
+				.on( 'change', '.goso-widget-image__input', function ( e ) {
 					e.preventDefault();
 					var $this = $( this ),
 						url = $this.data( url ),

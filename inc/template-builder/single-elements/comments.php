@@ -16,7 +16,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -28,7 +28,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-single-comments';
+		return 'goso-single-comments';
 	}
 
 	protected function register_controls() {
@@ -38,7 +38,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
-		$this->add_control( 'penci_post_move_comment_box', [
+		$this->add_control( 'goso_post_move_comment_box', [
 			'label' => esc_html__( 'Move Comment Form to Above the List Comments ', 'authow' ),
 			'type'  => \Elementor\Controls_Manager::SWITCHER,
 		] );
@@ -55,35 +55,35 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 			'selectors' => [ '{{WRAPPER}} .post-box-title:before,{{WRAPPER}} .post-box-title:after,{{WRAPPER}} #respond h3.comment-reply-title span:before,{{WRAPPER}} #respond h3.comment-reply-title span:after' => 'display:none' ],
 		] );
 
-		$this->add_control( 'penci_single_comments_remove_name', [
+		$this->add_control( 'goso_single_comments_remove_name', [
 			'label'       => esc_html__( 'Hide "Name" field on Comment Form', 'authow' ),
 			'description' => 'Note that: If you want to hide this field - you need go to Dashboard > Settings > Discussion > and un-check to "Comment author must fill out name and email" - check <a href="https://imgresources.s3.amazonaws.com/discussion_settings.png" target="_blank">this image</a> for more.',
 			'type'        => \Elementor\Controls_Manager::SWITCHER,
 		] );
 
-		$this->add_control( 'penci_single_comments_remove_email', [
+		$this->add_control( 'goso_single_comments_remove_email', [
 			'label'       => esc_html__( 'Hide "Email" field on Comment Form', 'authow' ),
 			'description' => 'Note that: If you want to hide this field - you need go to Dashboard > Settings > Discussion > and un-check to "Comment author must fill out name and email" - check <a href="https://imgresources.s3.amazonaws.com/discussion_settings.png" target="_blank">this image</a> for more.',
 			'type'        => \Elementor\Controls_Manager::SWITCHER,
 		] );
 
-		$this->add_control( 'penci_single_comments_remove_website', [
+		$this->add_control( 'goso_single_comments_remove_website', [
 			'label' => esc_html__( 'Hide "Website" field on Comment Form', 'authow' ),
 			'type'  => \Elementor\Controls_Manager::SWITCHER,
 		] );
 
-		$this->add_control( 'penci_single_hide_save_fields', [
+		$this->add_control( 'goso_single_hide_save_fields', [
 			'label'       => esc_html__( 'Remove checkbox "Save my name, email, and website in this browser for the next time I comment."', 'authow' ),
 			'description' => 'Note that: This checkbox just appears when you use Wordpress from version 4.9.6',
 			'type'        => \Elementor\Controls_Manager::SWITCHER,
 		] );
 
-		$this->add_control( 'penci_single_gdpr', [
+		$this->add_control( 'goso_single_gdpr', [
 			'label' => esc_html__( 'Enable GDPR message on Comment Form', 'authow' ),
 			'type'  => \Elementor\Controls_Manager::SWITCHER,
 		] );
 
-		$this->add_control( 'penci_single_gdpr_text', [
+		$this->add_control( 'goso_single_gdpr_text', [
 			'label'   => esc_html__( 'Custom GDPR Message on Comment Form', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => esc_html__( '* By using this form you agree with the storage and handling of your data by this website.', 'authow' ),
@@ -129,7 +129,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 				'{{WRAPPER}} .pc-cscomments.normal h3.comment-reply-title' => 'padding-top:{{SIZE}}px!important;',
 
 			],
-			'condition'  => [ 'penci_post_move_comment_box' => 'yes' ]
+			'condition'  => [ 'goso_post_move_comment_box' => 'yes' ]
 		] );
 
 		$this->add_responsive_control( 'commentl_heading', [
@@ -411,28 +411,28 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 			'name'      => 'commentf_cookies_notice_typo',
 			'label'     => __( 'Typography for Cookie Save Notice', 'authow' ),
 			'selector'  => '{{WRAPPER}} #respond .comment-form-cookies-consent',
-			'condition' => [ 'penci_single_hide_save_fields!' => 'yes' ]
+			'condition' => [ 'goso_single_hide_save_fields!' => 'yes' ]
 		) );
 
 		$this->add_control( 'commentf_cookies_notice_color', [
 			'label'     => 'Cookie Save Notice Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} #respond .comment-form-cookies-consent' => 'color:{{VALUE}}' ],
-			'condition' => [ 'penci_single_hide_save_fields!' => 'yes' ]
+			'condition' => [ 'goso_single_hide_save_fields!' => 'yes' ]
 		] );
 
 		$this->add_group_control( \Elementor\Group_Control_Typography::get_type(), array(
 			'name'      => 'commentf_gdpr_text_typo',
 			'label'     => __( 'Typography for GDPR Message', 'authow' ),
-			'selector'  => '{{WRAPPER}} #respond .penci-gdpr-message',
-			'condition' => [ 'penci_single_gdpr' => 'yes' ]
+			'selector'  => '{{WRAPPER}} #respond .goso-gdpr-message',
+			'condition' => [ 'goso_single_gdpr' => 'yes' ]
 		) );
 
 		$this->add_control( 'commentf_gdpr_text_color', [
 			'label'     => 'GDPR Message Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} #respond .penci-gdpr-message' => 'color:{{VALUE}}' ],
-			'condition' => [ 'penci_single_gdpr' => 'yes' ]
+			'selectors' => [ '{{WRAPPER}} #respond .goso-gdpr-message' => 'color:{{VALUE}}' ],
+			'condition' => [ 'goso_single_gdpr' => 'yes' ]
 		] );
 
 		$this->end_controls_section();
@@ -441,7 +441,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -452,13 +452,13 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 	protected function preview_content() {
 		$settings   = $this->get_settings_for_display();
 		$hide_count = 0;
-		if ( $settings['penci_single_comments_remove_name'] ) {
+		if ( $settings['goso_single_comments_remove_name'] ) {
 			$hide_count += 1;
 		}
-		if ( $settings['penci_single_comments_remove_email'] ) {
+		if ( $settings['goso_single_comments_remove_email'] ) {
 			$hide_count += 1;
 		}
-		if ( $settings['penci_single_comments_remove_website'] ) {
+		if ( $settings['goso_single_comments_remove_website'] ) {
 			$hide_count += 1;
 		}
 		$comment_form = '<div id="respond" class="comment-respond">
@@ -469,25 +469,25 @@ class GosoSingleComments extends \Elementor\Widget_Base {
     <form action="#" method="post" id="commentform" class="comment-form">
         <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="Your Comment" aria-required="true" spellcheck="false"></textarea></p>';
 
-		if ( ! $settings['penci_single_comments_remove_name'] ) {
+		if ( ! $settings['goso_single_comments_remove_name'] ) {
 			$comment_form .= '<p class="comment-form-author"><input id="author" name="author" type="text" value="" placeholder="Name*" size="30" aria-required="true"></p>';
 		}
 
-		if ( ! $settings['penci_single_comments_remove_email'] ) {
+		if ( ! $settings['goso_single_comments_remove_email'] ) {
 			$comment_form .= '<p class="comment-form-email"><input id="email" name="email" type="text" value="" placeholder="Email*" size="30" aria-required="true"></p>';
 		}
 
-		if ( ! $settings['penci_single_comments_remove_website'] ) {
+		if ( ! $settings['goso_single_comments_remove_website'] ) {
 			$comment_form .= '<p class="comment-form-url"><input id="url" name="url" type="text" value="" placeholder="Website" size="30"></p>';
 		}
-		if ( ! $settings['penci_single_hide_save_fields'] ) {
+		if ( ! $settings['goso_single_hide_save_fields'] ) {
 			$comment_form .= '<p class="comment-form-cookies-consent">
         	<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
         	<span class="comment-form-cookies-text" for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</span>
         </p>';
 		}
-		if ( $settings['penci_single_gdpr'] ) {
-			$comment_form .= '<div class="penci-gdpr-message">' . $settings['penci_single_gdpr_text'] . '</div>';
+		if ( $settings['goso_single_gdpr'] ) {
+			$comment_form .= '<div class="goso-gdpr-message">' . $settings['goso_single_gdpr_text'] . '</div>';
 		}
 		$comment_form .= '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit"></p>
     </form>
@@ -500,8 +500,8 @@ class GosoSingleComments extends \Elementor\Widget_Base {
             <div class="author-img">
                 <img alt="" src="' . get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=100&h=100" width="100" height="100"></div>
             <div class="comment-text">
-                <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://pencidesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
-                <span class="date" datetime="2017-07-19T03:55:55+00:00" title="Wednesday, July 19, 2017, 3:55 am" itemprop="commentTime"><i class="penci-faicon fa fa-clock-o"></i>July 19, 2017 - 3:55 am</span>
+                <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://gosodesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
+                <span class="date" datetime="2017-07-19T03:55:55+00:00" title="Wednesday, July 19, 2017, 3:55 am" itemprop="commentTime"><i class="goso-faicon fa fa-clock-o"></i>July 19, 2017 - 3:55 am</span>
                 <div class="comment-content" itemprop="commentText">
                     <p>Neque porro quisquam est, qui dolorem
                         ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
@@ -519,8 +519,8 @@ class GosoSingleComments extends \Elementor\Widget_Base {
                 <div class="author-img">
                     <img alt="" src="' . get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=100&h=100" width="100" height="100"></div>
                 <div class="comment-text">
-                    <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://pencidesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
-                    <span class="date" datetime="2017-07-19T03:56:02+00:00" title="Wednesday, July 19, 2017, 3:56 am" itemprop="commentTime"><i class="penci-faicon fa fa-clock-o"></i>July 19, 2017 - 3:56 am</span>
+                    <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://gosodesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
+                    <span class="date" datetime="2017-07-19T03:56:02+00:00" title="Wednesday, July 19, 2017, 3:56 am" itemprop="commentTime"><i class="goso-faicon fa fa-clock-o"></i>July 19, 2017 - 3:56 am</span>
                     <div class="comment-content" itemprop="commentText">
                         <p>Quis autem vel eum iure
                             reprehenderit
@@ -539,8 +539,8 @@ class GosoSingleComments extends \Elementor\Widget_Base {
             <div class="author-img">
                 <img alt="" src="' . get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=100&h=100" width="100" height="100"></div>
             <div class="comment-text">
-                <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://pencidesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
-                <span class="date" datetime="2017-07-19T03:56:10+00:00" title="Wednesday, July 19, 2017, 3:56 am" itemprop="commentTime"><i class="penci-faicon fa fa-clock-o"></i>July 19, 2017 - 3:56 am</span>
+                <span class="author" itemprop="creator" itemtype="https://schema.org/Person"><span itemprop="name"><a href="http://gosodesign.com/" rel="external nofollow ugc" class="url">Goso</a></span></span>
+                <span class="date" datetime="2017-07-19T03:56:10+00:00" title="Wednesday, July 19, 2017, 3:56 am" itemprop="commentTime"><i class="goso-faicon fa fa-clock-o"></i>July 19, 2017 - 3:56 am</span>
                 <div class="comment-content" itemprop="commentText">
                     <p>Et harum quidem rerum facilis est et
                         expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -552,10 +552,10 @@ class GosoSingleComments extends \Elementor\Widget_Base {
         </div>
     </div><!-- #comment-## -->
 </div>';
-		$class        = $settings['penci_post_move_comment_box'] ? 'move-top' : 'normal';
+		$class        = $settings['goso_post_move_comment_box'] ? 'move-top' : 'normal';
 		echo '<div class="pc-cscomments ' . $class . '">';
-		echo '<div id="comments" class="post-comments penci-comments-hide-' . $hide_count . '">';
-		if ( $settings['penci_post_move_comment_box'] ) {
+		echo '<div id="comments" class="post-comments goso-comments-hide-' . $hide_count . '">';
+		if ( $settings['goso_post_move_comment_box'] ) {
 			echo $comment_form . $comment_list;
 		} else {
 			echo $comment_list . $comment_form;
@@ -566,13 +566,13 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 	protected function builder_content() {
 		$settings = $this->get_settings_for_display();
 		$mods     = [
-			'penci_single_gdpr_text',
-			'penci_single_gdpr',
-			'penci_single_hide_save_fields',
-			'penci_post_move_comment_box',
-			'penci_single_comments_remove_name',
-			'penci_single_comments_remove_email',
-			'penci_single_comments_remove_website'
+			'goso_single_gdpr_text',
+			'goso_single_gdpr',
+			'goso_single_hide_save_fields',
+			'goso_post_move_comment_box',
+			'goso_single_comments_remove_name',
+			'goso_single_comments_remove_email',
+			'goso_single_comments_remove_website'
 		];
 		foreach ( $mods as $mod ) {
 			$value = $settings[ $mod ];
@@ -580,7 +580,7 @@ class GosoSingleComments extends \Elementor\Widget_Base {
 				return $value;
 			} );
 		}
-		$class = $settings['penci_post_move_comment_box'] ? 'move-top' : 'normal';
+		$class = $settings['goso_post_move_comment_box'] ? 'move-top' : 'normal';
 		echo '<div class="pc-cscomments ' . $class . '">';
 		comments_template();
 		echo '</div>';

@@ -12,24 +12,24 @@
 require get_template_directory() . '/inc/meta-box/meta-box-array.php';
 
 /* Sub title */
-add_action( 'admin_head', 'penci_add_subtitle_metaboxes' );
-function penci_add_subtitle_metaboxes() {
+add_action( 'admin_head', 'goso_add_subtitle_metaboxes' );
+function goso_add_subtitle_metaboxes() {
 	// Detect if editor is gutenberg or not - if not, add meta box after post title.
-	if ( penci_is_using_gutenberg() ) {
+	if ( goso_is_using_gutenberg() ) {
 		add_meta_box(
-			'penci_post_secondry_title',
+			'goso_post_secondry_title',
 			esc_html__( 'Add Subtitle', 'authow' ),
-			'penci_render_subtitle_markup_gutenberg',
-			penci_post_types_allow_meta_boxes(),
+			'goso_render_subtitle_markup_gutenberg',
+			goso_post_types_allow_meta_boxes(),
 			'side',
 			'high'
 		);
 	} else {
-		add_action( 'edit_form_after_title', 'penci_render_subtitle_markup', 1 );
+		add_action( 'edit_form_after_title', 'goso_render_subtitle_markup', 1 );
 	}
 }
 
-function penci_render_subtitle_markup() {
+function goso_render_subtitle_markup() {
 	$post_id = get_the_ID();
 
 	// Get currently viewing post type
@@ -42,18 +42,18 @@ function penci_render_subtitle_markup() {
 	}
 
 	// Don't render markup if it's not allowed
-	if ( ! in_array( $post_type, penci_post_types_allow_meta_boxes() ) ) {
+	if ( ! in_array( $post_type, goso_post_types_allow_meta_boxes() ) ) {
 		return;
 	}
 	?>
 
-    <div id="penci-subtitlediv">
-        <div id="penci-subtitlewrap">
-            <label class="screen-reader-text" id="penci-sub-title-label"
-                   for="penci-sub-title"><?php esc_html_e( 'Add sub title here', 'authow' ) ?></label>
-            <input type="text" id="penci-sub-title" name="penci_post_sub_title" size="30"
+    <div id="goso-subtitlediv">
+        <div id="goso-subtitlewrap">
+            <label class="screen-reader-text" id="goso-sub-title-label"
+                   for="goso-sub-title"><?php esc_html_e( 'Add sub title here', 'authow' ) ?></label>
+            <input type="text" id="goso-sub-title" name="goso_post_sub_title" size="30"
                    style="padding: 3px 8px; font-size: 1.4em; line-height: 100%; height: 2em; width: 100%; outline: 0; margin: 0 0 3px; background-color: #fff;"
-                   value="<?php echo esc_attr( get_post_meta( $post_id, 'penci_post_sub_title', true ) ); ?>"
+                   value="<?php echo esc_attr( get_post_meta( $post_id, 'goso_post_sub_title', true ) ); ?>"
                    placeholder="<?php esc_html_e( 'Add sub title here', 'authow' ) ?>" spellcheck="true"
                    autocomplete="off">
         </div>
@@ -61,7 +61,7 @@ function penci_render_subtitle_markup() {
 	<?php
 }
 
-function penci_render_subtitle_markup_gutenberg() {
+function goso_render_subtitle_markup_gutenberg() {
 	$post_id = get_the_ID();
 
 	// Get currently viewing post type
@@ -74,18 +74,18 @@ function penci_render_subtitle_markup_gutenberg() {
 	}
 
 	// Don't render markup if it's not allowed
-	if ( ! in_array( $post_type, penci_post_types_allow_meta_boxes() ) ) {
+	if ( ! in_array( $post_type, goso_post_types_allow_meta_boxes() ) ) {
 		return;
 	}
 	?>
 
-    <div id="penci-subtitlediv">
-        <div id="penci-subtitlewrap">
-            <label class="screen-reader-text" id="penci-sub-title-label"
-                   for="penci-sub-title"><?php esc_html_e( 'Add sub title here', 'authow' ) ?></label>
-            <textarea name="penci_post_sub_title" rows="6" style="height: 80px; width: 100%; font-size: 1.3em;"
+    <div id="goso-subtitlediv">
+        <div id="goso-subtitlewrap">
+            <label class="screen-reader-text" id="goso-sub-title-label"
+                   for="goso-sub-title"><?php esc_html_e( 'Add sub title here', 'authow' ) ?></label>
+            <textarea name="goso_post_sub_title" rows="6" style="height: 80px; width: 100%; font-size: 1.3em;"
                       placeholder="<?php esc_html_e( 'Add sub title here', 'authow' ) ?>" spellcheck="false"
-                      autocomplete="off"><?php echo esc_attr( get_post_meta( $post_id, 'penci_post_sub_title', true ) ); ?></textarea>
+                      autocomplete="off"><?php echo esc_attr( get_post_meta( $post_id, 'goso_post_sub_title', true ) ); ?></textarea>
         </div>
     </div>
 	<?php
@@ -118,10 +118,10 @@ class Goso_Add_Custom_Metabox_Class {
 	 * Adds the meta box container.
 	 */
 	public function add_meta_box( $post_type ) {
-		$post_types = penci_post_types_allow_meta_boxes();     //limit meta box to certain post types
+		$post_types = goso_post_types_allow_meta_boxes();     //limit meta box to certain post types
 		if ( in_array( $post_type, $post_types ) ) {
 			add_meta_box(
-				'penci_custom_sidebar_page'
+				'goso_custom_sidebar_page'
 				, esc_html__( 'Options for This Post/Page', 'authow' )
 				, array( $this, 'render_meta_box_content' )
 				, $post_type
@@ -130,7 +130,7 @@ class Goso_Add_Custom_Metabox_Class {
 			);
 
 			add_meta_box(
-				'penci_view_count_custom'
+				'goso_view_count_custom'
 				, esc_html__( 'Post Views', 'authow' )
 				, array( $this, 'render_meta_box_view_count' )
 				, $post_type
@@ -154,14 +154,14 @@ class Goso_Add_Custom_Metabox_Class {
 		 */
 
 		// Check if our nonce is set.
-		if ( ! isset( $_POST['penci_inner_custom_box_nonce'] ) ) {
+		if ( ! isset( $_POST['goso_inner_custom_box_nonce'] ) ) {
 			return $post_id;
 		}
 
-		$nonce = $_POST['penci_inner_custom_box_nonce'];
+		$nonce = $_POST['goso_inner_custom_box_nonce'];
 
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $nonce, 'penci_inner_custom_box' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'goso_inner_custom_box' ) ) {
 			return $post_id;
 		}
 
@@ -171,7 +171,7 @@ class Goso_Add_Custom_Metabox_Class {
 			return $post_id;
 		}
 
-		$post_type_allow = penci_post_types_allow_meta_boxes();
+		$post_type_allow = goso_post_types_allow_meta_boxes();
 		$post_type       = $_POST['post_type'];
 
 		// Check the user's permissions.
@@ -189,82 +189,82 @@ class Goso_Add_Custom_Metabox_Class {
 		}
 
 		// Sanitize the user input.
-		$mydata            = sanitize_text_field( $_POST['penci_custom_sidebar_page_field'] );
-		$sidebar_left_page = sanitize_text_field( $_POST['penci_custom_sidebar_left_page_field'] );
+		$mydata            = sanitize_text_field( $_POST['goso_custom_sidebar_page_field'] );
+		$sidebar_left_page = sanitize_text_field( $_POST['goso_custom_sidebar_left_page_field'] );
 
 		if ( in_array( $post_type, $post_type_allow ) ) {
-			$sidebar = sanitize_text_field( $_POST['penci_post_sidebar_display'] );
+			$sidebar = sanitize_text_field( $_POST['goso_post_sidebar_display'] );
 		}
 
 		$hide_header = $hide_footer = '';
 
 		if ( 'page' == $_POST['post_type'] ) {
-			$slider         = sanitize_text_field( $_POST['penci_page_slider_field'] );
-			$featured_boxes = sanitize_text_field( $_POST['penci_page_display_featured_boxes'] );
-			$pagetitle      = sanitize_text_field( $_POST['penci_page_display_title_field'] );
-			$breadcrumb     = sanitize_text_field( $_POST['penci_page_breadcrumb_field'] );
-			$sharebox       = sanitize_text_field( $_POST['penci_page_sharebox_field'] );
-			$rev_shortcode  = sanitize_text_field( $_POST['penci_page_rev_shortcode'] );
-			$hide_header    = sanitize_text_field( $_POST['penci_page_hide_header_field'] );
-			$hide_footer    = sanitize_text_field( $_POST['penci_page_hide_footer_field'] );
-			$page_sidebar   = sanitize_text_field( $_POST['penci_sidebar_page_pos'] );
+			$slider         = sanitize_text_field( $_POST['goso_page_slider_field'] );
+			$featured_boxes = sanitize_text_field( $_POST['goso_page_display_featured_boxes'] );
+			$pagetitle      = sanitize_text_field( $_POST['goso_page_display_title_field'] );
+			$breadcrumb     = sanitize_text_field( $_POST['goso_page_breadcrumb_field'] );
+			$sharebox       = sanitize_text_field( $_POST['goso_page_sharebox_field'] );
+			$rev_shortcode  = sanitize_text_field( $_POST['goso_page_rev_shortcode'] );
+			$hide_header    = sanitize_text_field( $_POST['goso_page_hide_header_field'] );
+			$hide_footer    = sanitize_text_field( $_POST['goso_page_hide_footer_field'] );
+			$page_sidebar   = sanitize_text_field( $_POST['goso_sidebar_page_pos'] );
 		}
 
 
 		// Update the meta field.
-		update_post_meta( $post_id, 'penci_custom_sidebar_page_display', $mydata );
-		update_post_meta( $post_id, 'penci_custom_sidebar_left_page_field', $sidebar_left_page );
+		update_post_meta( $post_id, 'goso_custom_sidebar_page_display', $mydata );
+		update_post_meta( $post_id, 'goso_custom_sidebar_left_page_field', $sidebar_left_page );
 
-		if ( isset( $_POST['penci_post_critical_css'] ) ) {
-			update_post_meta( $post_id, 'penci_post_critical_css', $_POST['penci_post_critical_css'] );
+		if ( isset( $_POST['goso_post_critical_css'] ) ) {
+			update_post_meta( $post_id, 'goso_post_critical_css', $_POST['goso_post_critical_css'] );
 		}
 
 		if ( in_array( $post_type, $post_type_allow ) ) {
-			update_post_meta( $post_id, 'penci_post_sidebar_display', $sidebar );
+			update_post_meta( $post_id, 'goso_post_sidebar_display', $sidebar );
 
-			if ( isset( $_POST['penci_post_sub_title'] ) ) {
-				update_post_meta( $post_id, 'penci_post_sub_title', $_POST['penci_post_sub_title'] );
+			if ( isset( $_POST['goso_post_sub_title'] ) ) {
+				update_post_meta( $post_id, 'goso_post_sub_title', $_POST['goso_post_sub_title'] );
 			}
 
-			if ( isset( $_POST['penci_single_style'] ) ) {
-				update_post_meta( $post_id, 'penci_single_style', $_POST['penci_single_style'] );
+			if ( isset( $_POST['goso_single_style'] ) ) {
+				update_post_meta( $post_id, 'goso_single_style', $_POST['goso_single_style'] );
 			}
 
-			if ( isset( $_POST['penci_pfeatured_image_ratio'] ) ) {
-				update_post_meta( $post_id, 'penci_pfeatured_image_ratio', $_POST['penci_pfeatured_image_ratio'] );
+			if ( isset( $_POST['goso_pfeatured_image_ratio'] ) ) {
+				update_post_meta( $post_id, 'goso_pfeatured_image_ratio', $_POST['goso_pfeatured_image_ratio'] );
 			}
 
-			if ( isset( $_POST['penci_enable_jarallax_single'] ) ) {
-				update_post_meta( $post_id, 'penci_enable_jarallax_single', $_POST['penci_enable_jarallax_single'] );
+			if ( isset( $_POST['goso_enable_jarallax_single'] ) ) {
+				update_post_meta( $post_id, 'goso_enable_jarallax_single', $_POST['goso_enable_jarallax_single'] );
 			}
 
-			if ( isset( $_POST['penci_toc_enable'] ) ) {
-				update_post_meta( $post_id, 'penci_toc_enable', $_POST['penci_toc_enable'] );
+			if ( isset( $_POST['goso_toc_enable'] ) ) {
+				update_post_meta( $post_id, 'goso_toc_enable', $_POST['goso_toc_enable'] );
 			}
 
-			if ( isset( $_POST['penci_post_hide_featuimg'] ) ) {
-				update_post_meta( $post_id, 'penci_post_hide_featuimg', $_POST['penci_post_hide_featuimg'] );
+			if ( isset( $_POST['goso_post_hide_featuimg'] ) ) {
+				update_post_meta( $post_id, 'goso_post_hide_featuimg', $_POST['goso_post_hide_featuimg'] );
 			}
 
-			if ( isset( $_POST['penci_reading_time'] ) ) {
-				update_post_meta( $post_id, 'penci_reading_time', $_POST['penci_reading_time'] );
+			if ( isset( $_POST['goso_reading_time'] ) ) {
+				update_post_meta( $post_id, 'goso_reading_time', $_POST['goso_reading_time'] );
 			}
 
-			if ( isset( $_POST['penci_header_builder_layout'] ) ) {
-				update_post_meta( $post_id, 'penci_header_builder_layout', $_POST['penci_header_builder_layout'] );
+			if ( isset( $_POST['goso_header_builder_layout'] ) ) {
+				update_post_meta( $post_id, 'goso_header_builder_layout', $_POST['goso_header_builder_layout'] );
 			}
 
-			if ( isset( $_POST['penci_footer_builder_layout'] ) ) {
-				update_post_meta( $post_id, 'penci_footer_builder_layout', $_POST['penci_footer_builder_layout'] );
+			if ( isset( $_POST['goso_footer_builder_layout'] ) ) {
+				update_post_meta( $post_id, 'goso_footer_builder_layout', $_POST['goso_footer_builder_layout'] );
 			}
 
-			if ( isset( $_POST['penci_single_builder_layout'] ) ) {
-				update_post_meta( $post_id, 'penci_single_builder_layout', $_POST['penci_single_builder_layout'] );
+			if ( isset( $_POST['goso_single_builder_layout'] ) ) {
+				update_post_meta( $post_id, 'goso_single_builder_layout', $_POST['goso_single_builder_layout'] );
 			}
 
-			$count_key  = penci_get_postviews_key();
-			$count_wkey = 'penci_post_week_views_count';
-			$count_mkey = 'penci_post_month_views_count';
+			$count_key  = goso_get_postviews_key();
+			$count_wkey = 'goso_post_week_views_count';
+			$count_mkey = 'goso_post_month_views_count';
 
 			if ( isset( $_POST[ $count_key ] ) ) {
 				update_post_meta( $post_id, $count_key, $_POST[ $count_key ] );
@@ -280,15 +280,15 @@ class Goso_Add_Custom_Metabox_Class {
 		}
 
 		if ( 'page' == $_POST['post_type'] ) {
-			update_post_meta( $post_id, 'penci_page_slider', $slider );
-			update_post_meta( $post_id, 'penci_page_display_featured_boxes', $featured_boxes );
-			update_post_meta( $post_id, 'penci_page_display_title', $pagetitle );
-			update_post_meta( $post_id, 'penci_page_breadcrumb', $breadcrumb );
-			update_post_meta( $post_id, 'penci_page_sharebox', $sharebox );
-			update_post_meta( $post_id, 'penci_page_rev_shortcode', $rev_shortcode );
-			update_post_meta( $post_id, 'penci_page_hide_header', $hide_header );
-			update_post_meta( $post_id, 'penci_page_hide_footer', $hide_footer );
-			update_post_meta( $post_id, 'penci_sidebar_page_pos', $page_sidebar );
+			update_post_meta( $post_id, 'goso_page_slider', $slider );
+			update_post_meta( $post_id, 'goso_page_display_featured_boxes', $featured_boxes );
+			update_post_meta( $post_id, 'goso_page_display_title', $pagetitle );
+			update_post_meta( $post_id, 'goso_page_breadcrumb', $breadcrumb );
+			update_post_meta( $post_id, 'goso_page_sharebox', $sharebox );
+			update_post_meta( $post_id, 'goso_page_rev_shortcode', $rev_shortcode );
+			update_post_meta( $post_id, 'goso_page_hide_header', $hide_header );
+			update_post_meta( $post_id, 'goso_page_hide_footer', $hide_footer );
+			update_post_meta( $post_id, 'goso_sidebar_page_pos', $page_sidebar );
 		}
 	}
 
@@ -300,12 +300,12 @@ class Goso_Add_Custom_Metabox_Class {
 	public function render_meta_box_view_count( $post ) {
 
 		// Add an nonce field so we can check for it later.
-		wp_nonce_field( 'penci_inner_custom_box', 'penci_inner_custom_box_nonce' );
+		wp_nonce_field( 'goso_inner_custom_box', 'goso_inner_custom_box_nonce' );
 
 		// Use get_post_meta to retrieve an existing value from the database.
-		$count_key  = penci_get_postviews_key();
-		$count_wkey = 'penci_post_week_views_count';
-		$count_mkey = 'penci_post_month_views_count';
+		$count_key  = goso_get_postviews_key();
+		$count_wkey = 'goso_post_week_views_count';
+		$count_mkey = 'goso_post_month_views_count';
 		$count      = get_post_meta( $post->ID, $count_key, true ) ? get_post_meta( $post->ID, $count_key, true ) : 0;
 		$count_w    = get_post_meta( $post->ID, $count_wkey, true ) ? get_post_meta( $post->ID, $count_wkey, true ) : 0;
 		$count_m    = get_post_meta( $post->ID, $count_mkey, true ) ? get_post_meta( $post->ID, $count_mkey, true ) : 0;
@@ -338,37 +338,37 @@ class Goso_Add_Custom_Metabox_Class {
 	public function render_meta_box_content( $post ) {
 
 		// Add an nonce field so we can check for it later.
-		wp_nonce_field( 'penci_inner_custom_box', 'penci_inner_custom_box_nonce' );
+		wp_nonce_field( 'goso_inner_custom_box', 'goso_inner_custom_box_nonce' );
 
 		// Use get_post_meta to retrieve an existing value from the database.
-		$value      = get_post_meta( $post->ID, 'penci_custom_sidebar_page_display', true );
-		$value_left = get_post_meta( $post->ID, 'penci_custom_sidebar_left_page_field', true );
+		$value      = get_post_meta( $post->ID, 'goso_custom_sidebar_page_display', true );
+		$value_left = get_post_meta( $post->ID, 'goso_custom_sidebar_left_page_field', true );
 
 
-		$sidebar        = get_post_meta( $post->ID, 'penci_post_sidebar_display', true );
-		$slider         = get_post_meta( $post->ID, 'penci_page_slider', true );
-		$featured_boxes = get_post_meta( $post->ID, 'penci_page_display_featured_boxes', true );
-		$pagetitle      = get_post_meta( $post->ID, 'penci_page_display_title', true );
-		$breadcrumb     = get_post_meta( $post->ID, 'penci_page_breadcrumb', true );
-		$sharebox       = get_post_meta( $post->ID, 'penci_page_sharebox', true );
-		$rev_shortcode  = get_post_meta( $post->ID, 'penci_page_rev_shortcode', true );
-		$single_style   = get_post_meta( $post->ID, 'penci_single_style', true );
-		$hide_featuimg  = get_post_meta( $post->ID, 'penci_post_hide_featuimg', true );
+		$sidebar        = get_post_meta( $post->ID, 'goso_post_sidebar_display', true );
+		$slider         = get_post_meta( $post->ID, 'goso_page_slider', true );
+		$featured_boxes = get_post_meta( $post->ID, 'goso_page_display_featured_boxes', true );
+		$pagetitle      = get_post_meta( $post->ID, 'goso_page_display_title', true );
+		$breadcrumb     = get_post_meta( $post->ID, 'goso_page_breadcrumb', true );
+		$sharebox       = get_post_meta( $post->ID, 'goso_page_sharebox', true );
+		$rev_shortcode  = get_post_meta( $post->ID, 'goso_page_rev_shortcode', true );
+		$single_style   = get_post_meta( $post->ID, 'goso_single_style', true );
+		$hide_featuimg  = get_post_meta( $post->ID, 'goso_post_hide_featuimg', true );
 
-		$hide_header             = get_post_meta( $post->ID, 'penci_page_hide_header', true );
-		$hide_footer             = get_post_meta( $post->ID, 'penci_page_hide_footer', true );
-		$pfeatured_image_ratio   = get_post_meta( $post->ID, 'penci_pfeatured_image_ratio', true );
-		$penci_reading_time      = get_post_meta( $post->ID, 'penci_reading_time', true );
-		$enable_parallax         = get_post_meta( $post->ID, 'penci_enable_jarallax_single', true );
-		$penci_toc_enable       = get_post_meta( $post->ID, 'penci_toc_enable', true );
-		$page_sidebar            = get_post_meta( $post->ID, 'penci_sidebar_page_pos', true );
-		$headerbd_layout         = get_post_meta( $post->ID, 'penci_header_builder_layout', true );
-		$footerbd_layout         = get_post_meta( $post->ID, 'penci_footer_builder_layout', true );
-		$singlebd_layout         = get_post_meta( $post->ID, 'penci_single_builder_layout', true );
-		$penci_post_critical_css = get_post_meta( $post->ID, 'penci_post_critical_css', true );
+		$hide_header             = get_post_meta( $post->ID, 'goso_page_hide_header', true );
+		$hide_footer             = get_post_meta( $post->ID, 'goso_page_hide_footer', true );
+		$pfeatured_image_ratio   = get_post_meta( $post->ID, 'goso_pfeatured_image_ratio', true );
+		$goso_reading_time      = get_post_meta( $post->ID, 'goso_reading_time', true );
+		$enable_parallax         = get_post_meta( $post->ID, 'goso_enable_jarallax_single', true );
+		$goso_toc_enable       = get_post_meta( $post->ID, 'goso_toc_enable', true );
+		$page_sidebar            = get_post_meta( $post->ID, 'goso_sidebar_page_pos', true );
+		$headerbd_layout         = get_post_meta( $post->ID, 'goso_header_builder_layout', true );
+		$footerbd_layout         = get_post_meta( $post->ID, 'goso_footer_builder_layout', true );
+		$singlebd_layout         = get_post_meta( $post->ID, 'goso_single_builder_layout', true );
+		$goso_post_critical_css = get_post_meta( $post->ID, 'goso_post_critical_css', true );
 
 
-		$post_type_allow = penci_post_types_allow_meta_boxes();
+		$post_type_allow = goso_post_types_allow_meta_boxes();
 		$post_type       = get_post_type( $post->ID );
 		// Display the form, using the current value.
 
@@ -381,7 +381,7 @@ class Goso_Add_Custom_Metabox_Class {
 		$single_layout[''] = esc_attr__( 'Default Customizer Settings' );
 
 		$header_layouts = get_posts( [
-			'post_type'      => 'penci_builder',
+			'post_type'      => 'goso_builder',
 			'posts_per_page' => - 1,
 		] );
 		foreach ( $header_layouts as $header ) {
@@ -389,7 +389,7 @@ class Goso_Add_Custom_Metabox_Class {
 		}
 
 		$footer_layouts = get_posts( [
-			'post_type'      => 'penci-block',
+			'post_type'      => 'goso-block',
 			'posts_per_page' => - 1,
 		] );
 		foreach ( $footer_layouts as $footer ) {
@@ -415,7 +415,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_page_slider_field" name="penci_page_slider_field">
+                        <select id="goso_page_slider_field" name="goso_page_slider_field">
                             <option value="">None</option>
                             <option value="style-1" <?php selected( $slider, 'style-1' ); ?>>Posts Featured Slider Style
                                 1
@@ -543,7 +543,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <textarea style="width: 100%; height: 50px;"
-                              name="penci_page_rev_shortcode"><?php if ( $rev_shortcode ): echo $rev_shortcode; endif; ?></textarea>
+                              name="goso_page_rev_shortcode"><?php if ( $rev_shortcode ): echo $rev_shortcode; endif; ?></textarea>
                 </div>
             </div>
             <div class="pcmt-control-wrapper">
@@ -552,7 +552,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_display_featured_boxes" name="penci_page_display_featured_boxes">
+                        <select id="goso_page_display_featured_boxes" name="goso_page_display_featured_boxes">
                             <option value="">No</option>
                             <option value="yes" <?php selected( $featured_boxes, 'yes' ); ?>>Yes</option>
                         </select>
@@ -566,7 +566,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_display_title_field" name="penci_page_display_title_field">
+                        <select id="goso_page_display_title_field" name="goso_page_display_title_field">
                             <option value="">Default</option>
                             <option value="yes" <?php selected( $pagetitle, 'no' ); ?>>Yes</option>
                             <option value="no" <?php selected( $pagetitle, 'no' ); ?>>No</option>
@@ -582,7 +582,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_breadcrumb_field" name="penci_page_breadcrumb_field">
+                        <select id="goso_page_breadcrumb_field" name="goso_page_breadcrumb_field">
                             <option value="">Yes</option>
                             <option value="no" <?php selected( $breadcrumb, 'no' ); ?>>No</option>
                         </select>
@@ -596,7 +596,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_sharebox_field" name="penci_page_sharebox_field">
+                        <select id="goso_page_sharebox_field" name="goso_page_sharebox_field">
                             <option value="">Yes</option>
                             <option value="no" <?php selected( $sharebox, 'no' ); ?>>No</option>
                         </select>
@@ -611,7 +611,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_hide_header_field" name="penci_page_hide_header_field">
+                        <select id="goso_page_hide_header_field" name="goso_page_hide_header_field">
                             <option value="">No</option>
                             <option value="yes" <?php selected( $hide_header, 'yes' ); ?>>Yes</option>
                         </select>
@@ -625,7 +625,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control select-button-type">
                     <p>
-                        <select id="penci_page_hide_footer_field" name="penci_page_hide_footer_field">
+                        <select id="goso_page_hide_footer_field" name="goso_page_hide_footer_field">
                             <option value="">No</option>
                             <option value="yes" <?php selected( $hide_footer, 'yes' ); ?>>Yes</option>
                         </select>
@@ -640,7 +640,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_sidebar_page_pos" name="penci_sidebar_page_pos">
+                        <select id="goso_sidebar_page_pos" name="goso_sidebar_page_pos">
                             <option value=""><?php esc_html_e( "Default", "authow" ); ?></option>
                             <option value="left-sidebar" <?php selected( $page_sidebar, 'left-sidebar' ); ?>><?php esc_html_e( "Left Sidebar", "authow" ); ?></option>
                             <option value="right-sidebar" <?php selected( $page_sidebar, 'right-sidebar' ); ?>><?php esc_html_e( "Right Sidebar", "authow" ); ?></option>
@@ -665,7 +665,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_post_hide_featuimg" name="penci_post_hide_featuimg">
+                        <select id="goso_post_hide_featuimg" name="goso_post_hide_featuimg">
                             <option value="">Default ( follow Customize )</option>
                             <option value="no" <?php selected( $hide_featuimg, 'no' ); ?>>No, Show Featured Image
                             </option>
@@ -684,9 +684,9 @@ class Goso_Add_Custom_Metabox_Class {
                             General Settings > Set A Default Reading Time Value</strong></p>
                 </div>
                 <div class="pcmt-control">
-                    <p><input placeholder="Enter the custom post reading time" id="penci_reading_time"
-                              name="penci_reading_time" type="text"
-                              value="<?php echo esc_attr( $penci_reading_time ); ?>"></p>
+                    <p><input placeholder="Enter the custom post reading time" id="goso_reading_time"
+                              name="goso_reading_time" type="text"
+                              value="<?php echo esc_attr( $goso_reading_time ); ?>"></p>
                 </div>
             </div>
             <div class="pcmt-control-wrapper">
@@ -695,7 +695,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_post_sidebar_display" name="penci_post_sidebar_display">
+                        <select id="goso_post_sidebar_display" name="goso_post_sidebar_display">
                             <option value="">Default Value ( on Customize )</option>
                             <option value="left" <?php selected( $sidebar, 'left' ); ?>>Left Sidebar</option>
                             <option value="right" <?php selected( $sidebar, 'right' ); ?>>Right Sidebar</option>
@@ -716,7 +716,7 @@ class Goso_Add_Custom_Metabox_Class {
             </div>
             <div class="pcmt-control">
                 <p>
-                    <select id="penci_custom_sidebar_page_field" name="penci_custom_sidebar_page_field">
+                    <select id="goso_custom_sidebar_page_field" name="goso_custom_sidebar_page_field">
                         <option value=""><?php esc_html_e( "Default Sidebar( on Customize )", "authow" ); ?></option>
                         <option value="main-sidebar" <?php selected( $value, 'main-sidebar' ); ?>><?php esc_html_e( "Main Sidebar", "authow" ); ?></option>
                         <option value="main-sidebar-left" <?php selected( $value, 'main-sidebar-left' ); ?>><?php esc_html_e( "Main Sidebar Left", "authow" ); ?></option>
@@ -743,7 +743,7 @@ class Goso_Add_Custom_Metabox_Class {
             </div>
             <div class="pcmt-control">
                 <p>
-                    <select id="penci_custom_sidebar_left_page_field" name="penci_custom_sidebar_left_page_field">
+                    <select id="goso_custom_sidebar_left_page_field" name="goso_custom_sidebar_left_page_field">
                         <option value=""><?php esc_html_e( "Default Sidebar( on Customize )", "authow" ); ?></option>
                         <option value="main-sidebar" <?php selected( $value_left, 'main-sidebar' ); ?>><?php esc_html_e( "Main Sidebar", "authow" ); ?></option>
                         <option value="main-sidebar-left" <?php selected( $value_left, 'main-sidebar-left' ); ?>><?php esc_html_e( "Main Sidebar Left", "authow" ); ?></option>
@@ -771,7 +771,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_single_style" name="penci_single_style">
+                        <select id="goso_single_style" name="goso_single_style">
                             <option value=""><?php esc_html_e( "Default Style( on Customize )", "authow" ); ?></option>
                             <option value="style-1" <?php selected( $single_style, 'style-1' ); ?>><?php esc_html_e( "Style 1", "authow" ); ?></option>
                             <option value="style-2" <?php selected( $single_style, 'style-2' ); ?>><?php esc_html_e( "Style 2", "authow" ); ?></option>
@@ -797,7 +797,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p><input placeholder="Enter the custom aspect ratio here"
-                              id="_customize-input-penci_pfeatured_image_ratio" name="penci_pfeatured_image_ratio"
+                              id="_customize-input-goso_pfeatured_image_ratio" name="goso_pfeatured_image_ratio"
                               type="text" value="<?php echo esc_attr( $pfeatured_image_ratio ); ?>"></p>
                 </div>
             </div>
@@ -809,7 +809,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_enable_jarallax_single" name="penci_enable_jarallax_single">
+                        <select id="goso_enable_jarallax_single" name="goso_enable_jarallax_single">
                             <option value="">No</option>
                             <option value="yes" <?php selected( $enable_parallax, 'yes' ); ?>>Yes</option>
                         </select>
@@ -822,7 +822,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_single_builder_layout" name="penci_single_builder_layout">
+                        <select id="goso_single_builder_layout" name="goso_single_builder_layout">
 							<?php foreach ( $single_layout as $single_slug => $single_name ) { ?>
                                 <option value="<?php echo $single_slug; ?>" <?php selected( $single_slug, $singlebd_layout ); ?>><?php echo $single_name; ?></option>
 							<?php } ?>
@@ -837,7 +837,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_header_builder_layout" name="penci_header_builder_layout">
+                        <select id="goso_header_builder_layout" name="goso_header_builder_layout">
 							<?php foreach ( $header_layout as $header_slug => $header_name ) { ?>
                                 <option value="<?php echo $header_slug; ?>" <?php selected( $header_slug, $headerbd_layout ); ?>><?php echo $header_name; ?></option>
 							<?php } ?>
@@ -852,7 +852,7 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_footer_builder_layout" name="penci_footer_builder_layout">
+                        <select id="goso_footer_builder_layout" name="goso_footer_builder_layout">
 							<?php foreach ( $footer_layout as $footer_slug => $footer_name ) { ?>
                                 <option value="<?php echo $footer_slug; ?>" <?php selected( $footer_slug, $footerbd_layout ); ?>><?php echo $footer_name; ?></option>
 							<?php } ?>
@@ -867,15 +867,15 @@ class Goso_Add_Custom_Metabox_Class {
                 </div>
                 <div class="pcmt-control">
                     <p>
-                        <select id="penci_toc_enable" name="penci_toc_enable">
+                        <select id="goso_toc_enable" name="goso_toc_enable">
                             <option value="">Default Customizer Settings</option>
-                            <option value="yes" <?php selected( $penci_toc_enable, 'yes' ); ?>>Yes</option>
-                            <option value="no" <?php selected( $penci_toc_enable, 'no' ); ?>>No</option>
+                            <option value="yes" <?php selected( $goso_toc_enable, 'yes' ); ?>>Yes</option>
+                            <option value="no" <?php selected( $goso_toc_enable, 'no' ); ?>>No</option>
                         </select>
                     </p>
                 </div>
             </div>
-			<?php if ( get_theme_mod( 'penci_speed_remove_css' ) ): ?>
+			<?php if ( get_theme_mod( 'goso_speed_remove_css' ) ): ?>
                 <div class="pcmt-control-wrapper">
                     <div class="pcmt-title">
                         <h2 style="font-weight: 600; font-size: 14px; padding-left: 0;">Create a Separate Critical CSS
@@ -883,9 +883,9 @@ class Goso_Add_Custom_Metabox_Class {
                     </div>
                     <div class="pcmt-control">
                         <p>
-                            <select id="penci_post_critical_css" name="penci_post_critical_css">
+                            <select id="goso_post_critical_css" name="goso_post_critical_css">
                                 <option value="">No</option>
-                                <option value="yes" <?php selected( $penci_post_critical_css, 'yes' ); ?>>Yes</option>
+                                <option value="yes" <?php selected( $goso_post_critical_css, 'yes' ); ?>>Yes</option>
                             </select>
                         </p>
                     </div>

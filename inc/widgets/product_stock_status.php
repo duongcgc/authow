@@ -4,9 +4,9 @@ if ( ! class_exists( 'Goso_Stock_Status' ) ) {
 		function __construct() {
 
 			$args = array(
-				'label'       => penci_get_theme_name('.Authow',true).esc_html__( 'Stock status', 'authow' ),
+				'label'       => goso_get_theme_name('.Authow',true).esc_html__( 'Stock status', 'authow' ),
 				'description' => esc_html__( 'Filter stock and on-sale products', 'authow' ),
-				'slug'        => 'penci-widget-stock-status',
+				'slug'        => 'goso-widget-stock-status',
 			);
 
 			$args['fields'] = array(
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Goso_Stock_Status' ) ) {
 		}
 
 		function get_link( $status ) {
-			$base_link            = penci_shop_page_link( true );
+			$base_link            = goso_shop_page_link( true );
 			$link                 = remove_query_arg( 'stock_status', $base_link );
 			$current_stock_status = isset( $_GET['stock_status'] ) ? explode( ',', $_GET['stock_status'] ) : array();
 			$option_is_set        = in_array( $status, $current_stock_status );

@@ -7,14 +7,14 @@
  * @since 1.0
  */
 
-add_action( 'widgets_init', 'penci_slider_posts_news_load_widget' );
+add_action( 'widgets_init', 'goso_slider_posts_news_load_widget' );
 
-function penci_slider_posts_news_load_widget() {
-	register_widget( 'penci_slider_posts_news_widget' );
+function goso_slider_posts_news_load_widget() {
+	register_widget( 'goso_slider_posts_news_widget' );
 }
 
-if ( ! class_exists( 'penci_slider_posts_news_widget' ) ) {
-	class penci_slider_posts_news_widget extends WP_Widget {
+if ( ! class_exists( 'goso_slider_posts_news_widget' ) ) {
+	class goso_slider_posts_news_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,18 +22,18 @@ if ( ! class_exists( 'penci_slider_posts_news_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_slider_posts_news_widget',
+				'classname'   => 'goso_slider_posts_news_widget',
 				'description' => esc_html__( 'A widget that displays your latest/popular posts from all categories or a category with a slider', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_slider_posts_news_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_slider_posts_news_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_slider_posts_news_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Posts Slider', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_slider_posts_news_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Posts Slider', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_slider_posts_news_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Posts Slider', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_slider_posts_news_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Posts Slider', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -100,13 +100,13 @@ if ( ! class_exists( 'penci_slider_posts_news_widget' ) ) {
 			}
 
 			if ( 'popular' == $orderby ) {
-				$query['meta_key'] = penci_get_postviews_key();
+				$query['meta_key'] = goso_get_postviews_key();
 				$query['orderby']  = 'meta_value_num';
 			} elseif ( 'popular7' == $orderby ) {
-				$query['meta_key'] = 'penci_post_week_views_count';
+				$query['meta_key'] = 'goso_post_week_views_count';
 				$query['orderby']  = 'meta_value_num';
 			} elseif ( 'popular_month' == $orderby ) {
-				$query['meta_key'] = 'penci_post_month_views_count';
+				$query['meta_key'] = 'goso_post_month_views_count';
 				$query['orderby']  = 'meta_value_num';
 			} else {
 				if ( $orderby ) {
@@ -160,42 +160,42 @@ if ( ! class_exists( 'penci_slider_posts_news_widget' ) ) {
 					echo ent2ncr( $before_title ) . $title . ent2ncr( $after_title );
 				}
 				?>
-                <div id="penci-postslidewg-<?php echo sanitize_text_field( $rand ); ?>"
-                     class="penci-owl-carousel penci-owl-carousel-slider penci-widget-slider penci-post-slider-<?php echo $style; ?>"
+                <div id="goso-postslidewg-<?php echo sanitize_text_field( $rand ); ?>"
+                     class="goso-owl-carousel goso-owl-carousel-slider goso-widget-slider goso-post-slider-<?php echo $style; ?>"
                      data-lazy="true" data-auto="<?php echo $autoplaydata; ?>">
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                        <div class="penci-slide-widget">
-                            <div class="penci-slide-content">
+                        <div class="goso-slide-widget">
+                            <div class="goso-slide-content">
 								<?php if ( $style != 'style-3' ) { ?>
-									<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                                        <span class="penci-image-holder <?php echo penci_classes_slider_lazy(); ?>"
-                                              data-bgset="<?php echo penci_image_srcset( get_the_ID(), penci_featured_images_size() ); ?>"
+									<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                                        <span class="goso-image-holder <?php echo goso_classes_slider_lazy(); ?>"
+                                              data-bgset="<?php echo goso_image_srcset( get_the_ID(), goso_featured_images_size() ); ?>"
                                               title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></span>
 									<?php } else { ?>
-                                        <span class="penci-image-holder"
-                                              style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), penci_featured_images_size() ); ?>');"
+                                        <span class="goso-image-holder"
+                                              style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), goso_featured_images_size() ); ?>');"
                                               title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></span>
 									<?php } ?>
-                                    <a href="<?php the_permalink() ?>" class="penci-widget-slider-overlay"
+                                    <a href="<?php the_permalink() ?>" class="goso-widget-slider-overlay"
                                        title="<?php the_title(); ?>"></a>
 								<?php } else { ?>
-									<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                                        <a href="<?php the_permalink() ?>" class="penci-image-holder penci-lazy"
-                                           data-bgset="<?php echo penci_image_srcset( get_the_ID(), penci_featured_images_size() ); ?>"
+									<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                                        <a href="<?php the_permalink() ?>" class="goso-image-holder goso-lazy"
+                                           data-bgset="<?php echo goso_image_srcset( get_the_ID(), goso_featured_images_size() ); ?>"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } else { ?>
-                                        <a href="<?php the_permalink() ?>" class="penci-image-holder"
-                                           style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), penci_featured_images_size() ); ?>')"
+                                        <a href="<?php the_permalink() ?>" class="goso-image-holder"
+                                           style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), goso_featured_images_size() ); ?>')"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } ?>
 								<?php } ?>
-                                <div class="penci-widget-slide-detail">
+                                <div class="goso-widget-slide-detail">
                                     <h4>
                                         <a href="<?php the_permalink() ?>" rel="bookmark"
                                            title="<?php the_title(); ?>"><?php echo sanitize_text_field( wp_trim_words( get_the_title(), 8, '...' ) ); ?></a>
                                     </h4>
 									<?php if ( ! $date ): ?>
-                                        <span class="slide-item-date"><?php penci_authow_time_link(); ?></span>
+                                        <span class="slide-item-date"><?php goso_authow_time_link(); ?></span>
 									<?php endif; ?>
                                 </div>
                             </div>
@@ -209,18 +209,18 @@ if ( ! class_exists( 'penci_slider_posts_news_widget' ) ) {
 
 			$attrstyle = '';
 			if ( $ptfs ) {
-				$attrstyle .= '#penci-postslidewg-' . $rand . ' .penci-widget-slide-detail h4 a{ font-size: ' . $ptfs . 'px; }';
+				$attrstyle .= '#goso-postslidewg-' . $rand . ' .goso-widget-slide-detail h4 a{ font-size: ' . $ptfs . 'px; }';
 			}
 			if ( $pmfs ) {
-				$attrstyle .= '#penci-postslidewg-' . $rand . ' .penci-widget-slide-detail .slide-item-date{ font-size: ' . $pmfs . 'px; }';
+				$attrstyle .= '#goso-postslidewg-' . $rand . ' .goso-widget-slide-detail .slide-item-date{ font-size: ' . $pmfs . 'px; }';
 			}
 
 			if ( $image_type == 'horizontal' ) {
-				$attrstyle .= '#penci-postslidewg-' . sanitize_text_field( $rand ) . ' .penci-image-holder:before{ padding-top: 66.6667%; }';
+				$attrstyle .= '#goso-postslidewg-' . sanitize_text_field( $rand ) . ' .goso-image-holder:before{ padding-top: 66.6667%; }';
 			} elseif ( $image_type == 'square' ) {
-				$attrstyle .= '#penci-postslidewg-' . sanitize_text_field( $rand ) . ' .penci-image-holder:before{ padding-top: 100%; }';
+				$attrstyle .= '#goso-postslidewg-' . sanitize_text_field( $rand ) . ' .goso-image-holder:before{ padding-top: 100%; }';
 			} elseif ( $image_type == 'vertical' ) {
-				$attrstyle .= '#penci-postslidewg-' . sanitize_text_field( $rand ) . ' .penci-image-holder:before{ padding-top: 135.4%; }';
+				$attrstyle .= '#goso-postslidewg-' . sanitize_text_field( $rand ) . ' .goso-image-holder:before{ padding-top: 135.4%; }';
 			}
 
 			if ( $attrstyle ) {

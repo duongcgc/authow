@@ -7,10 +7,10 @@ class Authow_Social_Counter extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'   => 'penci_social_counter',
+			'classname'   => 'goso_social_counter',
 			'description' => 'Show social counter data.',
 		);
-		parent::__construct( 'penci_social_counter', penci_get_theme_name( '.Authow', true ) . 'Social Counter', $widget_ops );
+		parent::__construct( 'goso_social_counter', goso_get_theme_name( '.Authow', true ) . 'Social Counter', $widget_ops );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_footer-widgets.php', array( $this, 'print_scripts' ), 9999 );
 	}
@@ -53,7 +53,7 @@ class Authow_Social_Counter extends WP_Widget {
 		$id                     = wp_rand( 0, 9999999 );
 
 		echo '<style>';
-		$id_social_counter = '.widget.penci_social_counter #penci-sct-' . $id;
+		$id_social_counter = '.widget.goso_social_counter #goso-sct-' . $id;
 		if ( $counter_item_icon_size ) {
 			echo $id_social_counter . ' .pcsoc-icon i{font-size:' . $counter_item_icon_size . 'px}';
 			echo $id_social_counter . ' .pcsoc-icon pcsocs-s3 i{line-height:' . $counter_item_icon_size . 'px}';
@@ -154,7 +154,7 @@ class Authow_Social_Counter extends WP_Widget {
 		}
 
 		?>
-        <div class="pcsoc-wrapper-outside" id="<?php echo 'penci-sct-' . $id; ?>">
+        <div class="pcsoc-wrapper-outside" id="<?php echo 'goso-sct-' . $id; ?>">
             <div class="<?php echo $wrapper_class; ?>">
 				<?php
 				$socials = array(
@@ -204,7 +204,7 @@ class Authow_Social_Counter extends WP_Widget {
                         <a class="pcsoc-item pcsoci-<?php echo $social . $brand_class; ?><?php if ( ! $count ) {
 							echo ' empty-count';
 						} ?>" href="<?php echo esc_url( $social_url ); ?>"
-                           target="_blank" <?php echo penci_reltag_social_icons(); ?>>
+                           target="_blank" <?php echo goso_reltag_social_icons(); ?>>
                             <span class="pcsoc-icon pcsoci-<?php echo $social . $brand_class_icon; ?>"><?php echo $social_icon; ?></span>
 							<?php if ( $count && 'yes' != $hide_count ) { ?>
                                 <span class="pcsoc-counter"><?php echo $count; ?></span>
@@ -262,12 +262,12 @@ class Authow_Social_Counter extends WP_Widget {
 		$fansize                = ! empty( $instance['fansize'] ) ? $instance['fansize'] : '';
 		?>
 
-        <div class="penci-social-widget-tabs">
+        <div class="goso-social-widget-tabs">
             <p><strong>Note Important</strong>: You need to setup data for socials sharing on <a
-                        href="<?php echo esc_url( admin_url( 'admin.php?page=penci_social_counter_settings' ) ); ?>"
+                        href="<?php echo esc_url( admin_url( 'admin.php?page=goso_social_counter_settings' ) ); ?>"
                         target="_blank">this page</a> to get the counter number work.</p>
             <div class="tabs-stage">
-                <div id="pc_general_social" class="penci-social-tab tab-active">
+                <div id="pc_general_social" class="goso-social-tab tab-active">
                     <p class="widget-title-settings">
                         <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'authow' ); ?></label>
                         <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
@@ -381,7 +381,7 @@ class Authow_Social_Counter extends WP_Widget {
                                value="<?php echo $verspace; ?>">
                     </p>
                 </div>
-                <div id="pc_profile_social" class="penci-social-tab">
+                <div id="pc_profile_social" class="goso-social-tab">
 					<?php
 					foreach ( $social_lists as $social => $social_info ) {
 						$checked = isset( $instance[ $social ] ) ? (bool) $instance[ $social ] : false;
@@ -399,7 +399,7 @@ class Authow_Social_Counter extends WP_Widget {
 					}
 					?>
                 </div>
-                <div id="pc_color_social" class="penci-social-tab">
+                <div id="pc_color_social" class="goso-social-tab">
 
                     <p class="widget-title-settings">
                         <label for="<?php echo $this->get_field_id( 'counter_item_icon_size' ); ?>"
@@ -635,8 +635,8 @@ class Authow_Social_Counter extends WP_Widget {
 }
 
 // register widget
-function penci_register_social_counter_widget() {
+function goso_register_social_counter_widget() {
 	register_widget( 'Authow_Social_Counter' );
 }
 
-add_action( 'widgets_init', 'penci_register_social_counter_widget' );
+add_action( 'widgets_init', 'goso_register_social_counter_widget' );

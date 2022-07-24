@@ -8,9 +8,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Dribbble_API' ) ):
 
 			$page_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = "https://dribbble.com/$page_id";
-			$data['icon'] = penci_icon_by_ver( 'fab fa-dribbble' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-dribbble' );
 
-			$count = penci_get_social_counter_option( 'dribbble_default' );
+			$count = goso_get_social_counter_option( 'dribbble_default' );
 
 			$data['count'] = $count ? $count : 0;
 

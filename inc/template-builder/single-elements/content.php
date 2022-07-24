@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSingleContent extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'penci-single-content';
+		return 'goso-single-content';
 	}
 
 	public function get_title() {
@@ -19,7 +19,7 @@ class GosoSingleContent extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -124,7 +124,7 @@ class GosoSingleContent extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -137,9 +137,9 @@ class GosoSingleContent extends \Elementor\Widget_Base {
 		$block_style = $settings['block_style'];
 		?>
         <div class="post-entry <?php echo 'blockquote-' . $block_style; ?>">
-            <div class="inner-post-entry entry-content" id="penci-post-entry-inner">
+            <div class="inner-post-entry entry-content" id="goso-post-entry-inner">
 
-				<?php do_action( 'penci_action_before_the_content' ); ?>
+				<?php do_action( 'goso_action_before_the_content' ); ?>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolor expedita reiciendis veniam
                     voluptatum? Inventore labore quia quisquam repudiandae rerum unde. Accusantium consectetur
@@ -155,9 +155,9 @@ class GosoSingleContent extends \Elementor\Widget_Base {
                     voluptatum? Inventore labore quia quisquam repudiandae rerum unde. Accusantium consectetur
                     distinctio eius esse, necessitatibus quos sint tempore.</p>
 
-				<?php do_action( 'penci_action_after_the_content' ); ?>
+				<?php do_action( 'goso_action_after_the_content' ); ?>
 
-                <div class="penci-single-link-pages">
+                <div class="goso-single-link-pages">
 					<?php wp_link_pages(); ?>
                 </div>
             </div>
@@ -170,15 +170,15 @@ class GosoSingleContent extends \Elementor\Widget_Base {
 		$block_style = $settings['block_style'];
 		?>
         <div class="post-entry <?php echo 'blockquote-' . $block_style; ?>">
-            <div class="inner-post-entry entry-content" id="penci-post-entry-inner">
+            <div class="inner-post-entry entry-content" id="goso-post-entry-inner">
 
-				<?php do_action( 'penci_action_before_the_content' ); ?>
+				<?php do_action( 'goso_action_before_the_content' ); ?>
 
 				<?php the_content(); ?>
 
-				<?php do_action( 'penci_action_after_the_content' ); ?>
+				<?php do_action( 'goso_action_after_the_content' ); ?>
 
-                <div class="penci-single-link-pages">
+                <div class="goso-single-link-pages">
 					<?php wp_link_pages(); ?>
                 </div>
             </div>

@@ -15,7 +15,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-single-sub-title';
+		return 'goso-single-sub-title';
 	}
 
 	protected function register_controls() {
@@ -70,7 +70,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 				),
 			),
 			'toggle'    => true,
-			'selectors' => [ '{{WRAPPER}} .penci-psub-title' => 'text-align:{{VALUE}}' ],
+			'selectors' => [ '{{WRAPPER}} .goso-psub-title' => 'text-align:{{VALUE}}' ],
 		] );
 
 		$this->end_controls_section();
@@ -83,13 +83,13 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 		$this->add_group_control( \Elementor\Group_Control_Typography::get_type(), array(
 			'name'     => 'heading_typo',
 			'label'    => __( 'Typography for Post Sub Title', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-psub-title',
+			'selector' => '{{WRAPPER}} .goso-psub-title',
 		) );
 
 		$this->add_control( 'main-text-color', [
 			'label'     => 'Post Sub Title Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-psub-title' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-psub-title' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->add_control( 'main-text-gcolor-enable', [
@@ -101,7 +101,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 			'name'      => 'main-text-gcolor',
 			'label'     => __( 'Gradient Color', 'authow' ),
 			'types'     => array( 'gradient' ),
-			'selector'  => '{{WRAPPER}} .penci-psub-title span',
+			'selector'  => '{{WRAPPER}} .goso-psub-title span',
 			'condition' => [ 'main-text-gcolor-enable' => 'yes' ]
 		) );
 
@@ -109,14 +109,14 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 			'label'     => 'Use Inline Background Color?',
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'selectors' => [
-				'{{WRAPPER}} .penci-psub-title' => 'background-color:var(--pcaccent-cl);display:inline;box-decoration-break: clone;padding: 3px 8px;',
+				'{{WRAPPER}} .goso-psub-title' => 'background-color:var(--pcaccent-cl);display:inline;box-decoration-break: clone;padding: 3px 8px;',
 			],
 		] );
 
 		$this->add_control( 'main-text-inlinecolor', [
 			'label'     => 'Inline Background Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-psub-title' => 'background-color:{{VALUE}}' ],
+			'selectors' => [ '{{WRAPPER}} .goso-psub-title' => 'background-color:{{VALUE}}' ],
 			'condition' => [ 'main-text-inlinecolor-e' => 'yes' ]
 		] );
 
@@ -125,7 +125,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 			'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => [ 'px' ],
 			'selectors'  => [
-				'{{WRAPPER}} .penci-psub-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-psub-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			],
 			'condition'  => [ 'main-text-inlinecolor-e' => 'yes' ]
 		] );
@@ -136,7 +136,7 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -148,16 +148,16 @@ class GosoSingleSubtitle extends \Elementor\Widget_Base {
 		$settings    = $this->get_settings_for_display();
 		$heading_tag = $settings['heading_markup'];
 		$class       = $settings['main-text-gcolor-enable'] ? ' gradient-enable' : '';
-		echo '<' . $heading_tag . ' class="penci-psub-title' . $class . '"><span>Sub Title Heading of The Post</span></' . $heading_tag . '>';
+		echo '<' . $heading_tag . ' class="goso-psub-title' . $class . '"><span>Sub Title Heading of The Post</span></' . $heading_tag . '>';
 	}
 
 	protected function builder_content() {
 		$settings    = $this->get_settings_for_display();
 		$heading_tag = $settings['heading_markup'];
 		$class       = $settings['main-text-gcolor-enable'] ? ' gradient-enable' : '';
-		$sub_title   = get_post_meta( get_the_ID(), 'penci_post_sub_title', true );
+		$sub_title   = get_post_meta( get_the_ID(), 'goso_post_sub_title', true );
 		if ( $sub_title ) {
-			echo '<' . $heading_tag . ' class="penci-psub-title' . $class . '"><span>' . $sub_title . '</span></' . $heading_tag . '>';
+			echo '<' . $heading_tag . ' class="goso-psub-title' . $class . '"><span>' . $sub_title . '</span></' . $heading_tag . '>';
 		}
 	}
 }

@@ -8,7 +8,7 @@ class Goso_Weather {
 
 	public static function get_appid() {
 
-		$api_key = get_theme_mod( 'penci_api_weather_key' );
+		$api_key = get_theme_mod( 'goso_api_weather_key' );
 
 		if( ! $api_key ) {
 			$api_key = self::$default_api_keys;
@@ -71,17 +71,17 @@ class Goso_Weather {
 		}
 
 		// TRANSIENT NAME
-		$weather_transient_name = 'penci_' . sanitize_title( $atts['location'] ) . strtolower( $atts['units'] ) . '_' . $atts['locale'];
+		$weather_transient_name = 'goso_' . sanitize_title( $atts['location'] ) . strtolower( $atts['units'] ) . '_' . $atts['locale'];
 
-		if ( isset( $_GET['penci_clear_weather_data'] ) ) {
+		if ( isset( $_GET['goso_clear_weather_data'] ) ) {
 			delete_transient( $weather_transient_name );
 		}
 
 		$api_key     = self::get_appid();
-		$api_key_old = get_theme_mod( 'penci_api_weather_key_old' );
+		$api_key_old = get_theme_mod( 'goso_api_weather_key_old' );
 
 		if( $api_key && $api_key != $api_key_old ) {
-			set_theme_mod( 'penci_api_weather_key_old', $api_key );
+			set_theme_mod( 'goso_api_weather_key_old', $api_key );
 		}
 		delete_transient( $weather_transient_name );
 		if ( get_transient( $weather_transient_name ) && $api_key == $api_key_old ) {
@@ -244,7 +244,7 @@ class Goso_Weather {
 			return;
 		}
 
-		return "<div class='penci-weather-error'>" . $msg . "</div>";
+		return "<div class='goso-weather-error'>" . $msg . "</div>";
 	}
 
 	/**
@@ -307,13 +307,13 @@ class Goso_Weather {
 
 		?>
 		<div class="topbar-item topbar-weather">
-			<i class="penci-weather-icons wi <?php echo $today_icon; ?>"></i>
-			<div class="penci-weather-now">
-				<span class="penci-weather-degrees"><?php echo ( $today_temp == '-0' ? 0: $today_temp ); ?></span>
-				<span class="penci-weather-unit"><?php echo $temp_label; ?></span>
+			<i class="goso-weather-icons wi <?php echo $today_icon; ?>"></i>
+			<div class="goso-weather-now">
+				<span class="goso-weather-degrees"><?php echo ( $today_temp == '-0' ? 0: $today_temp ); ?></span>
+				<span class="goso-weather-unit"><?php echo $temp_label; ?></span>
 			</div>
-			<div class="penci-weather-location">
-				<div class="penci-weather-city"><?php echo $api_location; ?></div>
+			<div class="goso-weather-location">
+				<div class="goso-weather-city"><?php echo $api_location; ?></div>
 			</div>
 		</div>
 		<?php
@@ -333,7 +333,7 @@ class Goso_Weather {
 		$forecast_list  = isset( $forecast['list'] ) & is_array( $weather_data['forecast'] ) ? $forecast['list'] : array();
 
 		if( ! $forecast_list ) {
-			$weather_transient_name = 'penci_' . sanitize_title( $atts['location'] ) . strtolower( $atts['units'] ) . '_' . ( $atts['locale'] ? $atts['locale'] : 'en' );
+			$weather_transient_name = 'goso_' . sanitize_title( $atts['location'] ) . strtolower( $atts['units'] ) . '_' . ( $atts['locale'] ? $atts['locale'] : 'en' );
 			delete_transient( $weather_transient_name );
 			return;
 		}
@@ -342,15 +342,15 @@ class Goso_Weather {
 		$days_to_show = (int) $atts['forecast_days'];
 		$dt_today = date( 'Ymd', current_time( 'timestamp', 0 ) );
 
-		if( function_exists( 'penci_get_tran_setting' ) ) {
+		if( function_exists( 'goso_get_tran_setting' ) ) {
 			$days_of_week = array(
-				penci_get_tran_setting( 'penci_weather_sun_text' ),
-				penci_get_tran_setting( 'penci_weather_mon_text' ),
-				penci_get_tran_setting( 'penci_weather_tue_text' ),
-				penci_get_tran_setting( 'penci_weather_wed_text' ),
-				penci_get_tran_setting( 'penci_weather_thu_text' ),
-				penci_get_tran_setting( 'penci_weather_fri_text' ),
-				penci_get_tran_setting( 'penci_weather_sat_text' ),
+				goso_get_tran_setting( 'goso_weather_sun_text' ),
+				goso_get_tran_setting( 'goso_weather_mon_text' ),
+				goso_get_tran_setting( 'goso_weather_tue_text' ),
+				goso_get_tran_setting( 'goso_weather_wed_text' ),
+				goso_get_tran_setting( 'goso_weather_thu_text' ),
+				goso_get_tran_setting( 'goso_weather_fri_text' ),
+				goso_get_tran_setting( 'goso_weather_sat_text' ),
 			);
 		}else{
 			$days_of_week =  array(
@@ -375,68 +375,68 @@ class Goso_Weather {
 
 		$units_display_symbol = '&deg;';
 
-		$output = '<div class="penci-weather-widget">';
+		$output = '<div class="goso-weather-widget">';
 
 		$api_location = self::get_location_show( $atts , $weather_data );
 
 
 		if ( $api_location ) {
-			$output .= '<div class="penci-weather-header">';
-			$output .= '<div class="penci-weather-city">' . $api_location . '</div>';
+			$output .= '<div class="goso-weather-header">';
+			$output .= '<div class="goso-weather-city">' . $api_location . '</div>';
 
 			if( isset($weather_data['today_icon_text']) ) {
-				$output .= '<div class="penci-weather-condition">' . $weather_data['today_icon_text'] . '</div>';
+				$output .= '<div class="goso-weather-condition">' . $weather_data['today_icon_text'] . '</div>';
 			}
 			$output .= '</div>';
 		}
 
-		$output.= '<div class="penci-weather-information">';
+		$output.= '<div class="goso-weather-information">';
 
 
 		if( isset($weather_data['today_humidity']) ) {
-			$output .= '<div class="penci-weather-section penci_humidty"><i class="wi wi-humidity"></i>' . $weather_data['today_humidity'] . '%</div>';
+			$output .= '<div class="goso-weather-section goso_humidty"><i class="wi wi-humidity"></i>' . $weather_data['today_humidity'] . '%</div>';
 		}
 		if( $wind_speed && $wind_speed_text ) {
-			$output .= '<div class="penci-weather-section penci_wind"><i class="wi wi-windy"></i>' . $wind_speed . $wind_speed_text. '</div>';
+			$output .= '<div class="goso-weather-section goso_wind"><i class="wi wi-windy"></i>' . $wind_speed . $wind_speed_text. '</div>';
 		}
 
 		if( $today_clouds ) {
-			$output .= '<div class="penci-weather-section penci_clouds">' . penci_icon_by_ver('fas fa-cloud') . $today_clouds. '</div>';
+			$output .= '<div class="goso-weather-section goso_clouds">' . goso_icon_by_ver('fas fa-cloud') . $today_clouds. '</div>';
 		}
 
 
 		$output .= '</div>';
 
 
-		$output .= '<div class="penci-weather-degrees-wrap">';
+		$output .= '<div class="goso-weather-degrees-wrap">';
 
 		if( isset( $weather_data['today_icon'] ) ) {
-			$output .= '<div class="penci-weather-animated-icon"><i class="wi ' . $weather_data['today_icon'] . '"></i></div>';
+			$output .= '<div class="goso-weather-animated-icon"><i class="wi ' . $weather_data['today_icon'] . '"></i></div>';
 		}
 
 
-		$output .= '<div class="penci-weather-now">';
-		$output .= '<span class="penci-big-degrees">' . $today_temp . '</span>';
-		$output .= '<span class="penci-circle">' . $units_display_symbol .'</span>';
-		$output .= '<span class="penci-weather-unit">' . $today_temp_label . '</span>';
+		$output .= '<div class="goso-weather-now">';
+		$output .= '<span class="goso-big-degrees">' . $today_temp . '</span>';
+		$output .= '<span class="goso-circle">' . $units_display_symbol .'</span>';
+		$output .= '<span class="goso-weather-unit">' . $today_temp_label . '</span>';
 		$output .= '</div>';
 
-		$output .= '<div class="penci-weather-lo-hi">';
-		$output .= '<div class="penci-weather-lo-hi__content">';
-		$output .=  penci_icon_by_ver('fas fa-angle-double-up');
-		$output .= '<span class="penci-small-degrees penci-w-high-temp">' . $today_high . '</span>';
-		$output .= '<span class="penci-circle">' . $units_display_symbol .'</span>';
+		$output .= '<div class="goso-weather-lo-hi">';
+		$output .= '<div class="goso-weather-lo-hi__content">';
+		$output .=  goso_icon_by_ver('fas fa-angle-double-up');
+		$output .= '<span class="goso-small-degrees goso-w-high-temp">' . $today_high . '</span>';
+		$output .= '<span class="goso-circle">' . $units_display_symbol .'</span>';
 		$output .= '</div>';
-		$output .= '<div class="penci-weather-lo-hi__content">';
-		$output .=  penci_icon_by_ver('fas fa-angle-double-down');
-		$output .= '<span class="penci-small-degrees penci-w-low-temp">' . $today_low . '</span>';
-		$output .= '<span class="penci-circle">' . $units_display_symbol .'</span>';
+		$output .= '<div class="goso-weather-lo-hi__content">';
+		$output .=  goso_icon_by_ver('fas fa-angle-double-down');
+		$output .= '<span class="goso-small-degrees goso-w-low-temp">' . $today_low . '</span>';
+		$output .= '<span class="goso-circle">' . $units_display_symbol .'</span>';
 		$output .= '</div>';
 		$output .= '</div>';
 		$output .= '</div>';
 
 
-		$output .= "<div class=\"penci-weather-week penci_days_{$days_to_show} \">";
+		$output .= "<div class=\"goso-weather-week goso_days_{$days_to_show} \">";
 		$day = 1;
 
 		$term_arr = array();
@@ -461,9 +461,9 @@ class Goso_Weather {
 				$day_of_week = isset( $days_of_week[ date('w', $forecast_dt) ] ) ? $days_of_week[ date('w', $forecast_dt) ] : date_i18n('D', $forecast_dt);
 
 				$output .= "
-						<div class='penci-weather-days'>
-							<div class='penci-day-degrees'><span class='penci-degrees'>{$forecast_main_temp}</span><span class='circle'>{$units_display_symbol}</span></div>
-							<div class='penci-day'>{$day_of_week}</div>
+						<div class='goso-weather-days'>
+							<div class='goso-day-degrees'><span class='goso-degrees'>{$forecast_main_temp}</span><span class='circle'>{$units_display_symbol}</span></div>
+							<div class='goso-day'>{$day_of_week}</div>
 						</div>";
 
 				if ( $day == $days_to_show ) {

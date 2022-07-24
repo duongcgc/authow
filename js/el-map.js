@@ -10,7 +10,7 @@ window.onload = function () {
     ];
 
     var triggerListener = function (e) {
-        jQuery(window).trigger('penciEventStarted');
+        jQuery(window).trigger('gosoEventStarted');
         removeListener();
     };
 
@@ -65,29 +65,29 @@ window.onload = function () {
             }
 
             if ('button' === data.init_type) {
-                $map.find('.penci-init-map').on('click', function (e) {
+                $map.find('.goso-init-map').on('click', function (e) {
                     e.preventDefault();
 
-                    if ($map.hasClass('penci-map-inited')) {
+                    if ($map.hasClass('goso-map-inited')) {
                         return;
                     }
 
-                    $map.addClass('penci-map-inited');
+                    $map.addClass('goso-map-inited');
                     new Maplace(config).Load();
                 });
             } else if ('scroll' === data.init_type) {
                 $(window).on('scroll', function () {
                     if (window.innerHeight + $(window).scrollTop() + parseInt(data.init_offset) > $map.offset().top) {
-                        if ($map.hasClass('penci-map-inited')) {
+                        if ($map.hasClass('goso-map-inited')) {
                             return;
                         }
 
-                        $map.addClass('penci-map-inited');
+                        $map.addClass('goso-map-inited');
                         new Maplace(config).Load();
                     }
                 });
             } else if ('interaction' === data.init_type) {
-                $(window).on('penciEventStarted', function () {
+                $(window).on('gosoEventStarted', function () {
                     new Maplace(config).Load();
                 });
             } else {
@@ -99,7 +99,7 @@ window.onload = function () {
 
         $(window).on('resize', function () {
             $gmap.css({
-                'height': $gmap.find('.penci-google-map.with-content').outerHeight()
+                'height': $gmap.find('.goso-google-map.with-content').outerHeight()
             });
         });
     };
@@ -111,7 +111,7 @@ window.onload = function () {
     $( window ).on( 'elementor/frontend/init', function() {
         if ( window.elementorFrontend ) {
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-map.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-map.default', function ($scope) {
                 PENCI.googleMapInit();
             });
         }

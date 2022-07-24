@@ -15,7 +15,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-single-post-pagination';
+		return 'goso-single-post-pagination';
 	}
 
 	protected function register_controls() {
@@ -37,22 +37,22 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
-		$this->add_control( 'penci_post_nav_thumbnail', [
+		$this->add_control( 'goso_post_nav_thumbnail', [
 			'label'   => esc_html__( 'Show Post Navigation Thumbnail?', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::SWITCHER,
 			'default' => '',
 		] );
 
-		$this->add_control( 'penci_trans_previous_post', [
+		$this->add_control( 'goso_trans_previous_post', [
 			'label'   => esc_html__( 'Text: Previous Post', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
-			'default' => penci_get_setting( 'penci_trans_previous_post' ),
+			'default' => goso_get_setting( 'goso_trans_previous_post' ),
 		] );
 
-		$this->add_control( 'penci_trans_next_post', [
+		$this->add_control( 'goso_trans_next_post', [
 			'label'   => esc_html__( 'Text: Next Post', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
-			'default' => penci_get_setting( 'penci_trans_next_post' ),
+			'default' => goso_get_setting( 'goso_trans_next_post' ),
 		] );
 
 		$this->end_controls_section();
@@ -60,7 +60,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'image_setup', [
 			'label'     => esc_html__( 'Thumbnail Settings', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_post_nav_thumbnail' => 'yes' ],
+			'condition' => [ 'goso_post_nav_thumbnail' => 'yes' ],
 		] );
 		$this->add_control( 'thumb_size', array(
 			'label'   => __( 'Custom Image Size', 'authow' ),
@@ -73,8 +73,8 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 			'type'        => \Elementor\Controls_Manager::SLIDER,
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
 			'selectors'   => array(
-				'{{WRAPPER}} .penci-post-nav-thumb:before' => 'padding-top: {{SIZE}}%; content: ""; display: block;',
-				'{{WRAPPER}} .penci-post-nav-thumb'        => 'height: auto;',
+				'{{WRAPPER}} .goso-post-nav-thumb:before' => 'padding-top: {{SIZE}}%; content: ""; display: block;',
+				'{{WRAPPER}} .goso-post-nav-thumb'        => 'height: auto;',
 			),
 			'render_type' => 'template'
 		) );
@@ -82,13 +82,13 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 			'label'     => __( 'Thumbnail Width', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-post-nav-thumb' => 'width: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} .goso-post-nav-thumb' => 'width: {{SIZE}}px;' ),
 		) );
 		$this->add_responsive_control( 'thumb_br', array(
 			'label'     => __( 'Thumbnail Borders Radius', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-post-nav-thumb' => 'border-radius: {{SIZE}}px' ),
+			'selectors' => array( '{{WRAPPER}} .goso-post-nav-thumb' => 'border-radius: {{SIZE}}px' ),
 		) );
 		$this->end_controls_section();
 
@@ -240,7 +240,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -257,14 +257,14 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
         <div class="post-pagination <?php echo $class; ?>">
 
             <div class="prev-post prvn-item">
-				<?php if ( $settings['penci_post_nav_thumbnail'] ): ?>
-					<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                        <a class="penci-post-nav-thumb penci-image-holder penci-holder-load penci-lazy"
+				<?php if ( $settings['goso_post_nav_thumbnail'] ): ?>
+					<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                        <a class="goso-post-nav-thumb goso-image-holder goso-holder-load goso-lazy"
                            href="#"
                            data-bgset="<?php echo get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=' . $width . '&h=' . $height; ?>">
                         </a>
 					<?php } else { ?>
-                        <a class="penci-post-nav-thumb penci-image-holder"
+                        <a class="goso-post-nav-thumb goso-image-holder"
                            href="#"
                            style="background-image: url('<?php echo get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=' . $width . '&h=' . $height; ?>');">
                         </a>
@@ -272,7 +272,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 				<?php endif; ?>
                 <div class="prev-post-inner">
                     <div class="prev-post-title">
-                        <span><?php echo $settings['penci_trans_previous_post']; ?></span>
+                        <span><?php echo $settings['goso_trans_previous_post']; ?></span>
                     </div>
                     <a href="#">
                         <div class="pagi-text">
@@ -283,14 +283,14 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
             </div>
 
             <div class="next-post prvn-item">
-				<?php if ( $settings['penci_post_nav_thumbnail'] ): ?>
-					<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                        <a class="penci-post-nav-thumb nav-thumb-next penci-image-holder penci-holder-load penci-lazy"
+				<?php if ( $settings['goso_post_nav_thumbnail'] ): ?>
+					<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                        <a class="goso-post-nav-thumb nav-thumb-next goso-image-holder goso-holder-load goso-lazy"
                            href="#"
                            data-bgset="<?php echo get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=' . $width . '&h=' . $height; ?>">
                         </a>
 					<?php } else { ?>
-                        <a class="penci-post-nav-thumb nav-thumb-next"
+                        <a class="goso-post-nav-thumb nav-thumb-next"
                            href="#"
                            style="background-image: url('<?php echo get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=' . $width . '&h=' . $height; ?>');">
                         </a>
@@ -298,7 +298,7 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 				<?php endif; ?>
                 <div class="next-post-inner">
                     <div class="prev-post-title next-post-title">
-                        <span><?php echo $settings['penci_trans_next_post']; ?></span>
+                        <span><?php echo $settings['goso_trans_next_post']; ?></span>
                     </div>
                     <a href="#">
                         <div class="pagi-text">
@@ -322,22 +322,22 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 			?>
 			<?php if ( ! empty( $prev_post ) ) : ?>
                 <div class="prev-post prvn-item">
-					<?php if ( has_post_thumbnail( $prev_post->ID ) && 'yes' == $settings['penci_post_nav_thumbnail'] ): ?>
-						<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                            <a class="penci-post-nav-thumb penci-holder-load penci-lazy"
+					<?php if ( has_post_thumbnail( $prev_post->ID ) && 'yes' == $settings['goso_post_nav_thumbnail'] ): ?>
+						<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                            <a class="goso-post-nav-thumb goso-holder-load goso-lazy"
                                href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>"
-                               data-bgset="<?php echo penci_image_srcset( $prev_post->ID, $thumbsize ); ?>">
+                               data-bgset="<?php echo goso_image_srcset( $prev_post->ID, $thumbsize ); ?>">
                             </a>
 						<?php } else { ?>
-                            <a class="penci-post-nav-thumb"
+                            <a class="goso-post-nav-thumb"
                                href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>"
-                               style="background-image: url('<?php echo penci_get_featured_image_size( $prev_post->ID, $thumbsize ); ?>');">
+                               style="background-image: url('<?php echo goso_get_featured_image_size( $prev_post->ID, $thumbsize ); ?>');">
                             </a>
 						<?php } ?>
 					<?php endif; ?>
                     <div class="prev-post-inner">
                         <div class="prev-post-title">
-                            <span><?php echo penci_get_setting( 'penci_trans_previous_post' ); ?></span>
+                            <span><?php echo goso_get_setting( 'goso_trans_previous_post' ); ?></span>
                         </div>
                         <a href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>">
                             <div class="pagi-text">
@@ -350,22 +350,22 @@ class GosoSinglePostpagination extends \Elementor\Widget_Base {
 
 			<?php if ( ! empty( $next_post ) ) : ?>
                 <div class="next-post prvn-item">
-					<?php if ( has_post_thumbnail( $next_post->ID ) && 'yes' == $settings['penci_post_nav_thumbnail'] ): ?>
-						<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                            <a class="penci-post-nav-thumb penci-holder-load penci-lazy nav-thumb-next"
+					<?php if ( has_post_thumbnail( $next_post->ID ) && 'yes' == $settings['goso_post_nav_thumbnail'] ): ?>
+						<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                            <a class="goso-post-nav-thumb goso-holder-load goso-lazy nav-thumb-next"
                                href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>"
-                               data-bgset="<?php echo penci_image_srcset( $next_post->ID, $thumbsize ); ?>">
+                               data-bgset="<?php echo goso_image_srcset( $next_post->ID, $thumbsize ); ?>">
                             </a>
 						<?php } else { ?>
-                            <a class="penci-post-nav-thumb nav-thumb-next"
+                            <a class="goso-post-nav-thumb nav-thumb-next"
                                href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>"
-                               style="background-image: url('<?php echo penci_get_featured_image_size( $next_post->ID, $thumbsize ); ?>');">
+                               style="background-image: url('<?php echo goso_get_featured_image_size( $next_post->ID, $thumbsize ); ?>');">
                             </a>
 						<?php } ?>
 					<?php endif; ?>
                     <div class="next-post-inner">
                         <div class="prev-post-title next-post-title">
-                            <span><?php echo penci_get_setting( 'penci_trans_next_post' ); ?></span>
+                            <span><?php echo goso_get_setting( 'goso_trans_next_post' ); ?></span>
                         </div>
                         <a href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>">
                             <div class="pagi-text">

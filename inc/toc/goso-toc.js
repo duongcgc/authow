@@ -1,21 +1,21 @@
 jQuery(document).ready(function ($) {
 
-    function penci_init_toc() {
+    function goso_init_toc() {
 
         if (typeof GosoTOC != 'undefined') {
 
             $('article.post').each(function () {
                 var $post = $(this),
-                    $sticky = $post.find('.penci-toc-container-wrapper'),
+                    $sticky = $post.find('.goso-toc-container-wrapper'),
                     $stickyrStopper = $post.find('.post-entry'),
                     $stickC = $sticky.clone();
 
 
-                $stickC.addClass('penci-sticky-toc');
-                $stickC.find('.penci-toc-container')
-                    .attr('id', 'penci-toc-sticky-container')
+                $stickC.addClass('goso-sticky-toc');
+                $stickC.find('.goso-toc-container')
+                    .attr('id', 'goso-toc-sticky-container')
                     .addClass('hide-table');
-                $stickC.find('a.penci-toc-toggle').addClass('sticky-toggle');
+                $stickC.find('a.goso-toc-toggle').addClass('sticky-toggle');
                 $stickyrStopper.append($stickC);
 
                 if (!!$sticky.offset()) { // make sure ".sticky" element exists
@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
 
             if (1 === smoothScroll) {
 
-                $('a.penci-toc-link').off().on('click', function () {
+                $('a.goso-toc-link').off().on('click', function () {
 
                     var self = $(this);
 
@@ -97,8 +97,8 @@ jQuery(document).ready(function ($) {
                         target = $(this).attr('href');
 
                         var parentClass;
-                        if ($('.penci-single-infiscroll').length) {
-                            parentClass = $(this).closest('.penci-single-block').find('#main article').attr('id');
+                        if ($('.goso-single-infiscroll').length) {
+                            parentClass = $(this).closest('.goso-single-block').find('#main article').attr('id');
                         }
 
                         if (typeof parentClass !== 'undefined' && parentClass !== false) {
@@ -154,13 +154,13 @@ jQuery(document).ready(function ($) {
                 $('article.post').each(function () {
 
                     var post = $(this),
-                        toc = post.find('.penci-toc-container-wrapper:not(.penci-sticky-toc) ul.penci-toc-list'),
-                        toggle = post.find('a.penci-toc-toggle:not(.sticky-toggle)'),
-                        wrapper = post.find('.penci-toc-container-wrapper:not(.penci-sticky-toc) .penci-toc-wrapper'),
-                        swrapper = post.find('.penci-sticky-toc .penci-toc-wrapper'),
-                        mswrapper = post.find('.penci-sticky-toc'),
-                        stoggle = post.find('.penci-sticky-toc a.sticky-toggle'),
-                        stoc = post.find('.penci-sticky-toc ul.penci-toc-list'),
+                        toc = post.find('.goso-toc-container-wrapper:not(.goso-sticky-toc) ul.goso-toc-list'),
+                        toggle = post.find('a.goso-toc-toggle:not(.sticky-toggle)'),
+                        wrapper = post.find('.goso-toc-container-wrapper:not(.goso-sticky-toc) .goso-toc-wrapper'),
+                        swrapper = post.find('.goso-sticky-toc .goso-toc-wrapper'),
+                        mswrapper = post.find('.goso-sticky-toc'),
+                        stoggle = post.find('.goso-sticky-toc a.sticky-toggle'),
+                        stoc = post.find('.goso-sticky-toc ul.goso-toc-list'),
                         invert = GosoTOC.visibility_hide_by_default;
 
                     toggle.css('display', 'inline');
@@ -168,7 +168,7 @@ jQuery(document).ready(function ($) {
 
                     if (Cookies) {
 
-                        Cookies.get('penciTOC_hidetoc') == 1 ? toggle.data('visible', false) : toggle.data('visible', true);
+                        Cookies.get('gosoTOC_hidetoc') == 1 ? toggle.data('visible', false) : toggle.data('visible', true);
 
                     } else {
 
@@ -197,9 +197,9 @@ jQuery(document).ready(function ($) {
                             if (Cookies) {
 
                                 if (invert)
-                                    Cookies.set('penciTOC_hidetoc', null, {path: '/'});
+                                    Cookies.set('gosoTOC_hidetoc', null, {path: '/'});
                                 else
-                                    Cookies.set('penciTOC_hidetoc', '1', {expires: 30, path: '/'});
+                                    Cookies.set('gosoTOC_hidetoc', '1', {expires: 30, path: '/'});
                             }
 
                             toc.hide('fast');
@@ -212,9 +212,9 @@ jQuery(document).ready(function ($) {
                             if (Cookies) {
 
                                 if (invert)
-                                    Cookies.set('penciTOC_hidetoc', '1', {expires: 30, path: '/'});
+                                    Cookies.set('gosoTOC_hidetoc', '1', {expires: 30, path: '/'});
                                 else
-                                    Cookies.set('penciTOC_hidetoc', null, {path: '/'});
+                                    Cookies.set('gosoTOC_hidetoc', null, {path: '/'});
                             }
 
                             toc.show('fast');
@@ -246,11 +246,11 @@ jQuery(document).ready(function ($) {
             }
 
             // ======================================
-            // Set active heading in penci-toc-widget list
+            // Set active heading in goso-toc-widget list
             // ======================================
 
             var getGosoTocListElementLinkByHeading = function (heading) {
-                return $('.penci-sticky-toc .penci-toc-list a[href="#' + $(heading).attr('id') + '"]');
+                return $('.goso-sticky-toc .goso-toc-list a[href="#' + $(heading).attr('id') + '"]');
             }
 
             var getHeadingToListElementLinkMap = function (headings) {
@@ -260,7 +260,7 @@ jQuery(document).ready(function ($) {
                 }, {});
             }
 
-            var headings = $('span.penci-toc-section').toArray();
+            var headings = $('span.goso-toc-section').toArray();
             var headingToListElementLinkMap = getHeadingToListElementLinkMap(headings);
             var listElementLinks = $.map(headingToListElementLinkMap, function (value, key) {
                 return value
@@ -283,7 +283,7 @@ jQuery(document).ready(function ($) {
             var scrollOffset = getScrollOffset();
 
             var activateSetActiveGosoTocListElement = function () {
-                if (headings.length > 0 && $('.penci-sticky-toc').length) {
+                if (headings.length > 0 && $('.goso-sticky-toc').length) {
                     $(window).on('load resize scroll', setActiveGosoTocListElement);
                 }
             }
@@ -336,9 +336,9 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    penci_init_toc();
+    goso_init_toc();
 
     $('body').on('single_loaded_more', function () {
-        penci_init_toc();
+        goso_init_toc();
     });
 });

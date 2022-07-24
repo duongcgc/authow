@@ -15,7 +15,7 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-custom-archive-builder' ];
+		return [ 'goso-custom-archive-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-archive-description';
+		return 'goso-archive-description';
 	}
 
 	protected function register_controls() {
@@ -56,7 +56,7 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 				),
 			),
 			'toggle'    => true,
-			'selectors' => [ '{{WRAPPER}} .penci-category-description.post-entry' => 'text-align:{{VALUE}}' ],
+			'selectors' => [ '{{WRAPPER}} .goso-category-description.post-entry' => 'text-align:{{VALUE}}' ],
 		] );
 
 		$this->end_controls_section();
@@ -69,25 +69,25 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 		$this->add_group_control( \Elementor\Group_Control_Typography::get_type(), array(
 			'name'     => 'desc_typo',
 			'label'    => __( 'Typography for Archive Description', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-archive-description.post-entry',
+			'selector' => '{{WRAPPER}} .goso-archive-description.post-entry',
 		) );
 
 		$this->add_control( 'text-color', [
 			'label'     => 'Text Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-archive-description.post-entry' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-archive-description.post-entry' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->add_control( 'main-text-color', [
 			'label'     => 'Link Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-archive-description.post-entry a' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-archive-description.post-entry a' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->add_control( 'main-text-hcolor', [
 			'label'     => 'Link Hover Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-archive-description.post-entry a:hover' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-archive-description.post-entry a:hover' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->end_controls_section();
@@ -96,7 +96,7 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -106,7 +106,7 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 
 	protected function preview_content() {
 		?>
-        <div class="post-entry penci-category-description penci-archive-description">
+        <div class="post-entry goso-category-description goso-archive-description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequuntur eius iste mollitia quo
                 veritatis, voluptatum. Atque culpa deleniti eligendi est explicabo modi officia optio porro reiciendis
                 tempore, ut voluptas!</p>
@@ -116,11 +116,11 @@ class GosoArchiveDescription extends \Elementor\Widget_Base {
 
 	protected function builder_content() {
 		if ( is_tag() && tag_description() ) {
-			echo '<div class="penci-archive-description penci-tag-description">' . do_shortcode( tag_description() ) . '</div>';
+			echo '<div class="goso-archive-description goso-tag-description">' . do_shortcode( tag_description() ) . '</div>';
 		} elseif ( is_category() && category_description() ) {
-			echo '<div class="penci-archive-description penci-category-description">' . do_shortcode( category_description() ) . '</div>';
+			echo '<div class="goso-archive-description goso-category-description">' . do_shortcode( category_description() ) . '</div>';
 		} elseif ( is_archive() ) {
-			the_archive_description( '<div class="post-entry penci-category-description penci-archive-description penci-acdes-below">', '</div>' );
+			the_archive_description( '<div class="post-entry goso-category-description goso-archive-description goso-acdes-below">', '</div>' );
 		}
 	}
 }

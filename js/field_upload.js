@@ -1,10 +1,10 @@
-/*global jQuery, document, penci_upload, formfield:true, preview:true, tb_show, window, imgurl:true, tb_remove, $relid:true*/
+/*global jQuery, document, goso_upload, formfield:true, preview:true, tb_show, window, imgurl:true, tb_remove, $relid:true*/
 /*
 This is the uploader for wordpress starting from version 3.5
 */
 jQuery(document).ready(function(){
 
-            jQuery(".penci-opts-upload").on( 'click', function( event ) {
+            jQuery(".goso-opts-upload").on( 'click', function( event ) {
                 var activeFileUploadContext = jQuery(this).parent();
                 var relid = jQuery(this).attr('rel-id');
 				var $that = jQuery(this);
@@ -42,12 +42,12 @@ jQuery(document).ready(function(){
                     var attachment = custom_file_frame.state().get("selection").first();
 
                     // Update value of the targetfield input with the attachment url.
-                    jQuery('.penci-opts-screenshot',activeFileUploadContext).attr('src', attachment.attributes.url);
+                    jQuery('.goso-opts-screenshot',activeFileUploadContext).attr('src', attachment.attributes.url);
                     jQuery('#' + relid ).val(attachment.attributes.url).trigger('change');
 
-                    jQuery('.penci-opts-upload',activeFileUploadContext).hide();
-                    jQuery('.penci-opts-screenshot',activeFileUploadContext).show();
-                    jQuery('.penci-opts-upload-remove',activeFileUploadContext).show();
+                    jQuery('.goso-opts-upload',activeFileUploadContext).hide();
+                    jQuery('.goso-opts-screenshot',activeFileUploadContext).show();
+                    jQuery('.goso-opts-upload-remove',activeFileUploadContext).show();
                     
                     toggleParallaxOption();
                    
@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
             custom_file_frame.open();
         });
 
-    jQuery(".penci-opts-upload-remove").on( 'click', function( event ) {
+    jQuery(".goso-opts-upload-remove").on( 'click', function( event ) {
         var activeFileUploadContext = jQuery(this).parent();
         var relid = jQuery(this).attr('rel-id');
 
@@ -64,14 +64,14 @@ jQuery(document).ready(function(){
 
         jQuery('#' + relid).val('');
         jQuery(this).prev().fadeIn('slow');
-        jQuery('.penci-opts-screenshot',activeFileUploadContext).fadeOut('slow');
+        jQuery('.goso-opts-screenshot',activeFileUploadContext).fadeOut('slow');
         jQuery(this).fadeOut('slow');
         
         toggleParallaxOption();
     });
 
 	//media upload
-	jQuery(".penci-opts-media-upload").on( 'click', function( event ) {
+	jQuery(".goso-opts-media-upload").on( 'click', function( event ) {
                 var activeFileUploadContext = jQuery(this).parent();
                 var relid = jQuery(this).attr('rel-id');
 
@@ -112,14 +112,14 @@ jQuery(document).ready(function(){
 
 				    jQuery('#_nectar_video_embed').trigger('keyup');
 				    
-                    jQuery('.penci-opts-media-upload',activeFileUploadContext).hide();
-                    jQuery('.penci-opts-upload-media-remove',activeFileUploadContext).show();
+                    jQuery('.goso-opts-media-upload',activeFileUploadContext).hide();
+                    jQuery('.goso-opts-upload-media-remove',activeFileUploadContext).show();
             });
 
             custom_file_frame.open();
         });
 
-    jQuery(".penci-opts-upload-media-remove").on( 'click', function( event ) {
+    jQuery(".goso-opts-upload-media-remove").on( 'click', function( event ) {
         var activeFileUploadContext = jQuery(this).parent();
         var relid = jQuery(this).attr('rel-id');
 
@@ -127,7 +127,7 @@ jQuery(document).ready(function(){
 
         jQuery('#' + relid).val('');
         jQuery(this).prev().fadeIn('slow');
-        jQuery('.penci-opts-screenshot',activeFileUploadContext).fadeOut('slow');
+        jQuery('.goso-opts-screenshot',activeFileUploadContext).fadeOut('slow');
         jQuery(this).fadeOut('slow');
     });
     

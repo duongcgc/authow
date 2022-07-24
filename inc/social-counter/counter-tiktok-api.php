@@ -10,10 +10,10 @@ if ( ! class_exists( 'Goso_Social_Counter_Tiktok_API' ) ):
 			}
 
 			$user_id      = preg_replace( '/\s+/', '', $data['name'] );
-			$data['icon'] = penci_icon_by_ver( 'penciicon-tik-tok-1' );
+			$data['icon'] = goso_icon_by_ver( 'gosoicon-tik-tok-1' );
 
-			$cache_key     = 'penci_counter_tiktok' . $user_id;
-			$default_count = penci_get_social_counter_option( 'tiktok_default' );
+			$cache_key     = 'goso_counter_tiktok' . $user_id;
+			$default_count = goso_get_social_counter_option( 'tiktok_default' );
 			$tiktok_count  = $default_count ? $default_count : get_transient( $cache_key );
 			$data['url']   = "https://www.tiktok.com/@$user_id";
 

@@ -1,23 +1,23 @@
 <?php
-add_filter( 'penci_the_excerpt', 'wptexturize' );
-add_filter( 'penci_the_excerpt', 'convert_smilies' );
-add_filter( 'penci_the_excerpt', 'convert_chars' );
-add_filter( 'penci_the_excerpt', 'wpautop' );
-add_filter( 'penci_the_excerpt', 'shortcode_unautop' );
+add_filter( 'goso_the_excerpt', 'wptexturize' );
+add_filter( 'goso_the_excerpt', 'convert_smilies' );
+add_filter( 'goso_the_excerpt', 'convert_chars' );
+add_filter( 'goso_the_excerpt', 'wpautop' );
+add_filter( 'goso_the_excerpt', 'shortcode_unautop' );
 
 /**
  * Display the post excerpt.
  */
-if ( ! function_exists( 'penci_the_excerpt' ) ):
-	function penci_the_excerpt( $length = 25 ) {
-		echo apply_filters( 'penci_the_excerpt', penci_get_the_excerpt( null, $length ) );
+if ( ! function_exists( 'goso_the_excerpt' ) ):
+	function goso_the_excerpt( $length = 25 ) {
+		echo apply_filters( 'goso_the_excerpt', goso_get_the_excerpt( null, $length ) );
 	}
 endif;
 /**
  * Retrieves the post excerpt.
  */
-if ( ! function_exists( 'penci_get_the_excerpt' ) ):
-	function penci_get_the_excerpt( $post = null, $length = 30 ) {
+if ( ! function_exists( 'goso_get_the_excerpt' ) ):
+	function goso_get_the_excerpt( $post = null, $length = 30 ) {
 		$post = get_post( $post );
 		if ( empty( $post ) ) {
 			return '';
@@ -27,7 +27,7 @@ if ( ! function_exists( 'penci_get_the_excerpt' ) ):
 			return __( 'There is no excerpt because this is a protected post.' );
 		}
 
-		return  penci_trim_excerpt( $post->post_excerpt, $length );
+		return  goso_trim_excerpt( $post->post_excerpt, $length );
 	}
 endif;
 
@@ -42,8 +42,8 @@ endif;
  *
  * @return string The excerpt.
  */
-if ( ! function_exists( 'penci_trim_excerpt' ) ):
-function penci_trim_excerpt( $text = '', $length = '' ) {
+if ( ! function_exists( 'goso_trim_excerpt' ) ):
+function goso_trim_excerpt( $text = '', $length = '' ) {
 	$raw_excerpt = $text;
 
 	if ( '' == $text ) {
@@ -64,7 +64,7 @@ function penci_trim_excerpt( $text = '', $length = '' ) {
 	}
 
 	if( $length ) {
-		if( get_theme_mod( 'penci_excerptcharac' ) ){
+		if( get_theme_mod( 'goso_excerptcharac' ) ){
 			$text = strip_tags( $text );
 			$text = html_entity_decode( $text );
 			$text = mb_substr( $text, 0, $length, "utf-8" ) . '...';
@@ -77,8 +77,8 @@ function penci_trim_excerpt( $text = '', $length = '' ) {
 }
 endif;
 
-add_filter( 'strip_shortcodes_tagnames', 'penci_update_strip_shortcodes_tagnames' );
-function penci_update_strip_shortcodes_tagnames( $tags ){
+add_filter( 'strip_shortcodes_tagnames', 'goso_update_strip_shortcodes_tagnames' );
+function goso_update_strip_shortcodes_tagnames( $tags ){
 	$tags_to_remove = array(
 		'vc_gutenberg',
 		'vc_row',
@@ -147,38 +147,38 @@ function penci_update_strip_shortcodes_tagnames( $tags ){
 		'vc_button2',
 		'vc_cta_button',
 		'vc_cta_button2',
-		'penci_about_me',
-		'penci_column',
-		'penci_column_inner',
-		'penci_container',
-		'penci_container_inner',
-		'penci_count_down',
-		'penci_counter_up',
-		'penci_custom_sliders',
-		'penci_facebook_page',
-		'penci_fancy_heading',
-		'penci_featured_slider',
-		'penci_google_map',
-		'penci_image_gallery',
-		'penci_info_box',
-		'penci_instagram',
-		'penci_latest_tweets',
-		'penci_login_form',
-		'penci_mailchimp',
-		'penci_open_hours',
-		'penci_pintersest',
-		'penci_popular_cat',
-		'penci_posts_slider',
-		'penci_pricing_table',
-		'penci_progress_bar',
-		'penci_recent_posts',
-		'penci_social_counter',
-		'penci_social_media',
-		'penci_team_member',
-		'penci_testimonails',
-		'penci_text_block',
-		'penci_video_playlist',
-		'penci_weather',
+		'goso_about_me',
+		'goso_column',
+		'goso_column_inner',
+		'goso_container',
+		'goso_container_inner',
+		'goso_count_down',
+		'goso_counter_up',
+		'goso_custom_sliders',
+		'goso_facebook_page',
+		'goso_fancy_heading',
+		'goso_featured_slider',
+		'goso_google_map',
+		'goso_image_gallery',
+		'goso_info_box',
+		'goso_instagram',
+		'goso_latest_tweets',
+		'goso_login_form',
+		'goso_mailchimp',
+		'goso_open_hours',
+		'goso_pintersest',
+		'goso_popular_cat',
+		'goso_posts_slider',
+		'goso_pricing_table',
+		'goso_progress_bar',
+		'goso_recent_posts',
+		'goso_social_counter',
+		'goso_social_media',
+		'goso_team_member',
+		'goso_testimonails',
+		'goso_text_block',
+		'goso_video_playlist',
+		'goso_weather',
 	);
 
 	return array_merge( $tags, $tags_to_remove );

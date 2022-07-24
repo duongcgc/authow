@@ -15,7 +15,7 @@ if ( ! class_exists( 'Goso_Widget_Sorting' ) ) {
 			// Configure widget array
 			$args = array(
 				// Widget Backend label
-				'label'       => penci_get_theme_name('.Authow',true).esc_html__( 'WooCommerce Sort by', 'authow' ),
+				'label'       => goso_get_theme_name('.Authow',true).esc_html__( 'WooCommerce Sort by', 'authow' ),
 				// Widget Backend Description
 				'description' => esc_html__( 'Sort products by name, price, popularity etc.', 'authow' ),
 				'slug'        => 'authow-woocommerce-sort-by',

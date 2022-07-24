@@ -1,13 +1,13 @@
 <?php
 
-add_action( 'widgets_init', 'penci_authors_list_load_widget' );
+add_action( 'widgets_init', 'goso_authors_list_load_widget' );
 
-function penci_authors_list_load_widget() {
-	register_widget( 'penci_authors_list_widget' );
+function goso_authors_list_load_widget() {
+	register_widget( 'goso_authors_list_widget' );
 }
 
-if ( ! class_exists( 'penci_authors_list_widget' ) ) {
-	class penci_authors_list_widget extends WP_Widget {
+if ( ! class_exists( 'goso_authors_list_widget' ) ) {
+	class goso_authors_list_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -15,18 +15,18 @@ if ( ! class_exists( 'penci_authors_list_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_authors_list_widget',
+				'classname'   => 'goso_authors_list_widget',
 				'description' => esc_html__( 'A widget that displays a list of site authors', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_authors_list_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_authors_list_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_authors_list_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Author List', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_authors_list_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Author List', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_authors_list_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Author List', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_authors_list_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Author List', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -70,7 +70,7 @@ if ( ! class_exists( 'penci_authors_list_widget' ) ) {
 						<?php foreach ( $users as $user ):
 							$total_post = count_user_posts( $user->ID );
 							$author_link = get_author_posts_url( $user->ID );
-							$text = $total_post > 1 ? penci_get_setting( 'penci_trans_posts' ) : penci_get_setting( 'penci_trans_post' );
+							$text = $total_post > 1 ? goso_get_setting( 'goso_trans_posts' ) : goso_get_setting( 'goso_trans_post' );
 							?>
                             <li>
 								<?php if ( $avatar ): ?>

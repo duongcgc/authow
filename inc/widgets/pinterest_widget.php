@@ -29,7 +29,7 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
 			}
 			
 			if( ! empty( $pins ) ) {
-				echo '<div class="penci-images-pin-widget">';
+				echo '<div class="goso-images-pin-widget">';
 				$i = 1;
 				foreach ( $pins as $pin ) {
 					if ( $numbers < $i ) {
@@ -44,9 +44,9 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
 					$pin_id = isset( $pin['id'] ) ? $pin['id'] : '';
 					$url    = 'https://www.pinterest.com/pin/' . $pin_id;
 					
-					$lazyhtml = '<span class="penci-image-holder rectangle-fix-size penci-lazy" data-bgset="' . esc_url( $image ) . '"></span>';
-					if( get_theme_mod( 'penci_disable_lazyload_layout' ) ) {
-						$lazyhtml = '<span class="penci-image-holder rectangle-fix-size" style="background-image: url(' . esc_url( $image ) . ');"></span>';
+					$lazyhtml = '<span class="goso-image-holder rectangle-fix-size goso-lazy" data-bgset="' . esc_url( $image ) . '"></span>';
+					if( get_theme_mod( 'goso_disable_lazyload_layout' ) ) {
+						$lazyhtml = '<span class="goso-image-holder rectangle-fix-size" style="background-image: url(' . esc_url( $image ) . ');"></span>';
 					}
 
 					echo '<a href="' . esc_url( $url ) . '" aria-label="Pinterest URL" rel="noopener" target="_blank">'. $lazyhtml .'</a>';
@@ -71,10 +71,10 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
     		        $feedurl = 'http://pinterest.com/'.$user_display_html.'/feed.rss';
     			}
 
-				$cache_key = 'penci_pinterest_feed_' . strtolower( $username ) . esc_attr( $numbers );
+				$cache_key = 'goso_pinterest_feed_' . strtolower( $username ) . esc_attr( $numbers );
 				$item_foreach_cache = get_transient( $cache_key );
 				
-				$remove_item_foreach_cache = isset( $_GET['penci_cache_feed'] ) ? true : false;
+				$remove_item_foreach_cache = isset( $_GET['goso_cache_feed'] ) ? true : false;
 
 				$item_foreach_pre = array();
 				if ( ! $item_foreach_cache || $remove_item_foreach_cache ) {
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
 
                 if( ! empty( $item_foreach_pre ) ){    
 				
-    				echo '<div class="penci-images-pin-widget">';
+    				echo '<div class="goso-images-pin-widget">';
     				$i = 1;
     				foreach ($item_foreach_pre as $item ) {
     					if ( $numbers < $i ) {
@@ -129,9 +129,9 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
     					$image_url = isset( $item['image_url'] ) ? $item['image_url'] : '';
     					$url =isset( $item['url'] ) ? $item['url'] : '';
 						
-						$lazyhtml = '<span class="penci-image-holder rectangle-fix-size penci-lazy" data-bgset="' . esc_url( $image_url ) . '"></span>';
-						if( get_theme_mod( 'penci_disable_lazyload_layout' ) ) {
-							$lazyhtml = '<span class="penci-image-holder rectangle-fix-size" style="background-image: url(' . esc_url( $image_url ) . ');"></span>';
+						$lazyhtml = '<span class="goso-image-holder rectangle-fix-size goso-lazy" data-bgset="' . esc_url( $image_url ) . '"></span>';
+						if( get_theme_mod( 'goso_disable_lazyload_layout' ) ) {
+							$lazyhtml = '<span class="goso-image-holder rectangle-fix-size" style="background-image: url(' . esc_url( $image_url ) . ');"></span>';
 						}
 
 						echo '<a href="' . esc_url( $url ) . '" aria-label="Pinterest URL" rel="noopener" target="_blank">'. $lazyhtml .'</a>';
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Goso_Pinterest' ) ):
 
 			$output = array();
 
-			$cache_key = 'penci_pinterest_' . strtolower( $username );
+			$cache_key = 'goso_pinterest_' . strtolower( $username );
 
 			$pinterest_cache = get_transient( $cache_key );
 
@@ -271,9 +271,9 @@ endif; /* End check if class exists */
  * @since 1.0
  */
 
-add_action( 'widgets_init', 'penci_register_pinterest_widget' );
+add_action( 'widgets_init', 'goso_register_pinterest_widget' );
 
-function penci_register_pinterest_widget() {
+function goso_register_pinterest_widget() {
 	register_widget( 'Goso_Pinterest_Widget' );
 }
 
@@ -283,20 +283,20 @@ if( ! class_exists( 'Goso_Pinterest_Widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_pinterest_widget',
+				'classname'   => 'goso_pinterest_widget',
 				'description' => esc_html__( 'A widget that display pinterest widget.', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_pinterest_widget' );
+			$control_ops = array( 'id_base' => 'goso_pinterest_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_pinterest_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Pinterest Widget', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_pinterest_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Pinterest Widget', 'authow' ), $widget_ops, $control_ops );
 			}
 			else {
-				parent::__construct( 'penci_pinterest_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Pinterest Widget', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_pinterest_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Pinterest Widget', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -314,7 +314,7 @@ if( ! class_exists( 'Goso_Pinterest_Widget' ) ) {
 			if ( $title ) {
 				echo( $before_title . $title . $after_title );
 			}
-			echo '<div class="penci-pinterest-widget-container">';
+			echo '<div class="goso-pinterest-widget-container">';
 
 			// Render the pinboard from the widget settings.
 			$pinboard = new Goso_Pinterest();

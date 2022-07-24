@@ -1,13 +1,13 @@
 <?php
 
-add_action( 'widgets_init', 'penci_snapchat_load_widget' );
+add_action( 'widgets_init', 'goso_snapchat_load_widget' );
 
-function penci_snapchat_load_widget() {
-	register_widget( 'penci_snapchat_widget' );
+function goso_snapchat_load_widget() {
+	register_widget( 'goso_snapchat_widget' );
 }
 
-if ( ! class_exists( 'penci_snapchat_widget' ) ) {
-	class penci_snapchat_widget extends WP_Widget {
+if ( ! class_exists( 'goso_snapchat_widget' ) ) {
+	class goso_snapchat_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -15,18 +15,18 @@ if ( ! class_exists( 'penci_snapchat_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_snapchat_widget',
+				'classname'   => 'goso_snapchat_widget',
 				'description' => esc_html__( 'A widget that displays the Snapchat account information.', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_snapchat_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_snapchat_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_snapchat_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Snapchat', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_snapchat_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Snapchat', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_snapchat_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Snapchat', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_snapchat_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Snapchat', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -63,8 +63,8 @@ if ( ! class_exists( 'penci_snapchat_widget' ) ) {
                 <div class="pc-snapchat-wrapper">
                     <a href="https://snapchat.com/add/<?php echo $userid ?>" rel="external noopener nofollow">
 						<span class="pc-snapchat-badge <?php echo $class ?>">
-                            <span class="pc-snapchat-badge-over penci-image-holder penci-lazy" <?php echo $bghtmlbg_src; ?>></span>
-                            <span class="pc-snapchat-avatar penci-image-holder penci-lazy" <?php echo $bghtml_src; ?> style="<?php echo $avatar_size; ?>"></span>
+                            <span class="pc-snapchat-badge-over goso-image-holder goso-lazy" <?php echo $bghtmlbg_src; ?>></span>
+                            <span class="pc-snapchat-avatar goso-image-holder goso-lazy" <?php echo $bghtml_src; ?> style="<?php echo $avatar_size; ?>"></span>
 						</span>
                         <span class="pc-snapchat-name"><?php echo $instance['username'] ?></span>
                         <span class="pc-snapchat-id">@<?php echo $userid ?></span>

@@ -119,13 +119,13 @@
         });
 
         // Go to top
-        $('.go-to-top, .penci-go-to-top-floating').on('click', function () {
+        $('.go-to-top, .goso-go-to-top-floating').on('click', function () {
             $('html, body').animate({scrollTop: 0}, 700);
             return false;
         });
 
         // Go to top button
-        var $goto_button = $('.penci-go-to-top-floating');
+        var $goto_button = $('.goso-go-to-top-floating');
         if ($goto_button.length) {
             $(document).on('scroll', $.debounce(200, function () {
                 var y = $(this).scrollTop();
@@ -144,7 +144,7 @@
             });
         });
 
-        var owlcarousel = $('.penci-owl-carousel-slider, .featured-area .penci-owl-featured-area');
+        var owlcarousel = $('.goso-owl-carousel-slider, .featured-area .goso-owl-featured-area');
         if (owlcarousel.length) {
             owlcarousel.on('mouseleave', function (e) {
                 var $this = $(this),
@@ -165,7 +165,7 @@
     PENCI.blockheadinglist = function () {
         $('.pcnav-lgroup').each(function () {
             var lgroup = $(this),
-                maintitle = $(this).closest('.penci-homepage-title'),
+                maintitle = $(this).closest('.goso-homepage-title'),
                 maintitlew = maintitle.width(),
                 mainwrap = lgroup.find('ul.pcflx'),
                 titlew = maintitle.find('.inner-arrow span').width(),
@@ -236,8 +236,8 @@
                     exspace,
                     dsharew = tag.find('.post-share-expand').outerWidth();
 
-                if (tag.find('.penci-social-share-text').length) {
-                    maxw = maxw - tag.find('.penci-social-share-text').outerWidth(true);
+                if (tag.find('.goso-social-share-text').length) {
+                    maxw = maxw - tag.find('.goso-social-share-text').outerWidth(true);
                 }
 
                 if (tag.find('.post-share-plike').length) {
@@ -311,16 +311,16 @@
     /* Cookie Law
 	 ---------------------------------------------------------------*/
     PENCI.cookie = function () {
-        var wrapCookie = '.penci-wrap-gprd-law',
+        var wrapCookie = '.goso-wrap-gprd-law',
             $wrapCookie = $(wrapCookie),
-            classAction = 'penci-wrap-gprd-law-close',
-            penciCookieName = 'penci_law_footer_new';
+            classAction = 'goso-wrap-gprd-law-close',
+            gosoCookieName = 'goso_law_footer_new';
 
         if (!$wrapCookie.length) {
             return false;
         }
 
-        var penciCookie = {
+        var gosoCookie = {
             set: function (name, value) {
                 var date = new Date();
                 date.setTime(date.getTime() + (31536000000));
@@ -351,14 +351,14 @@
             }
         };
 
-        $wrapCookie.removeClass('penci-close-all');
-        if (!penciCookie.exists(penciCookieName) || (penciCookie.exists(penciCookieName) && 1 == penciCookie.read(penciCookieName))) {
+        $wrapCookie.removeClass('goso-close-all');
+        if (!gosoCookie.exists(gosoCookieName) || (gosoCookie.exists(gosoCookieName) && 1 == gosoCookie.read(gosoCookieName))) {
             $wrapCookie.removeClass(classAction);
         } else {
             $wrapCookie.addClass(classAction);
         }
 
-        $('.penci-gprd-accept, .penci-gdrd-show').on('click', function (e) {
+        $('.goso-gprd-accept, .goso-gdrd-show').on('click', function (e) {
             e.preventDefault();
 
             var $this = $(this),
@@ -367,9 +367,9 @@
             $parent_law.toggleClass(classAction);
 
             if ($parent_law.hasClass(classAction)) {
-                penciCookie.set(penciCookieName, '2');
+                gosoCookie.set(gosoCookieName, '2');
             } else {
-                penciCookie.set(penciCookieName, '1');
+                gosoCookie.set(gosoCookieName, '1');
             }
 
             return false;
@@ -379,7 +379,7 @@
     /* Sticky main navigation
 	 ---------------------------------------------------------------*/
     PENCI.main_sticky = function () {
-        if ($("nav#navigation").length && $().pensticky && !$("nav#navigation").hasClass('penci-disable-sticky-nav')) {
+        if ($("nav#navigation").length && $().pensticky && !$("nav#navigation").hasClass('goso-disable-sticky-nav')) {
             var spaceTop = 0;
             if ($('body').hasClass('admin-bar')) {
                 spaceTop = 32;
@@ -394,7 +394,7 @@
 	 ---------------------------------------------------------------*/
     PENCI.featured_slider = function () {
         if ($().owlCarousel) {
-            $('.featured-area .penci-owl-featured-area').each(function () {
+            $('.featured-area .goso-owl-featured-area').each(function () {
                 var $this = $(this),
                     $style = $this.data('style'),
                     $auto = false,
@@ -456,7 +456,7 @@
                     mouseDrag: false,
                     lazyLoad: true,
                     dots: $dots,
-                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                     autoplay: $auto,
                     autoplayTimeout: $autotime,
                     autoplayHoverPause: true,
@@ -498,11 +498,11 @@
                 $this.owlCarousel(owl_args);
 
                 $this.on('initialize.owl.carousel', function (event) {
-                    $this.closest('.featured-area').addClass('penci-featured-loaded');
+                    $this.closest('.featured-area').addClass('goso-featured-loaded');
                 });
 
                 $this.on('changed.owl.carousel', function (event) {
-                    /*$this.find('.penci-lazy').Lazy({
+                    /*$this.find('.goso-lazy').Lazy({
                         effect: 'fadeIn',
                         effectTime: 200,
                         scrollDirection: 'both'
@@ -517,7 +517,7 @@
 	 ---------------------------------------------------------------*/
     PENCI.owl_slider = function () {
         if ($().owlCarousel) {
-            $('.penci-owl-carousel-slider').each(function () {
+            $('.goso-owl-carousel-slider').each(function () {
                 var $this = $(this),
                     $parent = $this.parent(),
                     $auto = true,
@@ -588,7 +588,7 @@
                     dotsSpeed: $speed,
                     nav: $nav,
                     dots: $dots,
-                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                     autoplay: $dataauto,
                     autoplayTimeout: $autotime,
                     autoHeight: true,
@@ -637,7 +637,7 @@
                 $this.owlCarousel(owl_args);
 
                 $this.on('changed.owl.carousel', function (event) {
-                    /*$this.find('.penci-lazy').Lazy({
+                    /*$this.find('.goso-lazy').Lazy({
                         effect: 'fadeIn',
                         effectTime: 200,
                         scrollDirection: 'both'
@@ -645,9 +645,9 @@
                     //lazySizes.init();
                 });
 
-                if ($parent.hasClass('penci-topbar-trending')) {
-                    var $customNext = $parent.find(".penci-slider-next"),
-                        $customPrev = $parent.find(".penci-slider-prev");
+                if ($parent.hasClass('goso-topbar-trending')) {
+                    var $customNext = $parent.find(".goso-slider-next"),
+                        $customPrev = $parent.find(".goso-slider-prev");
                     $customNext.on('click', function (ev) {
                         ev.preventDefault();
                         $this.trigger("next.owl.carousel");
@@ -677,16 +677,16 @@
     PENCI.sticky_sidebar = function () {
         if ($().theiaStickySidebar) {
             var top_margin = 80;
-            if ($('body').hasClass('admin-bar') && $('body').hasClass('penci-vernav-enable')) {
+            if ($('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
                 top_margin = 52;
-            } else if (!$('body').hasClass('admin-bar') && $('body').hasClass('penci-vernav-enable')) {
+            } else if (!$('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
                 top_margin = 20;
-            } else if ($('body').hasClass('admin-bar') && !$('body').hasClass('penci-vernav-enable')) {
+            } else if ($('body').hasClass('admin-bar') && !$('body').hasClass('goso-vernav-enable')) {
                 top_margin = 112;
             }
 
             if ($('.pc-wrapbuilder-header').length) {
-                var headerdesktop = $('.penci_builder_sticky_header_desktop');
+                var headerdesktop = $('.goso_builder_sticky_header_desktop');
                 top_margin = 20;
                 if (headerdesktop.length && !headerdesktop.hasClass('hide-scroll-down')) {
                     top_margin = headerdesktop.height() + 20;
@@ -696,20 +696,20 @@
                 }
             }
 
-            if ($('.penci-vc-sticky-sidebar > .penci-vc-row > .penci-vc-column').length) {
-                $('.penci-vc-sticky-sidebar > .penci-vc-row > .penci-vc-column').theiaStickySidebar({
+            if ($('.goso-vc-sticky-sidebar > .goso-vc-row > .goso-vc-column').length) {
+                $('.goso-vc-sticky-sidebar > .goso-vc-row > .goso-vc-column').theiaStickySidebar({
                     additionalMarginTop: top_margin,
                     'minWidth': 961
                 });
             }
 
-            if ($('.penci-enSticky .penci-sticky-sb').length) {
-                $('.penci-enSticky .penci-sticky-sb,.penci-enSticky .penci-sticky-ct').theiaStickySidebar({
+            if ($('.goso-enSticky .goso-sticky-sb').length) {
+                $('.goso-enSticky .goso-sticky-sb,.goso-enSticky .goso-sticky-ct').theiaStickySidebar({
                     additionalMarginTop: top_margin,
                     'minWidth': 961
                 });
             }
-            $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+            $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                 // settings
                 additionalMarginTop: top_margin
             });
@@ -720,10 +720,10 @@
 	 ----------------------------------------------------------------*/
     PENCI.mega_menu = function () {
         // Hover parent
-        $('#navigation ul.menu > li.penci-mega-menu').on('mouseenter', function () {
+        $('#navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
                 $row_active = $this.find('.row-active'),
-                $rowsLazy = $row_active.find('.penci-lazy');
+                $rowsLazy = $row_active.find('.goso-lazy');
             $row_active.fadeIn('200').css('display', 'inline-block');
             /*$rowsLazy.Lazy({
                 effect: 'fadeIn',
@@ -733,14 +733,14 @@
             //lazySizes.init();
         });
 
-        $('#navigation .penci-mega-child-categories a').on('mouseenter', function () {
+        $('#navigation .goso-mega-child-categories a').on('mouseenter', function () {
             if (!$(this).hasClass('cat-active')) {
                 var $this = $(this),
                     $row_active = $this.data('id'),
                     $parentA = $this.parent().children('a'),
-                    $parent = $this.closest('.penci-megamenu'),
-                    $rows = $this.closest('.penci-megamenu').find('.penci-mega-latest-posts').children('.penci-mega-row'),
-                    $rowsLazy = $rows.find('.penci-lazy');
+                    $parent = $this.closest('.goso-megamenu'),
+                    $rows = $this.closest('.goso-megamenu').find('.goso-mega-latest-posts').children('.goso-mega-row'),
+                    $rowsLazy = $rows.find('.goso-lazy');
                 $parentA.removeClass('cat-active');
                 $this.addClass('cat-active');
                 $rows.hide();
@@ -769,7 +769,7 @@
 
         // indicator click
         $('#sidebar-nav .menu li a .indicator').on('click', function (e) {
-            if ($('body').hasClass('penci-vernav-cparent')) {
+            if ($('body').hasClass('goso-vernav-cparent')) {
                 return;
             }
             var $this = $(this);
@@ -778,7 +778,7 @@
             $this.parent().next().slideToggle('fast');
         });
 
-        $('.penci-vernav-cparent #sidebar-nav .menu li.menu-item-has-children > a').on('click', function (e) {
+        $('.goso-vernav-cparent #sidebar-nav .menu li.menu-item-has-children > a').on('click', function (e) {
             var $this = $(this);
             e.preventDefault();
             $this.children().children().toggleClass('fa-angle-up');
@@ -792,21 +792,21 @@
     }
 
     PENCI.toggleMenuHumburger = function () {
-        var $menuhumburger = $('.penci-menu-hbg');
+        var $menuhumburger = $('.goso-menu-hbg');
         if ($menuhumburger.length) {
             var $body = $('body'),
-                $button = $('.penci-vernav-toggle,.penci-menuhbg-toggle,#penci-close-hbg,.penci-menu-hbg-overlay'),
-                sidebarClass = 'penci-menuhbg-open';
+                $button = $('.goso-vernav-toggle,.goso-menuhbg-toggle,#goso-close-hbg,.goso-menu-hbg-overlay'),
+                sidebarClass = 'goso-menuhbg-open';
 
             // Add indicator
-            $('.penci-menu-hbg .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
+            $('.goso-menu-hbg .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
 
             // indicator click
-            $('.penci-menu-hbg .menu li a .indicator').on('click', function (e) {
-                if ($('body').hasClass('penci-hbg-cparent') && !$menuhumburger.hasClass('penci-builder-mobile-sidebar-nav')) {
+            $('.goso-menu-hbg .menu li a .indicator').on('click', function (e) {
+                if ($('body').hasClass('goso-hbg-cparent') && !$menuhumburger.hasClass('goso-builder-mobile-sidebar-nav')) {
                     return;
                 }
-                if ($menuhumburger.hasClass('penci-builder-mobile-sidebar-nav') && $menuhumburger.find('.pchb-cparent').length) {
+                if ($menuhumburger.hasClass('goso-builder-mobile-sidebar-nav') && $menuhumburger.find('.pchb-cparent').length) {
                     return;
                 }
                 var $this = $(this);
@@ -815,7 +815,7 @@
                 $this.parent().next().slideToggle('fast');
             });
 
-            $('.penci-hbg-cparent .penci-menu-hbg .menu li.menu-item-has-children > a').on('click', function (e) {
+            $('.goso-hbg-cparent .goso-menu-hbg .menu li.menu-item-has-children > a').on('click', function (e) {
                 var $this = $(this);
                 e.preventDefault();
                 $this.children().children().toggleClass('fa-angle-up');
@@ -836,7 +836,7 @@
                 $body.addClass(sidebarClass);
                 $button.addClass('active');
 
-                /*$('.penci-menu-hbg .penci-lazy').Lazy({
+                /*$('.goso-menu-hbg .goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -846,7 +846,7 @@
 
             // Scroll menu hamburger and callback lazyload
             $menuhumburger.on('scroll', $.debounce(150, function () {
-                /*$('.penci-menu-hbg .penci-lazy').Lazy({
+                /*$('.goso-menu-hbg .goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -860,7 +860,7 @@
 	 ----------------------------------------------------------------*/
     PENCI.lightbox = function () {
         if ($().magnificPopup) {
-            $('a[data-rel^="penci-gallery-image-content"], .penci-enable-lightbox .gallery-item a').magnificPopup({
+            $('a[data-rel^="goso-gallery-image-content"], .goso-enable-lightbox .gallery-item a').magnificPopup({
                 type: 'image',
                 closeOnContentClick: true,
                 closeBtnInside: false,
@@ -878,7 +878,7 @@
                 }
             });
 
-            $('a[data-rel^="penci-gallery-bground-content"]').magnificPopup({
+            $('a[data-rel^="goso-gallery-bground-content"]').magnificPopup({
                 type: 'image',
                 closeOnContentClick: true,
                 closeBtnInside: false,
@@ -893,7 +893,7 @@
 
 
             // Enable lightbox videos
-            $('.penci-other-layouts-lighbox').magnificPopup({
+            $('.goso-other-layouts-lighbox').magnificPopup({
                 type: 'iframe',
                 mainClass: 'mfp-fade',
                 fixedContentPos: true,
@@ -901,12 +901,12 @@
                 closeOnContentClick: true
             });
 
-            if ($('.penci-image-gallery').length) {
-                $('.penci-image-gallery').each(function () {
+            if ($('.goso-image-gallery').length) {
+                $('.goso-image-gallery').each(function () {
                     var $this = $(this),
                         id = $this.attr('id');
 
-                    $('#' + id + ' a.penci-gallery-ite').magnificPopup({
+                    $('#' + id + ' a.goso-gallery-ite').magnificPopup({
                         type: 'image',
                         closeOnContentClick: true,
                         closeBtnInside: false,
@@ -922,12 +922,12 @@
                 });
             }
 
-            if ($('.penci-post-gallery-container').length) {
-                $('.penci-post-gallery-container').each(function () {
+            if ($('.goso-post-gallery-container').length) {
+                $('.goso-post-gallery-container').each(function () {
                     var $this = $(this),
                         id = $this.attr('id');
 
-                    $('#' + id + ' a.penci-gallery-ite').magnificPopup({
+                    $('#' + id + ' a.goso-gallery-ite').magnificPopup({
                         type: 'image',
                         closeOnContentClick: true,
                         closeBtnInside: false,
@@ -949,7 +949,7 @@
     /* Masonry layout
 	 ----------------------------------------------------------------*/
     PENCI.masonry = function () {
-        var $masonry_container = $('.penci-masonry, .penci-bgstyle-2 .penci-biggrid-data');
+        var $masonry_container = $('.goso-masonry, .goso-bgstyle-2 .goso-biggrid-data');
         if ($masonry_container.length) {
             $masonry_container.each(function () {
                 var $this = $(this);
@@ -968,9 +968,9 @@
     /* Video Background
 	 ----------------------------------------------------------------*/
     PENCI.video_background = function () {
-        var $penci_videobg = $('#penci-featured-video-bg');
-        if ($penci_videobg.length) {
-            $($penci_videobg).each(function () {
+        var $goso_videobg = $('#goso-featured-video-bg');
+        if ($goso_videobg.length) {
+            $($goso_videobg).each(function () {
                 var $this = $(this),
                     $src = $this.data('videosrc'),
                     $startime = $this.data('starttime'),
@@ -992,11 +992,11 @@
     /* Portfolio
 	 ----------------------------------------------------------------*/
     PENCI.portfolio = function () {
-        var $penci_portfolio = $('.penci-portfolio');
+        var $goso_portfolio = $('.goso-portfolio');
 
 
-        if ($().isotope && $penci_portfolio.length) {
-            $('.penci-portfolio').each(function () {
+        if ($().isotope && $goso_portfolio.length) {
+            $('.goso-portfolio').each(function () {
                 var $this = $(this),
                     unique_id = $(this).attr('id'),
                     DataFilter = null;
@@ -1040,13 +1040,13 @@
 
                             var $termActive = $afilter.filter('[data-term="' + location + '"]'),
                                 portfolioItem = $this.find('.portfolio-item'),
-                                $buttonLoadMore = $this.parent().find('.penci-pagenavi-shortcode');
+                                $buttonLoadMore = $this.parent().find('.goso-pagenavi-shortcode');
 
                             if ($termActive.length) {
 
                                 liFilter.removeClass('active');
                                 $termActive.parent().addClass('active');
-                                $this.isotope({filter: '.penci-' + location});
+                                $this.isotope({filter: '.goso-' + location});
 
                                 var dataTerm = $termActive.data("term"),
                                     p = {};
@@ -1076,7 +1076,7 @@
                 }); // imagesloaded
 
                 // Filter items when filter link is clicked
-                var $filter = $this.parent().find('.penci-portfolio-filter'),
+                var $filter = $this.parent().find('.goso-portfolio-filter'),
                     $afilter = $filter.find('a'),
                     liFilter = $filter.find('li');
 
@@ -1087,13 +1087,13 @@
                         selector = self.find("a").attr('data-filter'),
                         $e_dataTerm = $filter.find('a').filter('[data-term="' + term + '"]'),
                         portfolioItem = $this.find('.portfolio-item'),
-                        $buttonLoadMore = $this.parent().find('.penci-pagenavi-shortcode'),
+                        $buttonLoadMore = $this.parent().find('.goso-pagenavi-shortcode'),
                         scrollTop = $(window).scrollTop();
 
                     liFilter.removeClass('active');
                     self.addClass('active');
 
-                    $this.parent().find('.penci-ajax-more-button').attr('data-cat', term);
+                    $this.parent().find('.goso-ajax-more-button').attr('data-cat', term);
 
                     $this.isotope({filter: selector});
 
@@ -1130,31 +1130,31 @@
                 PENCI.portfolioLoadMore.loadMore($this, DataFilter);
                 PENCI.portfolioLoadMore.infinityScroll(DataFilter);
 
-            }); // each .penci-portfolio
+            }); // each .goso-portfolio
 
         }	// end if isotope & portfolio
 
 
-        var $btnLoadMore = $('.penci-plf-loadmore');
+        var $btnLoadMore = $('.goso-plf-loadmore');
         if (!$().isotope || !$btnLoadMore.length) {
             return false;
         }
     }
 
     PENCI.portfolioLoadMore = {
-        btnLoadMore: $('.penci-plf-loadmore'),
+        btnLoadMore: $('.goso-plf-loadmore'),
         loadMore: function ($pfl_wapper, DataFilter) {
             var self = this;
-            $('body').on('click', '.penci-ajax-more-button', function (event) {
+            $('body').on('click', '.goso-ajax-more-button', function (event) {
                 self.actionLoadMore($(this), $pfl_wapper, DataFilter);
             });
         },
         infinityScroll: function (DataFilter) {
             var self = this,
-                $handle = $('.penci-plf-loadmore'),
-                $button_load = $handle.find('.penci-ajax-more-button');
+                $handle = $('.goso-plf-loadmore'),
+                $button_load = $handle.find('.goso-ajax-more-button');
 
-            if ($handle.hasClass('penci-infinite-scroll')) {
+            if ($handle.hasClass('goso-infinite-scroll')) {
                 $(window).on('scroll', function () {
                     var hT = $button_load.offset().top,
                         hH = $button_load.outerHeight(),
@@ -1162,7 +1162,7 @@
                         wS = $(this).scrollTop();
 
                     if ((wS > (hT + hH - wH)) && $button_load.length) {
-                        var $pfl_wapper = $button_load.closest('.penci-portfolio');
+                        var $pfl_wapper = $button_load.closest('.goso-portfolio');
                         self.actionLoadMore($button_load, $pfl_wapper, DataFilter);
                     }
                 }).trigger('scroll');
@@ -1180,12 +1180,12 @@
 
             DataFilter.pflShowIds = [];
 
-            $button_load.closest('.wrapper-penci-portfolio').find('.portfolio-item').each(function (t, e) {
+            $button_load.closest('.wrapper-goso-portfolio').find('.portfolio-item').each(function (t, e) {
                 DataFilter.pflShowIds.push($(e).data('pflid'));
             });
 
             var data = {
-                action: 'penci_pfl_more_post_ajax',
+                action: 'goso_pfl_more_post_ajax',
                 datafilter: DataFilter,
                 nonce: ajax_var_more.nonce
             };
@@ -1194,7 +1194,7 @@
                     $button_load.find('.ajax-more-text').html(mesNoMore);
                     $button_load.removeClass('loading-portfolios');
 
-                    $button_load.closest('.wrapper-penci-portfolio').find('.penci-portfolio-filter li.active').addClass('loadmore-finish');
+                    $button_load.closest('.wrapper-goso-portfolio').find('.goso-portfolio-filter li.active').addClass('loadmore-finish');
 
                     setTimeout(function () {
                         $button_load.parent().parent().hide();
@@ -1204,7 +1204,7 @@
                     return false;
                 }
 
-                var $wrap_content = $button_load.closest('.wrapper-penci-portfolio').find('.penci-portfolio'),
+                var $wrap_content = $button_load.closest('.wrapper-goso-portfolio').find('.goso-portfolio'),
                     $data = $(response.data.items);
 
                 $wrap_content.find('.inner-portfolio-posts').append($data);
@@ -1212,7 +1212,7 @@
                     $wrap_content.isotope('layout');
                 });
 
-                /*$('.penci-lazy').Lazy({
+                /*$('.goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -1221,7 +1221,7 @@
 
                 $(".container").fitVids();
 
-                $('a[data-rel^="penci-gallery-image-content"]').magnificPopup({
+                $('a[data-rel^="goso-gallery-image-content"]').magnificPopup({
                     type: 'image',
                     closeOnContentClick: true,
                     closeBtnInside: false,
@@ -1254,7 +1254,7 @@
                 type: 'POST',
                 dataType: 'html',
                 url: ajax_var_more.url,
-                data: 'datafilter=' + DataFilter + '&action=penci_pfl_more_post_ajax&nonce=' + ajax_var_more.nonce,
+                data: 'datafilter=' + DataFilter + '&action=goso_pfl_more_post_ajax&nonce=' + ajax_var_more.nonce,
                 success: function (data) {
 
                 },
@@ -1269,10 +1269,10 @@
     /* Gallery
 	 ----------------------------------------------------------------*/
     PENCI.gallery = function () {
-        var $justified_gallery = $('.penci-post-gallery-container.justified');
-        var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+        var $justified_gallery = $('.goso-post-gallery-container.justified');
+        var $masonry_gallery = $('.goso-post-gallery-container.masonry');
         if ($().justifiedGallery && $justified_gallery.length) {
-            $('.penci-post-gallery-container.justified').each(function () {
+            $('.goso-post-gallery-container.justified').each(function () {
                 var $this = $(this);
                 $this.justifiedGallery({
                     rowHeight: $this.data('height'),
@@ -1280,12 +1280,12 @@
                     margins: $this.data('margin'),
                     randomize: false
                 });
-            }); // each .penci-post-gallery-container
+            }); // each .goso-post-gallery-container
         }
 
         if ($().isotope && $masonry_gallery.length) {
 
-            $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+            $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                 var $this = $(this).children();
                 if ($this.attr('data-cap') && !$this.hasClass('added-caption')) {
                     var $title = $this.attr('data-cap');
@@ -1311,7 +1311,7 @@
 
                     $this.addClass('loaded');
 
-                    $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                    $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                         var $this = $(this);
                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                             $this.children().addClass('animated');
@@ -1325,10 +1325,10 @@
         /* Jarallax
 	 ----------------------------------------------------------------*/
         PENCI.Jarallax = function () {
-            if (!$.fn.jarallax || !$('.penci-jarallax').length) {
+            if (!$.fn.jarallax || !$('.goso-jarallax').length) {
                 return false;
             }
-            $('.penci-jarallax').each(function () {
+            $('.goso-jarallax').each(function () {
                 var $this = $(this),
                     $jarallaxArgs = {};
 
@@ -1341,12 +1341,12 @@
         /* Related Popup
 	 ----------------------------------------------------------------*/
         PENCI.RelatedPopup = function () {
-            if ($('.penci-rlt-popup').length) {
-                var rltpopup = $('.penci-rlt-popup'),
-                    rltclose = $('.penci-rlt-popup .penci-close-rltpopup'),
-                    rltlazy = rltpopup.find('.penci-lazy');
+            if ($('.goso-rlt-popup').length) {
+                var rltpopup = $('.goso-rlt-popup'),
+                    rltclose = $('.goso-rlt-popup .goso-close-rltpopup'),
+                    rltlazy = rltpopup.find('.goso-lazy');
 
-                $('body').on('inview', '.penci-flag-rlt-popup', function (event, isInView, visiblePartX, visiblePartY) {
+                $('body').on('inview', '.goso-flag-rlt-popup', function (event, isInView, visiblePartX, visiblePartY) {
                     if (!rltpopup.hasClass('rltpopup-notshow-again') && isInView) {
                         rltpopup.addClass('rltpopup-show-up');
                         rltclose.on("click", function (e) {
@@ -1380,8 +1380,8 @@
                 this.map();
             },
             progressBar: function () {
-                if ($('.penci-review-process').length) {
-                    $('.penci-review-process').each(function () {
+                if ($('.goso-review-process').length) {
+                    $('.goso-review-process').each(function () {
                         var $this = $(this),
                             $bar = $this.children(),
                             $bar_w = $bar.data('width') * 10;
@@ -1391,8 +1391,8 @@
                     }); // each
                 }
 
-                if ($.fn.easyPieChart && $('.penci-piechart').length) {
-                    $('.penci-piechart').each(function () {
+                if ($.fn.easyPieChart && $('.goso-piechart').length) {
+                    $('.goso-piechart').each(function () {
                         var $this = $(this);
                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                             var chart_args = {
@@ -1409,7 +1409,7 @@
                 }
             },
             counterUp: function () {
-                var $counterup = $('.penci-counterup-number');
+                var $counterup = $('.goso-counterup-number');
 
                 if (!$.fn.counterUp || !$counterup.length) {
                     return false;
@@ -1443,61 +1443,61 @@
             },
             loginPopup: function () {
                 var $body = $('body'),
-                    $loginform = $('#penci-loginpopform'),
-                    $loginContainer = $loginform.closest('.penci-popup-wrapper');
+                    $loginform = $('#goso-loginpopform'),
+                    $loginContainer = $loginform.closest('.goso-popup-wrapper');
 
                 if ($loginform.length) {
 
-                    $('.penci-login-popup-btn a').magnificPopup({
+                    $('.goso-login-popup-btn a').magnificPopup({
                         type: 'inline',
                         midClick: true,
                         removalDelay: 600,
-                        mainClass: 'penci-popup-animation'
+                        mainClass: 'goso-popup-animation'
                     });
 
-                    $body.on('click', '.penci-lostpassword-btn', function (e) {
+                    $body.on('click', '.goso-lostpassword-btn', function (e) {
                         var $this = $(this),
-                            $parent = $this.closest('.penci-popup-wrapper');
+                            $parent = $this.closest('.goso-popup-wrapper');
 
-                        $parent.children('.penci-popup-passreset').slideDown('normal');
-                        $parent.children('.penci-popup-login').slideUp('normal');
+                        $parent.children('.goso-popup-passreset').slideDown('normal');
+                        $parent.children('.goso-popup-login').slideUp('normal');
                         e.preventDefault();
                         return false;
                     });
 
-                    $body.on('click', '.penci-register-popup-btn', function (e) {
+                    $body.on('click', '.goso-register-popup-btn', function (e) {
                         var $this = $(this),
-                            $parent = $this.closest('.penci-popup-wrapper');
+                            $parent = $this.closest('.goso-popup-wrapper');
 
-                        $parent.children('.penci-popup-register').slideDown('normal');
-                        $parent.children('.penci-popup-login').slideUp('normal');
+                        $parent.children('.goso-popup-register').slideDown('normal');
+                        $parent.children('.goso-popup-login').slideUp('normal');
                         e.preventDefault();
                         return false;
                     });
 
-                    $body.on('click', '.penci-login-popup-btn', function (e) {
+                    $body.on('click', '.goso-login-popup-btn', function (e) {
                         var $this = $(this),
-                            $parent = $this.closest('.penci-popup-wrapper');
+                            $parent = $this.closest('.goso-popup-wrapper');
 
-                        $parent.children('.penci-popup-login').slideDown('normal');
-                        $parent.children('.penci-popup-register').slideUp('normal');
-                        $parent.children('.penci-popup-passreset').slideUp('normal');
+                        $parent.children('.goso-popup-login').slideDown('normal');
+                        $parent.children('.goso-popup-register').slideUp('normal');
+                        $parent.children('.goso-popup-passreset').slideUp('normal');
 
                         e.preventDefault();
                         return false;
                     });
 
-                    $('#penci_user, #penci_pass').on('focus', function () {
+                    $('#goso_user, #goso_pass').on('focus', function () {
                         $(this).removeClass('invalid');
                     });
 
                     $loginform.on('submit', function (e) {
                         var $this = $(this),
-                            inputUsername = $this.find('#penci_user'),
-                            inputPass = $this.find('#penci_pass'),
+                            inputUsername = $this.find('#goso_user'),
+                            inputPass = $this.find('#goso_pass'),
                             valUsername = inputUsername.val(),
                             valPass = inputPass.val(),
-                            nonce = $this.find('.penci_form_nonce').val(),
+                            nonce = $this.find('.goso_form_nonce').val(),
                             gcapcha = $this.find('.g-recaptcha-response');
                         if (gcapcha.length) {
                             var captcha = gcapcha.val();
@@ -1523,7 +1523,7 @@
                         $loginContainer.find('.message').slideDown().remove();
 
                         var data = {
-                            action: 'penci_login_ajax',
+                            action: 'goso_login_ajax',
                             username: valUsername,
                             password: valPass,
                             captcha: captcha,
@@ -1533,7 +1533,7 @@
 
                         $.post(ajax_var_more.url, data, function (response) {
                             $loginContainer.removeClass('ajax-loading');
-                            $loginContainer.children('.penci-popup-login').append(response.data);
+                            $loginContainer.children('.goso-popup-login').append(response.data);
                             if (!response.success) {
                                 return;
                             }
@@ -1548,12 +1548,12 @@
             },
             recoverPassPopup: function () {
                 var $body = $('body'),
-                    $recoveryform = $('#penci-passreset-popup'),
-                    $recoveryContainer = $recoveryform.closest('.penci-popup-wrapper');
+                    $recoveryform = $('#goso-passreset-popup'),
+                    $recoveryContainer = $recoveryform.closest('.goso-popup-wrapper');
 
                 if ($recoveryform.length) {
 
-                    $('.penci_user_email').on('focus', function () {
+                    $('.goso_user_email').on('focus', function () {
                         $(this).removeClass('invalid');
                     });
 
@@ -1561,9 +1561,9 @@
                         e.preventDefault();
 
                         var $this = $(this),
-                            inputUsername = $this.find('.penci_user_email'),
+                            inputUsername = $this.find('.goso_user_email'),
                             valUsername = inputUsername.val(),
-                            nonce = $this.find('.penci_form_nonce').val(),
+                            nonce = $this.find('.goso_form_nonce').val(),
                             gcapcha = $this.find('.g-recaptcha-response');
                         if (gcapcha.length) {
                             var captcha = gcapcha.val();
@@ -1582,7 +1582,7 @@
                         $recoveryContainer.find('.message').slideDown().remove();
 
                         var data = {
-                            action: 'penci_resetpass_ajax',
+                            action: 'goso_resetpass_ajax',
                             security: nonce,
                             username: valUsername,
                             captcha: captcha
@@ -1590,7 +1590,7 @@
 
                         $.post(ajax_var_more.url, data, function (response) {
                             $recoveryContainer.removeClass('ajax-loading');
-                            $recoveryContainer.children('.penci-popup-passreset').append(response.data);
+                            $recoveryContainer.children('.goso-popup-passreset').append(response.data);
 
                             return;
                         });
@@ -1602,12 +1602,12 @@
             },
             registerPopup: function () {
                 var $body = $('body'),
-                    $registerform = $('#penci-register-popup'),
-                    $registerContainer = $registerform.closest('.penci-popup-wrapper');
+                    $registerform = $('#goso-register-popup'),
+                    $registerContainer = $registerform.closest('.goso-popup-wrapper');
 
                 if ($registerform.length) {
 
-                    var $allInput = $('.penci_user_name,.penci_user_email,.penci_user_pass,.penci_user_pass_confirm');
+                    var $allInput = $('.goso_user_name,.goso_user_email,.goso_user_pass,.goso_user_pass_confirm');
                     $allInput.on('focus', function () {
                         $(this).removeClass('invalid');
                     });
@@ -1616,15 +1616,15 @@
                         e.preventDefault();
 
                         var $this = $(this),
-                            inputUsername = $this.find('.penci_user_name'),
-                            inputEmail = $this.find('.penci_user_email'),
-                            $inputPass = $this.find('.penci_user_pass'),
-                            $inputPassConfirm = $this.find('.penci_user_pass_confirm'),
+                            inputUsername = $this.find('.goso_user_name'),
+                            inputEmail = $this.find('.goso_user_email'),
+                            $inputPass = $this.find('.goso_user_pass'),
+                            $inputPassConfirm = $this.find('.goso_user_pass_confirm'),
                             valUsername = inputUsername.val(),
                             valEmail = inputEmail.val(),
                             valPass = $inputPass.val(),
                             valPassConfirm = $inputPassConfirm.val(),
-                            nonce = $this.find('.penci_form_nonce').val(),
+                            nonce = $this.find('.goso_form_nonce').val(),
                             gcapcha = $this.find('.g-recaptcha-response');
                         if (gcapcha.length) {
                             var captcha = gcapcha.val();
@@ -1663,7 +1663,7 @@
                         if (valPassConfirm !== valPass) {
                             $inputPass.addClass('invalid');
                             $inputPassConfirm.addClass('invalid');
-                            $registerContainer.children('.penci-popup-register').append(ajax_var_more.errorPass);
+                            $registerContainer.children('.goso-popup-register').append(ajax_var_more.errorPass);
                             event.preventDefault();
 
                             return false;
@@ -1672,9 +1672,9 @@
 
 
                         var data = {
-                            action: 'penci_register_ajax',
-                            fistName: $this.find('.penci_first_name').val(),
-                            lastName: $this.find('.penci_last_name').val(),
+                            action: 'goso_register_ajax',
+                            fistName: $this.find('.goso_first_name').val(),
+                            lastName: $this.find('.goso_last_name').val(),
                             username: valUsername,
                             password: valPass,
                             confirmPass: valPassConfirm,
@@ -1685,7 +1685,7 @@
 
                         $.post(ajax_var_more.url, data, function (response) {
                             $registerContainer.removeClass('ajax-loading');
-                            $registerContainer.children('.penci-popup-register').append(response.data);
+                            $registerContainer.children('.goso-popup-register').append(response.data);
                             if (!response.success) {
                                 return;
                             }
@@ -1700,33 +1700,33 @@
             },
             login: function () {
                 var $body = $('body'),
-                    $loginform = $('.penci-loginform'),
-                    $loginContainer = $loginform.parent('.penci-login-wrap');
+                    $loginform = $('.goso-loginform'),
+                    $loginContainer = $loginform.parent('.goso-login-wrap');
 
                 if ($loginform.length) {
-                    $body.on('click', '.penci-user-register', function (e) {
+                    $body.on('click', '.goso-user-register', function (e) {
                         e.preventDefault();
 
                         var $this = $(this),
-                            $parent = $this.closest('.penci-login-register');
+                            $parent = $this.closest('.goso-login-register');
 
-                        $parent.find('.penci-login-wrap').addClass('hidden');
-                        $parent.find('.penci-register-wrap').removeClass('hidden');
+                        $parent.find('.goso-login-wrap').addClass('hidden');
+                        $parent.find('.goso-register-wrap').removeClass('hidden');
                     });
 
-                    $('#penci-user-login,#penci-user-pass').on('focus', function () {
+                    $('#goso-user-login,#goso-user-pass').on('focus', function () {
                         $(this).removeClass('invalid');
                     });
 
-                    $('.penci-loginform').each(function () {
+                    $('.goso-loginform').each(function () {
                         $(this).on('submit', function (e) {
                             var $this = $(this),
-                                $loginContainer = $this.parent('.penci-login-wrap'),
-                                inputUsername = $this.find('#penci-user-login'),
-                                inputPass = $this.find('#penci-user-pass'),
+                                $loginContainer = $this.parent('.goso-login-wrap'),
+                                inputUsername = $this.find('#goso-user-login'),
+                                inputPass = $this.find('#goso-user-pass'),
                                 valUsername = inputUsername.val(),
                                 valPass = inputPass.val(),
-                                nonce = $this.find('.penci_form_nonce').val(),
+                                nonce = $this.find('.goso_form_nonce').val(),
                                 gcapcha = $this.find('.g-recaptcha-response');
                             if (gcapcha.length) {
                                 var captcha = gcapcha.val();
@@ -1752,7 +1752,7 @@
                             $loginContainer.find('.message').slideDown().remove();
 
                             var data = {
-                                action: 'penci_login_ajax',
+                                action: 'goso_login_ajax',
                                 username: valUsername,
                                 password: valPass,
                                 captcha: captcha,
@@ -1778,46 +1778,46 @@
             },
             register: function () {
                 var $body = $('body'),
-                    $registerform = $('#penci-registration-form'),
-                    $registerContainer = $registerform.closest('.penci-register-wrap');
+                    $registerform = $('#goso-registration-form'),
+                    $registerContainer = $registerform.closest('.goso-register-wrap');
 
                 if (!$registerform.length) {
                     return false;
                 }
 
-                $body.on('click', '.penci-user-login-here', function (e) {
+                $body.on('click', '.goso-user-login-here', function (e) {
                     e.preventDefault();
 
                     var $this = $(this),
-                        $parent = $this.closest('.penci-login-register');
+                        $parent = $this.closest('.goso-login-register');
 
-                    $parent.find('.penci-login-wrap').removeClass('hidden');
-                    $parent.find('.penci-register-wrap').addClass('hidden');
+                    $parent.find('.goso-login-wrap').removeClass('hidden');
+                    $parent.find('.goso-register-wrap').addClass('hidden');
 
                     return false;
                 });
 
-                var $allInput = $('.penci_user_name,.penci_user_email,.penci_user_pass,.penci_user_pass_confirm');
+                var $allInput = $('.goso_user_name,.goso_user_email,.goso_user_pass,.goso_user_pass_confirm');
                 $allInput.on('focus', function () {
                     $(this).removeClass('invalid');
                 });
 
 
-                $('.penci-registration-form').each(function () {
+                $('.goso-registration-form').each(function () {
                     $(this).on('submit', function (e) {
                         e.preventDefault();
 
                         var $this = $(this),
-                            $registerContainer = $this.closest('.penci-register-wrap'),
-                            inputUsername = $this.find('.penci_user_name'),
-                            inputEmail = $this.find('.penci_user_email'),
-                            $inputPass = $this.find('.penci_user_pass'),
-                            $inputPassConfirm = $this.find('.penci_user_pass_confirm'),
+                            $registerContainer = $this.closest('.goso-register-wrap'),
+                            inputUsername = $this.find('.goso_user_name'),
+                            inputEmail = $this.find('.goso_user_email'),
+                            $inputPass = $this.find('.goso_user_pass'),
+                            $inputPassConfirm = $this.find('.goso_user_pass_confirm'),
                             valUsername = inputUsername.val(),
                             valEmail = inputEmail.val(),
                             valPass = $inputPass.val(),
                             valPassConfirm = $inputPassConfirm.val(),
-                            nonce = $this.find('.penci_form_nonce').val(),
+                            nonce = $this.find('.goso_form_nonce').val(),
                             gcapcha = $this.find('.g-recaptcha-response');
                         if (gcapcha.length) {
                             var captcha = gcapcha.val();
@@ -1865,9 +1865,9 @@
 
 
                         var data = {
-                            action: 'penci_register_ajax',
-                            fistName: $this.find('.penci_first_name').val(),
-                            lastName: $this.find('.penci_last_name').val(),
+                            action: 'goso_register_ajax',
+                            fistName: $this.find('.goso_first_name').val(),
+                            lastName: $this.find('.goso_last_name').val(),
                             username: valUsername,
                             password: valPass,
                             confirmPass: valPassConfirm,
@@ -1891,10 +1891,10 @@
                 });
             },
             map: function () {
-                if (!$('.penci-google-map').length) {
+                if (!$('.goso-google-map').length) {
                     return false;
                 }
-                $('.penci-google-map').each(function () {
+                $('.goso-google-map').each(function () {
 
                     var map = $(this),
                         Option = map.data("map_options"),
@@ -1968,17 +1968,17 @@
                 PENCI.VideosList.play();
             },
             play: function () {
-                if (!$('.penci-video_playlist').length) {
+                if (!$('.goso-video_playlist').length) {
                     return false;
                 }
-                $('.penci-video_playlist').each(function (idx, item) {
+                $('.goso-video_playlist').each(function (idx, item) {
                     var $blockVideo = $(this),
-                        $VideoF = $blockVideo.find('.penci-video-frame');
+                        $VideoF = $blockVideo.find('.goso-video-frame');
 
-                    var $height = $blockVideo.find('.penci-video-nav').height(),
-                        $heightTitle = $blockVideo.find('.penci-video-nav .penci-playlist-title').height()
+                    var $height = $blockVideo.find('.goso-video-nav').height(),
+                        $heightTitle = $blockVideo.find('.goso-video-nav .goso-playlist-title').height()
 
-                    $blockVideo.find('.penci-video-playlist-nav').css('height', $height - $heightTitle);
+                    $blockVideo.find('.goso-video-playlist-nav').css('height', $height - $heightTitle);
                     // Init
                     $VideoF.video();
                     PENCI.VideosList.updateStatus($blockVideo);
@@ -1989,12 +1989,12 @@
                         $blockVideo.find('.loader-overlay').remove();
                     });
                     // Play videos
-                    $blockVideo.on('click', '.penci-video-playlist-item', function () {
+                    $blockVideo.on('click', '.goso-video-playlist-item', function () {
                         var $thisVideo = $(this),
                             frameID = $thisVideo.data('name'),
                             $thisFrame = $('#' + frameID),
                             videoSrc = $thisVideo.data('src'),
-                            videoNum = $thisVideo.find('.penci-video-number').text();
+                            videoNum = $thisVideo.find('.goso-video-number').text();
 
                         if ($thisVideo.hasClass('is-playing')) {
                             $thisFrame.pauseVideo();
@@ -2002,10 +2002,10 @@
                         }
 
                         // Update the number of the playing video in the title section
-                        $blockVideo.find('.penci-video-playing').text(videoNum);
+                        $blockVideo.find('.goso-video-playing').text(videoNum);
 
                         // Pause all Videos
-                        $blockVideo.find('.penci-video-frame').each(function () {
+                        $blockVideo.find('.goso-video-frame').each(function () {
                             $(this).pauseVideo().hide();
                         })
 
@@ -2014,7 +2014,7 @@
                             // Add the loader icon
                             $blockVideo.find('.fluid-width-video-wrapper').prepend('');
 
-                            $blockVideo.find('.fluid-width-video-wrapper').append('<iframe class="penci-video-frame" id="' + frameID + '" src="' + videoSrc + '" frameborder="0" width="100%"" height="434" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+                            $blockVideo.find('.fluid-width-video-wrapper').append('<iframe class="goso-video-frame" id="' + frameID + '" src="' + videoSrc + '" frameborder="0" width="100%"" height="434" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
                             $thisFrame = $('#' + frameID);
 
                             $thisFrame.video(); // reinit
@@ -2035,7 +2035,7 @@
                 });
             },
             updateStatus: function ($blockVideo) {
-                $blockVideo.find('.penci-video-frame').each(function () {
+                $blockVideo.find('.goso-video-frame').each(function () {
                     var $this = $(this),
                         $videoItem = $("[data-name='" + $this.attr('id') + "']");
 
@@ -2057,9 +2057,9 @@
         PENCI.JumtoRecipe = function () {
 
 
-            $(".penci-jump-recipe").on('click', function (e) {
+            $(".goso-jump-recipe").on('click', function (e) {
                 e.preventDefault();
-                var $closetMain = $(this).closest('.penci-single-block'),
+                var $closetMain = $(this).closest('.goso-single-block'),
                     id = $(this).attr("href"),
                     $firstRecipe = $closetMain.find(id).first();
                 if ($firstRecipe.length) {
@@ -2069,12 +2069,12 @@
                         $nav_height = $('#navigation').height() + 30;
                     } else if ($('.pc-wrapbuilder-header').length) {
                         if (window.matchMedia("(max-width: 960px)").matches) {
-                            var headermobile = $('.penci_navbar_mobile');
+                            var headermobile = $('.goso_navbar_mobile');
                             if (!headermobile.hasClass('hide-scroll-down')) {
                                 $nav_height = headermobile.height() + 30;
                             }
                         } else {
-                            var headerdesktop = $('.penci_builder_sticky_header_desktop');
+                            var headerdesktop = $('.goso_builder_sticky_header_desktop');
                             if (headerdesktop.length && !headerdesktop.hasClass('hide-scroll-down')) {
                                 $nav_height = headerdesktop.height() + 30;
                             }
@@ -2092,38 +2092,38 @@
         },
 
         PENCI.Single_Loadmore = function () {
-            var $wrapper_loadmore = $('.penci-single-infiscroll');
+            var $wrapper_loadmore = $('.goso-single-infiscroll');
             if ($wrapper_loadmore.length) {
                 var adsHTML = $wrapper_loadmore.data('infiads');
                 $(window).on('scroll', $.debounce(250, function () {
-                    var $lastArticle = $wrapper_loadmore.find('.penci-single-block').last(),
+                    var $lastArticle = $wrapper_loadmore.find('.goso-single-block').last(),
                         $windowScroll = $(window).scrollTop(),
                         $lastArticleTop = $lastArticle.offset().top,
                         $dataURL = $lastArticle.data('prev-url');
 
-                    if ($lastArticle.hasClass('penci-single-infiblock-end')) {
-                        $('.penci-ldsingle').remove();
+                    if ($lastArticle.hasClass('goso-single-infiblock-end')) {
+                        $('.goso-ldsingle').remove();
                     }
 
-                    if (($windowScroll > $lastArticleTop) && (typeof $dataURL !== 'undefined') && (typeof $dataURL !== '') && !$lastArticle.hasClass('penci-single-infiblock-end')) {
-                        if (!$wrapper_loadmore.hasClass('penci-disable-sendajax')) {
-                            $wrapper_loadmore.addClass('penci-disable-sendajax');
+                    if (($windowScroll > $lastArticleTop) && (typeof $dataURL !== 'undefined') && (typeof $dataURL !== '') && !$lastArticle.hasClass('goso-single-infiblock-end')) {
+                        if (!$wrapper_loadmore.hasClass('goso-disable-sendajax')) {
+                            $wrapper_loadmore.addClass('goso-disable-sendajax');
                             $.ajax({
                                 url: $dataURL,
                                 type: "GET",
                                 dataType: "html",
                                 success: function (result) {
-                                    var resultBlock = $($(result).find('.penci-single-wrapper').html()).css('opacity', 0).animate({'opacity': 1}, 300);
+                                    var resultBlock = $($(result).find('.goso-single-wrapper').html()).css('opacity', 0).animate({'opacity': 1}, 300);
                                     if ((typeof adsHTML !== 'undefined') && (typeof adsHTML !== '')) {
                                         $wrapper_loadmore.append(adsHTML);
                                     }
                                     $wrapper_loadmore.append(resultBlock);
-                                    if (resultBlock.find('.penci_facebook_widget').length ) {
+                                    if (resultBlock.find('.goso_facebook_widget').length ) {
                                         try{
                                             FB.XFBML.parse();
                                         }catch(ex){}
                                     }
-                                    $wrapper_loadmore.removeClass('penci-disable-sendajax');
+                                    $wrapper_loadmore.removeClass('goso-disable-sendajax');
 
                                     PENCI.featured_slider();
                                     PENCI.owl_slider();
@@ -2138,7 +2138,7 @@
                                     PENCI.VideosList.init();
                                     PENCI.JumtoRecipe();
                                     PENCI.shareexpand();
-                                    var owlcarousel = $('.penci-owl-carousel-slider, .featured-area .penci-owl-featured-area');
+                                    var owlcarousel = $('.goso-owl-carousel-slider, .featured-area .goso-owl-featured-area');
                                     if (owlcarousel.length) {
                                         owlcarousel.on('mouseleave', function (e) {
                                             var $this = $(this),
@@ -2151,10 +2151,10 @@
                                         });
                                     }
 
-                                    var $review_process = $('.penci-review-process'),
-                                        $review_piechart = $('.penci-piechart');
+                                    var $review_process = $('.goso-review-process'),
+                                        $review_piechart = $('.goso-piechart');
                                     if ($review_process.length) {
-                                        $('.penci-review-process').each(function () {
+                                        $('.goso-review-process').each(function () {
                                             var $this = $(this),
                                                 $bar = $this.children(),
                                                 $bar_w = $bar.data('width') * 10;
@@ -2165,7 +2165,7 @@
                                     }
 
                                     if ($review_piechart.length) {
-                                        $('.penci-piechart').each(function () {
+                                        $('.goso-piechart').each(function () {
                                             var $this = $(this);
                                             $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                 var chart_args = {
@@ -2190,10 +2190,10 @@
                 $(window).bind('scroll touchstart', function () {
                     // UPdate permalink
                     var scrollTop = $(this).scrollTop();
-                    var firstPost = $('.penci-single-block');
+                    var firstPost = $('.goso-single-block');
                     window.setTimeout(function () {
                         var preScrollTop = scrollTop + 60;
-                        var postsContainer = $('.penci-single-block');
+                        var postsContainer = $('.goso-single-block');
                         var locationHref = window.location.href;
 
                         var currentP = postsContainer.map(function () {
@@ -2268,7 +2268,7 @@
             PENCI.shareexpand();
         }, 100);
         PENCI.blockheadinglist();
-        $('body').on('penci-block-heading', function () {
+        $('body').on('goso-block-heading', function () {
             PENCI.blockheadinglist();
         });
         $(window).on('resize', function () {
@@ -2278,7 +2278,7 @@
                 PENCI.shareexpand();
             }, 100);
         });
-        $(document).on('penci-mega-loaded', function () {
+        $(document).on('goso-mega-loaded', function () {
             PENCI.featured_slider();
             PENCI.owl_slider();
             PENCI.fitvids();

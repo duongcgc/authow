@@ -325,7 +325,7 @@ function mb_find_replace( &$find = false, &$replace = false, &$string = '' ) {
 
 	return $string;
 }
-function get_penci_toc_list( $post = null, $apply_content_filter = true ) {
+function get_goso_toc_list( $post = null, $apply_content_filter = true ) {
 
 	if ( ! $post instanceof WP_Post ) {
 
@@ -334,14 +334,14 @@ function get_penci_toc_list( $post = null, $apply_content_filter = true ) {
 
 	if ( $apply_content_filter ) {
 
-		$penciPost = new AuthowToc_Post( $post );
+		$gosoPost = new AuthowToc_Post( $post );
 
 	} else {
 
-		$penciPost = new AuthowToc_Post( $post, false );
+		$gosoPost = new AuthowToc_Post( $post, false );
 	}
 
-	return $penciPost->getTOCList();
+	return $gosoPost->getTOCList();
 }
 
 /**
@@ -353,9 +353,9 @@ function get_penci_toc_list( $post = null, $apply_content_filter = true ) {
  * @param null|WP_Post $post                 An instance of WP_Post
  * @param bool         $apply_content_filter Whether or not to apply `the_content` filter when processing post for headings.
  */
-function penci_toc_list( $post = null, $apply_content_filter = true ) {
+function goso_toc_list( $post = null, $apply_content_filter = true ) {
 
-	echo get_penci_toc_list( $post, $apply_content_filter );
+	echo get_goso_toc_list( $post, $apply_content_filter );
 }
 
 /**
@@ -369,7 +369,7 @@ function penci_toc_list( $post = null, $apply_content_filter = true ) {
  *
  * @return string
  */
-function get_penci_toc_block( $post = null, $apply_content_filter = true ) {
+function get_goso_toc_block( $post = null, $apply_content_filter = true ) {
 
 	if ( ! $post instanceof WP_Post ) {
 
@@ -378,14 +378,14 @@ function get_penci_toc_block( $post = null, $apply_content_filter = true ) {
 
 	if ( $apply_content_filter ) {
 
-		$penciPost = new \AuthowToc_Post( $post );
+		$gosoPost = new \AuthowToc_Post( $post );
 
 	} else {
 
-		$penciPost = new \AuthowToc_Post( $post, false );
+		$gosoPost = new \AuthowToc_Post( $post, false );
 	}
 
-	return $penciPost->getTOC();
+	return $gosoPost->getTOC();
 }
 
 /**
@@ -397,7 +397,7 @@ function get_penci_toc_block( $post = null, $apply_content_filter = true ) {
  * @param null|WP_Post $post                 An instance of WP_Post
  * @param bool         $apply_content_filter Whether or not to apply `the_content` filter when processing post for headings.
  */
-function penci_toc_block( $post = null, $apply_content_filter = true ) {
+function goso_toc_block( $post = null, $apply_content_filter = true ) {
 
-	echo get_penci_toc_block( $post, $apply_content_filter );
+	echo get_goso_toc_block( $post, $apply_content_filter );
 }

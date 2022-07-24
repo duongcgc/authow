@@ -3,7 +3,7 @@
 (function () {
 
     var GosoLazy = new LazyLoad({
-        elements_selector: '.penci-lazy',
+        elements_selector: '.goso-lazy',
         data_bg: 'bgset',
         class_loading: 'lazyloading',
         class_entered: 'lazyloaded',

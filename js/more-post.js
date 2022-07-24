@@ -1,8 +1,8 @@
-/* global penciBlock */
-/* global penciBlocksArray */
+/* global gosoBlock */
+/* global gosoBlocksArray */
 jQuery(document).ready(function ($) {
     var offset;
-    jQuery('body').on('click', '.penci-ajax-more-click .penci-ajax-more-button', function (event) {
+    jQuery('body').on('click', '.goso-ajax-more-click .goso-ajax-more-button', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('loading-posts')) {
             var $this = $(this),
@@ -27,11 +27,11 @@ jQuery(document).ready(function ($) {
 
             $this.addClass('loading-posts');
 
-            var OBjBlockData = penciGetOBjBlockData($this.attr('data-blockuid')),
+            var OBjBlockData = gosoGetOBjBlockData($this.attr('data-blockuid')),
                 dataFilter = OBjBlockData.atts_json ? JSON.parse(OBjBlockData.atts_json) : OBjBlockData.atts_json;
 
             var data = {
-                action: 'penci_more_post_ajax',
+                action: 'goso_more_post_ajax',
                 query: query,
                 offset: offset,
                 mixed: mixed,
@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
                 success: function (data) {
                     if (data) {
                         var data_offset = parseInt(offset) + ppp,
-                            $wrap_content = $this.parent().parent().find('.penci-wrapper-data');
+                            $wrap_content = $this.parent().parent().find('.goso-wrapper-data');
 
                         $this.attr('data-offset', data_offset);
                         if (layout === 'masonry' || layout === 'masonry-2') {
@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
 
                             $(".container").fitVids();
 
-                            $('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+                            $('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
                                 var $this = $(this),
                                     $rtl = false;
                                 if ($('html').attr('dir') === 'rtl') {
@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
                                     dotsSpeed: 600,
                                     nav: true,
                                     dots: false,
-                                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                                     autoplay: true,
                                     autoplayTimeout: 5000,
                                     autoHeight: true,
@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
                             });
 
                             if ($().easyPieChart) {
-                                $('.penci-piechart').each(function () {
+                                $('.goso-piechart').each(function () {
                                     var $this = $(this);
                                     $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                         var chart_args = {
@@ -127,7 +127,7 @@ jQuery(document).ready(function ($) {
 
                             $(".container").fitVids();
 
-                            $('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+                            $('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
                                 var $this = $(this),
                                     $datalazy = false,
                                     $rtl = false;
@@ -148,7 +148,7 @@ jQuery(document).ready(function ($) {
                                     lazyLoad: $datalazy,
                                     nav: true,
                                     dots: false,
-                                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                                     autoplay: true,
                                     autoplayTimeout: 5000,
                                     autoHeight: true,
@@ -166,7 +166,7 @@ jQuery(document).ready(function ($) {
                             });
 
                             if ($().easyPieChart) {
-                                $('.penci-piechart').each(function () {
+                                $('.goso-piechart').each(function () {
                                     var $this = $(this);
                                     $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                         var chart_args = {
@@ -182,10 +182,10 @@ jQuery(document).ready(function ($) {
                                 }); // each
                             }
 
-                            var $justified_gallery = $('.penci-post-gallery-container.justified');
-                            var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+                            var $justified_gallery = $('.goso-post-gallery-container.justified');
+                            var $masonry_gallery = $('.goso-post-gallery-container.masonry');
                             if ($().justifiedGallery && $justified_gallery.length) {
-                                $('.penci-post-gallery-container.justified').each(function () {
+                                $('.goso-post-gallery-container.justified').each(function () {
                                     var $this = $(this);
                                     $this.justifiedGallery({
                                         rowHeight: $this.data('height'),
@@ -193,12 +193,12 @@ jQuery(document).ready(function ($) {
                                         margins: $this.data('margin'),
                                         randomize: false
                                     });
-                                }); // each .penci-post-gallery-container
+                                }); // each .goso-post-gallery-container
                             }
 
                             if ($().isotope && $masonry_gallery.length) {
 
-                                $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                     var $this = $(this);
                                     if ($this.attr('title')) {
                                         var $title = $this.attr('title');
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
 
                                         $this.addClass('loaded');
 
-                                        $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                        $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                             var $this = $(this);
                                             $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                 $this.addClass('animated');
@@ -235,7 +235,7 @@ jQuery(document).ready(function ($) {
                                 if ($('body').hasClass('admin-bar')) {
                                     top_margin = 122;
                                 }
-                                $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+                                $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                                     // settings
                                     additionalMarginTop: top_margin
                                 });
@@ -261,13 +261,13 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    function penciGetOBjBlockData($blockID) {
-        var $obj = new penciBlock();
+    function gosoGetOBjBlockData($blockID) {
+        var $obj = new gosoBlock();
 
-        jQuery.each(penciBlocksArray, function (index, block) {
+        jQuery.each(gosoBlocksArray, function (index, block) {
 
             if (block.blockID === $blockID) {
-                $obj = penciBlocksArray[index];
+                $obj = gosoBlocksArray[index];
             }
         });
 

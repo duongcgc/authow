@@ -11,7 +11,7 @@
         $('.pcheader-icon a.search-click').on('click', function (e) {
             var $this = $(this),
                 $closet = $this.closest('.wrapper-boxed'),
-                $pbcloset = $this.closest('.penci_nav_col');
+                $pbcloset = $this.closest('.goso_nav_col');
             if ($closet.hasClass('header-search-style-showup')) {
                 $this.next().toggleClass('active');
             } else {
@@ -35,13 +35,13 @@
         });
 
         // Go to top
-        $('.go-to-top, .penci-go-to-top-floating').on('click', function () {
+        $('.go-to-top, .goso-go-to-top-floating').on('click', function () {
             $('html, body').animate({scrollTop: 0}, 700);
             return false;
         });
 
         // Lazyload
-        /*$('.penci-lazy').Lazy({
+        /*$('.goso-lazy').Lazy({
             effect: 'fadeIn',
             effectTime: 300,
             scrollDirection: 'both'
@@ -49,7 +49,7 @@
         //lazySizes.init();
 
         // Go to top button
-        var $goto_button = $('.penci-go-to-top-floating');
+        var $goto_button = $('.goso-go-to-top-floating');
         if ($goto_button.length) {
             $(document).on('scroll', function () {
                 var y = $(this).scrollTop();
@@ -61,7 +61,7 @@
             });
         }
 
-        $(".penci-jump-recipe").on('click', function (e) {
+        $(".goso-jump-recipe").on('click', function (e) {
             e.preventDefault();
             var id = $(this).attr("href"),
                 $scroll_top = $(id).offset().top,
@@ -89,16 +89,16 @@
     /* Cookie Law
      ---------------------------------------------------------------*/
     ELPENCI.cookie = function () {
-        var wrapCookie = '.penci-wrap-gprd-law',
+        var wrapCookie = '.goso-wrap-gprd-law',
             $wrapCookie = $(wrapCookie),
-            classAction = 'penci-wrap-gprd-law-close',
-            penciCookieName = 'penci_law_footer_new';
+            classAction = 'goso-wrap-gprd-law-close',
+            gosoCookieName = 'goso_law_footer_new';
 
         if (!$wrapCookie.length) {
             return false;
         }
 
-        var penciCookie = {
+        var gosoCookie = {
             set: function (name, value) {
                 var date = new Date();
                 date.setTime(date.getTime() + (31536000000));
@@ -129,14 +129,14 @@
             }
         };
 
-        $wrapCookie.removeClass('penci-close-all');
-        if (!penciCookie.exists(penciCookieName) || (penciCookie.exists(penciCookieName) && 1 == penciCookie.read(penciCookieName))) {
+        $wrapCookie.removeClass('goso-close-all');
+        if (!gosoCookie.exists(gosoCookieName) || (gosoCookie.exists(gosoCookieName) && 1 == gosoCookie.read(gosoCookieName))) {
             $wrapCookie.removeClass(classAction);
         } else {
             $wrapCookie.addClass(classAction);
         }
 
-        $('.penci-gprd-accept, .penci-gdrd-show').on('click', function (e) {
+        $('.goso-gprd-accept, .goso-gdrd-show').on('click', function (e) {
             e.preventDefault();
 
             var $this = $(this),
@@ -145,9 +145,9 @@
             $parent_law.toggleClass(classAction);
 
             if ($parent_law.hasClass(classAction)) {
-                penciCookie.set(penciCookieName, '2');
+                gosoCookie.set(gosoCookieName, '2');
             } else {
-                penciCookie.set(penciCookieName, '1');
+                gosoCookie.set(gosoCookieName, '1');
             }
 
             return false;
@@ -162,7 +162,7 @@
      ---------------------------------------------------------------*/
     ELPENCI.featured_slider = function () {
         if ($().owlCarousel) {
-            $('.featured-area .penci-owl-featured-area').each(function () {
+            $('.featured-area .goso-owl-featured-area').each(function () {
                 var $this = $(this),
                     $style = $this.data('style'),
                     $auto = false,
@@ -220,7 +220,7 @@
                     mouseDrag: false,
                     lazyLoad: true,
                     dots: $dots,
-                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                     autoplay: $auto,
                     autoplayTimeout: $autotime,
                     autoplayHoverPause: true,
@@ -263,11 +263,11 @@
                 });
 
                 $this.on('initialize.owl.carousel', function (event) {
-                    $this.closest('.featured-area').addClass('penci-featured-loaded');
+                    $this.closest('.featured-area').addClass('goso-featured-loaded');
                 });
 
                 $this.on('changed.owl.carousel', function (event) {
-                    /*$this.find( '.penci-lazy' ).Lazy( {
+                    /*$this.find( '.goso-lazy' ).Lazy( {
                         effect: 'fadeIn',
                         effectTime: 200,
                         scrollDirection: 'both',
@@ -284,7 +284,7 @@
      ---------------------------------------------------------------*/
     ELPENCI.owl_slider = function () {
         if ($().owlCarousel) {
-            $('.penci-owl-carousel-slider').each(function () {
+            $('.goso-owl-carousel-slider').each(function () {
                 var $this = $(this),
                     $parent = $this.parent(),
                     $auto = true,
@@ -355,7 +355,7 @@
                     dotsSpeed: $speed,
                     nav: $nav,
                     dots: $dots,
-                    navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                    navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                     autoplay: $dataauto,
                     autoplayTimeout: $autotime,
                     autoHeight: true,
@@ -381,7 +381,7 @@
                     }
                 };
 
-                if ($this.hasClass('penci-headline-posts')) {
+                if ($this.hasClass('goso-headline-posts')) {
                     owl_args['animateOut'] = 'slideOutUp';
                     owl_args['animateIn'] = 'slideInUp';
                 }
@@ -389,7 +389,7 @@
                 $this.owlCarousel(owl_args);
 
                 $this.on('changed.owl.carousel', function (event) {
-                    /*$this.find( '.penci-lazy' ).Lazy( {
+                    /*$this.find( '.goso-lazy' ).Lazy( {
                         effect: 'fadeIn',
                         effectTime: 200,
                         scrollDirection: 'both',
@@ -399,9 +399,9 @@
                     //lazySizes.init();
                 });
 
-                if ($parent.hasClass('penci-topbar-trending')) {
-                    var $customNext = $parent.find(".penci-slider-next"),
-                        $customPrev = $parent.find(".penci-slider-prev");
+                if ($parent.hasClass('goso-topbar-trending')) {
+                    var $customNext = $parent.find(".goso-slider-next"),
+                        $customPrev = $parent.find(".goso-slider-prev");
                     $customNext.on('click', function (ev) {
                         ev.preventDefault();
                         $this.trigger("next.owl.carousel");
@@ -429,26 +429,26 @@
     ELPENCI.sticky_sidebar = function () {
         if ($().theiaStickySidebar) {
             var top_margin = 90;
-            if ($('body').hasClass('admin-bar') && $('body').hasClass('penci-vernav-enable')) {
+            if ($('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
                 top_margin = 62;
-            } else if (!$('body').hasClass('admin-bar') && $('body').hasClass('penci-vernav-enable')) {
+            } else if (!$('body').hasClass('admin-bar') && $('body').hasClass('goso-vernav-enable')) {
                 top_margin = 30;
-            } else if ($('body').hasClass('admin-bar') && !$('body').hasClass('penci-vernav-enable')) {
+            } else if ($('body').hasClass('admin-bar') && !$('body').hasClass('goso-vernav-enable')) {
                 top_margin = 122;
             }
 
-            if ($('.penci-vc-sticky-sidebar > .penci-vc-row > .penci-vc-column').length) {
-                $('.penci-vc-sticky-sidebar > .penci-vc-row > .penci-vc-column').theiaStickySidebar({
+            if ($('.goso-vc-sticky-sidebar > .goso-vc-row > .goso-vc-column').length) {
+                $('.goso-vc-sticky-sidebar > .goso-vc-row > .goso-vc-column').theiaStickySidebar({
                     additionalMarginTop: top_margin,
                 });
             }
 
-            if ($('.penci-enSticky .penci-sticky-sb').length) {
-                $('.penci-enSticky .penci-sticky-sb,.penci-enSticky .penci-sticky-ct').theiaStickySidebar({
+            if ($('.goso-enSticky .goso-sticky-sb').length) {
+                $('.goso-enSticky .goso-sticky-sb,.goso-enSticky .goso-sticky-ct').theiaStickySidebar({
                     additionalMarginTop: top_margin,
                 });
             }
-            $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+            $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                 // settings
                 additionalMarginTop: top_margin
             });
@@ -459,10 +459,10 @@
      ----------------------------------------------------------------*/
     ELPENCI.mega_menu = function () {
         // Hover parent
-        $('#navigation ul.menu > li.penci-mega-menu').on('mouseenter', function () {
+        $('#navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
                 $row_active = $this.find('.row-active'),
-                $rowsLazy = $row_active.find('.penci-lazy');
+                $rowsLazy = $row_active.find('.goso-lazy');
             $row_active.fadeIn('200').css('display', 'inline-block');
             /*$rowsLazy.Lazy({
                 effect: 'fadeIn',
@@ -473,14 +473,14 @@
             //lazySizes.init();
         });
 
-        $('#navigation .penci-mega-child-categories a').on('mouseenter', function () {
+        $('#navigation .goso-mega-child-categories a').on('mouseenter', function () {
             if (!$(this).hasClass('cat-active')) {
                 var $this = $(this),
                     $row_active = $this.data('id'),
                     $parentA = $this.parent().children('a'),
-                    $parent = $this.closest('.penci-megamenu'),
-                    $rows = $this.closest('.penci-megamenu').find('.penci-mega-latest-posts').children('.penci-mega-row'),
-                    $rowsLazy = $rows.find('.penci-lazy');
+                    $parent = $this.closest('.goso-megamenu'),
+                    $rows = $this.closest('.goso-megamenu').find('.goso-mega-latest-posts').children('.goso-mega-row'),
+                    $rowsLazy = $rows.find('.goso-lazy');
                 $parentA.removeClass('cat-active');
                 $this.addClass('cat-active');
                 $rows.hide();
@@ -505,7 +505,7 @@
         // Toggle menu when click show/hide menu
         $('#navigation .button-menu-mobile').on('click', function () {
             $('body').addClass('open-sidebar-nav');
-            /*$( '#sidebar-nav .penci-lazy' ).Lazy({
+            /*$( '#sidebar-nav .goso-lazy' ).Lazy({
                 effect: 'fadeIn',
                 effectTime: 300,
                 scrollDirection: 'both'
@@ -515,7 +515,7 @@
 
         // indicator click
         $('#sidebar-nav .menu li a .indicator').on('click', function (e) {
-            if ($('body').hasClass('penci-vernav-cparent')) {
+            if ($('body').hasClass('goso-vernav-cparent')) {
                 return;
             }
             var $this = $(this);
@@ -524,7 +524,7 @@
             $this.parent().next().slideToggle('fast');
         });
 
-        $('.penci-vernav-cparent #sidebar-nav .menu li.menu-item-has-children > a').on('click', function (e) {
+        $('.goso-vernav-cparent #sidebar-nav .menu li.menu-item-has-children > a').on('click', function (e) {
             var $this = $(this);
             e.preventDefault();
             $this.children().children().toggleClass('fa-angle-up');
@@ -538,18 +538,18 @@
     }
 
     ELPENCI.toggleMenuHumburger = function () {
-        var $menuhumburger = $('.penci-menu-hbg');
+        var $menuhumburger = $('.goso-menu-hbg');
         if ($menuhumburger.length) {
             var $body = $('body'),
-                $button = $('.penci-vernav-toggle,.penci-menuhbg-toggle,#penci-close-hbg,.penci-menu-hbg-overlay'),
-                sidebarClass = 'penci-menuhbg-open';
+                $button = $('.goso-vernav-toggle,.goso-menuhbg-toggle,#goso-close-hbg,.goso-menu-hbg-overlay'),
+                sidebarClass = 'goso-menuhbg-open';
 
             // Add indicator
-            $('.penci-menu-hbg .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
+            $('.goso-menu-hbg .menu li.menu-item-has-children > a').append('<u class="indicator"><i class="fa fa-angle-down"></i></u>');
 
             // indicator click
-            $('.penci-menu-hbg .menu li a .indicator').on('click', function (e) {
-                if ($('body').hasClass('penci-hbg-cparent')) {
+            $('.goso-menu-hbg .menu li a .indicator').on('click', function (e) {
+                if ($('body').hasClass('goso-hbg-cparent')) {
                     return;
                 }
                 var $this = $(this);
@@ -558,7 +558,7 @@
                 $this.parent().next().slideToggle('fast');
             });
 
-            $('.penci-hbg-cparent .penci-menu-hbg .menu li.menu-item-has-children > a').on('click', function (e) {
+            $('.goso-hbg-cparent .goso-menu-hbg .menu li.menu-item-has-children > a').on('click', function (e) {
                 var $this = $(this);
                 e.preventDefault();
                 $this.children().children().toggleClass('fa-angle-up');
@@ -579,7 +579,7 @@
                 $body.addClass(sidebarClass);
                 $button.addClass('active');
 
-                /*$('.penci-menu-hbg .penci-lazy').Lazy({
+                /*$('.goso-menu-hbg .goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -589,7 +589,7 @@
 
             // Scroll menu hamburger and callback lazyload
             $menuhumburger.on('scroll', function () {
-                /*$('.penci-menu-hbg .penci-lazy').Lazy({
+                /*$('.goso-menu-hbg .goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -603,7 +603,7 @@
      ----------------------------------------------------------------*/
     ELPENCI.lightbox = function () {
         if ($().magnificPopup) {
-            $('a[data-rel^="penci-gallery-image-content"], .penci-enable-lightbox .gallery-item a').magnificPopup({
+            $('a[data-rel^="goso-gallery-image-content"], .goso-enable-lightbox .gallery-item a').magnificPopup({
                 type: 'image',
                 closeOnContentClick: true,
                 closeBtnInside: false,
@@ -621,7 +621,7 @@
                 }
             });
 
-            $('a[data-rel^="penci-gallery-bground-content"]').magnificPopup({
+            $('a[data-rel^="goso-gallery-bground-content"]').magnificPopup({
                 type: 'image',
                 closeOnContentClick: true,
                 closeBtnInside: false,
@@ -636,7 +636,7 @@
 
 
             // Enable lightbox videos
-            $('.penci-other-layouts-lighbox').magnificPopup({
+            $('.goso-other-layouts-lighbox').magnificPopup({
                 type: 'iframe',
                 mainClass: 'mfp-fade',
                 fixedContentPos: true,
@@ -644,8 +644,8 @@
                 closeOnContentClick: true
             });
 
-            if ($('.penci-image-gallery').length) {
-                $('.penci-image-gallery').each(function () {
+            if ($('.goso-image-gallery').length) {
+                $('.goso-image-gallery').each(function () {
                     var $this = $(this),
                         id = $this.attr('id');
 
@@ -665,8 +665,8 @@
                 });
             }
 
-            if ($('.penci-post-gallery-container').length) {
-                $('.penci-post-gallery-container').each(function () {
+            if ($('.goso-post-gallery-container').length) {
+                $('.goso-post-gallery-container').each(function () {
                     var $this = $(this),
                         id = $this.attr('id');
 
@@ -692,7 +692,7 @@
     /* Masonry layout
      ----------------------------------------------------------------*/
     ELPENCI.masonry = function () {
-        var $masonry_container = $('.penci-masonry, .penci-bgstyle-2 .penci-biggrid-data');
+        var $masonry_container = $('.goso-masonry, .goso-bgstyle-2 .goso-biggrid-data');
         if ($masonry_container.length) {
             $masonry_container.each(function () {
                 var $this = $(this);
@@ -711,9 +711,9 @@
     /* Video Background
      ----------------------------------------------------------------*/
     ELPENCI.video_background = function () {
-        var $penci_videobg = $('#penci-featured-video-bg');
-        if ($penci_videobg.length) {
-            $($penci_videobg).each(function () {
+        var $goso_videobg = $('#goso-featured-video-bg');
+        if ($goso_videobg.length) {
+            $($goso_videobg).each(function () {
                 var $this = $(this),
                     $src = $this.data('videosrc'),
                     $startime = $this.data('starttime'),
@@ -735,11 +735,11 @@
     /* Portfolio
      ----------------------------------------------------------------*/
     ELPENCI.portfolio = function () {
-        var $penci_portfolio = $('.penci-portfolio');
+        var $goso_portfolio = $('.goso-portfolio');
 
 
-        if ($().isotope && $penci_portfolio.length) {
-            $('.penci-portfolio').each(function () {
+        if ($().isotope && $goso_portfolio.length) {
+            $('.goso-portfolio').each(function () {
                 var $this = $(this),
                     unique_id = $(this).attr('id'),
                     DataFilter = null;
@@ -783,13 +783,13 @@
 
                             var $termActive = $afilter.filter('[data-term="' + location + '"]'),
                                 portfolioItem = $this.find('.portfolio-item'),
-                                $buttonLoadMore = $this.parent().find('.penci-pagenavi-shortcode');
+                                $buttonLoadMore = $this.parent().find('.goso-pagenavi-shortcode');
 
                             if ($termActive.length) {
 
                                 liFilter.removeClass('active');
                                 $termActive.parent().addClass('active');
-                                $this.isotope({filter: '.penci-' + location});
+                                $this.isotope({filter: '.goso-' + location});
 
                                 var dataTerm = $termActive.data("term"),
                                     p = {};
@@ -819,7 +819,7 @@
                 }); // imagesloaded
 
                 // Filter items when filter link is clicked
-                var $filter = $this.parent().find('.penci-portfolio-filter'),
+                var $filter = $this.parent().find('.goso-portfolio-filter'),
                     $afilter = $filter.find('a'),
                     liFilter = $filter.find('li');
 
@@ -830,13 +830,13 @@
                         selector = self.find("a").attr('data-filter'),
                         $e_dataTerm = $filter.find('a').filter('[data-term="' + term + '"]'),
                         portfolioItem = $this.find('.portfolio-item'),
-                        $buttonLoadMore = $this.parent().find('.penci-pagenavi-shortcode'),
+                        $buttonLoadMore = $this.parent().find('.goso-pagenavi-shortcode'),
                         scrollTop = $(window).scrollTop();
 
                     liFilter.removeClass('active');
                     self.addClass('active');
 
-                    $this.parent().find('.penci-ajax-more-button').attr('data-cat', term);
+                    $this.parent().find('.goso-ajax-more-button').attr('data-cat', term);
 
                     $this.isotope({filter: selector});
 
@@ -873,31 +873,31 @@
                 ELPENCI.portfolioLoadMore.loadMore($this, DataFilter);
                 ELPENCI.portfolioLoadMore.infinityScroll(DataFilter);
 
-            }); // each .penci-portfolio
+            }); // each .goso-portfolio
 
         }	// end if isotope & portfolio
 
 
-        var $btnLoadMore = $('.penci-plf-loadmore');
+        var $btnLoadMore = $('.goso-plf-loadmore');
         if (!$().isotope || !$btnLoadMore.length) {
             return false;
         }
     }
 
     ELPENCI.portfolioLoadMore = {
-        btnLoadMore: $('.penci-plf-loadmore'),
+        btnLoadMore: $('.goso-plf-loadmore'),
         loadMore: function ($pfl_wapper, DataFilter) {
             var self = this;
-            $('body').on('click', '.penci-ajax-more-button', function (event) {
+            $('body').on('click', '.goso-ajax-more-button', function (event) {
                 self.actionLoadMore($(this), $pfl_wapper, DataFilter);
             });
         },
         infinityScroll: function (DataFilter) {
             var self = this,
-                $handle = $('.penci-plf-loadmore'),
-                $button_load = $handle.find('.penci-ajax-more-button');
+                $handle = $('.goso-plf-loadmore'),
+                $button_load = $handle.find('.goso-ajax-more-button');
 
-            if ($handle.hasClass('penci-infinite-scroll')) {
+            if ($handle.hasClass('goso-infinite-scroll')) {
                 $(window).on('scroll', function () {
 
                     var hT = $button_load.offset().top,
@@ -906,7 +906,7 @@
                         wS = $(this).scrollTop();
 
                     if ((wS > (hT + hH - wH)) && $button_load.length) {
-                        var $pfl_wapper = $button_load.closest('.penci-portfolio');
+                        var $pfl_wapper = $button_load.closest('.goso-portfolio');
                         self.actionLoadMore($button_load, $pfl_wapper, DataFilter);
                     }
                 }).trigger('scroll');
@@ -924,12 +924,12 @@
 
             DataFilter.pflShowIds = [];
 
-            $button_load.closest('.wrapper-penci-portfolio').find('.portfolio-item').each(function (t, e) {
+            $button_load.closest('.wrapper-goso-portfolio').find('.portfolio-item').each(function (t, e) {
                 DataFilter.pflShowIds.push($(e).data('pflid'));
             });
 
             var data = {
-                action: 'penci_pfl_more_post_ajax',
+                action: 'goso_pfl_more_post_ajax',
                 datafilter: DataFilter,
                 nonce: ajax_var_more.nonce
             };
@@ -938,7 +938,7 @@
                     $button_load.find('.ajax-more-text').html(mesNoMore);
                     $button_load.removeClass('loading-portfolios');
 
-                    $button_load.closest('.wrapper-penci-portfolio').find('.penci-portfolio-filter li.active').addClass('loadmore-finish');
+                    $button_load.closest('.wrapper-goso-portfolio').find('.goso-portfolio-filter li.active').addClass('loadmore-finish');
 
                     setTimeout(function () {
                         $button_load.parent().parent().hide();
@@ -948,7 +948,7 @@
                     return false;
                 }
 
-                var $wrap_content = $button_load.closest('.wrapper-penci-portfolio').find('.penci-portfolio'),
+                var $wrap_content = $button_load.closest('.wrapper-goso-portfolio').find('.goso-portfolio'),
                     $data = $(response.data.items);
 
                 $wrap_content.find('.inner-portfolio-posts').append($data);
@@ -956,7 +956,7 @@
                     $wrap_content.isotope('layout');
                 });
 
-                /*$('.penci-lazy').Lazy({
+                /*$('.goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -965,7 +965,7 @@
 
                 $(".container").fitVids();
 
-                $('a[data-rel^="penci-gallery-image-content"]').magnificPopup({
+                $('a[data-rel^="goso-gallery-image-content"]').magnificPopup({
                     type: 'image',
                     closeOnContentClick: true,
                     closeBtnInside: false,
@@ -998,7 +998,7 @@
                 type: 'POST',
                 dataType: 'html',
                 url: ajax_var_more.url,
-                data: 'datafilter=' + DataFilter + '&action=penci_pfl_more_post_ajax&nonce=' + ajax_var_more.nonce,
+                data: 'datafilter=' + DataFilter + '&action=goso_pfl_more_post_ajax&nonce=' + ajax_var_more.nonce,
                 success: function (data) {
 
                 },
@@ -1013,10 +1013,10 @@
     /* Gallery
      ----------------------------------------------------------------*/
     ELPENCI.gallery = function () {
-        var $justified_gallery = $('.penci-post-gallery-container.justified');
-        var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+        var $justified_gallery = $('.goso-post-gallery-container.justified');
+        var $masonry_gallery = $('.goso-post-gallery-container.masonry');
         if ($().justifiedGallery && $justified_gallery.length) {
-            $('.penci-post-gallery-container.justified').each(function () {
+            $('.goso-post-gallery-container.justified').each(function () {
                 var $this = $(this);
                 $this.justifiedGallery({
                     rowHeight: $this.data('height'),
@@ -1024,12 +1024,12 @@
                     margins: $this.data('margin'),
                     randomize: false
                 });
-            }); // each .penci-post-gallery-container
+            }); // each .goso-post-gallery-container
         }
 
         if ($().isotope && $masonry_gallery.length) {
 
-            $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+            $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                 var $this = $(this).children();
                 if ($this.attr('data-cap') && !$this.hasClass('added-caption')) {
                     var $title = $this.attr('data-cap');
@@ -1055,7 +1055,7 @@
 
                     $this.addClass('loaded');
 
-                    $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                    $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                         var $this = $(this);
                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                             $this.children().addClass('animated');
@@ -1069,10 +1069,10 @@
         /* Jarallax
          ----------------------------------------------------------------*/
         ELPENCI.Jarallax = function () {
-            if (!$.fn.jarallax || !$('.penci-jarallax').length) {
+            if (!$.fn.jarallax || !$('.goso-jarallax').length) {
                 return false;
             }
-            $('.penci-jarallax').each(function () {
+            $('.goso-jarallax').each(function () {
                 var $this = $(this),
                     $jarallaxArgs = {};
 
@@ -1086,12 +1086,12 @@
         /* Related Popup
          ----------------------------------------------------------------*/
         ELPENCI.RelatedPopup = function () {
-            if ($('.penci-rlt-popup').length) {
-                var rltpopup = $('.penci-rlt-popup'),
-                    rltclose = $('.penci-rlt-popup .penci-close-rltpopup'),
-                    rltlazy = rltpopup.find('.penci-lazy');
+            if ($('.goso-rlt-popup').length) {
+                var rltpopup = $('.goso-rlt-popup'),
+                    rltclose = $('.goso-rlt-popup .goso-close-rltpopup'),
+                    rltlazy = rltpopup.find('.goso-lazy');
 
-                $('body').on('inview', '.penci-flag-rlt-popup', function (event, isInView, visiblePartX, visiblePartY) {
+                $('body').on('inview', '.goso-flag-rlt-popup', function (event, isInView, visiblePartX, visiblePartY) {
                     if (!rltpopup.hasClass('rltpopup-notshow-again') && isInView) {
                         rltpopup.addClass('rltpopup-show-up');
                         rltclose.on("click", function (e) {
@@ -1152,8 +1152,8 @@
                 this.register();
             },
             progressBar: function () {
-                if ($('.penci-review-process').length) {
-                    $('.penci-review-process').each(function () {
+                if ($('.goso-review-process').length) {
+                    $('.goso-review-process').each(function () {
                         var $this = $(this),
                             $bar = $this.children(),
                             $bar_w = $bar.data('width') * 10;
@@ -1163,8 +1163,8 @@
                     }); // each
                 }
 
-                if ($.fn.easyPieChart && $('.penci-piechart').length) {
-                    $('.penci-piechart').each(function () {
+                if ($.fn.easyPieChart && $('.goso-piechart').length) {
+                    $('.goso-piechart').each(function () {
                         var $this = $(this);
                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                             var chart_args = {
@@ -1181,7 +1181,7 @@
                 }
             },
             counterUp: function () {
-                var $counterup = $('.penci-counterup-number');
+                var $counterup = $('.goso-counterup-number');
 
                 if (!$.fn.counterUp || !$counterup.length) {
                     return false;
@@ -1215,33 +1215,33 @@
             },
             login: function () {
                 var $body = $('body'),
-                    $loginform = $('.penci-loginform'),
-                    $loginContainer = $loginform.parent('.penci-login-wrap');
+                    $loginform = $('.goso-loginform'),
+                    $loginContainer = $loginform.parent('.goso-login-wrap');
 
                 if ($loginform.length) {
-                    $body.on('click', '.penci-user-register', function (e) {
+                    $body.on('click', '.goso-user-register', function (e) {
                         e.preventDefault();
 
                         var $this = $(this),
-                            $parent = $this.closest('.penci-login-register');
+                            $parent = $this.closest('.goso-login-register');
 
-                        $parent.find('.penci-login-wrap').addClass('hidden');
-                        $parent.find('.penci-register-wrap').removeClass('hidden');
+                        $parent.find('.goso-login-wrap').addClass('hidden');
+                        $parent.find('.goso-register-wrap').removeClass('hidden');
                     });
 
-                    $('#penci-user-login,#penci-user-pass').on('focus', function () {
+                    $('#goso-user-login,#goso-user-pass').on('focus', function () {
                         $(this).removeClass('invalid');
                     });
 
-                    $('.penci-loginform').each(function () {
+                    $('.goso-loginform').each(function () {
                         $(this).on('submit', function (e) {
                             var $this = $(this),
-                                $loginContainer = $this.parent('.penci-login-wrap'),
-                                inputUsername = $this.find('#penci-user-login'),
-                                inputPass = $this.find('#penci-user-pass'),
+                                $loginContainer = $this.parent('.goso-login-wrap'),
+                                inputUsername = $this.find('#goso-user-login'),
+                                inputPass = $this.find('#goso-user-pass'),
                                 valUsername = inputUsername.val(),
                                 valPass = inputPass.val(),
-                                nonce = $this.find('.penci_form_nonce').val(),
+                                nonce = $this.find('.goso_form_nonce').val(),
                                 gcapcha = $this.find('.g-recaptcha-response');
                             if (gcapcha.length) {
                                 var captcha = gcapcha.val();
@@ -1267,7 +1267,7 @@
                             $loginContainer.find('.message').slideDown().remove();
 
                             var data = {
-                                action: 'penci_login_ajax',
+                                action: 'goso_login_ajax',
                                 username: valUsername,
                                 password: valPass,
                                 captcha: captcha,
@@ -1293,46 +1293,46 @@
             },
             register: function () {
                 var $body = $('body'),
-                    $registerform = $('#penci-registration-form'),
-                    $registerContainer = $registerform.closest('.penci-register-wrap');
+                    $registerform = $('#goso-registration-form'),
+                    $registerContainer = $registerform.closest('.goso-register-wrap');
 
                 if (!$registerform.length) {
                     return false;
                 }
 
-                $body.on('click', '.penci-user-login-here', function (e) {
+                $body.on('click', '.goso-user-login-here', function (e) {
                     e.preventDefault();
 
                     var $this = $(this),
-                        $parent = $this.closest('.penci-login-register');
+                        $parent = $this.closest('.goso-login-register');
 
-                    $parent.find('.penci-login-wrap').removeClass('hidden');
-                    $parent.find('.penci-register-wrap').addClass('hidden');
+                    $parent.find('.goso-login-wrap').removeClass('hidden');
+                    $parent.find('.goso-register-wrap').addClass('hidden');
 
                     return false;
                 });
 
-                var $allInput = $('.penci_user_name,.penci_user_email,.penci_user_pass,.penci_user_pass_confirm');
+                var $allInput = $('.goso_user_name,.goso_user_email,.goso_user_pass,.goso_user_pass_confirm');
                 $allInput.on('focus', function () {
                     $(this).removeClass('invalid');
                 });
 
 
-                $('.penci-registration-form').each(function () {
+                $('.goso-registration-form').each(function () {
                     $(this).on('submit', function (e) {
                         e.preventDefault();
 
                         var $this = $(this),
-                            $registerContainer = $this.closest('.penci-register-wrap'),
-                            inputUsername = $this.find('.penci_user_name'),
-                            inputEmail = $this.find('.penci_user_email'),
-                            $inputPass = $this.find('.penci_user_pass'),
-                            $inputPassConfirm = $this.find('.penci_user_pass_confirm'),
+                            $registerContainer = $this.closest('.goso-register-wrap'),
+                            inputUsername = $this.find('.goso_user_name'),
+                            inputEmail = $this.find('.goso_user_email'),
+                            $inputPass = $this.find('.goso_user_pass'),
+                            $inputPassConfirm = $this.find('.goso_user_pass_confirm'),
                             valUsername = inputUsername.val(),
                             valEmail = inputEmail.val(),
                             valPass = $inputPass.val(),
                             valPassConfirm = $inputPassConfirm.val(),
-                            nonce = $this.find('.penci_form_nonce').val(),
+                            nonce = $this.find('.goso_form_nonce').val(),
                             gcapcha = $this.find('.g-recaptcha-response');
                         if (gcapcha.length) {
                             var captcha = gcapcha.val();
@@ -1380,9 +1380,9 @@
 
 
                         var data = {
-                            action: 'penci_register_ajax',
-                            fistName: $this.find('.penci_first_name').val(),
-                            lastName: $this.find('.penci_last_name').val(),
+                            action: 'goso_register_ajax',
+                            fistName: $this.find('.goso_first_name').val(),
+                            lastName: $this.find('.goso_last_name').val(),
                             username: valUsername,
                             password: valPass,
                             confirmPass: valPassConfirm,
@@ -1406,10 +1406,10 @@
                 });
             },
             map: function () {
-                if (!$('.penci-google-map').length) {
+                if (!$('.goso-google-map').length) {
                     return false;
                 }
-                $('.penci-google-map').each(function () {
+                $('.goso-google-map').each(function () {
 
                     var map = $(this),
                         Option = map.data("map_options"),
@@ -1483,17 +1483,17 @@
                 ELPENCI.VideosList.play();
             },
             play: function () {
-                if (!$('.penci-video_playlist').length) {
+                if (!$('.goso-video_playlist').length) {
                     return false;
                 }
-                $('.penci-video_playlist').each(function (idx, item) {
+                $('.goso-video_playlist').each(function (idx, item) {
                     var $blockVideo = $(this),
-                        $VideoF = $blockVideo.find('.penci-video-frame');
+                        $VideoF = $blockVideo.find('.goso-video-frame');
 
-                    var $height = $blockVideo.find('.penci-video-nav').height(),
-                        $heightTitle = $blockVideo.find('.penci-video-nav .penci-playlist-title').height()
+                    var $height = $blockVideo.find('.goso-video-nav').height(),
+                        $heightTitle = $blockVideo.find('.goso-video-nav .goso-playlist-title').height()
 
-                    $blockVideo.find('.penci-video-playlist-nav').css('height', $height - $heightTitle);
+                    $blockVideo.find('.goso-video-playlist-nav').css('height', $height - $heightTitle);
                     // Init
                     $VideoF.video();
                     ELPENCI.VideosList.updateStatus($blockVideo);
@@ -1504,12 +1504,12 @@
                         $blockVideo.find('.loader-overlay').remove();
                     });
                     // Play videos
-                    $blockVideo.on('click', '.penci-video-playlist-item', function () {
+                    $blockVideo.on('click', '.goso-video-playlist-item', function () {
                         var $thisVideo = $(this),
                             frameID = $thisVideo.data('name'),
                             $thisFrame = $('#' + frameID),
                             videoSrc = $thisVideo.data('src'),
-                            videoNum = $thisVideo.find('.penci-video-number').text();
+                            videoNum = $thisVideo.find('.goso-video-number').text();
 
                         if ($thisVideo.hasClass('is-playing')) {
                             $thisFrame.pauseVideo();
@@ -1517,10 +1517,10 @@
                         }
 
                         // Update the number of the playing video in the title section
-                        $blockVideo.find('.penci-video-playing').text(videoNum);
+                        $blockVideo.find('.goso-video-playing').text(videoNum);
 
                         // Pause all Videos
-                        $blockVideo.find('.penci-video-frame').each(function () {
+                        $blockVideo.find('.goso-video-frame').each(function () {
                             $(this).pauseVideo().hide();
                         })
 
@@ -1529,7 +1529,7 @@
                             // Add the loader icon
                             $blockVideo.find('.fluid-width-video-wrapper').prepend('');
 
-                            $blockVideo.find('.fluid-width-video-wrapper').append('<iframe class="penci-video-frame" id="' + frameID + '" src="' + videoSrc + '" frameborder="0" width="100%"" height="434" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+                            $blockVideo.find('.fluid-width-video-wrapper').append('<iframe class="goso-video-frame" id="' + frameID + '" src="' + videoSrc + '" frameborder="0" width="100%"" height="434" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
                             $thisFrame = $('#' + frameID);
 
                             $thisFrame.video(); // reinit
@@ -1550,7 +1550,7 @@
                 });
             },
             updateStatus: function ($blockVideo) {
-                $blockVideo.find('.penci-video-frame').each(function () {
+                $blockVideo.find('.goso-video-frame').each(function () {
                     var $this = $(this),
                         $videoItem = $("[data-name='" + $this.attr('id') + "']");
 
@@ -1601,8 +1601,8 @@
     $(window).on('elementor/frontend/init', function () {
         if (window.elementorFrontend) {
 
-            function penciLazy() {
-                /*$('.penci-lazy').Lazy({
+            function gosoLazy() {
+                /*$('.goso-lazy').Lazy({
                     effect: 'fadeIn',
                     effectTime: 300,
                     scrollDirection: 'both'
@@ -1610,22 +1610,22 @@
                 //lazySizes.init();
             };
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-single-share.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-single-share.default', function ($scope) {
                 ELPENCI.shareexpand();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-portfolio.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-portfolio.default', function ($scope) {
                 ELPENCI.portfolio();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-about-me.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-about-me.default', function ($scope) {
+                gosoLazy();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-image-gallery.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-image-gallery.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.masonry();
                 ELPENCI.gallery();
                 ELPENCI.owl_slider();
-                var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+                var $masonry_gallery = $('.goso-post-gallery-container.masonry');
                 if ($().isotope && $masonry_gallery.length) {
                     $masonry_gallery.each(function () {
                         var $this = $(this);
@@ -1639,7 +1639,7 @@
 
                             $this.addClass('loaded');
 
-                            $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                            $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                 var $this = $(this);
                                 $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                     $this.children().addClass('animated');
@@ -1649,67 +1649,67 @@
                     });
                 }
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-pintersest.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-pintersest.default', function ($scope) {
+                gosoLazy();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-big-grid.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-big-grid.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.masonry();
-                $('body').trigger('penci-block-heading');
+                $('body').trigger('goso-block-heading');
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-small-list.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-small-list.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
-                $('body').trigger('penci-block-heading')
-                    .trigger('penci-small-list-loaded');
+                $('body').trigger('goso-block-heading')
+                    .trigger('goso-small-list-loaded');
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-product-list.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-product-list.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-video-playlist.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-video-playlist.default', function ($scope) {
+                gosoLazy();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-featured-boxes.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-featured-boxes.default', function ($scope) {
+                gosoLazy();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-popular-posts.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-popular-posts.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
                 ELPENCI.extraFunction.init();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-featured-cat.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-featured-cat.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
                 ELPENCI.extraFunction.init();
-                $('body').trigger('penci-block-heading');
+                $('body').trigger('goso-block-heading');
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-latest-posts.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-latest-posts.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
                 ELPENCI.masonry();
                 ELPENCI.extraFunction.init();
-                $('body').trigger('penci-block-heading');
+                $('body').trigger('goso-block-heading');
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-recent-posts.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-recent-posts.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.extraFunction.init();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-team-member.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-team-member.default', function ($scope) {
+                gosoLazy();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-portfolio.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-portfolio.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.portfolio();
                 ELPENCI.masonry();
 
-                var $penci_portfolio = $('.penci-portfolio');
-                if ($().isotope && $penci_portfolio.length) {
-                    $('.penci-portfolio').each(function () {
+                var $goso_portfolio = $('.goso-portfolio');
+                if ($().isotope && $goso_portfolio.length) {
+                    $('.goso-portfolio').each(function () {
                         var $this = $(this);
                         $this.imagesLoaded(function () {
                             $this.isotope({
@@ -1734,7 +1734,7 @@
                 }
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-facebook-page.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-facebook-page.default', function ($scope) {
                 var faceIsLoading = "", faceisLoaded = "";
                 faceIsLoading || faceisLoaded || (faceIsLoading = !0, jQuery.ajax({
                     url: "https://connect.facebook.net/" + ajax_var_more.facebookLang + "/sdk.js",
@@ -1754,58 +1754,58 @@
                 faceisLoaded ? parse() : jQuery(document).on("fb:sdk:loaded", parse);
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-featured-sliders.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-featured-sliders.default', function ($scope) {
                 ELPENCI.featured_slider();
-                penciLazy();
+                gosoLazy();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-custom-sliders.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-custom-sliders.default', function ($scope) {
                 ELPENCI.owl_slider();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-instagram.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-instagram.default', function ($scope) {
                 ELPENCI.featured_slider();
-                penciLazy();
+                gosoLazy();
                 ELPENCI.owl_slider();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-posts-slider.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-posts-slider.default', function ($scope) {
                 ELPENCI.featured_slider();
-                penciLazy();
+                gosoLazy();
                 ELPENCI.owl_slider();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-counter-up.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-counter-up.default', function ($scope) {
                 ELPENCI.extraFunction.counterUp();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-map.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-map.default', function ($scope) {
                 ELPENCI.extraFunction.map();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-latest-tweets.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-latest-tweets.default', function ($scope) {
                 ELPENCI.owl_slider();
             });
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-testimonials.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-testimonials.default', function ($scope) {
                 ELPENCI.owl_slider();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-media-carousel.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-media-carousel.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.lightbox();
                 ELPENCI.owl_slider();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-progress-bar.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-progress-bar.default', function ($scope) {
                 ELPENCI.extraFunction.progressBar();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-sidebar.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-sidebar.default', function ($scope) {
+                gosoLazy();
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-block-heading.default', function ($scope) {
-                $('body').trigger('penci-block-heading');
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-block-heading.default', function ($scope) {
+                $('body').trigger('goso-block-heading');
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-fullwidth-hero-overlay.default', function ($scope) {
-                penciLazy();
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-fullwidth-hero-overlay.default', function ($scope) {
+                gosoLazy();
                 ELPENCI.owl_slider();
                 ELPENCI.extraFunction.init();
             });

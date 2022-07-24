@@ -1,8 +1,8 @@
-/* global penciBlock */
-/* global penciBlocksArray */
+/* global gosoBlock */
+/* global gosoBlocksArray */
 jQuery(document).ready(function ($) {
     var nav = [];
-    $('.elementor-widget-penci-latest-posts').each(function () {
+    $('.elementor-widget-goso-latest-posts').each(function () {
         var elID = $(this).data('id');
         if ($(this).find('.pcflx-nav').length > 0) {
             var maxnum = $(this).find('.pcflx li.all a').attr('data-maxp');
@@ -10,18 +10,18 @@ jQuery(document).ready(function ($) {
                 $(this).find('.pcflx-nav .pcaj-nav-link').addClass('disable');
             }
         }
-        if($(this).find('.penci-ajax-more').length) {
-            nav[elID] = $(this).find('.penci-ajax-more').prop('outerHTML');
+        if($(this).find('.goso-ajax-more').length) {
+            nav[elID] = $(this).find('.goso-ajax-more').prop('outerHTML');
         }
     });
-    jQuery('body').on('click', '.elementor-widget-penci-latest-posts .pc-ajaxfil-link', function (event) {
+    jQuery('body').on('click', '.elementor-widget-goso-latest-posts .pc-ajaxfil-link', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('loading-posts')) {
             var $this = $(this),
                 $navthis = $this,
-                parentID = $(this).closest('.elementor-widget-penci-latest-posts').data('id'),
+                parentID = $(this).closest('.elementor-widget-goso-latest-posts').data('id'),
                 parentclass = $(this).closest('.pcnav-lgroup'),
-                wrapper = $(this).closest('.penci-latest-posts-sc').find('.penci-wrapper-posts-ajax'),
+                wrapper = $(this).closest('.goso-latest-posts-sc').find('.goso-wrapper-posts-ajax'),
                 wrapId = $this.data('id'),
                 layout = parentclass.data('layout'),
                 ppp = parentclass.data('number'),
@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
             }
 
             if (wrapId === 'default' && !navlink) {
-                wrapper.find('.penci-wrapper-posts-content').hide();
+                wrapper.find('.goso-wrapper-posts-content').hide();
                 wrapper.find('.pwid-default').show();
                 wrapper.removeClass('loading-posts pcftaj-ld');
                 $this.removeClass('loading-posts');
@@ -101,10 +101,10 @@ jQuery(document).ready(function ($) {
                 var o = 0;
                 $wrap_content_id.find('.list-post,.grid-style,.grid-masonry').each(function () {
                     o++;
-                    $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                    $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                 });
             } else if ($wrap_content_id.length && !navlink) {
-                wrapper.find('.penci-wrapper-posts-content').hide();
+                wrapper.find('.goso-wrapper-posts-content').hide();
                 $wrap_content_id.show();
                 wrapper.removeClass('loading-posts pcftaj-ld');
                 $this.removeClass('loading-posts');
@@ -125,15 +125,15 @@ jQuery(document).ready(function ($) {
                 var o = 0;
                 $wrap_content_id.find('.list-post,.grid-style,.grid-masonry').each(function () {
                     o++;
-                    $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                    $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                 });
             } else {
 
-                var OBjBlockData = penciGetOBjBlockData(parentclass.data('blockid')),
+                var OBjBlockData = gosoGetOBjBlockData(parentclass.data('blockid')),
                     dataFilter = OBjBlockData.atts_json ? JSON.parse(OBjBlockData.atts_json) : OBjBlockData.atts_json;
 
                 var data = {
-                    action: 'penci_more_post_ajax',
+                    action: 'goso_more_post_ajax',
                     query: query,
                     offset: offset,
                     mixed: mixed,
@@ -171,11 +171,11 @@ jQuery(document).ready(function ($) {
                             $check_class = false,
                             $check_masonry = false;
 
-                        if (wrapper.find('.penci-wrapper-posts-content .penci-wrapper-data').hasClass('penci-grid')) {
+                        if (wrapper.find('.goso-wrapper-posts-content .goso-wrapper-data').hasClass('goso-grid')) {
                             $check_class = true;
                         }
 
-                        if (wrapper.find('.penci-wrapper-posts-content .penci-wrapper-data').hasClass('masonry')) {
+                        if (wrapper.find('.goso-wrapper-posts-content .goso-wrapper-data').hasClass('masonry')) {
                             $check_masonry = true;
                         }
 
@@ -189,14 +189,14 @@ jQuery(document).ready(function ($) {
                         }
 
                         if ($check_class) {
-                            wrapper.append('<div class="penci-wrapper-posts-content pwcustom pwid-' + wrapId + '"><ul class="penci-wrapper-data penci-grid penci-shortcode-render"></ul></div>');
+                            wrapper.append('<div class="goso-wrapper-posts-content pwcustom pwid-' + wrapId + '"><ul class="goso-wrapper-data goso-grid goso-shortcode-render"></ul></div>');
                         } else if ($check_masonry) {
-                            wrapper.append('<div class="penci-wrapper-posts-content pwcustom pwid-' + wrapId + '"><div class="penci-wrap-masonry"><div class="penci-wrapper-data masonry penci-masonry"></div></div></div>');
+                            wrapper.append('<div class="goso-wrapper-posts-content pwcustom pwid-' + wrapId + '"><div class="goso-wrap-masonry"><div class="goso-wrapper-data masonry goso-masonry"></div></div></div>');
                         } else {
-                            wrapper.append('<div class="penci-wrapper-posts-content pwcustom pwid-' + wrapId + '"><div class="penci-wrapper-data"></div></div>');
+                            wrapper.append('<div class="goso-wrapper-posts-content pwcustom pwid-' + wrapId + '"><div class="goso-wrapper-data"></div></div>');
                         }
 
-                        $wrap_content = wrapper.find('.pwid-' + wrapId + ' .penci-wrapper-data');
+                        $wrap_content = wrapper.find('.pwid-' + wrapId + ' .goso-wrapper-data');
 
                         if (data) {
                             $this.attr('data-paged', data_paded);
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
 
                                 $(".container").fitVids();
 
-                                $('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+                                $('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
                                     var $this = $(this),
                                         $rtl = false;
                                     if ($('html').attr('dir') === 'rtl') {
@@ -236,7 +236,7 @@ jQuery(document).ready(function ($) {
                                         dotsSpeed: 600,
                                         nav: true,
                                         dots: false,
-                                        navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                                        navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                                         autoplay: true,
                                         autoplayTimeout: 5000,
                                         autoHeight: true,
@@ -248,7 +248,7 @@ jQuery(document).ready(function ($) {
                                 });
 
                                 if ($().easyPieChart) {
-                                    $('.penci-piechart').each(function () {
+                                    $('.goso-piechart').each(function () {
                                         var $this = $(this);
                                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                             var chart_args = {
@@ -270,7 +270,7 @@ jQuery(document).ready(function ($) {
 
                                 $(".container").fitVids();
 
-                                $('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+                                $('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
                                     var $this = $(this),
                                         $datalazy = false,
                                         $rtl = false;
@@ -291,7 +291,7 @@ jQuery(document).ready(function ($) {
                                         lazyLoad: $datalazy,
                                         nav: true,
                                         dots: false,
-                                        navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+                                        navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
                                         autoplay: true,
                                         autoplayTimeout: 5000,
                                         autoHeight: true,
@@ -305,7 +305,7 @@ jQuery(document).ready(function ($) {
                                 });
 
                                 if ($().easyPieChart) {
-                                    $('.penci-piechart').each(function () {
+                                    $('.goso-piechart').each(function () {
                                         var $this = $(this);
                                         $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                             var chart_args = {
@@ -321,10 +321,10 @@ jQuery(document).ready(function ($) {
                                     }); // each
                                 }
 
-                                var $justified_gallery = $('.penci-post-gallery-container.justified');
-                                var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+                                var $justified_gallery = $('.goso-post-gallery-container.justified');
+                                var $masonry_gallery = $('.goso-post-gallery-container.masonry');
                                 if ($().justifiedGallery && $justified_gallery.length) {
-                                    $('.penci-post-gallery-container.justified').each(function () {
+                                    $('.goso-post-gallery-container.justified').each(function () {
                                         var $this = $(this);
                                         $this.justifiedGallery({
                                             rowHeight: $this.data('height'),
@@ -332,12 +332,12 @@ jQuery(document).ready(function ($) {
                                             margins: $this.data('margin'),
                                             randomize: false
                                         });
-                                    }); // each .penci-post-gallery-container
+                                    }); // each .goso-post-gallery-container
                                 }
 
                                 if ($().isotope && $masonry_gallery.length) {
 
-                                    $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                    $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                         var $this = $(this);
                                         if ($this.attr('title')) {
                                             var $title = $this.attr('title');
@@ -359,7 +359,7 @@ jQuery(document).ready(function ($) {
 
                                             $this.addClass('loaded');
 
-                                            $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                            $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                                 var $this = $(this);
                                                 $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                     $this.addClass('animated');
@@ -374,7 +374,7 @@ jQuery(document).ready(function ($) {
                                     if ($('body').hasClass('admin-bar')) {
                                         top_margin = 122;
                                     }
-                                    $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+                                    $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                                         // settings
                                         additionalMarginTop: top_margin
                                     });
@@ -390,24 +390,24 @@ jQuery(document).ready(function ($) {
                             if (nav[parentID] !== undefined) {
                                 wrapper.find('.pwid-' + wrapId).append($(nav[parentID]));
 
-                                wrapper.find('.pwid-' + wrapId + ' .penci-ajax-more .penci-ajax-more-button')
+                                wrapper.find('.pwid-' + wrapId + ' .goso-ajax-more .goso-ajax-more-button')
                                     .removeAttr('data-cat')
                                     .removeAttr('data-tag')
                                     .removeAttr('data-author');
 
                                 if (cat) {
-                                    wrapper.find('.pwid-' + wrapId + ' .penci-ajax-more .penci-ajax-more-button').attr('data-cat', cat);
+                                    wrapper.find('.pwid-' + wrapId + ' .goso-ajax-more .goso-ajax-more-button').attr('data-cat', cat);
                                 }
                                 if (tag) {
-                                    wrapper.find('.pwid-' + wrapId + ' .penci-ajax-more .penci-ajax-more-button').attr('data-tag', tag);
+                                    wrapper.find('.pwid-' + wrapId + ' .goso-ajax-more .goso-ajax-more-button').attr('data-tag', tag);
                                 }
                                 if (author) {
-                                    wrapper.find('.pwid-' + wrapId + ' .penci-ajax-more .penci-ajax-more-button').attr('data-author', author);
+                                    wrapper.find('.pwid-' + wrapId + ' .goso-ajax-more .goso-ajax-more-button').attr('data-author', author);
                                 }
-                                wrapper.find('.pwid-' + wrapId + ' .penci-ajax-more .penci-ajax-more-button').attr('data-offset', number);
+                                wrapper.find('.pwid-' + wrapId + ' .goso-ajax-more .goso-ajax-more-button').attr('data-offset', number);
                             }
 
-                            wrapper.find('.penci-wrapper-posts-content').hide();
+                            wrapper.find('.goso-wrapper-posts-content').hide();
                             wrapper.find('.pwid-' + wrapId).show();
                             wrapper.removeClass('loading-posts pcftaj-ld');
                             $this.removeClass('loading-posts');
@@ -415,11 +415,11 @@ jQuery(document).ready(function ($) {
                             var o = 0;
                             wrapper.find('.pwid-' + wrapId + ' .list-post, .pwid-' + wrapId + ' .grid-style, .pwid-' + wrapId + ' .grid-masonry').each(function () {
                                 o++;
-                                $(this).addClass('penci-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
+                                $(this).addClass('goso-ajrs-animate').attr('style', 'animation-delay:' + o / 10 + 's')
                             });
                             $(document).trigger('pcajax_loaded');
                         } else {
-                            wrapper.find('.penci-wrapper-posts-content').hide();
+                            wrapper.find('.goso-wrapper-posts-content').hide();
                             wrapper.find('.pwid-' + wrapId).show();
                             wrapper.find('.pwid-' + wrapId).append('<div class="pcajx-nopost"><span>No post found !</span></div>');
                             wrapper.removeClass('loading-posts pcftaj-ld');
@@ -436,13 +436,13 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    function penciGetOBjBlockData($blockID) {
-        var $obj = new penciBlock();
+    function gosoGetOBjBlockData($blockID) {
+        var $obj = new gosoBlock();
 
-        jQuery.each(penciBlocksArray, function (index, block) {
+        jQuery.each(gosoBlocksArray, function (index, block) {
 
             if (block.blockID === $blockID) {
-                $obj = penciBlocksArray[index];
+                $obj = gosoBlocksArray[index];
             }
         });
 

@@ -1,8 +1,8 @@
-/* global penciBlock */
-/* global penciBlocksArray */
+/* global gosoBlock */
+/* global gosoBlocksArray */
 jQuery( document ).ready( function ( $ ) {
 	var pagednum;
-	jQuery( 'body' ).on( 'click', '.penci-bgajax-more-click .penci-ajax-more-button', function ( event ) {
+	jQuery( 'body' ).on( 'click', '.goso-bgajax-more-click .goso-ajax-more-button', function ( event ) {
 		event.preventDefault();
 		if ( !$( this ).hasClass( 'loading-posts' ) ) {
 			var $this = $( this ),
@@ -21,7 +21,7 @@ jQuery( document ).ready( function ( $ ) {
 			$this.addClass( 'loading-posts' );
 			
 			var data = {
-				action: 'penci_bgmore_post_ajax',
+				action: 'goso_bgmore_post_ajax',
 				settings: settings,
 				layout: layout,
 				pagednum: pagednum,
@@ -43,7 +43,7 @@ jQuery( document ).ready( function ( $ ) {
 				success : function ( data ) {
 					if ( data ) {
 						var data_paded = parseInt( pagednum ) + 1,
-							$wrap_content = $this.parent().parent().find('.penci-biggrid-data');
+							$wrap_content = $this.parent().parent().find('.goso-biggrid-data');
 
 						$this.attr( 'data-pagednum', data_paded );
 						
@@ -54,7 +54,7 @@ jQuery( document ).ready( function ( $ ) {
 							} );
 
 							if( $().easyPieChart ) {
-								$( '.penci-piechart' ).each( function () {
+								$( '.goso-piechart' ).each( function () {
 									var $this = $( this );
 									$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 										var chart_args = {
@@ -83,7 +83,7 @@ jQuery( document ).ready( function ( $ ) {
 							//lazySizes.init();
 
 							if( $().easyPieChart ) {
-								$( '.penci-piechart' ).each( function () {
+								$( '.goso-piechart' ).each( function () {
 									var $this = $( this );
 									$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 										var chart_args = {
@@ -105,7 +105,7 @@ jQuery( document ).ready( function ( $ ) {
 							if( $('body' ).hasClass('admin-bar') ) {
 								top_margin = 122;
 							}
-							$('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar' ).theiaStickySidebar({
+							$('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar' ).theiaStickySidebar({
 								// settings
 								additionalMarginTop: top_margin
 							});

@@ -1,6 +1,6 @@
 <?php
 
-class penci_product_progress_bar {
+class goso_product_progress_bar {
 
 	function __construct() {
 		add_action( 'woocommerce_process_product_meta_simple', array( $this, 'save_total_stock_quantity' ) );
@@ -12,7 +12,7 @@ class penci_product_progress_bar {
 			'total_stock_quantity_input'
 		) );
 
-		add_action( 'penci_after_shop_loop', array( $this, 'stock_progress_bar' ) );
+		add_action( 'goso_after_shop_loop', array( $this, 'stock_progress_bar' ) );
 		add_action( 'woocommerce_single_product_summary', array( $this, 'stock_progress_bar' ), 15 );
 	}
 
@@ -22,7 +22,7 @@ class penci_product_progress_bar {
 			return;
 		}
 		$product_id    = get_the_ID();
-		$total_stock   = (int) get_post_meta( $product_id, 'penci_total_stock_quantity', true );
+		$total_stock   = (int) get_post_meta( $product_id, 'goso_total_stock_quantity', true );
 		$current_stock = (int) get_post_meta( $product_id, '_stock', true );
 		$total_sales   = (int) get_post_meta( $product_id, 'total_sales', true );
 		$total_stock   = ! empty( $total_stock ) && $total_stock > 0 ? $total_stock : $total_sales + $current_stock;
@@ -51,10 +51,10 @@ class penci_product_progress_bar {
 		echo '<div class="options_group">';
 		woocommerce_wp_text_input(
 			array(
-				'id'          => 'penci_total_stock_quantity',
-				'label'       => penci_woo_translate_text( 'penci_woo_trans_innumbeistock' ),
+				'id'          => 'goso_total_stock_quantity',
+				'label'       => goso_woo_translate_text( 'goso_woo_trans_innumbeistock' ),
 				'desc_tip'    => 'true',
-				'description' => penci_woo_translate_text( 'penci_woo_trans_rqinnumbeistock' ),
+				'description' => goso_woo_translate_text( 'goso_woo_trans_rqinnumbeistock' ),
 				'type'        => 'text',
 			)
 		);
@@ -62,10 +62,10 @@ class penci_product_progress_bar {
 	}
 
 	public function save_total_stock_quantity( $post_id ) { // phpcs:ignore
-		$stock_quantity = isset( $_POST['penci_total_stock_quantity'] ) && $_POST['penci_total_stock_quantity'] ? wc_clean( $_POST['penci_total_stock_quantity'] ) : ''; // phpcs:ignore
+		$stock_quantity = isset( $_POST['goso_total_stock_quantity'] ) && $_POST['goso_total_stock_quantity'] ? wc_clean( $_POST['goso_total_stock_quantity'] ) : ''; // phpcs:ignore
 
-		update_post_meta( $post_id, 'penci_total_stock_quantity', $stock_quantity );
+		update_post_meta( $post_id, 'goso_total_stock_quantity', $stock_quantity );
 	}
 }
 
-$penci_product_progress_bar = new penci_product_progress_bar();
+$goso_product_progress_bar = new goso_product_progress_bar();

@@ -10,7 +10,7 @@
 			media.view.Settings.prototype.render.apply( this, arguments );
 
 			// Append the custom template
-			this.$el.append( media.template( 'penci-custom-gallery-options' ) );
+			this.$el.append( media.template( 'goso-custom-gallery-options' ) );
 
 			// Save the setting
 			media.gallery.defaults.type = 'justified';

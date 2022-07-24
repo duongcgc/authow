@@ -3,17 +3,17 @@ jQuery( function ( $ ) {
 	'use strict';
 
 	function buttonClick(){
-		$( 'body' ).on( 'click', '.penci-ajax-arch .penci-ajax-more-button', function ( event ) {
+		$( 'body' ).on( 'click', '.goso-ajax-arch .goso-ajax-more-button', function ( event ) {
 			event.preventDefault();
 			loadMorePostRun( $( this ) );
 		} );
 	}
 
 	function infiniteScroll(){
-		var $handle = $( '.penci-ajax-arch' ),
-			$button_load = $handle.find( '.penci-ajax-more-button' );
+		var $handle = $( '.goso-ajax-arch' ),
+			$button_load = $handle.find( '.goso-ajax-more-button' );
 
-		if ( $handle.hasClass( 'penci-infinite-scroll' ) ) {
+		if ( $handle.hasClass( 'goso-infinite-scroll' ) ) {
 			$( window ).on( 'scroll', function () {
 
 				var hT = $button_load.offset().top,
@@ -48,7 +48,7 @@ jQuery( function ( $ ) {
 		var dataAjax =  'offset=' + offset + '&layout=' + layout + '&from=' + from +
         '&template=' + template + '&ppp=' + ppp +
         '&archivetype=' + archiveType + '&archivevalue=' + archiveValue +
-        '&action=penci_archive_more_post_ajax&nonce=' + SOLEDADLOCALIZE.nonce;
+        '&action=goso_archive_more_post_ajax&nonce=' + SOLEDADLOCALIZE.nonce;
 
 		$.ajax( {
 			type    : 'POST',
@@ -69,7 +69,7 @@ jQuery( function ( $ ) {
 				}
 
 				var data_offset = parseInt( offset ) + ppp,
-					$wrap_content = $button_load.parent().parent().find( '.penci-wrapper-data' );
+					$wrap_content = $button_load.parent().parent().find( '.goso-wrapper-data' );
 
 				$button_load.attr( 'data-offset', data_offset );
 
@@ -82,7 +82,7 @@ jQuery( function ( $ ) {
 
 					$( ".container" ).fitVids();
 
-					$('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+					$('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
 						var $this = $(this),
 							$rtl = false;
 						if( $('html').attr('dir') === 'rtl' ) {
@@ -98,7 +98,7 @@ jQuery( function ( $ ) {
 							dotsSpeed         : 600,
 							nav               : true,
 							dots              : false,
-							navText           : ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+							navText           : ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
 							autoplay          : true,
 							autoplayTimeout   : 5000,
 							autoHeight        : true,
@@ -110,7 +110,7 @@ jQuery( function ( $ ) {
 					});
 
 					if( $().easyPieChart ) {
-						$( '.penci-piechart' ).each( function () {
+						$( '.goso-piechart' ).each( function () {
 							var $this = $( this );
 							$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 								var chart_args = {
@@ -126,7 +126,7 @@ jQuery( function ( $ ) {
 						} ); // each
 					}
 
-					/*$('.penci-lazy').Lazy({
+					/*$('.goso-lazy').Lazy({
 						effect: 'fadeIn',
 						effectTime: 300,
 						scrollDirection: 'both'
@@ -137,7 +137,7 @@ jQuery( function ( $ ) {
 					var $data = $( data );
 					$wrap_content.append( $data );
 
-					/*$('.penci-lazy').Lazy({
+					/*$('.goso-lazy').Lazy({
 						effect: 'fadeIn',
 						effectTime: 300,
 						scrollDirection: 'both'
@@ -146,7 +146,7 @@ jQuery( function ( $ ) {
 
 					$( ".container" ).fitVids();
 
-					$('.penci-wrapper-data .penci-owl-carousel-slider').each(function () {
+					$('.goso-wrapper-data .goso-owl-carousel-slider').each(function () {
 						var $this = $(this),
 							$datalazy = false,
 							$rtl = false;
@@ -167,7 +167,7 @@ jQuery( function ( $ ) {
 							lazyLoad          : $datalazy,
 							nav               : true,
 							dots              : false,
-							navText           : ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+							navText           : ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
 							autoplay          : true,
 							autoplayTimeout   : 5000,
 							autoHeight        : true,
@@ -180,7 +180,7 @@ jQuery( function ( $ ) {
 						});
 
 						$this.on('changed.owl.carousel', function(event) {
-							/*$('.penci-lazy').Lazy({
+							/*$('.goso-lazy').Lazy({
 								effect: 'fadeIn',
 								effectTime: 300,
 								scrollDirection: 'both'
@@ -190,7 +190,7 @@ jQuery( function ( $ ) {
 					});
 
 					if( $().easyPieChart ) {
-						$( '.penci-piechart' ).each( function () {
+						$( '.goso-piechart' ).each( function () {
 							var $this = $( this );
 							$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 								var chart_args = {
@@ -206,10 +206,10 @@ jQuery( function ( $ ) {
 						} ); // each
 					}
 
-					var $justified_gallery = $( '.penci-post-gallery-container.justified' );
-					var $masonry_gallery = $( '.penci-post-gallery-container.masonry' );
+					var $justified_gallery = $( '.goso-post-gallery-container.justified' );
+					var $masonry_gallery = $( '.goso-post-gallery-container.masonry' );
 					if ( $().justifiedGallery && $justified_gallery.length ) {
-						$( '.penci-post-gallery-container.justified' ).each( function () {
+						$( '.goso-post-gallery-container.justified' ).each( function () {
 							var $this = $( this );
 							$this.justifiedGallery( {
 								rowHeight: $this.data( 'height' ),
@@ -217,12 +217,12 @@ jQuery( function ( $ ) {
 								margins  : $this.data( 'margin' ),
 								randomize: false
 							} );
-						} ); // each .penci-post-gallery-container
+						} ); // each .goso-post-gallery-container
 					}
 
 					if ( $().isotope && $masonry_gallery.length ) {
 
-						$('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+						$('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
 							var $this = $(this);
 							if ($this.attr('title')) {
 								var $title = $this.attr('title');
@@ -244,7 +244,7 @@ jQuery( function ( $ ) {
 
 								$this.addClass( 'loaded' );
 
-								$('.penci-post-gallery-container.masonry .item-gallery-masonry').each( function () {
+								$('.goso-post-gallery-container.masonry .item-gallery-masonry').each( function () {
 									var $this = $( this );
 									$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 										$this.addClass( 'animated' );
@@ -259,7 +259,7 @@ jQuery( function ( $ ) {
 						if( $('body' ).hasClass('admin-bar') ) {
 							top_margin = 122;
 						}
-						$('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar' ).theiaStickySidebar({
+						$('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar' ).theiaStickySidebar({
 							// settings
 							additionalMarginTop: top_margin
 						});

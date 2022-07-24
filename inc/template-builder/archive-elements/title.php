@@ -15,7 +15,7 @@ class GosoArchiveTitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-custom-archive-builder' ];
+		return [ 'goso-custom-archive-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoArchiveTitle extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-archive-title';
+		return 'goso-archive-title';
 	}
 
 	protected function register_controls() {
@@ -161,7 +161,7 @@ class GosoArchiveTitle extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -193,49 +193,49 @@ class GosoArchiveTitle extends \Elementor\Widget_Base {
             <div class="title-bar align-<?php echo $align; ?>">
 				<?php
 				if ( is_day() ) :
-					if ( penci_get_setting( 'penci_trans_daily_archives' ) ):
+					if ( goso_get_setting( 'goso_trans_daily_archives' ) ):
 						echo '<span>';
-						echo penci_get_setting( 'penci_trans_daily_archives' );
+						echo goso_get_setting( 'goso_trans_daily_archives' );
 						echo ' </span>';
 					endif;
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), get_the_date() );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), get_the_date() );
                 elseif ( is_month() ) :
-					if ( penci_get_setting( 'penci_trans_monthly_archives' ) ):
+					if ( goso_get_setting( 'goso_trans_monthly_archives' ) ):
 						echo '<span>';
-						echo penci_get_setting( 'penci_trans_monthly_archives' );
+						echo goso_get_setting( 'goso_trans_monthly_archives' );
 						echo ' </span>';
 					endif;
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), get_the_date( _x( 'F Y', 'monthly archives date format', 'authow' ) ) );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), get_the_date( _x( 'F Y', 'monthly archives date format', 'authow' ) ) );
                 elseif ( is_year() ) :
-					if ( penci_get_setting( 'penci_trans_yearly_archives' ) ):
+					if ( goso_get_setting( 'goso_trans_yearly_archives' ) ):
 						echo '<span>';
-						echo penci_get_setting( 'penci_trans_yearly_archives' );
+						echo goso_get_setting( 'goso_trans_yearly_archives' );
 						echo ' </span>';
 					endif;
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), get_the_date( _x( 'Y', 'yearly archives date format', 'authow' ) ) );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), get_the_date( _x( 'Y', 'yearly archives date format', 'authow' ) ) );
                 elseif ( is_author() ) :
 					echo '<span>';
-					echo penci_get_setting( 'penci_trans_author' );
+					echo goso_get_setting( 'goso_trans_author' );
 					echo ' </span>';
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), get_userdata( get_query_var( 'author' ) )->display_name );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), get_userdata( get_query_var( 'author' ) )->display_name );
                 elseif ( is_category() ):
-					if ( ! get_theme_mod( 'penci_remove_cat_words' ) ): ?>
-                        <span><?php echo penci_get_setting( 'penci_trans_category' ); ?></span>
+					if ( ! get_theme_mod( 'goso_remove_cat_words' ) ): ?>
+                        <span><?php echo goso_get_setting( 'goso_trans_category' ); ?></span>
 					<?php endif;
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), single_cat_title( '', false ) );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), single_cat_title( '', false ) );
                 elseif ( is_tag() ):
-					if ( ! get_theme_mod( 'penci_remove_tag_words' ) ): ?>
-                        <span><?php echo penci_get_setting( 'penci_trans_tag' ); ?></span>
+					if ( ! get_theme_mod( 'goso_remove_tag_words' ) ): ?>
+                        <span><?php echo goso_get_setting( 'goso_trans_tag' ); ?></span>
 					<?php endif;
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), single_tag_title( '', false ) );
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">%s</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), single_tag_title( '', false ) );
                 elseif ( is_search() ):
-					echo '<span>' . penci_get_setting( 'penci_trans_search_results_for' ) . '</span> ';
-					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">"%s"</' . $heading_tag . '>', 'authow' ), penci_allow_html() ), get_search_query() );
+					echo '<span>' . goso_get_setting( 'goso_trans_search_results_for' ) . '</span> ';
+					printf( wp_kses( __( '<' . $heading_tag . ' class="page-title">"%s"</' . $heading_tag . '>', 'authow' ), goso_allow_html() ), get_search_query() );
                 elseif ( is_tax() ) :
 					the_archive_title( '<' . $heading_tag . ' class="page-title">', '</' . $heading_tag . '>' );
                 else :
 					echo '<' . $heading_tag . ' class="page-title">';
-					echo penci_get_setting( 'penci_trans_archives' );
+					echo goso_get_setting( 'goso_trans_archives' );
 					echo '</' . $heading_tag . '>';
 				endif;
 				?>

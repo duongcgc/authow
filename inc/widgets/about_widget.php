@@ -7,14 +7,14 @@
  * @since   1.0
  */
 
-add_action( 'widgets_init', 'penci_about_load_widget' );
+add_action( 'widgets_init', 'goso_about_load_widget' );
 
-function penci_about_load_widget() {
-	register_widget( 'penci_about_widget' );
+function goso_about_load_widget() {
+	register_widget( 'goso_about_widget' );
 }
 
-if ( ! class_exists( 'penci_about_widget' ) ) {
-	class penci_about_widget extends WP_Widget {
+if ( ! class_exists( 'goso_about_widget' ) ) {
+	class goso_about_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_about_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_about_widget',
+				'classname'   => 'goso_about_widget',
 				'description' => esc_html__( 'A widget that displays an About widget', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_about_widget' );
+			$control_ops = array( 'id_base' => 'goso_about_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_about_widget', penci_get_theme_name('.Authow',true).esc_html__( 'About Me', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_about_widget', goso_get_theme_name('.Authow',true).esc_html__( 'About Me', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_about_widget', penci_get_theme_name('.Authow',true).esc_html__( 'About Me', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_about_widget', goso_get_theme_name('.Authow',true).esc_html__( 'About Me', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -90,21 +90,21 @@ if ( ! class_exists( 'penci_about_widget' ) ) {
 			$rand        = rand( 1000, 10000 );
 			$image_width = $image_height = '';
 			?>
-            <div id="penci-aboutmewg-<?php echo $rand; ?>"
+            <div id="goso-aboutmewg-<?php echo $rand; ?>"
                  class="about-widget<?php if ( $align ): echo ' ' . $align; endif; ?>">
 				<?php if ( $image ) :
-					$image_width = penci_get_image_data_basedurl( $image, 'w' );
-					$image_height = penci_get_image_data_basedurl( $image, 'h' );
+					$image_width = goso_get_image_data_basedurl( $image, 'w' );
+					$image_height = goso_get_image_data_basedurl( $image, 'h' );
 					?>
 					<?php echo $open_image; ?>
 					<?php if ( ! $lazyload ) { ?>
-                    <img class="penci-widget-about-image nopin penci-lazy" nopin="nopin"
+                    <img class="goso-widget-about-image nopin goso-lazy" nopin="nopin"
                          width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>"
-                         src="<?php echo penci_holder_image_base( $image_width, $image_height ); ?>"
+                         src="<?php echo goso_holder_image_base( $image_width, $image_height ); ?>"
                          data-src="<?php echo esc_url( $image ); ?>"
                          alt="<?php echo esc_attr( $title ); ?>"<?php echo $inline_style_html; ?>/>
 				<?php } else { ?>
-                    <img class="penci-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width; ?>"
+                    <img class="goso-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width; ?>"
                          height="<?php echo $image_height; ?>" src="<?php echo esc_url( $image ); ?>"
                          alt="<?php echo esc_attr( $title ); ?>"<?php echo $inline_style_html; ?>/>
 				<?php } ?>
@@ -123,10 +123,10 @@ if ( ! class_exists( 'penci_about_widget' ) ) {
 			<?php
 			$attrstyle = '';
 			if ( $fheading ) {
-				$attrstyle .= '#penci-aboutmewg-' . $rand . ' .about-me-heading{ font-size: ' . $fheading . 'px; }';
+				$attrstyle .= '#goso-aboutmewg-' . $rand . ' .about-me-heading{ font-size: ' . $fheading . 'px; }';
 			}
 			if ( $fdesc ) {
-				$attrstyle .= '#penci-aboutmewg-' . $rand . ' .about-me-desc, #penci-aboutmewg-' . $rand . ' .about-me-desc p{ font-size: ' . $fdesc . 'px; }';
+				$attrstyle .= '#goso-aboutmewg-' . $rand . ' .about-me-desc, #goso-aboutmewg-' . $rand . ' .about-me-desc p{ font-size: ' . $fdesc . 'px; }';
 			}
 
 			if ( $attrstyle ) {

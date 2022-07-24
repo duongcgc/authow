@@ -7,14 +7,14 @@
  * @since 1.0
  */
 
-add_action( 'widgets_init', 'penci_facebook_load_widget' );
+add_action( 'widgets_init', 'goso_facebook_load_widget' );
 
-function penci_facebook_load_widget() {
-	register_widget( 'penci_facebook_widget' );
+function goso_facebook_load_widget() {
+	register_widget( 'goso_facebook_widget' );
 }
 
-if ( ! class_exists( 'penci_facebook_widget' ) ) {
-	class penci_facebook_widget extends WP_Widget {
+if ( ! class_exists( 'goso_facebook_widget' ) ) {
+	class goso_facebook_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_facebook_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_facebook_widget',
+				'classname'   => 'goso_facebook_widget',
 				'description' => esc_html__( 'A widget will displays a Facebook Page', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_facebook_widget' );
+			$control_ops = array( 'id_base' => 'goso_facebook_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_facebook_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Facebook Page Box', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_facebook_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Facebook Page Box', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_facebook_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Facebook Page Box', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_facebook_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Facebook Page Box', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 

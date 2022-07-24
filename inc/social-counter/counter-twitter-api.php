@@ -7,9 +7,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Twitter_API' ) ):
 		public static function get_count( $data, $cache_period ) {
 			$user_id       = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']   = "https://twitter.com/$user_id";
-			$data['icon']  = penci_icon_by_ver( 'fab fa-twitter' );
-			$default_count = penci_get_social_counter_option( 'twitter_default' );
-			$cache_key     = 'penci_counter_twitter' . $user_id;
+			$data['icon']  = goso_icon_by_ver( 'fab fa-twitter' );
+			$default_count = goso_get_social_counter_option( 'twitter_default' );
+			$cache_key     = 'goso_counter_twitter' . $user_id;
 			$twitter_count = $default_count ? $default_count : get_transient( $cache_key );
 
 			$count = 0;
@@ -18,15 +18,15 @@ if ( ! class_exists( 'Goso_Social_Counter_Twitter_API' ) ):
 				$twitter_worked = false;
 
 				// Check 1 via https
-				$penci_data = self::get_url( "https://twitter.com/$user_id" );
+				$goso_data = self::get_url( "https://twitter.com/$user_id" );
 
-				if ( $penci_data !== false ) {
+				if ( $goso_data !== false ) {
 					$pattern = "/title=\"(.*)\"(.*)data-nav=\"followers\"/i";
-					preg_match_all( $pattern, $penci_data, $matches );
+					preg_match_all( $pattern, $goso_data, $matches );
 					if ( ! empty( $matches[1][0] ) ) {
-						$penci_counter_fix = self::extract_numbers_from_string( htmlentities( $matches[1][0] ) );
+						$goso_counter_fix = self::extract_numbers_from_string( htmlentities( $matches[1][0] ) );
 
-						$count = (int) $penci_counter_fix;
+						$count = (int) $goso_counter_fix;
 
 						if ( ! empty( $count ) and is_numeric( $count ) ) {
 							$twitter_worked = true;
@@ -76,13 +76,13 @@ if ( ! class_exists( 'Goso_Social_Counter_Twitter_API' ) ):
 				return false;
 			}
 
-			$penci_request_result = wp_remote_retrieve_body( $response );
+			$goso_request_result = wp_remote_retrieve_body( $response );
 
-			if ( empty( $penci_request_result ) ) {
+			if ( empty( $goso_request_result ) ) {
 				return false;
 			}
 
-			return $penci_request_result;
+			return $goso_request_result;
 		}
 
 		private static function get_url( $url ) {
@@ -92,15 +92,15 @@ if ( ! class_exists( 'Goso_Social_Counter_Twitter_API' ) ):
 		/**
 		 * Extract numbers from string
 		 *
-		 * @param $penci_string
+		 * @param $goso_string
 		 *
 		 * @return string
 		 */
-		private static function extract_numbers_from_string( $penci_string ) {
+		private static function extract_numbers_from_string( $goso_string ) {
 			$output = '';
-			foreach ( str_split( $penci_string ) as $penci_char ) {
-				if ( is_numeric( $penci_char ) ) {
-					$output .= $penci_char;
+			foreach ( str_split( $goso_string ) as $goso_char ) {
+				if ( is_numeric( $goso_char ) ) {
+					$output .= $goso_char;
 				}
 			}
 

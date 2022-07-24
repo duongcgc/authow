@@ -1,7 +1,7 @@
 <?php
-include dirname( __FILE__ ) . "/penci_custom_walker_category.php";
-if ( ! function_exists( 'penci_search_form' ) ) {
-	function penci_search_form( $args = array() ) {
+include dirname( __FILE__ ) . "/goso_custom_walker_category.php";
+if ( ! function_exists( 'goso_search_form' ) ) {
+	function goso_search_form( $args = array() ) {
 		$args = wp_parse_args( $args, array(
 			'ajax'                   => true,
 			'post_type'              => 'product',
@@ -28,11 +28,11 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 		$dropdowns_classes = '';
 
 		if ( $show_categories && $post_type == 'product' ) {
-			$class .= ' penci-with-cat has-categories-dropdown';
+			$class .= ' goso-with-cat has-categories-dropdown';
 		}
 
 		if ( $icon_type == 'custom' ) {
-			$btn_classes .= ' penci-with-img penci-searchform-custom-icon';
+			$btn_classes .= ' goso-with-img goso-searchform-custom-icon';
 		}
 
 		if ( $search_style ) {
@@ -49,7 +49,7 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 		);
 
 		if ( $ajax ) {
-			$class .= ' penci-ajax-search';
+			$class .= ' goso-ajax-search';
 			foreach ( $ajax_args as $key => $value ) {
 				$data .= ' data-' . $key . '="' . $value . '"';
 			}
@@ -57,18 +57,18 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 
 		switch ( $post_type ) {
 			case 'product':
-				$placeholder = penci_woo_translate_text( 'penci_woo_trans_sepproduct' );
-				$description = penci_woo_translate_text( 'penci_woo_trans_sepproduct_desc' );
+				$placeholder = goso_woo_translate_text( 'goso_woo_trans_sepproduct' );
+				$description = goso_woo_translate_text( 'goso_woo_trans_sepproduct_desc' );
 				break;
 
 			case 'portfolio':
-				$placeholder = penci_woo_translate_text( 'penci_woo_trans_sepproject' );
-				$description = penci_woo_translate_text( 'penci_woo_trans_sepproject_desc' );
+				$placeholder = goso_woo_translate_text( 'goso_woo_trans_sepproject' );
+				$description = goso_woo_translate_text( 'goso_woo_trans_sepproject_desc' );
 				break;
 
 			default:
-				$placeholder = penci_woo_translate_text( 'penci_woo_trans_seppost' );
-				$description = penci_woo_translate_text( 'penci_woo_trans_seppost_desc' );
+				$placeholder = goso_woo_translate_text( 'goso_woo_trans_seppost' );
+				$description = goso_woo_translate_text( 'goso_woo_trans_seppost_desc' );
 				break;
 		}
 
@@ -81,36 +81,36 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 		}
 
 		if ( 'dropdown' === $type ) {
-			$wrapper_classes .= ' penci-dropdown';
+			$wrapper_classes .= ' goso-dropdown';
 		}
 
 		if ( 'full-screen' === $type ) {
-			$wrapper_classes .= ' penci-fill';
+			$wrapper_classes .= ' goso-fill';
 		} else {
-			$dropdowns_classes .= ' penci-dropdown';
+			$dropdowns_classes .= ' goso-dropdown';
 		}
 
-		$wrapper_classes   .= ' penci-search-' . $type;
-		$dropdowns_classes .= ' penci-search-results';
+		$wrapper_classes   .= ' goso-search-' . $type;
+		$dropdowns_classes .= ' goso-search-results';
 
 		?>
-        <div class="penci-search-<?php echo esc_attr( $type ); ?><?php echo esc_attr( $wrapper_classes ); ?>">
+        <div class="goso-search-<?php echo esc_attr( $type ); ?><?php echo esc_attr( $wrapper_classes ); ?>">
 			<?php if ( $type == 'full-screen' ): ?>
-                <span class="penci-close-search penci-action-btn penci-style-icon penci-cross-icon"><a></a></span>
+                <span class="goso-close-search goso-action-btn goso-style-icon goso-cross-icon"><a></a></span>
 			<?php endif ?>
             <form role="search" method="get" class="searchform <?php echo esc_attr( $class ); ?>"
                   action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo ! empty( $data ) ? $data : ''; ?>>
                 <input type="text" class="s" placeholder="<?php echo esc_attr( $placeholder ); ?>"
                        value="<?php echo get_search_query(); ?>" name="s"
-                       aria-label="<?php echo penci_woo_translate_text( 'penci_woo_trans_search' ); ?>"
+                       aria-label="<?php echo goso_woo_translate_text( 'goso_woo_trans_search' ); ?>"
                        title="<?php echo esc_attr( $placeholder ); ?>"/>
                 <input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>">
 				<?php if ( $show_categories && $post_type == 'product' ) {
-					penci_show_categories_dropdown();
+					goso_show_categories_dropdown();
 				} ?>
                 <button type="submit" class="searchsubmit<?php echo esc_attr( $btn_classes ); ?>">
 						<span>
-							<?php echo penci_woo_translate_text( 'penci_woo_trans_search' ); ?>
+							<?php echo goso_woo_translate_text( 'goso_woo_trans_search' ); ?>
 						</span>
 					<?php
 					if ( $icon_type == 'custom' ) {
@@ -124,12 +124,12 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 			<?php endif ?>
 			<?php if ( $ajax ): ?>
                 <div class="search-results-wrapper">
-                    <div class="penci-dropdown-results penci-scroll<?php echo esc_attr( $dropdowns_classes ); ?>">
-                        <div class="penci-scroll-content"></div>
+                    <div class="goso-dropdown-results goso-scroll<?php echo esc_attr( $dropdowns_classes ); ?>">
+                        <div class="goso-scroll-content"></div>
                     </div>
 
 					<?php if ( 'full-screen' === $type ) : ?>
-                        <div class="penci-search-loader"></div>
+                        <div class="goso-search-loader"></div>
 					<?php endif; ?>
                 </div>
 			<?php endif ?>
@@ -140,10 +140,10 @@ if ( ! function_exists( 'penci_search_form' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_show_categories_dropdown' ) ) {
-	function penci_show_categories_dropdown() {
-		$search_in_cat = get_theme_mod( 'penci_header_woo_search_cat' );
-		$search_ex_cat = get_theme_mod( 'penci_header_woo_search_cat_ex' );
+if ( ! function_exists( 'goso_show_categories_dropdown' ) ) {
+	function goso_show_categories_dropdown() {
+		$search_in_cat = get_theme_mod( 'goso_header_woo_search_cat' );
+		$search_ex_cat = get_theme_mod( 'goso_header_woo_search_cat_ex' );
 		$args          = array(
 			'taxonomy'   => 'product_cat',
 			'hide_empty' => 1,
@@ -163,17 +163,17 @@ if ( ! function_exists( 'penci_show_categories_dropdown' ) ) {
 			$dropdown_classes .= ' list-wrapper';
 
 			?>
-            <div class="penci-search-cat penci-scroll">
+            <div class="goso-search-cat goso-scroll">
                 <input type="hidden" name="product_cat" value="0">
                 <a href="#" rel="nofollow" data-val="0">
 					<span>
-						<?php echo penci_woo_translate_text( 'penci_woo_trans_selectcat' ); ?>
+						<?php echo goso_woo_translate_text( 'goso_woo_trans_selectcat' ); ?>
 					</span>
                 </a>
-                <div class="penci-dropdown penci-dropdown-search-cat penci-dropdown-menu penci-scroll-content penci-design-default<?php echo esc_attr( $dropdown_classes ); ?>">
-                    <ul class="penci-sub-menu">
+                <div class="goso-dropdown goso-dropdown-search-cat goso-dropdown-menu goso-scroll-content goso-design-default<?php echo esc_attr( $dropdown_classes ); ?>">
+                    <ul class="goso-sub-menu">
                         <li class="placeholder"><a href="#"
-                                                   data-val="0"><?php echo penci_woo_translate_text( 'penci_woo_trans_selectcat' ); ?></a>
+                                                   data-val="0"><?php echo goso_woo_translate_text( 'goso_woo_trans_selectcat' ); ?></a>
                         </li>
 						<?php
 						foreach ( $terms as $term ) {
@@ -197,21 +197,21 @@ if ( ! function_exists( 'penci_show_categories_dropdown' ) ) {
  * Ajax search
  * ------------------------------------------------------------------------------------------------
  */
-if ( ! function_exists( 'penci_init_search_by_sku' ) ) {
-	function penci_init_search_by_sku() {
-		add_filter( 'posts_search', 'penci_product_search_sku', 9 );
+if ( ! function_exists( 'goso_init_search_by_sku' ) ) {
+	function goso_init_search_by_sku() {
+		add_filter( 'posts_search', 'goso_product_search_sku', 9 );
 	}
 
-	add_action( 'init', 'penci_init_search_by_sku', 10 );
+	add_action( 'init', 'goso_init_search_by_sku', 10 );
 }
 
-if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
-	function penci_ajax_suggestions() {
+if ( ! function_exists( 'goso_ajax_suggestions' ) ) {
+	function goso_ajax_suggestions() {
 
 		$allowed_types = array( 'post', 'product', 'portfolio' );
 		$post_type     = 'product';
 
-		add_filter( 'posts_search', 'penci_product_ajax_search_sku', 10 );
+		add_filter( 'posts_search', 'goso_product_ajax_search_sku', 10 );
 
 		$query_args = array(
 			'posts_per_page' => 5,
@@ -237,7 +237,7 @@ if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
 				'operator' => 'NOT IN',
 			);
 
-			if ( apply_filters( 'penci_ajax_search_product_cat_args_old_style', false ) ) {
+			if ( apply_filters( 'goso_ajax_search_product_cat_args_old_style', false ) ) {
 				if ( ! empty( $_REQUEST['product_cat'] ) ) {
 					$query_args['product_cat'] = strip_tags( $_REQUEST['product_cat'] );
 				}
@@ -268,9 +268,9 @@ if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
 			$query_args['posts_per_page'] = (int) $_REQUEST['number'];
 		}
 
-		$results = new WP_Query( apply_filters( 'penci_ajax_search_args', $query_args ) );
+		$results = new WP_Query( apply_filters( 'goso_ajax_search_args', $query_args ) );
 
-		if ( get_theme_mod( 'penci_woo_relevanssi_search' ) && function_exists( 'relevanssi_do_query' ) ) {
+		if ( get_theme_mod( 'goso_woo_relevanssi_search' ) && function_exists( 'relevanssi_do_query' ) ) {
 			relevanssi_do_query( $results );
 		}
 
@@ -293,7 +293,7 @@ if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
 						'permalink' => get_the_permalink(),
 						'price'     => $product->get_price_html(),
 						'thumbnail' => $product->get_image(),
-						'sku'       => $product->get_sku() ? penci_woo_translate_text( 'penci_woo_trans_sku' ) . ' ' . $product->get_sku() : '',
+						'sku'       => $product->get_sku() ? goso_woo_translate_text( 'goso_woo_trans_sku' ) . ' ' . $product->get_sku() : '',
 					);
 				} else {
 					$suggestions[] = array(
@@ -307,14 +307,14 @@ if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
 			wp_reset_postdata();
 		} else {
 			$suggestions[] = array(
-				'value'     => ( $post_type == 'product' ) ? penci_woo_translate_text( 'penci_woo_trans_noproductfount' ) : penci_woo_translate_text( 'penci_woo_trans_npostfound' ),
+				'value'     => ( $post_type == 'product' ) ? goso_woo_translate_text( 'goso_woo_trans_noproductfount' ) : goso_woo_translate_text( 'goso_woo_trans_npostfound' ),
 				'no_found'  => true,
 				'permalink' => ''
 			);
 		}
 
-		if ( get_theme_mod( 'penci_woo_enqueue_posts_results' ) && 'post' !== $post_type ) {
-			$post_suggestions = penci_get_post_suggestions();
+		if ( get_theme_mod( 'goso_woo_enqueue_posts_results' ) && 'post' !== $post_type ) {
+			$post_suggestions = goso_get_post_suggestions();
 			$suggestions      = array_merge( $suggestions, $post_suggestions );
 		}
 
@@ -325,12 +325,12 @@ if ( ! function_exists( 'penci_ajax_suggestions' ) ) {
 		die();
 	}
 
-	add_action( 'wp_ajax_penci_ajax_search', 'penci_ajax_suggestions', 10 );
-	add_action( 'wp_ajax_nopriv_penci_ajax_search', 'penci_ajax_suggestions', 10 );
+	add_action( 'wp_ajax_goso_ajax_search', 'goso_ajax_suggestions', 10 );
+	add_action( 'wp_ajax_nopriv_goso_ajax_search', 'goso_ajax_suggestions', 10 );
 }
 
-if ( ! function_exists( 'penci_get_post_suggestions' ) ) {
-	function penci_get_post_suggestions() {
+if ( ! function_exists( 'goso_get_post_suggestions' ) ) {
+	function goso_get_post_suggestions() {
 		$query_args = array(
 			'posts_per_page' => 5,
 			'post_status'    => 'publish',
@@ -353,7 +353,7 @@ if ( ! function_exists( 'penci_get_post_suggestions' ) ) {
 
 			$suggestions[] = array(
 				'value'   => '',
-				'divider' => penci_woo_translate_text( 'penci_woo_trans_resfblog' ),
+				'divider' => goso_woo_translate_text( 'goso_woo_trans_resfblog' ),
 			);
 
 			while ( $results->have_posts() ) {
@@ -373,8 +373,8 @@ if ( ! function_exists( 'penci_get_post_suggestions' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_product_search_sku' ) ) {
-	function penci_product_search_sku( $where, $class = false ) {
+if ( ! function_exists( 'goso_product_search_sku' ) ) {
+	function goso_product_search_sku( $where, $class = false ) {
 		global $pagenow, $wpdb, $wp;
 
 		$type = array( 'product', 'jam' );
@@ -393,23 +393,23 @@ if ( ! function_exists( 'penci_product_search_sku' ) ) {
 
 		//WC 3.6.0
 		if ( function_exists( 'WC' ) && version_compare( WC()->version, '3.6.0', '<' ) ) {
-			return penci_sku_search_query( $where, $s );
+			return goso_sku_search_query( $where, $s );
 		} else {
-			return penci_sku_search_query_new( $where, $s );
+			return goso_sku_search_query_new( $where, $s );
 		}
 	}
 }
 
-if ( ! function_exists( 'penci_product_ajax_search_sku' ) ) {
-	function penci_product_ajax_search_sku( $where ) {
+if ( ! function_exists( 'goso_product_ajax_search_sku' ) ) {
+	function goso_product_ajax_search_sku( $where ) {
 		if ( ! empty( $_REQUEST['query'] ) ) {
 			$s = sanitize_text_field( $_REQUEST['query'] );
 
 			//WC 3.6.0
 			if ( function_exists( 'WC' ) && version_compare( WC()->version, '3.6.0', '<' ) ) {
-				return penci_sku_search_query( $where, $s );
+				return goso_sku_search_query( $where, $s );
 			} else {
-				return penci_sku_search_query_new( $where, $s );
+				return goso_sku_search_query_new( $where, $s );
 			}
 		}
 
@@ -417,8 +417,8 @@ if ( ! function_exists( 'penci_product_ajax_search_sku' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_sku_search_query' ) ) {
-	function penci_sku_search_query( $where, $s ) {
+if ( ! function_exists( 'goso_sku_search_query' ) ) {
+	function goso_sku_search_query( $where, $s ) {
 		global $wpdb;
 
 		$search_ids = array();
@@ -449,8 +449,8 @@ if ( ! function_exists( 'penci_sku_search_query' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_sku_search_query_new' ) ) {
-	function penci_sku_search_query_new( $where, $s ) {
+if ( ! function_exists( 'goso_sku_search_query_new' ) ) {
+	function goso_sku_search_query_new( $where, $s ) {
 		global $wpdb;
 
 		$search_ids = array();
@@ -489,9 +489,9 @@ if ( ! function_exists( 'penci_sku_search_query_new' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_rlv_index_variation_skus' ) ) {
-	function penci_rlv_index_variation_skus( $content, $post ) {
-		if ( ! get_theme_mod( 'penci_wooo_search_by_sku' ) || ! get_theme_mod( 'penci_wooo_relevanssi_search' ) || ! function_exists( 'relevanssi_do_query' ) ) {
+if ( ! function_exists( 'goso_rlv_index_variation_skus' ) ) {
+	function goso_rlv_index_variation_skus( $content, $post ) {
+		if ( ! get_theme_mod( 'goso_wooo_search_by_sku' ) || ! get_theme_mod( 'goso_wooo_relevanssi_search' ) || ! function_exists( 'relevanssi_do_query' ) ) {
 			return $content;
 		}
 
@@ -514,5 +514,5 @@ if ( ! function_exists( 'penci_rlv_index_variation_skus' ) ) {
 		return $content;
 	}
 
-	add_filter( 'relevanssi_content_to_index', 'penci_rlv_index_variation_skus', 10, 2 );
+	add_filter( 'relevanssi_content_to_index', 'goso_rlv_index_variation_skus', 10, 2 );
 }

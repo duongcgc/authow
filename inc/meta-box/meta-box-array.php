@@ -35,7 +35,7 @@ if( ! class_exists( 'PENCI_FW_MetaBox' ) ):
 		 * Register meta boxes.
 		 */
 		public function register_meta_boxes() {
-			$configs = apply_filters( 'penci_meta_boxes', array() );
+			$configs = apply_filters( 'goso_meta_boxes', array() );
 
 			foreach ( $configs as $config ) {
 				new Goso_Add_Meta_Box( $config );
@@ -54,15 +54,15 @@ if( ! class_exists( 'PENCI_FW_MetaBox' ) ):
 				wp_enqueue_script( 'wp-color-picker' );
 				wp_enqueue_media();
 
-				wp_enqueue_script(  'penci-custom-gallery-options', get_stylesheet_directory_uri() .'/js/admin-gallery.js', array( 'jquery','media-views', 'wp-color-picker' ), PENCI_SOLEDAD_VERSION, true );
-				wp_localize_script( 'penci-custom-gallery-options', 'GosoObject', array(
+				wp_enqueue_script(  'goso-custom-gallery-options', get_stylesheet_directory_uri() .'/js/admin-gallery.js', array( 'jquery','media-views', 'wp-color-picker' ), PENCI_SOLEDAD_VERSION, true );
+				wp_localize_script( 'goso-custom-gallery-options', 'GosoObject', array(
 					'WidgetImageTitle'   => esc_html__( 'Select an image', 'authow' ),
 					'WidgetImageButton'  => esc_html__( 'Insert into widget', 'authow' ),
 					'ajaxUrl'            => admin_url( 'admin-ajax.php' ),
 					'nonce'              => wp_create_nonce( 'ajax-nonce' ),
 				) );
 
-				wp_enqueue_style( 'penci-admin-post', get_stylesheet_directory_uri() . '/css/admin.css', '', PENCI_SOLEDAD_VERSION );
+				wp_enqueue_style( 'goso-admin-post', get_stylesheet_directory_uri() . '/css/admin.css', '', PENCI_SOLEDAD_VERSION );
 			}
 		}
 	}

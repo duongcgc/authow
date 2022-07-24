@@ -6,10 +6,10 @@ add_filter( 'body_class', function ( $class ) {
 } );
 get_header(); ?>
 <div class="container-single-page">
-    <div id="main" class="penci-custom-single-template">
+    <div id="main" class="goso-custom-single-template">
 		<?php
 		$html      = '';
-		$post_name = penci_should_render_single_template();
+		$post_name = goso_should_render_single_template();
 		$post_data = get_page_by_path( $post_name, OBJECT, 'custom-post-template' );
 		if ( ! empty( $post_data ) && isset( $post_data->ID ) ) {
 			$frontend = \Elementor\Plugin::$instance->frontend;

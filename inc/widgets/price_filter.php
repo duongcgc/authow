@@ -14,7 +14,7 @@ if ( ! class_exists( 'Goso_Widget_Price_Filter' ) ) {
 			// Configure widget array
 			$args = array(
 				// Widget Backend label
-				'label'       => penci_get_theme_name('.Authow',true).esc_html__( 'Price filter', 'authow' ),
+				'label'       => goso_get_theme_name('.Authow',true).esc_html__( 'Price filter', 'authow' ),
 				// Widget Backend Description								
 				'description' => esc_html__( 'Price filter list', 'authow' ),
 				'slug'        => 'authow-price-filter',
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Goso_Widget_Price_Filter' ) ) {
 
 			if ( ! empty( $links ) ) {
 				?>
-                <div class="penci-price-filter">
+                <div class="goso-price-filter">
                     <ul>
 						<?php foreach ( $links as $link ) : ?>
                             <li>
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Goso_Widget_Price_Filter' ) ) {
 			$links = array();
 
 			// Remember current filters/search
-			$link          = penci_shop_page_link( true );
+			$link          = goso_shop_page_link( true );
 			$link_no_price = remove_query_arg( 'min_price', $link );
 			$link_no_price = remove_query_arg( 'max_price', $link_no_price );
 
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Goso_Widget_Price_Filter' ) ) {
 
 				$query['where'] .= ' AND ' . $search;
 
-				if ( get_theme_mod( 'penci_woo_search_by_sku' ) ) {
+				if ( get_theme_mod( 'goso_woo_search_by_sku' ) ) {
 					// search for variations with a matching sku and return the parent.
 					$sku_to_parent_id = $wpdb->get_col( $wpdb->prepare( "SELECT p.post_parent as post_id FROM {$wpdb->posts} as p join {$wpdb->postmeta} pm on p.ID = pm.post_id and pm.meta_key='_sku' and pm.meta_value LIKE '%%%s%%' where p.post_parent <> 0 group by p.post_parent", wc_clean( $_GET['s'] ) ) );
 
@@ -449,7 +449,7 @@ if ( ! class_exists( 'Goso_Widget_Price_Filter' ) ) {
 
 				$query['where'] .= ' AND ' . $search;
 
-				if ( get_theme_mod( 'penci_woo_search_by_sku' ) ) {
+				if ( get_theme_mod( 'goso_woo_search_by_sku' ) ) {
 					// search for variations with a matching sku and return the parent.
 					$sku_to_parent_id = $wpdb->get_col( $wpdb->prepare( "SELECT p.post_parent as post_id FROM {$wpdb->posts} as p join {$wpdb->wc_product_meta_lookup} ml on p.ID = ml.product_id and ml.sku LIKE '%%%s%%' where p.post_parent <> 0 group by p.post_parent", wc_clean( $_GET['s'] ) ) );
 

@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 <div class="container-404-page">
-    <div id="main" class="penci-custom-404-template">
+    <div id="main" class="goso-custom-404-template">
 		<?php
 		$post_name = get_theme_mod( 'fof_page' );
 		$post_data = get_page_by_path( $post_name );

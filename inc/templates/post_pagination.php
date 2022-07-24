@@ -14,21 +14,21 @@
 	?>
 	<?php if ( ! empty( $prev_post ) ) : ?>
         <div class="prev-post">
-			<?php if ( has_post_thumbnail( $prev_post->ID ) && get_theme_mod( 'penci_post_nav_thumbnail' ) ): ?>
-				<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                    <a class="penci-post-nav-thumb penci-holder-load penci-lazy"
+			<?php if ( has_post_thumbnail( $prev_post->ID ) && get_theme_mod( 'goso_post_nav_thumbnail' ) ): ?>
+				<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                    <a class="goso-post-nav-thumb goso-holder-load goso-lazy"
                        href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>"
-                       data-bgset="<?php echo penci_image_srcset( $prev_post->ID,'thumbnail' ); ?>">
+                       data-bgset="<?php echo goso_image_srcset( $prev_post->ID,'thumbnail' ); ?>">
                     </a>
 				<?php } else { ?>
-                    <a class="penci-post-nav-thumb" href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>"
-                       style="background-image: url('<?php echo penci_get_featured_image_size( $prev_post->ID, 'thumbnail' ); ?>');">
+                    <a class="goso-post-nav-thumb" href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>"
+                       style="background-image: url('<?php echo goso_get_featured_image_size( $prev_post->ID, 'thumbnail' ); ?>');">
                     </a>
 				<?php } ?>
 			<?php endif; ?>
             <div class="prev-post-inner">
                 <div class="prev-post-title">
-                    <span><?php echo penci_get_setting( 'penci_trans_previous_post' ); ?></span>
+                    <span><?php echo goso_get_setting( 'goso_trans_previous_post' ); ?></span>
                 </div>
                 <a href="<?php echo esc_url( get_the_permalink( $prev_post->ID ) ); ?>">
                     <div class="pagi-text">
@@ -41,22 +41,22 @@
 
 	<?php if ( ! empty( $next_post ) ) : ?>
         <div class="next-post">
-			<?php if ( has_post_thumbnail( $next_post->ID ) && get_theme_mod( 'penci_post_nav_thumbnail' ) ): ?>
-				<?php if ( ! get_theme_mod( 'penci_disable_lazyload_single' ) ) { ?>
-                    <a class="penci-post-nav-thumb penci-holder-load penci-lazy nav-thumb-next"
+			<?php if ( has_post_thumbnail( $next_post->ID ) && get_theme_mod( 'goso_post_nav_thumbnail' ) ): ?>
+				<?php if ( ! get_theme_mod( 'goso_disable_lazyload_single' ) ) { ?>
+                    <a class="goso-post-nav-thumb goso-holder-load goso-lazy nav-thumb-next"
                        href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>"
-                       data-bgset="<?php echo penci_image_srcset( $next_post->ID,'thumbnail' ); ?>">
+                       data-bgset="<?php echo goso_image_srcset( $next_post->ID,'thumbnail' ); ?>">
                     </a>
 				<?php } else { ?>
-                    <a class="penci-post-nav-thumb nav-thumb-next"
+                    <a class="goso-post-nav-thumb nav-thumb-next"
                        href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>"
-                       style="background-image: url('<?php echo penci_get_featured_image_size( $next_post->ID, 'thumbnail' ); ?>');">
+                       style="background-image: url('<?php echo goso_get_featured_image_size( $next_post->ID, 'thumbnail' ); ?>');">
                     </a>
 				<?php } ?>
 			<?php endif; ?>
             <div class="next-post-inner">
                 <div class="prev-post-title next-post-title">
-                    <span><?php echo penci_get_setting( 'penci_trans_next_post' ); ?></span>
+                    <span><?php echo goso_get_setting( 'goso_trans_next_post' ); ?></span>
                 </div>
                 <a href="<?php echo esc_url( get_the_permalink( $next_post->ID ) ); ?>">
                     <div class="pagi-text">

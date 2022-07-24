@@ -1,13 +1,13 @@
 <?php
 
-add_action( 'widgets_init', 'penci_search_box_load_widget' );
+add_action( 'widgets_init', 'goso_search_box_load_widget' );
 
-function penci_search_box_load_widget() {
-	register_widget( 'penci_search_box_widget' );
+function goso_search_box_load_widget() {
+	register_widget( 'goso_search_box_widget' );
 }
 
-if ( ! class_exists( 'penci_search_box_widget' ) ) {
-	class penci_search_box_widget extends WP_Widget {
+if ( ! class_exists( 'goso_search_box_widget' ) ) {
+	class goso_search_box_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -15,18 +15,18 @@ if ( ! class_exists( 'penci_search_box_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_search_box_widget',
+				'classname'   => 'goso_search_box_widget',
 				'description' => esc_html__( 'A widget that displays the search form', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'penci_search_box_widget' );
+			$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'goso_search_box_widget' );
 
 			/* Create the widget. */ global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_search_box_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Search Box', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_search_box_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Search Box', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_search_box_widget', penci_get_theme_name( '.Authow', true ) . esc_html__( 'Search Box', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_search_box_widget', goso_get_theme_name( '.Authow', true ) . esc_html__( 'Search Box', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -51,15 +51,15 @@ if ( ! class_exists( 'penci_search_box_widget' ) ) {
 			}
 
 			?>
-            <div class="pcwg-widget pc-widget-searchform penci-builder-element pc-search-form search-style-<?php echo $style; ?>">
+            <div class="pcwg-widget pc-widget-searchform goso-builder-element pc-search-form search-style-<?php echo $style; ?>">
                 <form role="search" method="get" class="pc-searchform"
                       action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <div class="pc-searchform-inner">
                         <input type="text" class="search-input"
-                               placeholder="<?php echo penci_get_setting( 'penci_trans_type_and_hit' ); ?>" name="s"/>
-                        <i class="penciicon-magnifiying-glass"></i>
+                               placeholder="<?php echo goso_get_setting( 'goso_trans_type_and_hit' ); ?>" name="s"/>
+                        <i class="gosoicon-magnifiying-glass"></i>
                         <button type="submit"
-                                class="searchsubmit"><?php echo penci_get_setting( 'penci_trans_search' ); ?></button>
+                                class="searchsubmit"><?php echo goso_get_setting( 'goso_trans_search' ); ?></button>
                     </div>
                 </form>
             </div>

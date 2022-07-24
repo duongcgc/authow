@@ -2,23 +2,23 @@
 $options   = [];
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Filter Trigger Auto Scroll',
-	'id'       => 'penci_woo_mobile_autoscroll',
+	'id'       => 'goso_woo_mobile_autoscroll',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Bottom Navigation',
-	'id'       => 'penci_woo_mobile_bottom_nav',
+	'id'       => 'goso_woo_mobile_bottom_nav',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_multiple_checkbox',
+	'sanitize' => 'goso_sanitize_multiple_checkbox',
 	'label'    => 'Select navigation menu item',
-	'id'       => 'penci_woo_mobile_nav_items',
+	'id'       => 'goso_woo_mobile_nav_items',
 	'multiple' => 999,
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
@@ -33,16 +33,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Show custom Navigation Menus',
-	'id'       => 'penci_woo_mobile_show_custom_nav',
+	'id'       => 'goso_woo_mobile_show_custom_nav',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Select Custom Menu for Mobile Bottom Navigation',
-	'id'       => 'penci_woo_mobile_nav_menu',
+	'id'       => 'goso_woo_mobile_nav_menu',
 	'type'     => 'authow-fw-ajax-select',
 	'choices'  => call_user_func( function () {
 		$menu_list = [ '' => '' ];

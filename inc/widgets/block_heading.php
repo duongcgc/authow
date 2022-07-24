@@ -7,14 +7,14 @@
  * @since   7.9
  */
 
-add_action( 'widgets_init', 'penci_block_heading_load_widget' );
+add_action( 'widgets_init', 'goso_block_heading_load_widget' );
 
-function penci_block_heading_load_widget() {
-	register_widget( 'penci_block_heading_widget' );
+function goso_block_heading_load_widget() {
+	register_widget( 'goso_block_heading_widget' );
 }
 
-if ( ! class_exists( 'penci_block_heading_widget' ) ) {
-	class penci_block_heading_widget extends WP_Widget {
+if ( ! class_exists( 'goso_block_heading_widget' ) ) {
+	class goso_block_heading_widget extends WP_Widget {
 
 		/**
 		 * Widget setup.
@@ -22,19 +22,19 @@ if ( ! class_exists( 'penci_block_heading_widget' ) ) {
 		function __construct() {
 			/* Widget settings. */
 			$widget_ops = array(
-				'classname'   => 'penci_block_heading_widget',
+				'classname'   => 'goso_block_heading_widget',
 				'description' => esc_html__( 'A widget that displays the widget heading follow the styles from the theme. It helps if you\'re using Widget Blocks Editor from WordPress version 5.8', 'authow' )
 			);
 
 			/* Widget control settings. */
-			$control_ops = array( 'id_base' => 'penci_block_heading_widget' );
+			$control_ops = array( 'id_base' => 'goso_block_heading_widget' );
 
 			/* Create the widget. */
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci_block_heading_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Block Heading', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso_block_heading_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Block Heading', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci_block_heading_widget', penci_get_theme_name('.Authow',true).esc_html__( 'Block Heading', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso_block_heading_widget', goso_get_theme_name('.Authow',true).esc_html__( 'Block Heading', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -53,7 +53,7 @@ if ( ! class_exists( 'penci_block_heading_widget' ) ) {
 
 			/* Display the widget title if one was input (before and after defined by themes). */
 			if ( $title ) {
-				echo '<h3 class="widget-title penci-border-arrow"><span class="inner-arrow">' . $title . '</span></h3>';
+				echo '<h3 class="widget-title goso-border-arrow"><span class="inner-arrow">' . $title . '</span></h3>';
 			}
 
 			/* After widget (defined by themes). */

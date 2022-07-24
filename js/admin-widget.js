@@ -12,19 +12,19 @@ jQuery(function ($) {
             PENCIWIDGETS.customSidebar.addIconRemoveSidebar();
         },
         moveFormToTop: function () {
-            $('#penci-add-custom-sidebar').parent().prependTo($('#widgets-right .sidebars-column-1'));
+            $('#goso-add-custom-sidebar').parent().prependTo($('#widgets-right .sidebars-column-1'));
         },
         addSidebars: function () {
-            var idAddCustomSidebar = '#penci-add-custom-sidebar';
+            var idAddCustomSidebar = '#goso-add-custom-sidebar';
 
-            $('#penci-add-custom-sidebar form').submit(function (event) {
+            $('#goso-add-custom-sidebar form').submit(function (event) {
                 event.preventDefault();
 
                 var $this = $(this),
-                    nameVal = $this.find('#penci-add-custom-sidebar-name').val();
+                    nameVal = $this.find('#goso-add-custom-sidebar-name').val();
 
                 $this.find('input[type="submit"]').attr('disabled', 'disabled');
-                $this.closest('#penci-add-custom-sidebar').find('.spinner').addClass('is-active');
+                $this.closest('#goso-add-custom-sidebar').find('.spinner').addClass('is-active');
 
                 var data = {
                     action: 'authow_add_sidebar',
@@ -130,15 +130,15 @@ jQuery(function ($) {
             if (cselect_val != 'mega-menu') {
                 cselect_val = 'cat-menu';
             }
-            citem.find('p.penci-mn-settings.' + cselect_val + '-select').addClass('active');
+            citem.find('p.goso-mn-settings.' + cselect_val + '-select').addClass('active');
 
             cselect.on('change', function () {
                 var cselectc_val = $(this).val();
                 if (cselectc_val != 'mega-menu') {
                     cselectc_val = 'cat-menu';
                 }
-                citem.find('p.penci-mn-settings').removeClass('active');
-                citem.find('p.penci-mn-settings.' + cselectc_val + '-select').addClass('active');
+                citem.find('p.goso-mn-settings').removeClass('active');
+                citem.find('p.goso-mn-settings.' + cselectc_val + '-select').addClass('active');
             });
 
             var pcblock_id = citem.find('.pcblock-select').val(),
@@ -156,14 +156,14 @@ jQuery(function ($) {
 
         $(document).on('change', '.pcblock-select', function () {
             var id = $(this).find(':selected').data('id'),
-                wrapper = $(this).closest('.penci-mn-settings'),
+                wrapper = $(this).closest('.goso-mn-settings'),
                 none = wrapper.find('span.pcajax-none'),
                 change = wrapper.find('span.pcajax-change');
             if (id) {
                 none.removeClass('active');
                 change.addClass('active');
 
-                var link = wrapper.find('.penciblock-edit-link'),
+                var link = wrapper.find('.gosoblock-edit-link'),
                     idlink = link.attr('data-url') + id;
 
                 link.attr('href', idlink);
@@ -183,7 +183,7 @@ jQuery(function ($) {
 
         var custom_uploader;
 
-        $(document).on('click', '.penci_menu_bgimg_btn', function (e) {
+        $(document).on('click', '.goso_menu_bgimg_btn', function (e) {
 
             e.preventDefault();
             //Extend the wp.media object
@@ -197,15 +197,15 @@ jQuery(function ($) {
 
             // get settings
             var t = $(this),
-                item = t.closest('.penci-mn-settings');
+                item = t.closest('.goso-mn-settings');
 
             //When a file is selected, grab the URL and set it as the text field's value
             custom_uploader.on('select', function () {
                 var attachment = custom_uploader.state().get('selection').first().toJSON();
                 $(item).find('.custom_media_id').val(attachment.id);
                 $(item).find('.custom_media_image').attr('src', attachment.url);
-                $(item).find('.penci_menu_bgimg_btn').html('Change Background Image');
-                $(item).find('.penci_menu_bgimg_delete_btn,.pc-mn-image-wrapper').addClass('active');
+                $(item).find('.goso_menu_bgimg_btn').html('Change Background Image');
+                $(item).find('.goso_menu_bgimg_delete_btn,.pc-mn-image-wrapper').addClass('active');
             });
 
             //If the uploader object has already been created, reopen the dialog
@@ -218,14 +218,14 @@ jQuery(function ($) {
             custom_uploader.open();
         });
 
-        $(document).on('click', '.penci_menu_bgimg_delete_btn', function (e) {
+        $(document).on('click', '.goso_menu_bgimg_delete_btn', function (e) {
             var t = $(this),
-                item = t.closest('.penci-mn-settings');
+                item = t.closest('.goso-mn-settings');
             $(item).find('.custom_media_id').val('');
             $(item).find('.custom_media_image').attr('src', '');
             t.removeClass('active');
             $(item).find('.pc-mn-image-wrapper').removeClass('active');
-            $(item).find('.penci_menu_bgimg_btn').html('Upload Background Image');
+            $(item).find('.goso_menu_bgimg_btn').html('Upload Background Image');
             e.preventDefault();
         });
     }

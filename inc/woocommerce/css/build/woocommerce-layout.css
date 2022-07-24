@@ -297,9 +297,9 @@
   height: auto;
 }
 .woocommerce ul.products,
-.woocommerce ul.penci-woo-product-loop-categories,
+.woocommerce ul.goso-woo-product-loop-categories,
 .woocommerce-page ul.products,
-.woocommerce-page ul.penci-woo-product-loop-categories {
+.woocommerce-page ul.goso-woo-product-loop-categories {
   clear: both;
   display: flex;
   flex-wrap: wrap;
@@ -308,27 +308,27 @@
 }
 @media only screen and (max-width: 767px) {
   .woocommerce ul.products,
-.woocommerce ul.penci-woo-product-loop-categories,
+.woocommerce ul.goso-woo-product-loop-categories,
 .woocommerce-page ul.products,
-.woocommerce-page ul.penci-woo-product-loop-categories {
+.woocommerce-page ul.goso-woo-product-loop-categories {
     margin-left: 0;
     margin-right: 0;
     justify-content: space-between;
   }
   .woocommerce ul.products:before, .woocommerce ul.products:after,
-.woocommerce ul.penci-woo-product-loop-categories:before,
-.woocommerce ul.penci-woo-product-loop-categories:after,
+.woocommerce ul.goso-woo-product-loop-categories:before,
+.woocommerce ul.goso-woo-product-loop-categories:after,
 .woocommerce-page ul.products:before,
 .woocommerce-page ul.products:after,
-.woocommerce-page ul.penci-woo-product-loop-categories:before,
-.woocommerce-page ul.penci-woo-product-loop-categories:after {
+.woocommerce-page ul.goso-woo-product-loop-categories:before,
+.woocommerce-page ul.goso-woo-product-loop-categories:after {
     display: none;
   }
 }
 .woocommerce ul.products li.product,
-.woocommerce ul.penci-woo-product-loop-categories li.product,
+.woocommerce ul.goso-woo-product-loop-categories li.product,
 .woocommerce-page ul.products li.product,
-.woocommerce-page ul.penci-woo-product-loop-categories li.product {
+.woocommerce-page ul.goso-woo-product-loop-categories li.product {
   flex: 0 0 auto;
   width: 25%;
   padding-left: 15px;
@@ -337,50 +337,50 @@
 }
 @media only screen and (max-width: 767px) {
   .woocommerce ul.products li.product,
-.woocommerce ul.penci-woo-product-loop-categories li.product,
+.woocommerce ul.goso-woo-product-loop-categories li.product,
 .woocommerce-page ul.products li.product,
-.woocommerce-page ul.penci-woo-product-loop-categories li.product {
+.woocommerce-page ul.goso-woo-product-loop-categories li.product {
     padding-left: 0;
     padding-right: 0;
   }
 }
 .woocommerce ul.products.product-list li.product-category,
-.woocommerce ul.penci-woo-product-loop-categories.product-list li.product-category,
+.woocommerce ul.goso-woo-product-loop-categories.product-list li.product-category,
 .woocommerce-page ul.products.product-list li.product-category,
-.woocommerce-page ul.penci-woo-product-loop-categories.product-list li.product-category {
+.woocommerce-page ul.goso-woo-product-loop-categories.product-list li.product-category {
   max-width: 25%;
 }
 @media only screen and (max-width: 767px) {
   .woocommerce ul.products.product-list li.product-category,
-.woocommerce ul.penci-woo-product-loop-categories.product-list li.product-category,
+.woocommerce ul.goso-woo-product-loop-categories.product-list li.product-category,
 .woocommerce-page ul.products.product-list li.product-category,
-.woocommerce-page ul.penci-woo-product-loop-categories.product-list li.product-category {
+.woocommerce-page ul.goso-woo-product-loop-categories.product-list li.product-category {
     max-width: 50%;
   }
 }
 .woocommerce ul.products li.first,
-.woocommerce ul.penci-woo-product-loop-categories li.first,
+.woocommerce ul.goso-woo-product-loop-categories li.first,
 .woocommerce-page ul.products li.first,
-.woocommerce-page ul.penci-woo-product-loop-categories li.first {
+.woocommerce-page ul.goso-woo-product-loop-categories li.first {
   clear: both;
 }
 .woocommerce ul.products li.last,
-.woocommerce ul.penci-woo-product-loop-categories li.last,
+.woocommerce ul.goso-woo-product-loop-categories li.last,
 .woocommerce-page ul.products li.last,
-.woocommerce-page ul.penci-woo-product-loop-categories li.last {
+.woocommerce-page ul.goso-woo-product-loop-categories li.last {
   margin-right: 0;
 }
-.woocommerce ul.products.penci-owl-carousel,
-.woocommerce ul.penci-woo-product-loop-categories.penci-owl-carousel,
-.woocommerce-page ul.products.penci-owl-carousel,
-.woocommerce-page ul.penci-woo-product-loop-categories.penci-owl-carousel {
+.woocommerce ul.products.goso-owl-carousel,
+.woocommerce ul.goso-woo-product-loop-categories.goso-owl-carousel,
+.woocommerce-page ul.products.goso-owl-carousel,
+.woocommerce-page ul.goso-woo-product-loop-categories.goso-owl-carousel {
   margin-left: 0;
   margin-right: 0;
 }
-.woocommerce ul.products.penci-owl-carousel li.product,
-.woocommerce ul.penci-woo-product-loop-categories.penci-owl-carousel li.product,
-.woocommerce-page ul.products.penci-owl-carousel li.product,
-.woocommerce-page ul.penci-woo-product-loop-categories.penci-owl-carousel li.product {
+.woocommerce ul.products.goso-owl-carousel li.product,
+.woocommerce ul.goso-woo-product-loop-categories.goso-owl-carousel li.product,
+.woocommerce-page ul.products.goso-owl-carousel li.product,
+.woocommerce-page ul.goso-woo-product-loop-categories.goso-owl-carousel li.product {
   padding-left: 0;
   padding-right: 0;
 }

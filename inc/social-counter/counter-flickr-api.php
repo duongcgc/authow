@@ -8,12 +8,12 @@ if ( ! class_exists( 'Goso_Social_Counter_Flickr_API' ) ):
 
 			$page_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = $page_id;
-			$data['icon'] = penci_icon_by_ver( 'fab fa-flickr' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-flickr' );
 
 
 			$count         = 0;
-			$cache_key     = 'penci_counter__flickr' . $page_id;
-			$default_count = penci_get_social_counter_option( 'flickr_default' );
+			$cache_key     = 'goso_counter__flickr' . $page_id;
+			$default_count = goso_get_social_counter_option( 'flickr_default' );
 			$flickr_count  = $default_count ? $default_count : get_transient( $cache_key );
 
 			if ( ! $flickr_count && filter_var( $page_id, FILTER_VALIDATE_URL ) !== false ) {

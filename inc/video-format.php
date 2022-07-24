@@ -59,13 +59,13 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 
 				if ( $parallax ) {
 					if ( false !== strpos( $video, 'iframe' ) ) {
-						$output .= '<div class="penci-jarallax" data-video-src="' . self::get_url_video_embed_code( $video ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . self::get_url_video_embed_code( $video ) . '"></div>';
 					} else {
-						$output .= '<div class="penci-jarallax" data-video-src="' . esc_url( $video ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . esc_url( $video ) . '"></div>';
 					}
 				} else {
 					if ( wp_oembed_get( $video ) ) {
-						if ( 'style-7' == $single_style || ( ! get_theme_mod( 'penci_move_title_bellow' ) && in_array( $single_style, array(
+						if ( 'style-7' == $single_style || ( ! get_theme_mod( 'goso_move_title_bellow' ) && in_array( $single_style, array(
 									'style-5',
 									'style-6',
 									'style-8'
@@ -89,12 +89,12 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 					if ( false !== strpos( $video_embed, 'iframe' ) ) {
 						$output .= $video_embed;
 					} else {
-						$output .= '<div class="penci-jarallax" data-video-src="' . esc_url( $video_embed ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . esc_url( $video_embed ) . '"></div>';
 					}
 				} else {
 					if ( wp_oembed_get( $video_embed ) ) {
 
-						if ( 'style-7' == $single_style || ( ! get_theme_mod( 'penci_move_title_bellow' ) && in_array( $single_style, array(
+						if ( 'style-7' == $single_style || ( ! get_theme_mod( 'goso_move_title_bellow' ) && in_array( $single_style, array(
 									'style-5',
 									'style-6',
 									'style-8'
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 				$output .= do_shortcode( $video_embed );
 			}
 
-			echo '<div class="post-image penci-video-format-' . $type_video . ( ! $move_title_bellow ? ' penci-move-title-above' : '' ) . '">';
+			echo '<div class="post-image goso-video-format-' . $type_video . ( ! $move_title_bellow ? ' goso-move-title-above' : '' ) . '">';
 			echo $output;
 
 			if ( $show_title_inner && ! $move_title_bellow ) {
@@ -167,9 +167,9 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 
 				if ( $parallax ) {
 					if ( false !== strpos( $video, 'iframe' ) ) {
-						$output .= '<div class="penci-jarallax" data-video-src="' . self::get_url_video_embed_code( $video ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . self::get_url_video_embed_code( $video ) . '"></div>';
 					} else {
-						$output .= '<div class="penci-jarallax" data-video-src="' . esc_url( $video ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . esc_url( $video ) . '"></div>';
 					}
 				} else {
 					if ( wp_oembed_get( $video ) ) {
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 					if ( false !== strpos( $video_embed, 'iframe' ) ) {
 						$output .= $video_embed;
 					} else {
-						$output .= '<div class="penci-jarallax" data-video-src="' . esc_url( $video_embed ) . '"></div>';
+						$output .= '<div class="goso-jarallax" data-video-src="' . esc_url( $video_embed ) . '"></div>';
 					}
 				} else {
 					if ( wp_oembed_get( $video_embed ) ) {
@@ -209,12 +209,12 @@ if ( ! class_exists( 'Goso_Sodedad_Video_Format' ) ) {
 				$output .= do_shortcode( $video_embed );
 			}
 
-			echo '<div class="post-image penci-video-format-' . $type_video . ( ! $move_title_bellow ? ' penci-move-title-above' : '' ) . '">';
+			echo '<div class="post-image goso-video-format-' . $type_video . ( ! $move_title_bellow ? ' goso-move-title-above' : '' ) . '">';
 			echo $output;
 
 			if ( $show_title_inner && ! $move_title_bellow ) {
 				echo $div_special_wrapper;
-				echo '<div class="penci-fto-ct">';
+				echo '<div class="goso-fto-ct">';
 				get_template_part( 'template-parts/single', 'breadcrumb' );
 				get_template_part( 'inc/template-builder/single-elements/entry', 'header',$settings );
 				echo '</div>';

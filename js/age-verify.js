@@ -3,13 +3,13 @@
     "use strict";
     var PENCI = PENCI || {};
     PENCI.ageVerify = function () {
-        if (Cookies.get('penci_age_verify') === 'confirmed') {
+        if (Cookies.get('goso_age_verify') === 'confirmed') {
             return;
         }
 
         $.magnificPopup.open({
             items: {
-                src: '.penci-age-verify'
+                src: '.goso-age-verify'
             },
             type: 'inline',
             closeOnBgClick: false,
@@ -21,22 +21,22 @@
             tLoading: false,
             callbacks: {
                 beforeOpen: function () {
-                    this.st.mainClass = 'mfp-ani-wrap penci-promo-popup-wrapper';
+                    this.st.mainClass = 'mfp-ani-wrap goso-promo-popup-wrapper';
                 }
             }
         });
 
-        $('.penci-age-verify-allowed').on('click', function () {
-            Cookies.set('penci_age_verify', 'confirmed', {
-                expires: parseInt(penci_age_settings.age_verify_expires),
+        $('.goso-age-verify-allowed').on('click', function () {
+            Cookies.set('goso_age_verify', 'confirmed', {
+                expires: parseInt(goso_age_settings.age_verify_expires),
                 path: '/'
             });
 
             $.magnificPopup.close();
         });
 
-        $('.penci-age-verify-forbidden').on('click', function () {
-            $('.penci-age-verify').addClass('penci-forbidden');
+        $('.goso-age-verify-forbidden').on('click', function () {
+            $('.goso-age-verify').addClass('goso-forbidden');
         });
     };
 

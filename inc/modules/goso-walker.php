@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class penci_main_menu
+ * Class goso_main_menu
  * Hook to create options mega menu on Appearance > Menu
  * Render content mega menu if mega menu is selected
  * We hook only for categories
@@ -12,39 +12,39 @@
  *            - filter wp_edit_nav_menu_walker
  *            - filter wp_nav_menu_objects
  */
-class penci_main_menu {
+class goso_main_menu {
 
 	function __construct() {
 		if ( is_admin() ) {
-			add_action( 'wp_update_nav_menu_item', array( $this, 'penci_wp_update_nav_menu_item' ), 10, 3 );
-			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'penci_wp_edit_nav_menu_walker' ) );
+			add_action( 'wp_update_nav_menu_item', array( $this, 'goso_wp_update_nav_menu_item' ), 10, 3 );
+			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'goso_wp_edit_nav_menu_walker' ) );
 		}
 		add_filter( 'wp_nav_menu_objects', array( $this, 'hook_wp_nav_menu_objects' ), 10, 2 );
 	}
 
-	function penci_wp_edit_nav_menu_walker() {
-		include_once( trailingslashit( get_template_directory() ) . 'inc/modules/penci-menu-callback.php' );
+	function goso_wp_edit_nav_menu_walker() {
+		include_once( trailingslashit( get_template_directory() ) . 'inc/modules/goso-menu-callback.php' );
 
-		return 'penci_nav_menu_edit_walker';
+		return 'goso_nav_menu_edit_walker';
 	}
 
-	function penci_wp_update_nav_menu_item( $menu_id, $menu_item_id, $args ) {
+	function goso_wp_update_nav_menu_item( $menu_id, $menu_item_id, $args ) {
 
 		$update_list = [
-			'penci_cat_mega_menu',
-			'penci_number_mega_menu',
-			'penci_menu_pos',
-			'penci_menu_type',
-			'penci_menu_bgimg',
-			'penci_menu_block',
-			'penci_menu_load',
-			'penci_menu_mw',
-			'penci_menu_mh',
-			'penci_menu_bgcl',
-			'penci_menu_lbtxt',
-			'penci_menu_lbs',
-			'penci_menu_lbbg',
-			'penci_menu_lbcl',
+			'goso_cat_mega_menu',
+			'goso_number_mega_menu',
+			'goso_menu_pos',
+			'goso_menu_type',
+			'goso_menu_bgimg',
+			'goso_menu_block',
+			'goso_menu_load',
+			'goso_menu_mw',
+			'goso_menu_mh',
+			'goso_menu_bgcl',
+			'goso_menu_lbtxt',
+			'goso_menu_lbs',
+			'goso_menu_lbbg',
+			'goso_menu_lbcl',
 		];
 
 		foreach ( $update_list as $list ) {
@@ -62,56 +62,56 @@ class penci_main_menu {
 			$item->is_mega_menu = false;
 
 			// if menu is mega menu, render mega menu
-			$penci_menu_type        = get_post_meta( $item->ID, 'penci_menu_type', true );
-			$penci_menu_pos         = get_post_meta( $item->ID, 'penci_menu_pos', true );
-			$penci_menu_load        = get_post_meta( $item->ID, 'penci_menu_load', true );
-			$penci_menu_block       = get_post_meta( $item->ID, 'penci_menu_block', true );
-			$penci_catid_mega_menu  = get_post_meta( $item->ID, 'penci_cat_mega_menu', true );
-			$penci_number_mega_menu = get_post_meta( $item->ID, 'penci_number_mega_menu', true );
+			$goso_menu_type        = get_post_meta( $item->ID, 'goso_menu_type', true );
+			$goso_menu_pos         = get_post_meta( $item->ID, 'goso_menu_pos', true );
+			$goso_menu_load        = get_post_meta( $item->ID, 'goso_menu_load', true );
+			$goso_menu_block       = get_post_meta( $item->ID, 'goso_menu_block', true );
+			$goso_catid_mega_menu  = get_post_meta( $item->ID, 'goso_cat_mega_menu', true );
+			$goso_number_mega_menu = get_post_meta( $item->ID, 'goso_number_mega_menu', true );
 
 			// label text
-			$penci_menu_lbtxt = get_post_meta( $item->ID, 'penci_menu_lbtxt', true );
-			$penci_menu_lbs   = get_post_meta( $item->ID, 'penci_menu_lbs', true );
-			$penci_menu_lbbg  = get_post_meta( $item->ID, 'penci_menu_lbbg', true );
-			$penci_menu_lbcl  = get_post_meta( $item->ID, 'penci_menu_lbcl', true );
+			$goso_menu_lbtxt = get_post_meta( $item->ID, 'goso_menu_lbtxt', true );
+			$goso_menu_lbs   = get_post_meta( $item->ID, 'goso_menu_lbs', true );
+			$goso_menu_lbbg  = get_post_meta( $item->ID, 'goso_menu_lbbg', true );
+			$goso_menu_lbcl  = get_post_meta( $item->ID, 'goso_menu_lbcl', true );
 
-			if ( $penci_menu_lbtxt ) {
+			if ( $goso_menu_lbtxt ) {
 				$item->classes[] = 'menu-item-has-label';
-				$penci_menu_lbs  = $penci_menu_lbs ? $penci_menu_lbs : 1;
+				$goso_menu_lbs  = $goso_menu_lbs ? $goso_menu_lbs : 1;
 				$label_css       = '';
-				if ( $penci_menu_lbbg ) {
-					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label{background-color:' . $penci_menu_lbbg . ';}';
-					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label:before{border-color:' . $penci_menu_lbbg . ';}';
+				if ( $goso_menu_lbbg ) {
+					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label{background-color:' . $goso_menu_lbbg . ';}';
+					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label:before{border-color:' . $goso_menu_lbbg . ';}';
 				}
-				if ( $penci_menu_lbcl ) {
-					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label{color:' . $penci_menu_lbcl . ';}';
+				if ( $goso_menu_lbcl ) {
+					$label_css .= '.menu-item-' . $item->ID . '.menu-item-has-label > a > .menu-label{color:' . $goso_menu_lbcl . ';}';
 				}
 				if ( $label_css ) {
 					$label_css = '<style>' . $label_css . '</style>';
 				}
-				$label       = '<span class="menu-label label-style-' . $penci_menu_lbs . '">' . esc_attr( $penci_menu_lbtxt ) . '</span>';
+				$label       = '<span class="menu-label label-style-' . $goso_menu_lbs . '">' . esc_attr( $goso_menu_lbtxt ) . '</span>';
 				$item->title = $label_css . $item->title . $label;
 			}
 
-			if ( 'yes' === $penci_menu_load ) {
+			if ( 'yes' === $goso_menu_load ) {
 				$item->classes[] = 'ajax-mega-menu';
 			}
 
-			if ( empty ( $penci_number_mega_menu ) ): $penci_number_mega_menu = '1'; endif;
+			if ( empty ( $goso_number_mega_menu ) ): $goso_number_mega_menu = '1'; endif;
 
-			if ( ( $penci_menu_type != 'mega-menu' && $penci_catid_mega_menu ) || ( $penci_menu_type == 'mega-menu' && $penci_menu_block ) ) {
-				$penci_menu_pos  = $penci_menu_pos ? $penci_menu_pos : 'flexible';
-				$item->classes[] = 'penci-megapos-' . $penci_menu_pos;
-				$item->classes[] = 'penci-mega-menu';
+			if ( ( $goso_menu_type != 'mega-menu' && $goso_catid_mega_menu ) || ( $goso_menu_type == 'mega-menu' && $goso_menu_block ) ) {
+				$goso_menu_pos  = $goso_menu_pos ? $goso_menu_pos : 'flexible';
+				$item->classes[] = 'goso-megapos-' . $goso_menu_pos;
+				$item->classes[] = 'goso-mega-menu';
 
 
-				if ( ! empty( $penci_menu_block ) && $penci_menu_type == 'mega-menu' ) {
-					$item->classes[] = 'penci-block-mega penci-block-wrap-mega-' . $item->ID;
+				if ( ! empty( $goso_menu_block ) && $goso_menu_type == 'mega-menu' ) {
+					$item->classes[] = 'goso-block-mega goso-block-wrap-mega-' . $item->ID;
 				}
 
-				if ( ! empty( $penci_catid_mega_menu ) ) {
+				if ( ! empty( $goso_catid_mega_menu ) ) {
 					$child_categories = get_categories( array(
-						'parent'     => $penci_catid_mega_menu,
+						'parent'     => $goso_catid_mega_menu,
 						'orderby'      => 'name',
 						'order'        => 'ASC',
 						'hide_empty'   => true,
@@ -134,7 +134,7 @@ class penci_main_menu {
 				$post->post_date      = '';
 				$post->post_date_gmt  = '';
 				$post->post_password  = '';
-				$post->post_type      = 'menu_penci';
+				$post->post_type      = 'menu_goso';
 				$post->post_status    = 'draft';
 				$post->to_ping        = '';
 				$post->pinged         = '';
@@ -156,17 +156,17 @@ class penci_main_menu {
 
 				$new_item->menu_item_parent = $item->ID;
 
-				$extra_class = $penci_menu_type == 'mega-menu' ? 'penci-block-mega' : 'penci-megamenu  normal-cat-menu';
+				$extra_class = $goso_menu_type == 'mega-menu' ? 'goso-block-mega' : 'goso-megamenu  normal-cat-menu';
 
 				$new_item->url   = '';
 				$new_item->title = '';
 				$new_item->title .= '<div class="' . $extra_class . ' penc-menu-' . $item->ID . '">';
-				if ( $penci_menu_type !== 'mega-menu' && $penci_catid_mega_menu ) {
-					$new_item->title .= penci_return_html_mega_menu( $penci_catid_mega_menu, $penci_number_mega_menu );
+				if ( $goso_menu_type !== 'mega-menu' && $goso_catid_mega_menu ) {
+					$new_item->title .= goso_return_html_mega_menu( $goso_catid_mega_menu, $goso_number_mega_menu );
 				}
 
-				if ( $penci_menu_type == 'mega-menu' ) {
-					$new_item->title .= penci_return_html_block_menu( $penci_menu_block, $item->ID );
+				if ( $goso_menu_type == 'mega-menu' ) {
+					$new_item->title .= goso_return_html_block_menu( $goso_menu_block, $item->ID );
 				}
 
 				$new_item->title .= '</div>';
@@ -182,16 +182,16 @@ class penci_main_menu {
 	}
 }
 
-new penci_main_menu();
+new goso_main_menu();
 
 /**
- * Class penci_menu_walker_nav_menu
+ * Class goso_menu_walker_nav_menu
  * This class will remove wrap </a> around mega menu
  * Callback on wp_nav_menu() in header.php file
  *
  * @since 1.0
  */
-class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
+class goso_menu_walker_nav_menu extends Walker_Nav_Menu {
 	private $logo_break_point = null;
 	private $count_item_parent = 0;
 	private $curItem;
@@ -209,23 +209,23 @@ class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$menu_item       = $this->curItem;
-		$penci_menu_type = get_post_meta( $menu_item->ID, 'penci_menu_type', true );
-		$penci_menu_mw   = get_post_meta( $menu_item->ID, 'penci_menu_mw', true );
+		$goso_menu_type = get_post_meta( $menu_item->ID, 'goso_menu_type', true );
+		$goso_menu_mw   = get_post_meta( $menu_item->ID, 'goso_menu_mw', true );
 
 		$indent  = str_repeat( "\t", $depth );
 		$classes = '';
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
 
-			$classes .= ' penci-dropdown-menu penci-dropdown';
+			$classes .= ' goso-dropdown-menu goso-dropdown';
 
-			$classes .= $penci_menu_mw ? ' penci-mega-custom-width' : ' penci-mega-full-width';
+			$classes .= $goso_menu_mw ? ' goso-mega-custom-width' : ' goso-mega-full-width';
 
 			$output .= $indent . '<div class="' . trim( $classes ) . '">';
 			$output .= $indent . '<div class="container">';
 		}
 
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
-			$sub_menu_class = 'penci-megamenu-sub sub-sub-menu';
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
+			$sub_menu_class = 'goso-megamenu-sub sub-sub-menu';
 		} else {
 			$sub_menu_class = 'sub-menu';
 		}
@@ -246,11 +246,11 @@ class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$menu_item       = $this->curItem;
-		$penci_menu_type = get_post_meta( $menu_item->ID, 'penci_menu_type', true );
+		$goso_menu_type = get_post_meta( $menu_item->ID, 'goso_menu_type', true );
 		$indent          = str_repeat( "\t", $depth );
 		$output          .= "$indent</ul>\n";
 
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
 			$output .= "$indent</div>\n";
 			$output .= "$indent</div>\n";
 		}
@@ -258,13 +258,13 @@ class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$this->curItem = $item;
-		$header_style  = penci_authow_get_header_layout();
+		$header_style  = goso_authow_get_header_layout();
 		if ( in_array( $header_style, array( 'header-10', 'header-11' ) ) && ! isset( $this->logo_break_point ) ) {
-			$penci_nav_menu_items = wp_get_nav_menu_items( $args->menu );
+			$goso_nav_menu_items = wp_get_nav_menu_items( $args->menu );
 			$middle_menu_elements = 0;
 
-			if ( is_array( $penci_nav_menu_items ) || is_object( $penci_nav_menu_items ) ) {
-				foreach ( $penci_nav_menu_items as $menu_element ) {
+			if ( is_array( $goso_nav_menu_items ) || is_object( $goso_nav_menu_items ) ) {
+				foreach ( $goso_nav_menu_items as $menu_element ) {
 					$menu_item_parent = isset( $menu_element->menu_item_parent ) && $menu_element->menu_item_parent ? $menu_element->menu_item_parent : '0';
 					if ( '0' === $menu_item_parent ) {
 						$middle_menu_elements ++;
@@ -383,13 +383,13 @@ class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
 			$this->count_item_parent ++;
 		}
 
-		$header_style = penci_authow_get_header_layout();
+		$header_style = goso_authow_get_header_layout();
 		$break_point  = $this->logo_break_point;
 
 		if ( in_array( $header_style, array(
 				'header-10',
 				'header-11'
-			) ) && '0' === $item_parent && $break_point == $this->count_item_parent && ! penci_check_theme_mod( 'penci_enable_builder' ) ) {
+			) ) && '0' === $item_parent && $break_point == $this->count_item_parent && ! goso_check_theme_mod( 'goso_enable_builder' ) ) {
 
 			if ( isset( $args->menu_id ) && $args->menu_id ) {
 				$wrap_id = $args->menu_id;
@@ -400,7 +400,7 @@ class penci_menu_walker_nav_menu extends Walker_Nav_Menu {
 				$wrap_id = 'menu-second';
 			}
 
-			$wrap_class = isset( $args->menu_class ) ? str_replace( 'pencimn-left', 'pencimn-right', $args->menu_class ) : 'pencimn-right';
+			$wrap_class = isset( $args->menu_class ) ? str_replace( 'gosomn-left', 'gosomn-right', $args->menu_class ) : 'gosomn-right';
 
 			$output .= '</ul>';
 

@@ -20,7 +20,7 @@ class GosoArchiveTaxonomy extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-custom-archive-builder' ];
+		return [ 'goso-custom-archive-builder' ];
 	}
 
 	public function get_keywords() {
@@ -32,7 +32,7 @@ class GosoArchiveTaxonomy extends Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-archive-taxonomies';
+		return 'goso-archive-taxonomies';
 	}
 
 	protected function register_controls() {
@@ -55,9 +55,9 @@ class GosoArchiveTaxonomy extends Widget_Base {
 
 		$this->add_control( 'taxonomies', [
 			'label'       => esc_html__( 'Select the Post Taxonomies Term.', 'authow' ),
-			'type'        => 'penci_el_autocomplete',
-			'search'      => 'penci_get_taxonomies_by_query',
-			'render'      => 'penci_get_taxonomies_title_by_id',
+			'type'        => 'goso_el_autocomplete',
+			'search'      => 'goso_get_taxonomies_by_query',
+			'render'      => 'goso_get_taxonomies_title_by_id',
 			'taxonomy'    => get_object_taxonomies( 'post' ),
 			'multiple'    => true,
 			'label_block' => true,
@@ -68,9 +68,9 @@ class GosoArchiveTaxonomy extends Widget_Base {
 
 		$this->add_control( 'taxonomies_ex', [
 			'label'       => esc_html__( 'Select the Excluded Post Taxonomies Term.', 'authow' ),
-			'type'        => 'penci_el_autocomplete',
-			'search'      => 'penci_get_taxonomies_by_query',
-			'render'      => 'penci_get_taxonomies_title_by_id',
+			'type'        => 'goso_el_autocomplete',
+			'search'      => 'goso_get_taxonomies_by_query',
+			'render'      => 'goso_get_taxonomies_title_by_id',
 			'taxonomy'    => get_object_taxonomies( 'post' ),
 			'multiple'    => true,
 			'label_block' => true,
@@ -279,7 +279,7 @@ class GosoArchiveTaxonomy extends Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();

@@ -7,14 +7,14 @@
  * @since   1.0
  */
 
-add_action( 'widgets_init', 'penci_list_banner_load_widget' );
+add_action( 'widgets_init', 'goso_list_banner_load_widget' );
 
-function penci_list_banner_load_widget() {
-	register_widget( 'penci_list_bannner_widget' );
+function goso_list_banner_load_widget() {
+	register_widget( 'goso_list_bannner_widget' );
 }
 
-if ( ! class_exists( 'penci_list_bannner_widget' ) ) {
-class penci_list_bannner_widget extends WP_Widget {
+if ( ! class_exists( 'goso_list_bannner_widget' ) ) {
+class goso_list_bannner_widget extends WP_Widget {
 
 /**
  * Widget setup.
@@ -22,19 +22,19 @@ class penci_list_bannner_widget extends WP_Widget {
 function __construct() {
 	/* Widget settings. */
 	$widget_ops = array(
-		'classname'   => 'penci_list_imgs_widget',
+		'classname'   => 'goso_list_imgs_widget',
 		'description' => esc_html__( 'A widget helps you display a banner or multi-banners on your sidebar. You also can use this widget to display your featured categories/posts/pages.. Everything is custom', 'authow' )
 	);
 
 	/* Widget control settings. */
-	$control_ops = array( 'id_base' => 'penci_list_bannner_widget' );
+	$control_ops = array( 'id_base' => 'goso_list_bannner_widget' );
 
 	/* Create the widget. */
 	global $wp_version;
 	if ( 4.3 > $wp_version ) {
-		$this->WP_Widget( 'penci_list_bannner_widget', penci_get_theme_name('.Authow',true).esc_html__( 'List Banners', 'authow' ), $widget_ops, $control_ops );
+		$this->WP_Widget( 'goso_list_bannner_widget', goso_get_theme_name('.Authow',true).esc_html__( 'List Banners', 'authow' ), $widget_ops, $control_ops );
 	} else {
-		parent::__construct( 'penci_list_bannner_widget', penci_get_theme_name('.Authow',true).esc_html__( 'List Banners', 'authow' ), $widget_ops, $control_ops );
+		parent::__construct( 'goso_list_bannner_widget', goso_get_theme_name('.Authow',true).esc_html__( 'List Banners', 'authow' ), $widget_ops, $control_ops );
 	}
 }
 
@@ -75,43 +75,43 @@ if ( $title ) {
 $target = '';
 if ( $tab ): $target = ' target="_blank"'; endif;
 ?>
-<div class="penci-list-banner">
+<div class="goso-list-banner">
 	<?php if ( $img1 ) : /* Banner 1 */ 
-	$img1_width = penci_get_image_data_basedurl( $img1, 'w' );
-	$img1_height = penci_get_image_data_basedurl( $img1, 'h' );
+	$img1_width = goso_get_image_data_basedurl( $img1, 'w' );
+	$img1_height = goso_get_image_data_basedurl( $img1, 'h' );
 	?>
-	<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-    <div class="penci-promo-item penci-lazy<?php if ( $text1 ): echo ' penci-banner-has-text'; endif; /* Crop */
-	if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+	<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+    <div class="goso-promo-item goso-lazy<?php if ( $text1 ): echo ' goso-banner-has-text'; endif; /* Crop */
+	if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 		echo ' data-bgset="' . do_shortcode( $img1 ) . '"';
 	} elseif ( $crop && $height ) {
 		echo ' data-bgset="' . do_shortcode( $img1 ) . '" style="height:' . $height . 'px;"';
 	} ?>>
 		<?php } else { ?>
-        <div class="penci-promo-item<?php if ( $text1 ): echo ' penci-banner-has-text'; endif; /* Crop */
-		if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+        <div class="goso-promo-item<?php if ( $text1 ): echo ' goso-banner-has-text'; endif; /* Crop */
+		if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 			echo ' style="background-image: url(' . do_shortcode( $img1 ) . ')"';
 		} elseif ( $crop && $height ) {
 			echo ' style="background-image: url(' . do_shortcode( $img1 ) . '); height:' . $height . 'px;"';
 		} ?>>
 			<?php } ?>
 			<?php if ( $url1 ): ?>
-                <a class="penci-promo-url" aria-label="<?php if ( $text1 ) {
+                <a class="goso-promo-url" aria-label="<?php if ( $text1 ) {
 					echo $text1;
 				} else {
 					echo 'Banner1';
 				} ?>" href="<?php echo do_shortcode( $url1 ); ?>"<?php echo sanitize_text_field( $target ); ?>></a>
 			<?php endif; ?>
 			<?php if ( ! $crop ): ?>
-				<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                    <img class="penci-lazy" src="<?php echo penci_holder_image_base( $img1_width, $img1_height ); ?>"
+				<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                    <img class="goso-lazy" src="<?php echo goso_holder_image_base( $img1_width, $img1_height ); ?>"
                          data-src="<?php echo do_shortcode( $img1 ); ?>" alt="Promotion Image" width="<?php echo $img1_width; ?>" height="<?php echo $img1_height; ?>">
 				<?php } else { ?>
                     <img src="<?php echo do_shortcode( $img1 ); ?>" alt="Promotion Image" width="<?php echo $img1_width; ?>" height="<?php echo $img1_height; ?>">
 				<?php } ?>
 			<?php endif; ?>
 			<?php if ( $text1 ): ?>
-                <div class="penci-promo-text">
+                <div class="goso-promo-text">
                     <h4><?php echo do_shortcode( $text1 ); ?></h4>
                 </div>
 			<?php endif; ?>
@@ -119,34 +119,34 @@ if ( $tab ): $target = ' target="_blank"'; endif;
 		<?php endif; ?>
 
 		<?php if ( $img2 ) : /* Banner 2 */ 
-		$img2_width = penci_get_image_data_basedurl( $img2, 'w' );
-		$img2_height = penci_get_image_data_basedurl( $img2, 'h' );
+		$img2_width = goso_get_image_data_basedurl( $img2, 'w' );
+		$img2_height = goso_get_image_data_basedurl( $img2, 'h' );
 		?>
-		<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-        <div class="penci-promo-item penci-lazy<?php if ( $text2 ): echo ' penci-banner-has-text'; endif; /* Crop */
-		if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+		<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+        <div class="goso-promo-item goso-lazy<?php if ( $text2 ): echo ' goso-banner-has-text'; endif; /* Crop */
+		if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 			echo ' data-bgset="' . do_shortcode( $img2 ) . '"';
 		} elseif ( $crop && $height ) {
 			echo ' data-bgset="' . do_shortcode( $img2 ) . '" style="height:' . $height . 'px;"';
 		} ?>>
 			<?php } else { ?>
-            <div class="penci-promo-item<?php if ( $text2 ): echo ' penci-banner-has-text'; endif; /* Crop */
-			if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+            <div class="goso-promo-item<?php if ( $text2 ): echo ' goso-banner-has-text'; endif; /* Crop */
+			if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 				echo ' style="background-image: url(' . do_shortcode( $img2 ) . ')"';
 			} elseif ( $crop && $height ) {
 				echo ' style="background-image: url(' . do_shortcode( $img2 ) . '); height:' . $height . 'px;"';
 			} ?>>
 				<?php } ?>
 				<?php if ( $url2 ): ?>
-                    <a class="penci-promo-url" aria-label="<?php if ( $text2 ) {
+                    <a class="goso-promo-url" aria-label="<?php if ( $text2 ) {
 						echo $text2;
 					} else {
 						echo 'Banner2';
 					} ?>" href="<?php echo do_shortcode( $url2 ); ?>"<?php echo sanitize_text_field( $target ); ?>></a>
 				<?php endif; ?>
 				<?php if ( ! $crop ): ?>
-					<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                        <img class="penci-lazy" src="<?php echo penci_holder_image_base( $img2_width, $img2_height ); ?>"
+					<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                        <img class="goso-lazy" src="<?php echo goso_holder_image_base( $img2_width, $img2_height ); ?>"
                              data-src="<?php echo do_shortcode( $img2 ); ?>" alt="Promotion Image" width="<?php echo $img2_width; ?>" height="<?php echo $img2_height; ?>">
 					<?php } else { ?>
                         <img src="<?php echo do_shortcode( $img2 ); ?>" alt="Promotion Image" width="<?php echo $img2_width; ?>" height="<?php echo $img2_height; ?>">
@@ -154,7 +154,7 @@ if ( $tab ): $target = ' target="_blank"'; endif;
 				<?php endif; ?>
 
 				<?php if ( $text2 ): ?>
-                    <div class="penci-promo-text">
+                    <div class="goso-promo-text">
                         <h4><?php echo do_shortcode( $text2 ); ?></h4>
                     </div>
 				<?php endif; ?>
@@ -162,26 +162,26 @@ if ( $tab ): $target = ' target="_blank"'; endif;
 			<?php endif; ?>
 
 			<?php if ( $img3 ) : /* Banner 3 */ 
-			$img3_width = penci_get_image_data_basedurl( $img3, 'w' );
-			$img3_height = penci_get_image_data_basedurl( $img3, 'h' );
+			$img3_width = goso_get_image_data_basedurl( $img3, 'w' );
+			$img3_height = goso_get_image_data_basedurl( $img3, 'h' );
 			?>
-		<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-            <div class="penci-promo-item penci-lazy<?php if ( $text3 ): echo ' penci-banner-has-text'; endif; /* Crop */
-			if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+		<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+            <div class="goso-promo-item goso-lazy<?php if ( $text3 ): echo ' goso-banner-has-text'; endif; /* Crop */
+			if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 				echo ' data-bgset="' . do_shortcode( $img3 ) . '"';
 			} elseif ( $crop && $height ) {
 				echo ' data-bgset="' . do_shortcode( $img3 ) . '" style="height:' . $height . 'px;"';
 			} ?>>
 				<?php } else { ?>
-                <div class="penci-promo-item<?php if ( $text3 ): echo ' penci-banner-has-text'; endif; /* Crop */
-				if ( $crop && ! $height ): echo ' penci-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
+                <div class="goso-promo-item<?php if ( $text3 ): echo ' goso-banner-has-text'; endif; /* Crop */
+				if ( $crop && ! $height ): echo ' goso-banner-crop'; endif; ?>"<?php if ( $crop && ! $height ) {
 					echo ' style="background-image: url(' . do_shortcode( $img3 ) . ')"';
 				} elseif ( $crop && $height ) {
 					echo ' style="background-image: url(' . do_shortcode( $img3 ) . '); height:' . $height . 'px;"';
 				} ?>>
 					<?php } ?>
 					<?php if ( $url3 ): ?>
-                        <a class="penci-promo-url" aria-label="<?php if ( $text3 ) {
+                        <a class="goso-promo-url" aria-label="<?php if ( $text3 ) {
 							echo $text3;
 						} else {
 							echo 'Banner';
@@ -189,15 +189,15 @@ if ( $tab ): $target = ' target="_blank"'; endif;
                            href="<?php echo do_shortcode( $url3 ); ?>"<?php echo sanitize_text_field( $target ); ?>></a>
 					<?php endif; ?>
 					<?php if ( ! $crop ): ?>
-						<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                            <img class="penci-lazy" src="<?php echo penci_holder_image_base( $img3_width, $img3_height ); ?>"
+						<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                            <img class="goso-lazy" src="<?php echo goso_holder_image_base( $img3_width, $img3_height ); ?>"
                                  data-src="<?php echo do_shortcode( $img3 ); ?>" alt="Promotion Image" width="<?php echo $img3_width; ?>" height="<?php echo $img3_height; ?>">
 						<?php } else { ?>
                             <img src="<?php echo do_shortcode( $img3 ); ?>" alt="Promotion Image" width="<?php echo $img3_width; ?>" height="<?php echo $img3_height; ?>">
 						<?php } ?>
 					<?php endif; ?>
 					<?php if ( $text3 ): ?>
-                        <div class="penci-promo-text">
+                        <div class="goso-promo-text">
                             <h4><?php echo do_shortcode( $text3 ); ?></h4>
                         </div>
 					<?php endif; ?>

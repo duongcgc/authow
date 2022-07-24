@@ -7,7 +7,7 @@ if ( is_user_logged_in() ) {
 		$logged_in_array['dashboard'] = array(
 			'icon' => 'fas fa-cog',
 			'link' => admin_url(),
-			'text' => penci_get_setting( 'penci_trans_dashboard_text' ),
+			'text' => goso_get_setting( 'goso_trans_dashboard_text' ),
 		);
 	}
 
@@ -20,13 +20,13 @@ if ( is_user_logged_in() ) {
 	$logged_in_array['profile'] = array(
 		'icon' => 'far fa-user-circle',
 		'link' => $myaccount_page_url,
-		'text' => penci_get_setting( 'penci_trans_profile_text' ),
+		'text' => goso_get_setting( 'goso_trans_profile_text' ),
 	);
 
 	$logged_in_array['logout'] = array(
 		'icon' => 'fas fa-sign-out-alt',
 		'link' => wp_logout_url( home_url() ),
-		'text' => penci_get_setting( 'penci_trans_logout_text' ),
+		'text' => goso_get_setting( 'goso_trans_logout_text' ),
 	);
 
 	$current_user = wp_get_current_user();
@@ -47,7 +47,7 @@ if ( is_user_logged_in() ) {
 
 	echo '<li class="pclogin-item"><a href="' . $link_login . '">' . $avatar_html . ' ' . $current_user->display_name . '</a><ul class="pclogin-sub">';
 	foreach ( $logged_in_array as $lgkey => $lgval ) {
-		$lgicon = penci_icon_by_ver( $lgval["icon"] );
+		$lgicon = goso_icon_by_ver( $lgval["icon"] );
 		$lglink = $lgval["link"];
 		$lgtext = $lgval["text"];
 		echo '<li class="pclogin-item-child pclogin-child-' . $lgkey . '"><a href="' . $lglink . '">' . $lgicon . $lgtext . '</a></li>';
@@ -56,9 +56,9 @@ if ( is_user_logged_in() ) {
 
 } else {
 	$login_text = __( '<span>Login</span><span>Sign Up</span>', 'authow' );
-	$login_text = penci_get_setting( 'penci_tblogin_text' ) ? penci_get_setting( 'penci_tblogin_text' ) : $login_text;
+	$login_text = goso_get_setting( 'goso_tblogin_text' ) ? goso_get_setting( 'goso_tblogin_text' ) : $login_text;
 
-	echo '<li class="pclogin-item login login-popup penci-login-popup-btn"><a href="#penci-login-popup">' . penci_icon_by_ver( 'far fa-user-circle' ) . '<span>' . wp_kses( $login_text, array( 'span' => array() ) ) . '</span></a></li>';
+	echo '<li class="pclogin-item login login-popup goso-login-popup-btn"><a href="#goso-login-popup">' . goso_icon_by_ver( 'far fa-user-circle' ) . '<span>' . wp_kses( $login_text, array( 'span' => array() ) ) . '</span></a></li>';
 }
 
 echo '</ul>';

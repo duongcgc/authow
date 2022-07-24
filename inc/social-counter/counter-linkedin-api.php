@@ -8,9 +8,9 @@ if ( ! class_exists( 'Goso_Social_Counter_Linkedin_API' ) ):
 
 			$page_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = $page_id;
-			$data['icon'] = penci_icon_by_ver( 'fab fa-linkedin-in' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-linkedin-in' );
 
-			$default_count = penci_get_social_counter_option( 'likedin_default' );
+			$default_count = goso_get_social_counter_option( 'likedin_default' );
 
 
 			$data['count'] = $default_count ? $default_count : 0;

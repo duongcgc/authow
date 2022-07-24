@@ -1,5 +1,5 @@
 jQuery( document ).ready( function ($) {
-	jQuery( 'body' ).on( 'click', '.penci-post-like', function ( event ) {
+	jQuery( 'body' ).on( 'click', '.goso-post-like', function ( event ) {
 		event.preventDefault();
 		var $this = jQuery( this ),
 			post_id = $this.data( "post_id" ),
@@ -30,7 +30,7 @@ jQuery( document ).ready( function ($) {
 		jQuery.ajax( {
 			type: "post",
 			url : ajax_var.url,
-			data: "action=penci-post-like&nonce=" + ajax_var.nonce + "&penci_post_like=&post_id=" + post_id
+			data: "action=goso-post-like&nonce=" + ajax_var.nonce + "&goso_post_like=&post_id=" + post_id
 		} );
 	} );
 } );

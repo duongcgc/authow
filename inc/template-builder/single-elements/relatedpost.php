@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'penci-single-related-posts';
+		return 'goso-single-related-posts';
 	}
 
 	public function get_title() {
@@ -19,7 +19,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -37,16 +37,16 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
         $this->add_control(
-			'penci_post_related_text',
+			'goso_post_related_text',
 			[
 				'label' => esc_html__( 'Related Heading Text', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::TEXT,
-				'default'  => penci_get_setting('penci_post_related_text'),
+				'default'  => goso_get_setting('goso_post_related_text'),
 			]
 		);
 
         $this->add_control(
-			'penci_hide_heading',
+			'goso_hide_heading',
 			[
 				'label' => esc_html__( 'Use Custom Heading Style?', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -54,7 +54,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_post_related_autoplay',
+			'goso_post_related_autoplay',
 			[
 				'label' => esc_html__( 'Related Posts Carousel Auto Play', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -62,7 +62,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_numbers_related_post',
+			'goso_numbers_related_post',
 			[
 				'label' => esc_html__( 'Number of Related Posts', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::NUMBER,
@@ -71,7 +71,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_related_orderby',
+			'goso_related_orderby',
 			[
 				'label'   => esc_html__( 'Order Related Posts By', 'authow' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -91,7 +91,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_related_sort_order',
+			'goso_related_sort_order',
 			[
 				'label'   => esc_html__( 'Sort Order Related Posts', 'authow' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -104,7 +104,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_related_posts_title_length',
+			'goso_related_posts_title_length',
 			[
 				'label' => esc_html__( 'Title Length', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::NUMBER,
@@ -112,7 +112,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_related_by',
+			'goso_related_by',
 			[
 				'label'   => esc_html__( 'Related Posts By', 'authow' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -126,7 +126,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_post_related_grid',
+			'goso_post_related_grid',
 			[
 				'label' => esc_html__( 'Make Related Posts Display in a Grid Layout ( not Slider )', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -134,7 +134,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_post_related_dots',
+			'goso_post_related_dots',
 			[
 				'label' => esc_html__( 'Hide Dots On Carousel Related Posts', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -142,7 +142,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_post_related_arrows',
+			'goso_post_related_arrows',
 			[
 				'label' => esc_html__( 'Enable Next/Prev Button On Carousel Related Posts', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -150,7 +150,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_post_related_icons',
+			'goso_post_related_icons',
 			[
 				'label' => esc_html__( 'Enable Posts Format Icons in Related Posts', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -158,7 +158,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'penci_hide_date_related',
+			'goso_hide_date_related',
 			[
 				'label' => esc_html__( 'Hide Post Date on Related Posts', 'authow' ),
 				'type'  => \Elementor\Controls_Manager::SWITCHER,
@@ -171,7 +171,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'section_title_block', array(
 			'label'     => __( 'Heading Title', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_hide_heading' => 'yes' ]
+			'condition' => [ 'goso_hide_heading' => 'yes' ]
 		) );
 		$this->add_control( 'hide_block_heading', array(
 			'label' => __( 'Hide Heading Title', 'authow' ),
@@ -300,7 +300,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER }} .penci-image-holder::before' => 'padding-top: {{SIZE}}%',
+					'{{WRAPPER }} .goso-image-holder::before' => 'padding-top: {{SIZE}}%',
 				],
 			]
 		);
@@ -426,7 +426,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'section_title_block_style', array(
 			'label'     => __( 'Block Heading Title', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
-			'condition' => [ 'penci_hide_heading' => 'yes' ]
+			'condition' => [ 'goso_hide_heading' => 'yes' ]
 		) );
 
 		$this->add_control( 'block_title_color', array(
@@ -434,8 +434,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow'                                   => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a'                                 => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow'                                   => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a'                                 => 'color: {{VALUE}};',
 				'{{WRAPPER}} .home-pupular-posts-title, {{WRAPPER}} .home-pupular-posts-title a' => 'color: {{VALUE}};',
 			),
 		) );
@@ -444,7 +444,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}} !important;',
 				'{{WRAPPER}} .home-pupular-posts-title a:hover'        => 'color: {{VALUE}} !important;',
 			),
 		) );
@@ -453,10 +453,10 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:before,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:after,' . '{{WRAPPER}} .style-5.penci-border-arrow,' . '{{WRAPPER}} .style-7.penci-border-arrow,' . '{{WRAPPER}} .style-9.penci-border-arrow' => 'border-color: {{VALUE}}',
-				'{{WRAPPER}} .penci-border-arrow:before'                                                                                                                                                                                                                                                                               => 'border-top-color: {{VALUE}}',
-				'{{WRAPPER}} .style-16.penci-border-arrow:after'                                                                                                                                                                                                                                                                       => 'background-color: {{VALUE}}',
-				'{{WRAPPER}} .penci-home-popular-posts'                                                                                                                                                                                                                                                                                => 'border-top-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:before,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:after,' . '{{WRAPPER}} .style-5.goso-border-arrow,' . '{{WRAPPER}} .style-7.goso-border-arrow,' . '{{WRAPPER}} .style-9.goso-border-arrow' => 'border-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-border-arrow:before'                                                                                                                                                                                                                                                                               => 'border-top-color: {{VALUE}}',
+				'{{WRAPPER}} .style-16.goso-border-arrow:after'                                                                                                                                                                                                                                                                       => 'background-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-home-popular-posts'                                                                                                                                                                                                                                                                                => 'border-top-color: {{VALUE}}',
 			)
 		) );
 		$this->add_control( 'btitle_outer_bcolor', array(
@@ -464,7 +464,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}}  .penci-border-arrow:after' => 'border-color: {{VALUE}};'
+				'{{WRAPPER}}  .goso-border-arrow:after' => 'border-color: {{VALUE}};'
 			)
 		) );
 		$this->add_control( 'btitle_style10_btopcolor', array(
@@ -472,7 +472,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
+				'{{WRAPPER}} .goso-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
 			),
 			'condition' => array( 'heading_title_style' => 'style-10' ),
 		) );
@@ -482,11 +482,11 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-5.penci-border-arrow'              => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-homepage-title.style-10'           => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-12.penci-border-arrow'             => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-11.penci-border-arrow'             => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-5.penci-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-5.goso-border-arrow'              => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-homepage-title.style-10'           => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-12.goso-border-arrow'             => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-11.goso-border-arrow'             => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-5.goso-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
 			),
 			'condition' => array( 'heading_title_style' => array( 'style-5', 'style-10', 'style-11', 'style-12' ) ),
 		) );
@@ -495,8 +495,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-7.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .style-9.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
+				'{{WRAPPER}} .style-7.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-9.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
 			),
 			'condition' => array( 'heading_title_style' => array( 'style-7', 'style-9' ) ),
 		) );
@@ -529,7 +529,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:before' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-15.goso-border-arrow:before' => 'background-color: {{VALUE}};',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -539,7 +539,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:after' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .style-15.goso-border-arrow:after' => 'color: {{VALUE}};',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -549,7 +549,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:after' => 'font-size: {{SIZE}}px;',
+				'{{WRAPPER}} .style-15.goso-border-arrow:after' => 'font-size: {{SIZE}}px;',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -559,9 +559,9 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Lines on Styles 18, 19, 20', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-18.penci-border-arrow:after' => 'color: {{VALUE}}; background-image: linear-gradient( -45deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
-				'{{WRAPPER}} .style-19.penci-border-arrow:after' => 'background-image: linear-gradient( -90deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
-				'{{WRAPPER}} .style-20.penci-border-arrow:after' => 'background-image: linear-gradient( 0deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-18.goso-border-arrow:after' => 'color: {{VALUE}}; background-image: linear-gradient( -45deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-19.goso-border-arrow:after' => 'background-image: linear-gradient( -90deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-20.goso-border-arrow:after' => 'background-image: linear-gradient( 0deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
 			),
 			'condition'   => array(
 				'heading_title_style' => array(
@@ -577,8 +577,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-2.penci-border-arrow:after'                                                                                                                                                                                                => 'border-color: transparent;border-top-color: {{VALUE}};',
-				'{{WRAPPER}} .style-14 .inner-arrow:before,{{WRAPPER}} .style-11 .inner-arrow,' . '{{WRAPPER}} .style-12 .inner-arrow,{{WRAPPER}} .style-13 .inner-arrow,{{WRAPPER}} .style-15 .inner-arrow,' . '{{WRAPPER}} .penci-border-arrow .inner-arrow' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-2.goso-border-arrow:after'                                                                                                                                                                                                => 'border-color: transparent;border-top-color: {{VALUE}};',
+				'{{WRAPPER}} .style-14 .inner-arrow:before,{{WRAPPER}} .style-11 .inner-arrow,' . '{{WRAPPER}} .style-12 .inner-arrow,{{WRAPPER}} .style-13 .inner-arrow,{{WRAPPER}} .style-15 .inner-arrow,' . '{{WRAPPER}} .goso-border-arrow .inner-arrow' => 'background-color: {{VALUE}};',
 			)
 		) );
 		$this->add_control( 'btitle_outer_bgcolor', array(
@@ -586,7 +586,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow:after' => 'background-color: {{VALUE}};'
+				'{{WRAPPER}} .goso-border-arrow:after' => 'background-color: {{VALUE}};'
 			)
 		) );
 
@@ -597,7 +597,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			//'responsive'  => true,
 			//'render_type' => 'template',
 			'default'   => array( 'id' => '', 'url' => '' ),
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 		) );
 
@@ -612,7 +612,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'no-repeat',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-repeat: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-repeat: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'btitle_style9_size', array(
@@ -627,7 +627,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'auto 100%',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-size: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-size: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'btitle_style9_pos', array(
@@ -646,13 +646,13 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'left top',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-position: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-position: {{VALUE}};' ),
 		) );
 
 		$this->add_group_control( \Elementor\Group_Control_Typography::get_type(), array(
 			'name'     => 'btitle_typo',
 			'label'    => __( 'Block Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-border-arrow .inner-arrow',
+			'selector' => '{{WRAPPER}} .goso-border-arrow .inner-arrow',
 		) );
 		$this->end_controls_section();
 		/* end custom heading*/
@@ -661,7 +661,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -672,51 +672,51 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 	protected function preview_content() {
         $settings = $this->get_settings_for_display();
 		$data_auto = 'true';
-        $auto      = $settings[ 'penci_post_related_autoplay' ];
+        $auto      = $settings[ 'goso_post_related_autoplay' ];
         if ( $auto == false ) {
             $data_auto = 'false';
         }
-        $numbers_related = $settings[ 'penci_numbers_related_post' ];
+        $numbers_related = $settings[ 'goso_numbers_related_post' ];
         if ( ! isset( $numbers_related ) || $numbers_related < 1 ) {
             $numbers_related = 10;
         }
-        $related_title_length = $settings[ 'penci_related_posts_title_length' ] ? $settings[ 'penci_related_posts_title_length' ] : 8;
+        $related_title_length = $settings[ 'goso_related_posts_title_length' ] ? $settings[ 'goso_related_posts_title_length' ] : 8;
         $data_loop            = '';
-        $settings['heading'] = $settings['penci_post_related_text'];
-        if ( $settings['penci_hide_heading'] == 'yes' ) {
+        $settings['heading'] = $settings['goso_post_related_text'];
+        if ( $settings['goso_hide_heading'] == 'yes' ) {
 			$this->markup_block_title( $settings );
 		}
 ?>
-<div class="post-related<?php if ( $settings[ 'penci_post_related_grid' ] ): echo ' penci-posts-related-grid'; endif; ?>">
-<?php if ($settings[ 'penci_post_related_text' ] && $settings['penci_hide_heading'] != 'yes' ): ?>
+<div class="post-related<?php if ( $settings[ 'goso_post_related_grid' ] ): echo ' goso-posts-related-grid'; endif; ?>">
+<?php if ($settings[ 'goso_post_related_text' ] && $settings['goso_hide_heading'] != 'yes' ): ?>
     <div class="post-title-box"><h4
-                class="post-box-title"><?php echo $settings[ 'penci_post_related_text' ]; ?></h4></div>
+                class="post-box-title"><?php echo $settings[ 'goso_post_related_text' ]; ?></h4></div>
                 <?php endif;?>
-	<?php if ( ! $settings[ 'penci_post_related_grid' ]) {
-	$lazy_class = 'penci-lazy'; ?>
-    <div class="penci-owl-carousel penci-owl-carousel-slider penci-related-carousel"
+	<?php if ( ! $settings[ 'goso_post_related_grid' ]) {
+	$lazy_class = 'goso-lazy'; ?>
+    <div class="goso-owl-carousel goso-owl-carousel-slider goso-related-carousel"
          data-lazy="true"<?php echo $data_loop; ?> data-item="3" data-desktop="3" data-tablet="2" data-tabsmall="2"
          data-auto="<?php echo $data_auto; ?>"
-         data-speed="300"<?php if ( ! $settings[ 'penci_post_related_dots' ] ) {
+         data-speed="300"<?php if ( ! $settings[ 'goso_post_related_dots' ] ) {
 		echo ' data-dots="true"';
 	}
-	if ( ! $settings[ 'penci_post_related_arrows' ] ) {
+	if ( ! $settings[ 'goso_post_related_arrows' ] ) {
 		echo ' data-nav="false"';
 	} ?>>
 		<?php } else {
-		$lazy_class = 'penci-lazy'; ?>
-        <div class="penci-related-carousel penci-related-grid-display">
+		$lazy_class = 'goso-lazy'; ?>
+        <div class="goso-related-carousel goso-related-grid-display">
 			<?php } ?>
 			<?php for ($i=1;$i<$numbers_related;$i++): ?>
                 <div class="item-related">
-                    <a class="related-thumb penci-image-holder <?php echo $lazy_class; ?>"
+                    <a class="related-thumb goso-image-holder <?php echo $lazy_class; ?>"
                        data-bgset="<?php echo get_template_directory_uri() . '/inc/template-builder/placeholder.php?w=200&h=300' ;?>"
                        href="#" title="This is a post Title"></a>
                         <h3>
                             <a href="#"><?php echo wp_trim_words( 'This is a post Title', $related_title_length, '...' ); ?></a>
                         </h3>
-						<?php if ( ! $settings[ 'penci_hide_date_related' ] ): ?>
-                            <span class="date"><?php penci_authow_time_link(); ?></span>
+						<?php if ( ! $settings[ 'goso_hide_date_related' ] ): ?>
+                            <span class="date"><?php goso_authow_time_link(); ?></span>
 						<?php endif; ?>
                 </div>
 			<?php
@@ -748,8 +748,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			return;
 		}
 
-		$heading_title = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-		$heading_align = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
+		$heading_title = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+		$heading_align = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
 
 
 		if ( $r['heading_title_style'] ) {
@@ -760,8 +760,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			$heading_align = 'pcalign-' . $r['block_title_align'];
 		}
 
-		$heading_icon_pos    = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-		$heading_icon_design = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
+		$heading_icon_pos    = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+		$heading_icon_design = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
 
 		if ( $r['heading_icon_pos'] ) {
 			$heading_icon_pos = $r['heading_icon_pos'];
@@ -771,7 +771,7 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 			$heading_icon_design = $r['heading_icon'];
 		}
 
-		$classes = 'penci-border-arrow penci-homepage-title penci-home-latest-posts';
+		$classes = 'goso-border-arrow goso-homepage-title goso-home-latest-posts';
 		$classes .= ' ' . $heading_title;
 		$classes .= ' ' . $heading_align;
 		$classes .= ' ' . $heading_icon_pos;
@@ -817,8 +817,8 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 	protected function builder_content() {
 		$this->overwrite_mods();
         $settings = $this->get_settings_for_display();
-        $settings['heading'] = $settings['penci_post_related_text'];
-        if ( $settings['penci_hide_heading'] == 'yes' ) {
+        $settings['heading'] = $settings['goso_post_related_text'];
+        if ( $settings['goso_hide_heading'] == 'yes' ) {
 			$this->markup_block_title( $settings );
 		}
 		get_template_part( 'inc/templates/related_posts' );
@@ -827,22 +827,22 @@ class GosoSingleRelatedpost extends \Elementor\Widget_Base {
 	protected function overwrite_mods() {
 		$settings = $this->get_settings_for_display();
 		$mods     = [
-			'penci_post_related_autoplay',
-			'penci_numbers_related_post',
-			'penci_related_orderby',
-			'penci_related_sort_order',
-			'penci_related_posts_title_length',
-			'penci_related_by',
-			'penci_post_related_grid',
-			'penci_post_related_dots',
-			'penci_post_related_arrows',
-			'penci_post_related_icons',
-			'penci_hide_date_related',
-			'penci_post_related_text'
+			'goso_post_related_autoplay',
+			'goso_numbers_related_post',
+			'goso_related_orderby',
+			'goso_related_sort_order',
+			'goso_related_posts_title_length',
+			'goso_related_by',
+			'goso_post_related_grid',
+			'goso_post_related_dots',
+			'goso_post_related_arrows',
+			'goso_post_related_icons',
+			'goso_hide_date_related',
+			'goso_post_related_text'
 		];
 		foreach ( $mods as $mod ) {
 			$value = $settings[ $mod ];
-            if ( $settings['penci_hide_heading'] == 'yes' && 'penci_post_related_text' == $mod ) {
+            if ( $settings['goso_hide_heading'] == 'yes' && 'goso_post_related_text' == $mod ) {
 			    $value = '';
 		    }
 			add_filter( 'theme_mod_' . $mod, function () use ( $value ) {

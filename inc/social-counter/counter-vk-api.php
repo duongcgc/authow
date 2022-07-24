@@ -8,14 +8,14 @@ if ( ! class_exists( 'Goso_Social_Counter_Vk_API' ) ):
 
 			$page_id       = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']   = $page_id;
-			$data['icon']  = penci_icon_by_ver( 'fab fa-vk' );
-			$vk_api        = penci_get_social_counter_option( 'vk_api' );
-			$default_count = penci_get_social_counter_option( 'vk_default' );
-			$vk_count      = $default_count ? $default_count : get_transient( 'penci_counter_vk' . $page_id );
+			$data['icon']  = goso_icon_by_ver( 'fab fa-vk' );
+			$vk_api        = goso_get_social_counter_option( 'vk_api' );
+			$default_count = goso_get_social_counter_option( 'vk_default' );
+			$vk_count      = $default_count ? $default_count : get_transient( 'goso_counter_vk' . $page_id );
 
 			if ( ! $vk_count ) {
 				$count = self::get_vk_count( $page_id, $vk_api );
-				set_transient( 'penci_counter_vk' . $page_id, $count, $cache_period );
+				set_transient( 'goso_counter_vk' . $page_id, $count, $cache_period );
 			} else {
 				$count = $vk_count;
 			}

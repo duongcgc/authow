@@ -15,7 +15,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -27,7 +27,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 	}
 
 	public function get_name() {
-		return 'penci-single-author';
+		return 'goso-single-author';
 	}
 
 	protected function register_controls() {
@@ -37,7 +37,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
-		$this->add_control( 'penci_authorbio_style', [
+		$this->add_control( 'goso_authorbio_style', [
 			'label'   => esc_html__( 'Author Box Style', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'style-1',
@@ -49,7 +49,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_bioimg_style', [
+		$this->add_control( 'goso_bioimg_style', [
 			'label'   => esc_html__( 'Author Box Image Style', 'authow' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'round',
@@ -66,7 +66,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 			'label' => esc_html__( 'Avatar Image', 'authow' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
-		$this->add_responsive_control( 'penci_author_ava_size', [
+		$this->add_responsive_control( 'goso_author_ava_size', [
 			'label'     => 'Author Image Size',
 			'default'   => [
 				'unit' => 'px',
@@ -107,7 +107,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 			'label'     => 'Author Image Borders Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .abio-style-3 .author-img img, {{WRAPPER}} .abio-style-4 .author-img img' => 'border-color: {{VALUE}};box-shadow:0px 1px 2px 0px {{VALUE}}' ],
-			'condition' => [ 'penci_authorbio_style' => [ 'style-3', 'style-4' ] ]
+			'condition' => [ 'goso_authorbio_style' => [ 'style-3', 'style-4' ] ]
 		] );
 
 		$this->add_control( 'author_bw_color', [
@@ -202,7 +202,7 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -213,11 +213,11 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 	protected function preview_content() {
 		$settings  = $this->get_settings_for_display();
 		$classes   = 'post-author';
-		$bio_style = $settings['penci_authorbio_style'] ? $settings['penci_authorbio_style'] : 'style-1';
-		$bio_img   = $settings['penci_bioimg_style'] ? $settings['penci_bioimg_style'] : 'round';
+		$bio_style = $settings['goso_authorbio_style'] ? $settings['goso_authorbio_style'] : 'style-1';
+		$bio_img   = $settings['goso_bioimg_style'] ? $settings['goso_bioimg_style'] : 'round';
 		$classes   .= ' abio-' . $bio_style;
 		$classes   .= ' bioimg-' . $bio_img;
-		$ava_size  = isset( $settings['penci_author_ava_size']['size'] ) ? $settings['penci_author_ava_size']['size'] : 100;
+		$ava_size  = isset( $settings['goso_author_ava_size']['size'] ) ? $settings['goso_author_ava_size']['size'] : 100;
 		?>
         <div class="<?php echo $classes; ?>">
             <div class="author-img">
@@ -229,25 +229,25 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
                     magni, nam nihil officiis perferendis quam quidem saepe voluptatem. Debitis dignissimos fugit
                     inventore neque, repudiandae soluta.</p>
                 <div class="bio-social">
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fas fa-globe' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-instagram' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-pinterest' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-tumblr' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-soundcloud' ); ?></a>
-                    <a <?php echo penci_reltag_social_icons(); ?> target="_blank" class="author-social"
-                                                                  href="#"><?php penci_fawesome_icon( 'fab fa-youtube' ); ?></a>
-                    <a class="author-social" href="#"><?php penci_fawesome_icon( 'fas fa-envelope' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fas fa-globe' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-instagram' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-pinterest' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-tumblr' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-soundcloud' ); ?></a>
+                    <a <?php echo goso_reltag_social_icons(); ?> target="_blank" class="author-social"
+                                                                  href="#"><?php goso_fawesome_icon( 'fab fa-youtube' ); ?></a>
+                    <a class="author-social" href="#"><?php goso_fawesome_icon( 'fas fa-envelope' ); ?></a>
                 </div>
             </div>
         </div>
@@ -262,12 +262,12 @@ class GosoSingleAuthor extends \Elementor\Widget_Base {
 	protected function overwrite_mods() {
 		$settings = $this->get_settings_for_display();
 		$mods     = [
-			'penci_authorbio_style',
-			'penci_author_ava_size',
-			'penci_bioimg_style'
+			'goso_authorbio_style',
+			'goso_author_ava_size',
+			'goso_bioimg_style'
 		];
 		foreach ( $mods as $mod ) {
-			if ( $mod == 'penci_author_ava_size' ) {
+			if ( $mod == 'goso_author_ava_size' ) {
 				$value = isset( $settings[ $mod ]['size'] ) && $settings[ $mod ]['size'] ? $settings[ $mod ]['size'] : 100;
 			} else {
 				$value = $settings[ $mod ];

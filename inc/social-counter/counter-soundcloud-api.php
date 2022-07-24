@@ -8,15 +8,15 @@ if ( ! class_exists( 'Goso_Social_Counter_Soundcloud_API' ) ):
 
 			$page_id      = preg_replace( '/\s+/', '', $data['name'] );
 			$data['url']  = "https://soundcloud.com/$page_id";
-			$data['icon'] = penci_icon_by_ver( 'fab fa-soundcloud' );
+			$data['icon'] = goso_icon_by_ver( 'fab fa-soundcloud' );
 
-			$default_count = penci_get_social_counter_option( 'soundcloud_default' );
+			$default_count = goso_get_social_counter_option( 'soundcloud_default' );
 
-			$soundcloud_count = $default_count ? $default_count : get_transient( 'penci_counter_soundcloud' . $page_id );
+			$soundcloud_count = $default_count ? $default_count : get_transient( 'goso_counter_soundcloud' . $page_id );
 
 			if ( ! $soundcloud_count ) {
 				$count = self::get_soundcloud_count( $page_id );
-				set_transient( 'penci_counter_soundcloud' . $page_id, $count, $cache_period );
+				set_transient( 'goso_counter_soundcloud' . $page_id, $count, $cache_period );
 			} else {
 				$count = $soundcloud_count;
 			}

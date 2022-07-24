@@ -491,16 +491,16 @@ if ( ! class_exists( 'WPH_Widget' ) ) {
 				case 'textarea_html':
 					$key = 'textarea';
 					break;
-				case 'penci_switch':
+				case 'goso_switch':
 					$key = 'dropdown';
 					break;
-				case 'penci_button_set':
+				case 'goso_button_set':
 					$key = 'dropdown';
 					break;
-				case 'penci_slider':
+				case 'goso_slider':
 					$key = 'dropdown';
 					break;
-				case 'penci_image_select':
+				case 'goso_image_select':
 					$key = 'dropdown';
 					break;
 			}
@@ -628,12 +628,12 @@ if ( ! class_exists( 'WPH_Widget' ) ) {
 
 			$out .= $this->create_field_label( $key['name'], $key['_id'] ) . '<br/>';
 
-			$out .= '<img src="' . $url . '" class="penci-image-src" style="' . $style . '" />';
+			$out .= '<img src="' . $url . '" class="goso-image-src" style="' . $style . '" />';
 
 			$out .= '<input type="hidden" ';
 
 			if ( isset( $key['class'] ) ) {
-				$out .= 'class="penci-image-upload ' . esc_attr( $key['class'] ) . '" ';
+				$out .= 'class="goso-image-upload ' . esc_attr( $key['class'] ) . '" ';
 			}
 
 
@@ -645,7 +645,7 @@ if ( ! class_exists( 'WPH_Widget' ) ) {
 
 			$out .= ' />';
 
-			$out .= '<button class="button penci-image-upload-btn">' . __( 'Upload image', 'penci' ) . '</button>';
+			$out .= '<button class="button goso-image-upload-btn">' . __( 'Upload image', 'goso' ) . '</button>';
 
 			if ( isset( $key['desc'] ) ) {
 				$out .= '<br/><small class="description">' . esc_html( $key['desc'] ) . '</small>';
@@ -694,11 +694,11 @@ if ( ! class_exists( 'WPH_Widget' ) ) {
 
                 <div class="xts-upload-btns">
                     <button class="xts-btn xts-upload-btn">
-						<?php esc_html_e( 'Upload', 'penci' ); ?>
+						<?php esc_html_e( 'Upload', 'goso' ); ?>
                     </button>
 
                     <button class="xts-btn xts-btn-remove xts-btn-disable">
-						<?php esc_html_e( 'Clear all', 'penci' ); ?>
+						<?php esc_html_e( 'Clear all', 'goso' ); ?>
                     </button>
 
                     <input type="hidden" class="xts-upload-input-id" name="<?php echo esc_attr( $key['_name'] ); ?>"

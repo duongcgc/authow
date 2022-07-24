@@ -1,12 +1,12 @@
 jQuery(document).ready(function ($) {
-    function penciGetsListData() {
-        jQuery('body').on('click', '.penci-slajax-more-click .penci-ajax-more-button', function (event) {
+    function gosoGetsListData() {
+        jQuery('body').on('click', '.goso-slajax-more-click .goso-ajax-more-button', function (event) {
             event.preventDefault();
             if (!$(this).hasClass('loading-posts')) {
                 var $this = $(this),
                     wrapId = $this.data('id'),
                     parentclass = $(this).closest('.pcnav-lgroup'),
-                    wrapper = $(this).closest('.penci-smalllist').find('.pcsl-inner'),
+                    wrapper = $(this).closest('.goso-smalllist').find('.pcsl-inner'),
                     tag = $this.data('tag'),
                     cat = $this.data('cat'),
                     ppp = parentclass.data('ppp'),
@@ -19,13 +19,13 @@ jQuery(document).ready(function ($) {
                     archivevalue = $this.data('archivevalue'),
                     curpaged = pagednum;
 
-                var OBjBlockData = penciGetOBjBlockData($this.data('blockid')),
+                var OBjBlockData = gosoGetOBjBlockData($this.data('blockid')),
                     dataFilter = OBjBlockData.atts_json ? JSON.parse(OBjBlockData.atts_json) : OBjBlockData.atts_json;
 
                 $this.addClass('loading-posts');
 
                 var data = {
-                    action: 'penci_more_slist_post_ajax',
+                    action: 'goso_more_slist_post_ajax',
                     datafilter: dataFilter,
                     id: wrapId,
                     tag: tag,
@@ -65,12 +65,12 @@ jQuery(document).ready(function ($) {
 
                             wrapper.append(data);
 
-                            $(".penci-wrapper-smalllist").fitVids();
+                            $(".goso-wrapper-smalllist").fitVids();
 
                             $('.pcsl-crs').owlCarousel();
 
                             if ($().easyPieChart) {
-                                $('.penci-piechart').each(function () {
+                                $('.goso-piechart').each(function () {
                                     var $this = $(this);
                                     $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                         var chart_args = {
@@ -86,10 +86,10 @@ jQuery(document).ready(function ($) {
                                 }); // each
                             }
 
-                            var $justified_gallery = $('.penci-post-gallery-container.justified');
-                            var $masonry_gallery = $('.penci-post-gallery-container.masonry');
+                            var $justified_gallery = $('.goso-post-gallery-container.justified');
+                            var $masonry_gallery = $('.goso-post-gallery-container.masonry');
                             if ($().justifiedGallery && $justified_gallery.length) {
-                                $('.penci-post-gallery-container.justified').each(function () {
+                                $('.goso-post-gallery-container.justified').each(function () {
                                     var $this = $(this);
                                     $this.justifiedGallery({
                                         rowHeight: $this.data('height'),
@@ -97,12 +97,12 @@ jQuery(document).ready(function ($) {
                                         margins: $this.data('margin'),
                                         randomize: false
                                     });
-                                }); // each .penci-post-gallery-container
+                                }); // each .goso-post-gallery-container
                             }
 
                             if ($().isotope && $masonry_gallery.length) {
 
-                                $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                     var $this = $(this);
                                     if ($this.attr('title')) {
                                         var $title = $this.attr('title');
@@ -124,7 +124,7 @@ jQuery(document).ready(function ($) {
 
                                         $this.addClass('loaded');
 
-                                        $('.penci-post-gallery-container.masonry .item-gallery-masonry').each(function () {
+                                        $('.goso-post-gallery-container.masonry .item-gallery-masonry').each(function () {
                                             var $this = $(this);
                                             $this.one('inview', function (event, isInView, visiblePartX, visiblePartY) {
                                                 $this.addClass('animated');
@@ -139,7 +139,7 @@ jQuery(document).ready(function ($) {
                                 if ($('body').hasClass('admin-bar')) {
                                     top_margin = 122;
                                 }
-                                $('#main.penci-main-sticky-sidebar, #sidebar.penci-sticky-sidebar').theiaStickySidebar({
+                                $('#main.goso-main-sticky-sidebar, #sidebar.goso-sticky-sidebar').theiaStickySidebar({
                                     // settings
                                     additionalMarginTop: top_margin
                                 });
@@ -159,22 +159,22 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function penciGetOBjBlockData($blockID) {
-        var $obj = new penciBlock();
+    function gosoGetOBjBlockData($blockID) {
+        var $obj = new gosoBlock();
 
-        jQuery.each(penciBlocksArray, function (index, block) {
+        jQuery.each(gosoBlocksArray, function (index, block) {
 
             if (block.blockID === $blockID) {
-                $obj = penciBlocksArray[index];
+                $obj = gosoBlocksArray[index];
             }
         });
 
         return $obj;
     }
 
-    penciGetsListData();
+    gosoGetsListData();
 
-    $('body').on('penci-small-list-loaded', function () {
-        penciGetsListData();
+    $('body').on('goso-small-list-loaded', function () {
+        gosoGetsListData();
     });
 });

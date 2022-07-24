@@ -9,7 +9,7 @@ class TwitterSettingPages {
 	}
 
 	public function add_settings_page() {
-		add_submenu_page( 'authow_dashboard_welcome', esc_html__( 'Connect Twitter', 'authow' ), esc_html__( 'Connect Twitter', 'authow' ), 'manage_options', 'penci_twitter_token', [
+		add_submenu_page( 'authow_dashboard_welcome', esc_html__( 'Connect Twitter', 'authow' ), esc_html__( 'Connect Twitter', 'authow' ), 'manage_options', 'goso_twitter_token', [
 			$this,
 			'dashboard_content'
 		], 3 );
@@ -21,10 +21,10 @@ class TwitterSettingPages {
 		}
 
 		if ( ! empty( $_GET['page'] ) && sanitize_text_field( $_GET['page'] ) === 'custom-twitter-feeds' && is_array( $_GET ) ) {
-			update_option( 'penci_options[penci_twitter]', $_GET );
+			update_option( 'goso_options[goso_twitter]', $_GET );
 
 			// Redirect
-			$redirect = admin_url( 'admin.php?page=penci_twitter_token' );
+			$redirect = admin_url( 'admin.php?page=goso_twitter_token' );
 			wp_redirect( $redirect );
 
 			exit;
@@ -33,16 +33,16 @@ class TwitterSettingPages {
 
 	public function dashboard_content() {
 		$twitter_api         = 'https://api.smashballoon.com/twitter-login.php?return_uri=' . admin_url( 'admin.php?page=custom-twitter-feeds' );
-		$twitter_token       = get_option( 'penci_options[penci_twitter]' );
+		$twitter_token       = get_option( 'goso_options[goso_twitter]' );
 		$twitter_label       = __( 'You\'ve not connected to any Twitter Account.', 'authow' );
-		$twitter_description = sprintf( __( 'You can <a class="%1$s" href="%2$s" target="_blank">click here</a> to connect to your Twitter account.', 'authow' ), 'penci_twitter_access_token twitter', $twitter_api );
+		$twitter_description = sprintf( __( 'You can <a class="%1$s" href="%2$s" target="_blank">click here</a> to connect to your Twitter account.', 'authow' ), 'goso_twitter_access_token twitter', $twitter_api );
 		if ( ! empty( $twitter_token ) && isset( $twitter_token['screen_name'] ) ) {
 			$twitter_label = sprintf( __( 'Connected to account <strong>%s</strong>', 'authow' ), $twitter_token['screen_name'] );
 		} else if ( isset( $twitter_token['error'] ) && $twitter_token['error'] ) {
 			$twitter_label = __( 'Error connect to your Twitter account. Please try to connect later.', 'authow' );
 		}
 		?>
-        <div class="penci-insta-token-wrapper">
+        <div class="goso-insta-token-wrapper">
             <div class="pc-ins-tk top-icon">
                 <span class="dashicons dashicons-twitter"></span>
             </div>

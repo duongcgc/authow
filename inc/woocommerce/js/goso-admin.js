@@ -1,5 +1,5 @@
 var frame,
-    penci = penci || {};
+    goso = goso || {};
 
 jQuery(document).ready(function ($) {
     'use strict';
@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
     $('#term-color').wpColorPicker();
 
     // Update attribute image
-    $body.on('click', '.penci-upload-image-button', function (event) {
+    $body.on('click', '.goso-upload-image-button', function (event) {
         event.preventDefault();
 
         var $button = $(this);
@@ -22,9 +22,9 @@ jQuery(document).ready(function ($) {
 
         // Create the media frame.
         frame = wp.media.frames.downloadable_file = wp.media({
-            title: penci.i18n.mediaTitle,
+            title: goso.i18n.mediaTitle,
             button: {
-                text: penci.i18n.mediaButton
+                text: goso.i18n.mediaButton
             },
             multiple: false
         });
@@ -33,57 +33,57 @@ jQuery(document).ready(function ($) {
         frame.on('select', function () {
             var attachment = frame.state().get('selection').first().toJSON();
 
-            $button.siblings('input.penci-term-image').val(attachment.id);
-            $button.siblings('.penci-remove-image-button').show();
-            $button.parent().prev('.penci-term-image-thumbnail').find('img').attr('src', attachment.sizes.thumbnail.url);
+            $button.siblings('input.goso-term-image').val(attachment.id);
+            $button.siblings('.goso-remove-image-button').show();
+            $button.parent().prev('.goso-term-image-thumbnail').find('img').attr('src', attachment.sizes.thumbnail.url);
         });
 
         // Finally, open the modal.
         frame.open();
 
-    }).on('click', '.penci-remove-image-button', function () {
+    }).on('click', '.goso-remove-image-button', function () {
         var $button = $(this);
 
-        $button.siblings('input.penci-term-image').val('');
-        $button.siblings('.penci-remove-image-button').show();
-        $button.parent().prev('.penci-term-image-thumbnail').find('img').attr('src', penci.placeholder);
+        $button.siblings('input.goso-term-image').val('');
+        $button.siblings('.goso-remove-image-button').show();
+        $button.parent().prev('.goso-term-image-thumbnail').find('img').attr('src', goso.placeholder);
 
         return false;
     });
 
     // Toggle add new attribute term modal
-    var $modal = $('#penci-modal-container'),
+    var $modal = $('#goso-modal-container'),
         $spinner = $modal.find('.spinner'),
         $msg = $modal.find('.message'),
         $metabox = null;
 
-    $body.on('click', '.penci_add_new_attribute', function (e) {
+    $body.on('click', '.goso_add_new_attribute', function (e) {
         e.preventDefault();
         var $button = $(this),
-            taxInputTemplate = wp.template('penci-input-tax'),
+            taxInputTemplate = wp.template('goso-input-tax'),
             data = {
                 type: $button.data('type'),
                 tax: $button.closest('.woocommerce_attribute').data('taxonomy')
             };
 
         // Insert input
-        $modal.find('.penci-term-swatch').html($('#tmpl-penci-input-' + data.type).html());
-        $modal.find('.penci-term-tax').html(taxInputTemplate(data));
+        $modal.find('.goso-term-swatch').html($('#tmpl-goso-input-' + data.type).html());
+        $modal.find('.goso-term-tax').html(taxInputTemplate(data));
 
         if ('color' == data.type) {
-            $modal.find('input.penci-input-color').wpColorPicker();
+            $modal.find('input.goso-input-color').wpColorPicker();
         }
 
         $metabox = $button.closest('.woocommerce_attribute.wc-metabox');
         $modal.show();
-    }).on('click', '.penci-modal-close, .penci-modal-backdrop', function (e) {
+    }).on('click', '.goso-modal-close, .goso-modal-backdrop', function (e) {
         e.preventDefault();
 
         closeModal();
     });
 
     // Send ajax request to add new attribute term
-    $body.on('click', '.penci-new-attribute-submit', function (e) {
+    $body.on('click', '.goso-new-attribute-submit', function (e) {
         e.preventDefault();
 
         var $button = $(this),
@@ -92,7 +92,7 @@ jQuery(document).ready(function ($) {
             data = {};
 
         // Validate
-        $modal.find('.penci-input').each(function () {
+        $modal.find('.goso-input').each(function () {
             var $this = $(this);
 
             if ($this.attr('name') != 'slug' && !$this.val()) {
@@ -112,7 +112,7 @@ jQuery(document).ready(function ($) {
         // Send ajax request
         $spinner.addClass('is-active');
         $msg.hide();
-        wp.ajax.send('penci_add_new_attribute', {
+        wp.ajax.send('goso_add_new_attribute', {
             data: data,
             error: function (res) {
                 $spinner.removeClass('is-active');
@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
      * Close modal
      */
     function closeModal() {
-        $modal.find('.penci-term-name input, .penci-term-slug input').val('');
+        $modal.find('.goso-term-name input, .goso-term-slug input').val('');
         $spinner.removeClass('is-active');
         $msg.removeClass('error success').hide();
         $modal.hide();

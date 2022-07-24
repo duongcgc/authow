@@ -24,11 +24,11 @@ if ( ! class_exists( 'Goso_Video_List' ) ) {
 
 		public function __construct() {
 			if(  is_admin() ){
-				add_action( 'wp_ajax_nopriv_penci_save_video_playlist', array( __CLASS__, 'save_video_playlist' ) );
-				add_action( 'wp_ajax_penci_save_video_playlist', array( __CLASS__, 'save_video_playlist' ) );
+				add_action( 'wp_ajax_nopriv_goso_save_video_playlist', array( __CLASS__, 'save_video_playlist' ) );
+				add_action( 'wp_ajax_goso_save_video_playlist', array( __CLASS__, 'save_video_playlist' ) );
 
-				add_action( 'wp_ajax_nopriv_penci_remove_video_playlist', array( __CLASS__, 'remove_video_playlist' ) );
-				add_action( 'wp_ajax_penci_remove_video_playlist', array( __CLASS__, 'remove_video_playlist' ) );
+				add_action( 'wp_ajax_nopriv_goso_remove_video_playlist', array( __CLASS__, 'remove_video_playlist' ) );
+				add_action( 'wp_ajax_goso_remove_video_playlist', array( __CLASS__, 'remove_video_playlist' ) );
 			}
 		}
 
@@ -46,10 +46,10 @@ if ( ! class_exists( 'Goso_Video_List' ) ) {
 
 			$video_infos = self::get_video_infos( $videos );
 
-			$option_video = get_option( 'penci-shortcode-playlist-' . $shortcode_id );
+			$option_video = get_option( 'goso-shortcode-playlist-' . $shortcode_id );
 
 			if ( $option_video != $video_infos ) {
-				update_option( 'penci-shortcode-playlist-' . $shortcode_id, $video_infos );
+				update_option( 'goso-shortcode-playlist-' . $shortcode_id, $video_infos );
 			}
 
 			wp_send_json_success();
@@ -67,9 +67,9 @@ if ( ! class_exists( 'Goso_Video_List' ) ) {
 
 			$shortcode_id = isset( $_POST['shortcodeId'] ) ? $_POST['shortcodeId'] : '';
 
-			delete_option( 'penci-shortcode-playlist-' . $shortcode_id );
+			delete_option( 'goso-shortcode-playlist-' . $shortcode_id );
 
-			wp_send_json_success( 'penci-shortcode-playlist-' . $shortcode_id );
+			wp_send_json_success( 'goso-shortcode-playlist-' . $shortcode_id );
 
 		}
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Goso_Video_List' ) ) {
 			$params = array(
 				'part' => 'snippet,contentDetails',
 				'id'   => $video_id,
-				'key'  => get_theme_mod( 'penci_youtube_api_key' ),
+				'key'  => get_theme_mod( 'goso_youtube_api_key' ),
 			);
 
 

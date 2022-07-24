@@ -73,10 +73,10 @@ class Goso_Add_Meta_Box {
 			return;
 		}
 
-		echo '<div class="penci-metabox-wrap">';
+		echo '<div class="goso-metabox-wrap">';
 
 		if( $tabs ){
-			echo '<ul class="penci-metabox-tabs">';
+			echo '<ul class="goso-metabox-tabs">';
 			$i = 0;
 			foreach ( $tabs as $key => $tab_data ) {
 				$class = "tab-$key";
@@ -106,10 +106,10 @@ class Goso_Add_Meta_Box {
 				$group_tabs[ $tab_key ][] = $field;
 			}
 
-			echo '<div class="penci-metabox-fields">';
+			echo '<div class="goso-metabox-fields">';
 			foreach ( (array)$group_tabs as $tab =>  $fields ){
 
-				echo '<div class="penci-tab-panel penci-tab-panel-' . esc_attr( $tab ) . '">';
+				echo '<div class="goso-tab-panel goso-tab-panel-' . esc_attr( $tab ) . '">';
 				foreach ( (array)$fields as  $field ){
 					PENCI_FW_MetaBox_Fields::html_field( $field, $post->ID, 'post', $tab );
 				}
@@ -117,7 +117,7 @@ class Goso_Add_Meta_Box {
 			}
 			echo '</div>';
 		}else{
-			echo '<div class="penci-metabox-fields">';
+			echo '<div class="goso-metabox-fields">';
 			foreach ( (array)$fields as  $field ){
 				PENCI_FW_MetaBox_Fields::html_field( $field, $post->ID );
 			}
@@ -180,7 +180,7 @@ class Goso_Add_Meta_Box {
 			}
 
 			foreach ( (array) $group_tabs as $tab => $fields ) {
-				update_post_meta( $post_id, 'penci_pmeta_' . $tab, $fields );
+				update_post_meta( $post_id, 'goso_pmeta_' . $tab, $fields );
 			}
 		}else{
 			foreach ( (array)$fields as  $field ){

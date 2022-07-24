@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSingleMeta extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'penci-single-meta';
+		return 'goso-single-meta';
 	}
 
 	public function get_title() {
@@ -19,7 +19,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'penci-single-builder' ];
+		return [ 'goso-single-builder' ];
 	}
 
 	public function get_keywords() {
@@ -88,110 +88,110 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			],
 		] );
 
-		$this->add_control( 'penci_single_meta_author', [
+		$this->add_control( 'goso_single_meta_author', [
 			'label'     => esc_html__( 'Hide Author?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
 		] );
 
-		$this->add_control( 'penci_single_author_avatar', [
+		$this->add_control( 'goso_single_author_avatar', [
 			'label'     => esc_html__( 'Hide Author Avatar?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_meta_author!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_author!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_author_avatar_br', [
+		$this->add_control( 'goso_single_author_avatar_br', [
 			'label'     => esc_html__( 'Author Borders Radius', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 			'selectors' => [ '{{WRAPPER}} .post-box-meta-single .avatar' => 'border-radius:{{SIZE}}px' ],
-			'condition' => [ 'penci_single_author_avatar!' => 'yes' ],
+			'condition' => [ 'goso_single_author_avatar!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_author_avatar_sp', [
+		$this->add_control( 'goso_single_author_avatar_sp', [
 			'label'     => esc_html__( 'Author Spacing', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 			'selectors' => [ '{{WRAPPER}} .post-box-meta-single .avatar' => 'margin-left:{{SIZE}}px;margin-right:{{SIZE}}px' ],
-			'condition' => [ 'penci_single_author_avatar!' => 'yes' ],
+			'condition' => [ 'goso_single_author_avatar!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_avatar_w', [
+		$this->add_control( 'goso_avatar_w', [
 			'label'     => esc_html__( 'Author Avatar Width', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::NUMBER,
 			'default'   => 30,
-			'condition' => [ 'penci_single_author_avatar!' => 'yes' ],
+			'condition' => [ 'goso_single_author_avatar!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_ava_icon_check', [
+		$this->add_control( 'goso_single_meta_ava_icon_check', [
 			'label'     => esc_html__( 'Hide Post Author Icon?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_meta_author!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_author!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_date', [
+		$this->add_control( 'goso_single_meta_date', [
 			'label'     => esc_html__( 'Hide Post Date?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
 		] );
 
-		$this->add_control( 'penci_single_meta_date_icon_check', [
+		$this->add_control( 'goso_single_meta_date_icon_check', [
 			'label'     => esc_html__( 'Hide Post Date Icon?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_meta_date!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_date!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_comment', [
+		$this->add_control( 'goso_single_meta_comment', [
 			'label'     => esc_html__( 'Hide Post Comments?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
 		] );
 
-		$this->add_control( 'penci_single_meta_comment_icon_check', [
+		$this->add_control( 'goso_single_meta_comment_icon_check', [
 			'label'     => esc_html__( 'Hide Post Comment Icon?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_meta_comment!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_comment!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_show_cview', [
+		$this->add_control( 'goso_single_show_cview', [
 			'label'     => esc_html__( 'Hide Post View?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
 		] );
 
-		$this->add_control( 'penci_single_meta_view_icon_check', [
+		$this->add_control( 'goso_single_meta_view_icon_check', [
 			'label'     => esc_html__( 'Hide Post View Icon?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_show_cview!' => 'yes' ],
+			'condition' => [ 'goso_single_show_cview!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_hreadtime', [
+		$this->add_control( 'goso_single_hreadtime', [
 			'label'     => esc_html__( 'Hide Post Reading Time ?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
 		] );
 
-		$this->add_control( 'penci_single_meta_reading_icon_check', [
+		$this->add_control( 'goso_single_meta_reading_icon_check', [
 			'label'     => esc_html__( 'Hide Post Reading Icon?', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::SWITCHER,
 			'label_on'  => __( 'Yes', 'authow' ),
 			'label_off' => __( 'No', 'authow' ),
-			'condition' => [ 'penci_single_hreadtime!' => 'yes' ],
+			'condition' => [ 'goso_single_hreadtime!' => 'yes' ],
 		] );
 
 		$this->end_controls_section();
@@ -261,13 +261,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			),
 		] );
 
-		$this->add_control( 'penci_single_meta_gnr_icon_color', [
+		$this->add_control( 'goso_single_meta_gnr_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .pcmt-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_gnr_bg_color', [
+		$this->add_control( 'goso_single_meta_gnr_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -278,7 +278,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_gnr_bd_color', [
+		$this->add_control( 'goso_single_meta_gnr_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -292,10 +292,10 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'author_icon_settings', [
 			'label'     => esc_html__( 'Author Icon', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_single_meta_ava_icon_check!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_ava_icon_check!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_ava_icon', [
+		$this->add_control( 'goso_single_meta_ava_icon', [
 			'label'            => esc_html__( 'Post Author Icon', 'authow' ),
 			'type'             => \Elementor\Controls_Manager::ICONS,
 			'fa4compatibility' => 'icon',
@@ -305,13 +305,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_author_icon_color', [
+		$this->add_control( 'goso_single_meta_author_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .ava-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_author_bg_color', [
+		$this->add_control( 'goso_single_meta_author_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -322,7 +322,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_author_bd_color', [
+		$this->add_control( 'goso_single_meta_author_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -336,10 +336,10 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'date_icon_settings', [
 			'label'     => esc_html__( 'Date Icon', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_single_meta_date_icon_check!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_date_icon_check!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_date_icon', [
+		$this->add_control( 'goso_single_meta_date_icon', [
 			'label'            => esc_html__( 'Post Date Icon', 'authow' ),
 			'type'             => \Elementor\Controls_Manager::ICONS,
 			'fa4compatibility' => 'icon',
@@ -349,13 +349,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_date_icon_color', [
+		$this->add_control( 'goso_single_meta_date_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .date-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_date_bg_color', [
+		$this->add_control( 'goso_single_meta_date_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -366,7 +366,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_date_bd_color', [
+		$this->add_control( 'goso_single_meta_date_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -381,10 +381,10 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'comment_icon_settings', [
 			'label'     => esc_html__( 'Comment Icon', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_single_meta_comment_icon_check!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_comment_icon_check!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_comment_icon', [
+		$this->add_control( 'goso_single_meta_comment_icon', [
 			'label'            => esc_html__( 'Post Comment Icon', 'authow' ),
 			'type'             => \Elementor\Controls_Manager::ICONS,
 			'fa4compatibility' => 'icon',
@@ -394,13 +394,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_comment_icon_color', [
+		$this->add_control( 'goso_single_meta_comment_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .comment-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_comment_bg_color', [
+		$this->add_control( 'goso_single_meta_comment_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -411,7 +411,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_comment_bd_color', [
+		$this->add_control( 'goso_single_meta_comment_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -426,10 +426,10 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'view_icon_settings', [
 			'label'     => esc_html__( 'Post View Icon', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_single_meta_view_icon_check!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_view_icon_check!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_view_icon', [
+		$this->add_control( 'goso_single_meta_view_icon', [
 			'label'            => esc_html__( 'Post View Icon', 'authow' ),
 			'type'             => \Elementor\Controls_Manager::ICONS,
 			'fa4compatibility' => 'icon',
@@ -439,13 +439,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_view_icon_color', [
+		$this->add_control( 'goso_single_meta_view_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .view-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_view_bg_color', [
+		$this->add_control( 'goso_single_meta_view_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -456,7 +456,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_view_bd_color', [
+		$this->add_control( 'goso_single_meta_view_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -471,10 +471,10 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'reading_icon_settings', [
 			'label'     => esc_html__( 'Reading Icon', 'authow' ),
 			'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
-			'condition' => [ 'penci_single_meta_reading_icon_check!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_reading_icon_check!' => 'yes' ],
 		] );
 
-		$this->add_control( 'penci_single_meta_reading_icon', [
+		$this->add_control( 'goso_single_meta_reading_icon', [
 			'label'            => esc_html__( 'Post Reading Icon', 'authow' ),
 			'type'             => \Elementor\Controls_Manager::ICONS,
 			'fa4compatibility' => 'icon',
@@ -484,13 +484,13 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			]
 		] );
 
-		$this->add_control( 'penci_single_meta_reading_icon_color', [
+		$this->add_control( 'goso_single_meta_reading_icon_color', [
 			'label'     => esc_html__( 'Icon Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .reading-icon' => 'color:{{VALUE}}' ]
 		] );
 
-		$this->add_control( 'penci_single_meta_reading_bg_color', [
+		$this->add_control( 'goso_single_meta_reading_bg_color', [
 			'label'     => esc_html__( 'Background Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -501,7 +501,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 
 		] );
 
-		$this->add_control( 'penci_single_meta_reading_bd_color', [
+		$this->add_control( 'goso_single_meta_reading_bd_color', [
 			'label'     => esc_html__( 'Borders Color', 'authow' ),
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
@@ -550,49 +550,49 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			'label'     => 'Author Text Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .author-post,{{WRAPPER}} .author-post .author' => 'color:{{VALUE}}' ],
-			'condition' => [ 'penci_single_meta_author!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_author!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-author-lcolor', [
 			'label'     => 'Author Link Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .author-post a' => 'color:{{VALUE}}' ],
-			'condition' => [ 'penci_single_meta_author!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_author!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-author-hcolor', [
 			'label'     => 'Author Link Hover Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .author-post a:hover' => 'color:{{VALUE}}' ],
-			'condition' => [ 'penci_single_meta_author!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_author!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-pdate-color', [
 			'label'     => 'Post Date Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .pctmp-date-post' => 'color:{{VALUE}} !important' ],
-			'condition' => [ 'penci_single_meta_date!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_date!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-pcomment-color', [
 			'label'     => 'Post Comment Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .pctmp-comment-post' => 'color:{{VALUE}} !important' ],
-			'condition' => [ 'penci_single_meta_comment!' => 'yes' ],
+			'condition' => [ 'goso_single_meta_comment!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-pview-color', [
 			'label'     => 'Post View Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .pctmp-view-post' => 'color:{{VALUE}} !important' ],
-			'condition' => [ 'penci_single_show_cview!' => 'yes' ],
+			'condition' => [ 'goso_single_show_cview!' => 'yes' ],
 		] );
 
 		$this->add_control( 'meta-preading-color', [
 			'label'     => 'Post Reading Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [ '{{WRAPPER}} .single-readtime' => 'color:{{VALUE}} !important' ],
-			'condition' => [ 'penci_single_hreadtime!' => 'yes' ],
+			'condition' => [ 'goso_single_hreadtime!' => 'yes' ],
 		] );
 
 		$this->end_controls_section();
@@ -601,7 +601,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 
 	protected function render() {
 
-		if ( penci_elementor_is_edit_mode() ) {
+		if ( goso_elementor_is_edit_mode() ) {
 			$this->preview_content();
 		} else {
 			$this->builder_content();
@@ -611,24 +611,24 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 
 	protected function preview_content() {
 		$settings             = $this->get_settings();
-		$avatar               = $settings['penci_single_author_avatar'];
-		$avatarw              = $settings['penci_avatar_w'];
-		$ava_icon_enable      = $settings['penci_single_meta_ava_icon_check'];
-		$ava_icon             = $settings['penci_single_meta_ava_icon'];
-		$date_icon_enable     = $settings['penci_single_meta_date_icon_check'];
-		$date_icon            = $settings['penci_single_meta_date_icon'];
-		$commment_icon_enable = $settings['penci_single_meta_comment_icon_check'];
-		$commment_icon        = $settings['penci_single_meta_comment_icon'];
-		$view_icon_enable     = $settings['penci_single_meta_view_icon_check'];
-		$view_icon            = $settings['penci_single_meta_view_icon'];
-		$reading_icon_enable  = $settings['penci_single_meta_reading_icon_check'];
-		$reading_icon         = $settings['penci_single_meta_reading_icon'];
+		$avatar               = $settings['goso_single_author_avatar'];
+		$avatarw              = $settings['goso_avatar_w'];
+		$ava_icon_enable      = $settings['goso_single_meta_ava_icon_check'];
+		$ava_icon             = $settings['goso_single_meta_ava_icon'];
+		$date_icon_enable     = $settings['goso_single_meta_date_icon_check'];
+		$date_icon            = $settings['goso_single_meta_date_icon'];
+		$commment_icon_enable = $settings['goso_single_meta_comment_icon_check'];
+		$commment_icon        = $settings['goso_single_meta_comment_icon'];
+		$view_icon_enable     = $settings['goso_single_meta_view_icon_check'];
+		$view_icon            = $settings['goso_single_meta_view_icon'];
+		$reading_icon_enable  = $settings['goso_single_meta_reading_icon_check'];
+		$reading_icon         = $settings['goso_single_meta_reading_icon'];
 		$icon_style           = $settings['meta_icon_style'];
 		$label_text           = $settings['hide_meta_label'];
         global $post;
 		?>
         <div class="post-box-meta-single style-<?php echo esc_attr( $icon_style ); ?>">
-			<?php if ( ! $settings['penci_single_meta_author'] ) : ?>
+			<?php if ( ! $settings['goso_single_meta_author'] ) : ?>
                 <span class="author-post byline">
             <span class="author vcard">
 			<?php
@@ -639,7 +639,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 			}
 			?>
 	            <?php if ( ! $label_text ) {
-		            echo penci_get_setting( 'penci_trans_written_by' );
+		            echo goso_get_setting( 'goso_trans_written_by' );
 	            } ?>
         <a class="author-url url fn n"
            href="<?php echo get_author_posts_url( $post->post_author ); ?>">
@@ -652,7 +652,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
                 </span>
                 </span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_meta_date'] ) : ?>
+			<?php if ( ! $settings['goso_single_meta_date'] ) : ?>
                 <span class="pctmp-date-post">
 				<?php
 				if ( ! $date_icon_enable && $date_icon ) {
@@ -661,9 +661,9 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 					echo '</span>';
 				}
 				?>
-				<?php penci_authow_time_link( 'single' ); ?></span>
+				<?php goso_authow_time_link( 'single' ); ?></span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_meta_comment'] ) :
+			<?php if ( ! $settings['goso_single_meta_comment'] ) :
 				?>
                 <span class="pctmp-comment-post">
             <?php
@@ -672,12 +672,12 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            \Elementor\Icons_Manager::render_icon( $commment_icon );
 	            echo '</span>';
             }
-            $comment_text  = ! $label_text ? penci_get_setting( 'penci_trans_comment' ) : '';
-            $comments_text = ! $label_text ? penci_get_setting( 'penci_trans_comments' ) : '';
+            $comment_text  = ! $label_text ? goso_get_setting( 'goso_trans_comment' ) : '';
+            $comments_text = ! $label_text ? goso_get_setting( 'goso_trans_comments' ) : '';
             ?>
             <?php comments_number( '0 ' . $comment_text, '1 ' . $comment_text, '% ' . $comments_text ); ?></span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_show_cview'] ) :
+			<?php if ( ! $settings['goso_single_show_cview'] ) :
 				?>
                 <span class="pctmp-view-post">
             <?php
@@ -687,11 +687,11 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            echo '</span>';
             }
             ?>
-                <i class="penci-post-countview-number"><?php echo penci_get_post_views( get_the_ID() ); ?></i> <?php if ( ! $label_text ) {
-						echo penci_get_setting( 'penci_trans_countviews' );
+                <i class="goso-post-countview-number"><?php echo goso_get_post_views( get_the_ID() ); ?></i> <?php if ( ! $label_text ) {
+						echo goso_get_setting( 'goso_trans_countviews' );
 					} ?></span>
 			<?php endif; ?>
-			<?php if ( penci_isshow_reading_time( $settings['penci_single_hreadtime'] ) ):
+			<?php if ( goso_isshow_reading_time( $settings['goso_single_hreadtime'] ) ):
 				?>
                 <span class="single-readtime">
             <?php
@@ -701,7 +701,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            echo '</span>';
             }
             ?>
-            <?php penci_reading_time(); ?></span>
+            <?php goso_reading_time(); ?></span>
 			<?php endif; ?>
         </div>
 		<?php
@@ -709,25 +709,25 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 
 	protected function builder_content() {
 		$settings             = $this->get_settings_for_display();
-		$hide_readtime        = $settings['penci_single_hreadtime'];
-		$avatar               = $settings['penci_single_author_avatar'];
-		$avatarw              = isset( $settings['penci_avatar_w'] ) && $settings['penci_avatar_w'] ? $settings['penci_avatar_w'] : 32;
-		$ava_icon_enable      = $settings['penci_single_meta_ava_icon_check'];
-		$ava_icon             = $settings['penci_single_meta_ava_icon'];
-		$date_icon_enable     = $settings['penci_single_meta_date_icon_check'];
-		$date_icon            = $settings['penci_single_meta_date_icon'];
-		$commment_icon_enable = $settings['penci_single_meta_comment_icon_check'];
-		$commment_icon        = $settings['penci_single_meta_comment_icon'];
-		$view_icon_enable     = $settings['penci_single_meta_view_icon_check'];
-		$view_icon            = $settings['penci_single_meta_view_icon'];
-		$reading_icon_enable  = $settings['penci_single_meta_reading_icon_check'];
-		$reading_icon         = $settings['penci_single_meta_reading_icon'];
+		$hide_readtime        = $settings['goso_single_hreadtime'];
+		$avatar               = $settings['goso_single_author_avatar'];
+		$avatarw              = isset( $settings['goso_avatar_w'] ) && $settings['goso_avatar_w'] ? $settings['goso_avatar_w'] : 32;
+		$ava_icon_enable      = $settings['goso_single_meta_ava_icon_check'];
+		$ava_icon             = $settings['goso_single_meta_ava_icon'];
+		$date_icon_enable     = $settings['goso_single_meta_date_icon_check'];
+		$date_icon            = $settings['goso_single_meta_date_icon'];
+		$commment_icon_enable = $settings['goso_single_meta_comment_icon_check'];
+		$commment_icon        = $settings['goso_single_meta_comment_icon'];
+		$view_icon_enable     = $settings['goso_single_meta_view_icon_check'];
+		$view_icon            = $settings['goso_single_meta_view_icon'];
+		$reading_icon_enable  = $settings['goso_single_meta_reading_icon_check'];
+		$reading_icon         = $settings['goso_single_meta_reading_icon'];
 		$icon_style           = $settings['meta_icon_style'];
 		$label_text           = $settings['hide_meta_label'];
         global $post;
 		?>
         <div class="post-box-meta-single style-<?php echo esc_attr( $icon_style ); ?>">
-			<?php if ( ! $settings['penci_single_meta_author'] ) :
+			<?php if ( ! $settings['goso_single_meta_author'] ) :
 				?>
                 <span class="author-post byline">
                     <span class="author vcard">
@@ -739,7 +739,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
                         }
                         ?>
 	                    <?php if ( ! $label_text ) {
-		                    echo penci_get_setting( 'penci_trans_written_by' );
+		                    echo goso_get_setting( 'goso_trans_written_by' );
 	                    } ?>
                         <a class="author-url url fn n"
                            href="<?php echo get_author_posts_url( $post->post_author ); ?>">
@@ -752,7 +752,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
                     </span>
                 </span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_meta_date'] ) : ?>
+			<?php if ( ! $settings['goso_single_meta_date'] ) : ?>
                 <span class="pctmp-date-post">
 				<?php
 				if ( ! $date_icon_enable && $date_icon ) {
@@ -761,9 +761,9 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 					echo '</span>';
 				}
 				?>
-				<?php penci_authow_time_link( 'single' ); ?></span>
+				<?php goso_authow_time_link( 'single' ); ?></span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_meta_comment'] ) :
+			<?php if ( ! $settings['goso_single_meta_comment'] ) :
 				?>
                 <span class="pctmp-comment-post">
             <?php
@@ -772,12 +772,12 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            \Elementor\Icons_Manager::render_icon( $commment_icon );
 	            echo '</span>';
             }
-            $comment_text  = ! $label_text ? ' ' . penci_get_setting( 'penci_trans_comment' ) : '';
-            $comments_text = ! $label_text ? ' ' . penci_get_setting( 'penci_trans_comments' ) : '';
+            $comment_text  = ! $label_text ? ' ' . goso_get_setting( 'goso_trans_comment' ) : '';
+            $comments_text = ! $label_text ? ' ' . goso_get_setting( 'goso_trans_comments' ) : '';
             ?>
             <?php comments_number( '0' . $comment_text, '1' . $comment_text, '%' . $comments_text ); ?></span>
 			<?php endif; ?>
-			<?php if ( ! $settings['penci_single_show_cview'] ) : ?>
+			<?php if ( ! $settings['goso_single_show_cview'] ) : ?>
                 <span class="pctmp-view-post">
             <?php
             if ( ! $view_icon_enable && $view_icon ) {
@@ -786,11 +786,11 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            echo '</span>';
             }
             ?>
-                <i class="penci-post-countview-number"><?php echo penci_get_post_views( get_the_ID() ); ?></i><?php if ( ! $label_text ) {
-						echo ' '.penci_get_setting( 'penci_trans_countviews' );
+                <i class="goso-post-countview-number"><?php echo goso_get_post_views( get_the_ID() ); ?></i><?php if ( ! $label_text ) {
+						echo ' '.goso_get_setting( 'goso_trans_countviews' );
 					} ?></span>
 			<?php endif; ?>
-			<?php if ( penci_isshow_reading_time( $hide_readtime ) ):
+			<?php if ( goso_isshow_reading_time( $hide_readtime ) ):
 				?>
                 <span class="single-readtime">
             <?php
@@ -800,7 +800,7 @@ class GosoSingleMeta extends \Elementor\Widget_Base {
 	            echo '</span>';
             }
             ?>
-            <?php penci_reading_time(); ?></span>
+            <?php goso_reading_time(); ?></span>
 			<?php endif; ?>
         </div>
 		<?php

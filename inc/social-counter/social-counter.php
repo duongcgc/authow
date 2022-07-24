@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-if ( ! function_exists( 'penci_get_social_counter_option' ) ):
-	function penci_get_social_counter_option( $key = null, $default = false ) {
+if ( ! function_exists( 'goso_get_social_counter_option' ) ):
+	function goso_get_social_counter_option( $key = null, $default = false ) {
 		static $data;
 
-		$data = empty( $data ) ? get_option( 'penci_social_counter_settings' ) : $data;
+		$data = empty( $data ) ? get_option( 'goso_social_counter_settings' ) : $data;
 
 		if ( isset( $data[ $key ] ) ) {
 			return $data[ $key ];
@@ -47,16 +47,16 @@ if ( ! class_exists( 'PENCI_FW_Social_Counter' ) ):
 
 		public static function get_social_counter( $social, $get_number = true ) {
 
-			$cache_period = apply_filters( 'penci_social_cache_time', self::$caching_time );
+			$cache_period = apply_filters( 'goso_social_cache_time', self::$caching_time );
 
-			$penci_social_counter_settings = get_option( 'penci_social_counter_settings' );
+			$goso_social_counter_settings = get_option( 'goso_social_counter_settings' );
 
 			$counter_data = shortcode_atts( array(
 				$social . '_name'       => '',
 				$social . '_text_below' => '',
 				$social . '_text_btn'   => '',
 				$social . '_default'    => ''
-			), $penci_social_counter_settings );
+			), $goso_social_counter_settings );
 
 			$face_name = isset( $counter_data[ $social . '_name' ] ) && $counter_data[ $social . '_name' ] ? $counter_data[ $social . '_name' ] : '';
 
@@ -113,8 +113,8 @@ if ( ! class_exists( 'PENCI_FW_Social_Counter' ) ):
 	new PENCI_FW_Social_Counter;
 endif;
 
-if ( ! function_exists( 'penci_get_the_number' ) ) :
-	function penci_get_the_number( $pattern, $the_request ) {
+if ( ! function_exists( 'goso_get_the_number' ) ) :
+	function goso_get_the_number( $pattern, $the_request ) {
 
 		$counter = 0;
 
@@ -136,8 +136,8 @@ if ( ! function_exists( 'penci_get_the_number' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'penci_remote_get' ) ) :
-	function penci_remote_get( $url, $json = true, $args = array( 'timeout' => 18, 'sslverify' => false ) ) {
+if ( ! function_exists( 'goso_remote_get' ) ) :
+	function goso_remote_get( $url, $json = true, $args = array( 'timeout' => 18, 'sslverify' => false ) ) {
 
 		$get_request = preg_replace( '/\s+/', '', $url );
 		$get_request = wp_remote_get( $url, $args );
@@ -154,17 +154,17 @@ if ( ! function_exists( 'penci_remote_get' ) ) :
 endif;
 
 add_action( 'mb_settings_page_submit_buttons', function () {
-	echo '<button class="button button-secondary penci-reset-social-cache">' . __( 'Clear Counter Caches', 'authow' ) . '</button>';
+	echo '<button class="button button-secondary goso-reset-social-cache">' . __( 'Clear Counter Caches', 'authow' ) . '</button>';
 } );
 
-add_action( 'wp_ajax_penci_social_clear_all_caches', 'penci_social_clear_all_caches' );
-function penci_social_clear_all_caches() {
+add_action( 'wp_ajax_goso_social_clear_all_caches', 'goso_social_clear_all_caches' );
+function goso_social_clear_all_caches() {
 	global $wpdb;
 	$transients = $wpdb->get_results( "SELECT option_name AS name, option_value AS value FROM $wpdb->options 
               WHERE option_name LIKE '_transient_%'" );
 	foreach ( $transients as $std => $value ) {
 		$t_name = $value->name;
-		if ( strpos( $t_name, 'penci_counter' ) !== false ) {
+		if ( strpos( $t_name, 'goso_counter' ) !== false ) {
 			delete_transient( str_replace( '_transient_', '', $t_name ) );
 		}
 	}
