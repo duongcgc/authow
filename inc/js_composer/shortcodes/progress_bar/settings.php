@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => 'penci_progress_bar',
+	'base'          => 'goso_progress_bar',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/progress_bar/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Progress Bar', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Progress Bar', 'authow' ),
 	'description'   => __( 'Progress Bar Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -65,7 +65,7 @@ vc_map( array(
 				),
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => esc_html__( 'Custom height for bar', 'authow' ),
 				'param_name' => 'bar_height',
 				'value'      => '',
@@ -74,7 +74,7 @@ vc_map( array(
 				'suffix'     => 'px',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'heading'    => esc_html__( 'Custom margin top for bar', 'authow' ),
 				'param_name' => 'bar_mar_top',
 				'value'      => '',
@@ -83,7 +83,7 @@ vc_map( array(
 				'suffix'     => 'px',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'heading'    => esc_html__( 'Custom margin bottom for bar', 'authow' ),
 				'param_name' => 'bar_mar_bottom',
 				'value'      => '',
@@ -114,7 +114,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Progress Bar', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'        => 'colorpicker',

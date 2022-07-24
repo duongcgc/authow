@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoWeather extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-weather';
+		return 'goso-weather';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Weather', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Weather', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoWeather extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -32,7 +32,7 @@ class GosoWeather extends Base_Widget {
 	}
 
     public function get_style_depends(){
-	    return ['penci-font-iweather'];
+	    return ['goso-font-iweather'];
     }
 
 	protected function register_controls() {
@@ -46,7 +46,7 @@ class GosoWeather extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_location', array(
+			'goso_location', array(
 				'label'       => __( 'Search your for location:', 'authow' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'London',
@@ -57,7 +57,7 @@ class GosoWeather extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_location_show', array(
+			'goso_location_show', array(
 				'label'       => __( 'Location display', 'authow' ),
 				'type'        => Controls_Manager::TEXT,
 				'description' => esc_html__( 'If the option is empty,will display results from ', 'authow' ) . '<a href="' . esc_url( 'http://openweathermap.org/find' ) . '">openweathermap.org</a>',
@@ -66,7 +66,7 @@ class GosoWeather extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_units', array(
+			'goso_units', array(
 				'label'   => __( 'Units', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'metric',
@@ -78,7 +78,7 @@ class GosoWeather extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_forcast', array(
+			'goso_forcast', array(
 				'label'   => __( 'Forcast', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '5',
@@ -111,12 +111,12 @@ class GosoWeather extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-weather-condition,' .
-					'{{WRAPPER}} .penci-weather-information,' .
-					'{{WRAPPER}} .penci-weather-lo-hi__content .fa,' .
-					'{{WRAPPER}} .penci-circle,' .
-					'{{WRAPPER}} .penci-weather-animated-icon i,' .
-					'{{WRAPPER}} .penci-weather-unit' => 'color: {{VALUE}};  opacity: 1;',
+					'{{WRAPPER}} .goso-weather-condition,' .
+					'{{WRAPPER}} .goso-weather-information,' .
+					'{{WRAPPER}} .goso-weather-lo-hi__content .fa,' .
+					'{{WRAPPER}} .goso-circle,' .
+					'{{WRAPPER}} .goso-weather-animated-icon i,' .
+					'{{WRAPPER}} .goso-weather-unit' => 'color: {{VALUE}};  opacity: 1;',
 				),
 			)
 		);
@@ -127,28 +127,28 @@ class GosoWeather extends Base_Widget {
 				'label'     => __( 'Localtion color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-weather-city' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-weather-city' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_location_typo',
 				'label'    => __( 'Typography for Location', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-city',
+				'selector' => '{{WRAPPER}} .goso-weather-city',
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_condition_typo',
 				'label'    => __( 'Typography for Cloudiness', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-condition',
+				'selector' => '{{WRAPPER}} .goso-weather-condition',
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_whc_info_typo',
 				'label'    => __( 'Typography for Wind,Humidity, Clouds', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-information',
+				'selector' => '{{WRAPPER}} .goso-weather-information',
 			)
 		);
 
@@ -158,7 +158,7 @@ class GosoWeather extends Base_Widget {
 				'label'     => __( 'Border color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-weather-information' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-weather-information' => 'border-color: {{VALUE}};' ),
 			)
 		);
 
@@ -168,21 +168,21 @@ class GosoWeather extends Base_Widget {
 				'label'     => __( 'Degrees color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-big-degrees,{{WRAPPER}} .penci-small-degrees' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-big-degrees,{{WRAPPER}} .goso-small-degrees' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_temp_typo',
 				'label'    => __( 'Typography for Temperature', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-now .penci-big-degrees',
+				'selector' => '{{WRAPPER}} .goso-weather-now .goso-big-degrees',
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_tempsmall_typo',
 				'label'    => __( 'Typography for Min/Max Temperature', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-degrees-wrap .penci-small-degrees',
+				'selector' => '{{WRAPPER}} .goso-weather-degrees-wrap .goso-small-degrees',
 			)
 		);
 
@@ -192,7 +192,7 @@ class GosoWeather extends Base_Widget {
 				'label'     => __( 'Custom color for forecast weather in next days', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-weather-week' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-weather-week' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -202,14 +202,14 @@ class GosoWeather extends Base_Widget {
 				'label'     => __( 'Custom background for forecast weather in next days', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-weather-week:before' => 'background-color: {{VALUE}}; opacity: 1;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-weather-week:before' => 'background-color: {{VALUE}}; opacity: 1;' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'w_forecast_typo',
 				'label'    => __( 'Typography for Weather Forecast', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-weather-days .penci-day-degrees',
+				'selector' => '{{WRAPPER}} .goso-weather-days .goso-day-degrees',
 			)
 		);
 
@@ -223,23 +223,23 @@ class GosoWeather extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class = 'penci-block-vc penci_block_weather penci-weather';
+		$css_class = 'goso-block-vc goso_block_weather goso-weather';
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
+			<div class="goso-block_content">
 				<?php
 				$weather_data = \Goso_Weather::show_forecats( array(
-					'location'      => $settings['penci_location'],
-					'location_show' => $settings['penci_location_show'],
-					'forecast_days' => $settings['penci_forcast'],
-					'units'         => $settings['penci_units'],
+					'location'      => $settings['goso_location'],
+					'location_show' => $settings['goso_location_show'],
+					'forecast_days' => $settings['goso_forcast'],
+					'units'         => $settings['goso_units'],
 				) );
 
 				if( $weather_data ) {
 					echo $weather_data;
 				}else {
-					echo '<div class="penci-block-error">';
+					echo '<div class="goso-block-error">';
 					echo '<span>Weather widget</span>';
 					echo ' You need to fill API key to Customize > General > Extra Options > Weather API Key to get this widget work.';
 					echo '</div>';

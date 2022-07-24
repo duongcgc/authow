@@ -1,5 +1,5 @@
 <?php
-$section_id = 'penci_header_' . $key;
+$section_id = 'goso_header_' . $key;
 if ( ! empty( $settings ) ) {
 	$section_id = $settings;
 }

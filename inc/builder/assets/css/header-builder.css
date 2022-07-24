@@ -571,7 +571,7 @@ body.rtl .flex-row {
 .preview-mobile .mobile-mode, .preview-tablet .mobile-mode {
 	display: block
 }
-#accordion-section-penci_header_builder_block_section, #customize-control-penci_hb_preset {
+#accordion-section-goso_header_builder_block_section, #customize-control-goso_hb_preset {
 	display: none !important
 }
 .header-builder-mobile-drawer .header-setting {
@@ -601,7 +601,7 @@ body.rtl .flex-row {
 .preview-mobile .wp-full-overlay-main, .preview-tablet .wp-full-overlay-main {
 	margin-top: 10px !important
 }
-.penci-btn-header-builder {
+.goso-btn-header-builder {
 	display: inline-block;
 	cursor: pointer;
 	position: absolute;
@@ -612,13 +612,13 @@ body.rtl .flex-row {
 	text-align: center;
 	border-left: 1px solid rgb(220, 220, 222);
 }
-.penci-btn-header-builder i:before {
+.goso-btn-header-builder i:before {
 	content: "\f0c9"
 }
-.header-builder-open .penci-btn-header-builder i:before {
+.header-builder-open .goso-btn-header-builder i:before {
 	content: "\f00d"
 }
-.penci_builder_save_settings {
+.goso_builder_save_settings {
 	padding: 5px 10px;
 	border: 0;
 	background-color: var(--wp-admin-theme-color);
@@ -628,7 +628,7 @@ body.rtl .flex-row {
 	cursor: pointer;
 	position: relative;
 }
-.penci_builder_save_settings.loading:before {
+.goso_builder_save_settings.loading:before {
 	font-family: inherit !important;
 	line-height: 0;
 	display: inline-block;
@@ -649,16 +649,16 @@ body.rtl .flex-row {
 		transform: rotate(360deg);
 	}
 }
-.wrap div.penci-saved-message {
+.wrap div.goso-saved-message {
 	margin-top: 15px;
 }
-.penci-saved-message.error {
+.goso-saved-message.error {
 	color: red;
 }
 .header-builder .top-edit-screen {
 	color: #fff;
 }
-#penci_save_header {
+#goso_save_header {
 	float: right;
 	margin-left: 10px;
 	margin-top: 10px;

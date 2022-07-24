@@ -70,21 +70,21 @@ class HeaderBuilderCustomizer {
 	);
 
 	private $list_settings = array(
-		'penci_header_bottombar_setting_section',
-		'penci_header_bottomblockbar_setting_section',
-		'penci_header_desktop_option_section',
-		'penci_header_desktop_sticky_bottom_section',
-		'penci_header_desktop_sticky_mid_section',
-		'penci_header_desktop_sticky_section',
-		'penci_header_desktop_sticky_top_section',
-		'penci_header_drawer_container_section',
-		'penci_header_midbar_setting_section',
-		'penci_header_mobile_bottombar_setting_section',
-		'penci_header_mobile_midbar_setting_section',
-		'penci_header_mobile_option_section',
-		'penci_header_mobile_topbar_setting_section',
-		'penci_header_topbar_setting_section',
-		'penci_header_topblockbar_setting_section',
+		'goso_header_bottombar_setting_section',
+		'goso_header_bottomblockbar_setting_section',
+		'goso_header_desktop_option_section',
+		'goso_header_desktop_sticky_bottom_section',
+		'goso_header_desktop_sticky_mid_section',
+		'goso_header_desktop_sticky_section',
+		'goso_header_desktop_sticky_top_section',
+		'goso_header_drawer_container_section',
+		'goso_header_midbar_setting_section',
+		'goso_header_mobile_bottombar_setting_section',
+		'goso_header_mobile_midbar_setting_section',
+		'goso_header_mobile_option_section',
+		'goso_header_mobile_topbar_setting_section',
+		'goso_header_topbar_setting_section',
+		'goso_header_topblockbar_setting_section',
 	);
 
 	/**
@@ -92,7 +92,7 @@ class HeaderBuilderCustomizer {
 	 */
 	private function __construct() {
 		// Need to load Customizer early for this kind of request.
-		if ( isset( $_REQUEST['action'] ) && 'penci_fw_customizer_disable_panel' === $_REQUEST['action'] ) {
+		if ( isset( $_REQUEST['action'] ) && 'goso_fw_customizer_disable_panel' === $_REQUEST['action'] ) {
 			$this->customizer = \AuthowFW\Customizer\Customizer::get_instance();
 		}
 
@@ -127,7 +127,7 @@ class HeaderBuilderCustomizer {
 		$settings_path = get_template_directory() . '/inc/builder/customizer/sections/';
 
 		foreach ( $elements as $eid ) {
-			$el_id              = 'penci_header_' . $eid . '_section';
+			$el_id              = 'goso_header_' . $eid . '_section';
 			$result[ $el_id ][] = "{$elements_path}/{$eid}/settings.php";
 		}
 

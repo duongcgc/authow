@@ -6,9 +6,9 @@ if(  ! class_exists( 'Goso_Gutenberg_Authow_Recipe_Index' ) ):
 class Goso_Gutenberg_Authow_Recipe_Index {
 
 	public function render( $attributes, $content ) {
-		if( ! function_exists( 'penci_recipe_index_function' ) ){
+		if( ! function_exists( 'goso_recipe_index_function' ) ){
 			$mess = esc_html__( 'Please active Goso Recipe plugin', 'authow' );
-			return  '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Recipe', $mess ) . '</div>';
+			return  '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Recipe', $mess ) . '</div>';
 		}
 
 		$param = ' wpblock="true"';
@@ -21,10 +21,10 @@ class Goso_Gutenberg_Authow_Recipe_Index {
 				}
 			}
 		}
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Recipe Index', esc_html__( 'Click to edit this block', 'authow' ) );
-		$output .=  do_shortcode( '[penci_index' . $param . ']' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .=  do_shortcode( '[goso_index' . $param . ']' );
+		$output .= '</div><!--endgoso-block-->';
 		return $output;
 	}
 	public function attributes() {

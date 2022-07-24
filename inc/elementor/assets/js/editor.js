@@ -5188,7 +5188,7 @@
 			},
 			ajax: {
 				prepareArgs: function prepareArgs(args) {
-					args[0] = 'penci_' + args[0];
+					args[0] = 'goso_' + args[0];
 					return args;
 				},
 				send: function send() {
@@ -11312,7 +11312,7 @@
 						target: '_blank',
 						class: 'elementor-button elementor-button-default elementor-edit-template',
 						href: editUrl,
-						html: '<i class="fa fa-pencil" /> ' + elementorGoso.config.i18n.edit_template
+						html: '<i class="fa fa-gosol" /> ' + elementorGoso.config.i18n.edit_template
 					});
 					self.templateIdView.$el.find('.elementor-control-input-wrapper').after($editButton);
 				}

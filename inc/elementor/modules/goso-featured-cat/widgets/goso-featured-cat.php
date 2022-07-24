@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoFeaturedCat extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-featured-cat';
+		return 'goso-featured-cat';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Featured Cat', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Featured Cat', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoFeaturedCat extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -34,7 +34,7 @@ class GosoFeaturedCat extends Base_Widget {
 	}
 
 	public function get_script_depends() {
-		return [ 'penci_ajax_filter_fcat' ];
+		return [ 'goso_ajax_filter_fcat' ];
 	}
 
 	protected function register_controls() {
@@ -46,7 +46,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'tab'   => Controls_Manager::TAB_CONTENT,
 		) );
 
-		$this->add_control( 'penci_style', array(
+		$this->add_control( 'goso_style', array(
 			'label'   => __( 'Style', 'authow' ),
 			'type'    => Controls_Manager::SELECT,
 			'default' => 'style-1',
@@ -71,7 +71,7 @@ class GosoFeaturedCat extends Base_Widget {
 		$this->add_control( 'thumb15', array(
 			'label'     => __( 'Show Thumbnail on Small Posts', 'authow' ),
 			'type'      => Controls_Manager::SWITCHER,
-			'condition' => array( 'penci_style' => array( 'style-15' ) ),
+			'condition' => array( 'goso_style' => array( 'style-15' ) ),
 		) );
 
 		$this->add_responsive_control( 'spacing_item', array(
@@ -82,11 +82,11 @@ class GosoFeaturedCat extends Base_Widget {
 			'selectors'   => array(
 				'{{WRAPPER}} .home-featured-cat-content:not(.style-6) .mag-post-box:not(:last-child)'                                                                                                                                                                                                      => 'padding-bottom: {{SIZE}}{{UNIT}};margin-bottom: {{SIZE}}{{UNIT}}',
 				'{{WRAPPER}} .home-featured-cat-content:not(.style-6) .mag-photo'                                                                                                                                                                                                                          => 'margin-bottom: {{SIZE}}{{UNIT}};margin-bottom: {{SIZE}}{{UNIT}}',
-				'{{WRAPPER}} .home-featured-cat-content.style-6 .cat-left,{{WRAPPER}} .home-featured-cat-content.style-7 .penci-grid > li,{{WRAPPER}} .home-featured-cat-content.style-13 .penci-grid.penci-fea-cat-style-13 > li,{{WRAPPER}} .home-featured-cat-content.style-6 .cat-right .mag-post-box' => 'margin-bottom : {{SIZE}}{{UNIT}}',
+				'{{WRAPPER}} .home-featured-cat-content.style-6 .cat-left,{{WRAPPER}} .home-featured-cat-content.style-7 .goso-grid > li,{{WRAPPER}} .home-featured-cat-content.style-13 .goso-grid.goso-fea-cat-style-13 > li,{{WRAPPER}} .home-featured-cat-content.style-6 .cat-right .mag-post-box' => 'margin-bottom : {{SIZE}}{{UNIT}}',
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -112,20 +112,20 @@ class GosoFeaturedCat extends Base_Widget {
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-3'                                                                                                             => 'width:calc(100% + {{SIZE}}{{UNIT}});margin-left: -{{SIZE}}{{UNIT}};margin-right: -{{SIZE}}{{UNIT}}',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-5 .owl-prev, {{WRAPPER}} .home-featured-cat-content.style-12 .owl-prev' => 'left: calc({{SIZE}}{{UNIT}} / 2 + 20px);',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-5 .owl-next, {{WRAPPER}} .home-featured-cat-content.style-12 .owl-next' => 'right: calc({{SIZE}}{{UNIT}} / 2 + 20px);',
-				'(tablet+){{WRAPPER}} .penci-magcat-carousel-wrapper'                                                                                                                 => 'margin-left: calc({{SIZE}}{{UNIT}} * -1 / 2);margin-right: calc({{SIZE}}{{UNIT}} * -1 / 2);',
-				'(tablet+){{WRAPPER}} .home-featured-cat-content .mag-photo,{{WRAPPER}} .penci-magcat-carousel .magcat-carousel'                                                      => 'padding-left: calc({{SIZE}}{{UNIT}} / 2);padding-right: calc({{SIZE}}{{UNIT}} / 2);',
-				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-7 .penci-grid > li'                                                                                            => 'width:calc(33.3333333333% - {{SIZE}}{{UNIT}} + calc({{SIZE}}{{UNIT}} / 3));margin-right : {{SIZE}}{{UNIT}}',
-				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-7 .penci-grid > li:nth-of-type(3n+3)'                                                                          => 'margin-right:0',
+				'(tablet+){{WRAPPER}} .goso-magcat-carousel-wrapper'                                                                                                                 => 'margin-left: calc({{SIZE}}{{UNIT}} * -1 / 2);margin-right: calc({{SIZE}}{{UNIT}} * -1 / 2);',
+				'(tablet+){{WRAPPER}} .home-featured-cat-content .mag-photo,{{WRAPPER}} .goso-magcat-carousel .magcat-carousel'                                                      => 'padding-left: calc({{SIZE}}{{UNIT}} / 2);padding-right: calc({{SIZE}}{{UNIT}} / 2);',
+				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-7 .goso-grid > li'                                                                                            => 'width:calc(33.3333333333% - {{SIZE}}{{UNIT}} + calc({{SIZE}}{{UNIT}} / 3));margin-right : {{SIZE}}{{UNIT}}',
+				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-7 .goso-grid > li:nth-of-type(3n+3)'                                                                          => 'margin-right:0',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-9 .mag-post-box,{{WRAPPER}} .home-featured-cat-content.style-10 .mag-post-box'                                 => 'width:calc(50% - calc({{SIZE}}{{UNIT}}/2) );margin-right:{{SIZE}}{{UNIT}}',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-9 .mag-post-box:nth-child(2n+2),{{WRAPPER}} .home-featured-cat-content.style-10 .mag-post-box:nth-child(2n+2)' => 'margin-right:0',
-				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-13 .penci-grid.penci-fea-cat-style-13 > li'                                                                    => 'padding-left: calc({{SIZE}}{{UNIT}} / 2);padding-right: calc({{SIZE}}{{UNIT}} / 2)',
-				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-13 .penci-grid.penci-fea-cat-style-13'                                                                         => 'margin-left: calc({{SIZE}}{{UNIT}} / -2);margin-right: calc({{SIZE}}{{UNIT}} / -2);width:calc(100% + {{SIZE}}{{UNIT}})',
+				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-13 .goso-grid.goso-fea-cat-style-13 > li'                                                                    => 'padding-left: calc({{SIZE}}{{UNIT}} / 2);padding-right: calc({{SIZE}}{{UNIT}} / 2)',
+				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-13 .goso-grid.goso-fea-cat-style-13'                                                                         => 'margin-left: calc({{SIZE}}{{UNIT}} / -2);margin-right: calc({{SIZE}}{{UNIT}} / -2);width:calc(100% + {{SIZE}}{{UNIT}})',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-6 .cat-right .mag-post-box'                                                                                    => 'width:calc(50% - calc({{SIZE}}{{UNIT}} / 2) );margin-right:{{SIZE}}{{UNIT}}',
 				'(tablet+){{WRAPPER}} .home-featured-cat-content.style-6 .cat-right .mag-post-box:nth-child(2n+2)'                                                                    => 'margin-right:0',
 			),
 			'label_block'    => true,
 			'condition'      => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-2',
 					'style-3',
 					'style-4',
@@ -141,10 +141,10 @@ class GosoFeaturedCat extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 1 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .home-featured-cat-content .penci-image-holder.small-fix-size' => 'width: {{SIZE}}px;',
+				'{{WRAPPER}} .home-featured-cat-content .goso-image-holder.small-fix-size' => 'width: {{SIZE}}px;',
 			),
 			'condition' => array(
-				'penci_style' => array(
+				'goso_style' => array(
 					'style-1',
 					'style-2',
 					'style-6',
@@ -155,7 +155,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 		) );
 
-		$this->add_responsive_control( 'penci_columns', array(
+		$this->add_responsive_control( 'goso_columns', array(
 			'label'          => __( 'Columns', 'authow' ),
 			'type'           => Controls_Manager::SELECT,
 			'default'        => '',
@@ -170,33 +170,33 @@ class GosoFeaturedCat extends Base_Widget {
 				'5' => '5',
 				'6' => '6',
 			),
-			'condition'      => array( 'penci_style' => array( 'style-3', 'style-11' ) ),
+			'condition'      => array( 'goso_style' => array( 'style-3', 'style-11' ) ),
 		) );
 
-		$this->add_control( 'penci_column_gap', array(
+		$this->add_control( 'goso_column_gap', array(
 			'label'     => __( 'Columns Gap', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-featured-cat-sc:not( .penci-featured-cat-ctcol ) .home-featured-cat-content'            => 'width: calc(100% + {{SIZE}}{{UNIT}});margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2)',
-				'{{WRAPPER}} .penci-featured-cat-sc:not( .penci-featured-cat-ctcol ) .home-featured-cat-content .mag-photo' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2)',
-				'{{WRAPPER}} .penci-featured-cat-ctcol .home-featured-cat-content'                                          => 'grid-column-gap: {{SIZE}}{{UNIT}}'
+				'{{WRAPPER}} .goso-featured-cat-sc:not( .goso-featured-cat-ctcol ) .home-featured-cat-content'            => 'width: calc(100% + {{SIZE}}{{UNIT}});margin-left: calc(-{{SIZE}}{{UNIT}}/2); margin-right: calc(-{{SIZE}}{{UNIT}}/2)',
+				'{{WRAPPER}} .goso-featured-cat-sc:not( .goso-featured-cat-ctcol ) .home-featured-cat-content .mag-photo' => 'padding-left: calc({{SIZE}}{{UNIT}}/2); padding-right: calc({{SIZE}}{{UNIT}}/2)',
+				'{{WRAPPER}} .goso-featured-cat-ctcol .home-featured-cat-content'                                          => 'grid-column-gap: {{SIZE}}{{UNIT}}'
 			),
-			'condition' => array( 'penci_style' => array( 'style-3', 'style-11' ) ),
+			'condition' => array( 'goso_style' => array( 'style-3', 'style-11' ) ),
 		) );
 
-		$this->add_control( 'penci_row_gap', array(
+		$this->add_control( 'goso_row_gap', array(
 			'label'              => __( 'Rows Gap', 'authow' ),
 			'type'               => Controls_Manager::SLIDER,
 			'range'              => array( 'px' => array( 'min' => 0, 'max' => 200 ) ),
 			'frontend_available' => true,
 			'selectors'          => array(
-				'{{WRAPPER}} .penci-featured-cat-sc:not( .penci-featured-cat-ctcol ) .home-featured-cat-content .mag-photo' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				'{{WRAPPER}} .penci-featured-cat-ctcol .home-featured-cat-content'                                          => 'grid-row-gap: {{SIZE}}{{UNIT}}',
-				'{{WRAPPER}} .mag-cat-style-8 .penci-grid li.list-post:not(:last-child)'                                    => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2); margin-bottom: calc({{SIZE}}{{UNIT}}/2)',
+				'{{WRAPPER}} .goso-featured-cat-sc:not( .goso-featured-cat-ctcol ) .home-featured-cat-content .mag-photo' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+				'{{WRAPPER}} .goso-featured-cat-ctcol .home-featured-cat-content'                                          => 'grid-row-gap: {{SIZE}}{{UNIT}}',
+				'{{WRAPPER}} .mag-cat-style-8 .goso-grid li.list-post:not(:last-child)'                                    => 'padding-bottom: calc({{SIZE}}{{UNIT}}/2); margin-bottom: calc({{SIZE}}{{UNIT}}/2)',
 			),
 			'condition'          => array(
-				'penci_style' => array(
+				'goso_style' => array(
 					'style-3',
 					'style-8',
 					'style-11',
@@ -204,7 +204,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 		) );
 
-		$this->add_control( 'penci_featimg_size', array(
+		$this->add_control( 'goso_featimg_size', array(
 			'label'                => __( 'Image Size Type', 'authow' ),
 			'type'                 => Controls_Manager::SELECT,
 			'default'              => '',
@@ -215,14 +215,14 @@ class GosoFeaturedCat extends Base_Widget {
 				'vertical'   => esc_html__( 'Vertical Size', 'authow' ),
 				'custom'     => esc_html__( 'Custom', 'authow' ),
 			),
-			'selectors'            => array( '{{WRAPPER}} .penci-image-holder:before' => '{{VALUE}}', ),
+			'selectors'            => array( '{{WRAPPER}} .goso-image-holder:before' => '{{VALUE}}', ),
 			'selectors_dictionary' => array(
 				'horizontal' => 'padding-top: 66.6667%;',
 				'square'     => 'padding-top: 100%;',
 				'vertical'   => 'padding-top: 135.4%;',
 			)
 		) );
-		$this->add_responsive_control( 'penci_featimg_ratio', array(
+		$this->add_responsive_control( 'goso_featimg_ratio', array(
 			'label'          => __( 'Image Ratio', 'authow' ),
 			'type'           => Controls_Manager::SLIDER,
 			'default'        => array( 'size' => 0.66 ),
@@ -230,16 +230,16 @@ class GosoFeaturedCat extends Base_Widget {
 			'mobile_default' => array( 'size' => 0.5 ),
 			'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 			'selectors'      => array(
-				'{{WRAPPER}} .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+				'{{WRAPPER}} .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 			),
-			'condition'      => array( 'penci_featimg_size' => 'custom' ),
+			'condition'      => array( 'goso_featimg_size' => 'custom' ),
 		) );
 		$this->add_control( 'thumb_size', array(
 			'label'     => __( 'Custom Image size', 'authow' ),
 			'type'      => Controls_Manager::SELECT,
 			'default'   => '',
 			'options'   => $this->get_list_image_sizes( true ),
-			'condition' => array( 'penci_featimg_size' => 'custom' ),
+			'condition' => array( 'goso_featimg_size' => 'custom' ),
 		) );
 
 		$this->add_control( 'big_title_length', array(
@@ -258,7 +258,7 @@ class GosoFeaturedCat extends Base_Widget {
 		$this->add_control( 'remove_dot', array(
 			'label'     => __( 'Remove Dot Before The Post Title', 'authow' ),
 			'type'      => Controls_Manager::SWITCHER,
-			'condition' => array( 'penci_style' => array( 'style-14' ) ),
+			'condition' => array( 'goso_style' => array( 'style-14' ) ),
 			'selectors' => array(
 				'{{WRAPPER}} .home-featured-cat-content.style-14 .magcat-padding'        => 'padding: 0;',
 				'{{WRAPPER}} .home-featured-cat-content.style-14 .magcat-padding:before' => 'content: none; display: none;',
@@ -297,7 +297,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Remove Borders on Post Items', 'authow' ),
 			'type'      => Controls_Manager::SWITCHER,
 			'selectors' => array(
-				'{{WRAPPER}} .home-featured-cat-content .mag-post-box, {{WRAPPER}} .home-featured-cat-content.style-8 .penci-grid li.list-post' => 'border: none !important;',
+				'{{WRAPPER}} .home-featured-cat-content .mag-post-box, {{WRAPPER}} .home-featured-cat-content.style-8 .goso-grid li.list-post' => 'border: none !important;',
 				'{{WRAPPER}} .home-featured-cat-content .mag-post-box:not(:last-child)' => 'margin-bottom: 20px; padding-bottom: 0;',
 				'{{WRAPPER}} .home-featured-cat-content.style-2 .mag-post-box.first-post, {{WRAPPER}} .home-featured-cat-content.style-10 .mag-post-box.first-post' => 'padding-bottom: 0;',
 				'{{WRAPPER}} .home-featured-cat-content.style-14 .mag-post-box, {{WRAPPER}} .home-featured-cat-content.style-14 .mag-post-box' => 'padding-bottom: 0; margin-bottom: 20px;',
@@ -309,7 +309,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'type'      => Controls_Manager::NUMBER,
 			'condition' => array(
 				'hide_excerpt!' => 'yes',
-				'penci_style'   => array(
+				'goso_style'   => array(
 					'style-1',
 					'style-2',
 					'style-6',
@@ -323,7 +323,7 @@ class GosoFeaturedCat extends Base_Widget {
 		$this->add_control( 'cat_autoplay', array(
 			'label'     => __( 'Disable Autoplay on the Slider', 'authow' ),
 			'type'      => Controls_Manager::SWITCHER,
-			'condition' => array( 'penci_style' => array( 'style-4', 'style-5', 'style-12' ) ),
+			'condition' => array( 'goso_style' => array( 'style-4', 'style-5', 'style-12' ) ),
 		) );
 
 		// Enable view all button
@@ -377,7 +377,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'default'     => array( 'size' => '' ),
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors'   => array(
-				'{{WRAPPER}} .penci-featured-cat-seemore' => 'margin-top: {{SIZE}}{{UNIT}} !important'
+				'{{WRAPPER}} .goso-featured-cat-seemore' => 'margin-top: {{SIZE}}{{UNIT}} !important'
 			),
 			'condition'   => array( 'cat_seemore' => 'yes' ),
 			'label_block' => true,
@@ -399,7 +399,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors'   => array(
 				'{{WRAPPER}} .home-featured-cat-content .mag-post-box:not(.first-post) .magcat-thumb'                  => 'margin-right: {{SIZE}}{{UNIT}}',
-				'{{WRAPPER}} .penci-grid li .item > .thumbnail, {{WRAPPER}} .penci-masonry .item-masonry > .thumbnail' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+				'{{WRAPPER}} .goso-grid li .item > .thumbnail, {{WRAPPER}} .goso-masonry .item-masonry > .thumbnail' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 			),
 			'label_block' => true,
 		) );
@@ -441,7 +441,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'selectors'   => array(
 				'{{WRAPPER}} .item-content.entry-content' => 'margin-top: {{SIZE}}{{UNIT}}'
 			),
-			'condition'   => [ 'penci_style' => [ 'style-7' ] ],
+			'condition'   => [ 'goso_style' => [ 'style-7' ] ],
 			'label_block' => true,
 		) );
 
@@ -450,7 +450,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'type'      => Controls_Manager::HEADING,
 			'separator' => 'before',
 			'condition' => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -474,7 +474,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style' => [
+				'goso_style' => [
 					'style-1',
 					'style-2',
 					'style-6',
@@ -491,11 +491,11 @@ class GosoFeaturedCat extends Base_Widget {
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors'   => array(
 				'{{WRAPPER}} .home-featured-cat-content:not(.style-6) .mag-post-box.first-post .magcat-thumb'                   => 'margin-bottom: {{SIZE}}{{UNIT}}',
-				'{{WRAPPER}} .penci-featured-cat-sc .home-featured-cat-content.style-6 .mag-post-box.first-post .magcat-detail' => 'padding-left: {{SIZE}}{{UNIT}}'
+				'{{WRAPPER}} .goso-featured-cat-sc .home-featured-cat-content.style-6 .mag-post-box.first-post .magcat-detail' => 'padding-left: {{SIZE}}{{UNIT}}'
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -518,7 +518,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -541,7 +541,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -564,7 +564,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -587,7 +587,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -610,7 +610,7 @@ class GosoFeaturedCat extends Base_Widget {
 			),
 			'label_block' => true,
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-5',
@@ -639,7 +639,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Wrapper Borders Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content.style-15' => 'border-color: {{VALUE}};' ),
-			'condition' => array( 'penci_style' => array( 'style-15' ) ),
+			'condition' => array( 'goso_style' => array( 'style-15' ) ),
 		) );
 		
 		$this->add_responsive_control( 'padding_around', array(
@@ -650,7 +650,7 @@ class GosoFeaturedCat extends Base_Widget {
 				'{{WRAPPER}} .home-featured-cat-content .mag-post-box, {{WRAPPER}} .style-5 .magcat-thumb, {{WRAPPER}} .style-12 .magcat-thumb' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important; border: 1px solid var(--pcborder-cl);'
 			),
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-7',
@@ -669,7 +669,7 @@ class GosoFeaturedCat extends Base_Widget {
 				'{{WRAPPER}} .home-featured-cat-content .mag-post-box, {{WRAPPER}} .style-5 .magcat-thumb, {{WRAPPER}} .style-12 .magcat-thumb' => 'border-style: solid; border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;'
 			),
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-7',
@@ -685,7 +685,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .mag-post-box, {{WRAPPER}} .style-5 .magcat-thumb, {{WRAPPER}} .style-12 .magcat-thumb' => 'background-color: {{VALUE}};' ),
 			'condition'   => [
-				'penci_style!' => [
+				'goso_style!' => [
 					'style-3',
 					'style-4',
 					'style-7',
@@ -699,7 +699,7 @@ class GosoFeaturedCat extends Base_Widget {
 		$this->add_control( 'pborder_color', array(
 			'label'     => __( 'Post Items Borders Color ', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
-			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .mag-post-box,{{WRAPPER}} .penci-grid li.list-post, {{WRAPPER}} .style-5 .magcat-thumb, {{WRAPPER}} .style-12 .magcat-thumb' => 'border-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .mag-post-box,{{WRAPPER}} .goso-grid li.list-post, {{WRAPPER}} .style-5 .magcat-thumb, {{WRAPPER}} .style-12 .magcat-thumb' => 'border-color: {{VALUE}};' ),
 		) );
 
 		// Post title
@@ -712,8 +712,8 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Post Title Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci-grid li .item h2 a'                                  => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-masonry .item-masonry h2 a'                          => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-grid li .item h2 a'                                  => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-masonry .item-masonry h2 a'                          => 'color: {{VALUE}};',
 				'{{WRAPPER}} .home-featured-cat-content .magcat-detail h3 a'             => 'color: {{VALUE}};',
 				'{{WRAPPER}} .home-featured-cat-content.style-14 .magcat-padding:before' => 'border-color: {{VALUE}};',
 			),
@@ -722,8 +722,8 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Post Title Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci-grid li .item h2 a:hover'                      => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-masonry .item-masonry h2 a:hover'              => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-grid li .item h2 a:hover'                      => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-masonry .item-masonry h2 a:hover'              => 'color: {{VALUE}};',
 				'{{WRAPPER}} .home-featured-cat-content .magcat-detail h3 a:hover' => 'color: {{VALUE}};',
 			),
 		) );
@@ -731,13 +731,13 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Post Title Color of Big Post', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .first-post .magcat-detail h3 a' => 'color: {{VALUE}} !important;' ),
-			'condition' => array( 'penci_style' => array( 'style-14', 'style-15' ) ),
+			'condition' => array( 'goso_style' => array( 'style-14', 'style-15' ) ),
 		) );
 		$this->add_control( 'bptitle_hcolor', array(
 			'label'     => __( 'Post Title Hover Color of Big Post', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .first-post .magcat-detail h3 a:hover' => 'color: {{VALUE}} !important;' ),
-			'condition' => array( 'penci_style' => array( 'style-14', 'style-15' ) ),
+			'condition' => array( 'goso_style' => array( 'style-14', 'style-15' ) ),
 		) );
 		$this->add_responsive_control( 'bptitle_fsize', array(
 			'label'     => __( 'Font Size for Title of Big Post', 'authow' ),
@@ -745,7 +745,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 			'selectors' => array( '{{WRAPPER}} .home-featured-cat-content .first-post .magcat-detail h3 a' => 'font-size: {{SIZE}}px' ),
 			'condition' => array(
-				'penci_style' => array(
+				'goso_style' => array(
 					'style-1',
 					'style-2',
 					'style-6',
@@ -757,7 +757,7 @@ class GosoFeaturedCat extends Base_Widget {
 		) );
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'ptitle_typo',
-			'selector' => '{{WRAPPER}} .home-featured-cat-content .magcat-detail h3 a,{{WRAPPER}} .penci-grid li .item h2 a,{{WRAPPER}} .penci-masonry .item-masonry h2 a',
+			'selector' => '{{WRAPPER}} .home-featured-cat-content .magcat-detail h3 a,{{WRAPPER}} .goso-grid li .item h2 a,{{WRAPPER}} .goso-masonry .item-masonry h2 a',
 		) );
 		// Post meta
 		$this->add_control( 'heading_pmeta_settings', array(
@@ -812,18 +812,18 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Categories Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .cat > a.penci-cat-name'       => 'color: {{VALUE}};',
-				'{{WRAPPER}} .cat > a.penci-cat-name:after' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .cat > a.goso-cat-name'       => 'color: {{VALUE}};',
+				'{{WRAPPER}} .cat > a.goso-cat-name:after' => 'color: {{VALUE}};',
 			),
 		) );
 		$this->add_control( 'pcat_hcolor', array(
 			'label'     => __( 'Categories Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
-			'selectors' => array( '{{WRAPPER}} .cat > a.penci-cat-name:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .cat > a.goso-cat-name:hover' => 'color: {{VALUE}};' ),
 		) );
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'pcat_typo',
-			'selector' => '{{WRAPPER}} .cat > a.penci-cat-name',
+			'selector' => '{{WRAPPER}} .cat > a.goso-cat-name',
 		) );
 
 		// Button
@@ -837,7 +837,7 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Text Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci-featured-cat-seemore a,{{WRAPPER}} .penci-featured-cat-seemore.penci-btn-make-button a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-featured-cat-seemore a,{{WRAPPER}} .goso-featured-cat-seemore.goso-btn-make-button a' => 'color: {{VALUE}};',
 			),
 			'condition' => array( 'cat_seemore' => 'yes' ),
 		) );
@@ -845,13 +845,13 @@ class GosoFeaturedCat extends Base_Widget {
 			'label'     => __( 'Background Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci-featured-cat-seemore.penci-btn-make-button a' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-featured-cat-seemore.goso-btn-make-button a' => 'background-color: {{VALUE}};',
 			),
 			'condition' => array( 'cat_seemore' => 'yes' ),
 		) );
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'pviewall_typo',
-			'selector' => '{{WRAPPER}} .penci-featured-cat-seemore a',
+			'selector' => '{{WRAPPER}} .goso-featured-cat-seemore a',
 		) );
 
 		$this->end_controls_section();
@@ -913,9 +913,9 @@ class GosoFeaturedCat extends Base_Widget {
 
 	protected function render() {
 		$settings             = $this->get_settings();
-		$penci_columns        = isset( $settings['penci_columns'] ) ? $settings['penci_columns'] : '';
-		$penci_columns_tablet = isset( $settings['penci_columns_tablet'] ) ? $settings['penci_columns_tablet'] : $penci_columns;
-		$penci_columns_mobile = isset( $settings['penci_columns_mobile'] ) ? $settings['penci_columns_mobile'] : $penci_columns;
+		$goso_columns        = isset( $settings['goso_columns'] ) ? $settings['goso_columns'] : '';
+		$goso_columns_tablet = isset( $settings['goso_columns_tablet'] ) ? $settings['goso_columns_tablet'] : $goso_columns;
+		$goso_columns_mobile = isset( $settings['goso_columns_mobile'] ) ? $settings['goso_columns_mobile'] : $goso_columns;
 
 		$query_args = Module::get_query_args( 'posts', $settings );
 
@@ -933,8 +933,8 @@ class GosoFeaturedCat extends Base_Widget {
 			'cat_readmore_button' => $settings['cat_readmore_button'],
 			'cat_readmore_align'  => $settings['cat_readmore_align'],
 
-			'penci_featimg_size'  => $settings['penci_featimg_size'],
-			'penci_featimg_ratio' => $settings['penci_featimg_ratio'],
+			'goso_featimg_size'  => $settings['goso_featimg_size'],
+			'goso_featimg_ratio' => $settings['goso_featimg_ratio'],
 			'thumb_size'          => $settings['thumb_size'],
 			'thumb15'             => $settings['thumb15'],
 
@@ -952,15 +952,15 @@ class GosoFeaturedCat extends Base_Widget {
 			'big_title_length'    => $settings['big_title_length'],
 			'_title_length'       => $settings['_title_length'],
 
-			'penci_columns'        => $settings['penci_columns'],
-			'penci_columns_tablet' => $penci_columns_tablet,
-			'penci_columns_mobile' => $penci_columns_mobile,
-			'penci_column_gap'     => $settings['penci_column_gap'],
-			'penci_row_gap'        => $settings['penci_row_gap'],
+			'goso_columns'        => $settings['goso_columns'],
+			'goso_columns_tablet' => $goso_columns_tablet,
+			'goso_columns_mobile' => $goso_columns_mobile,
+			'goso_column_gap'     => $settings['goso_column_gap'],
+			'goso_row_gap'        => $settings['goso_row_gap'],
 			'show_viewscount'      => $settings['show_viewscount'],
 			'show_commentcount'    => $settings['show_commentcount'],
 
-			'style'                      => $settings['penci_style'],
+			'style'                      => $settings['goso_style'],
 			'elementor_query'            => $query_args,
 			'biggrid_ajaxfilter_cat'     => $settings['biggrid_ajaxfilter_cat'],
 			'biggrid_ajaxfilter_tag'     => $settings['biggrid_ajaxfilter_tag'],

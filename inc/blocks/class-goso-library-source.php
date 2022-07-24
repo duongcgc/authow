@@ -3,7 +3,7 @@ class Goso_Library_Source extends Elementor\TemplateLibrary\Source_Base
 {
 	public function get_id()
 	{
-		return 'penci';
+		return 'goso';
 	}
 
 	public function get_title()
@@ -27,7 +27,7 @@ class Goso_Library_Source extends Elementor\TemplateLibrary\Source_Base
 
 	private function get_template_content( $template_id ) 
 	{
-		$response = wp_remote_get('https://library.pencidesign.net/wp-json/penci-blocks/v1/templates?id=' . $template_id);
+		$response = wp_remote_get('https://library.gosodesign.net/wp-json/goso-blocks/v1/templates?id=' . $template_id);
 
 		if ( is_wp_error( $response ) || ! is_array( $response )) {
 			return $response;

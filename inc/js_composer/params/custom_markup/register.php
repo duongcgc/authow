@@ -1,13 +1,13 @@
 <?php
 /**
- * Callback for new param 'penci_separator'.
+ * Callback for new param 'goso_separator'.
  *
  * @param array $settings
  * @param string $value
  *
  * @return string
  */
-function penci_vc_param_custom_markup( $settings, $value ) {
+function goso_vc_param_custom_markup( $settings, $value ) {
 	return $value;
 }
 

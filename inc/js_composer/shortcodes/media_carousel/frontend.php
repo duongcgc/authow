@@ -5,7 +5,7 @@ extract( $atts );
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-media-carousels';
+$css_class = 'goso-block-vc goso-media-carousels';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'media-carousels' );
 
@@ -25,7 +25,7 @@ $data_slider .= ' data-tabsmall="' . ( isset( $atts['limit_tab'] ) && $atts['lim
 $data_slider .= ' data-mobile="' . ( isset( $atts['limit_mobile'] ) && $atts['limit_mobile'] ? $atts['limit_mobile'] : '1' ) . '"';
 ?>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
-	<div class="penci-block_content penci-owl-carousel penci-owl-carousel-slider" <?php echo( $data_slider ); ?>>
+	<div class="goso-block_content goso-owl-carousel goso-owl-carousel-slider" <?php echo( $data_slider ); ?>>
 		<?php echo do_shortcode( $content ); ?>
 	</div>
 </div>

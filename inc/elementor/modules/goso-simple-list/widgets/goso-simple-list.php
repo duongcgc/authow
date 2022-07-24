@@ -27,7 +27,7 @@ class GosoSimpleList extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_simple_list';
+		return 'goso_simple_list';
 	}
 
 	/**
@@ -39,7 +39,7 @@ class GosoSimpleList extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Simple List', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Simple List', 'authow' );
 	}
 
 	/**
@@ -63,7 +63,7 @@ class GosoSimpleList extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -153,8 +153,8 @@ class GosoSimpleList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 1, 'max' => 100, 'step' => 1 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-iconp-left li .list-icon, {{WRAPPER}} .penci-simplelist.penci-simplelist-type-unordered li:before' => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-iconp-right li .list-icon, .penci-simplelist.penci-iconp-right.penci-simplelist-type-unordered li:before' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-iconp-left li .list-icon, {{WRAPPER}} .goso-simplelist.goso-simplelist-type-unordered li:before' => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-iconp-right li .list-icon, .goso-simplelist.goso-iconp-right.goso-simplelist-type-unordered li:before' => 'margin-left: {{SIZE}}px;',
 				),
 				'condition' => [
 					'list_type' => [ 'icon', 'unordered' ],
@@ -168,7 +168,7 @@ class GosoSimpleList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 1, 'max' => 100, 'step' => 1 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-simplelist li' => 'margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-simplelist li' => 'margin-bottom: {{SIZE}}px;',
 				),
 			)
 		);
@@ -313,7 +313,7 @@ class GosoSimpleList extends Base_Widget {
 				'default'   => '#2C2C2C',
 				'selectors' => [
 					'{{WRAPPER}} .list-icon' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .penci-simplelist.penci-simplelist-type-unordered li:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-simplelist.goso-simplelist-type-unordered li:before' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'list_type' => [ 'icon', 'ordered', 'unordered' ],
@@ -329,7 +329,7 @@ class GosoSimpleList extends Base_Widget {
 				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} li:hover .list-icon' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .penci-simplelist.penci-simplelist-type-unordered li:hover:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-simplelist.goso-simplelist-type-unordered li:hover:before' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'list_type' => [ 'icon', 'ordered', 'unordered' ],
@@ -380,8 +380,8 @@ class GosoSimpleList extends Base_Widget {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .penci-simplelist .list-icon' => 'font-size: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .penci-simplelist.penci-simplelist-type-unordered li:before' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .goso-simplelist .list-icon' => 'font-size: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .goso-simplelist.goso-simplelist-type-unordered li:before' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'list_type!' => [ 'without' ],
@@ -426,23 +426,23 @@ class GosoSimpleList extends Base_Widget {
 			[
 				'list' => [
 					'class' => [
-						'penci-simplelist',
+						'goso-simplelist',
 						'size-' . $settings['size'],
-						'penci-simplelist-type-' . $settings['list_type'],
-						'penci-simplelist-style-' . $settings['list_style'],
-						'penci-justify-' . $settings['align'],
-						'penci-iconp-' . $settings['icon_pos'],
+						'goso-simplelist-type-' . $settings['list_type'],
+						'goso-simplelist-style-' . $settings['list_style'],
+						'goso-justify-' . $settings['align'],
+						'goso-iconp-' . $settings['icon_pos'],
 					],
 				],
 			]
 		);
 
 		if ( 'rounded' === $settings['list_style'] || 'square' === $settings['list_style'] ) {
-			$this->add_render_attribute( 'list', 'class', 'penci-simplelist-shape-icon' );
+			$this->add_render_attribute( 'list', 'class', 'goso-simplelist-shape-icon' );
 		}
 
 		if ( 'icon' === $settings['list_type'] && $settings['icon'] ) {
-			$icon_output = penci_elementor_get_render_icon( $settings['icon'] );
+			$icon_output = goso_elementor_get_render_icon( $settings['icon'] );
 		}
 		?>
         <ul <?php echo $this->get_render_attribute_string( 'list' ); ?>>
@@ -462,8 +462,8 @@ class GosoSimpleList extends Base_Widget {
 				$this->add_inline_editing_attributes( $repeater_label_key );
 
 				// Link settings.
-				$item['link']['class'] = 'penci-fill';
-				$link_attrs            = penci_get_link_attrs( $item['link'] );
+				$item['link']['class'] = 'goso-fill';
+				$link_attrs            = goso_get_link_attrs( $item['link'] );
 				$open_link = $close_link = '';
 				if ( isset( $item['link']['url'] ) && $item['link']['url'] ) :
 					$open_link = '<a ' . $link_attrs . '>';

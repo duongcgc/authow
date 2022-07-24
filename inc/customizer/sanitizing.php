@@ -7,8 +7,8 @@
  *
  * @return $input
  */
-if ( ! function_exists( 'penci_sanitize_choices_field' ) ) {
-	function penci_sanitize_choices_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_choices_field' ) ) {
+	function goso_sanitize_choices_field( $input ) {
 		return $input;
 	}
 }
@@ -21,8 +21,8 @@ if ( ! function_exists( 'penci_sanitize_choices_field' ) ) {
  *
  * @return $input
  */
-if ( ! function_exists( 'penci_sanitize_textarea_field' ) ) {
-	function penci_sanitize_textarea_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_textarea_field' ) ) {
+	function goso_sanitize_textarea_field( $input ) {
 		return $input;
 	}
 }
@@ -34,8 +34,8 @@ if ( ! function_exists( 'penci_sanitize_textarea_field' ) ) {
  *
  * @return string default value if type is not exists
  */
-if ( ! function_exists( 'penci_sanitize_checkbox_field' ) ) {
-	function penci_sanitize_checkbox_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_checkbox_field' ) ) {
+	function goso_sanitize_checkbox_field( $input ) {
 		if ( $input == 1 ) {
 			return true;
 		} else {
@@ -52,8 +52,8 @@ if ( ! function_exists( 'penci_sanitize_checkbox_field' ) ) {
  *
  * @return string default value if type is not exists
  */
-if ( ! function_exists( 'penci_switch_sanitization' ) ) {
-	function penci_switch_sanitization( $input ) {
+if ( ! function_exists( 'goso_switch_sanitization' ) ) {
+	function goso_switch_sanitization( $input ) {
 		if ( true === $input ) {
 			return 1;
 		} else {
@@ -70,8 +70,8 @@ if ( ! function_exists( 'penci_switch_sanitization' ) ) {
  *
  * @return a number
  */
-if ( ! function_exists( 'penci_sanitize_number_field' ) ) {
-	function penci_sanitize_number_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_number_field' ) ) {
+	function goso_sanitize_number_field( $input ) {
 		return absint( $input );
 	}
 }
@@ -82,8 +82,8 @@ if ( ! function_exists( 'penci_sanitize_number_field' ) ) {
  *
  * @return a decimal
  */
-if ( ! function_exists( 'penci_sanitize_decimal_field' ) ) {
-	function penci_sanitize_decimal_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_decimal_field' ) ) {
+	function goso_sanitize_decimal_field( $input ) {
 		return abs( floatval( $input ) );
 	}
 }
@@ -93,8 +93,8 @@ if ( ! function_exists( 'penci_sanitize_decimal_field' ) ) {
  *
  * @return empty if input is empty or a decimal
  */
-if ( ! function_exists( 'penci_sanitize_decimal_empty_field' ) ) {
-	function penci_sanitize_decimal_empty_field( $input ) {
+if ( ! function_exists( 'goso_sanitize_decimal_empty_field' ) ) {
+	function goso_sanitize_decimal_empty_field( $input ) {
 		if ( '' == $input ) {
 			return '';
 		}
@@ -108,8 +108,8 @@ if ( ! function_exists( 'penci_sanitize_decimal_empty_field' ) ) {
  *
  * @return empty if input is empty or a decimal
  */
-if ( ! function_exists( 'penci_sanitize_multiple_checkbox' ) ) {
-	function penci_sanitize_multiple_checkbox( $values ) {
+if ( ! function_exists( 'goso_sanitize_multiple_checkbox' ) ) {
+	function goso_sanitize_multiple_checkbox( $values ) {
 
 		$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
 
@@ -122,8 +122,8 @@ if ( ! function_exists( 'penci_sanitize_multiple_checkbox' ) ) {
  *
  * @return string
  */
-if ( ! function_exists( 'penci_renders_css' ) ) {
-	function penci_renders_css( $selector, $option, $attr = null ) {
+if ( ! function_exists( 'goso_renders_css' ) ) {
+	function goso_renders_css( $selector, $option, $attr = null ) {
 		if ( '' == $selector || '' == $option ) {
 			return '';
 		}
@@ -149,10 +149,10 @@ if ( ! function_exists( 'penci_renders_css' ) ) {
  *
  * @since 1.11.0
  */
-if ( ! function_exists( 'penci_activate_separate_css_file_callback' ) ) {
-	function penci_activate_separate_css_file_callback() {
+if ( ! function_exists( 'goso_activate_separate_css_file_callback' ) ) {
+	function goso_activate_separate_css_file_callback() {
 
-		if ( 'separate_file' === get_theme_mod( 'penci_spcss_render' ) ) {
+		if ( 'separate_file' === get_theme_mod( 'goso_spcss_render' ) ) {
 			return true;
 		}
 
@@ -167,8 +167,8 @@ if ( ! function_exists( 'penci_activate_separate_css_file_callback' ) ) {
  *
  * @return number    Sanitized input
  */
-if ( ! function_exists( 'penci_in_range' ) ) {
-	function penci_in_range( $input, $min, $max ) {
+if ( ! function_exists( 'goso_in_range' ) ) {
+	function goso_in_range( $input, $min, $max ) {
 		if ( $input < $min ) {
 			$input = $min;
 		}
@@ -187,8 +187,8 @@ if ( ! function_exists( 'penci_in_range' ) ) {
  *
  * @return string    Sanitized input
  */
-if ( ! function_exists( 'penci_hex_rgba_sanitization' ) ) {
-	function penci_hex_rgba_sanitization( $input, $setting ) {
+if ( ! function_exists( 'goso_hex_rgba_sanitization' ) ) {
+	function goso_hex_rgba_sanitization( $input, $setting ) {
 		if ( empty( $input ) || is_array( $input ) ) {
 			return $setting->default;
 		}
@@ -201,12 +201,12 @@ if ( ! function_exists( 'penci_hex_rgba_sanitization' ) ) {
 				// Sanitize as RGB color
 				$input = str_replace( ' ', '', $input );
 				sscanf( $input, 'rgb(%d,%d,%d)', $red, $green, $blue );
-				$input = 'rgb(' . penci_in_range( $red, 0, 255 ) . ',' . penci_in_range( $green, 0, 255 ) . ',' . penci_in_range( $blue, 0, 255 ) . ')';
+				$input = 'rgb(' . goso_in_range( $red, 0, 255 ) . ',' . goso_in_range( $green, 0, 255 ) . ',' . goso_in_range( $blue, 0, 255 ) . ')';
 			} else {
 				// Sanitize as RGBa color
 				$input = str_replace( ' ', '', $input );
 				sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-				$input = 'rgba(' . penci_in_range( $red, 0, 255 ) . ',' . penci_in_range( $green, 0, 255 ) . ',' . penci_in_range( $blue, 0, 255 ) . ',' . penci_in_range( $alpha, 0, 1 ) . ')';
+				$input = 'rgba(' . goso_in_range( $red, 0, 255 ) . ',' . goso_in_range( $green, 0, 255 ) . ',' . goso_in_range( $blue, 0, 255 ) . ',' . goso_in_range( $alpha, 0, 1 ) . ')';
 			}
 		}
 
@@ -214,8 +214,8 @@ if ( ! function_exists( 'penci_hex_rgba_sanitization' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_text_sanitization' ) ) {
-	function penci_text_sanitization( $input ) {
+if ( ! function_exists( 'goso_text_sanitization' ) ) {
+	function goso_text_sanitization( $input ) {
 		if ( ! is_array( $input ) && strpos( $input, ',' ) !== false ) {
 			$input = explode( ',', $input );
 		}
@@ -232,8 +232,8 @@ if ( ! function_exists( 'penci_text_sanitization' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_spacing_sanitization' ) ) {
-	function penci_spacing_sanitization( $input ) {
+if ( ! function_exists( 'goso_spacing_sanitization' ) ) {
+	function goso_spacing_sanitization( $input ) {
 		if ( is_array( $input ) ) {
 			$return = [];
 			foreach ( $input as $key => $value ) {
@@ -248,7 +248,7 @@ if ( ! function_exists( 'penci_spacing_sanitization' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_custom_sanitization' ) ) {
+if ( ! function_exists( 'goso_custom_sanitization' ) ) {
 	/**
 	 * Text sanitization function for Customize API
 	 *
@@ -257,7 +257,7 @@ if ( ! function_exists( 'penci_custom_sanitization' ) ) {
 	 * @return string        Sanitized input.
 	 * @since 1.0.0
 	 */
-	function penci_custom_sanitization( $input ) {
+	function goso_custom_sanitization( $input ) {
 		return wp_kses_post( force_balance_tags( $input ) );
 	}
 }

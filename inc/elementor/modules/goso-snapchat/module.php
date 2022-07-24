@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-snapchat';
+		return 'goso-snapchat';
 	}
 
 	public function get_widgets() {

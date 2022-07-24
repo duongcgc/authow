@@ -18,11 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoBigGrid extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-big-grid';
+		return 'goso-big-grid';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Big Grid', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Big Grid', 'authow' );
 	}
 
 	public function get_icon() {
@@ -30,7 +30,7 @@ class GosoBigGrid extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -38,7 +38,7 @@ class GosoBigGrid extends Base_Widget {
 	}
 
 	public function get_script_depends() {
-		return [ 'penci_ajax_filter_bg' ];
+		return [ 'goso_ajax_filter_bg' ];
 	}
 
 	protected function register_controls() {
@@ -390,9 +390,9 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgstyle-1 .penci-dflex'                                              => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2); width: calc(100% + {{SIZE}}px);',
-				'{{WRAPPER}} .penci-bgstyle-2 .item-masonry, {{WRAPPER}} .penci-bgstyle-1 .penci-bgitem' => 'padding-left: calc({{SIZE}}px/2); padding-right: calc({{SIZE}}px/2); margin-bottom: {{SIZE}}px',
-				'{{WRAPPER}} .penci-bgstyle-2 .penci-biggrid-data'                                       => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2);',
+				'{{WRAPPER}} .goso-bgstyle-1 .goso-dflex'                                              => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2); width: calc(100% + {{SIZE}}px);',
+				'{{WRAPPER}} .goso-bgstyle-2 .item-masonry, {{WRAPPER}} .goso-bgstyle-1 .goso-bgitem' => 'padding-left: calc({{SIZE}}px/2); padding-right: calc({{SIZE}}px/2); margin-bottom: {{SIZE}}px',
+				'{{WRAPPER}} .goso-bgstyle-2 .goso-biggrid-data'                                       => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2);',
 			),
 			'condition' => array( 'style' => array( 'style-1', 'style-2' ) ),
 		) );
@@ -402,18 +402,18 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-biggrid' => '--pcgap: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-biggrid' => '--pcgap: {{SIZE}}px;',
 			),
 			'condition' => array( 'style!' => array( 'style-1', 'style-2' ) ),
 		) );
 
-		$this->add_responsive_control( 'penci_img_ratio', array(
+		$this->add_responsive_control( 'goso_img_ratio', array(
 			'label'     => __( 'Adjust Ratio of Images( Unit % )', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'default'   => array( 'size' => 66 ),
 			'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 0.5 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgitem .penci-image-holder:before' => 'padding-top: {{SIZE}}%;',
+				'{{WRAPPER}} .goso-bgitem .goso-image-holder:before' => 'padding-top: {{SIZE}}%;',
 			),
 			'condition' => array( 'style' => array( 'style-1' ) ),
 		) );
@@ -423,7 +423,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, 'step' => 1 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .pcbg-thumb, {{WRAPPER}} .pcbg-bgoverlay, {{WRAPPER}} .penci-image-holder' => 'border-radius: {{SIZE}}px; -webkit-border-radius: {{SIZE}}px;',
+				'{{WRAPPER}} .pcbg-thumb, {{WRAPPER}} .pcbg-bgoverlay, {{WRAPPER}} .goso-image-holder' => 'border-radius: {{SIZE}}px; -webkit-border-radius: {{SIZE}}px;',
 			)
 		) );
 
@@ -433,7 +433,7 @@ class GosoBigGrid extends Base_Widget {
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 2000, ) ),
 			'condition' => array( 'style!' => array( 'style-1', 'style-2' ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-biggrid .penci-fixh' => '--bgh: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-biggrid .goso-fixh' => '--bgh: {{SIZE}}px;',
 			),
 		) );
 
@@ -484,7 +484,7 @@ class GosoBigGrid extends Base_Widget {
 			'label'     => __( 'Margin Top for Page Navigation', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( '' => array( 'min' => 0, 'max' => 200, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-pagination' => 'margin-top: {{SIZE}}px' ),
+			'selectors' => array( '{{WRAPPER}} .goso-pagination' => 'margin-top: {{SIZE}}px' ),
 			'condition' => array( 'bgquery_type' => 'post' ),
 		) );
 
@@ -681,10 +681,10 @@ class GosoBigGrid extends Base_Widget {
 			'label'      => __( 'Sub Title Color', 'authow' ),
 			'type'       => Controls_Manager::COLOR,
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above'      => 'color: {{VALUE}}',
-				'{{WRAPPER}} .penci-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above span' => 'color: {{VALUE}}',
-				'{{WRAPPER}} .penci-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above a'    => 'color: {{VALUE}}',
-				'{{WRAPPER}} .penci-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-sub-title'  => 'color: {{VALUE}}',
+				'{{WRAPPER}} .goso-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above'      => 'color: {{VALUE}}',
+				'{{WRAPPER}} .goso-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above span' => 'color: {{VALUE}}',
+				'{{WRAPPER}} .goso-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-above a'    => 'color: {{VALUE}}',
+				'{{WRAPPER}} .goso-bgrid-based-custom {{CURRENT_ITEM}} .pcbg-content-inner .pcbg-sub-title'  => 'color: {{VALUE}}',
 			),
 			'conditions' => array(
 				'terms' => array(
@@ -1142,8 +1142,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( '%' => array( 'min' => 0, 'max' => 100, 'step' => 1 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgmain:hover .pcbg-bgoverlay.active-overlay'     => 'opacity: calc( {{SIZE}}/100 )',
-				'{{WRAPPER}} .penci-bgmain:hover .pcbg-bgoverlaytext.active-overlay' => 'opacity: calc( {{SIZE}}/100 )',
+				'{{WRAPPER}} .goso-bgmain:hover .pcbg-bgoverlay.active-overlay'     => 'opacity: calc( {{SIZE}}/100 )',
+				'{{WRAPPER}} .goso-bgmain:hover .pcbg-bgoverlaytext.active-overlay' => 'opacity: calc( {{SIZE}}/100 )',
 			),
 		) );
 
@@ -1157,8 +1157,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgrid-based-post .cat > a.penci-cat-name' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-bgrid-based-custom .pcbg-sub-title'       => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgrid-based-post .cat > a.goso-cat-name' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgrid-based-custom .pcbg-sub-title'       => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 			),
 			'condition' => array( 'apply_spe_bg_subtitle' => 'yes' ),
 		) );
@@ -1168,8 +1168,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgrid-based-post .penci-bgitem:hover .cat > a.penci-cat-name' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-bgrid-based-custom .penci-bgitem:hover .pcbg-sub-title'       => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgrid-based-post .goso-bgitem:hover .cat > a.goso-cat-name' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgrid-based-custom .goso-bgitem:hover .pcbg-sub-title'       => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 			),
 			'condition' => array( 'apply_spe_bg_subtitle' => 'yes' ),
 		) );
@@ -1194,7 +1194,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgitem:hover .pcbg-title' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgitem:hover .pcbg-title' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 			),
 			'condition' => array( 'apply_spe_bg_title' => 'yes' ),
 		) );
@@ -1219,7 +1219,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgitem:hover .pcbg-meta-desc' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgitem:hover .pcbg-meta-desc' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 			),
 			'condition' => array( 'apply_spe_bg_meta' => 'yes' ),
 		) );
@@ -1306,7 +1306,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .pcbg-verbd .penci-dflex .penci-bgitem' => 'border-right-color: {{VALUE}};',
+				'{{WRAPPER}} .pcbg-verbd .goso-dflex .goso-bgitem' => 'border-right-color: {{VALUE}};',
 			),
 			'condition' => array( 'ver_border' => 'yes', 'style' => 'style-1' ),
 		) );
@@ -1316,7 +1316,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .pcbg-verbd .penci-dflex .penci-bgitem' => 'border-right-width: {{SIZE}}px;',
+				'{{WRAPPER}} .pcbg-verbd .goso-dflex .goso-bgitem' => 'border-right-width: {{SIZE}}px;',
 			),
 			'condition' => array( 'ver_border' => 'yes', 'style' => 'style-1' ),
 		) );
@@ -1326,7 +1326,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1335,7 +1335,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'border: 1px solid {{VALUE}};',
+				'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'border: 1px solid {{VALUE}};',
 			),
 		) );
 
@@ -1344,7 +1344,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 			),
 		) );
 
@@ -1353,7 +1353,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 			),
 		) );
 
@@ -1368,7 +1368,7 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-bgrid-based-custom .pcbg-content-inner .pcbg-above' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-bgrid-based-custom .pcbg-content-inner .pcbg-above' => 'color: {{VALUE}};',
 				'{{WRAPPER}} .pcbg-content-inner .pcbg-above span'                      => 'color: {{VALUE}};',
 				'{{WRAPPER}} .pcbg-content-inner .pcbg-above span a'                    => 'color: {{VALUE}};',
 				'{{WRAPPER}} .pcbg-content-inner .pcbg-sub-title'                       => 'color: {{VALUE}};',
@@ -1387,7 +1387,7 @@ class GosoBigGrid extends Base_Widget {
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'bgsub_title_typo',
 			'label'    => __( 'Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-bgrid-based-custom .pcbg-content-inner .pcbg-above, {{WRAPPER}} .pcbg-content-inner .pcbg-above span,{{WRAPPER}} .pcbg-content-inner .pcbg-above span a, {{WRAPPER}} .pcbg-content-inner .pcbg-sub-title',
+			'selector' => '{{WRAPPER}} .goso-bgrid-based-custom .pcbg-content-inner .pcbg-above, {{WRAPPER}} .pcbg-content-inner .pcbg-above span,{{WRAPPER}} .pcbg-content-inner .pcbg-above span a, {{WRAPPER}} .pcbg-content-inner .pcbg-sub-title',
 		) );
 
 		$this->add_control( 'title_design', array(
@@ -1634,7 +1634,7 @@ class GosoBigGrid extends Base_Widget {
 				'bgquery_type' => 'post'
 			),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button' => 'max-width: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button' => 'max-width: {{SIZE}}{{UNIT}};',
 			),
 		) );
 
@@ -1643,8 +1643,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1657,9 +1657,9 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1672,8 +1672,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'border-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1686,9 +1686,9 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'border-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1701,8 +1701,8 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'background-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1715,9 +1715,9 @@ class GosoBigGrid extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'background-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!'      => 'none',
@@ -1728,7 +1728,7 @@ class GosoBigGrid extends Base_Widget {
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'      => 'bgpagi_typo',
 			'label'     => __( 'Typography', 'authow' ),
-			'selector'  => '{{WRAPPER}} .penci-pagination a, {{WRAPPER}} .penci-pagination span.current',
+			'selector'  => '{{WRAPPER}} .goso-pagination a, {{WRAPPER}} .goso-pagination span.current',
 			'condition' => array(
 				'paging!'      => 'none',
 				'bgquery_type' => 'post'
@@ -1742,7 +1742,7 @@ class GosoBigGrid extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!'      => 'none',
@@ -1757,7 +1757,7 @@ class GosoBigGrid extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!'      => 'none',
@@ -1772,7 +1772,7 @@ class GosoBigGrid extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!'      => 'none',
@@ -1941,9 +1941,9 @@ class GosoBigGrid extends Base_Widget {
 		$text_overlay_ani  = $settings['text_overlay_ani'] ? $settings['text_overlay_ani'] : 'movetop';
 		$onecol_mobile     = $settings['onecol_mobile'] ? $settings['onecol_mobile'] : '';
 		$sameh_mobile      = $settings['sameh_mobile'] ? $settings['sameh_mobile'] : '';
-		$thumb_size        = $settings['thumb_size'] ? $settings['thumb_size'] : 'penci-masonry-thumb';
-		$bthumb_size       = $settings['bthumb_size'] ? $settings['bthumb_size'] : 'penci-full-thumb';
-		$mthumb_size       = $settings['mthumb_size'] ? $settings['mthumb_size'] : 'penci-masonry-thumb';
+		$thumb_size        = $settings['thumb_size'] ? $settings['thumb_size'] : 'goso-masonry-thumb';
+		$bthumb_size       = $settings['bthumb_size'] ? $settings['bthumb_size'] : 'goso-full-thumb';
+		$mthumb_size       = $settings['mthumb_size'] ? $settings['mthumb_size'] : 'goso-masonry-thumb';
 		$title_length      = $settings['title_length'] ? $settings['title_length'] : '';
 		$readmore_icon     = $settings['readmore_icon'] ? $settings['readmore_icon'] : '';
 		$readmore_icon_pos = $settings['readmore_icon_pos'] ? $settings['readmore_icon_pos'] : 'right';
@@ -1952,16 +1952,16 @@ class GosoBigGrid extends Base_Widget {
 
 		$wrapper_class   = $data_class = '';
 		$flag_style      = false;
-		$clear_fix_class = 'penci-clearfix ';
+		$clear_fix_class = 'goso-clearfix ';
 		if ( $biggid_style == 'style-1' ) {
-			$data_class .= ' penci-dflex';
+			$data_class .= ' goso-dflex';
 		} else {
-			$data_class .= ' penci-dblock';
+			$data_class .= ' goso-dblock';
 		}
 
 		if ( ! in_array( $biggid_style, array( 'style-1', 'style-2' ) ) ) {
 			$flag_style    = true;
-			$data_class    .= ' penci-fixh';
+			$data_class    .= ' goso-fixh';
 			$bgcontent_pos = 'on';
 		}
 
@@ -1969,19 +1969,19 @@ class GosoBigGrid extends Base_Widget {
 			$bg_columns        = $settings['bg_columns'] ? $settings['bg_columns'] : '3';
 			$bg_columns_tablet = $settings['bg_columns_tablet'] ? $settings['bg_columns_tablet'] : '';
 			$bg_columns_mobile = $settings['bg_columns_mobile'] ? $settings['bg_columns_mobile'] : '1';
-			$wrapper_class     .= ' penci-grid-col-' . $bg_columns;
+			$wrapper_class     .= ' goso-grid-col-' . $bg_columns;
 			if ( $bg_columns_tablet ) {
-				$wrapper_class .= ' penci-grid-tcol-' . $bg_columns_tablet;
+				$wrapper_class .= ' goso-grid-tcol-' . $bg_columns_tablet;
 			}
-			$wrapper_class .= ' penci-grid-mcol-' . $bg_columns_mobile;
+			$wrapper_class .= ' goso-grid-mcol-' . $bg_columns_mobile;
 		}
 
-		$wrapper_class .= ' penci-bgrid-based-' . $biggid_type . ' penci-bgrid-' . $biggid_style . ' pcbg-ficonpo-' . $formaticon_pos . ' pcbg-reiconpo-' . $reviewpie_pos . ' penci-bgrid-content-' . $bgcontent_pos . ' pencibg-imageh-' . $image_hover . ' pencibg-texth-' . $text_overlay . ' pencibg-textani-' . $text_overlay_ani;
+		$wrapper_class .= ' goso-bgrid-based-' . $biggid_type . ' goso-bgrid-' . $biggid_style . ' pcbg-ficonpo-' . $formaticon_pos . ' pcbg-reiconpo-' . $reviewpie_pos . ' goso-bgrid-content-' . $bgcontent_pos . ' gosobg-imageh-' . $image_hover . ' gosobg-texth-' . $text_overlay . ' gosobg-textani-' . $text_overlay_ani;
 		if ( $flag_style && 'yes' == $onecol_mobile ) {
-			$wrapper_class .= ' penci-bgrid-monecol';
+			$wrapper_class .= ' goso-bgrid-monecol';
 		}
 		if ( $flag_style && 'yes' == $sameh_mobile ) {
-			$wrapper_class .= ' penci-bgrid-msameh';
+			$wrapper_class .= ' goso-bgrid-msameh';
 		}
 
 		if ( 'yes' == $settings['title_anivisi'] ) {
@@ -2022,10 +2022,10 @@ class GosoBigGrid extends Base_Widget {
 			$wrapper_class .= ' pcbg-verbd';
 		}
 
-		$big_items           = penci_big_grid_is_big_items( $biggid_style );
+		$big_items           = goso_big_grid_is_big_items( $biggid_style );
 		$block_id            = 'pcblock-' . rand( 0, 9999 );
 		$settings['blockid'] = $block_id;
-		add_action( 'penci_block_title_extra_' . $block_id, function () use ( $settings ) {
+		add_action( 'goso_block_title_extra_' . $block_id, function () use ( $settings ) {
 			$link_group_cats   = $settings['biggrid_ajaxfilter_cat'];
 			$link_group_tags   = $settings['biggrid_ajaxfilter_tag'];
 			$link_group_author = $settings['biggrid_ajaxfilter_author'];
@@ -2117,22 +2117,22 @@ class GosoBigGrid extends Base_Widget {
 
 			if ( 'nextprev' == $settings['paging'] ) {
 				$link_group_out .= '</ul><ul class="pcflx-nav">';
-				$link_group_out .= '<li class="pcaj-nav-item pcaj-prev"><a class="disable pc-ajaxfil-link pcaj-nav-link prev" data-id="" href="#"><i class="penciicon-left-chevron"></i></a></li>';
-				$link_group_out .= '<li class="pcaj-nav-item pcaj-next"><a class="pc-ajaxfil-link pcaj-nav-link next" data-id="" href="#"><i class="penciicon-right-chevron"></i></a></li>';
+				$link_group_out .= '<li class="pcaj-nav-item pcaj-prev"><a class="disable pc-ajaxfil-link pcaj-nav-link prev" data-id="" href="#"><i class="gosoicon-left-chevron"></i></a></li>';
+				$link_group_out .= '<li class="pcaj-nav-item pcaj-next"><a class="pc-ajaxfil-link pcaj-nav-link next" data-id="" href="#"><i class="gosoicon-right-chevron"></i></a></li>';
 			}
 
 			if ( $link_group_out ) {
 				$first_class           = $has_link ? 'visible' : 'hidden-item';
 				$link_group_out_before .= '<li class="all ' . $first_class . '"><a data-paged="1" class="pc-ajaxfil-link current-item" data-id="default" href="#">' . $settings['group_more_defaultab_text'] . '</a></li>';
-				wp_enqueue_script( 'penci_ajax_filter_bg' );
+				wp_enqueue_script( 'goso_ajax_filter_bg' );
 				echo $link_group_out_before . $link_group_out . $link_group_out_after;
 			}
 		} );
 		?>
-        <div class="penci-clearfix penci-biggrid-wrapper<?php echo $wrapper_class; ?>">
+        <div class="goso-clearfix goso-biggrid-wrapper<?php echo $wrapper_class; ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-clearfix penci-biggrid penci-bg<?php echo $biggid_style; ?> penci-bgel">
-                <div class="penci-biggrid-inner default">
+            <div class="goso-clearfix goso-biggrid goso-bg<?php echo $biggid_style; ?> goso-bgel">
+                <div class="goso-biggrid-inner default">
 					<?php
 					$bg = 1;
 					if ( 'post' == $biggid_type ) {
@@ -2150,7 +2150,7 @@ class GosoBigGrid extends Base_Widget {
 						$paging_align       = $settings['paging_align'] ? $settings['paging_align'] : 'align-center';
 						$original_postype   = $settings['posts_post_type'];
 
-						if ( in_array($original_postype,['current_query','related_posts']) && penci_elementor_is_edit_mode() && penci_is_builder_template() ) {
+						if ( in_array($original_postype,['current_query','related_posts']) && goso_elementor_is_edit_mode() && goso_is_builder_template() ) {
 							$settings['posts_post_type'] = 'post';
 						}
 						$archive_buider_check = $settings['posts_post_type'];
@@ -2188,14 +2188,14 @@ class GosoBigGrid extends Base_Widget {
 						$query_custom = new \WP_Query( $args );
 
 						if ( ! $query_custom->have_posts() ) {
-							echo $this->show_missing_settings( 'Big Grid', penci_get_setting( 'penci_ajaxsearch_no_post' ) );
+							echo $this->show_missing_settings( 'Big Grid', goso_get_setting( 'goso_ajaxsearch_no_post' ) );
 						}
 
 						if ( $query_custom->have_posts() ) {
 							$num_posts = $query_custom->post_count;
-							//$number_each = penci_big_grid_count_item( $biggid_style );
+							//$number_each = goso_big_grid_count_item( $biggid_style );
 							if ( $flag_style ) {
-								echo '<div class="penci-big-grid-ajax-data">';
+								echo '<div class="goso-big-grid-ajax-data">';
 							}
 
 							$maxp_out = '';
@@ -2204,17 +2204,17 @@ class GosoBigGrid extends Base_Widget {
 								$maxp_out = 'data-maxp="' . $query_custom->max_num_pages . '" ';
 							}
 
-							echo '<div ' . $maxp_out . 'class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+							echo '<div ' . $maxp_out . 'class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 							while ( $query_custom->have_posts() ) : $query_custom->the_post();
 								$hide_cat_small_flag = $hide_meta_small_flag = $hide_rm_small_flag = $hide_excerpt_small_flag = false;
 								$is_big_item         = '';
-								$surplus             = penci_big_grid_count_classes( $bg, $biggid_style, true );
+								$surplus             = goso_big_grid_count_classes( $bg, $biggid_style, true );
 								$thumbnail           = $thumb_size;
 								if ( ! empty( $big_items ) && in_array( $surplus, $big_items ) ) {
 									$thumbnail   = $bthumb_size;
 									$is_big_item = ' pcbg-big-item';
 								}
-								if ( penci_is_mobile() ) {
+								if ( goso_is_mobile() ) {
 									$thumbnail = $mthumb_size;
 								}
 
@@ -2239,7 +2239,7 @@ class GosoBigGrid extends Base_Widget {
 								include dirname( __FILE__ ) . "/based-post.php";
 
 								if ( $flag_style && $surplus == 0 && $bg < $num_posts ) {
-									echo '</div><div class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+									echo '</div><div class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 								}
 
 								$bg ++;
@@ -2281,18 +2281,18 @@ class GosoBigGrid extends Base_Widget {
 
 								$data_settings_ajax = htmlentities( json_encode( $data_settings ), ENT_QUOTES, "UTF-8" );
 
-								$button_class = ' penci-ajax-more penci-bgajax-more-click';
+								$button_class = ' goso-ajax-more goso-bgajax-more-click';
 								if ( 'loadmore' == $paging ):
-									wp_enqueue_script( 'penci_bgajax_more_posts' );
-									wp_localize_script( 'penci_bgajax_more_posts', 'ajax_var_more', array(
+									wp_enqueue_script( 'goso_bgajax_more_posts' );
+									wp_localize_script( 'goso_bgajax_more_posts', 'ajax_var_more', array(
 										'url'   => admin_url( 'admin-ajax.php' ),
 										'nonce' => wp_create_nonce( 'ajax-nonce' ),
 									) );
 								endif;
 								if ( 'scroll' == $paging ):
-									$button_class = ' penci-ajax-more penci-bgajax-more-scroll';
-									wp_enqueue_script( 'penci_bgajax_more_scroll' );
-									wp_localize_script( 'penci_bgajax_more_scroll', 'ajax_var_more', array(
+									$button_class = ' goso-ajax-more goso-bgajax-more-scroll';
+									wp_enqueue_script( 'goso_bgajax_more_scroll' );
+									wp_localize_script( 'goso_bgajax_more_scroll', 'ajax_var_more', array(
 										'url'   => admin_url( 'admin-ajax.php' ),
 										'nonce' => wp_create_nonce( 'ajax-nonce' ),
 									) );
@@ -2349,8 +2349,8 @@ class GosoBigGrid extends Base_Widget {
 									}
 								endif;
 								?>
-                                <div class="pcbg-paging penci-pagination <?php echo 'pcbg-paging-' . $paging_align . $button_class; ?>">
-                                    <a class="penci-ajax-more-button" href="#"
+                                <div class="pcbg-paging goso-pagination <?php echo 'pcbg-paging-' . $paging_align . $button_class; ?>">
+                                    <a class="goso-ajax-more-button" href="#"
 										<?php if ( $data_archive_type && $data_archive_value ): ?>
                                             data-archivetype="<?php echo $data_archive_type; ?>"
                                             data-archivevalue="<?php echo $data_archive_value; ?>"
@@ -2360,14 +2360,14 @@ class GosoBigGrid extends Base_Widget {
                                        data-layout="<?php echo $biggid_style; ?>"
                                        data-settings="<?php echo $data_settings_ajax; ?>"
                                        data-pagednum="<?php echo( (int) $data_paged + 1 ); ?>"
-                                       data-mes="<?php echo penci_get_setting( 'penci_trans_no_more_posts' ); ?>">
-                                        <span class="ajax-more-text"><?php echo penci_get_setting( 'penci_trans_load_more_posts' ); ?></span><span
-                                                class="ajaxdot"></span><?php penci_fawesome_icon( 'fas fa-sync' ); ?>
+                                       data-mes="<?php echo goso_get_setting( 'goso_trans_no_more_posts' ); ?>">
+                                        <span class="ajax-more-text"><?php echo goso_get_setting( 'goso_trans_load_more_posts' ); ?></span><span
+                                                class="ajaxdot"></span><?php goso_fawesome_icon( 'fas fa-sync' ); ?>
                                     </a>
                                 </div>
 								<?php
 							} elseif ( 'numbers' == $paging ) {
-								echo penci_pagination_numbers( $query_custom, $paging_align );
+								echo goso_pagination_numbers( $query_custom, $paging_align );
 							}
 						}
 						wp_reset_postdata();
@@ -2379,24 +2379,24 @@ class GosoBigGrid extends Base_Widget {
 						// echo '</pre>';
 						$num_posts = count( $biggrid_items );
 						if ( ! empty( $biggrid_items ) ) {
-							echo '<div class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+							echo '<div class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 							foreach ( $biggrid_items as $setting ) {
 								$is_big_item = '';
-								$surplus     = penci_big_grid_count_classes( $bg, $biggid_style, true );
+								$surplus     = goso_big_grid_count_classes( $bg, $biggid_style, true );
 								$thumbnail   = $thumb_size;
 								if ( ! empty( $big_items ) && in_array( $surplus, $big_items ) ) {
 									$thumbnail   = $bthumb_size;
 									$is_big_item = ' pcbg-big-item';
 								}
-								if ( penci_is_mobile() ) {
+								if ( goso_is_mobile() ) {
 									$thumbnail = $mthumb_size;
 								}
 
 								/* Get Custom Items Data */
 								$item_id     = $setting['_id'] ? ' elementor-repeater-item-' . $setting['_id'] : '';
 								$image_data  = $setting['image']['url'] ? $setting['image']['url'] : '';
-								$image_url   = penci_get_image_size_url( $image_data, $thumbnail );
-								$image_ratio = penci_get_ratio_size_based_url( $image_data );
+								$image_url   = goso_get_image_size_url( $image_data, $thumbnail );
+								$image_ratio = goso_get_ratio_size_based_url( $image_data );
 								$sub_title   = $setting['sub_title'] ? $setting['sub_title'] : '';
 
 								$title           = $setting['title'] ? $setting['title'] : '';
@@ -2424,7 +2424,7 @@ class GosoBigGrid extends Base_Widget {
 								include dirname( __FILE__ ) . "/custom.php";
 
 								if ( $flag_style && $surplus == 0 && $bg < $num_posts ) {
-									echo '</div><div class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+									echo '</div><div class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 								}
 
 								$bg ++;
@@ -2436,7 +2436,7 @@ class GosoBigGrid extends Base_Widget {
                 </div>
 				<?php
 				if ( $settings['biggrid_ajaxfilter_cat'] || $settings['biggrid_ajaxfilter_tag'] || $settings['biggrid_ajaxfilter_author'] || 'nextprev' == $settings['paging'] ) {
-					echo penci_get_html_animation_loading( $settings['biggrid_ajax_loading_style'] );
+					echo goso_get_html_animation_loading( $settings['biggrid_ajax_loading_style'] );
 				} ?>
             </div>
         </div>
@@ -2446,7 +2446,7 @@ class GosoBigGrid extends Base_Widget {
 	public static function show_missing_settings( $label, $mess ) {
 		$output = '';
 		if ( current_user_can( 'manage_options' ) ) {
-			$output .= '<div class="penci-missing-settings">';
+			$output .= '<div class="goso-missing-settings">';
 			$output .= '<p style="margin-bottom: 4px;">This message appears for administrator users only</p>';
 			$output .= '<span>' . $label . '</span>';
 			$output .= $mess;

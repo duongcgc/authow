@@ -1,10 +1,10 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_style',
+	'id'        => 'goso_header_pb_search_form_style',
 	'default'   => 'default',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Search Style',
 
 	'type'    => 'authow-fw-select',
@@ -15,7 +15,7 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_bg_color',
+	'id'        => 'goso_header_pb_search_form_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -23,7 +23,7 @@ $options[] = array(
 	'label'     => 'Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_border_color',
+	'id'        => 'goso_header_pb_search_form_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -31,7 +31,7 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_txt_color',
+	'id'        => 'goso_header_pb_search_form_txt_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -39,7 +39,7 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btntxt_color',
+	'id'        => 'goso_header_pb_search_form_btntxt_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -47,7 +47,7 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btnhtxt_color',
+	'id'        => 'goso_header_pb_search_form_btnhtxt_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -55,7 +55,7 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btn_color',
+	'id'        => 'goso_header_pb_search_form_btn_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -63,7 +63,7 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btn_hv_color',
+	'id'        => 'goso_header_pb_search_form_btn_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -71,14 +71,14 @@ $options[] = array(
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_width',
+	'id'        => 'goso_header_pb_search_form_width',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Search Form Max Width',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_width',
+		'desktop' => 'goso_header_pb_search_form_width',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -91,14 +91,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_height',
+	'id'        => 'goso_header_pb_search_form_height',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Custom Height',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_height',
+		'desktop' => 'goso_header_pb_search_form_height',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -111,14 +111,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_input_size',
+	'id'        => 'goso_header_pb_search_form_input_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Font Size for Input Text',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_input_size',
+		'desktop' => 'goso_header_pb_search_form_input_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -131,14 +131,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btn_size',
+	'id'        => 'goso_header_pb_search_form_btn_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Font Size for Button/Icon',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_btn_size',
+		'desktop' => 'goso_header_pb_search_form_btn_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -151,13 +151,13 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_input_pdl',
+	'id'        => 'goso_header_pb_search_form_input_pdl',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_input_pdl',
+		'desktop' => 'goso_header_pb_search_form_input_pdl',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -171,13 +171,13 @@ $options[] = array(
 	'label'     => __( 'Input Text Padding Left', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_input_pdr',
+	'id'        => 'goso_header_pb_search_form_input_pdr',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_input_pdr',
+		'desktop' => 'goso_header_pb_search_form_input_pdr',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -191,13 +191,13 @@ $options[] = array(
 	'label'     => __( 'Input Text Padding Right', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btn_pdl',
+	'id'        => 'goso_header_pb_search_form_btn_pdl',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_btn_pdl',
+		'desktop' => 'goso_header_pb_search_form_btn_pdl',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -211,13 +211,13 @@ $options[] = array(
 	'label'     => __( 'Button Padding Left', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_btn_pdr',
+	'id'        => 'goso_header_pb_search_form_btn_pdr',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_search_form_btn_pdr',
+		'desktop' => 'goso_header_pb_search_form_btn_pdr',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -231,10 +231,10 @@ $options[] = array(
 	'label'     => __( 'Button Padding Right', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_menu_spacing',
+	'id'        => 'goso_header_pb_search_form_menu_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -253,28 +253,28 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_search_form_menu_class',
+	'id'        => 'goso_header_pb_search_form_menu_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 
 );
 
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_pb_search_form_bg_color', array(
-	'selector'            => '.penci-builder-element.pc-search-form',
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_pb_search_form_bg_color', array(
+	'selector'            => '.goso-builder-element.pc-search-form',
 	'settings'            => [
-		'penci_header_pb_search_form_bg_color',
-		'penci_header_pb_search_form_border_color',
-		'penci_header_pb_search_form_txt_color',
-		'penci_header_pb_search_form_btn_color',
-		'penci_header_pb_search_form_btn_hv_color',
-		'penci_header_pb_search_form_style',
-		'penci_header_pb_search_form_width',
-		'penci_header_pb_search_form_height',
-		'penci_header_pb_search_form_menu_spacing',
-		'penci_header_pb_search_form_menu_class',
+		'goso_header_pb_search_form_bg_color',
+		'goso_header_pb_search_form_border_color',
+		'goso_header_pb_search_form_txt_color',
+		'goso_header_pb_search_form_btn_color',
+		'goso_header_pb_search_form_btn_hv_color',
+		'goso_header_pb_search_form_style',
+		'goso_header_pb_search_form_width',
+		'goso_header_pb_search_form_height',
+		'goso_header_pb_search_form_menu_spacing',
+		'goso_header_pb_search_form_menu_class',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

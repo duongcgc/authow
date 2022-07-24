@@ -2,9 +2,9 @@
 $options   = [];
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Home Title Box Style',
-	'id'       => 'penci_featured_cat_style',
+	'id'       => 'goso_featured_cat_style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''                  => 'Default( follow Sidebar )',
@@ -32,16 +32,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Border Outer on Title Box',
-	'id'       => 'penci_home_remove_border_outer',
+	'id'       => 'goso_home_remove_border_outer',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Arrow Down on Title Box',
-	'id'       => 'penci_home_remove_arrow_down',
+	'id'       => 'goso_home_remove_arrow_down',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
@@ -49,13 +49,13 @@ $options[] = array(
 	'sanitize' => 'esc_url_raw',
 	'type' => 'authow-fw-image',
 	'label'    => 'Custom Background Image for Style 9',
-	'id'       => 'penci_featured_cat_image_8',
+	'id'       => 'goso_featured_cat_image_8',
 );
 $options[] = array(
 	'default'  => 'no-repeat',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Background Image Repeat for Style 9',
-	'id'       => 'penci_featured_cat8_repeat',
+	'id'       => 'goso_featured_cat8_repeat',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'no-repeat' => 'No Repeat',
@@ -64,16 +64,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase on Home Title Box',
-	'id'       => 'penci_home_featured_cat_lowcase',
+	'id'       => 'goso_home_featured_cat_lowcase',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => 'pcalign-left',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Homepage Featured Categories Title Box Align',
-	'id'       => 'penci_featured_cat_align',
+	'id'       => 'goso_featured_cat_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'pcalign-left'   => 'Left',
@@ -83,9 +83,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'pcalign-center',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Homepage Heading Latest Post Titles Align',
-	'id'       => 'penci_heading_latest_align',
+	'id'       => 'goso_heading_latest_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'pcalign-center' => 'Center',
@@ -95,9 +95,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Align Icon on Style 15',
-	'id'       => 'penci_homep_icon_align',
+	'id'       => 'goso_homep_icon_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''              => 'Default( follow Sidebar )',
@@ -107,9 +107,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Custom Icon on Style 15',
-	'id'       => 'penci_homep_icon_design',
+	'id'       => 'goso_homep_icon_design',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''             => 'Default( follow Sidebar )',

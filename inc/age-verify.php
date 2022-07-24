@@ -3,7 +3,7 @@
 class GosoAgeVerify {
 	function __construct() {
 
-		if ( ! get_theme_mod( 'penci_agepopup_enable' ) || current_user_can( 'manage_options' ) ) {
+		if ( ! get_theme_mod( 'goso_agepopup_enable' ) || current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
@@ -14,9 +14,9 @@ class GosoAgeVerify {
 	}
 
 	public function scripts() {
-		wp_enqueue_script( 'penci-age-verify', get_template_directory_uri() . '/js/age-verify.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
-		wp_localize_script( 'penci-age-verify', 'penci_age_settings', [
-			'age_verify'         => (bool) get_theme_mod( 'penci_agepopup_enable' ),
+		wp_enqueue_script( 'goso-age-verify', get_template_directory_uri() . '/js/age-verify.js', [ 'js-cookies' ], PENCI_SOLEDAD_VERSION, true );
+		wp_localize_script( 'goso-age-verify', 'goso_age_settings', [
+			'age_verify'         => (bool) get_theme_mod( 'goso_agepopup_enable' ),
 			'age_verify_expires' => 30,
 		] );
 	}
@@ -28,27 +28,27 @@ class GosoAgeVerify {
 	}
 
 	public function content() {
-		$verify_content = get_theme_mod( 'penci_agepopup_message' );
-		$error_content  = get_theme_mod( 'penci_agepopup_error_message' );
-		$animation      = get_theme_mod( 'penci_agepopup_animation', 'move-to-top' );
+		$verify_content = get_theme_mod( 'goso_agepopup_message' );
+		$error_content  = get_theme_mod( 'goso_agepopup_error_message' );
+		$animation      = get_theme_mod( 'goso_agepopup_animation', 'move-to-top' );
 		?>
 
-        <div class="mfp-with-anim <?php echo esc_attr( $animation ); ?> penci-popup penci-age-verify">
-            <div class="penci-age-verify-text">
+        <div class="mfp-with-anim <?php echo esc_attr( $animation ); ?> goso-popup goso-age-verify">
+            <div class="goso-age-verify-text">
 				<?php echo do_shortcode( $verify_content ); ?>
             </div>
 
-            <div class="penci-age-verify-text-error">
+            <div class="goso-age-verify-text-error">
 				<?php echo do_shortcode( $error_content ); ?>
             </div>
 
-            <div class="penci-age-verify-buttons">
-                <a href="#" rel="nofollow noopener" class="button penci-age-verify-allowed">
-					<?php echo penci_get_setting( 'penci_agepopup_agree_text' ); ?>
+            <div class="goso-age-verify-buttons">
+                <a href="#" rel="nofollow noopener" class="button goso-age-verify-allowed">
+					<?php echo goso_get_setting( 'goso_agepopup_agree_text' ); ?>
                 </a>
 
-                <a href="#" rel="nofollow noopener" class="button penci-age-verify-forbidden">
-					<?php echo penci_get_setting( 'penci_agepopup_cancel_text' ); ?>
+                <a href="#" rel="nofollow noopener" class="button goso-age-verify-forbidden">
+					<?php echo goso_get_setting( 'goso_agepopup_cancel_text' ); ?>
                 </a>
             </div>
         </div>
@@ -57,21 +57,21 @@ class GosoAgeVerify {
 	}
 
 	public function popop_style() {
-		$popup_bgimg       = get_theme_mod( 'penci_agepopup_bgimg' );
-		$popup_bgcl        = get_theme_mod( 'penci_agepopup_bgcolor' );
-		$popup_bgrepeat    = get_theme_mod( 'penci_agepopup_bgrepeat' );
-		$popup_bgposition  = get_theme_mod( 'penci_agepopup_bgposition' );
-		$popup_bgsize      = get_theme_mod( 'penci_agepopup_bgsize' );
-		$popup_bgscroll    = get_theme_mod( 'penci_agepopup_bgscroll' );
-		$popup_mw          = get_theme_mod( 'penci_agepopup_width_mobile' );
-		$popup_w           = get_theme_mod( 'penci_agepopup_width_desktop' );
-		$popup_cl          = get_theme_mod( 'penci_agepopup_txtcolor' );
-		$popup_tsize       = get_theme_mod( 'penci_agepopup_txt_size' );
-		$popup_tmsize      = get_theme_mod( 'penci_agepopup_txt_msize' );
-		$popup_spacing     = get_theme_mod( 'penci_agepopup_spacing' );
-		$popup_bordercolor = get_theme_mod( 'penci_agepopup_bordercolor' );
+		$popup_bgimg       = get_theme_mod( 'goso_agepopup_bgimg' );
+		$popup_bgcl        = get_theme_mod( 'goso_agepopup_bgcolor' );
+		$popup_bgrepeat    = get_theme_mod( 'goso_agepopup_bgrepeat' );
+		$popup_bgposition  = get_theme_mod( 'goso_agepopup_bgposition' );
+		$popup_bgsize      = get_theme_mod( 'goso_agepopup_bgsize' );
+		$popup_bgscroll    = get_theme_mod( 'goso_agepopup_bgscroll' );
+		$popup_mw          = get_theme_mod( 'goso_agepopup_width_mobile' );
+		$popup_w           = get_theme_mod( 'goso_agepopup_width_desktop' );
+		$popup_cl          = get_theme_mod( 'goso_agepopup_txtcolor' );
+		$popup_tsize       = get_theme_mod( 'goso_agepopup_txt_size' );
+		$popup_tmsize      = get_theme_mod( 'goso_agepopup_txt_msize' );
+		$popup_spacing     = get_theme_mod( 'goso_agepopup_spacing' );
+		$popup_bordercolor = get_theme_mod( 'goso_agepopup_bordercolor' );
 
-		echo '.penci-age-verify{';
+		echo '.goso-age-verify{';
 		if ( $popup_bgimg ) {
 			echo 'background-image:url("' . esc_url( $popup_bgimg ) . '");';
 		}
@@ -104,11 +104,11 @@ class GosoAgeVerify {
 			echo 'font-size:' . esc_attr( $popup_tsize ) . 'px;';
 		}
 		if ( $popup_spacing ) {
-			echo $this->penci_spacing_extract_data( $popup_spacing );
+			echo $this->goso_spacing_extract_data( $popup_spacing );
 		}
 		echo '}';
 
-		echo '@media only screen and (max-width:767px){.penci-age-verify{';
+		echo '@media only screen and (max-width:767px){.goso-age-verify{';
 		if ( $popup_tmsize ) {
 			echo 'font-size:' . esc_attr( $popup_tmsize ) . 'px;';
 		}
@@ -117,12 +117,12 @@ class GosoAgeVerify {
 		}
 		echo '}}';
 
-		$btn_1_cl    = get_theme_mod( 'penci_agepopup_btn1_color' );
-		$btn_1_hcl   = get_theme_mod( 'penci_agepopup_btn1_hcolor' );
-		$btn_1_bgcl  = get_theme_mod( 'penci_agepopup_btn1_bgcolor' );
-		$btn_1_hbgcl = get_theme_mod( 'penci_agepopup_btn1_hbgcolor' );
+		$btn_1_cl    = get_theme_mod( 'goso_agepopup_btn1_color' );
+		$btn_1_hcl   = get_theme_mod( 'goso_agepopup_btn1_hcolor' );
+		$btn_1_bgcl  = get_theme_mod( 'goso_agepopup_btn1_bgcolor' );
+		$btn_1_hbgcl = get_theme_mod( 'goso_agepopup_btn1_hbgcolor' );
 
-		echo '.penci-age-verify-buttons .button.penci-age-verify-allowed{';
+		echo '.goso-age-verify-buttons .button.goso-age-verify-allowed{';
 		if ( $btn_1_cl ) {
 			echo 'color:' . $btn_1_cl . ';';
 		}
@@ -131,7 +131,7 @@ class GosoAgeVerify {
 		}
 		echo '}';
 
-		echo '.penci-age-verify-buttons .button.penci-age-verify-allowed:hover{';
+		echo '.goso-age-verify-buttons .button.goso-age-verify-allowed:hover{';
 		if ( $btn_1_hcl ) {
 			echo 'color:' . $btn_1_hcl . ';';
 		}
@@ -140,12 +140,12 @@ class GosoAgeVerify {
 		}
 		echo '}';
 
-		$btn_2_cl    = get_theme_mod( 'penci_agepopup_btn2_color' );
-		$btn_2_hcl   = get_theme_mod( 'penci_agepopup_btn2_hcolor' );
-		$btn_2_bgcl  = get_theme_mod( 'penci_agepopup_btn2_bgcolor' );
-		$btn_2_hbgcl = get_theme_mod( 'penci_agepopup_btn2_hbgcolor' );
+		$btn_2_cl    = get_theme_mod( 'goso_agepopup_btn2_color' );
+		$btn_2_hcl   = get_theme_mod( 'goso_agepopup_btn2_hcolor' );
+		$btn_2_bgcl  = get_theme_mod( 'goso_agepopup_btn2_bgcolor' );
+		$btn_2_hbgcl = get_theme_mod( 'goso_agepopup_btn2_hbgcolor' );
 
-		echo '.penci-age-verify-buttons .button.penci-age-verify-forbidden{';
+		echo '.goso-age-verify-buttons .button.goso-age-verify-forbidden{';
 		if ( $btn_2_cl ) {
 			echo 'color:' . $btn_2_cl . ';';
 		}
@@ -154,7 +154,7 @@ class GosoAgeVerify {
 		}
 		echo '}';
 
-		echo '.penci-age-verify-buttons .button.penci-age-verify-forbidden:hover{';
+		echo '.goso-age-verify-buttons .button.goso-age-verify-forbidden:hover{';
 		if ( $btn_2_hcl ) {
 			echo 'color:' . $btn_2_hcl . ';';
 		}
@@ -165,7 +165,7 @@ class GosoAgeVerify {
 
 	}
 
-	public function penci_spacing_extract_data( $number = '', $out = '' ) {
+	public function goso_spacing_extract_data( $number = '', $out = '' ) {
 		$mpb = explode( ',', $number );
 		if ( isset( $mpb[0] ) && is_numeric( $mpb[0] ) ) {
 			$out .= 'padding-top:' . esc_attr( $mpb[0] ) . 'px;';

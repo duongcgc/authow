@@ -7,9 +7,9 @@ class Goso_Gutenberg_Authow_Portfolio {
 
 	public function render( $attributes, $content ) {
 
-		if( ! function_exists( 'penci_portfolio_shortcode' ) ){
+		if( ! function_exists( 'goso_portfolio_shortcode' ) ){
 			$mess = esc_html__( 'Please active Goso Portfolio plugin', 'authow' );
-			return  '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Portfolio', $mess ) . '</div>';
+			return  '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Portfolio', $mess ) . '</div>';
 		}
 
 		$param = ' wpblock="true"';
@@ -20,10 +20,10 @@ class Goso_Gutenberg_Authow_Portfolio {
 				}
 			}
 		}
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Portfolio', esc_html__( 'Click to edit this block', 'authow' ) );
 		$output .=  do_shortcode( '[portfolio ' . $param . ']' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .= '</div><!--endgoso-block-->';
 
 		return $output;
 	}

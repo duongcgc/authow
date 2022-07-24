@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => 'penci_about_me',
+	'base'          => 'goso_about_me',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/about_me/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Widget About Me', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Widget About Me', 'authow' ),
 	'description'   => __( 'About Me Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -98,7 +98,7 @@ vc_map( array(
 				'description' => __( 'To use this feature, please use square image for your image above to get best display.', 'authow' )
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_space',
 				'heading'    => __( 'Image Margin Bottom', 'authow' ),
 				'value'      => '',
@@ -108,7 +108,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_width',
 				'heading'    => __( 'Image Width', 'authow' ),
 				'value'      => '',
@@ -118,7 +118,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'title_bottom_space',
 				'heading'    => __( 'Title Margin Bottom', 'authow' ),
 				'value'      => '',
@@ -138,7 +138,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'About us text', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',

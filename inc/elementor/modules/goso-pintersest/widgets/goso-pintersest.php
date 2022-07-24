@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPintersest extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-pintersest';
+		return 'goso-pintersest';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Pinterest', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Pinterest', 'authow' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GosoPintersest extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -85,7 +85,7 @@ class GosoPintersest extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class = 'penci-block-vc penci-pintersest';
+		$css_class = 'goso-block-vc goso-pintersest';
 
 		$pusername = $settings['pusername'];
 		$pnumbers  = $settings['pnumbers'];
@@ -94,8 +94,8 @@ class GosoPintersest extends Base_Widget {
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
-				<div class="penci-pinterest-widget-container">
+			<div class="goso-block_content">
+				<div class="goso-pinterest-widget-container">
 					<?php
 					if ( ! $pusername ) {
 						esc_html_e( 'Pinterest data error: pinterest data is not set, please check the ID', 'authow' );

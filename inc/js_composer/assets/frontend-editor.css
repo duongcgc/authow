@@ -1,22 +1,22 @@
-.compose-mode .vc_penci_container {
+.compose-mode .vc_goso_container {
 	padding-top: 32px;
 	margin-top: 0 !important;
 }
 
-.compose-mode .vc_penci_container .penci-vc-column {
+.compose-mode .vc_goso_container .goso-vc-column {
 	padding: 0 !important;
 	width: 100% !important;
 	float: none;
 }
-.penci-pb-row .vc_empty-element {
+.goso-pb-row .vc_empty-element {
 	min-height: 100px;
 }
-.compose-mode .vc_element.vc_hold-hover > .penci-vc-container >  .penci-vc-row >  .penci-vc-row > .vc_element:before,
-.compose-mode .vc_element.vc_hover > .penci-vc-container >  .penci-vc-row >  .penci-vc-row > .vc_element:before,
-.compose-mode .vc_element:hover > .penci-vc-container >  .penci-vc-row > .vc_element:before,
-.view-mode .vc_element.vc_hold-hover > .penci-vc-container >  .penci-vc-row > .vc_element:before,
-.view-mode .vc_element.vc_hover > .penci-vc-container >  .penci-vc-row > .vc_element:before,
-.view-mode .vc_element:hover > .penci-vc-container >  .penci-vc-row > .vc_element:before {
+.compose-mode .vc_element.vc_hold-hover > .goso-vc-container >  .goso-vc-row >  .goso-vc-row > .vc_element:before,
+.compose-mode .vc_element.vc_hover > .goso-vc-container >  .goso-vc-row >  .goso-vc-row > .vc_element:before,
+.compose-mode .vc_element:hover > .goso-vc-container >  .goso-vc-row > .vc_element:before,
+.view-mode .vc_element.vc_hold-hover > .goso-vc-container >  .goso-vc-row > .vc_element:before,
+.view-mode .vc_element.vc_hover > .goso-vc-container >  .goso-vc-row > .vc_element:before,
+.view-mode .vc_element:hover > .goso-vc-container >  .goso-vc-row > .vc_element:before {
 	content: '';
 	margin: 0;
 	padding: 0;

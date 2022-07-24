@@ -3,28 +3,28 @@ $title       = $category->name;
 $catcount    = $category->count;
 $count       = isset( $settings['hide_subtitle'] ) && 'yes' == $settings['hide_subtitle'] ? false : $catcount;
 $title_link  = get_term_link( $category->term_id, $tax_name );
-$image_id    = penci_subcategory_extract_img( $category );
-$image_url   = wp_get_attachment_image_url( penci_get_taxonomies_image( $tax_name, $category->term_id, $term_options ), 'full' );
-$image_ratio = penci_get_ratio_size_based_url( $image_url );
+$image_id    = goso_subcategory_extract_img( $category );
+$image_url   = wp_get_attachment_image_url( goso_get_taxonomies_image( $tax_name, $category->term_id, $term_options ), 'full' );
+$image_ratio = goso_get_ratio_size_based_url( $image_url );
 ?>
-<div class="penci-bgitem<?php if ( 'style-2' == $biggid_style ) {
+<div class="goso-bgitem<?php if ( 'style-2' == $biggid_style ) {
 	echo ' item-masonry';
 }
-echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
-    <div class="penci-bgitin">
-        <div class="penci-bgmain">
+echo $is_big_item . goso_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
+    <div class="goso-bgitin">
+        <div class="goso-bgmain">
             <div class="pcbg-thumb">
                 <div class="pcbg-thumbin">
                     <a class="pcbg-bgoverlay<?php if ( 'whole' == $overlay_type && 'on' != $bgcontent_pos ): echo ' active-overlay'; endif; ?>"
 					   <?php if ( $title_link ){ ?>href="<?php echo esc_url( $title_link ); ?>"<?php }; ?>
                        title="<?php echo wp_strip_all_tags( $title ); ?>"></a>
 					<?php if ( ! $disable_lazy ) { ?>
-                        <div class="penci-image-holder penci-lazy"<?php if ( 'style-2' == $biggid_style ) {
+                        <div class="goso-image-holder goso-lazy"<?php if ( 'style-2' == $biggid_style ) {
 							echo ' style="padding-bottom: ' . $image_ratio . '%"';
 						} ?> data-bgset="<?php echo $image_url; ?>">
                         </div>
 					<?php } else { ?>
-                        <div class="penci-image-holder"
+                        <div class="goso-image-holder"
                              style="background-image: url('<?php echo $image_url; ?>');<?php if ( 'style-2' == $biggid_style ) {
 							     echo 'padding-bottom: ' . $image_ratio . '%';
 						     } ?>">

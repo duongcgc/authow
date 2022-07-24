@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class PortfolioOption extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_portfolio_section_panel';
+	public $panelID = 'goso_portfolio_section_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -26,9 +26,9 @@ class PortfolioOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'pencidesign_portfolio_sgeneral_section', esc_html__( 'General', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'pencidesign_portfolio_scolor_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'pencidesign_portfolio_sfontsize_section', esc_html__( 'Font Size', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'pencidesign_portfolio_sadvanced_section', esc_html__( 'Advanced', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_portfolio_sgeneral_section', esc_html__( 'General', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_portfolio_scolor_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_portfolio_sfontsize_section', esc_html__( 'Font Size', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_portfolio_sadvanced_section', esc_html__( 'Advanced', 'authow' ), $this->panelID );
 	}
 }

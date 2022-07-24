@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoButton extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-button';
+		return 'goso-button';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,11 +28,11 @@ class GosoButton extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
-		return array( 'button', 'click', 'penci', 'authow' );
+		return array( 'button', 'click', 'goso', 'authow' );
 	}
 
 	protected function register_controls() {
@@ -40,7 +40,7 @@ class GosoButton extends Base_Widget {
 
 		$this->start_controls_section(
 			'section_general', array(
-				'label' => penci_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' ),
+				'label' => goso_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
@@ -284,7 +284,7 @@ class GosoButton extends Base_Widget {
 		$this->start_controls_section(
 			'section_design_content',
 			array(
-				'label' => penci_get_theme_name('Goso').' '.esc_html__( 'Button', 'authow' ),
+				'label' => goso_get_theme_name('Goso').' '.esc_html__( 'Button', 'authow' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);

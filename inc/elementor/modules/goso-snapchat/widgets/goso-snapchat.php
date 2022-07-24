@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSnapchat extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-snapchat';
+		return 'goso-snapchat';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Snapchat', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Snapchat', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoSnapchat extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -68,7 +68,7 @@ class GosoSnapchat extends Base_Widget {
 			),
 			'size_units' => array( '%', 'px' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci_snapchat_widget .pc-snapchat-avatar' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
+				'{{WRAPPER}} .goso_snapchat_widget .pc-snapchat-avatar' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
 			)
 		) );
 
@@ -101,7 +101,7 @@ class GosoSnapchat extends Base_Widget {
 			),
 			'size_units' => array( '%', 'px' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci_snapchat_widget .pc-snapchat-badge' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
+				'{{WRAPPER}} .goso_snapchat_widget .pc-snapchat-badge' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};'
 			)
 		) );
 
@@ -164,7 +164,7 @@ class GosoSnapchat extends Base_Widget {
 			'label'     => __( 'Badge Border Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_snapchat_widget .pc-snapchat-badge' => 'border-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_snapchat_widget .pc-snapchat-badge' => 'border-color: {{VALUE}};' ),
 		) );
 
 		$this->end_controls_section();
@@ -184,12 +184,12 @@ class GosoSnapchat extends Base_Widget {
 			$bghtml_src   = 'data-bgset="' . $instance['avatar']['url'] . '"';
 			$this->markup_block_title( $instance, $this );
 			?>
-            <div class="penci_snapchat_widget <?php echo 'pcsnapal-' . $ptext_align; ?>">
+            <div class="goso_snapchat_widget <?php echo 'pcsnapal-' . $ptext_align; ?>">
                 <div class="pc-snapchat-wrapper">
                     <a href="https://snapchat.com/add/<?php echo $userid ?>" rel="external noopener nofollow">
 						<span class="pc-snapchat-badge <?php echo $img_class; ?>">
-                            <span class="pc-snapchat-badge-over penci-image-holder penci-lazy" <?php echo $bghtmlbg_src; ?>></span>
-                            <span class="pc-snapchat-avatar penci-image-holder penci-lazy" <?php echo $bghtml_src; ?>></span>
+                            <span class="pc-snapchat-badge-over goso-image-holder goso-lazy" <?php echo $bghtmlbg_src; ?>></span>
+                            <span class="pc-snapchat-avatar goso-image-holder goso-lazy" <?php echo $bghtml_src; ?>></span>
 						</span>
                         <span class="pc-snapchat-name"><?php echo $instance['username'] ?></span>
                         <span class="pc-snapchat-id">@<?php echo $userid ?></span>

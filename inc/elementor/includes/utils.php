@@ -39,8 +39,8 @@ class Utils {
 		$post_types = [];
 
 		$exclude = [
-			'penci-block',
-			'penci_builder',
+			'goso-block',
+			'goso_builder',
 			'custom-post-template',
 			'archive-template',
 		];

@@ -1,20 +1,20 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_shortcode_name',
+	'id'        => 'goso_header_builder_pb_shortcode_name',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-textarea',
 	
 	'label'     => esc_html__( 'Shortcode Code', 'authow' ),
 	'priority'  => 10,
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_shortcode_spacing',
+	'id'        => 'goso_header_builder_pb_shortcode_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -33,21 +33,21 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_shortcode_class',
+	'id'        => 'goso_header_builder_pb_shortcode_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );
 
 return $options;
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_builder_pb_shortcode_name', array(
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_builder_pb_shortcode_name', array(
 	'selector'            => '.pc-wrapbuilder-header-inner',
 	'settings'            => [
-		'penci_header_builder_pb_shortcode_name',
-		//'penci_header_builder_pb_shortcode_spacing',
-		'penci_header_builder_pb_shortcode_class',
+		'goso_header_builder_pb_shortcode_name',
+		//'goso_header_builder_pb_shortcode_spacing',
+		'goso_header_builder_pb_shortcode_class',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

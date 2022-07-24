@@ -38,8 +38,8 @@ abstract class Base_Widget extends Widget_Base {
 			return;
 		}
 
-		$heading_title = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-		$heading_align = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
+		$heading_title = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+		$heading_align = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
 
 
 		if ( $r['heading_title_style'] ) {
@@ -50,8 +50,8 @@ abstract class Base_Widget extends Widget_Base {
 			$heading_align = 'pcalign-' . $r['block_title_align'];
 		}
 
-		$heading_icon_pos    = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-		$heading_icon_design = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
+		$heading_icon_pos    = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+		$heading_icon_design = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
 
 		if ( $r['heading_icon_pos'] ) {
 			$heading_icon_pos = $r['heading_icon_pos'];
@@ -61,7 +61,7 @@ abstract class Base_Widget extends Widget_Base {
 			$heading_icon_design = $r['heading_icon'];
 		}
 
-		$classes = 'penci-border-arrow penci-homepage-title penci-home-latest-posts';
+		$classes = 'goso-border-arrow goso-homepage-title goso-home-latest-posts';
 		$classes .= ' ' . $heading_title;
 		$classes .= ' ' . $heading_align;
 		$classes .= ' ' . $heading_icon_pos;
@@ -102,7 +102,7 @@ abstract class Base_Widget extends Widget_Base {
                     ?>
                 </span>
             </h3>
-			<?php do_action( 'penci_block_title_extra_' . $r['blockid'] ); ?>
+			<?php do_action( 'goso_block_title_extra_' . $r['blockid'] ); ?>
         </div>
 		<?php
 	}
@@ -126,19 +126,19 @@ abstract class Base_Widget extends Widget_Base {
 		$this->add_control( 'group_more_nopost', array(
 			'label'   => __( 'No Post Found Message', 'authow' ),
 			'type'    => Controls_Manager::TEXT,
-			'default' => penci_get_setting( 'penci_ajaxsearch_no_post' ),
+			'default' => goso_get_setting( 'goso_ajaxsearch_no_post' ),
 		) );
 
 		$this->add_control( 'group_more_defaultab_text', array(
 			'label'   => __( 'Default Tab Text', 'authow' ),
 			'type'    => Controls_Manager::TEXT,
-			'default' => penci_get_setting( 'penci_trans_all' ),
+			'default' => goso_get_setting( 'goso_trans_all' ),
 		) );
 
 		$this->add_control( 'biggrid_ajaxfilter_cat', array(
 			'type'        => Controls_Manager::SELECT2,
 			'label'       => esc_html__( 'Post Categories', 'authow' ),
-			'options'     => penci_get_terms_list( 'category' ),
+			'options'     => goso_get_terms_list( 'category' ),
 			'label_block' => true,
 			'multiple'    => true,
 		) );
@@ -146,7 +146,7 @@ abstract class Base_Widget extends Widget_Base {
 		$this->add_control( 'biggrid_ajaxfilter_tag', array(
 			'type'        => Controls_Manager::SELECT2,
 			'label'       => esc_html__( 'Post Tags', 'authow' ),
-			'options'     => penci_get_terms_list( 'post_tag' ),
+			'options'     => goso_get_terms_list( 'post_tag' ),
 			'label_block' => true,
 			'multiple'    => true,
 		) );
@@ -314,7 +314,7 @@ abstract class Base_Widget extends Widget_Base {
 			'label'     => __( 'Margin Bottom', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
+			'selectors' => array( '{{WRAPPER}} .goso-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
 		) );
 
 		$this->end_controls_section();
@@ -411,7 +411,7 @@ abstract class Base_Widget extends Widget_Base {
 			'label'     => __( 'Margin Bottom', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
+			'selectors' => array( '{{WRAPPER}} .goso-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
 		) );
 		
 		$this->end_controls_section();
@@ -504,7 +504,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'condition' => [ 'biggrid_ajax_loading_style!' => '' ],
 			'selectors' => array(
-				'{{WRAPPER}} .penci-loading-animation-1 .penci-loading-animation,{{WRAPPER}} .penci-loading-animation-1 .penci-loading-animation:before,{{WRAPPER}} .penci-loading-animation-1 .penci-loading-animation:after,{{WRAPPER}} .penci-loading-animation-5 .penci-loading-animation,{{WRAPPER}} .penci-loading-animation-6 .penci-loading-animation:before,{{WRAPPER}} .penci-loading-animation-7 .penci-loading-animation,{{WRAPPER}} .penci-loading-animation-8 .penci-loading-animation,{{WRAPPER}} .penci-loading-animation-9 .penci-loading-circle-inner:before,{{WRAPPER}} .penci-loading-animation-1>div,{{WRAPPER}} .penci-three-bounce .one,{{WRAPPER}} .penci-three-bounce .two,.penci-three-bounce .three' => 'background-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-loading-animation-1 .goso-loading-animation,{{WRAPPER}} .goso-loading-animation-1 .goso-loading-animation:before,{{WRAPPER}} .goso-loading-animation-1 .goso-loading-animation:after,{{WRAPPER}} .goso-loading-animation-5 .goso-loading-animation,{{WRAPPER}} .goso-loading-animation-6 .goso-loading-animation:before,{{WRAPPER}} .goso-loading-animation-7 .goso-loading-animation,{{WRAPPER}} .goso-loading-animation-8 .goso-loading-animation,{{WRAPPER}} .goso-loading-animation-9 .goso-loading-circle-inner:before,{{WRAPPER}} .goso-loading-animation-1>div,{{WRAPPER}} .goso-three-bounce .one,{{WRAPPER}} .goso-three-bounce .two,.goso-three-bounce .three' => 'background-color: {{VALUE}}',
 				'{{WRAPPER}}'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   => '--pc-loader-2:{{VALUE}}'
 			),
 		) );
@@ -540,8 +540,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow'                                   => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a'                                 => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow'                                   => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a'                                 => 'color: {{VALUE}};',
 				'{{WRAPPER}} .home-pupular-posts-title, {{WRAPPER}} .home-pupular-posts-title a' => 'color: {{VALUE}};',
 			),
 		) );
@@ -550,7 +550,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}} !important;',
 				'{{WRAPPER}} .home-pupular-posts-title a:hover'        => 'color: {{VALUE}} !important;',
 			),
 		) );
@@ -559,10 +559,10 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:after,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:before,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:before,' . '{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:after,' . '{{WRAPPER}} .style-5.penci-border-arrow,' . '{{WRAPPER}} .style-7.penci-border-arrow,' . '{{WRAPPER}} .style-9.penci-border-arrow' => 'border-color: {{VALUE}}',
-				'{{WRAPPER}} .penci-border-arrow:before'                                                                                                                                                                                                                                                                                                                                                                                                                              => 'border-top-color: {{VALUE}}',
-				'{{WRAPPER}} .style-16.penci-border-arrow:after'                                                                                                                                                                                                                                                                                                                                                                                                                      => 'background-color: {{VALUE}}',
-				'{{WRAPPER}} .penci-home-popular-posts'                                                                                                                                                                                                                                                                                                                                                                                                                               => 'border-top-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:after,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:before,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:before,' . '{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:after,' . '{{WRAPPER}} .style-5.goso-border-arrow,' . '{{WRAPPER}} .style-7.goso-border-arrow,' . '{{WRAPPER}} .style-9.goso-border-arrow' => 'border-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-border-arrow:before'                                                                                                                                                                                                                                                                                                                                                                                                                              => 'border-top-color: {{VALUE}}',
+				'{{WRAPPER}} .style-16.goso-border-arrow:after'                                                                                                                                                                                                                                                                                                                                                                                                                      => 'background-color: {{VALUE}}',
+				'{{WRAPPER}} .goso-home-popular-posts'                                                                                                                                                                                                                                                                                                                                                                                                                               => 'border-top-color: {{VALUE}}',
 			)
 		) );
 		$this->add_control( 'btitle_outer_bcolor', array(
@@ -570,7 +570,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}}  .penci-border-arrow:after' => 'border-color: {{VALUE}};'
+				'{{WRAPPER}}  .goso-border-arrow:after' => 'border-color: {{VALUE}};'
 			)
 		) );
 		$this->add_control( 'btitle_style10_btopcolor', array(
@@ -578,7 +578,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
+				'{{WRAPPER}} .goso-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
 			),
 			'condition' => array( 'heading_title_style' => 'style-10' ),
 		) );
@@ -588,11 +588,11 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-5.penci-border-arrow'              => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-homepage-title.style-10'           => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-12.penci-border-arrow'             => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-11.penci-border-arrow'             => 'border-bottom-color: {{VALUE}};',
-				'{{WRAPPER}} .style-5.penci-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-5.goso-border-arrow'              => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-homepage-title.style-10'           => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-12.goso-border-arrow'             => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-11.goso-border-arrow'             => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .style-5.goso-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
 			),
 			'condition' => array( 'heading_title_style' => array( 'style-5', 'style-10', 'style-11', 'style-12' ) ),
 		) );
@@ -601,8 +601,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-7.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .style-9.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
+				'{{WRAPPER}} .style-7.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-9.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
 			),
 			'condition' => array( 'heading_title_style' => array( 'style-7', 'style-9' ) ),
 		) );
@@ -635,7 +635,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:before' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-15.goso-border-arrow:before' => 'background-color: {{VALUE}};',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -645,7 +645,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:after' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .style-15.goso-border-arrow:after' => 'color: {{VALUE}};',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -655,7 +655,7 @@ abstract class Base_Widget extends Widget_Base {
 			'description' => __( 'For Icon on Style 15', 'authow' ),
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-15.penci-border-arrow:after' => 'font-size: {{SIZE}}px;',
+				'{{WRAPPER}} .style-15.goso-border-arrow:after' => 'font-size: {{SIZE}}px;',
 			),
 			'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 		) );
@@ -665,9 +665,9 @@ abstract class Base_Widget extends Widget_Base {
 			'default'     => '',
 			'description' => __( 'For Lines on Styles 18, 19, 20', 'authow' ),
 			'selectors'   => array(
-				'{{WRAPPER}} .style-18.penci-border-arrow:after' => 'color: {{VALUE}}; background-image: linear-gradient( -45deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
-				'{{WRAPPER}} .style-19.penci-border-arrow:after' => 'background-image: linear-gradient( -90deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
-				'{{WRAPPER}} .style-20.penci-border-arrow:after' => 'background-image: linear-gradient( 0deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-18.goso-border-arrow:after' => 'color: {{VALUE}}; background-image: linear-gradient( -45deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-19.goso-border-arrow:after' => 'background-image: linear-gradient( -90deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
+				'{{WRAPPER}} .style-20.goso-border-arrow:after' => 'background-image: linear-gradient( 0deg, transparent, transparent 30%, {{VALUE}} 30%, {{VALUE}} 50%, transparent 50%, transparent 80%, {{VALUE}} 80%);',
 			),
 			'condition'   => array(
 				'heading_title_style' => array(
@@ -683,8 +683,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .style-2.penci-border-arrow:after'                                                                                                                                                                                                => 'border-color: transparent;border-top-color: {{VALUE}};',
-				'{{WRAPPER}} .style-14 .inner-arrow:before,{{WRAPPER}} .style-11 .inner-arrow,' . '{{WRAPPER}} .style-12 .inner-arrow,{{WRAPPER}} .style-13 .inner-arrow,{{WRAPPER}} .style-15 .inner-arrow,' . '{{WRAPPER}} .penci-border-arrow .inner-arrow' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .style-2.goso-border-arrow:after'                                                                                                                                                                                                => 'border-color: transparent;border-top-color: {{VALUE}};',
+				'{{WRAPPER}} .style-14 .inner-arrow:before,{{WRAPPER}} .style-11 .inner-arrow,' . '{{WRAPPER}} .style-12 .inner-arrow,{{WRAPPER}} .style-13 .inner-arrow,{{WRAPPER}} .style-15 .inner-arrow,' . '{{WRAPPER}} .goso-border-arrow .inner-arrow' => 'background-color: {{VALUE}};',
 			)
 		) );
 		$this->add_control( 'btitle_outer_bgcolor', array(
@@ -692,7 +692,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow:after' => 'background-color: {{VALUE}};'
+				'{{WRAPPER}} .goso-border-arrow:after' => 'background-color: {{VALUE}};'
 			)
 		) );
 
@@ -703,7 +703,7 @@ abstract class Base_Widget extends Widget_Base {
 			//'responsive'  => true,
 			//'render_type' => 'template',
 			'default'   => array( 'id' => '', 'url' => '' ),
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 		) );
 
@@ -718,7 +718,7 @@ abstract class Base_Widget extends Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'no-repeat',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-repeat: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-repeat: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'btitle_style9_size', array(
@@ -733,7 +733,7 @@ abstract class Base_Widget extends Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'auto 100%',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-size: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-size: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'btitle_style9_pos', array(
@@ -752,13 +752,13 @@ abstract class Base_Widget extends Widget_Base {
 			),
 			'condition' => array( 'heading_title_style' => 'style-8' ),
 			'default'   => 'left top',
-			'selectors' => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-position: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-position: {{VALUE}};' ),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'btitle_typo',
 			'label'    => __( 'Block Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-border-arrow .inner-arrow',
+			'selector' => '{{WRAPPER}} .goso-border-arrow .inner-arrow',
 		) );
 		$this->end_controls_section();
 	}
@@ -794,21 +794,21 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} ul.products .penci-authow-product .penci-product-loop-title h3'   => 'color: {{VALUE}};',
-				'{{WRAPPER}} ul.products .penci-authow-product .penci-product-loop-title h3 a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} ul.products .goso-authow-product .goso-product-loop-title h3'   => 'color: {{VALUE}};',
+				'{{WRAPPER}} ul.products .goso-authow-product .goso-product-loop-title h3 a' => 'color: {{VALUE}};',
 			),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'product_title_typo',
 			'label'    => __( 'Product Title Font', 'authow' ),
-			'selector' => '{{WRAPPER}} ul.products .penci-authow-product .penci-product-loop-title h3'
+			'selector' => '{{WRAPPER}} ul.products .goso-authow-product .goso-product-loop-title h3'
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'product_cat_typo',
 			'label'    => __( 'Product Category Typo', 'authow' ),
-			'selector' => '{{WRAPPER}} ul.products li.product .penci-product-cats a'
+			'selector' => '{{WRAPPER}} ul.products li.product .goso-product-cats a'
 		) );
 
 		$this->add_control( 'product_cat_color', array(
@@ -816,8 +816,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} ul.products li.product .penci-product-cats'   => 'color: {{VALUE}};',
-				'{{WRAPPER}} ul.products li.product .penci-product-cats a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} ul.products li.product .goso-product-cats'   => 'color: {{VALUE}};',
+				'{{WRAPPER}} ul.products li.product .goso-product-cats a' => 'color: {{VALUE}};',
 			),
 		) );
 
@@ -826,7 +826,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} ul.products li.product .penci-product-cats a:hover' => 'color: {{VALUE}};',
+				'{{WRAPPER}} ul.products li.product .goso-product-cats a:hover' => 'color: {{VALUE}};',
 			),
 		) );
 
@@ -835,7 +835,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-6 .penci-product-loop-inner-content' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-6 .goso-product-loop-inner-content' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -844,8 +844,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products .penci-product-loop-button .button'                                                                             => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.icon-style-group:not(.product-style-7):not(.product-style-5) .penci-authow-product .penci-product-loop-button' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-product-loop-button .button'                                                                             => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.icon-style-group:not(.product-style-7):not(.product-style-5) .goso-authow-product .goso-product-loop-button' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -854,8 +854,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products .penci-product-loop-button .button:hover'                                                                  => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} ul.products:not(.product-style-7):not(.product-style-5) .penci-authow-product .penci-product-loop-button > a:hover' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-product-loop-button .button:hover'                                                                  => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} ul.products:not(.product-style-7):not(.product-style-5) .goso-authow-product .goso-product-loop-button > a:hover' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -864,8 +864,8 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products .penci-product-loop-button .button:before'                                                               => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-7.icon-style-round .penci-product-loop-buttons .penci-product-loop-button a.button:before' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-product-loop-button .button:before'                                                               => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-7.icon-style-round .goso-product-loop-buttons .goso-product-loop-button a.button:before' => 'color: {{VALUE}};',
 			),
 		) );
 
@@ -874,18 +874,18 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products .penci-product-loop-button .button:hover:before'                                                               => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-7.icon-style-round .penci-product-loop-buttons .penci-product-loop-button a.button:hover:before' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-product-loop-button .button:hover:before'                                                               => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-7.icon-style-round .goso-product-loop-buttons .goso-product-loop-button a.button:hover:before' => 'color: {{VALUE}};',
 			),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'product_item_button_txt_typo',
 			'label'    => __( 'Add to Cart Typo', 'authow' ),
-			'selector' => '{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button,
-					{{WRAPPER}} .products.product-style-3 .penci-authow-product .penci-product-loop-image a.button,
-					{{WRAPPER}} .products.product-style-3 .penci-authow-product a.add_to_cart_button,
-					{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button
+			'selector' => '{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button,
+					{{WRAPPER}} .products.product-style-3 .goso-authow-product .goso-product-loop-image a.button,
+					{{WRAPPER}} .products.product-style-3 .goso-authow-product a.add_to_cart_button,
+					{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button
 					',
 		) );
 
@@ -894,10 +894,10 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button' => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product .penci-product-loop-image a.button'         => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product a.add_to_cart_button'                       => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button'                                 => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product .goso-product-loop-image a.button'         => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product a.add_to_cart_button'                       => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button'                                 => 'color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => [ 'style-5', 'style-3', 'style-4' ],
@@ -909,10 +909,10 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-extra-buttons .button:hover'                 => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product .penci-product-loop-image a.button:hover' => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product a.add_to_cart_button:hover'               => 'color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button:hover'                         => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-extra-buttons .button:hover'                 => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product .goso-product-loop-image a.button:hover' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product a.add_to_cart_button:hover'               => 'color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button:hover'                         => 'color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => [ 'style-5', 'style-3', 'style-4' ],
@@ -924,10 +924,10 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product .penci-product-loop-image a.button'         => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product a.add_to_cart_button'                       => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button'                                 => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product .goso-product-loop-image a.button'         => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product a.add_to_cart_button'                       => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button'                                 => 'background-color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => [ 'style-5', 'style-3', 'style-4' ],
@@ -939,10 +939,10 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button:hover' => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product .penci-product-loop-image a.button:hover'         => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-3 .penci-authow-product a.add_to_cart_button:hover'                       => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button:hover'                                 => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button:hover' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product .goso-product-loop-image a.button:hover'         => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-3 .goso-authow-product a.add_to_cart_button:hover'                       => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button:hover'                                 => 'background-color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => [ 'style-5', 'style-3', 'style-4' ],
@@ -954,7 +954,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button' => 'border-color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => 'style-5',
@@ -966,7 +966,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-style-5 .penci-product-loop-top .penci-product-loop-extra-buttons .button:hover' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-5 .goso-product-loop-top .goso-product-loop-extra-buttons .button:hover' => 'border-color: {{VALUE}};',
 			),
 			'condition' => [
 				'product_style' => 'style-5',
@@ -983,13 +983,13 @@ abstract class Base_Widget extends Widget_Base {
 				'right'  => 'Right',
 			),
 			'selectors' => array(
-				'{{WRAPPER}} .products .penci-authow-product .penci-product-loop-inner-content' => 'text-align: {{VALUE}};',
-				'{{WRAPPER}} .products .penci-authow-product .penci-product-loop-title'         => 'text-align: {{VALUE}};',
-				'{{WRAPPER}} .products .penci-authow-product .woocommerce-loop-product__title'  => 'text-align: {{VALUE}};',
-				'{{WRAPPER}} .products .penci-authow-product .penci-product-cats'               => 'text-align: {{VALUE}};',
-				'{{WRAPPER}} .products .penci-authow-product .price'                            => 'text-align: {{VALUE}};',
-				'{{WRAPPER}} .products .penci-authow-product .penci-swatches-list'              => 'justify-content: {{VALUE}};',
-				'{{WRAPPER}} .products.product-style-4 .penci-product-loop-title .button'        => 'justify-content: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .goso-product-loop-inner-content' => 'text-align: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .goso-product-loop-title'         => 'text-align: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .woocommerce-loop-product__title'  => 'text-align: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .goso-product-cats'               => 'text-align: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .price'                            => 'text-align: {{VALUE}};',
+				'{{WRAPPER}} .products .goso-authow-product .goso-swatches-list'              => 'justify-content: {{VALUE}};',
+				'{{WRAPPER}} .products.product-style-4 .goso-product-loop-title .button'        => 'justify-content: {{VALUE}};',
 			),
 		) );
 
@@ -1013,7 +1013,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .products.product-list .penci-authow-product .penci-product-loop-inner-content' => 'border-bottom-color: {{VALUE}};',
+				'{{WRAPPER}} .products.product-list .goso-authow-product .goso-product-loop-inner-content' => 'border-bottom-color: {{VALUE}};',
 			),
 			'condition' => [
 				'layout' => [ 'list' ],
@@ -1037,7 +1037,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-stock-progress-bar .progress-area' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-stock-progress-bar .progress-area' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1046,7 +1046,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-stock-progress-bar .progress-bar' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-stock-progress-bar .progress-bar' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1055,7 +1055,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-stock-progress-bar .progress-area, {{WRAPPER}} .penci-stock-progress-bar .progress-bar' => 'height: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-stock-progress-bar .progress-area, {{WRAPPER}} .goso-stock-progress-bar .progress-bar' => 'height: {{SIZE}}px;',
 			),
 		) );
 
@@ -1085,8 +1085,8 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li a'                                                          => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot span, {{WRAPPER}} .penci-related-carousel .owl-dot span' => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button'                                         => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot span, {{WRAPPER}} .goso-related-carousel .owl-dot span' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button'                                         => 'border-color: {{VALUE}};',
 			),
 		) );
 
@@ -1096,7 +1096,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li a'                                                          => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot span, {{WRAPPER}} .penci-related-carousel .owl-dot span' => 'background-color: {{VALUE}};'
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot span, {{WRAPPER}} .goso-related-carousel .owl-dot span' => 'background-color: {{VALUE}};'
 			),
 		) );
 
@@ -1115,8 +1115,8 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li a:hover'                                                                => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot span:hover, {{WRAPPER}} .penci-related-carousel .owl-dot span:hover' => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button:hover'                                               => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot span:hover, {{WRAPPER}} .goso-related-carousel .owl-dot span:hover' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button:hover'                                               => 'border-color: {{VALUE}};',
 			),
 		) );
 
@@ -1126,7 +1126,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li span.current'                                                             => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .penci-related-carousel .owl-dot.active span' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .goso-related-carousel .owl-dot.active span' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1136,7 +1136,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li span.current'                                                             => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .penci-related-carousel .owl-dot.active span' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .goso-related-carousel .owl-dot.active span' => 'border-color: {{VALUE}};',
 			),
 		) );
 
@@ -1146,7 +1146,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} nav.woocommerce-pagination ul li span.current'                                                             => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .penci-related-carousel .owl-dot.active span' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot.active span, {{WRAPPER}} .goso-related-carousel .owl-dot.active span' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1155,7 +1155,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1164,7 +1164,7 @@ abstract class Base_Widget extends Widget_Base {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button:hover' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button:hover' => 'background-color: {{VALUE}};',
 			),
 		) );
 
@@ -1174,7 +1174,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} .page-load-button button.button'                     => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button' => 'color: {{VALUE}};',
 			),
 		) );
 
@@ -1184,7 +1184,7 @@ abstract class Base_Widget extends Widget_Base {
 			'default'   => '',
 			'selectors' => array(
 				'{{WRAPPER}} .page-load-button button.button:hover'                     => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-woo-page-container .page-load-button .button:hover' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-woo-page-container .page-load-button .button:hover' => 'color: {{VALUE}};',
 			),
 		) );
 

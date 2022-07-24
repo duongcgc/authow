@@ -6,7 +6,7 @@ use GosoAuthowElementor\Base\Module_Base;
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-block-heading-title';
+		return 'goso-block-heading-title';
 	}
 
 	public function get_widgets() {

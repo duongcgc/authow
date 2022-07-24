@@ -12,15 +12,15 @@ class Goso_Gutenberg_Authow_Review {
 			return esc_html__( 'Empty post id, Enter post Id' );
 		}
 
-		if( ! function_exists( 'penci_review_shortcode_function' ) ){
+		if( ! function_exists( 'goso_review_shortcode_function' ) ){
 			$mess = esc_html__( 'Please active Goso Review plugin', 'authow' );
-			return  '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Review', $mess ) . '</div>';
+			return  '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Review', $mess ) . '</div>';
 		}
 
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Review', esc_html__( 'Click to edit this block', 'authow' ) );
-		$output .= do_shortcode( '[penci_review id="' . $post_ID . '"]' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .= do_shortcode( '[goso_review id="' . $post_ID . '"]' );
+		$output .= '</div><!--endgoso-block-->';
 
 		return $output;
 	}

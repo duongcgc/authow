@@ -1,9 +1,9 @@
 <?php
-$setting_align = "penci_hb_align_desktop_sticky_{$row}_{$column}";
-$default_align = penci_get_builder_mod( $setting_align );
+$setting_align = "goso_hb_align_desktop_sticky_{$row}_{$column}";
+$default_align = goso_get_builder_mod( $setting_align );
 
-$setting_element = "penci_hb_element_desktop_sticky_{$row}_{$column}";
-$default_element = penci_get_builder_mod( $setting_element );
+$setting_element = "goso_hb_element_desktop_sticky_{$row}_{$column}";
+$default_element = goso_get_builder_mod( $setting_element );
 $default_element = explode( ',', $default_element );
 ?>
 <div class="header-builder-<?php echo esc_html( $column ); ?> header-builder-column <?php echo esc_html( $default_align ); ?>"

@@ -9,7 +9,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 	class Goso_Instagram_Feed {
 		public static function display_images( $args = null ) {
 
-			$insta_token = get_option( 'penci_options[penci_instagram]' );
+			$insta_token = get_option( 'goso_options[goso_instagram]' );
 
 			$defaults = array(
 				'access_token'     => isset( $insta_token['access_token'] ) && $insta_token['access_token'] ? $insta_token['access_token'] : '',
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 			if ( 'username' == $args['search_for'] && ! $args['access_token'] ) {
 				if ( current_user_can( 'manage_options' ) ) {
 					echo '<p style="text-align: center;">This message appears for Admin Users only:<br>Please fill the Instagram Access Token. You can get Instagram Access Token by go to <a
-                            href="' . esc_url( admin_url( 'admin.php?page=penci_instgram_token' ) ) . '"
+                            href="' . esc_url( admin_url( 'admin.php?page=goso_instgram_token' ) ) . '"
                             target="_blank">this page</a></p>';
 				}
 
@@ -106,9 +106,9 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 				$caption       = wp_trim_words( $image_data['caption'], intval( $args['caption_words'] ), $more = null );
 				$nopin         = ( 1 == $args['no_pin'] ) ? 'nopin="nopin"' : '';
 
-				$image_src = '<span class="penci-image-holder instagram-square-lazy penci-lazy" data-bgset="' . $image_url . '"/></span>';
-				if ( get_theme_mod( 'penci_disable_lazyload_layout' ) ) {
-					$image_src = '<span class="penci-image-holder instagram-square-lazy penci-dis-lazy"  style="background-image: url(' . $image_url . ');"/></span>';
+				$image_src = '<span class="goso-image-holder instagram-square-lazy goso-lazy" data-bgset="' . $image_url . '"/></span>';
+				if ( get_theme_mod( 'goso_disable_lazyload_layout' ) ) {
+					$image_src = '<span class="goso-image-holder instagram-square-lazy goso-dis-lazy"  style="background-image: url(' . $image_url . ');"/></span>';
 				}
 				$image_output = $image_src;
 				if ( $link_to ) {
@@ -125,28 +125,28 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 				}
 
 				if ( 'slider' == $args['template'] ) {
-					$output .= '<div class="penci-insta-info">';
+					$output .= '<div class="goso-insta-info">';
 					$output .= '<img class="instagram-square-lazy" src="' . $image_url . '" alt="' . $short_caption . '" ' . $nopin . '/>';;
 
 					if ( is_array( $args['description'] ) && count( $args['description'] ) >= 1 ) {
 
-						$output .= '<div class="penci-insta-datacontainer">';
+						$output .= '<div class="goso-insta-datacontainer">';
 
 						if ( $image_data['timestamp'] && in_array( 'time', $args['description'] ) ) {
 							$time   = human_time_diff( strtotime( $image_data['timestamp'] ), current_time( 'timestamp', true ) );
-							$output .= "<span class='penci-insta-time'>{$time} ago</span>\n";
+							$output .= "<span class='goso-insta-time'>{$time} ago</span>\n";
 						}
 
 						$username = $args['username'];
 						if ( in_array( 'username', $args['description'] ) && $username ) {
-							$output .= "<span class='penci-insta-username'>by <a rel='nofollow' href='https://www.instagram.com/{$username}/' target='_blank'>{$username}</a></span>\n";
+							$output .= "<span class='goso-insta-username'>by <a rel='nofollow' href='https://www.instagram.com/{$username}/' target='_blank'>{$username}</a></span>\n";
 						}
 
 						if ( $caption != '' && in_array( 'caption', $args['description'] ) ) {
 							$caption_words = isset( $args['caption_words'] ) ? $args['caption_words'] : 20;
 							$caption       = preg_replace( '/@([a-z0-9_]+)/i', '&nbsp;<a href="https://www.instagram.com/$1/" rel="noopener" target="_blank">@$1</a>&nbsp;', $caption );
 							$caption       = preg_replace( '/\#([a-zA-Z0-9_-]+)/i', '&nbsp;<a href="https://www.instagram.com/explore/tags/$1/" rel="noopener" target="_blank">$0</a>&nbsp;', $caption );
-							$output        .= "<span class='penci-insta-caption'>" . wp_trim_words( $caption, $caption_words, '...' ) . "</span>\n";
+							$output        .= "<span class='goso-insta-caption'>" . wp_trim_words( $caption, $caption_words, '...' ) . "</span>\n";
 						}
 
 						$output .= "</div>\n";
@@ -154,28 +154,28 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 
 					$output .= "</div>";
 				} elseif ( 'slider-overlay' == $args['template'] ) {
-					$output .= '<div class="penci-insta-info">';
+					$output .= '<div class="goso-insta-info">';
 					$output .= '<img class="instagram-square-lazy" src="' . $image_url . '" alt="' . $short_caption . '" ' . $nopin . '/>';;
 
 					if ( is_array( $args['description'] ) && count( $args['description'] ) >= 1 ) {
 
-						$output .= '<div class="penci-insta-wrap"><div class="penci-insta-datacontainer">';
+						$output .= '<div class="goso-insta-wrap"><div class="goso-insta-datacontainer">';
 
 						if ( $image_data['timestamp'] && in_array( 'time', $args['description'] ) ) {
 							$time   = human_time_diff( strtotime( $image_data['timestamp'] ), current_time( 'timestamp', true ) );
-							$output .= "<span class='penci-insta-time'>{$time} ago</span>\n";
+							$output .= "<span class='goso-insta-time'>{$time} ago</span>\n";
 						}
 
 						$username = $args['username'];
 						if ( in_array( 'username', $args['description'] ) && $username ) {
-							$output .= "<span class='penci-insta-username'>by <a rel='nofollow' href='https://www.instagram.com/{$username}/' target='_blank'>{$username}</a></span>\n";
+							$output .= "<span class='goso-insta-username'>by <a rel='nofollow' href='https://www.instagram.com/{$username}/' target='_blank'>{$username}</a></span>\n";
 						}
 
 						if ( $caption != '' && in_array( 'caption', $args['description'] ) ) {
 							$caption_words = isset( $args['caption_words'] ) ? $args['caption_words'] : 20;
 							$caption       = preg_replace( '/@([a-z0-9_]+)/i', '&nbsp;<a href="https://www.instagram.com/$1/" rel="noopener" target="_blank">@$1</a>&nbsp;', $caption );
 							$caption       = preg_replace( '/\#([a-zA-Z0-9_-]+)/i', '&nbsp;<a href="https://www.instagram.com/explore/tags/$1/" rel="noopener" target="_blank">$0</a>&nbsp;', $caption );
-							$output        .= "<span class='penci-insta-caption'>" . wp_trim_words( $caption, $caption_words, '...' ) . "</span>\n";
+							$output        .= "<span class='goso-insta-caption'>" . wp_trim_words( $caption, $caption_words, '...' ) . "</span>\n";
 						}
 
 						$output .= "</div></div>";
@@ -199,13 +199,13 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 
 			if ( $output ) {
 				if ( 'slider' == $args['template'] ) {
-					echo '<div class="penci-instaslider-normal penci-owl-carousel penci-owl-carousel-slider"' . $data_slider . '>' . $output . '</div>';
+					echo '<div class="goso-instaslider-normal goso-owl-carousel goso-owl-carousel-slider"' . $data_slider . '>' . $output . '</div>';
 				} elseif ( 'slider-overlay' == $args['template'] ) {
-					echo '<div class="penci-instaslider-overlay penci-owl-carousel penci-owl-carousel-slider"' . $data_slider . '>' . $output . '</div>';
+					echo '<div class="goso-instaslider-overlay goso-owl-carousel goso-owl-carousel-slider"' . $data_slider . '>' . $output . '</div>';
 				} elseif ( 'thumbs-no-border' == $args['template'] ) {
-					echo '<div class="penci-insta-thumb"><ul class="thumbnails no-border penci-inscol' . $args['columns'] . '">' . $output . '</ul></div>';
+					echo '<div class="goso-insta-thumb"><ul class="thumbnails no-border goso-inscol' . $args['columns'] . '">' . $output . '</ul></div>';
 				} else {
-					echo '<div class="penci-insta-thumb"><ul class="thumbnails penci-inscol' . $args['columns'] . '">' . $output . '</ul></div>';
+					echo '<div class="goso-insta-thumb"><ul class="thumbnails goso-inscol' . $args['columns'] . '">' . $output . '</ul></div>';
 				}
 			}
 		}
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 				$search_string = '';
 			}
 
-			$opt_name   = 'penci_insta_' . md5( $search . '_' . $search_string );
+			$opt_name   = 'goso_insta_' . md5( $search . '_' . $search_string );
 			$insta_data = get_transient( $opt_name );
 			$old_opts   = (array) get_option( $opt_name );
 
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 		public static function trigger_refresh_data( $insta_data, $old_opts, $new_opts ) {
 			$trigger = 0;
 
-			if ( isset( $_GET['penci_remove_cache_ins'] ) ) {
+			if ( isset( $_GET['goso_remove_cache_ins'] ) ) {
 				return true;
 			}
 
@@ -471,7 +471,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 		private static function get_ids_from_usernames( $usernames ) {
 
 			$users      = explode( ',', trim( $usernames ) );
-			$user_ids   = (array) get_transient( 'penci_insta_user_ids' );
+			$user_ids   = (array) get_transient( 'goso_insta_user_ids' );
 			$return_ids = array();
 
 			if ( is_array( $users ) && ! empty( $users ) ) {
@@ -511,7 +511,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed' ) ):
 
 								$user_ids[ $user ] = $user_id;
 
-								set_transient( 'penci_insta_user_ids', $user_ids );
+								set_transient( 'goso_insta_user_ids', $user_ids );
 							}
 						}
 					}

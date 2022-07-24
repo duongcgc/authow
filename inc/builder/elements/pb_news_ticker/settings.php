@@ -1,17 +1,17 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_text',
+	'id'       => 'goso_header_pb_news_ticker_text',
 	'default'  => esc_html__( 'Top Posts', 'authow' ),
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-text',
 	'label'    => esc_html__( 'Custom "Top Posts" Text', 'authow' ),
 	'desc'     => esc_html__( 'If you want hide Top Posts text, let empty this', 'authow' ),
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_style',
+	'id'       => 'goso_header_pb_news_ticker_style',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'label'    => __( 'Style for "Top Posts" Text', 'authow' ),
 	'priority' => 10,
@@ -23,8 +23,8 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_animation',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'id'       => 'goso_header_pb_news_ticker_animation',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'label'    => __( '"Top Posts" Transition Animation', 'authow' ),
 	'default'  => '',
@@ -36,9 +36,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_by',
+	'id'       => 'goso_header_pb_news_ticker_by',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'label'    => esc_html__( 'Display Top Posts By', 'authow' ),
 	'choices'  => array(
@@ -49,9 +49,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_filter_by',
+	'id'       => 'goso_header_pb_news_ticker_filter_by',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-radio',
 	'label'    => esc_html__( 'Filter Topbar By', 'authow' ),
 	'priority' => 10,
@@ -61,30 +61,30 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_news_ticker_tags',
+	'id'          => 'goso_header_pb_news_ticker_tags',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'type'        => 'authow-fw-textarea',
 	'label'       => esc_html__( 'Fill List Tags for Filter by Tags on "Top Post"', 'authow' ),
-	'description' => 'This option just apply when you select "Filter Topbar by" Tags above. And please fill list featured tags slug here, check <a rel="nofollow" href="https://authow.pencidesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple tags slug, fill:  tag-1, tag-2, tag-3',
+	'description' => 'This option just apply when you select "Filter Topbar by" Tags above. And please fill list featured tags slug here, check <a rel="nofollow" href="https://authow.gosodesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple tags slug, fill:  tag-1, tag-2, tag-3',
 	'priority'    => 10,
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_news_ticker_cats',
+	'id'          => 'goso_header_pb_news_ticker_cats',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'type'        => 'authow-fw-textarea',
 	'label'       => esc_html__( 'Fill List Categories for Filter by Category on "Top Post"', 'authow' ),
-	'description' => 'This option just apply when you select "Filter Topbar by" Category above. And please fill list featured category slug here, check <a rel="nofollow" href="https://authow.pencidesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple category slug, fill:  cat-1, cat-2, cat-3',
+	'description' => 'This option just apply when you select "Filter Topbar by" Category above. And please fill list featured category slug here, check <a rel="nofollow" href="https://authow.gosodesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple category slug, fill:  cat-1, cat-2, cat-3',
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_post_titles',
+	'id'       => 'goso_header_pb_news_ticker_post_titles',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-size',
 	'label'    => esc_html__( 'Words Length for Post Titles on Top Posts', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_post_titles',
+		'desktop' => 'goso_header_pb_news_ticker_post_titles',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -97,9 +97,9 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_disable_autoplay',
+	'id'       => 'goso_header_pb_news_ticker_disable_autoplay',
 	'default'  => 'disable',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => esc_html__( 'Disable Auto Play', 'authow' ),
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -108,15 +108,15 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_news_ticker_autoplay_timeout',
+	'id'          => 'goso_header_pb_news_ticker_autoplay_timeout',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'type'        => 'authow-fw-size',
 	'description' => '1000 = 1 second',
 	'label'       => esc_html__( 'Autoplay Timeout', 'authow' ),
 	'priority'    => 10,
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_autoplay_timeout',
+		'desktop' => 'goso_header_pb_news_ticker_autoplay_timeout',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -129,14 +129,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_news_ticker_autoplay_speed',
+	'id'          => 'goso_header_pb_news_ticker_autoplay_speed',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'type'        => 'authow-fw-size',
 	'description' => '1000 = 1 second',
 	'label'       => esc_html__( 'Autoplay Speed', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_autoplay_speed',
+		'desktop' => 'goso_header_pb_news_ticker_autoplay_speed',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -149,13 +149,13 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_news_ticker_total_posts',
+	'id'       => 'goso_header_pb_news_ticker_total_posts',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-size',
 	'label'    => esc_html__( 'Amount of Posts Display on Top Posts', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_total_posts',
+		'desktop' => 'goso_header_pb_news_ticker_total_posts',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -168,14 +168,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_width',
+	'id'        => 'goso_header_pb_news_ticker_width',
 	'default'   => '420',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Maxium Width for Ticker Text', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_width',
+		'desktop' => 'goso_header_pb_news_ticker_width',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -188,10 +188,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_disable_uppercase',
+	'id'        => 'goso_header_pb_news_ticker_disable_uppercase',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( 'Disable Uppercase for "Top Posts" text', 'authow' ),
 	'type'      => 'authow-fw-select',
 	'choices'   => [
@@ -200,10 +200,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_post_titles_uppercase',
+	'id'        => 'goso_header_pb_news_ticker_post_titles_uppercase',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => esc_html__( 'Turn Off Uppercase Post Titles', 'authow' ),
 	'type'      => 'authow-fw-select',
 	'choices'   => [
@@ -212,79 +212,79 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_headline_color',
+	'id'        => 'goso_header_pb_news_ticker_headline_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Color for "Top Posts" Text',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_headline_bg',
+	'id'        => 'goso_header_pb_news_ticker_headline_bg',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => 'Background Color for "Top Posts Text"',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_headline_bg_style3',
+	'id'        => 'goso_header_pb_news_ticker_headline_bg_style3',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Color for Right Arrow on Style 3',
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_color',
+	'id'        => 'goso_header_pb_news_ticker_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Color for Post Titles',
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_hv_color',
+	'id'        => 'goso_header_pb_news_ticker_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Hover Color for Post Titles',
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_arr_color',
+	'id'        => 'goso_header_pb_news_ticker_arr_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Color for Next/Prev Buttons',
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_arr_hv_color',
+	'id'        => 'goso_header_pb_news_ticker_arr_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Hover Color for Next/Prev Buttons',
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_font',
+	'id'        => 'goso_header_pb_news_ticker_font',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Custom Text Font',
 	'type'      => 'authow-fw-select',
-	'choices'   => penci_all_fonts( 'select' )
+	'choices'   => goso_all_fonts( 'select' )
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_fs',
+	'id'        => 'goso_header_pb_news_ticker_fs',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Font Size for Post Titles', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_fs',
+		'desktop' => 'goso_header_pb_news_ticker_fs',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -297,14 +297,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_arr_fs',
+	'id'        => 'goso_header_pb_news_ticker_arr_fs',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Font Size for Next/Prev Buttons', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_arr_fs',
+		'desktop' => 'goso_header_pb_news_ticker_arr_fs',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -317,14 +317,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_headline_fs',
+	'id'        => 'goso_header_pb_news_ticker_headline_fs',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-size',
 	'sanitize'  => 'absint',
 	'label'     => __( 'Font Size for "Top Posts" Text', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_news_ticker_headline_fs',
+		'desktop' => 'goso_header_pb_news_ticker_headline_fs',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -337,10 +337,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_spacing',
+	'id'        => 'goso_header_pb_news_ticker_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -359,34 +359,34 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_news_ticker_class',
+	'id'        => 'goso_header_pb_news_ticker_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );
 
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_pb_news_ticker_text', array(
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_pb_news_ticker_text', array(
 	'selector'            => '.pc-wrapbuilder-header-inner',
 	'settings'            => [
-		//'penci_header_pb_news_ticker_width',
-		'penci_header_pb_news_ticker_text',
-		'penci_header_pb_news_ticker_style',
-		'penci_header_pb_news_ticker_animation',
-		//'penci_header_pb_news_ticker_disable_uppercase',
-		'penci_header_pb_news_ticker_by',
-		'penci_header_pb_news_ticker_filter_by',
-		'penci_header_pb_news_ticker_tags',
-		'penci_header_pb_news_ticker_cats',
-		'penci_header_pb_news_ticker_post_titles',
-		//'penci_header_pb_news_ticker_post_titles_uppercase',
-		'penci_header_pb_news_ticker_disable_autoplay',
-		'penci_header_pb_news_ticker_autoplay_timeout',
-		'penci_header_pb_news_ticker_autoplay_speed',
-		'penci_header_pb_news_ticker_total_posts',
-		//'penci_header_pb_news_ticker_spacing',
-		'penci_header_pb_news_ticker_class',
+		//'goso_header_pb_news_ticker_width',
+		'goso_header_pb_news_ticker_text',
+		'goso_header_pb_news_ticker_style',
+		'goso_header_pb_news_ticker_animation',
+		//'goso_header_pb_news_ticker_disable_uppercase',
+		'goso_header_pb_news_ticker_by',
+		'goso_header_pb_news_ticker_filter_by',
+		'goso_header_pb_news_ticker_tags',
+		'goso_header_pb_news_ticker_cats',
+		'goso_header_pb_news_ticker_post_titles',
+		//'goso_header_pb_news_ticker_post_titles_uppercase',
+		'goso_header_pb_news_ticker_disable_autoplay',
+		'goso_header_pb_news_ticker_autoplay_timeout',
+		'goso_header_pb_news_ticker_autoplay_speed',
+		'goso_header_pb_news_ticker_total_posts',
+		//'goso_header_pb_news_ticker_spacing',
+		'goso_header_pb_news_ticker_class',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

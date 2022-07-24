@@ -1,14 +1,14 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'              => 'penci_header_builder_pb_html_2_name',
+	'id'              => 'goso_header_builder_pb_html_2_name',
 	'default'         => '',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-textarea',
 	'label'           => esc_html__( 'HTML Code', 'authow' ),
 	'partial_refresh' => [
-		'penci_header_builder_pb_html_2_name' => [
+		'goso_header_builder_pb_html_2_name' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -17,7 +17,7 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_html_2_color',
+	'id'        => 'goso_header_builder_pb_html_2_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -25,7 +25,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_html_2_link_color',
+	'id'        => 'goso_header_builder_pb_html_2_link_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -33,14 +33,14 @@ $options[] = array(
 	'label'     => esc_html__( 'Links Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_html_2_fsize',
+	'id'        => 'goso_header_builder_pb_html_2_fsize',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => 'Font Size',
 	'ids'  => array(
-		'desktop' => 'penci_header_builder_pb_html_2_fsize',
+		'desktop' => 'goso_header_builder_pb_html_2_fsize',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -53,10 +53,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_builder_pb_html_2_spacing',
+	'id'        => 'goso_header_builder_pb_html_2_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -75,9 +75,9 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_header_builder_pb_html_2_css_class',
+	'id'       => 'goso_header_builder_pb_html_2_css_class',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'type'     => 'authow-fw-text',
 	'label'    => esc_html__( 'Custom CSS Class', 'authow' ),
 );

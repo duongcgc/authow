@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoAboutMe extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-about-me';
+		return 'goso-about-me';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Widget About Me', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Widget About Me', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoAboutMe extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -178,7 +178,7 @@ class GosoAboutMe extends Base_Widget {
 				'default'   => array( 'size' => '' ),
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .about-widget .penci-widget-about-image'  => 'margin-bottom: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .about-widget .goso-widget-about-image'  => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				)
 			)
 		);
@@ -202,7 +202,7 @@ class GosoAboutMe extends Base_Widget {
 				'range'          => array(
 					'%' => array( 'min' => 5, 'max' => 100 )
 				),
-				'selectors'      => array( '{{WRAPPER}} .penci-widget-about-image' => 'max-width: {{SIZE}}{{UNIT}} !important;' ),
+				'selectors'      => array( '{{WRAPPER}} .goso-widget-about-image' => 'max-width: {{SIZE}}{{UNIT}} !important;' ),
 			)
 		);
 
@@ -272,14 +272,14 @@ class GosoAboutMe extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-aboutme-content, {{WRAPPER}} .penci-aboutme-content p' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-aboutme-content, {{WRAPPER}} .goso-aboutme-content p' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'content_typo',
 				'label'    => __( 'Content Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-aboutme-content, {{WRAPPER}} .penci-aboutme-content p',
+				'selector' => '{{WRAPPER}} .goso-aboutme-content, {{WRAPPER}} .goso-aboutme-content p',
 			)
 		);
 		$this->end_controls_section();
@@ -323,18 +323,18 @@ class GosoAboutMe extends Base_Widget {
 		}
 		$image_width = $image_height = '';
 		?>
-		<div class="penci-block-vc penci-about-me">
+		<div class="goso-block-vc goso-about-me">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content about-widget<?php if ( $settings['align_block'] ): echo ' pc_align' . esc_attr( $settings['align_block'] ); endif; ?>">
+			<div class="goso-block_content about-widget<?php if ( $settings['align_block'] ): echo ' pc_align' . esc_attr( $settings['align_block'] ); endif; ?>">
 				<?php if ( $image_src ) : 
-					$image_width = penci_get_image_data_basedurl( $image_src, 'w' );
-					$image_height = penci_get_image_data_basedurl( $image_src, 'h' );
+					$image_width = goso_get_image_data_basedurl( $image_src, 'w' );
+					$image_height = goso_get_image_data_basedurl( $image_src, 'h' );
 					?>
 					<?php echo $open_image; ?>
 					<?php if ( ! $settings['dis_lazyload'] ) { ?>
-						<img class="penci-widget-about-image nopin penci-lazy" nopin="nopin" width="<?php echo $image_width; ?>" height="<?php $image_height; ?>" src="<?php echo penci_holder_image_base( $image_width, $image_height ); ?>" data-src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $settings['about_us_heading'] ); ?>"<?php echo $inline_style_html; ?>/>
+						<img class="goso-widget-about-image nopin goso-lazy" nopin="nopin" width="<?php echo $image_width; ?>" height="<?php $image_height; ?>" src="<?php echo goso_holder_image_base( $image_width, $image_height ); ?>" data-src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $settings['about_us_heading'] ); ?>"<?php echo $inline_style_html; ?>/>
 					<?php } else { ?>
-						<img class="penci-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $settings['about_us_heading'] ); ?>"<?php echo $inline_style_html; ?>/>
+						<img class="goso-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $settings['about_us_heading'] ); ?>"<?php echo $inline_style_html; ?>/>
 					<?php } ?>
 					<?php echo $close_image; ?>
 				<?php endif; ?>
@@ -344,7 +344,7 @@ class GosoAboutMe extends Base_Widget {
 		<?php endif; ?>
 
 			<?php if ( $settings['content'] ) : ?>
-				<div class="penci-aboutme-content"><?php echo do_shortcode( $settings['content'] ); ?></div>
+				<div class="goso-aboutme-content"><?php echo do_shortcode( $settings['content'] ); ?></div>
 			<?php endif; ?>
 		</div>
 		</div>

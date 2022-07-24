@@ -42,11 +42,11 @@ class Loader {
 		add_action( 'elementor/frontend/before_register_scripts', array( $this, 'register_frontend_scripts' ) );
 
 		//handle select2 ajax search
-		add_action( 'wp_ajax_penci_select2_search_post', [ $this, 'select2_ajax_posts_filter_autocomplete' ] );
-		add_action( 'wp_ajax_nopriv_penci_select2_search_post', [ $this, 'select2_ajax_posts_filter_autocomplete' ] );
+		add_action( 'wp_ajax_goso_select2_search_post', [ $this, 'select2_ajax_posts_filter_autocomplete' ] );
+		add_action( 'wp_ajax_nopriv_goso_select2_search_post', [ $this, 'select2_ajax_posts_filter_autocomplete' ] );
 
-		add_action( 'wp_ajax_penci_select2_get_title', [ $this, 'select2_ajax_get_posts_value_titles' ] );
-		add_action( 'wp_ajax_nopriv_penci_select2_get_title', [ $this, 'select2_ajax_get_posts_value_titles' ] );
+		add_action( 'wp_ajax_goso_select2_get_title', [ $this, 'select2_ajax_get_posts_value_titles' ] );
+		add_action( 'wp_ajax_nopriv_goso_select2_get_title', [ $this, 'select2_ajax_get_posts_value_titles' ] );
 	}
 
 	/**
@@ -114,7 +114,7 @@ class Loader {
 
 	public function widget_categories( $elements_manager ) {
 		// Add our categories
-		$category_prefix = 'penci-';
+		$category_prefix = 'goso-';
 
 		$elements_manager->add_category( $category_prefix . 'archive-builder', [
 				'title' => '[GosoDesign] Archive Builder',
@@ -143,7 +143,7 @@ class Loader {
 	 *  Editor enqueue styles.
 	 */
 	public function enqueue_editor_styles() {
-		wp_enqueue_style( 'penci-elementor', PENCI_ELEMENTOR_URL . 'assets/css/editor.css', array( 'elementor-editor' ), '' );
+		wp_enqueue_style( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/css/editor.css', array( 'elementor-editor' ), '' );
 	}
 
 	public function enqueue_editor_scripts() {
@@ -152,9 +152,9 @@ class Loader {
 		}
 
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '<' ) ) {
-			wp_enqueue_script( 'penci-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.bak.js', array( 'backbone-marionette' ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.bak.js', array( 'backbone-marionette' ), PENCI_SOLEDAD_VERSION, true );
 		} else {
-			wp_enqueue_script( 'penci-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.min.js', array(
+			wp_enqueue_script( 'goso-elementor', PENCI_ELEMENTOR_URL . 'assets/js/editor.min.js', array(
 				'backbone-marionette',
 				'elementor-common',
 				'elementor-editor-modules',
@@ -162,7 +162,7 @@ class Loader {
 			), PENCI_SOLEDAD_VERSION, true );
 		}
 
-		wp_localize_script( 'penci-elementor', 'GosoElementorConfig', array(
+		wp_localize_script( 'goso-elementor', 'GosoElementorConfig', array(
 			'i18n'     => array(),
 			'isActive' => true,
 		) );
@@ -172,7 +172,7 @@ class Loader {
 	 * Register scripts
 	 */
 	public function register_frontend_scripts() {
-		$api = get_theme_mod( 'penci_map_api_key', '' );
+		$api = get_theme_mod( 'goso_map_api_key', '' );
 		if ( $api ) {
 			$map_url = 'https://maps.google.com/maps/api/js?key=' . esc_attr( $api );
 		} else {
@@ -186,7 +186,7 @@ class Loader {
 			'jquery',
 			'waypoints'
 		), '1.0', true );
-		wp_register_script( 'penci-button-popup', get_template_directory_uri() . '/inc/elementor/assets/js/penci-button-popup.js', array( 'jquery' ), '1.0', true );
+		wp_register_script( 'goso-button-popup', get_template_directory_uri() . '/inc/elementor/assets/js/goso-button-popup.js', array( 'jquery' ), '1.0', true );
 	}
 
 	public function on_elementor_init() {

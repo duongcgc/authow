@@ -3,12 +3,12 @@ $group_color   = 'Typo & Color';
 $group_heading = 'Heading';
 
 vc_map( array(
-	'base'          => 'penci_video_playlist',
+	'base'          => 'goso_video_playlist',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/video_playlist/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Video Playlist', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Video Playlist', 'authow' ),
 	'description'   => __( 'Video playlist block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -16,7 +16,7 @@ vc_map( array(
 			array(
 				'type'       => 'dropdown',
 				'heading'    => __( 'Block Columns', 'authow' ),
-				'param_name' => 'penci_block_width',
+				'param_name' => 'goso_block_width',
 				'std'        => 3,
 				'value'      => array(
 					__( '1 Column ( Small Container Width)', 'authow' )    => '1',
@@ -166,7 +166,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Extra colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',

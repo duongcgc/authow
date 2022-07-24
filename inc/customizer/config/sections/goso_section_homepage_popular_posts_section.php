@@ -2,9 +2,9 @@
 $options   = [];
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Popular Posts on HomePage',
-	'id'       => 'penci_enable_home_popular_posts',
+	'id'       => 'goso_enable_home_popular_posts',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
@@ -12,9 +12,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Amount of Posts on Popular Posts', 'authow' ),
-	'id'       => 'penci_home_popular_post_numberposts',
+	'id'       => 'goso_home_popular_post_numberposts',
 	'ids'         => array(
-		'desktop' => 'penci_home_popular_post_numberposts',
+		'desktop' => 'goso_home_popular_post_numberposts',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -29,9 +29,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Display Home Popular Posts on',
-	'id'       => 'penci_home_popular_type',
+	'id'       => 'goso_home_popular_type',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''      => 'All Time',
@@ -43,14 +43,14 @@ $options[] = array(
 	'default'  => 'Popular Posts',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => 'Custom Title for Home Popular Posts Box',
-	'id'       => 'penci_home_popular_title',
+	'id'       => 'goso_home_popular_title',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
 	'default'  => '0',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Filter Home Popular Posts by A Category',
-	'id'       => 'penci_home_popular_cat',
+	'id'       => 'goso_home_popular_cat',
 	'type'     => 'authow-fw-ajax-select',
 	'choices'  => call_user_func( function () {
 		$category = [ '' ];
@@ -65,7 +65,7 @@ $options[] = array(
 				$category[ $value->term_id ] = $value->name;
 			}
 		} else {
-			$selected = get_theme_mod( 'penci_top_bar_category' );
+			$selected = get_theme_mod( 'goso_top_bar_category' );
 			if ( ! empty( $selected ) ) {
 				$categories = get_categories( [
 					'hide_empty'   => false,
@@ -86,10 +86,10 @@ $options[] = array(
 	'default'  => '8',
 	'sanitize' => 'absint',
 	'label'    => __( 'Custom Words Length for Post Titles on Popular Posts', 'authow' ),
-	'id'       => 'penci_home_polular_title_length',
+	'id'       => 'goso_home_polular_title_length',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_home_polular_title_length',
+		'desktop' => 'goso_home_polular_title_length',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -104,37 +104,37 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase Post Titles for Popular Posts on HomePage',
-	'id'       => 'penci_lowcase_popular_posts',
+	'id'       => 'goso_lowcase_popular_posts',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Date on Home Popular Posts',
-	'id'       => 'penci_hide_date_home_popular',
+	'id'       => 'goso_hide_date_home_popular',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Post Format Icons on Home Popular Posts',
-	'id'       => 'penci_enable_home_popular_icons',
+	'id'       => 'goso_enable_home_popular_icons',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Show Prev/Next Buttons on Home Popular Posts',
-	'id'       => 'penci_home_popular_shownav',
+	'id'       => 'goso_home_popular_shownav',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Dots on Home Popular Posts',
-	'id'       => 'penci_home_popular_hidedots',
+	'id'       => 'goso_home_popular_hidedots',
 	'type'     => 'authow-fw-toggle',
 );
 

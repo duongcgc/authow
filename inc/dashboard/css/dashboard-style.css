@@ -1,8 +1,8 @@
-.penci-about-wrap {
+.goso-about-wrap {
 	max-width: 1200px;
 }
 
-.penci-about-wrap .feature-section h3{
+.goso-about-wrap .feature-section h3{
 	margin-top: 1.25em !important;
 }
 
@@ -19,16 +19,16 @@ a {
 	text-decoration: none;
 }
 
-.penci-dashboard-wapper .product {
+.goso-dashboard-wapper .product {
 	text-align: center;
 }
 
-.penci-dashboard-wapper .products .product img {
+.goso-dashboard-wapper .products .product img {
 	box-shadow: none;
 	margin: 0 auto;
 }
 
-.penci-dashboard-wapper .wp-badge:hover {
+.goso-dashboard-wapper .wp-badge:hover {
 	text-decoration: none;
 }
 .feature-section {
@@ -66,7 +66,7 @@ a {
 	display: none !important;
 }
 
-.penci-upload-font-actions {
+.goso-upload-font-actions {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
@@ -79,39 +79,39 @@ a {
 	display: block;
 }
 
-.penci-dashboard-wapper .form-table tr {
+.goso-dashboard-wapper .form-table tr {
 	border-bottom: 1px solid #ddd;
 }
 
-.penci-dashboard-wapper .form-table th {
+.goso-dashboard-wapper .form-table th {
 	padding-left: 10px;
 }
 
-.penci-dashboard-wapper .form-table th:not(:first-child),
-.penci-dashboard-wapper .form-table td:not(:first-child) {
+.goso-dashboard-wapper .form-table th:not(:first-child),
+.goso-dashboard-wapper .form-table td:not(:first-child) {
 	width: 15%;
 	text-align: center;
 }
 
-.penci-dashboard-wapper .about-wrap td h3 {
+.goso-dashboard-wapper .about-wrap td h3 {
 	margin-top: 0;
 }
 
-.penci-dashboard-wapper .form-table .dashicons {
+.goso-dashboard-wapper .form-table .dashicons {
 	font-size: 35px;
 	width: 35px;
 	height: 35px;
 }
 
-.penci-dashboard-wapper .form-table .dashicons-yes {
+.goso-dashboard-wapper .form-table .dashicons-yes {
 	color: green;
 }
 
-.penci-dashboard-wapper .form-table .dashicons-no {
+.goso-dashboard-wapper .form-table .dashicons-no {
 	color: red;
 }
 
-.penci-table-options {
+.goso-table-options {
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
@@ -140,7 +140,7 @@ a {
     font-size: 11px !important;
 }
 
-#system_status .penci-tooltip {
+#system_status .goso-tooltip {
     width: 12px;
     height: 13px;
     display: inline-block;
@@ -196,7 +196,7 @@ a {
     margin-top: 0;
 }
 
-.penci-activate-wrap{
+.goso-activate-wrap{
 	background-color: #fff;
 	max-width: 750px;
 	margin-top: 50px;
@@ -207,30 +207,30 @@ a {
 	box-sizing: border-box;
 }
 
-.penci-activate-wrap .penci-activate-code-title {
+.goso-activate-wrap .goso-activate-code-title {
 	font-size: 28px;
 	margin-top: -11px;
 	margin-bottom: 12px;
 	line-height: 30px;
 }
 
-.penci-activate-wrap .penci-activate-desc,
-.penci-activate-wrap .penci-activate-desc2 {
+.goso-activate-wrap .goso-activate-desc,
+.goso-activate-wrap .goso-activate-desc2 {
 	width: 100%;
 	font-size: 14px;
 	line-height: 24px;
 	margin-bottom: 36px;
 }
-.penci-activate-desc2 strong,
-.penci-activate-desc strong {
+.goso-activate-desc2 strong,
+.goso-activate-desc strong {
 	color: #000;
 }
-.penci-activate-wrap .penci-activate-inputs {
+.goso-activate-wrap .goso-activate-inputs {
 	position: relative;
 	margin-bottom: 30px;
 }
 
-.penci-activate-wrap .penci-form-control {
+.goso-activate-wrap .goso-form-control {
 	width: 100%;
 	height: 42px;
 	margin: 0;
@@ -246,19 +246,19 @@ a {
 	box-shadow: inset 0px -20px 0px -19px #dedede;
 }
 
-.penci-activate-wrap .penci-form-control::placeholder {
+.goso-activate-wrap .goso-form-control::placeholder {
 	color: #b4b4b4;
 }
-.penci-activate-wrap .penci-form-control:focus {
+.goso-activate-wrap .goso-form-control:focus {
 	-webkit-box-shadow: inset 0px -20px 0px -19px #6eb48c;
 	-moz-box-shadow: inset 0px -20px 0px -19px #6eb48c;
 	box-shadow: inset 0px -20px 0px -19px #6eb48c;
 }
-.penci-activate-wrap .penci-form-control:focus::placeholder {
+.goso-activate-wrap .goso-form-control:focus::placeholder {
 	visibility: hidden;
 }
 
-.penci-activate-wrap .penci-form-control-bar {
+.goso-activate-wrap .goso-form-control-bar {
 	position: absolute;
 	top: 41px;
 	left: 0;
@@ -271,11 +271,11 @@ a {
 	height: 2px;
 }
 
-.penci-activate-wrap .penci-form-control:focus + .penci-form-control-bar {
+.goso-activate-wrap .goso-form-control:focus + .goso-form-control-bar {
 	width: 100%;
 }
 
-.penci-activate-wrap button{
+.goso-activate-wrap button{
 	border: 0;
 	border-radius: 0;
 	background: #000;
@@ -289,44 +289,44 @@ a {
 	cursor: pointer;
 }
 
-.penci-activate-wrap button:hover {
+.goso-activate-wrap button:hover {
 	border-color: #6eb48c;
 	background: #6eb48c;
 	color: #fff;
 }
 
-.penci-activate-wrap .authow-find-code{
+.goso-activate-wrap .authow-find-code{
 	display: inline-block;
 	padding-left: 20px;
 	font-size: 13px;
 }
 
-.penci-activate-wrap  .penci-activate-err {
+.goso-activate-wrap  .goso-activate-err {
 	color: red;
 	font-size: 14px;
 	margin-top: 5px;
 }
 
-.penci-activate-wrap  .penci-activate-err span{
+.goso-activate-wrap  .goso-activate-err span{
 	display: none;
 }
 
-.penci-activate-wrap  .penci-activate-err span.penci-err-show{
+.goso-activate-wrap  .goso-activate-err span.goso-err-show{
 	display: block;
 }
 
-.penci-activate-wrap  .spinner {
+.goso-activate-wrap  .spinner {
 	float: none;
 	display: none;
 }
 
-.penci-activate-wrap  .spinner.active {
+.goso-activate-wrap  .spinner.active {
 	visibility: visible;
 	display: inline-block;
 }
 
-#wpadminbar ul li.penci-update-notice-button a,
-#wpadminbar ul li.penci-update-notice-button a:hover {
+#wpadminbar ul li.goso-update-notice-button a,
+#wpadminbar ul li.goso-update-notice-button a:hover {
 	background-color: #b70303 !important;
 	color: #fff !important;
 }

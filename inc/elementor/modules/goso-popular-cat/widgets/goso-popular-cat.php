@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPopularCat extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-popular-cat';
+		return 'goso-popular-cat';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Popular Categories', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Popular Categories', 'authow' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GosoPopularCat extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -130,7 +130,7 @@ class GosoPopularCat extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-block-popular-cat li, .penci-block-popular-cat ul ul' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-block-popular-cat li, .goso-block-popular-cat ul ul' => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -161,9 +161,9 @@ class GosoPopularCat extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 1, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-block-popular-cat li' => 'padding-bottom: calc( {{SIZE}}px / 2 ); margin-bottom: calc( {{SIZE}}px / 2 );',
-					'{{WRAPPER}} .penci-block-popular-cat ul ul' => 'padding-top: calc( {{SIZE}}px / 2 ); margin-top: calc( {{SIZE}}px / 2 );',
-					'{{WRAPPER}} .penci-block-popular-cat li:last-child' => 'padding-bottom: 0; margin-bottom: 0;',
+					'{{WRAPPER}} .goso-block-popular-cat li' => 'padding-bottom: calc( {{SIZE}}px / 2 ); margin-bottom: calc( {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .goso-block-popular-cat ul ul' => 'padding-top: calc( {{SIZE}}px / 2 ); margin-top: calc( {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .goso-block-popular-cat li:last-child' => 'padding-bottom: 0; margin-bottom: 0;',
 				),
 			)
 		);
@@ -177,7 +177,7 @@ class GosoPopularCat extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class = 'penci-block-vc penci-block-popular-cat widget_categories widget widget_categories';
+		$css_class = 'goso-block-vc goso-block-popular-cat widget_categories widget widget_categories';
 
 		$c          = ! empty( $settings['pcount'] ) ? '1' : '0';
 		$h          = ! empty( $settings['phierarchical'] ) ? '1' : '0';
@@ -201,7 +201,7 @@ class GosoPopularCat extends Base_Widget {
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content penci-div-inner">
+			<div class="goso-block_content goso-div-inner">
 				<ul>
 					<?php
 					wp_list_categories( $cat_args );

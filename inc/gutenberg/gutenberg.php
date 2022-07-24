@@ -25,19 +25,19 @@ if ( ! class_exists( 'Goso_Authow_Gutenberg' ) ):
 		/*
 		public function enqueue_editor_assets(){
 			if( is_admin() ) {
-				wp_enqueue_script( 'penci-gutenberg-save-data', get_template_directory_uri() . '/inc/gutenberg/saving-data.js', array( 'wp-blocks' ),'1.0' );
+				wp_enqueue_script( 'goso-gutenberg-save-data', get_template_directory_uri() . '/inc/gutenberg/saving-data.js', array( 'wp-blocks' ),'1.0' );
 			}
 		}
 		*/
 
 		function register_block() {
 			if( is_admin() ){
-				wp_enqueue_style( 'penci-gutenberg', get_template_directory_uri() . '/inc/gutenberg/style.css', array( 'wp-edit-blocks' ), PENCI_SOLEDAD_VERSION );
+				wp_enqueue_style( 'goso-gutenberg', get_template_directory_uri() . '/inc/gutenberg/style.css', array( 'wp-edit-blocks' ), PENCI_SOLEDAD_VERSION );
 			}
 		}
 
 		function custom_admin_body_class( $classes ) {
-			$classes .= ' penci-gutenberg-vp-pfui';
+			$classes .= ' goso-gutenberg-vp-pfui';
 
 			return $classes;
 		}

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Class penci_menu_walker_nav_menu
+ * Class goso_menu_walker_nav_menu
  * This class will remove wrap </a> around mega menu
  * Callback on wp_nav_menu() in header.php file
  *
  * @since 1.0
  */
-class penci_menu_builder_walker_nav_menu extends Walker_Nav_Menu {
+class goso_menu_builder_walker_nav_menu extends Walker_Nav_Menu {
 	private $logo_break_point = null;
 	private $count_item_parent = 0;
 	private $curItem;
@@ -25,23 +25,23 @@ class penci_menu_builder_walker_nav_menu extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$menu_item       = $this->curItem;
-		$penci_menu_type = get_post_meta( $menu_item->ID, 'penci_menu_type', true );
-		$penci_menu_mw   = get_post_meta( $menu_item->ID, 'penci_menu_mw', true );
+		$goso_menu_type = get_post_meta( $menu_item->ID, 'goso_menu_type', true );
+		$goso_menu_mw   = get_post_meta( $menu_item->ID, 'goso_menu_mw', true );
 
 		$indent  = str_repeat( "\t", $depth );
 		$classes = '';
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
 
-			$classes .= ' penci-dropdown-menu penci-dropdown';
+			$classes .= ' goso-dropdown-menu goso-dropdown';
 
-			$classes .= $penci_menu_mw ? ' penci-mega-custom-width' : ' penci-mega-full-width';
+			$classes .= $goso_menu_mw ? ' goso-mega-custom-width' : ' goso-mega-full-width';
 
 			$output .= $indent . '<div class="' . trim( $classes ) . '">';
 			$output .= $indent . '<div class="container">';
 		}
 
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
-			$sub_menu_class = 'penci-megamenu-sub sub-sub-menu';
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
+			$sub_menu_class = 'goso-megamenu-sub sub-sub-menu';
 		} else {
 			$sub_menu_class = 'sub-menu';
 		}
@@ -62,11 +62,11 @@ class penci_menu_builder_walker_nav_menu extends Walker_Nav_Menu {
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$menu_item       = $this->curItem;
-		$penci_menu_type = get_post_meta( $menu_item->ID, 'penci_menu_type', true );
+		$goso_menu_type = get_post_meta( $menu_item->ID, 'goso_menu_type', true );
 		$indent          = str_repeat( "\t", $depth );
 		$output          .= "$indent</ul>\n";
 
-		if ( 0 === $depth && 'mega-menu' == $penci_menu_type ) {
+		if ( 0 === $depth && 'mega-menu' == $goso_menu_type ) {
 			$output .= "$indent</div>\n";
 			$output .= "$indent</div>\n";
 		}

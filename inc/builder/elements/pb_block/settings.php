@@ -2,16 +2,16 @@
 $options = [];
 
 $options[] = array(
-	'id'              => 'penci_header_pb_block_select',
+	'id'              => 'goso_header_pb_block_select',
 	'default'         => '',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-ajax-select',
 	'label'           => esc_html__( 'Select the Goso Block', 'authow' ),
 	'choices'         => call_user_func( function () {
 		$builder_layout  = [ '' => '- Select -' ];
 		$builder_layouts = get_posts( [
-			'post_type'      => 'penci-block',
+			'post_type'      => 'goso-block',
 			'posts_per_page' => - 1,
 		] );
 
@@ -22,7 +22,7 @@ $options[] = array(
 		return $builder_layout;
 	} ),
 	'partial_refresh' => [
-		'penci_header_pb_block_select' => [
+		'goso_header_pb_block_select' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -32,10 +32,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => 'penci_header_pb_block_spacing',
+	'id'        => 'goso_header_pb_block_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Item Spacing', 'authow' ),
 	'choices'   => array(

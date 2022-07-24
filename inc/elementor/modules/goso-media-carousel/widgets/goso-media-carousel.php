@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoMediaCarousel extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-media-carousel';
+		return 'goso-media-carousel';
 	}
 
 	public function get_script_depends() {
@@ -27,7 +27,7 @@ class GosoMediaCarousel extends Base_Widget {
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Advanced Carousel', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Advanced Carousel', 'authow' );
 	}
 
 	public function get_icon() {
@@ -35,7 +35,7 @@ class GosoMediaCarousel extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -73,7 +73,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label_on'  => __( 'Yes', 'authow' ),
 				'label_off' => __( 'No', 'authow' ),
 				'selectors' => array(
-					'{{WRAPPER}} .pc-ctpos-on .penci-media-content > a' => 'z-index: 5;',
+					'{{WRAPPER}} .pc-ctpos-on .goso-media-content > a' => 'z-index: 5;',
 				),
 				'condition' => array( 'contentpos' => 'on' )
 			)
@@ -84,10 +84,10 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'   => __( 'Gap Between Items', 'authow' ),
 				'type'    => Controls_Manager::NUMBER,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-advanced-carousel-mg' => 'margin-left: calc( {{SIZE}}px * -1 / 2 ); margin-right: calc( {{SIZE}}px * -1 / 2 );',
-					'{{WRAPPER}} .penci-media-inner' => 'padding-left: calc( {{SIZE}}px / 2 ); padding-right: calc( {{SIZE}}px / 2 );',
-					'{{WRAPPER}} .penci-owl-carousel .owl-nav .owl-prev' => 'left: calc( 15px + {{SIZE}}px / 2 );',
-					'{{WRAPPER}} .penci-owl-carousel .owl-nav .owl-next' => 'right: calc( 15px + {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .goso-advanced-carousel-mg' => 'margin-left: calc( {{SIZE}}px * -1 / 2 ); margin-right: calc( {{SIZE}}px * -1 / 2 );',
+					'{{WRAPPER}} .goso-media-inner' => 'padding-left: calc( {{SIZE}}px / 2 ); padding-right: calc( {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .goso-owl-carousel .owl-nav .owl-prev' => 'left: calc( 15px + {{SIZE}}px / 2 );',
+					'{{WRAPPER}} .goso-owl-carousel .owl-nav .owl-next' => 'right: calc( 15px + {{SIZE}}px / 2 );',
 				),
 			)
 		);
@@ -111,7 +111,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0.1, 'max' => 3, 'step' => 0.01 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-image-holder:before' => 'padding-top:calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .goso-media-carousels .goso-image-holder:before' => 'padding-top:calc( {{SIZE}} * 100% );',
 				),
 			)
 		);
@@ -188,7 +188,7 @@ class GosoMediaCarousel extends Base_Widget {
 					'100% auto'    => __( 'Width:100% x Height: Auto', 'authow' ),
 					'auto 100%'    => __( 'Width:Auto x Height: 100%', 'authow' ),
 				),
-				'selectors' => array( '{{WRAPPER}} .penci-media-item .penci-image-holder' => 'background-size: {{VALUE}}' )
+				'selectors' => array( '{{WRAPPER}} .goso-media-item .goso-image-holder' => 'background-size: {{VALUE}}' )
 			)
 		);
 
@@ -409,7 +409,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1, 'step' => 0.05 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-inct:hover .pc-adcr-overlay' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-inct:hover .pc-adcr-overlay' => 'opacity: {{SIZE}};'
 				)
 			)
 		);
@@ -448,7 +448,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1, 'step' => 0.05 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-inct:hover .pc-media-ctinner:before' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-inct:hover .pc-media-ctinner:before' => 'opacity: {{SIZE}};'
 				)
 			)
 		);
@@ -485,7 +485,7 @@ class GosoMediaCarousel extends Base_Widget {
 				),
 				'condition'   => array( 'icustom' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels {{CURRENT_ITEM}} .penci-media-content' => 'text-align: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels {{CURRENT_ITEM}} .goso-media-content' => 'text-align: {{VALUE}};'
 				)
 			)
 		);
@@ -513,7 +513,7 @@ class GosoMediaCarousel extends Base_Widget {
 					),
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .pc-ctpos-on {{CURRENT_ITEM}} .penci-media-content' => 'align-items: {{VALUE}}',
+					'{{WRAPPER}} .pc-ctpos-on {{CURRENT_ITEM}} .goso-media-content' => 'align-items: {{VALUE}}',
 				),
 				'selectors_dictionary' => array(
 					'top'    => 'flex-start',
@@ -530,7 +530,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-stit' => 'color: {{VALUE}};'
+					'{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-stit' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -542,7 +542,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels {{CURRENT_ITEM}} .penci-media-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels {{CURRENT_ITEM}} .goso-media-title' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -554,7 +554,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels {{CURRENT_ITEM}} .penci-media-desc' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels {{CURRENT_ITEM}} .goso-media-desc' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -566,7 +566,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels {{CURRENT_ITEM}} .penci-media-desc a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels {{CURRENT_ITEM}} .goso-media-desc a' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -578,7 +578,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$repeater->add_control(
@@ -588,7 +588,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a:hover' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a:hover' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$repeater->add_control(
@@ -598,7 +598,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$repeater->add_control(
@@ -608,7 +608,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition'   => array( 'icustom' => 'yes' ),
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -618,7 +618,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'icustom' => 'yes' ),
 			)
 		);
@@ -628,7 +628,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Hover Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .penci-media-rmbtn a:hover' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} {{CURRENT_ITEM}} .goso-media-rmbtn a:hover' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'icustom' => 'yes' ),
 			)
 		);
@@ -694,7 +694,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-inct' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-inct' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -706,7 +706,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'condition'   => array( 'contentpos' => 'below' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels.pc-ctpos-below .penci-media-content' => 'margin-top: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-media-carousels.pc-ctpos-below .goso-media-content' => 'margin-top: {{SIZE}}px;'
 				)
 			)
 		);
@@ -718,7 +718,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'condition'   => array( 'contentpos' => 'above' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels.pc-ctpos-above .penci-media-content' => 'margin-bottom: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-media-carousels.pc-ctpos-above .goso-media-content' => 'margin-bottom: {{SIZE}}px;'
 				)
 			)
 		);
@@ -729,7 +729,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-carousels.pc-ctpos-on .pc-media-ctinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .goso-media-carousels.pc-ctpos-on .pc-media-ctinner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 				'condition'   => array( 'contentpos' => 'on' ),
 			)
@@ -741,7 +741,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-carousels .pc-media-ctinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-carousels .pc-media-ctinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -752,7 +752,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-stit' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-stit' => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				)
 			)
 		);
@@ -763,7 +763,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-desc' => 'margin-top: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-desc' => 'margin-top: {{SIZE}}{{UNIT}};'
 				)
 			)
 		);
@@ -774,7 +774,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-rmbtn' => 'margin-top: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-rmbtn' => 'margin-top: {{SIZE}}{{UNIT}};'
 				)
 			)
 		);
@@ -822,7 +822,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1, 'step' => 0.05 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-inct:hover .pc-adcr-overlay' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .goso-media-inct:hover .pc-adcr-overlay' => 'opacity: {{SIZE}};'
 				)
 			)
 		);
@@ -861,7 +861,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1, 'step' => 0.05 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-inct:hover .pc-media-ctinner:before' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .goso-media-inct:hover .pc-media-ctinner:before' => 'opacity: {{SIZE}};'
 				)
 			)
 		);
@@ -889,7 +889,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'name'     => 'slides_bg',
 				'label'    => __( 'Slides Background', 'authow' ),
 				'types'    => array( 'classic', 'gradient' ),
-				'selector' => '{{WRAPPER}} .penci-media-inct',
+				'selector' => '{{WRAPPER}} .goso-media-inct',
 			)
 		);
 		
@@ -899,7 +899,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-inct' => 'border: 1px solid {{VALUE}};'
+					'{{WRAPPER}} .goso-media-inct' => 'border: 1px solid {{VALUE}};'
 				)
 			)
 		);
@@ -910,7 +910,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-inct' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-inct' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -942,7 +942,7 @@ class GosoMediaCarousel extends Base_Widget {
 					)
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-content' => 'text-align: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-content' => 'text-align: {{VALUE}};'
 				)
 			)
 		);
@@ -969,7 +969,7 @@ class GosoMediaCarousel extends Base_Widget {
 					),
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .pc-ctpos-on .penci-media-content' => 'align-items: {{VALUE}}',
+					'{{WRAPPER}} .pc-ctpos-on .goso-media-content' => 'align-items: {{VALUE}}',
 				),
 				'selectors_dictionary' => array(
 					'top'    => 'flex-start',
@@ -993,7 +993,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-stit' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-stit' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -1001,7 +1001,7 @@ class GosoMediaCarousel extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'stitle_typography',
-				'selector' => '{{WRAPPER}} .penci-media-stit'
+				'selector' => '{{WRAPPER}} .goso-media-stit'
 			)
 		);
 
@@ -1019,7 +1019,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-title' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -1027,7 +1027,7 @@ class GosoMediaCarousel extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .penci-media-carousels .penci-media-title'
+				'selector' => '{{WRAPPER}} .goso-media-carousels .goso-media-title'
 			)
 		);
 
@@ -1045,7 +1045,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-desc' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-desc' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -1056,7 +1056,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-media-carousels .penci-media-desc a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-media-carousels .goso-media-desc a' => 'color: {{VALUE}};'
 				)
 			)
 		);
@@ -1064,7 +1064,7 @@ class GosoMediaCarousel extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'description_typography',
-				'selector' => '{{WRAPPER}} .penci-media-carousels .penci-media-desc'
+				'selector' => '{{WRAPPER}} .goso-media-carousels .goso-media-desc'
 			)
 		);
 		
@@ -1083,7 +1083,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1092,7 +1092,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Hover Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a:hover' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a:hover' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1101,7 +1101,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -1110,7 +1110,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Hover Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -1118,7 +1118,7 @@ class GosoMediaCarousel extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'rm_typo',
 				'label'    => __( 'Button Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-media-rmbtn a',
+				'selector' => '{{WRAPPER}} .goso-media-rmbtn a',
 			)
 		);
 		
@@ -1128,7 +1128,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-rmbtn a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-rmbtn a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -1139,7 +1139,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-rmbtn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-rmbtn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -1161,7 +1161,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'size_units' => array( 'px', 'em' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-media-rmbtn a' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-media-rmbtn a' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -1172,7 +1172,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 			)
 		);
@@ -1182,7 +1182,7 @@ class GosoMediaCarousel extends Base_Widget {
 				'label'     => __( 'Button Hover Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-media-rmbtn a:hover' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-media-rmbtn a:hover' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 			)
 		);
@@ -1255,7 +1255,7 @@ class GosoMediaCarousel extends Base_Widget {
 			return;
 		}
 
-		$css_class = 'penci-block-vc penci-media-carousels';
+		$css_class = 'goso-block-vc goso-media-carousels';
 		$contentpos = $settings['contentpos'] ? $settings['contentpos'] : 'below';
 		$css_class .= ' pc-ctpos-' . $contentpos;
 
@@ -1276,14 +1276,14 @@ class GosoMediaCarousel extends Base_Widget {
 		?>
 
 		<div class="<?php echo esc_attr( $css_class ); ?>">
-			<div class="penci-advanced-carousel-mg">
-				<div class="penci-block_content penci-owl-carousel penci-advanced-carousel penci-owl-carousel-slider" <?php echo $data_slider; ?>>
+			<div class="goso-advanced-carousel-mg">
+				<div class="goso-block_content goso-owl-carousel goso-advanced-carousel goso-owl-carousel-slider" <?php echo $data_slider; ?>>
 					<?php
 					$slide_prints_count = 0;
-					$image_size = isset( $settings['image_size'] ) && $settings['image_size'] ? $settings['image_size'] : 'penci-thumb';
+					$image_size = isset( $settings['image_size'] ) && $settings['image_size'] ? $settings['image_size'] : 'goso-thumb';
 					$image_size_mobile = isset( $settings['image_size_mobile'] ) && $settings['image_size_mobile'] ? $settings['image_size_mobile'] : '';
 					$border_class = $settings['addrmborder'] ? ' pc-rmbtn-borders' : '';
-					if ( penci_is_mobile() && $image_size_mobile ) {
+					if ( goso_is_mobile() && $image_size_mobile ) {
 						$image_size = $image_size_mobile;
 					}
 					
@@ -1300,10 +1300,10 @@ class GosoMediaCarousel extends Base_Widget {
 
 						$element_key = 'slide-' . $index . '-' . $slide_prints_count;
 						$slider_img = $this->get_slide_image_url( $slide, $settings );
-						$slider_img_display = penci_get_image_size_url( $slider_img, $image_size );
+						$slider_img_display = goso_get_image_size_url( $slider_img, $image_size );
 						
 						$this->add_render_attribute( $element_key . '-image', array(
-							'class' => 'penci-image-holder',
+							'class' => 'goso-image-holder',
 							'style' => 'background-image: url(' . $slider_img_display . ')',
 						) );
 
@@ -1333,7 +1333,7 @@ class GosoMediaCarousel extends Base_Widget {
 							}
 							
 						} else if ( 'video' == $slide_type && $slide['video']['url'] ) {
-							$this->add_render_attribute( $element_key . '_link', 'class', 'penci-other-layouts-lighbox' );
+							$this->add_render_attribute( $element_key . '_link', 'class', 'goso-other-layouts-lighbox' );
 							$this->add_render_attribute( $element_key . '_link', 'href', $slide['video']['url'] );
 							$reders_href = true;
 						}
@@ -1343,10 +1343,10 @@ class GosoMediaCarousel extends Base_Widget {
 							$a_after  = '</a>';
 						}
 						?>
-						<div class="penci-media-item<?php echo $item_id;?>">
-							<div class="penci-media-inner">
-								<div class="penci-media-inct">
-									<div class="penci-media-img">
+						<div class="goso-media-item<?php echo $item_id;?>">
+							<div class="goso-media-inner">
+								<div class="goso-media-inct">
+									<div class="goso-media-img">
 										<?php if( 'on' != $contentpos ): echo $a_before; endif; ?>
 										<div class="pc-adcr-overlay"></div>
 										<?php if( 'on' != $contentpos ): echo $a_after; endif; ?>
@@ -1354,33 +1354,33 @@ class GosoMediaCarousel extends Base_Widget {
 											<?php
 											if ( 'video' === $slide['type'] ) {
 												echo '<div class="overlay-icon-format normal-size-icon">';
-												penci_fawesome_icon( 'fas fa-play' );
+												goso_fawesome_icon( 'fas fa-play' );
 												echo '</div>';
 											}
 											?>
 										</div>
 									</div>
 									<?php if ( $slide_stitle || $slide_title || $desc_title || $button_text ) : ?>
-										<div class="penci-media-content">
+										<div class="goso-media-content">
 											<?php if( 'on' == $contentpos && $a_before && $a_after ) { ?>
 											<?php echo $a_before . $a_after; ?>
 											<?php } ?>
 											<div class="pc-media-ctinner">
 												<?php if ( $slide_stitle ): ?>
-													<div class="penci-media-stit"><?php echo $slide_stitle; ?></div>
+													<div class="goso-media-stit"><?php echo $slide_stitle; ?></div>
 												<?php endif; ?>
 												<?php if ( $slide_title ): ?>
-													<h3 class="penci-media-title"><?php echo $slide_title; ?></h3>
+													<h3 class="goso-media-title"><?php echo $slide_title; ?></h3>
 												<?php endif; ?>
 												<?php if ( $desc_title ): ?>
-													<div class="penci-media-desc"><?php echo $desc_title ?></div>
+													<div class="goso-media-desc"><?php echo $desc_title ?></div>
 												<?php endif; ?>
 												<?php if ( $button_text || 'yes' == $btnadd_icon ): 
 												$button_href = $slide['rmlink']['url'] ? $slide['rmlink']['url'] : '';
 												$button_target = $slide['rmlink']['is_external'] ? ' target="_blank"' : '';
 												$button_nofollow = $slide['rmlink']['nofollow'] ? ' rel="nofollow"' : '';
 												?>
-													<div class="penci-media-rmbtn<?php echo $border_class; ?>"><a href="<?php echo $button_href; ?>"<?php echo $button_target . $button_nofollow; ?>>
+													<div class="goso-media-rmbtn<?php echo $border_class; ?>"><a href="<?php echo $button_href; ?>"<?php echo $button_target . $button_nofollow; ?>>
 														<?php if( 'yes' == $btnadd_icon && 'left' == $icon_pos ) { \Elementor\Icons_Manager::render_icon( $slide['rmicon'], [ 'aria-hidden' => 'true' ] ); } ?>
 														<?php if( $button_text ) { echo $button_text; } ?>
 														<?php if( 'yes' == $btnadd_icon && 'right' == $icon_pos ) { \Elementor\Icons_Manager::render_icon( $slide['rmicon'], [ 'aria-hidden' => 'true' ] ); } ?>

@@ -3,14 +3,14 @@ $area          = 'topbar';
 $name          = 'Top Bar';
 $area_settings = $area;
 $default_width = 'container-normal';
-$section_name  = "penci_header_{$area_settings}_setting_section";
+$section_name  = "goso_header_{$area_settings}_setting_section";
 $options   = [];
 /* Section Settings */
 $options[] = array(
-	'id'              => "penci_header_{$area}_middle_column",
+	'id'              => "goso_header_{$area}_middle_column",
 	'default'         => 'disable',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-select',
 	'label'           => __( 'Middle Column Position', 'authow' ),
 	'section'         => $section_name,
@@ -19,18 +19,18 @@ $options[] = array(
 		'enable'  => 'Always Center',
 	],
 	'partial_refresh' => [
-		"penci_header_{$area}_middle_column" => [
-			'selector'        => '.penci-desktop-topbar',
-			'render_callback' => 'penci_hb_element_desktop_' . str_replace( 'bar', '', $area ) . '_preview_render',
+		"goso_header_{$area}_middle_column" => [
+			'selector'        => '.goso-desktop-topbar',
+			'render_callback' => 'goso_hb_element_desktop_' . str_replace( 'bar', '', $area ) . '_preview_render',
 		],
 	],
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_content_width",
+	'id'        => "goso_header_{$area}_content_width",
 	'default'   => $default_width,
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Container Width', 'authow' ),
 	'section'   => $section_name,
@@ -43,7 +43,7 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_content_custom_width",
+	'id'        => "goso_header_{$area}_content_custom_width",
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
@@ -51,7 +51,7 @@ $options[] = array(
 	'label'     => $name . __( ' Custom Container Width', 'authow' ),
 	'section'   => $section_name,
 	'ids'  => array(
-		'desktop' => "penci_header_{$area}_content_custom_width",
+		'desktop' => "goso_header_{$area}_content_custom_width",
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -65,30 +65,30 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_img",
+	'id'        => "goso_header_{$area}_background_img",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-image',
 	'label'     => $name . esc_html__( ' Background Image', 'authow' ),
 	'section'   => $section_name,
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_color",
+	'id'        => "goso_header_{$area}_background_color",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => $name . __( ' Background Color', 'authow' ),
 	'section'   => $section_name,
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_transparent_background_color",
+	'id'        => "goso_header_{$area}_transparent_background_color",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( 'Enable Transparent Background Color ?', 'authow' ),
 	'section'   => $section_name,
 	'type'      => 'authow-fw-select',
@@ -99,10 +99,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_repeat",
+	'id'        => "goso_header_{$area}_background_repeat",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Repeat', 'authow' ),
 	'section'   => $section_name,
@@ -117,10 +117,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_position",
+	'id'        => "goso_header_{$area}_background_position",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Position', 'authow' ),
 	'section'   => $section_name,
@@ -138,10 +138,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_size",
+	'id'        => "goso_header_{$area}_background_size",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Size', 'authow' ),
 	'section'   => $section_name,
@@ -156,10 +156,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_background_attachment",
+	'id'        => "goso_header_{$area}_background_attachment",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Attachment', 'authow' ),
 	'section'   => $section_name,
@@ -173,10 +173,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_spacing_setting",
+	'id'        => "goso_header_{$area}_spacing_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_custom_sanitization',
+	'sanitize'  => 'goso_custom_sanitization',
 	'type'      => 'authow-fw-box-model',
 	'label'     => esc_html__( 'Spacing & Borders', 'authow' ),
 	'section'   => $section_name,
@@ -209,20 +209,20 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_border_setting",
+	'id'        => "goso_header_{$area}_border_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => $name . __( ' Borders Color', 'authow' ),
 	'section'   => $section_name,
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_border_style_setting",
+	'id'        => "goso_header_{$area}_border_style_setting",
 	'default'   => 'solid',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Borders Style', 'authow' ),
 	'section'   => $section_name,
@@ -236,25 +236,25 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_text_color_setting",
+	'id'        => "goso_header_{$area}_text_color_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
-	'settings'  => "penci_header_{$area}_text_color_setting",
+	'settings'  => "goso_header_{$area}_text_color_setting",
 	'label'     => __( 'General Text Color', 'authow' ),
 	'section'   => $section_name,
 );
 
 $options[] = array(
-	'id'        => "penci_header_{$area}_maxheight_setting",
+	'id'        => "goso_header_{$area}_maxheight_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-size',
 	'label'     => $name . esc_html__( ' Max Height', 'authow' ),
 	'ids'  => array(
-		'desktop' => "penci_header_{$area}_maxheight_setting",
+		'desktop' => "goso_header_{$area}_maxheight_setting",
 	),
 	'choices'   => array(
 		'desktop' => array(

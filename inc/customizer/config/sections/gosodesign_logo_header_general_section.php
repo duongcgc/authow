@@ -15,17 +15,17 @@ $header_layout_options = array(
 );
 $options[]             = array(
 	'default'  => 'header-1',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Header Layout',
-	'id'       => 'penci_header_layout',
+	'id'       => 'goso_header_layout',
 	'type'     => 'authow-fw-select',
 	'choices'  => $header_layout_options,
 );
 $options[]             = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Custom Header Container Width',
-	'id'       => 'penci_header_ctwidth',
+	'id'       => 'goso_header_ctwidth',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''          => esc_html__( 'Width: 1170px', 'authow' ),
@@ -37,55 +37,55 @@ $options[]             = array(
 	'sanitize'    => 'esc_url_raw',
 	'type'        => 'authow-fw-image',
 	'label'       => 'Banner Header Right For Header 3',
-	'id'          => 'penci_header_3_banner',
+	'id'          => 'goso_header_3_banner',
 	'description' => 'You should choose banner with 728px width and 90px - 100px height for the best result',
 );
 $options[]             = array(
 	'default'     => '#',
 	'sanitize'    => 'esc_url_raw',
 	'label'       => 'Link To Go When Click Banner Header Right on Header 3',
-	'id'          => 'penci_header_3_banner_url',
+	'id'          => 'goso_header_3_banner_url',
 	'description' => '',
 	'type'        => 'authow-fw-text',
 );
 $options[]             = array(
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field',
+	'sanitize'    => 'goso_sanitize_textarea_field',
 	'label'       => 'Google adsense/custom HTML code to display in header 3',
-	'id'          => 'penci_header_3_adsense',
+	'id'          => 'goso_header_3_adsense',
 	'description' => 'If you want use google adsense/custom HTML code in header style 3, paste your google adsense/custom HTML code here',
 	'type'        => 'authow-fw-textarea',
 );
 $options[]             = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Remove Border Bottom on The Header',
-	'id'          => 'penci_remove_border_bottom_header',
+	'id'          => 'goso_remove_border_bottom_header',
 	'description' => 'This option just apply for header styles 1, 4, 7',
 	'type'        => 'authow-fw-toggle',
 );
 $options[]             = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Header Social Icons',
-	'id'       => 'penci_header_social_check',
+	'id'       => 'goso_header_social_check',
 	'type'     => 'authow-fw-toggle',
 );
 $options[]             = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Use Brand Colors for Social Icons on Header',
-	'id'       => 'penci_header_social_brand',
+	'id'       => 'goso_header_social_brand',
 	'type'     => 'authow-fw-toggle',
 );
 $options[]             = array(
 	'default'  => '14',
 	'sanitize' => 'absint',
 	'label'    => __( 'Custom Font Size for Social Icons', 'authow' ),
-	'id'       => 'penci_size_header_social_check',
+	'id'       => 'goso_size_header_social_check',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_size_header_social_check',
+		'desktop' => 'goso_size_header_social_check',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -99,56 +99,56 @@ $options[]             = array(
 );
 $options[]             = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Display Top Instagram Widget Title Overlay Images',
-	'id'       => 'penci_top_insta_overlay_image',
+	'id'       => 'goso_top_insta_overlay_image',
 	'type'     => 'authow-fw-toggle',
 );
 $options[]             = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Instagram Icon on Top Instagram Widget',
-	'id'       => 'penci_top_insta_hide_icon',
+	'id'       => 'goso_top_insta_hide_icon',
 	'type'     => 'authow-fw-toggle',
 );
 $options[]             = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'label'    => 'Add Custom Code Inside &lt;head&gt; tag',
-	'id'       => 'penci_custom_code_inside_head_tag',
+	'id'       => 'goso_custom_code_inside_head_tag',
 	'type'     => 'authow-fw-textarea',
 );
 $options[]             = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'label'    => 'Add Custom Code After &lt;body&gt; tag',
-	'id'       => 'penci_custom_code_after_body_tag',
+	'id'       => 'goso_custom_code_after_body_tag',
 	'type'     => 'authow-fw-textarea',
 );
 /* Slogan Text */
 $options[] = array(
 	'default'     => 'keep your memories alive',
-	'sanitize'    => 'penci_sanitize_textarea_field',
+	'sanitize'    => 'goso_sanitize_textarea_field',
 	'label'       => 'Header Slogan Text',
-	'id'          => 'penci_header_slogan_text',
+	'id'          => 'goso_header_slogan_text',
 	'description' => 'If you want to hide the slogan text, let make it blank',
 	'type'        => 'authow-fw-textarea',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove the Lines on Left & Right of Header Slogan',
-	'id'       => 'penci_header_remove_line_slogan',
+	'id'       => 'goso_header_remove_line_slogan',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '14',
 	'sanitize' => 'absint',
 	'label'    => __( 'Font Size for Slogan', 'authow' ),
-	'id'       => 'penci_font_size_slogan',
+	'id'       => 'goso_font_size_slogan',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_font_size_slogan',
+		'desktop' => 'goso_font_size_slogan',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -162,18 +162,18 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => '"PT Serif", "regular:italic:700:700italic", serif',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Font For Header Slogan',
-	'id'          => 'penci_font_for_slogan',
+	'id'          => 'goso_font_for_slogan',
 	'description' => 'Default font is "PT Serif"',
 	'type'        => 'authow-fw-select',
-	'choices'     => penci_all_fonts()
+	'choices'     => goso_all_fonts()
 );
 $options[] = array(
 	'default'  => 'bold',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Font Weight For Slogan',
-	'id'       => 'penci_font_weight_slogan',
+	'id'       => 'goso_font_weight_slogan',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'normal'  => 'Normal',
@@ -193,9 +193,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'italic',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Font Style for Slogan',
-	'id'       => 'penci_font_style_slogan',
+	'id'       => 'goso_font_style_slogan',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'italic' => 'Italic',

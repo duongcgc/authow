@@ -25,7 +25,7 @@ class GosoProduct extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_products';
+		return 'goso_products';
 	}
 
 	/**
@@ -37,7 +37,7 @@ class GosoProduct extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Products', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Products', 'authow' );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class GosoProduct extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -101,9 +101,9 @@ class GosoProduct extends Base_Widget {
 		$this->add_control( 'include', [
 			'label'       => esc_html__( 'Include only', 'authow' ),
 			'description' => esc_html__( 'Add products by title.', 'authow' ),
-			'type'        => 'penci_el_autocomplete',
-			'search'      => 'penci_get_posts_by_query',
-			'render'      => 'penci_get_posts_title_by_id',
+			'type'        => 'goso_el_autocomplete',
+			'search'      => 'goso_get_posts_by_query',
+			'render'      => 'goso_get_posts_title_by_id',
 			'post_type'   => 'product',
 			'multiple'    => true,
 			'label_block' => true,
@@ -115,9 +115,9 @@ class GosoProduct extends Base_Widget {
 		$this->add_control( 'taxonomies', [
 			'label'       => esc_html__( 'Categories or tags', 'authow' ),
 			'description' => esc_html__( 'List of product categories.', 'authow' ),
-			'type'        => 'penci_el_autocomplete',
-			'search'      => 'penci_get_taxonomies_by_query',
-			'render'      => 'penci_get_taxonomies_title_by_id',
+			'type'        => 'goso_el_autocomplete',
+			'search'      => 'goso_get_taxonomies_by_query',
+			'render'      => 'goso_get_taxonomies_title_by_id',
 			'taxonomy'    => array_merge( [ 'product_cat', 'product_tag' ], $this->get_product_attributes_array() ),
 			'multiple'    => true,
 			'label_block' => true,
@@ -193,9 +193,9 @@ class GosoProduct extends Base_Widget {
 		$this->add_control( 'exclude', [
 			'label'       => esc_html__( 'Exclude', 'authow' ),
 			'description' => esc_html__( 'Exclude posts, pages, etc. by title.', 'authow' ),
-			'type'        => 'penci_el_autocomplete',
-			'search'      => 'penci_get_posts_by_query',
-			'render'      => 'penci_get_posts_title_by_id',
+			'type'        => 'goso_el_autocomplete',
+			'search'      => 'goso_get_posts_by_query',
+			'render'      => 'goso_get_posts_title_by_id',
 			'post_type'   => 'product',
 			'multiple'    => true,
 			'label_block' => true,
@@ -267,8 +267,8 @@ class GosoProduct extends Base_Widget {
 			],
 			'selectors'  => [
 				'{{WRAPPER}} .product-layout-grid ul.products li.product'                                                                                                                                                                           => 'margin-bottom: {{SIZE}}px;',
-				'{{WRAPPER}} .products.product-list .penci-authow-product .penci-product-loop-inner-content'                                                                                                                                       => 'margin-bottom: {{SIZE}}px;padding-bottom: {{SIZE}}px;',
-				'{{WRAPPER}} .penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,{{WRAPPER}} .penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers' => 'margin-top: calc( -25px - {{SIZE}}px );',
+				'{{WRAPPER}} .products.product-list .goso-authow-product .goso-product-loop-inner-content'                                                                                                                                       => 'margin-bottom: {{SIZE}}px;padding-bottom: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,{{WRAPPER}} .goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers' => 'margin-top: calc( -25px - {{SIZE}}px );',
 			],
 		] );
 
@@ -321,7 +321,7 @@ class GosoProduct extends Base_Widget {
 			'type'      => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-pagination, {{WRAPPER}} nav.woocommerce-pagination' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				'{{WRAPPER}} .goso-pagination, {{WRAPPER}} nav.woocommerce-pagination' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 			),
 			'condition' => [
 				'pagination!' => 'none',
@@ -552,7 +552,7 @@ class GosoProduct extends Base_Widget {
 			'label_off'    => esc_html__( 'No', 'authow' ),
 			'return_value' => 'none',
 			'selectors'    => [
-				'{{WRAPPER}} .penci-authow-product .product-labels .product-label.featured' => 'display:{{VALUE}}',
+				'{{WRAPPER}} .goso-authow-product .product-labels .product-label.featured' => 'display:{{VALUE}}',
 			],
 		] );
 
@@ -564,7 +564,7 @@ class GosoProduct extends Base_Widget {
 			'label_off'    => esc_html__( 'No', 'authow' ),
 			'return_value' => 'none',
 			'selectors'    => [
-				'{{WRAPPER}} .penci-authow-product .product-labels .product-label.new' => 'display:{{VALUE}}',
+				'{{WRAPPER}} .goso-authow-product .product-labels .product-label.new' => 'display:{{VALUE}}',
 			],
 		] );
 
@@ -576,7 +576,7 @@ class GosoProduct extends Base_Widget {
 			'label_off'    => esc_html__( 'No', 'authow' ),
 			'return_value' => 'none',
 			'selectors'    => [
-				'{{WRAPPER}} .penci-authow-product .product-labels .product-label.onsale' => 'display:{{VALUE}}',
+				'{{WRAPPER}} .goso-authow-product .product-labels .product-label.onsale' => 'display:{{VALUE}}',
 			],
 		] );
 
@@ -668,6 +668,6 @@ class GosoProduct extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 		$this->markup_block_title( $settings, $this );
-		penci_elementor_products_template( $this->get_settings_for_display(), true );
+		goso_elementor_products_template( $this->get_settings_for_display(), true );
 	}
 }

@@ -134,7 +134,7 @@
 				this.modules = {queryControl: new e, forms: new t, library: new i, customCSS: new o, globalWidget: new r, flipBox: new l, shareButtons: new s, assetsManager: new a, themeElements: new d, themeBuilder: new c}
 			}, ajax: {
 				prepareArgs: function ( e ) {
-					return e[0] = "penci_" + e[0], e
+					return e[0] = "goso_" + e[0], e
 				}, send: function () {
 					return elementorCommon.ajax.send.apply( elementorCommon.ajax, this.prepareArgs( arguments ) )
 				}, addRequest: function () {
@@ -701,7 +701,7 @@
 							target: "_blank",
 							class: "elementor-button elementor-button-default elementor-edit-template",
 							href: i,
-							html: '<i class="fa fa-pencil" /> ' + GosoElementorConfig.i18n.edit_template
+							html: '<i class="fa fa-gosol" /> ' + GosoElementorConfig.i18n.edit_template
 						} ), e.templateIdView.$el.find( ".elementor-control-input-wrapper" ).after( n )
 					)
 				} else {

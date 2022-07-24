@@ -1,16 +1,16 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'              => 'penci_header_pb_data_time_format',
+	'id'              => 'goso_header_pb_data_time_format',
 	'default'         => 'l, F j, Y',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-text',
 	'label'           => esc_html__( 'Date/Time Format', 'authow' ),
 	'description'     => __( 'Enter the date time format here. For more information, please read the document <a target="_blank" href="https://wordpress.org/support/article/formatting-date-and-time/">here</a>', 'authow' ),
 	'priority'        => 10,
 	'partial_refresh' => [
-		'penci_header_pb_data_time_format' => [
+		'goso_header_pb_data_time_format' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -19,14 +19,14 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_data_time_format_size',
+	'id'        => 'goso_header_pb_data_time_format_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => 'Font Size',
 	'ids'  => array(
-		'desktop' => 'penci_header_pb_data_time_format_size',
+		'desktop' => 'goso_header_pb_data_time_format_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -39,18 +39,18 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_data_time_color',
+	'id'        => 'goso_header_pb_data_time_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'label'     => esc_html__( 'Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_data_time_spacing',
+	'id'        => 'goso_header_pb_data_time_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Item Spacing', 'authow' ),
 	'choices'   => array(
@@ -70,10 +70,10 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => 'penci_header_pb_data_time_css_class',
+	'id'        => 'goso_header_pb_data_time_css_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

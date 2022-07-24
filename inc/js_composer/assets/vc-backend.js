@@ -50,7 +50,7 @@ if (!window.vc) var vc = {};
 			change_columns_layout: !1,
 			events: {
 				'click > .vc_controls [data-vc-control="delete"]': "deleteShortcode",
-				"click > .vc_controls .penci_set_layout": "setColumns",
+				"click > .vc_controls .goso_set_layout": "setColumns",
 				'click > .vc_controls [data-vc-control="add"]': "addElement",
 				'click > .vc_controls [data-vc-control="edit"]': "editElement",
 				'click > .vc_controls [data-vc-control="clone"]': "clone",
@@ -119,14 +119,14 @@ if (!window.vc) var vc = {};
 					disableClass = "vc_hidden-xs vc_hidden-sm  vc_hidden-md vc_hidden-lg";
 				this.disable_element_class && this.$el.removeClass(this.disable_element_class), _.isEmpty(disable) || (this.$el.addClass(disableClass), this.disable_element_class = disableClass)
 			},
-			designHelpersSelector: "> .penci_container_controls .column_toggle",
+			designHelpersSelector: "> .goso_container_controls .column_toggle",
 			buildDesignHelpers: function() {
 
 				var css, $elementToPrepend, image, color, rowId, matches;
 
 				var valueParam = '',
 					elWidth = this.model.getParam("el_width"),
-					elWidthCustom = this.model.getParam("penci_el_width_custom"),
+					elWidthCustom = this.model.getParam("goso_el_width_custom"),
 					elEnableSticky = this.model.getParam("el_enable_sticky");
 
 				rowId = this.model.getParam("el_id");
@@ -146,43 +146,43 @@ if (!window.vc) var vc = {};
 						$twoSidebar = this.$el.find( "> .vc_controls .cell-14_12_14" ),
 						$fourSidebar = this.$el.find( "> .vc_controls .cell-14_14_14_14" );
 
-					if( 'penci-wide-content' === elWidth ) {
+					if( 'goso-wide-content' === elWidth ) {
 						valueParam += '';
-					}else if( 'w1080' === elWidth && 'penci_container' === this.model.attributes.shortcode ) {
+					}else if( 'w1080' === elWidth && 'goso_container' === this.model.attributes.shortcode ) {
 						valueParam += 'W:1080px';
-						$twoSidebar.addClass( 'penci-hidden' );
-						$fourSidebar.addClass( 'penci-hidden' );
-						$contentSidebarSidebar.addClass( 'penci-hidden' );
-						$sidebarSidebarContent.addClass( 'penci-hidden' );
+						$twoSidebar.addClass( 'goso-hidden' );
+						$fourSidebar.addClass( 'goso-hidden' );
+						$contentSidebarSidebar.addClass( 'goso-hidden' );
+						$sidebarSidebarContent.addClass( 'goso-hidden' );
 
-						if( this.$el.find("> .vc_controls .penci_set_layout.vc_active").hasClass( 'cell-14_12_14' ) ) {
-							this.$el.find("> .vc_controls .penci_set_layout.cell-23_13").click();
+						if( this.$el.find("> .vc_controls .goso_set_layout.vc_active").hasClass( 'cell-14_12_14' ) ) {
+							this.$el.find("> .vc_controls .goso_set_layout.cell-23_13").click();
 						}
 
-						if( this.$el.find("> .vc_controls .penci_set_layout.vc_active").hasClass( 'ccell-14_14_14_14' ) ) {
-							this.$el.find("> .vc_controls .penci_set_layout.cell-23_13").click();
+						if( this.$el.find("> .vc_controls .goso_set_layout.vc_active").hasClass( 'ccell-14_14_14_14' ) ) {
+							this.$el.find("> .vc_controls .goso_set_layout.cell-23_13").click();
 						}
 
 					}else if( 'w1170' === elWidth ) {
 						valueParam += 'W:1170px';
-						$twoSidebar.addClass( 'penci-hidden' );
-						$fourSidebar.addClass( 'penci-hidden' );
-						$contentSidebarSidebar.addClass( 'penci-hidden' );
-						$sidebarSidebarContent.addClass( 'penci-hidden' );
+						$twoSidebar.addClass( 'goso-hidden' );
+						$fourSidebar.addClass( 'goso-hidden' );
+						$contentSidebarSidebar.addClass( 'goso-hidden' );
+						$sidebarSidebarContent.addClass( 'goso-hidden' );
 
-						if( this.$el.find("> .vc_controls .penci_set_layout.vc_active").hasClass( 'cell-14_12_14' ) ) {
-							this.$el.find("> .vc_controls .penci_set_layout.cell-23_13").click();
+						if( this.$el.find("> .vc_controls .goso_set_layout.vc_active").hasClass( 'cell-14_12_14' ) ) {
+							this.$el.find("> .vc_controls .goso_set_layout.cell-23_13").click();
 						}
 
-						if( this.$el.find("> .vc_controls .penci_set_layout.vc_active").hasClass( 'ccell-14_14_14_14' ) ) {
-							this.$el.find("> .vc_controls .penci_set_layout.cell-23_13").click();
+						if( this.$el.find("> .vc_controls .goso_set_layout.vc_active").hasClass( 'ccell-14_14_14_14' ) ) {
+							this.$el.find("> .vc_controls .goso_set_layout.cell-23_13").click();
 						}
 					} else if( 'w1400' === elWidth ) {
 						valueParam += 'W:1400px';
-						$twoSidebar.removeClass( 'penci-hidden' );
-						$fourSidebar.removeClass( 'penci-hidden' );
-						$contentSidebarSidebar.removeClass( 'penci-hidden' );
-						$sidebarSidebarContent.removeClass( 'penci-hidden' );
+						$twoSidebar.removeClass( 'goso-hidden' );
+						$fourSidebar.removeClass( 'goso-hidden' );
+						$contentSidebarSidebar.removeClass( 'goso-hidden' );
+						$sidebarSidebarContent.removeClass( 'goso-hidden' );
 					}
 				}
 
@@ -204,7 +204,7 @@ if (!window.vc) var vc = {};
 				}), this.setActiveLayoutButton(), this.$el.removeClass("vc_collapsed-row")
 			},
 			getChildTag: function() {
-				return "penci_container_inner" === this.model.get("shortcode") ? "penci_column_inner" : "penci_column"
+				return "goso_container_inner" === this.model.get("shortcode") ? "goso_column_inner" : "goso_column"
 			},
 			sortingSelector: "> [data-element_type=vc_column], > [data-element_type=vc_column_inner]",
 			sortingSelectorCancel: ".vc-non-draggable-column",
@@ -316,7 +316,7 @@ if (!window.vc) var vc = {};
 
 			changeShortcodeParams: function(model) {
 				var data = {
-					action: 'penci_save_video_playlist',
+					action: 'goso_save_video_playlist',
 					videoList: this.model.getParam("videos_list"),
 					shortcodeId: this.model.getParam("video_shortcode_id"),
 					nonce: PENCILOCALIZE.nonce
@@ -329,7 +329,7 @@ if (!window.vc) var vc = {};
 				_.isObject(e) && e.preventDefault(), !0 === confirm(window.i18nLocale.press_ok_to_delete_section) && this.model.destroy();
 
 				var data = {
-					action: 'penci_remove_video_playlist',
+					action: 'goso_remove_video_playlist',
 					shortcodeId: this.model.getParam("video_shortcode_id"),
 					nonce: PENCILOCALIZE.nonce
 				};
@@ -368,7 +368,7 @@ if (!window.vc) var vc = {};
 			},
 			changeShortcodeParams: function(model) {
 				var data = {
-					action: 'penci_save_video_playlist',
+					action: 'goso_save_video_playlist',
 					videoList: this.model.getParam("videos_list"),
 					shortcodeId: this.model.getParam("block_id"),
 					nonce: PENCILOCALIZE.nonce
@@ -381,7 +381,7 @@ if (!window.vc) var vc = {};
 				_.isObject(e) && e.preventDefault(), !0 === confirm(window.i18nLocale.press_ok_to_delete_section) && this.model.destroy();
 
 				var data = {
-					action: 'penci_remove_video_playlist',
+					action: 'goso_remove_video_playlist',
 					shortcodeId: this.model.getParam("block_id"),
 					nonce: PENCILOCALIZE.nonce
 				};
@@ -419,7 +419,7 @@ if (!window.vc) var vc = {};
 				return model_clone;
 			}
 		});
-		vc.atts.penci_google_fonts = {
+		vc.atts.goso_google_fonts = {
 			parse: function(param) {
 				var string_pieces, $field = this.content().find(".wpb_vc_param_value[name=" + param.param_name + "]"),
 					$block = $field.parent(),
@@ -438,18 +438,18 @@ if (!window.vc) var vc = {};
 
 jQuery( function ( $ ) {
 	'use strict';
-	$( document ).on( 'click', '.penci-image-select', function () {
+	$( document ).on( 'click', '.goso-image-select', function () {
 		var $this = $( this );
 
 		$this.parent().siblings( '.wpb_vc_param_value' ).attr("value", $this.data( 'value' ) ).change();
-		$this.addClass( 'penci-image-select--active' )
-		     .siblings().removeClass( 'penci-image-select--active' );
+		$this.addClass( 'goso-image-select--active' )
+		     .siblings().removeClass( 'goso-image-select--active' );
 	} );
 
-	$( document ).on( 'change', '.penci-number-input, .penci-number-suffix', function () {
+	$( document ).on( 'change', '.goso-number-input, .goso-number-suffix', function () {
 		var $number = $( this ).parent(),
-			input = $number.find( '.penci-number-input' ).val(),
-			unit = $number.find( '.penci-number-suffix' ).val();
+			input = $number.find( '.goso-number-input' ).val(),
+			unit = $number.find( '.goso-number-suffix' ).val();
 
 		$number.find( '.wpb_vc_param_value' ).val( input + unit );
 	} );

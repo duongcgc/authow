@@ -12,22 +12,22 @@
 
 		const text = buttons.text().replace(
 			'<div class="elementor-add-section-drag-title',
-			'<div class="elementor-add-section-area-button penci-library-modal-btn" title="Goso Templates">Goso Templates</div><div class="elementor-add-section-drag-title'
+			'<div class="elementor-add-section-area-button goso-library-modal-btn" title="Goso Templates">Goso Templates</div><div class="elementor-add-section-drag-title'
 		);
 
 		buttons.text(text);
 
 		// Call modal.
-		$(elementor.$previewContents[0].body).on('click', '.penci-library-modal-btn', () => {
+		$(elementor.$previewContents[0].body).on('click', '.goso-library-modal-btn', () => {
 			if (dialog) {
 				dialog.show();
 				return;
 			}
 
 			var modalOptions = {
-				id: 'penci-library-modal',
-				headerMessage: $('#tmpl-elementor-penci-library-modal-header').html(),
-				message: $('#tmpl-elementor-penci-library-modal').html(),
+				id: 'goso-library-modal',
+				headerMessage: $('#tmpl-elementor-goso-library-modal-header').html(),
+				message: $('#tmpl-elementor-goso-library-modal').html(),
 				className: 'elementor-templates-modal',
 				closeButton: true,
 				draggable: false,
@@ -51,39 +51,39 @@
 			showLoader();
 
 			$.ajax({
-				url: 'https://library.pencidesign.net/wp-json/penci-blocks/v1/templates',
+				url: 'https://library.gosodesign.net/wp-json/goso-blocks/v1/templates',
 				method: 'GET',
 				dataType: 'json',
 				success: function (response) {
 					if (response && response.elements) {
-						var itemTemplate = wp.template('elementor-penci-library-modal-item');
-						var itemOrderTemplate = wp.template('elementor-penci-library-modal-order');
+						var itemTemplate = wp.template('elementor-goso-library-modal-item');
+						var itemOrderTemplate = wp.template('elementor-goso-library-modal-order');
 
-						$(itemTemplate(response)).appendTo($('#penci-library-modal #elementor-template-library-templates-container'));
-						$(itemOrderTemplate(response)).appendTo($('#penci-library-modal #elementor-template-library-filter-toolbar-remote'));
+						$(itemTemplate(response)).appendTo($('#goso-library-modal #elementor-template-library-templates-container'));
+						$(itemOrderTemplate(response)).appendTo($('#goso-library-modal #elementor-template-library-filter-toolbar-remote'));
 
 						importTemplate();
 						hideLoader();
 					} else {
-						$('<div class="penci-notice penci-error">The library can\'t be loaded from the server.</div>').appendTo($('#penci-library-modal #elementor-template-library-templates-container'));
+						$('<div class="goso-notice goso-error">The library can\'t be loaded from the server.</div>').appendTo($('#goso-library-modal #elementor-template-library-templates-container'));
 						hideLoader();
 					}
 				},
 				error: function () {
-					$('<div class="penci-notice penci-error">The library can\'t be loaded from the server.</div>').appendTo($('#penci-library-modal #elementor-template-library-templates-container'));
+					$('<div class="goso-notice goso-error">The library can\'t be loaded from the server.</div>').appendTo($('#goso-library-modal #elementor-template-library-templates-container'));
 					hideLoader();
 				}
 			});
 		}
 
 		function showLoader() {
-			$('#penci-library-modal #elementor-template-library-templates').hide();
-			$('#penci-library-modal .elementor-loader-wrapper').show();
+			$('#goso-library-modal #elementor-template-library-templates').hide();
+			$('#goso-library-modal .elementor-loader-wrapper').show();
 		}
 
 		function hideLoader() {
-			$('#penci-library-modal #elementor-template-library-templates').show();
-			$('#penci-library-modal .elementor-loader-wrapper').hide();
+			$('#goso-library-modal #elementor-template-library-templates').show();
+			$('#goso-library-modal .elementor-loader-wrapper').hide();
 		}
 
 		function activateUpdateButton() {
@@ -92,12 +92,12 @@
 		}
 
 		function importTemplate() {
-			$('#penci-library-modal .elementor-template-library-template-insert').on('click', function () {
+			$('#goso-library-modal .elementor-template-library-template-insert').on('click', function () {
 				showLoader();
 
 				var config = {
 					data: {
-						source: 'penci',
+						source: 'goso',
 						edit_mode: true,
 						display: true,
 						template_id: $(this).data('id'),
@@ -112,12 +112,12 @@
 							}, 2000);
 							activateUpdateButton();
 						} else {
-							$('<div class="penci-notice penci-error">The element can\'t be loaded from the server.</div>').prependTo($('#penci-library-modal #elementor-template-library-templates-container'));
+							$('<div class="goso-notice goso-error">The element can\'t be loaded from the server.</div>').prependTo($('#goso-library-modal #elementor-template-library-templates-container'));
 							hideLoader();
 						}
 					},
 					error: function () {
-						$('<div class="penci-notice penci-error">The element can\'t be loaded from the server.</div>').prependTo($('#penci-library-modal #elementor-template-library-templates-container'));
+						$('<div class="goso-notice goso-error">The element can\'t be loaded from the server.</div>').prependTo($('#goso-library-modal #elementor-template-library-templates-container'));
 						hideLoader();
 					}
 				};
@@ -125,16 +125,16 @@
 				return elementorCommon.ajax.addRequest('get_template_data', config);
 			});
 
-			$('#penci-library-modal .elementor-templates-modal__header__close').on('click', () => {
+			$('#goso-library-modal .elementor-templates-modal__header__close').on('click', () => {
 				dialog.hide();
 				hideLoader();
 			});
 
-			$('#penci-library-modal #elementor-template-library-filter-text').on('keyup', function () {
+			$('#goso-library-modal #elementor-template-library-filter-text').on('keyup', function () {
 				var search = $(this).val().toLowerCase();
-				var activeTab = document.querySelector('#elementor-penci-library-header-menu .elementor-active').getAttribute('data-tab');
+				var activeTab = document.querySelector('#elementor-goso-library-header-menu .elementor-active').getAttribute('data-tab');
 
-				$('#penci-library-modal').find('.elementor-template-library-template').each(function () {
+				$('#goso-library-modal').find('.elementor-template-library-template').each(function () {
 					const $this = $(this);
 					const slug = $this.data('slug');
 					const type = $this.data('type');
@@ -148,10 +148,10 @@
 			});
 
 			// Filter by tag
-			$('#penci-library-modal #elementor-template-library-filter-subtype').on('change', function () {
+			$('#goso-library-modal #elementor-template-library-filter-subtype').on('change', function () {
 				var tag = $(this).val();
 
-				$('#penci-library-modal').find('.elementor-template-library-template').each(function () {
+				$('#goso-library-modal').find('.elementor-template-library-template').each(function () {
 					var $this = $(this);
 
 					const itemTags = $this.data('tag').toLowerCase();
@@ -164,11 +164,11 @@
 			});
 
 			function setActiveTab (tab) {
-				$('#penci-library-modal .elementor-template-library-menu-item').removeClass('elementor-active');
-				const activeTab = $('#penci-tab-' + tab);
+				$('#goso-library-modal .elementor-template-library-menu-item').removeClass('elementor-active');
+				const activeTab = $('#goso-tab-' + tab);
 				activeTab.addClass('elementor-active');
 
-				document.querySelectorAll('#penci-library-modal .elementor-template-library-template').forEach(e => {
+				document.querySelectorAll('#goso-library-modal .elementor-template-library-template').forEach(e => {
 					const type = e.getAttribute('data-type');
 					e.style.display = type === tab ? 'block' : 'none';
 					
@@ -183,7 +183,7 @@
 			setActiveTab('block');
 
 			// Filter by type
-			$('#penci-library-modal .elementor-template-library-menu-item').on('click', function () {
+			$('#goso-library-modal .elementor-template-library-menu-item').on('click', function () {
 				setActiveTab($(this).data('tab'));
 			});
 		}

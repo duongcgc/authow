@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $bar_height    = $bar_mar_top = $bar_mar_bottom = '';
 $bar_textcolor = $bar_run_bgcolor = $bar_bgcolor = '';
@@ -17,22 +17,22 @@ wp_enqueue_script( 'waypoints' );
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-progress-bar';
+$css_class = 'goso-block-vc goso-progress-bar';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'progress_bar' );
 
 $bar_options = array();
 $options     = explode( ',', $atts['options'] );
 if ( in_array( 'animated', $options ) ) {
-	$bar_options[] = 'animated penci-probar-animated';
+	$bar_options[] = 'animated goso-probar-animated';
 }
 if ( in_array( 'striped', $options ) ) {
-	$bar_options[] = 'penci-probar-striped';
+	$bar_options[] = 'goso-probar-striped';
 }
 ?>
 	<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
-		<div class="penci-block_content">
-			<ul class="penci-probar-items">
+		<div class="goso-block_content">
+			<ul class="goso-probar-items">
 				<?php
 				$line_output = '';
 
@@ -60,13 +60,13 @@ if ( in_array( 'striped', $options ) ) {
 					}
 					$percentage_value = number_format( intval( $percentage_value / 10 ), 1, '.', '' );
 
-					$line_output .= '<li class="penci-probar-item">';
-					$line_output .= '<div class="penci-probar-text"' . $line['txtcolor'] . '>';
-					$line_output .= '<span class="penci-probar-point">' . do_shortcode( $line['label'] ) . '</span>';
-					$line_output .= '<span class="penci-probar-score">' . $line['value'] . ( isset( $atts['units'] ) ? $atts['units'] : '' ) . '</span>';
+					$line_output .= '<li class="goso-probar-item">';
+					$line_output .= '<div class="goso-probar-text"' . $line['txtcolor'] . '>';
+					$line_output .= '<span class="goso-probar-point">' . do_shortcode( $line['label'] ) . '</span>';
+					$line_output .= '<span class="goso-probar-score">' . $line['value'] . ( isset( $atts['units'] ) ? $atts['units'] : '' ) . '</span>';
 					$line_output .= '</div>';
-					$line_output .= '<div class="penci-review-process">';
-					$line_output .= '<span class="penci-probar-run ' . esc_attr( implode( ' ', $bar_options ) ) . '" data-width="' . $percentage_value . '"' . $line['bgcolor'] . '></span>';
+					$line_output .= '<div class="goso-review-process">';
+					$line_output .= '<span class="goso-probar-run ' . esc_attr( implode( ' ', $bar_options ) ) . '" data-width="' . $percentage_value . '"' . $line['bgcolor'] . '></span>';
 					$line_output .= '</div>';
 					$line_output .= '</li>';
 				}
@@ -82,24 +82,24 @@ $id_progress_bar = '#' . $block_id;
 $css_custom = Goso_Vc_Helper::get_heading_block_css( $id_progress_bar, $atts );
 
 if ( $bar_height ) {
-	$css_custom .= $id_progress_bar . ' .penci-review-process{ height: ' . esc_attr( $bar_height ) . 'px; }';
+	$css_custom .= $id_progress_bar . ' .goso-review-process{ height: ' . esc_attr( $bar_height ) . 'px; }';
 }
 if ( $bar_mar_top ) {
-	$css_custom .= $id_progress_bar . ' .penci-probar-item{ margin-top: ' . esc_attr( $bar_mar_top ) . '; }';
+	$css_custom .= $id_progress_bar . ' .goso-probar-item{ margin-top: ' . esc_attr( $bar_mar_top ) . '; }';
 }
 if ( $bar_mar_bottom ) {
-	$css_custom .= $id_progress_bar . ' .penci-probar-item{ margin-bottom: ' . esc_attr( $bar_mar_bottom ) . '; }';
+	$css_custom .= $id_progress_bar . ' .goso-probar-item{ margin-bottom: ' . esc_attr( $bar_mar_bottom ) . '; }';
 }
 
 // color
 if ( $bar_run_bgcolor ) {
-	$css_custom .= $id_progress_bar . ' .penci-probar-run{ background-color: ' . esc_attr( $bar_run_bgcolor ) . '; }';
+	$css_custom .= $id_progress_bar . ' .goso-probar-run{ background-color: ' . esc_attr( $bar_run_bgcolor ) . '; }';
 }
 if ( $bar_bgcolor ) {
-	$css_custom .= $id_progress_bar . ' .penci-review-process{ background-color: ' . esc_attr( $bar_bgcolor ) . '; }';
+	$css_custom .= $id_progress_bar . ' .goso-review-process{ background-color: ' . esc_attr( $bar_bgcolor ) . '; }';
 }
 if ( $bar_textcolor ) {
-	$css_custom .= $id_progress_bar . ' .penci-probar-text{ color: ' . esc_attr( $bar_textcolor ) . '; }';
+	$css_custom .= $id_progress_bar . ' .goso-probar-text{ color: ' . esc_attr( $bar_textcolor ) . '; }';
 }
 
 if ( $css_custom ) {

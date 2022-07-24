@@ -93,7 +93,7 @@ class Customizer {
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_control_script' ), 11 );
 		add_action( 'customize_controls_print_styles', array(
 			$this,
-			'pencidesign_customizer_devices_preview_width'
+			'gosodesign_customizer_devices_preview_width'
 		) );
 
 		// Partial Refresh.
@@ -1152,9 +1152,9 @@ class Customizer {
 		$wp_customize->remove_section( 'custom_css' );
 	}
 
-	public function pencidesign_customizer_devices_preview_width() {
+	public function gosodesign_customizer_devices_preview_width() {
 		/* We add a filter to help you can modify it by use a hook */
-		$sizes = apply_filters( 'pencidesign_customize_preview_width', array(
+		$sizes = apply_filters( 'gosodesign_customize_preview_width', array(
 			'tablet'        => 780,
 			'mobile'        => 414,
 			'mobile_height' => 736,

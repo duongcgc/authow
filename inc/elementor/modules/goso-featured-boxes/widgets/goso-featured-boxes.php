@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoFeaturedBoxes extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-featured-boxes';
+		return 'goso-featured-boxes';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Featured Boxes', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Featured Boxes', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -46,7 +46,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_style', array(
+			'goso_style', array(
 				'label'   => __( 'Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'boxes-style-1',
@@ -60,7 +60,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_columns', array(
+			'goso_columns', array(
 				'label'   => __( 'Columns', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'boxes-3-columns',
@@ -74,7 +74,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_size', array(
+			'goso_size', array(
 				'label'   => __( 'Image Size Type', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'horizontal',
@@ -87,7 +87,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 			)
 		);
 		$this->add_responsive_control(
-			'penci_img_ratio', array(
+			'goso_img_ratio', array(
 				'label'          => __( 'Image Ratio', 'authow' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 0.66 ),
@@ -95,9 +95,9 @@ class GosoFeaturedBoxes extends Base_Widget {
 				'mobile_default' => array( 'size' => 0.5 ),
 				'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 				'selectors'      => array(
-					'{{WRAPPER}} .home-featured-boxes .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .home-featured-boxes .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 				),
-				'condition'      => array( 'penci_size' => 'custom' ),
+				'condition'      => array( 'goso_size' => 'custom' ),
 			)
 		);
 		$this->add_group_control(
@@ -106,12 +106,12 @@ class GosoFeaturedBoxes extends Base_Widget {
 				'name'      => 'thumbnail',
 				'default'   => 'full',
 				'separator' => 'none',
-				'condition'      => array( 'penci_size' => 'custom' ),
+				'condition'      => array( 'goso_size' => 'custom' ),
 			)
 		);
 
 		$this->add_control(
-			'penci_new_tab', array(
+			'goso_new_tab', array(
 				'label'     => __( 'Open in New Tab?', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'label_on'  => __( 'Yes', 'authow' ),
@@ -120,7 +120,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 		);
 
 		$this->add_responsive_control(
-			'penci_margin_top', array(
+			'goso_margin_top', array(
 				'label'   => __( 'Custom Margin Top ( Unit is Pixel )', 'authow' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range'   => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
@@ -128,7 +128,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 			)
 		);
 		$this->add_responsive_control(
-			'penci_margin_bottom', array(
+			'goso_margin_bottom', array(
 				'label'   => __( 'Custom Margin Bottom ( Unit is Pixel )', 'authow' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range'   => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
@@ -199,12 +199,12 @@ class GosoFeaturedBoxes extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 span span:before'     => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes li .penci-fea-in:after'                => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes li .penci-fea-in:before'               => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in.boxes-style-2 h4:before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 span span'            => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in.boxes-style-2 h4'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 span span:before'     => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes li .goso-fea-in:after'                => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes li .goso-fea-in:before'               => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in.boxes-style-2 h4:before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 span span'            => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in.boxes-style-2 h4'        => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -213,7 +213,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 				'label'     => __( 'Text color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 > span,{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 span span' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 > span,{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 span span' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -222,8 +222,8 @@ class GosoFeaturedBoxes extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} ul.homepage-featured-boxes li .penci-fea-in:hover h4 > span' => 'color: {{VALUE}};',
-					'{{WRAPPER}} ul.homepage-featured-boxes li .penci-fea-in:hover h4 span span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes li .goso-fea-in:hover h4 > span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} ul.homepage-featured-boxes li .goso-fea-in:hover h4 span span' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -233,7 +233,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'img_box_typo',
 				'label'    => __( 'Text Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 > span,{{WRAPPER}} ul.homepage-featured-boxes .penci-fea-in h4 span span',
+				'selector' => '{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 > span,{{WRAPPER}} ul.homepage-featured-boxes .goso-fea-in h4 span span',
 			)
 		);
 		$this->end_controls_section();
@@ -245,12 +245,12 @@ class GosoFeaturedBoxes extends Base_Widget {
 		if ( empty( $settings['boxes_data'] ) ) {
 			return;
 		}
-		$size = $settings['penci_size'];
-		$thumb = 'penci-thumb';
+		$size = $settings['goso_size'];
+		$thumb = 'goso-thumb';
 		if( $size == 'square' ){
-			$thumb = 'penci-thumb-square';
+			$thumb = 'goso-thumb-square';
 		} elseif( $size == 'vertical' ) {
-			$thumb = 'penci-thumb-vertical';
+			$thumb = 'goso-thumb-vertical';
 		} elseif ( $size == 'custom' ){
 			if( $settings['thumbnail_size'] ){
 				$thumb = $settings['thumbnail_size'];
@@ -258,7 +258,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 		}
 		?>
 		<div class="clearfix home-featured-boxes home-featured-boxes-sc home-featured-boxes-vc boxes-size-<?php echo $size; ?>">
-			<ul class="homepage-featured-boxes <?php echo esc_attr( $settings['penci_columns'] ); ?>">
+			<ul class="homepage-featured-boxes <?php echo esc_attr( $settings['goso_columns'] ); ?>">
 				<?php
 				foreach ( (array)$settings['boxes_data'] as $item ) {
 					if ( isset( $item['_image'] ) ):
@@ -269,7 +269,7 @@ class GosoFeaturedBoxes extends Base_Widget {
 						$open_url  = '';
 						$close_url = '';
 						$target = '';
-						if( 'yes' == $settings['penci_new_tab'] ):
+						if( 'yes' == $settings['goso_new_tab'] ):
 							$target = ' target="_blank"';
 						endif;
 						if ( $homepage_box_url ) {
@@ -277,20 +277,20 @@ class GosoFeaturedBoxes extends Base_Widget {
 							$close_url = '</a>';
 						}
 						?>
-						<li class="penci-featured-ct <?php echo ( $homepage_box_text ? ' boxes-has-text' : 'boxes-no-text' ); ?>">
-							<?php echo wp_kses( $open_url, penci_allow_html() ); ?>
-							<div class="penci-fea-in <?php echo esc_attr( $settings['penci_style'] ); ?>">
-								<?php if( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-									<div class="fea-box-img penci-image-holder penci-holder-load penci-lazy" data-bgset="<?php echo penci_get_image_size_url( $homepage_box_image, $thumb ); ?>"></div>
+						<li class="goso-featured-ct <?php echo ( $homepage_box_text ? ' boxes-has-text' : 'boxes-no-text' ); ?>">
+							<?php echo wp_kses( $open_url, goso_allow_html() ); ?>
+							<div class="goso-fea-in <?php echo esc_attr( $settings['goso_style'] ); ?>">
+								<?php if( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+									<div class="fea-box-img goso-image-holder goso-holder-load goso-lazy" data-bgset="<?php echo goso_get_image_size_url( $homepage_box_image, $thumb ); ?>"></div>
 								<?php } else { ?>
-									<div class="fea-box-img penci-image-holder" style="background-image: url('<?php echo penci_get_image_size_url( $homepage_box_image, $thumb ); ?>');"></div>
+									<div class="fea-box-img goso-image-holder" style="background-image: url('<?php echo goso_get_image_size_url( $homepage_box_image, $thumb ); ?>');"></div>
 								<?php }?>
 
 								<?php if( $homepage_box_text ): ?>
 									<h4><span class="boxes-text"><span><?php echo do_shortcode( $homepage_box_text ); ?></span></span></h4>
 								<?php endif; ?>
 							</div>
-							<?php echo wp_kses( $close_url, penci_allow_html() ) ; ?>
+							<?php echo wp_kses( $close_url, goso_allow_html() ) ; ?>
 						</li>
 						<?php
 					endif;

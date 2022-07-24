@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => 'penci_testimonails',
+	'base'          => 'goso_testimonails',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/testimonails/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Testimonails', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Testimonails', 'authow' ),
 	'description'   => __( 'Testimonails Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -36,7 +36,7 @@ vc_map( array(
 				'std' => 2
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'p_name_marbottom',
 				'heading'          => __( 'Name Margin Top', 'authow' ),
 				'value'            => '',
@@ -46,7 +46,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'p_company_marbottom',
 				'heading'          => __( 'Company/Position Margin Top', 'authow' ),
 				'value'            => '',
@@ -56,7 +56,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'p_rating_marbottom',
 				'heading'          => __( 'Rating Margin Top', 'authow' ),
 				'value'            => '',
@@ -66,7 +66,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'p_desc_marbottom',
 				'heading'          => __( 'Description Margin Top', 'authow' ),
 				'value'            => '',
@@ -76,7 +76,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'p_desc_padding',
 				'heading'          => __( 'Description Padding', 'authow' ),
 				'value'            => '',
@@ -91,7 +91,7 @@ vc_map( array(
 				'param_name'       => 'heading_slider_settings',
 				'heading'          => esc_html__( 'Slider options', 'authow' ),
 				'value'            => '',
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'       => 'dropdown',
@@ -227,7 +227,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Icon Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -247,7 +247,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Name Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -256,7 +256,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'name_size',
 				'heading'          => __( 'Font Size for Position', 'authow' ),
 				'value'            => '',
@@ -286,7 +286,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Company/Position Color', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -295,7 +295,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'company_size',
 				'heading'          => __( 'Font Size for Company/Position', 'authow' ),
 				'value'            => '',
@@ -325,7 +325,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Description Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -334,7 +334,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'desc_size',
 				'heading'          => __( 'Font Size for Description', 'authow' ),
 				'value'            => '',
@@ -364,7 +364,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Description Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -373,7 +373,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'rating_size',
 				'heading'          => __( 'Font Size for Rating', 'authow' ),
 				'value'            => '',

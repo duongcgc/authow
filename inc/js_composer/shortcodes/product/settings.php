@@ -1,12 +1,12 @@
 <?php
 $group_color = 'Typo & Color';
 vc_map( array(
-	'base'          => 'penci_product',
+	'base'          => 'goso_product',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/product/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Product', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Product', 'authow' ),
 	'description'   => __( 'Show the latest product', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -349,7 +349,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'heading'          => esc_html__( 'Product Title Font Size', 'authow' ),
 				'param_name'       => 'product_title_font_size',
 				'group'            => $group_color,
@@ -363,7 +363,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'heading'          => esc_html__( 'Product Category Font Size', 'authow' ),
 				'param_name'       => 'product_category_font_size',
 				'group'            => $group_color,
@@ -377,7 +377,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'heading'          => esc_html__( 'Product Price Font Size', 'authow' ),
 				'param_name'       => 'product_price_font_size',
 				'group'            => $group_color,

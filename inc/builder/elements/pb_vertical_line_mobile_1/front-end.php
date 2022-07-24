@@ -1,9 +1,9 @@
 <?php
 // verical line
-$line5_width = penci_get_builder_mod( 'penci_header_pb_vertical_line_mobile1_width' );
-$line5_height = penci_get_builder_mod( 'penci_header_pb_vertical_line_mobile1_height' );
-$line5_color = penci_get_builder_mod( 'penci_header_pb_vertical_line_mobile1_color' );
-$line5_class = penci_get_builder_mod( 'penci_header_pb_vertical_line_mobile1_class' );
+$line5_width = goso_get_builder_mod( 'goso_header_pb_vertical_line_mobile1_width' );
+$line5_height = goso_get_builder_mod( 'goso_header_pb_vertical_line_mobile1_height' );
+$line5_color = goso_get_builder_mod( 'goso_header_pb_vertical_line_mobile1_color' );
+$line5_class = goso_get_builder_mod( 'goso_header_pb_vertical_line_mobile1_class' );
 $data_attr   = [];
 if ( ! empty( $line5_width ) ) {
 	$data_attr[] = 'width:' . $line5_width . 'px;';
@@ -17,4 +17,4 @@ if ( ! empty( $line5_color ) ) {
 $data_attr = implode( ' ', $data_attr );
 ?>
 <div style="<?php echo $data_attr; ?>"
-     class="penci-builder-element penci-vertical-line vertical-line-mobile-1 <?php echo esc_attr( $line5_class ); ?>"></div>
+     class="goso-builder-element goso-vertical-line vertical-line-mobile-1 <?php echo esc_attr( $line5_class ); ?>"></div>

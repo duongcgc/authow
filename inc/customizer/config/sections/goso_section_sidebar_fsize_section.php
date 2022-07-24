@@ -5,9 +5,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Font Size for Sidebar Widget Heading', 'authow' ),
-	'id'       => 'penci_sidebar_heading_size',
+	'id'       => 'goso_sidebar_heading_size',
 	'ids'         => array(
-		'desktop' => 'penci_sidebar_heading_size',
+		'desktop' => 'goso_sidebar_heading_size',
 	),
 	'choices'     => array(
 		'desktop' => array(

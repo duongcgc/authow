@@ -1,5 +1,5 @@
 (function ( $ ) {
-	window.InlineShortcodeView_penci_container = window.InlineShortcodeView.extend( {
+	window.InlineShortcodeView_goso_container = window.InlineShortcodeView.extend( {
 		column_tag: 'vc_column',
 		events: {
 			'mouseenter': 'removeHoldActive'
@@ -156,7 +156,7 @@
 		}
 	} );
 
-	window.InlineShortcodeView_penci_column = window.InlineShortcodeViewContainerWithParent.extend( {
+	window.InlineShortcodeView_goso_column = window.InlineShortcodeViewContainerWithParent.extend( {
 		controls_selector: '#vc_controls-template-vc_column',
 		resizeDomainName: 'columnSize',
 		_x: 0,
@@ -282,36 +282,36 @@
 
 jQuery( function ( $ ) {
 	'use strict';
-	$( document ).on( 'click', '.penci-image-select', function () {
+	$( document ).on( 'click', '.goso-image-select', function () {
 		var $this = $( this );
 
 		$this.parent().siblings( '.wpb_vc_param_value' ).attr("value", $this.data( 'value' ) ).change();
-		$this.addClass( 'penci-image-select--active' )
-		     .siblings().removeClass( 'penci-image-select--active' );
+		$this.addClass( 'goso-image-select--active' )
+		     .siblings().removeClass( 'goso-image-select--active' );
 	} );
 
-	$( document ).on( 'change', '.penci-number-input, .penci-number-suffix', function () {
+	$( document ).on( 'change', '.goso-number-input, .goso-number-suffix', function () {
 		var $number = $( this ).parent(),
-			input = $number.find( '.penci-number-input' ).val(),
-			unit = $number.find( '.penci-number-suffix' ).val();
+			input = $number.find( '.goso-number-input' ).val(),
+			unit = $number.find( '.goso-number-suffix' ).val();
 
 		$number.find( '.wpb_vc_param_value' ).val( input + unit );
 	} );
 } );
 
 (function ( $ ) {
-	window.InlineShortcodeView_penci_sliders = window.InlineShortcodeView.extend( {
+	window.InlineShortcodeView_goso_sliders = window.InlineShortcodeView.extend( {
 		render: function () {
 			var model_id = this.model.get( 'id' );
-			return window.InlineShortcodeView_penci_sliders.__super__.render.call(this),
+			return window.InlineShortcodeView_goso_sliders.__super__.render.call(this),
 				vc.frame_window.vc_iframe.addActivity(function() {
-					this.vc_iframe.penciSliders(model_id);
+					this.vc_iframe.gosoSliders(model_id);
 				}),
 				this
 		}
 	} );
 
-	vc.atts.penci_google_fonts = {
+	vc.atts.goso_google_fonts = {
 		parse: function(param) {
 			var string_pieces, $field = this.content().find(".wpb_vc_param_value[name=" + param.param_name + "]"),
 				$block = $field.parent(),

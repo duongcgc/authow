@@ -20,19 +20,19 @@ class Module extends Module_Base {
 	}
 
 	public function get_name() {
-		return 'penci-sticky';
+		return 'goso-sticky';
 	}
 
 	public function register_controls( Controls_Stack $element ) {
 		$element->start_controls_section(
-			'section_penci_extra_options', array(
-				'label' => penci_get_theme_name('Goso').' '.esc_html__( 'Extra Options', 'authow' ),
+			'section_goso_extra_options', array(
+				'label' => goso_get_theme_name('Goso').' '.esc_html__( 'Extra Options', 'authow' ),
 				'tab'   => Controls_Manager::TAB_ADVANCED,
 			)
 		);
 
 		$element->add_control(
-			'penci_enable_sticky',
+			'goso_enable_sticky',
 			array(
 				'label'       => __( 'Enable Sticky sidebar and content', 'authow' ),
 				'description' => __( 'Check on front end to see it works.', 'authow' ),
@@ -42,7 +42,7 @@ class Module extends Module_Base {
 		);
 
 		$element->add_control(
-			'penci_enable_repons_section',
+			'goso_enable_repons_section',
 			array(
 				'label'       => __( 'Flexible Responsive?', 'authow' ),
 				'description' => __( 'This option applies for Structure "25, 50, 25" only', 'authow' ),
@@ -52,7 +52,7 @@ class Module extends Module_Base {
 		);
 
 		$element->add_control(
-			'penci_ctsidebar_mb',
+			'goso_ctsidebar_mb',
 			array(
 				'label'       => __( 'Custom Position of Content and Sidebar on Mobile with Structure "25, 50, 25"', 'authow' ),
 				'description' => __( 'Check on front end to see it works.', 'authow' ),
@@ -67,7 +67,7 @@ class Module extends Module_Base {
 					'sb1_con_sb2' => 'Sidebar right + Content + Sidebar left',
 					'sb1_sb2_con' => 'Sidebar right + Sidebar left + Content',
 				),
-				'condition'   => array( 'penci_enable_repons_section' => 'yes' ),
+				'condition'   => array( 'goso_enable_repons_section' => 'yes' ),
 			)
 		);
 

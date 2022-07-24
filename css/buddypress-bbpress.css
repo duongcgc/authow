@@ -1,18 +1,18 @@
-.forum-archive .penci-content-post {
+.forum-archive .goso-content-post {
 	padding: 20px;
 	background: #ffffff;
 }
-.forum-archive .penci-entry-title {
+.forum-archive .goso-entry-title {
 	font-size: 30px;
 	line-height: 1.2;
 	color: #111111;
 	margin-top: 9px;
 	margin-bottom: 6px;
 }
-.forum-archive .penci-entry-title.penci-title-center {
+.forum-archive .goso-entry-title.goso-title-center {
 	text-align: center;
 }
-.forum-archive .penci-entry-title.penci-title-right {
+.forum-archive .goso-entry-title.goso-title-right {
 	text-align: right;
 }
 #sidebar .bbp-login-form label {

@@ -1,13 +1,13 @@
 <?php
 /**
- * Callback for new param 'penci_post_metas'.
+ * Callback for new param 'goso_post_metas'.
  *
  * @param array $settings
  * @param string $value
  *
  * @return string
  */
-function penci_vc_param_post_metas( $settings, $value ) {
+function goso_vc_param_post_metas( $settings, $value ) {
 	$output = '';
 
 	$post_metas = array(

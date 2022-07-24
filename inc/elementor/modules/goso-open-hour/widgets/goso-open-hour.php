@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoOpenHour extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-open-hour';
+		return 'goso-open-hour';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Open Hour', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Open Hour', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoOpenHour extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -102,7 +102,7 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Space Item', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}}  .penci-workingh-lists li' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-workingh-lists li' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -110,7 +110,7 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Subtitle Margin Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}}  .penci-listitem-subtitle' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-listitem-subtitle' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 
@@ -131,7 +131,7 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Icon Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-icon' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-icon' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -139,7 +139,7 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Font size for Icon', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-icon' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-icon' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -148,14 +148,14 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-title' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-title' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'label'    => __( 'Typhography for Title', 'authow' ),
 				'name'     => 'ophour_title_typo',
-				'selector' => '{{WRAPPER}} .penci-workingh-lists .penci-listitem-title',
+				'selector' => '{{WRAPPER}} .goso-workingh-lists .goso-listitem-title',
 			)
 		);
 		$this->add_control(
@@ -164,14 +164,14 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Subtitle Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-subtitle' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-subtitle' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'label'    => __( 'Typhography for Subtitle', 'authow' ),
 				'name'     => 'ophour_subtitle_typo',
-				'selector' => '{{WRAPPER}} .penci-workingh-lists .penci-listitem-subtitle',
+				'selector' => '{{WRAPPER}} .goso-workingh-lists .goso-listitem-subtitle',
 			)
 		);
 
@@ -180,7 +180,7 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Font size for Subtitle', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-subtitle' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-subtitle' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -189,14 +189,14 @@ class GosoOpenHour extends Base_Widget {
 				'label'     => __( 'Hours or Price Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-workingh-lists .penci-listitem-hours' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-workingh-lists .goso-listitem-hours' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'label'    => __( 'Typhography for Subtitle', 'authow' ),
 				'name'     => 'ophour_hour_typo',
-				'selector' => '{{WRAPPER}} .penci-workingh-lists .penci-listitem-hours',
+				'selector' => '{{WRAPPER}} .goso-workingh-lists .goso-listitem-hours',
 			)
 		);
 		$this->end_controls_section();
@@ -212,12 +212,12 @@ class GosoOpenHour extends Base_Widget {
 			return;
 		}
 
-		$css_class = 'penci-block-vc penci-working-hours';
+		$css_class = 'goso-block-vc goso-working-hours';
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
-				<div class="penci-workingh-lists">
+			<div class="goso-block_content">
+				<div class="goso-workingh-lists">
 					<ul>
 						<?php foreach ( (array)$settings['working_hours'] as $hour ):
 							$icon = isset( $hour['icon'] ) ? $hour['icon'] : '';
@@ -226,28 +226,28 @@ class GosoOpenHour extends Base_Widget {
 							$subtitle = isset( $hour['subtitle'] ) ? $hour['subtitle'] : '';
 
 							?>
-							<li class="penci-workingh-item">
-								<div class="penci-workingh-item-inner">
-									<div class="penci-workingh-line1">
-										<div class="penci-icontitle">
+							<li class="goso-workingh-item">
+								<div class="goso-workingh-item-inner">
+									<div class="goso-workingh-line1">
+										<div class="goso-icontitle">
 											<?php
 											if ( $icon ) {
-												echo '<i class="penci-listitem-icon ' . $icon . '"></i>';
+												echo '<i class="goso-listitem-icon ' . $icon . '"></i>';
 											}
 											if ( $title ) {
-												echo '<span class="penci-listitem-title">' . $title . '</span>';
+												echo '<span class="goso-listitem-title">' . $title . '</span>';
 											}
 											?>
 										</div>
 										<?php
 										if ( $hours ) {
-											echo '<span class="penci-listitem-hours">' . $hours . '</span>';
+											echo '<span class="goso-listitem-hours">' . $hours . '</span>';
 										}
 										?>
 									</div>
 									<?php
 									if ( $subtitle ) {
-										echo '<span class="penci-listitem-subtitle">' . $subtitle . '</span>';
+										echo '<span class="goso-listitem-subtitle">' . $subtitle . '</span>';
 									}
 									?>
 								</div>

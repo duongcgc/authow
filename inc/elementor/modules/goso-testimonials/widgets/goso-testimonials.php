@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoTestimonials extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-testimonials';
+		return 'goso-testimonials';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Testimonials', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Testimonials', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoTestimonials extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -139,7 +139,7 @@ class GosoTestimonials extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-testimonails' => '--pcsl-hgap: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-testimonails' => '--pcsl-hgap: {{SIZE}}px;'
 				),
 			)
 		);
@@ -150,7 +150,7 @@ class GosoTestimonials extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-testimonails' => '--pcsl-bgap: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-testimonails' => '--pcsl-bgap: {{SIZE}}px;'
 				),
 				'condition' => array( 'testitype' => 'grid' ),
 			)
@@ -160,7 +160,7 @@ class GosoTestimonials extends Base_Widget {
 			'_desc_width', array(
 				'label'     => __( 'Description Width', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-blockquote' => 'max-width: {{SIZE}}px;margin-left:auto;margin-right:auto;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-blockquote' => 'max-width: {{SIZE}}px;margin-left:auto;margin-right:auto;' ),
 			)
 		);
 		
@@ -320,35 +320,35 @@ class GosoTestimonials extends Base_Widget {
 			'p_name_marbottom', array(
 				'label'     => __( 'Name Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-name' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-name' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
 			'p_company_marbottom', array(
 				'label'     => __( 'Company/Position Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-company' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-company' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
 			'image_spacing', array(
 				'label'     => __( 'Image Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-avatar' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-avatar' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
 			'p_rating_marbottom', array(
 				'label'     => __( 'Rating Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-rating' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-rating' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
 			'p_desc_marbottom', array(
 				'label'     => __( 'Description Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-blockquote' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-blockquote' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -356,7 +356,7 @@ class GosoTestimonials extends Base_Widget {
 			'desc_marbot', array(
 				'label'     => __( 'Description Spacing Bottom', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-blockquote' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-blockquote' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		
@@ -364,7 +364,7 @@ class GosoTestimonials extends Base_Widget {
 			'p_desc_padding', array(
 				'label'     => __( 'Description Padding', 'authow' ),
 				'type'      => Controls_Manager::HIDDEN,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-blockquote' => 'padding: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-blockquote' => 'padding: {{SIZE}}px' ),
 			)
 		);
 		
@@ -373,7 +373,7 @@ class GosoTestimonials extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .pc-testiinner .penci-testi-blockquote' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .pc-testiinner .goso-testi-blockquote' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 
@@ -393,7 +393,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Member Items Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-s4 .pc-testiinner' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-s4 .pc-testiinner' => 'background-color: {{VALUE}};' ),
 				'condition' => array( 'style' => array( 's4' ) ),
 			)
 		);
@@ -403,7 +403,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'name' => 'team4_shadow',
 				'label' => __( 'Adjust Box Shadow', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-testi-s4 .pc-testiinner',
+				'selector' => '{{WRAPPER}} .goso-testi-s4 .pc-testiinner',
 				'condition' => array( 'style' => array( 's4' ) ),
 			)
 		);
@@ -413,7 +413,7 @@ class GosoTestimonials extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-testi-s4 .pc-testiinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-testi-s4 .pc-testiinner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition' => array( 'style' => array( 's4' ) ),
 		) );
@@ -423,7 +423,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Quote Icon Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testimonail .penci-testi-bq-icon:before' => 'color: {{VALUE}}; border-color:{{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testimonail .goso-testi-bq-icon:before' => 'color: {{VALUE}}; border-color:{{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -431,7 +431,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Quote Icon Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testimonail .penci-testi-bq-icon:before' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testimonail .goso-testi-bq-icon:before' => 'background-color: {{VALUE}};' ),
 				'condition' => array( 'style' => array( 's1' ) ),
 			)
 		);
@@ -442,8 +442,8 @@ class GosoTestimonials extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-testimonail .penci-testi-bq-icon:before' => 'font-size: {{SIZE}}px;',
-					'{{WRAPPER}} .penci-testi-s2 .penci-testi-bq-icon:before' => 'width: auto; height: auto; line-height: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-testimonail .goso-testi-bq-icon:before' => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-testi-s2 .goso-testi-bq-icon:before' => 'width: auto; height: auto; line-height: {{SIZE}}px;'
 				),
 			)
 		);
@@ -462,7 +462,7 @@ class GosoTestimonials extends Base_Widget {
 			'_image_width_height', array(
 				'label'     => __( 'Image With/Height', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-avatar' => 'width: {{SIZE}}px;height: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-avatar' => 'width: {{SIZE}}px;height: {{SIZE}}px' ),
 			)
 		);
 		
@@ -471,7 +471,7 @@ class GosoTestimonials extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-testi-avatar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-testi-avatar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 		
@@ -489,7 +489,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Name Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-name, {{WRAPPER}} .testiname' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-name, {{WRAPPER}} .testiname' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -497,7 +497,7 @@ class GosoTestimonials extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'name_typo',
 				'label'    => __( 'Typography for Name', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-testi-name, {{WRAPPER}} .testiname',
+				'selector' => '{{WRAPPER}} .goso-testi-name, {{WRAPPER}} .testiname',
 			)
 		);
 		
@@ -515,14 +515,14 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Company Name Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-company, {{WRAPPER}} .testicom' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-company, {{WRAPPER}} .testicom' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'company_typo',
 				'label'    => __( 'Typography for Company Name', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-testi-company, {{WRAPPER}} .testicom',
+				'selector' => '{{WRAPPER}} .goso-testi-company, {{WRAPPER}} .testicom',
 			)
 		);
 		
@@ -540,7 +540,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Description Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-blockquote' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-blockquote' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -550,8 +550,8 @@ class GosoTestimonials extends Base_Widget {
 				'label'     => __( 'Description Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-testi-s5 .penci-testi-blockquote:after' => 'border-top-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-testi-blockquote' => 'background-color: {{VALUE}};border-color: {{VALUE}};' 
+					'{{WRAPPER}} .goso-testi-s5 .goso-testi-blockquote:after' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-testi-blockquote' => 'background-color: {{VALUE}};border-color: {{VALUE}};' 
 				),
 				'condition' => array( 'style' => array( 's1', 's2', 's5' ) ),
 			)
@@ -561,7 +561,7 @@ class GosoTestimonials extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'desc_typo',
 				'label'    => __( 'Typography for Description', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-testi-blockquote',
+				'selector' => '{{WRAPPER}} .goso-testi-blockquote',
 			)
 		);
 		
@@ -570,7 +570,7 @@ class GosoTestimonials extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-testimonail .penci-testi-blockquote' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-testimonail .goso-testi-blockquote' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition' => array( 'style' => array( 's1', 's2', 's5' ) ),
 		) );
@@ -589,7 +589,7 @@ class GosoTestimonials extends Base_Widget {
 			array(
 				'label'     => __( 'Rating Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-testi-rating' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-rating' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -597,7 +597,7 @@ class GosoTestimonials extends Base_Widget {
 				'label'     => __( 'Rating size', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-testi-rating' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-testi-rating' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 
@@ -662,16 +662,16 @@ class GosoTestimonials extends Base_Widget {
 		$testitype = isset( $settings['testitype'] ) && $settings['testitype'] ? $settings['testitype'] : 'crs';
 		$imagepos = isset( $settings['imagepos'] ) && $settings['imagepos'] ? $settings['imagepos'] : '';
 		
-		$wrapper_css_class = 'penci-block-vc penci-smalllist penci-testimonails';
-		$wrapper_css_class .= ' penci-testi-' . $style;
+		$wrapper_css_class = 'goso-block-vc goso-smalllist goso-testimonails';
+		$wrapper_css_class .= ' goso-testi-' . $style;
 		if( 's4' == $style && $imagepos ){
 			$wrapper_css_class .= ' pcimgpos-' . $imagepos;
 		}
 		
-		$inner_wrapper_class = 'penci-block_content pcsl-inner penci-clearfix';
+		$inner_wrapper_class = 'goso-block_content pcsl-inner goso-clearfix';
 		$inner_wrapper_class .= ' pcsl-' . $testitype;
 		if ( 'crs' == $testitype ) {
-			$inner_wrapper_class .= ' penci-owl-carousel penci-owl-carousel-slider';
+			$inner_wrapper_class .= ' goso-owl-carousel goso-owl-carousel-slider';
 		}
 		
 		$inner_wrapper_class .= ' pcsl-col-' . $slider_item;
@@ -704,22 +704,22 @@ class GosoTestimonials extends Base_Widget {
 					
 					if ( $_testi_name || $_testi_company || $_testi_desc ) {
 						?>
-						<div class="pcsl-item penci-testimonail">
+						<div class="pcsl-item goso-testimonail">
 							<div class="pcsl-itemin pc-testiinner">
 								<?php
 								if( in_array( $style, array( 's1', 's2', 's3' ) ) ){
 									if ( 's2' == $style ) {
 										if ( $_testi_desc ) {
-											echo '<div class="penci-testi-blockquote">';
-											echo '<div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div>';
+											echo '<div class="goso-testi-blockquote">';
+											echo '<div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div>';
 
 											if ( $_testi_rating ) {
 												$rating_item = '';
 												for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-													$rating_item .=  penci_icon_by_ver('fas fa-star');
+													$rating_item .=  goso_icon_by_ver('fas fa-star');
 												}
 												if ( $rating_item ) {
-													echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+													echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 												}
 											}
 
@@ -727,39 +727,39 @@ class GosoTestimonials extends Base_Widget {
 										}
 									} else {
 										if ( $_testi_desc ) {
-											echo '<div class="penci-testi-blockquote"><div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
+											echo '<div class="goso-testi-blockquote"><div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
 										}
 
 										if ( $_testi_rating ) {
 											$rating_item = '';
 											for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-												$rating_item .= penci_icon_by_ver('fas fa-star');
+												$rating_item .= goso_icon_by_ver('fas fa-star');
 											}
 
 											if ( $rating_item ) {
-												echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+												echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 											}
 										}
 									}
 
 									$url_img_item = $this->get_marker_img_el( $_testi_image );
 									if ( $url_img_item ) {
-										$thumbnailsize = penci_get_image_size_url( $url_img_item, 'thumbnail' );
-										echo '<div class="penci-testi-avatar">';
+										$thumbnailsize = goso_get_image_size_url( $url_img_item, 'thumbnail' );
+										echo '<div class="goso-testi-avatar">';
 										echo '<img src="' . esc_url( $thumbnailsize ) . '" alt="' . esc_attr( $_testi_name ) . '"/>';
 										echo '</div>';
 									}
 									if( $_testi_name ){
-										echo '<h3 class="penci-testi-name">' . $_testi_name . '</h3>';
+										echo '<h3 class="goso-testi-name">' . $_testi_name . '</h3>';
 									}
 									if( $_testi_company ){
-										echo '<div class="penci-testi-company">' . $_testi_company . '</div>';
+										echo '<div class="goso-testi-company">' . $_testi_company . '</div>';
 									}
 								} else if( in_array( $style, array( 's4' ) ) ){
 									$url_img_item = $this->get_marker_img_el( $_testi_image );
 									if ( $url_img_item ) {
-										$thumbnailsize = penci_get_image_size_url( $url_img_item, 'thumbnail' );
-										echo '<div class="pc-testiava"><div class="penci-testi-avatar">';
+										$thumbnailsize = goso_get_image_size_url( $url_img_item, 'thumbnail' );
+										echo '<div class="pc-testiava"><div class="goso-testi-avatar">';
 										echo '<img src="' . esc_url( $thumbnailsize ) . '" alt="' . esc_attr( $_testi_name ) . '"/>';
 										echo '</div></div>';
 									}
@@ -769,26 +769,26 @@ class GosoTestimonials extends Base_Widget {
 										if ( $_testi_rating ) {
 											$rating_item = '';
 											for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-												$rating_item .=  penci_icon_by_ver('fas fa-star');
+												$rating_item .=  goso_icon_by_ver('fas fa-star');
 											}
 											if ( $rating_item ) {
-												echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+												echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 											}
 										}
 										
 										if ( $_testi_desc ) {
-											echo '<div class="penci-testi-blockquote"><div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
+											echo '<div class="goso-testi-blockquote"><div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
 										}
 										
 										if( $_testi_name || $_testi_company ){
-											echo '<div class="penci-testi-company"><span class="testiname">' . $_testi_name . '</span><span class="testicom">' . $_testi_company . '</span></div>';
+											echo '<div class="goso-testi-company"><span class="testiname">' . $_testi_name . '</span><span class="testicom">' . $_testi_company . '</span></div>';
 										}
 										echo '</div>';
 									}
 								} else {
 									
 									if ( $_testi_desc ) {
-										echo '<div class="penci-testi-blockquote"><div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
+										echo '<div class="goso-testi-blockquote"><div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
 									}
 									$url_img_item = $this->get_marker_img_el( $_testi_image );
 									
@@ -797,8 +797,8 @@ class GosoTestimonials extends Base_Widget {
 										
 										$url_img_item = $this->get_marker_img_el( $_testi_image );
 										if ( $url_img_item ) {
-											$thumbnailsize = penci_get_image_size_url( $url_img_item, 'thumbnail' );
-											echo '<div class="pc-testiava"><div class="penci-testi-avatar">';
+											$thumbnailsize = goso_get_image_size_url( $url_img_item, 'thumbnail' );
+											echo '<div class="pc-testiava"><div class="goso-testi-avatar">';
 											echo '<img src="' . esc_url( $thumbnailsize ) . '" alt="' . esc_attr( $_testi_name ) . '"/>';
 											echo '</div></div>';
 										}
@@ -806,19 +806,19 @@ class GosoTestimonials extends Base_Widget {
 										if( $_testi_rating || $_testi_name || $_testi_company ){
 											echo '<div class="pctesticont">';
 											if( $_testi_name ){
-												echo '<h3 class="penci-testi-name">' . $_testi_name . '</h3>';
+												echo '<h3 class="goso-testi-name">' . $_testi_name . '</h3>';
 											}
 											if( $_testi_company ){
-												echo '<div class="penci-testi-company">' . $_testi_company . '</div>';
+												echo '<div class="goso-testi-company">' . $_testi_company . '</div>';
 											}
 											
 											if ( $_testi_rating ) {
 												$rating_item = '';
 												for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-													$rating_item .=  penci_icon_by_ver('fas fa-star');
+													$rating_item .=  goso_icon_by_ver('fas fa-star');
 												}
 												if ( $rating_item ) {
-													echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+													echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 												}
 											}
 											echo '</div>';

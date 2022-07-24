@@ -1,27 +1,27 @@
 <?php
 /* Sidebar Section */
-$mobile_sidebar_section = 'penci_header_drawer_container_section';
+$mobile_sidebar_section = 'goso_header_drawer_container_section';
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_img",
+	'id'        => "goso_header_mobile_sidebar_background_img",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-image',
 	'label'     => esc_html__( 'Mobile Sidebar Background Image', 'authow' ),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_color",
+	'id'        => "goso_header_mobile_sidebar_background_color",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => __( 'Mobile Sidebar Background Color', 'authow' ),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_repeat",
+	'id'        => "goso_header_mobile_sidebar_background_repeat",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Mobile Sidebar Background Repeat', 'authow' ),
 	'choices'   => [
@@ -34,10 +34,10 @@ $options[]              = array(
 	]
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_position",
+	'id'        => "goso_header_mobile_sidebar_background_position",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Mobile Sidebar Background Position', 'authow' ),
 	'choices'   => [
@@ -53,10 +53,10 @@ $options[]              = array(
 	]
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_size",
+	'id'        => "goso_header_mobile_sidebar_background_size",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Mobile Sidebar Background Size', 'authow' ),
 	'choices'   => [
@@ -69,10 +69,10 @@ $options[]              = array(
 	]
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_background_attachment",
+	'id'        => "goso_header_mobile_sidebar_background_attachment",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Mobile Sidebar Background Attachment', 'authow' ),
 	'choices'   => [
@@ -84,11 +84,11 @@ $options[]              = array(
 	]
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_spacing_setting",
+	'id'        => "goso_header_mobile_sidebar_spacing_setting",
 	'default'   => '',
 	'type'      => 'authow-fw-box-model',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_custom_sanitization',
+	'sanitize'  => 'goso_custom_sanitization',
 	'label'     => esc_html__( 'Spacing & Borders', 'authow' ),
 	'choices'   => array(
 		'margin'  => array(
@@ -112,18 +112,18 @@ $options[]              = array(
 	),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_border_setting",
+	'id'        => "goso_header_mobile_sidebar_border_setting",
 	'type'      => 'authow-fw-color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( ' Mobile Sidebar Borders Color', 'authow' ),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_border_style_setting",
+	'id'        => "goso_header_mobile_sidebar_border_style_setting",
 	'default'   => 'solid',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( ' Mobile Sidebar Borders Style', 'authow' ),
 	'choices'   => [
@@ -134,28 +134,28 @@ $options[]              = array(
 	],
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_text_color_setting",
+	'id'        => "goso_header_mobile_sidebar_text_color_setting",
 	'type'      => 'authow-fw-color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
-	'settings'  => "penci_header_mobile_sidebar_text_color_setting",
+	'sanitize'  => 'goso_sanitize_choices_field',
+	'settings'  => "goso_header_mobile_sidebar_text_color_setting",
 	'label'     => __( 'General Text Color', 'authow' ),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_link_color_setting",
+	'id'        => "goso_header_mobile_sidebar_link_color_setting",
 	'default'   => '',
 	'type'      => 'authow-fw-color',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( ' Mobile Sidebar Link Color', 'authow' ),
 );
 $options[]              = array(
-	'id'        => "penci_header_mobile_sidebar_link_hv_color_setting",
+	'id'        => "goso_header_mobile_sidebar_link_hv_color_setting",
 	'default'   => '',
 	'type'      => 'authow-fw-color',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( ' Mobile Sidebar Link Hover Color', 'authow' ),
 );
 

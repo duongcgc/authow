@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPopularPosts extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-popular-posts';
+		return 'goso-popular-posts';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Popular Posts', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Popular Posts', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoPopularPosts extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -46,7 +46,7 @@ class GosoPopularPosts extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_columns', array(
+			'goso_columns', array(
 				'label'   => __( 'Columns', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '4',
@@ -66,7 +66,7 @@ class GosoPopularPosts extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_featimg_size', array(
+			'goso_featimg_size', array(
 				'label'                => __( 'Image Size Type', 'authow' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => '',
@@ -77,7 +77,7 @@ class GosoPopularPosts extends Base_Widget {
 					'vertical'   => esc_html__( 'Vertical Size', 'authow' ),
 					'custom'     => esc_html__( 'Custom', 'authow' ),
 				),
-				'selectors'            => array( '{{WRAPPER}} .penci-image-holder:before' => '{{VALUE}}', ),
+				'selectors'            => array( '{{WRAPPER}} .goso-image-holder:before' => '{{VALUE}}', ),
 				'selectors_dictionary' => array(
 					'horizontal' => 'padding-top: 66.6667%;',
 					'square'     => 'padding-top: 100%;',
@@ -86,7 +86,7 @@ class GosoPopularPosts extends Base_Widget {
 			)
 		);
 		$this->add_responsive_control(
-			'penci_featimg_ratio', array(
+			'goso_featimg_ratio', array(
 				'label'          => __( 'Image Ratio', 'authow' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 0.66 ),
@@ -94,9 +94,9 @@ class GosoPopularPosts extends Base_Widget {
 				'mobile_default' => array( 'size' => 0.5 ),
 				'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 				'selectors'      => array(
-					'{{WRAPPER}} .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 				),
-				'condition'      => array( 'penci_featimg_size' => 'custom' ),
+				'condition'      => array( 'goso_featimg_size' => 'custom' ),
 			)
 		);
 		$this->add_control(
@@ -105,7 +105,7 @@ class GosoPopularPosts extends Base_Widget {
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => $this->get_list_image_sizes( true ),
-				'condition'      => array( 'penci_featimg_size' => 'custom' ),
+				'condition'      => array( 'goso_featimg_size' => 'custom' ),
 			)
 		);
 		
@@ -167,7 +167,7 @@ class GosoPopularPosts extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'ptitle_typo',
-				'selector' => '{{WRAPPER}} .penci-home-popular-post .item-related h3, {{WRAPPER}} .penci-home-popular-post  .item-related h3 a'
+				'selector' => '{{WRAPPER}} .goso-home-popular-post .item-related h3, {{WRAPPER}} .goso-home-popular-post  .item-related h3 a'
 			)
 		);
 		// Post meta
@@ -248,13 +248,13 @@ class GosoPopularPosts extends Base_Widget {
 			'heading_icon_pos'    => $settings['heading_icon_pos'],
 			'heading_icon'        => $settings['heading_icon'],
 
-			'penci_featimg_size'  => $settings['penci_featimg_size'],
-			'penci_featimg_ratio' => $settings['penci_featimg_ratio'],
+			'goso_featimg_size'  => $settings['goso_featimg_size'],
+			'goso_featimg_ratio' => $settings['goso_featimg_ratio'],
 			'thumb_size'          => $settings['thumb_size'],
 			'show_navs'           => $settings['show_navs'],
 			'hide_dots'           => $settings['hide_dots'],
 
-			'columns'         => $settings['penci_columns'],
+			'columns'         => $settings['goso_columns'],
 			'_title_length'   => $settings['_title_length'],
 			'elementor_query' => $query_args,
 		) );

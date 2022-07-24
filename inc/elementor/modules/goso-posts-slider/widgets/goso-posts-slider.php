@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPostsSlider extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-posts-slider';
+		return 'goso-posts-slider';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Widget Posts Slider', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Widget Posts Slider', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoPostsSlider extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -41,7 +41,7 @@ class GosoPostsSlider extends Base_Widget {
 				'label' => esc_html__( 'Layout', 'authow' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			) );
-		$this->add_control( 'penci_style', array(
+		$this->add_control( 'goso_style', array(
 				'label'   => __( 'Select Style for This Slider', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'style-1',
@@ -52,7 +52,7 @@ class GosoPostsSlider extends Base_Widget {
 				)
 			) );
 
-		$this->add_control( 'penci_size', array(
+		$this->add_control( 'goso_size', array(
 				'label'                => __( 'Image Size Type', 'authow' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'horizontal',
@@ -62,14 +62,14 @@ class GosoPostsSlider extends Base_Widget {
 					'vertical'   => esc_html__( 'Vertical Size', 'authow' ),
 					'custom'     => esc_html__( 'Custom', 'authow' ),
 				),
-				'selectors'            => array( '{{WRAPPER}} .penci-image-holder:before' => '{{VALUE}}', ),
+				'selectors'            => array( '{{WRAPPER}} .goso-image-holder:before' => '{{VALUE}}', ),
 				'selectors_dictionary' => array(
 					'horizontal' => 'padding-top: 66.6667%;',
 					'square'     => 'padding-top: 100%;',
 					'vertical'   => 'padding-top: 135.4%;',
 				),
 			) );
-		$this->add_responsive_control( 'penci_img_ratio', array(
+		$this->add_responsive_control( 'goso_img_ratio', array(
 				'label'          => __( 'Image Ratio', 'authow' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 0.66 ),
@@ -77,16 +77,16 @@ class GosoPostsSlider extends Base_Widget {
 				'mobile_default' => array( 'size' => 0.5 ),
 				'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 				'selectors'      => array(
-					'{{WRAPPER}} .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 				),
-				'condition'      => array( 'penci_size' => 'custom' ),
+				'condition'      => array( 'goso_size' => 'custom' ),
 			) );
 		$this->add_control( 'thumb_size', array(
 				'label'     => __( 'Custom Image size', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => $this->get_list_image_sizes( true ),
-				'condition' => array( 'penci_size' => 'custom' ),
+				'condition' => array( 'goso_size' => 'custom' ),
 			) );
 
 		$this->add_control( 'hide_pdate', array(
@@ -126,21 +126,21 @@ class GosoPostsSlider extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-widget-slider .penci-widget-slide-detail h4 a' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-widget-slider .penci-widget-slide-detail h4'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-widget-slider .goso-widget-slide-detail h4 a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-widget-slider .goso-widget-slide-detail h4'   => 'color: {{VALUE}};',
 				)
 			) );
 		$this->add_control( 'ptitle_hcolor', array(
 				'label'     => __( 'Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-widget-slider .penci-widget-slide-detail h4 a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-widget-slider .goso-widget-slide-detail h4 a:hover' => 'color: {{VALUE}};',
 				)
 			) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 				'name'     => 'ptitle_typo',
-				'selector' => '{{WRAPPER}} .penci-widget-slider .penci-widget-slide-detail h4 a,{{WRAPPER}} .penci-widget-slider .penci-widget-slide-detail h4'
+				'selector' => '{{WRAPPER}} .goso-widget-slider .goso-widget-slide-detail h4 a,{{WRAPPER}} .goso-widget-slider .goso-widget-slide-detail h4'
 			) );
 
 		$this->add_control( 'heading_pmeta_style', array(
@@ -152,12 +152,12 @@ class GosoPostsSlider extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-widget-slide-detail .slide-item-date' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-widget-slide-detail .slide-item-date' => 'color: {{VALUE}};',
 				)
 			) );
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 				'name'     => 'pmeta_typo',
-				'selector' => '{{WRAPPER}} .penci-widget-slide-detail .slide-item-date'
+				'selector' => '{{WRAPPER}} .goso-widget-slide-detail .slide-item-date'
 			) );
 		$this->end_controls_section();
 		$this->register_block_title_style_section_controls();
@@ -219,7 +219,7 @@ class GosoPostsSlider extends Base_Widget {
 
 		$original_postype   = $settings['posts_post_type'];
 
-		if ( in_array($original_postype,['current_query','related_posts']) && penci_elementor_is_edit_mode() && penci_is_builder_template() ) {
+		if ( in_array($original_postype,['current_query','related_posts']) && goso_elementor_is_edit_mode() && goso_is_builder_template() ) {
 			$settings['posts_post_type'] = 'post';
 		}
 
@@ -256,26 +256,26 @@ class GosoPostsSlider extends Base_Widget {
 		$rand = rand( 100, 10000 );
 
 		$dis_lazyload = $settings['dis_lazyload'];
-		if ( get_theme_mod( 'penci_disable_lazyload_layout' ) ) {
+		if ( get_theme_mod( 'goso_disable_lazyload_layout' ) ) {
 			$dis_lazyload = false;
 		}
 
-		$style = $settings['penci_style'] ? $settings['penci_style'] : 'style-1';
+		$style = $settings['goso_style'] ? $settings['goso_style'] : 'style-1';
 
-		$css_class = 'penci-block-vc penci_post-slider-sc';
+		$css_class = 'goso-block-vc goso_post-slider-sc';
 		$dataauto  = 'false';
 		if ( $settings['enable_autoplay'] ) {
 			$dataauto = 'true';
 		}
 
-		$thumbsize = penci_featured_images_size();
-		if ( 'horizontal' == $settings['penci_size'] ) {
-			$thumbsize = 'penci-thumb';
-		} else if ( 'square' == $settings['penci_size'] ) {
-			$thumbsize = 'penci-thumb-square';
-		} else if ( 'vertical' == $settings['penci_size'] ) {
-			$thumbsize = 'penci-thumb-vertical';
-		} else if ( 'custom' == $settings['penci_size'] ) {
+		$thumbsize = goso_featured_images_size();
+		if ( 'horizontal' == $settings['goso_size'] ) {
+			$thumbsize = 'goso-thumb';
+		} else if ( 'square' == $settings['goso_size'] ) {
+			$thumbsize = 'goso-thumb-square';
+		} else if ( 'vertical' == $settings['goso_size'] ) {
+			$thumbsize = 'goso-thumb-vertical';
+		} else if ( 'custom' == $settings['goso_size'] ) {
 			if ( $settings['thumb_size'] ) {
 				$thumbsize = $settings['thumb_size'];
 			}
@@ -283,46 +283,46 @@ class GosoPostsSlider extends Base_Widget {
 		?>
         <div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-block_content">
-                <div id="penci-postslidewg-<?php echo sanitize_text_field( $rand ); ?>"
-                     class="penci-owl-carousel penci-owl-carousel-slider penci-widget-slider penci-post-slider-<?php echo $style; ?>"
+            <div class="goso-block_content">
+                <div id="goso-postslidewg-<?php echo sanitize_text_field( $rand ); ?>"
+                     class="goso-owl-carousel goso-owl-carousel-slider goso-widget-slider goso-post-slider-<?php echo $style; ?>"
                      data-lazy="true" data-auto="<?php echo $dataauto; ?>">
 					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                        <div class="penci-slide-widget">
-                            <div class="penci-slide-content">
+                        <div class="goso-slide-widget">
+                            <div class="goso-slide-content">
 								<?php if ( $style != 'style-3' ) { ?>
 									<?php if ( ! $dis_lazyload ) { ?>
-                                        <span class="penci-image-holder <?php echo penci_classes_slider_lazy(); ?>"
-                                              data-bgset="<?php echo penci_image_srcset( get_the_ID(), $thumbsize ); ?>"
+                                        <span class="goso-image-holder <?php echo goso_classes_slider_lazy(); ?>"
+                                              data-bgset="<?php echo goso_image_srcset( get_the_ID(), $thumbsize ); ?>"
                                               title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></span>
 									<?php } else { ?>
-                                        <span class="penci-image-holder"
-                                              style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumbsize ); ?>');"
+                                        <span class="goso-image-holder"
+                                              style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumbsize ); ?>');"
                                               title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></span>
 									<?php } ?>
-                                    <a href="<?php the_permalink() ?>" class="penci-widget-slider-overlay"
+                                    <a href="<?php the_permalink() ?>" class="goso-widget-slider-overlay"
                                        title="<?php the_title(); ?>"></a>
 								<?php } else { ?>
 									<?php if ( ! $dis_lazyload ) { ?>
-                                        <a href="<?php the_permalink() ?>" class="penci-image-holder penci-lazy"
-                                           data-bgset="<?php echo penci_get_featured_image_size( get_the_ID(), $thumbsize ); ?>"
+                                        <a href="<?php the_permalink() ?>" class="goso-image-holder goso-lazy"
+                                           data-bgset="<?php echo goso_get_featured_image_size( get_the_ID(), $thumbsize ); ?>"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } else { ?>
-                                        <a href="<?php the_permalink() ?>" class="penci-image-holder"
-                                           style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumbsize ); ?>')"
+                                        <a href="<?php the_permalink() ?>" class="goso-image-holder"
+                                           style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumbsize ); ?>')"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } ?>
 								<?php } ?>
-                                <div class="penci-widget-slide-detail">
+                                <div class="goso-widget-slide-detail">
                                     <h4>
                                         <a href="<?php the_permalink() ?>" rel="bookmark"
-                                           title="<?php the_title(); ?>"><?php penci_trim_post_title( get_the_ID(), $settings['_title_length'] ); ?></a>
+                                           title="<?php the_title(); ?>"><?php goso_trim_post_title( get_the_ID(), $settings['_title_length'] ); ?></a>
                                     </h4>
 									<?php if ( ! $settings['hide_pdate'] ) : ?>
 										<?php
 										$date_format = get_option( 'date_format' );
 										?>
-										<?php if ( ! get_theme_mod( 'penci_show_modified_date' ) ) { ?>
+										<?php if ( ! get_theme_mod( 'goso_show_modified_date' ) ) { ?>
                                             <span class="slide-item-date"><?php the_time( $date_format ); ?></span>
 										<?php } else { ?>
                                             <span class="slide-item-date"><?php echo get_the_modified_date( $date_format ); ?></span>

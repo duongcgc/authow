@@ -1,15 +1,15 @@
 <?php
-$compare_page_id = get_theme_mod( 'penci_woocommerce_compare_page' );
+$compare_page_id = get_theme_mod( 'goso_woocommerce_compare_page' );
 if ( $compare_page_id ):
 	?>
     <div id="top-header-compare"
-         class="top-search-classes penci-builder-elements pcheader-icon compare-icon">
+         class="top-search-classes goso-builder-elements pcheader-icon compare-icon">
         <a href="<?php echo esc_url( get_page_link( $compare_page_id ) ); ?>"
-           class="pc-button-define-<?php echo penci_get_builder_mod( 'penci_header_pb_compare_icon_section_btnstyle','customize' ); ?> compare-contents"
-           title="<?php echo penci_woo_translate_text( 'penci_woo_trans_viewcompare' ); ?>">
+           class="pc-button-define-<?php echo goso_get_builder_mod( 'goso_header_pb_compare_icon_section_btnstyle','customize' ); ?> compare-contents"
+           title="<?php echo goso_woo_translate_text( 'goso_woo_trans_viewcompare' ); ?>">
 
-            <i class="penciicon-exchange-2"></i>
-            <span><?php do_action( 'penci_current_compare' ); ?></span>
+            <i class="gosoicon-exchange-2"></i>
+            <span><?php do_action( 'goso_current_compare' ); ?></span>
         </a>
     </div>
 <?php endif;

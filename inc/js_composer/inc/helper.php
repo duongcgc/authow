@@ -8,38 +8,38 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool|string
  * @since 4.2
  */
-if ( ! function_exists( 'penci_wpb_translateColumnWidthToSpan' ) ) :
-	function penci_wpb_translateColumnWidthToSpan( $width, $order ) {
+if ( ! function_exists( 'goso_wpb_translateColumnWidthToSpan' ) ) :
+	function goso_wpb_translateColumnWidthToSpan( $width, $order ) {
 		$output = array();
 		preg_match( '/(\d+)\/(\d+)/', $width, $matches );
 
 		$container_layout = Goso_Global_Data_Blocks::get_data_row();
 		if ( in_array( $container_layout, array( '23_13', '13_23', '14_12_14', '12_14_14', '14_14_12' ) ) ) {
 			if ( '1/4' == $width ) {
-				$output[] = 'penci-vc-sidebar';
+				$output[] = 'goso-vc-sidebar';
 				if ( '12_14_14' == $container_layout ) {
 					if ( 2 == $order ) {
-						$output [] = 'penci-sidebar-left';
+						$output [] = 'goso-sidebar-left';
 					} else {
-						$output [] = 'penci-sidebar-right';
+						$output [] = 'goso-sidebar-right';
 					}
 				} else {
 					if ( 1 == $order ) {
-						$output [] = 'penci-sidebar-left';
+						$output [] = 'goso-sidebar-left';
 					} else {
-						$output [] = 'penci-sidebar-right';
+						$output [] = 'goso-sidebar-right';
 					}
 				}
 			} elseif ( '1/3' == $width ) {
-				$output[] = 'penci-vc-sidebar';
+				$output[] = 'goso-vc-sidebar';
 
 				if ( '23_13' == $container_layout ) {
-					$output [] = 'penci-sidebar-right';
+					$output [] = 'goso-sidebar-right';
 				} else {
-					$output [] = 'penci-sidebar-left';
+					$output [] = 'goso-sidebar-left';
 				}
 			} elseif ( '2/3' == $width || '1/2' == $width ) {
-				$output[] = 'penci-main-content';
+				$output[] = 'goso-main-content';
 			}
 		} else {
 			if ( ! empty( $matches ) ) {
@@ -48,17 +48,17 @@ if ( ! function_exists( 'penci_wpb_translateColumnWidthToSpan' ) ) :
 				if ( $part_x > 0 && $part_y > 0 ) {
 					$value = ceil( $part_x / $part_y * 12 );
 					if ( $value > 0 && $value <= 12 ) {
-						$output[] = 'penci-col-' . $value;
+						$output[] = 'goso-col-' . $value;
 					}
 				}
 			}
 			if ( preg_match( '/\d+\/5$/', $width ) ) {
-				$output[] = 'penci-col-' . $width;
+				$output[] = 'goso-col-' . $width;
 			}
 		}
 
 		if ( '11' == $width ) {
-			$output[] = 'penci-col-12';
+			$output[] = 'goso-col-12';
 		}
 
 		$output = implode( ' ', $output );
@@ -67,14 +67,14 @@ if ( ! function_exists( 'penci_wpb_translateColumnWidthToSpan' ) ) :
 			$output = $width;
 		}
 
-		return apply_filters( 'penci_vc_translate_column_width_class', $output, $width );
+		return apply_filters( 'goso_vc_translate_column_width_class', $output, $width );
 	}
 endif;
 
 if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 	class Goso_Vc_Helper {
 		public static function get_unique_id_block( $block_id ) {
-			return 'penci' . $block_id . '_' . rand( 1000, 100000 );
+			return 'goso' . $block_id . '_' . rand( 1000, 100000 );
 		}
 
 		public static function get_http() {
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 					$font             = $google_fonts_obj->_vc_google_fonts_parse_attributes( array(), trim( $args['font_style'] ) );
 					$font             = $font['values'];
 					list( $font_family_load ) = explode( ':', $font['font_family'] . ':' );
-					$penci_font_enqueue = array( 'Raleway', 'PT Serif' );
+					$goso_font_enqueue = array( 'Raleway', 'PT Serif' );
 
 					$settings = get_option( 'wpb_js_google_fonts_subsets' );
 					if ( is_array( $settings ) && ! empty( $settings ) ) {
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 						$subsets = '';
 					}
 
-					if ( $font_family_load && ! in_array( $font_family_load, $penci_font_enqueue ) ) {
+					if ( $font_family_load && ! in_array( $font_family_load, $goso_font_enqueue ) ) {
 						wp_enqueue_style( 'vc_google_fonts_' . vc_build_safe_css_class( urlencode( $font_family_load ) ), '//fonts.googleapis.com/css?family=' . urlencode( $font_family_load ) . $subsets );
 					}
 				}
@@ -192,8 +192,8 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 				return;
 			}
 
-			$heading_title = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-			$heading_align = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
+			$heading_title = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+			$heading_align = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
 
 			if ( $r['heading_title_style'] ) {
 				$heading_title = $r['heading_title_style'];
@@ -203,10 +203,10 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 				$heading_align = $r['block_title_align'];
 			}
 
-			$sb_icon_pos         = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-			$heading_icon_pos    = get_theme_mod( 'penci_homep_icon_align' ) ? get_theme_mod( 'penci_homep_icon_align' ) : $sb_icon_pos;
-			$sb_icon_design      = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
-			$heading_icon_design = get_theme_mod( 'penci_homep_icon_design' ) ? get_theme_mod( 'penci_homep_icon_design' ) : $sb_icon_design;
+			$sb_icon_pos         = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+			$heading_icon_pos    = get_theme_mod( 'goso_homep_icon_align' ) ? get_theme_mod( 'goso_homep_icon_align' ) : $sb_icon_pos;
+			$sb_icon_design      = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
+			$heading_icon_design = get_theme_mod( 'goso_homep_icon_design' ) ? get_theme_mod( 'goso_homep_icon_design' ) : $sb_icon_design;
 
 			if ( $r['heading_icon_pos'] ) {
 				$heading_icon_pos = $r['heading_icon_pos'];
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 				$heading_icon_design = $r['heading_icon'];
 			}
 
-			$classes = 'penci-border-arrow penci-homepage-title penci-home-latest-posts';
+			$classes = 'goso-border-arrow goso-homepage-title goso-home-latest-posts';
 			$classes .= ' ' . $heading_title;
 			$classes .= ' ' . $heading_align;
 			$classes .= ' ' . $heading_icon_pos;
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 					}
 					echo do_shortcode( $r['heading'] );
 					if ( $r['add_title_icon'] && $r['block_title_icon'] && 'right' == $r['block_title_ialign'] ) {
-						penci_icon_by_ver( 'fa-pos-right ' . esc_attr( $r['block_title_icon'] ) );
+						goso_icon_by_ver( 'fa-pos-right ' . esc_attr( $r['block_title_icon'] ) );
 					}
 					if ( $r['heading_title_link'] ) {
 						echo '</a>';
@@ -276,42 +276,42 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 
 			$output = '';
 			if ( $r['block_title_color'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow .inner-arrow a,';
-				$output .= $block_id_css . ' .penci-border-arrow .inner-arrow{ color: ' . esc_attr( $r['block_title_color'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow .inner-arrow a,';
+				$output .= $block_id_css . ' .goso-border-arrow .inner-arrow{ color: ' . esc_attr( $r['block_title_color'] ) . '; }';
 			}
 
 			if ( $r['block_title_hcolor'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow .inner-arrow a:hover{ color: ' . esc_attr( $r['block_title_hcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow .inner-arrow a:hover{ color: ' . esc_attr( $r['block_title_hcolor'] ) . '; }';
 			}
 			if ( $r['btitle_bcolor'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow .inner-arrow,';
-				$output .= $block_id_css . ' .style-4.penci-border-arrow .inner-arrow:before,';
-				$output .= $block_id_css . ' .style-4.penci-border-arrow .inner-arrow:after,';
-				$output .= $block_id_css . ' .style-5.penci-border-arrow,';
-				$output .= $block_id_css . ' .style-7.penci-border-arrow,';
-				$output .= $block_id_css . ' .style-9.penci-border-arrow { border-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
-				$output .= $block_id_css . ' .penci-border-arrow:before{ border-top-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
-				$output .= $block_id_css . ' .style-16.penci-border-arrow:after{ background-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow .inner-arrow,';
+				$output .= $block_id_css . ' .style-4.goso-border-arrow .inner-arrow:before,';
+				$output .= $block_id_css . ' .style-4.goso-border-arrow .inner-arrow:after,';
+				$output .= $block_id_css . ' .style-5.goso-border-arrow,';
+				$output .= $block_id_css . ' .style-7.goso-border-arrow,';
+				$output .= $block_id_css . ' .style-9.goso-border-arrow { border-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow:before{ border-top-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .style-16.goso-border-arrow:after{ background-color: ' . esc_attr( $r['btitle_bcolor'] ) . '; }';
 			}
 
 			if ( $r['btitle_style5_bcolor'] ) {
-				$output .= $block_id_css . ' .style-5.penci-border-arrow{ border-color: ' . esc_attr( $r['btitle_style5_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .style-5.goso-border-arrow{ border-color: ' . esc_attr( $r['btitle_style5_bcolor'] ) . '; }';
 
-				$output .= $block_id_css . ' .style-11.penci-border-arrow,';
-				$output .= $block_id_css . ' .penci-homepage-title.style-10,';
-				$output .= $block_id_css . ' .style-12.penci-border-arrow,';
-				$output .= $block_id_css . ' .style-5.penci-border-arrow .inner-arrow{ border-bottom-color: ' . esc_attr( $r['btitle_style5_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .style-11.goso-border-arrow,';
+				$output .= $block_id_css . ' .goso-homepage-title.style-10,';
+				$output .= $block_id_css . ' .style-12.goso-border-arrow,';
+				$output .= $block_id_css . ' .style-5.goso-border-arrow .inner-arrow{ border-bottom-color: ' . esc_attr( $r['btitle_style5_bcolor'] ) . '; }';
 			}
 			if ( $r['btitle_style78_bcolor'] ) {
-				$output .= $block_id_css . ' .style-7.penci-border-arrow .inner-arrow:before,';
-				$output .= $block_id_css . ' .style-9.penci-border-arrow .inner-arrow:before{ background-color: ' . esc_attr( $r['btitle_style78_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .style-7.goso-border-arrow .inner-arrow:before,';
+				$output .= $block_id_css . ' .style-9.goso-border-arrow .inner-arrow:before{ background-color: ' . esc_attr( $r['btitle_style78_bcolor'] ) . '; }';
 			}
 
 			if ( $r['btitle_outer_bcolor'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow:after{ border-color: ' . esc_attr( $r['btitle_outer_bcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow:after{ border-color: ' . esc_attr( $r['btitle_outer_bcolor'] ) . '; }';
 			}
 			if ( $r['btitle_style10_btopcolor'] ) {
-				$output .= $block_id_css . ' .style-10.penci-border-arrow{ border-top-color: ' . esc_attr( $r['btitle_style10_btopcolor'] ) . '; }';
+				$output .= $block_id_css . ' .style-10.goso-border-arrow{ border-top-color: ' . esc_attr( $r['btitle_style10_btopcolor'] ) . '; }';
 			}
 
 			if ( $r['btitle_shapes_color'] ) {
@@ -330,33 +330,33 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 			}
 
 			if ( $r['bgstyle15_color'] ) {
-				$output .= $block_id_css . ' .style-15.penci-border-arrow:before{ background-color: ' . esc_attr( $r['bgstyle15_color'] ) . ' !important; }';
+				$output .= $block_id_css . ' .style-15.goso-border-arrow:before{ background-color: ' . esc_attr( $r['bgstyle15_color'] ) . ' !important; }';
 			}
 
 			if ( $r['iconstyle15_color'] ) {
-				$output .= $block_id_css . ' .style-15.penci-border-arrow:after{ color: ' . esc_attr( $r['iconstyle15_color'] ) . ' !important; }';
+				$output .= $block_id_css . ' .style-15.goso-border-arrow:after{ color: ' . esc_attr( $r['iconstyle15_color'] ) . ' !important; }';
 			}
 
 			if ( $r['cl_lines'] ) {
-				$output .= $block_id_css . ' .style-18.penci-border-arrow:after{ color: ' . esc_attr( $r['cl_lines'] ) . ' !important; }';
+				$output .= $block_id_css . ' .style-18.goso-border-arrow:after{ color: ' . esc_attr( $r['cl_lines'] ) . ' !important; }';
 			}
 
 			if ( $r['btitle_bgcolor'] ) {
-				$output .= $block_id_css . ' .penci-homepage-title.style-14 .inner-arrow:before,';
-				$output .= $block_id_css . ' .penci-homepage-title.style-11 .inner-arrow,';
-				$output .= $block_id_css . ' .penci-homepage-title.style-12 .inner-arrow,';
-				$output .= $block_id_css . ' .penci-homepage-title.style-13 .inner-arrow,';
-				$output .= $block_id_css . ' .penci-homepage-title .inner-arrow,';
-				$output .= $block_id_css . ' .penci-homepage-title.style-15 .inner-arrow{ background-color: ' . esc_attr( $r['btitle_bgcolor'] ) . '; }';
-				$output .= $block_id_css . ' .penci-border-arrow.penci-homepage-title.style-2:after{ border-top-color: ' . esc_attr( $r['btitle_bgcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-homepage-title.style-14 .inner-arrow:before,';
+				$output .= $block_id_css . ' .goso-homepage-title.style-11 .inner-arrow,';
+				$output .= $block_id_css . ' .goso-homepage-title.style-12 .inner-arrow,';
+				$output .= $block_id_css . ' .goso-homepage-title.style-13 .inner-arrow,';
+				$output .= $block_id_css . ' .goso-homepage-title .inner-arrow,';
+				$output .= $block_id_css . ' .goso-homepage-title.style-15 .inner-arrow{ background-color: ' . esc_attr( $r['btitle_bgcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow.goso-homepage-title.style-2:after{ border-top-color: ' . esc_attr( $r['btitle_bgcolor'] ) . '; }';
 			}
 
 			if ( $r['btitle_outer_bgcolor'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow:after{ background-color: ' . esc_attr( $r['btitle_outer_bgcolor'] ) . '; }';
+				$output .= $block_id_css . ' .goso-border-arrow:after{ background-color: ' . esc_attr( $r['btitle_outer_bgcolor'] ) . '; }';
 			}
 
 			if ( $r['btitle_style9_bgimg'] ) {
-				$output .= $block_id_css . ' .style-8.penci-border-arrow .inner-arrow{ background-image: url(' . esc_url( wp_get_attachment_url( $r['btitle_style9_bgimg'] ) ) . '); }';
+				$output .= $block_id_css . ' .style-8.goso-border-arrow .inner-arrow{ background-image: url(' . esc_url( wp_get_attachment_url( $r['btitle_style9_bgimg'] ) ) . '); }';
 			}
 
 			if ( $r['use_btitle_typo'] ) {
@@ -364,16 +364,16 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 					array(
 						'font_size'  => $r['btitle_fsize'],
 						'font_style' => $r['btitle_typo'],
-						'template'   => $block_id_css . ' .penci-border-arrow .inner-arrow{ %s }',
+						'template'   => $block_id_css . ' .goso-border-arrow .inner-arrow{ %s }',
 					)
 				);
 			}
 
 			if ( $r['block_title_offupper'] ) {
-				$output .= $block_id_css . ' .penci-border-arrow .inner-arrow{ text-transform: none; }';
+				$output .= $block_id_css . ' .goso-border-arrow .inner-arrow{ text-transform: none; }';
 			}
 			if ( $r['block_title_marginbt'] ) {
-				$output .= $block_id_css . ' penci-border-arrow { margin-bottom:' . esc_attr( $r['block_title_marginbt'] ) . ';}';
+				$output .= $block_id_css . ' goso-border-arrow { margin-bottom:' . esc_attr( $r['block_title_marginbt'] ) . ';}';
 			}
 
 			return $output;
@@ -388,21 +388,21 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 		 * @return mixed|void
 		 */
 		public static function get_image_holder_gal( $attach_id, $size = 'full', $image_type = 'horizontal', $is_background = true, $count = '', $class = '', $caption_source = '' ) {
-			$list_url  = self::penci_image_downsize( $attach_id, array( $size, 'penci-full-thumb' ) );
-			$src_large = isset( $list_url['penci-full-thumb']['img_url'] ) ? $list_url['penci-full-thumb']['img_url'] : '';
+			$list_url  = self::goso_image_downsize( $attach_id, array( $size, 'goso-full-thumb' ) );
+			$src_large = isset( $list_url['goso-full-thumb']['img_url'] ) ? $list_url['goso-full-thumb']['img_url'] : '';
 			$src_thmb  = isset( $list_url[ $size ]['img_url'] ) ? $list_url[ $size ]['img_url'] : '';
 
-			$class_lazy = ' penci-lazy';
+			$class_lazy = ' goso-lazy';
 			$data_src   = ' data-bgset="' . $src_thmb . '"';
-			$dis_lazy   = get_theme_mod( 'penci_disable_lazyload_layout' );
+			$dis_lazy   = get_theme_mod( 'goso_disable_lazyload_layout' );
 
 			if ( $dis_lazy ) {
-				$class_lazy = ' penci-disable-lazy';
+				$class_lazy = ' goso-disable-lazy';
 				$data_src   = ' style="background-image: url(' . $src_thmb . ');"';
 			}
 
 			if ( $image_type ) {
-				$class_lazy .= ' penci-image-' . $image_type;
+				$class_lazy .= ' goso-image-' . $image_type;
 			}
 
 			$caption_markup     = '';
@@ -424,11 +424,11 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 			if ( $is_background ) {
 				ob_start();
 				?>
-                <div class="penci-gallery-item penci-galitem-<?php echo $count . ( $class ? ' ' . $class : '' ); ?>">
-                    <a class="penci-gallery-ite penci-image-holder<?php echo $class_lazy; ?>" <?php echo $data_src; ?>
+                <div class="goso-gallery-item goso-galitem-<?php echo $count . ( $class ? ' ' . $class : '' ); ?>">
+                    <a class="goso-gallery-ite goso-image-holder<?php echo $class_lazy; ?>" <?php echo $data_src; ?>
                        href="<?php echo $src_large; ?>" <?php echo $gallery_title; ?>>
 						<?php echo $caption_markup; ?>
-                        <i class="penciicon-expand"></i>
+                        <i class="gosoicon-expand"></i>
                     </a>
                 </div>
 				<?php
@@ -437,11 +437,11 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 			} else {
 				ob_start();
 				?>
-                <a class="penci-gallery-ite <?php echo $class_lazy . ( $class ? ' ' . $class : '' ); ?>"
+                <a class="goso-gallery-ite <?php echo $class_lazy . ( $class ? ' ' . $class : '' ); ?>"
                    href="<?php echo $src_large; ?>" <?php echo $gallery_title; ?>>
                     <img src="<?php echo $src_thmb; ?>" alt="<?php echo self::get_image_alt( $attach_id ); ?>"/>
 					<?php echo $caption_markup; ?>
-                    <i class="penciicon-expand"></i>
+                    <i class="gosoicon-expand"></i>
                 </a>
 				<?php
 				$output = ob_get_clean();
@@ -450,7 +450,7 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 			return $output;
 		}
 
-		public static function penci_image_downsize( $id, $sizes = array( 'medium' ) ) {
+		public static function goso_image_downsize( $id, $sizes = array( 'medium' ) ) {
 
 			$img_url          = wp_get_attachment_url( $id );
 			$img_url_basename = wp_basename( $img_url );
@@ -517,35 +517,35 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 
 		public static function _login_form() {
 			?>
-            <form class="penci-loginform" name="penci-loginform" id="penci-loginform"
+            <form class="goso-loginform" name="goso-loginform" id="goso-loginform"
                   action="<?php echo esc_url( site_url( 'wp-login.php' ) ); ?>" method="post" novalidate="novalidate">
-                <input type="hidden" name="_wpnonce" class="penci_form_nonce"
+                <input type="hidden" name="_wpnonce" class="goso_form_nonce"
                        value="<?php echo wp_create_nonce( 'login' ); ?>">
                 <p class="login-username">
-                    <input type="text" name="log" id="penci-user-login" class="input penci-input"
-                           placeholder="<?php echo penci_get_setting( 'penci_trans_usernameemail_text' ); ?>" size="20">
+                    <input type="text" name="log" id="goso-user-login" class="input goso-input"
+                           placeholder="<?php echo goso_get_setting( 'goso_trans_usernameemail_text' ); ?>" size="20">
                 </p>
                 <p class="login-password">
-                    <input type="password" name="pwd" id="penci-user-pass" class="input penci-input"
-                           placeholder="<?php echo penci_get_setting( 'penci_trans_pass_text' ); ?>" size="20">
+                    <input type="password" name="pwd" id="goso-user-pass" class="input goso-input"
+                           placeholder="<?php echo goso_get_setting( 'goso_trans_pass_text' ); ?>" size="20">
                 </p>
 				<?php do_action( 'login_form' ); ?>
-				<?php penci_add_captcha_login_form(); ?>
+				<?php goso_add_captcha_login_form(); ?>
                 <p class="login-remember">
                     <input name="rememberme" type="checkbox" id="rememberme"
-                           value="forever"> <?php echo penci_get_setting( 'penci_plogin_label_remember' ); ?>
+                           value="forever"> <?php echo goso_get_setting( 'goso_plogin_label_remember' ); ?>
                 </p>
                 <p class="login-submit">
                     <input type="submit" name="wp-submit" class="pcpop-button"
-                           value="<?php echo penci_get_setting( 'penci_plogin_label_log_in' ); ?>">
+                           value="<?php echo goso_get_setting( 'goso_plogin_label_log_in' ); ?>">
                 </p>
             </form>
-            <div class="penci-loginform-extra">
-                <a class="penci-lostpassword"
-                   href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php echo penci_get_setting( 'penci_plogin_label_lostpassword' ); ?></a>
+            <div class="goso-loginform-extra">
+                <a class="goso-lostpassword"
+                   href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php echo goso_get_setting( 'goso_plogin_label_lostpassword' ); ?></a>
 				<?php if ( get_option( 'users_can_register' ) ) : ?>
-                    <a class="penci-user-register"
-                       href="<?php echo esc_url( wp_registration_url() ); ?>"><?php echo penci_get_setting( 'penci_plogin_label_registration' ); ?></a>
+                    <a class="goso-user-register"
+                       href="<?php echo esc_url( wp_registration_url() ); ?>"><?php echo goso_get_setting( 'goso_plogin_label_registration' ); ?></a>
 				<?php endif; ?>
             </div>
 			<?php
@@ -608,14 +608,14 @@ if ( ! class_exists( 'Goso_Vc_Helper' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'penci_get_link_attributes' ) ) {
-	function penci_get_link_attributes( $link, $popup = false ) {
+if ( ! function_exists( 'goso_get_link_attributes' ) ) {
+	function goso_get_link_attributes( $link, $popup = false ) {
 		// parse link
-		$link     = penci_get_link_attributes( $link );
+		$link     = goso_get_link_attributes( $link );
 		$use_link = false;
 		if ( isset( $link['url'] ) && strlen( $link['url'] ) > 0 ) {
 			$use_link = true;
-			$a_href   = apply_filters( 'penci_extra_menu_url', $link['url'] );
+			$a_href   = apply_filters( 'goso_extra_menu_url', $link['url'] );
 			if ( $popup ) {
 				$a_href = $link['url'];
 			}
@@ -639,14 +639,14 @@ if ( ! function_exists( 'penci_get_link_attributes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_is_css_encode' ) ) {
-	function penci_is_css_encode( $data ) {
+if ( ! function_exists( 'goso_is_css_encode' ) ) {
+	function goso_is_css_encode( $data ) {
 		return strlen( $data ) > 50;
 	}
 }
 
-if ( ! function_exists( 'penci_get_menu_label_tag' ) ) {
-	function penci_get_menu_label_tag( $label, $label_text ) {
+if ( ! function_exists( 'goso_get_menu_label_tag' ) ) {
+	function goso_get_menu_label_tag( $label, $label_text ) {
 		if ( empty( $label_text ) ) {
 			return '';
 		}
@@ -657,8 +657,8 @@ if ( ! function_exists( 'penci_get_menu_label_tag' ) ) {
 }
 
 
-if ( ! function_exists( 'penci_get_menu_label_class' ) ) {
-	function penci_get_menu_label_class( $label ) {
+if ( ! function_exists( 'goso_get_menu_label_class' ) ) {
+	function goso_get_menu_label_class( $label ) {
 		$class = '';
 		$class .= ' item-with-label';
 		$class .= ' item-label-' . $label;
@@ -670,8 +670,8 @@ if ( ! function_exists( 'penci_get_menu_label_class' ) ) {
 // **********************************************************************//
 // Get explode size
 // **********************************************************************//
-if ( ! function_exists( 'penci_get_explode_size' ) ) {
-	function penci_get_explode_size( $img_size, $default_size ) {
+if ( ! function_exists( 'goso_get_explode_size' ) ) {
+	function goso_get_explode_size( $img_size, $default_size ) {
 		$sizes = explode( 'x', $img_size );
 		if ( count( $sizes ) < 2 ) {
 			$sizes[0] = $sizes[1] = $default_size;
@@ -681,8 +681,8 @@ if ( ! function_exists( 'penci_get_explode_size' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_display_icon' ) ) {
-	function penci_display_icon( $img_id, $img_size, $default_size ) {
+if ( ! function_exists( 'goso_display_icon' ) ) {
+	function goso_display_icon( $img_id, $img_size, $default_size ) {
 		$icon     = wpb_getImageBySize(
 			array(
 				'attach_id'  => $img_id,
@@ -692,10 +692,10 @@ if ( ! function_exists( 'penci_display_icon' ) ) {
 		$icon_src = $icon['p_img_large'][0];
 		$icon_id  = rand( 999, 9999 );
 
-		$sizes = penci_get_explode_size( $img_size, $default_size );
+		$sizes = goso_get_explode_size( $img_size, $default_size );
 
 		if ( substr( $icon_src, - 3, 3 ) == 'svg' ) {
-			return '<div class="img-wrapper"><span class="svg-icon" style="width: ' . $sizes[0] . 'px;height: ' . $sizes[1] . 'px;">' . penci_get_any_svg( $icon_src, $icon_id ) . '</span></div>';
+			return '<div class="img-wrapper"><span class="svg-icon" style="width: ' . $sizes[0] . 'px;height: ' . $sizes[1] . 'px;">' . goso_get_any_svg( $icon_src, $icon_id ) . '</span></div>';
 		} else {
 			return '<div class="img-wrapper">' . $icon['thumbnail'] . '</div>';
 		}

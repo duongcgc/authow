@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_google_map",
+	'base'          => "goso_google_map",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/google_map/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Google Map', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Google Map', 'authow' ),
 	'description'   => 'Map Block',
 	'controls'      => 'full',
 	'params'        => array(
@@ -64,13 +64,13 @@ vc_map( array(
 			)
 		),
 		array(
-			'type'             => 'penci_number',
+			'type'             => 'goso_number',
 			'heading'          => esc_html__( 'Width', 'authow' ),
 			'param_name'       => 'map_width',
 			'edit_field_class' => 'vc_col-sm-6',
 		),
 		array(
-			'type'             => 'penci_number',
+			'type'             => 'goso_number',
 			'heading'          => esc_html__( 'Height', 'authow' ),
 			'param_name'       => 'map_height',
 			'edit_field_class' => 'vc_col-sm-6',

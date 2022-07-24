@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoBlockHeadingTitle extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-block-heading';
+		return 'goso-block-heading';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Block Heading', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Block Heading', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -178,7 +178,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 					'style-16'
 				)
 			),
-			'selectors'  => array( '{{WRAPPER}} .penci-homepage-title .inner-arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ),
+			'selectors'  => array( '{{WRAPPER}} .goso-homepage-title .inner-arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ),
 		) );
 
 		$this->end_controls_section();
@@ -198,7 +198,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow .pcbh-extrabtn' => 'color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow .pcbh-extrabtn' => 'color: {{VALUE}} !important;',
 			),
 		) );
 
@@ -207,7 +207,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a.pcbh-extrabtn:hover' => 'color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a.pcbh-extrabtn:hover' => 'color: {{VALUE}} !important;',
 			),
 		) );
 
@@ -217,7 +217,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			'default'   => '',
 			'condition' => array( 'btn_style' => 'underline' ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow .pcbh-btns-underline:after' => 'background-color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow .pcbh-btns-underline:after' => 'background-color: {{VALUE}} !important;',
 			),
 		) );
 
@@ -227,14 +227,14 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			'default'   => '',
 			'condition' => array( 'btn_style' => 'underline' ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-border-arrow .inner-arrow a.pcbh-btns-underline:hover:after' => 'background-color: {{VALUE}} !important;',
+				'{{WRAPPER}} .goso-border-arrow .inner-arrow a.pcbh-btns-underline:hover:after' => 'background-color: {{VALUE}} !important;',
 			),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'btn_typo',
 			'label'    => __( 'Block Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci-border-arrow .inner-arrow a.pcbh-extrabtn',
+			'selector' => '{{WRAPPER}} .goso-border-arrow .inner-arrow a.pcbh-extrabtn',
 		) );
 
 		$this->end_controls_section();
@@ -276,8 +276,8 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			$link_group_out .= '</ul></nav>';
 		}
 
-		$heading_title = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-		$heading_align = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
+		$heading_title = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+		$heading_align = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
 
 
 		if ( $r['heading_title_style'] ) {
@@ -288,8 +288,8 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			$heading_align = 'pcalign-' . $r['block_title_align'];
 		}
 
-		$heading_icon_pos    = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-		$heading_icon_design = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
+		$heading_icon_pos    = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+		$heading_icon_design = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
 
 		if ( $r['heading_icon_pos'] ) {
 			$heading_icon_pos = $r['heading_icon_pos'];
@@ -299,7 +299,7 @@ class GosoBlockHeadingTitle extends Base_Widget {
 			$heading_icon_design = $r['heading_icon'];
 		}
 
-		$classes = 'penci-border-arrow penci-homepage-title penci-home-latest-posts';
+		$classes = 'goso-border-arrow goso-homepage-title goso-home-latest-posts';
 		$classes .= ' ' . $heading_title;
 		$classes .= ' ' . $heading_align;
 		$classes .= ' ' . $heading_icon_pos;

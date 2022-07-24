@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $text_right = $alignment = $dis_circle = $dis_border_radius = $brand_color = '';
 $size_icon = $size_upper = $size_text = $show_socials = '';
@@ -13,7 +13,7 @@ if( ! $show_socials ) {
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-social-media';
+$css_class = 'goso-block-vc goso-social-media';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'social_media' );
 
@@ -25,9 +25,9 @@ $class_socials .= $size_upper ? ' remove-uppercase-text' : '';
 $class_socials .= $dis_border_radius ? ' remove-border-radius' : '';
 
 if ( $brand_color && ! $dis_circle ) {
-	$class_socials .= ' penci-social-colored';
+	$class_socials .= ' goso-social-colored';
 } elseif ( $brand_color && $dis_circle ) {
-	$class_socials .= ' penci-social-textcolored';
+	$class_socials .= ' goso-social-textcolored';
 }
 
 $style_icon     = 'style="font-size: ' . $size_icon . '"';
@@ -37,15 +37,15 @@ $style_text     = 'style="font-size: ' . $size_text . '"';
 ?>
 	<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-		<div class="penci-block_content<?php echo esc_attr( $class_socials ); ?>">
+		<div class="goso-block_content<?php echo esc_attr( $class_socials ); ?>">
 			<?php 
 			$show_socials_array = explode(',', $show_socials );
-			$social_data = penci_social_media_array();
+			$social_data = goso_social_media_array();
 			foreach( $social_data as $name => $sdata ){
 				if( in_array( $name, $show_socials_array ) ){
-					$icon_html = penci_icon_by_ver( $sdata[1], $style_icon );
+					$icon_html = goso_icon_by_ver( $sdata[1], $style_icon );
 					?>
-					<a href="<?php echo esc_url( do_shortcode( $sdata[0] ) ); ?>" aria-label="<?php echo ucwords( $name ); ?>" <?php echo penci_reltag_social_icons(); ?> target="_blank"><?php echo $icon_html; ?><span <?php echo $style_text; ?>><?php echo ucwords( $name ); ?></span></a>
+					<a href="<?php echo esc_url( do_shortcode( $sdata[0] ) ); ?>" aria-label="<?php echo ucwords( $name ); ?>" <?php echo goso_reltag_social_icons(); ?> target="_blank"><?php echo $icon_html; ?><span <?php echo $style_text; ?>><?php echo ucwords( $name ); ?></span></a>
 					<?php
 				}
 			}

@@ -28,7 +28,7 @@ class GosoAdvancedList extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci-advanced-list';
+		return 'goso-advanced-list';
 	}
 
 	/**
@@ -40,7 +40,7 @@ class GosoAdvancedList extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Advanced List', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Advanced List', 'authow' );
 	}
 
 	/**
@@ -64,7 +64,7 @@ class GosoAdvancedList extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -656,14 +656,14 @@ class GosoAdvancedList extends Base_Widget {
 		$col = $settings['item_col'] ? $settings['item_col'] : '1';
 		$item_col = ' pcmg-subcol-' . $col;
 		if( '2' == $col || '3' == $col ){
-			$item_col .= ' penci-clearfix';
+			$item_col .= ' goso-clearfix';
 		}
 
 		$this->add_render_attribute(
 			[
 				'parent_ul'    => [
 					'class' => [
-						'penci-sub-menu',
+						'goso-sub-menu',
 						'mega-menu-list',
 					],
 				],
@@ -696,7 +696,7 @@ class GosoAdvancedList extends Base_Widget {
 		$this->add_inline_editing_attributes( 'parent_title' );
 		$this->add_inline_editing_attributes( 'parent_label' );
 
-		$link_attrs = penci_get_link_attrs( $settings['link'] );
+		$link_attrs = goso_get_link_attrs( $settings['link'] );
 
 		?>
         <ul <?php echo $this->get_render_attribute_string( 'parent_ul' ); ?>>
@@ -704,20 +704,20 @@ class GosoAdvancedList extends Base_Widget {
 				<?php if ( $settings['title'] ) : ?>
                     <a <?php echo $link_attrs; ?>>
 						<?php if ( $settings['image'] ) : ?>
-							<?php echo penci_get_image_html( $settings, 'image' ); ?>
+							<?php echo goso_get_image_html( $settings, 'image' ); ?>
 						<?php endif; ?>
 
-						<?php if ( penci_elementor_is_edit_mode() ) : ?>
+						<?php if ( goso_elementor_is_edit_mode() ) : ?>
                         <span <?php echo $this->get_render_attribute_string( 'parent_title' ); ?>>
 							<?php endif; ?>
-							<?php echo wp_kses( $settings['title'], penci_allow_html() ); ?>
-							<?php if ( penci_elementor_is_edit_mode() ) : ?>
+							<?php echo wp_kses( $settings['title'], goso_allow_html() ); ?>
+							<?php if ( goso_elementor_is_edit_mode() ) : ?>
 								</span>
 					<?php endif; ?>
 
 						<?php if ( $settings['label'] ) : ?>
                             <span <?php echo $this->get_render_attribute_string( 'parent_label' ); ?>>
-									<?php echo wp_kses( $settings['label'], penci_allow_html() ); ?>
+									<?php echo wp_kses( $settings['label'], goso_allow_html() ); ?>
 								</span>
 						<?php endif; ?>
                     </a>
@@ -753,26 +753,26 @@ class GosoAdvancedList extends Base_Widget {
 						$this->add_inline_editing_attributes( $repeater_title_key );
 						$this->add_inline_editing_attributes( $repeater_label_key );
 
-						$link_attrs = penci_get_link_attrs( $item['link'] );
+						$link_attrs = goso_get_link_attrs( $item['link'] );
 						?>
 
                         <li <?php echo $this->get_render_attribute_string( $repeater_li_key ); ?>>
                             <a <?php echo $link_attrs; ?>>
 								<?php if ( $item['image'] ) : ?>
-									<?php echo penci_get_image_html( $item, 'image' ); ?>
+									<?php echo goso_get_image_html( $item, 'image' ); ?>
 								<?php endif; ?>
 
-								<?php if ( penci_elementor_is_edit_mode() ) : ?>
+								<?php if ( goso_elementor_is_edit_mode() ) : ?>
                                 <span <?php echo $this->get_render_attribute_string( $repeater_title_key ); ?>>
 									<?php endif; ?>
-									<?php echo wp_kses( $item['title'], penci_allow_html() ); ?>
-									<?php if ( penci_elementor_is_edit_mode() ) : ?>
+									<?php echo wp_kses( $item['title'], goso_allow_html() ); ?>
+									<?php if ( goso_elementor_is_edit_mode() ) : ?>
 										</span>
 							<?php endif; ?>
 
 								<?php if ( $item['label'] ) : ?>
                                     <span <?php echo $this->get_render_attribute_string( $repeater_label_key ); ?>>
-											<?php echo wp_kses( $item['label'], penci_allow_html() ); ?>
+											<?php echo wp_kses( $item['label'], goso_allow_html() ); ?>
 										</span>
 								<?php endif; ?>
                             </a>

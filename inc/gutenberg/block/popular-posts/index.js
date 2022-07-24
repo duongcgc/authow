@@ -90,17 +90,17 @@ export const edit = ( props ) => {
 			</PanelBody>
 		</InspectorControls>
         <ServerSideRender
-            block="penci-gutenberg/popular-posts"
+            block="goso-gutenberg/popular-posts"
             attributes={ props.attributes }
         />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/popular-posts', {
+registerBlockType( 'goso-gutenberg/popular-posts', {
 	title: __( 'Goso: Popular Posts' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

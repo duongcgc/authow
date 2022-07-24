@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-custom-sliders';
+		return 'goso-custom-sliders';
 	}
 
 	public function get_widgets() {

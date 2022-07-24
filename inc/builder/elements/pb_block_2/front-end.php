@@ -1,11 +1,11 @@
 <?php
-$block = penci_get_builder_mod( 'penci_header_pb_block_2_select' );
+$block = goso_get_builder_mod( 'goso_header_pb_block_2_select' );
 if ( ! empty( $block ) ) {
 	?>
-    <div class="penci-header-block penci-header-block-2">
+    <div class="goso-header-block goso-header-block-2">
 		<?php
 		$block_id = '';
-		$block_oj = get_page_by_path( $block, OBJECT, 'penci-block' );
+		$block_oj = get_page_by_path( $block, OBJECT, 'goso-block' );
 		if ( $block_oj ) {
 			$block_id = $block_oj->ID;
 		}

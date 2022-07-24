@@ -9,7 +9,7 @@
             tLoading: true,
             callbacks: {
                 beforeOpen: function () {
-                    this.st.mainClass = 'mfp-ani-wrap penci-promo-popup-wrapper';
+                    this.st.mainClass = 'mfp-ani-wrap goso-promo-popup-wrapper';
                 },
             }
         });
@@ -21,7 +21,7 @@
     $(window).on('elementor/frontend/init', function () {
         if (window.elementorFrontend) {
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/penci-button-popup.default', function ($scope) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/goso-button-popup.default', function ($scope) {
                 PENCI.elButtonPopup();
             });
         }

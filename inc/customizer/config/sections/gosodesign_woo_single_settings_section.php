@@ -2,10 +2,10 @@
 $options   = [];
 $options[] = array(
 	'default'     => 'top',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Breadcrumb Position',
 	'description' => 'Select the breadcrumb position on single product',
-	'id'          => 'penci_single_product_breadcrumb_position',
+	'id'          => 'goso_single_product_breadcrumb_position',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'top'     => 'Top of page',
@@ -15,10 +15,10 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => 'standard',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product image width',
 	'description' => 'You can choose different page layout depending on the product image size you need',
-	'id'          => 'penci_single_product_img_width',
+	'id'          => 'goso_single_product_img_width',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'standard'            => 'Standard',
@@ -33,9 +33,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Custom Max Width for Product Detail on Full Width Images Style', 'authow' ),
-	'id'       => 'penci_single_product_summary_width',
+	'id'       => 'goso_single_product_summary_width',
 	'ids'         => array(
-		'desktop' => 'penci_single_product_summary_width',
+		'desktop' => 'goso_single_product_summary_width',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -49,10 +49,10 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => 'thumbnail-left',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Thumbnails position',
 	'description' => 'Use vertical or horizontal position for thumbnails.',
-	'id'          => 'penci_single_product_thumbnail_position',
+	'id'          => 'goso_single_product_thumbnail_position',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'thumbnail-left'         => 'Left',
@@ -66,40 +66,40 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Zoom on Gallery Product',
-	'id'       => 'penci_woo_disable_zoom',
+	'id'       => 'goso_woo_disable_zoom',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Sticky Product Image & Content',
 	'description' => 'Check to enable sticky content & product images',
-	'id'          => 'penci_single_product_sticky_thumbnail_content',
+	'id'          => 'goso_single_product_sticky_thumbnail_content',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Disable Single Product Ajax Add to Cart',
 	'description' => 'Turn on this option if the addon product doesn\'t add to cart.',
-	'id'          => 'penci_single_product_disable_ajax_atc',
+	'id'          => 'goso_single_product_disable_ajax_atc',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'          => 'penci_single_product_top_related_product',
+	'id'          => 'goso_single_product_top_related_product',
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Enable Top Next/Previous Products',
 	'description' => 'Check to show the next/prvious post on the top of product.',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => 'default',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Tabs Content Display Style',
-	'id'       => 'penci_single_product_style',
+	'id'       => 'goso_single_product_style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'default'           => 'Standard',
@@ -109,10 +109,10 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => 'standard',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product Summary Align',
 	'description' => 'Select default product summary align style',
-	'id'          => 'penci_single_product_summary_align',
+	'id'          => 'goso_single_product_summary_align',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'standard' => 'Standard',
@@ -121,9 +121,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'disable',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Enable sticky add to cart ?',
-	'id'       => 'pencidesign_woo_single_sticky_add_to_cart',
+	'id'       => 'gosodesign_woo_single_sticky_add_to_cart',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'enable'  => 'Enable',
@@ -132,7 +132,7 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => 'disable',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Add shadow to product summary block',
 	'description' => 'Useful when you set background color for the single product page to gray for example.',
 	'id'          => 'woo_single_add_shadow_to_summary',
@@ -144,33 +144,33 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Custom Tab',
-	'id'       => 'penci_woo_custom_tab',
+	'id'       => 'goso_woo_custom_tab',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => 'Custom Tab Title',
-	'id'       => 'penci_woo_custom_tab_title',
+	'id'       => 'goso_woo_custom_tab_title',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'label'    => 'Custom Tab Content',
-	'id'       => 'penci_woo_custom_tab_content',
+	'id'       => 'goso_woo_custom_tab_content',
 	'type'     => 'authow-fw-textarea',
 );
 $options[] = array(
 	'default'  => 50,
-	'sanitize' => 'penci_sanitize_number_field',
+	'sanitize' => 'goso_sanitize_number_field',
 	'label'    => 'Custom Tab Priority',
-	'id'       => 'penci_woo_custom_tab_priority',
+	'id'       => 'goso_woo_custom_tab_priority',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_woo_custom_tab_priority',
+		'desktop' => 'goso_woo_custom_tab_priority',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -185,16 +185,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Convert select into the button',
 	'description' => 'Convert the select into button on the no-swatches field.',
-	'id'          => 'pencidesign_woo_single_select2button',
+	'id'          => 'gosodesign_woo_single_select2button',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'          => 'penci_woo_social_share_style',
+	'id'          => 'goso_woo_social_share_style',
 	'default'     => 'style-1',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product Social Sharing Style',
 	'description' => 'Select the social sharing style.',
 	'type'        => 'authow-fw-select',
@@ -206,9 +206,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_woo_social_icon_style',
+	'id'          => 'goso_woo_social_icon_style',
 	'default'     => 'circle',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product Social Icon Style',
 	'description' => 'Select the social sharing style.',
 	'type'        => 'authow-fw-select',
@@ -218,9 +218,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_shop_product_related_columns',
+	'id'          => 'goso_shop_product_related_columns',
 	'default'     => 4,
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Related Product Columns',
 	'description' => 'How many products should be shown per row on related section ?',
 	'type'        => 'authow-fw-select',
@@ -234,12 +234,12 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '4',
-	'sanitize' => 'penci_sanitize_number_field',
+	'sanitize' => 'goso_sanitize_number_field',
 	'label'    => 'Custom Amount of Related Products',
-	'id'       => 'penci_woo_number_related_products',
+	'id'       => 'goso_woo_number_related_products',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_woo_number_related_products',
+		'desktop' => 'goso_woo_number_related_products',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -253,9 +253,9 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'          => 'penci_shop_product_up_sell_columns',
+	'id'          => 'goso_shop_product_up_sell_columns',
 	'default'     => 4,
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Up Sell Product Columns',
 	'description' => 'How many products should be shown per row on up sell section ?',
 	'type'        => 'authow-fw-select',

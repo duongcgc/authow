@@ -1,11 +1,11 @@
 <?php
 vc_map( array(
-	'base'          => 'penci_weather',
+	'base'          => 'goso_weather',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/weather/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Weather', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Weather', 'authow' ),
 	'description'   => __( 'Weather Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -14,7 +14,7 @@ vc_map( array(
 			array(
 				'type'        => 'textfield',
 				'heading'     => esc_html__( 'Search your for location:', 'authow' ),
-				'param_name'  => 'penci_location',
+				'param_name'  => 'goso_location',
 				'std'         => 'London',
 				'admin_label' => true,
 				'description' => sprintf( '%s - You can use "city name" (ex: London) or "city name,country code" (ex: London,uk)',
@@ -23,13 +23,13 @@ vc_map( array(
 			array(
 				'type'        => 'textfield',
 				'heading'     => esc_html__( 'Location display', 'authow' ),
-				'param_name'  => 'penci_location_show',
+				'param_name'  => 'goso_location_show',
 				'description' => esc_html__( 'If the option is empty,will display results from ', 'pennews' ) . '<a href="' . esc_url( 'http://openweathermap.org/find' ) . '">openweathermap.org</a>',
 			),
 			array(
 				'type'       => 'dropdown',
 				'heading'    => esc_html__( 'Units', 'authow' ),
-				'param_name' => 'penci_units',
+				'param_name' => 'goso_units',
 				'value'      => array(
 					esc_html__( 'F', 'authow' ) => 'imperial',
 					esc_html__( 'C', 'authow' ) => 'metric',
@@ -39,7 +39,7 @@ vc_map( array(
 			array(
 				'type'       => 'dropdown',
 				'heading'    => esc_html__( 'Forcast', 'authow' ),
-				'param_name' => 'penci_forcast',
+				'param_name' => 'goso_forcast',
 				'value'      => array(
 					esc_html__( '1 Day', 'authow' )  => '1',
 					esc_html__( '2 Days', 'authow' ) => '2',
@@ -59,7 +59,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Weather colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -76,7 +76,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_location_size',
 				'heading'    => __( 'Font size for Location', 'authow' ),
 				'value'      => '',
@@ -87,7 +87,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_condition_size',
 				'heading'    => __( 'Font size for Cloudiness', 'authow' ),
 				'value'      => '',
@@ -98,7 +98,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_whc_info_size',
 				'heading'    => __( 'Font size for Wind,Humidity, Clouds', 'authow' ),
 				'value'      => '',
@@ -123,7 +123,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_temp_size',
 				'heading'    => __( 'Font size for Temperature', 'authow' ),
 				'value'      => '',
@@ -134,7 +134,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_tempsmall_size',
 				'heading'    => __( 'Font size for Min/Max Temperature', 'authow' ),
 				'value'      => '',
@@ -159,7 +159,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'w_forecast_size',
 				'heading'    => __( 'Font size for Weather Forecast', 'authow' ),
 				'value'      => '',

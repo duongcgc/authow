@@ -23,7 +23,7 @@ class Goso_Authow_Dashboard {
 		}
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'redirect' ) );
-		add_action( 'admin_notices', array( $this, 'penci_update_notice' ) );
+		add_action( 'admin_notices', array( $this, 'goso_update_notice' ) );
 		add_filter( 'upload_mimes', array( $this, 'custom_mime_types' ) );
 	}
 
@@ -47,7 +47,7 @@ class Goso_Authow_Dashboard {
 
 		$wel_page_title      = $this->get_wel_page_title();
 		$wel_page_title_html = $wel_page_title;
-		if ( penci_is_new_update() ) {
+		if ( goso_is_new_update() ) {
 			$wel_page_title_html = $wel_page_title . ' <span class="update-plugins"><span class="update-count">Update</span></span>';
 		}
 		add_menu_page( $wel_page_title, $wel_page_title_html, 'manage_options', 'authow_dashboard_welcome', array(
@@ -86,25 +86,25 @@ class Goso_Authow_Dashboard {
 					$fonts[ $key ] = $value;
 				}
 			}
-			penci_update_option( $fonts );
+			goso_update_option( $fonts );
 
 			wp_safe_redirect( admin_url( 'admin.php?page=authow_custom_fonts' ) );
 			exit;
 		}
 	}
 
-	function penci_update_option( $data ) {
-		$old = penci_get_option();
+	function goso_update_option( $data ) {
+		$old = goso_get_option();
 
 		$data = array_merge( $old, (array) $data );
 
-		update_option( 'penci_authow_options', $data );
+		update_option( 'goso_authow_options', $data );
 	}
 
-	function penci_get_option( $key = null, $default = false ) {
+	function goso_get_option( $key = null, $default = false ) {
 		static $data;
 
-		$data = get_option( 'penci_authow_options' );
+		$data = get_option( 'goso_authow_options' );
 
 		if ( empty( $data ) ) {
 			return array();
@@ -139,7 +139,7 @@ class Goso_Authow_Dashboard {
 	 */
 	public function dashboard_welcome() {
 		?>
-        <div class="wrap about-wrap penci-about-wrap">
+        <div class="wrap about-wrap goso-about-wrap">
 			<?php include get_template_directory() . '/inc/dashboard/sections/welcome.php'; ?>
 			<?php include get_template_directory() . '/inc/dashboard/sections/getting-started.php'; ?>
         </div>
@@ -148,7 +148,7 @@ class Goso_Authow_Dashboard {
 
 	public function custom_fonts() {
 		?>
-        <div class="wrap about-wrap penci-about-wrap">
+        <div class="wrap about-wrap goso-about-wrap">
 			<?php include get_template_directory() . '/inc/dashboard/sections/welcome.php'; ?>
 			<?php include get_template_directory() . '/inc/dashboard/sections/custom-fonts.php'; ?>
         </div>
@@ -180,28 +180,28 @@ class Goso_Authow_Dashboard {
 	 *
 	 * @param none.
 	 */
-	public function penci_update_notice(){
-		if ( penci_is_new_update() ) {
-			$penci_note = isset( $_GET['penci-dismis'] ) ? $_GET['penci-dismis'] : '';
-			$latest_version = penci_is_new_update( 'version' );
-			$dismis_version = get_transient( 'penci_dismis_update_version' );
+	public function goso_update_notice(){
+		if ( goso_is_new_update() ) {
+			$goso_note = isset( $_GET['goso-dismis'] ) ? $_GET['goso-dismis'] : '';
+			$latest_version = goso_is_new_update( 'version' );
+			$dismis_version = get_transient( 'goso_dismis_update_version' );
 			if( ! $dismis_version || version_compare( $latest_version, $dismis_version, '>' ) ){
-				update_option( 'penci_dismiss_update_notices', '' );
+				update_option( 'goso_dismiss_update_notices', '' );
 			}
-			if(  'penci_dismiss_updatenotices' == $penci_note ){
-				update_option( 'penci_dismiss_update_notices', 'yes' );
-				set_transient( 'penci_dismis_update_version', $latest_version, 2592000 );
+			if(  'goso_dismiss_updatenotices' == $goso_note ){
+				update_option( 'goso_dismiss_update_notices', 'yes' );
+				set_transient( 'goso_dismis_update_version', $latest_version, 2592000 );
 			}
-			$penci_dismis_notes = get_option( 'penci_dismiss_update_notices', '' );
+			$goso_dismis_notes = get_option( 'goso_dismiss_update_notices', '' );
 			
-			if( 'yes' != $penci_dismis_notes ){
+			if( 'yes' != $goso_dismis_notes ){
 			?>
 			<div class="notice pc-update-notice">
 				<p class="pc-updaten-title">New Update Available!</p>
 				<p>There is a new version of the theme available! Update your theme to get new features and bug fixes.</p>
-				<p>You can check <a href="https://pencidesign.ticksy.com/article/15633/" target="_blank">this guide</a> to know how to enable updates with one click.</p>
+				<p>You can check <a href="https://gosodesign.ticksy.com/article/15633/" target="_blank">this guide</a> to know how to enable updates with one click.</p>
 				<p>You can click <a href="https://themeforest.net/item/authow-multiconcept-blogmagazine-wp-theme/12945398#item-description__update-changelog" target="_blank">here</a> to check what's new in the newest version also.</p>
-				<p><a style="text-decoration: none; opacity: 0.8;" href="<?php echo admin_url( '?penci-dismis=penci_dismiss_updatenotices' ); ?>">Dismiss this update.</a></p>
+				<p><a style="text-decoration: none; opacity: 0.8;" href="<?php echo admin_url( '?goso-dismis=goso_dismiss_updatenotices' ); ?>">Dismiss this update.</a></p>
 			</div>
 			<?php
 			}
@@ -220,39 +220,39 @@ class Goso_Authow_Dashboard {
 	}
 }
 
-if ( ! function_exists( 'penci_update_option' ) ) {
-	function penci_update_option( $data ) {
-		$old = penci_get_option();
+if ( ! function_exists( 'goso_update_option' ) ) {
+	function goso_update_option( $data ) {
+		$old = goso_get_option();
 		$old = $old ? $old : array();
 
 		$data = array_merge( $old, (array) $data );
 
-		update_option( 'penci_authow_options', $data );
+		update_option( 'goso_authow_options', $data );
 	}
 }
 
-if ( ! function_exists( 'penci_is_plugin_active' ) ) {
-	function penci_is_plugin_active( $class, $slug ) {
+if ( ! function_exists( 'goso_is_plugin_active' ) ) {
+	function goso_is_plugin_active( $class, $slug ) {
 		return $class->is_plugin_active( $slug );
 	}
 }
 
-function penci_update_toolbar_link( $wp_admin_bar ) {
+function goso_update_toolbar_link( $wp_admin_bar ) {
 	$tgm_instance    = TGM_Plugin_Activation::get_instance();
 	$default_plugins = [
-		'penci-shortcodes',
+		'goso-shortcodes',
 		'vafpress-post-formats-ui-develop',
-		'penci-authow-slider',
-		'penci-portfolio',
-		'penci-recipe',
-		'penci-review',
-		'penci-authow-demo-importer',
-		'penci-authow-amp',
+		'goso-authow-slider',
+		'goso-portfolio',
+		'goso-recipe',
+		'goso-review',
+		'goso-authow-demo-importer',
+		'goso-authow-amp',
 	];
 
 	foreach ( $tgm_instance->plugins as $id => $detail ) {
-		if ( in_array( $id, $default_plugins ) && penci_is_plugin_active( $tgm_instance, $id ) && $tgm_instance->does_plugin_require_update( $id ) ) {
-			$penci_icon = '<svg style="position: relative; top:4px;margin-right: 5px;" version="1.0" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 26.000000 26.000000" preserveAspectRatio="xMidYMid meet">
+		if ( in_array( $id, $default_plugins ) && goso_is_plugin_active( $tgm_instance, $id ) && $tgm_instance->does_plugin_require_update( $id ) ) {
+			$goso_icon = '<svg style="position: relative; top:4px;margin-right: 5px;" version="1.0" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 26.000000 26.000000" preserveAspectRatio="xMidYMid meet">
 				<g transform="translate(0.000000,26.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
 					<path d="M72 202 l-62 -60 0 -66 0 -66 125 0 125 0 0 61 0 61 -63 65 -62 64
 				-63 -59z m73 28 c3 -5 -3 -10 -15 -10 -12 0 -18 5 -15 10 3 6 10 10 15 10 5 0
@@ -269,23 +269,23 @@ function penci_update_toolbar_link( $wp_admin_bar ) {
 			</svg>';
 
 			$args = array(
-				'id'    => 'penci-update-notice',
-				'title' => $penci_icon . ' Authow - Notifications',
+				'id'    => 'goso-update-notice',
+				'title' => $goso_icon . ' Authow - Notifications',
 				'href'  => '#',
 				'meta'  => array(
-					'class' => 'penci-update-notice-button',
+					'class' => 'goso-update-notice-button',
 					'title' => 'Authow - Notifications',
 				)
 			);
 			$wp_admin_bar->add_node( $args );
 
 			$args = array(
-				'id'     => 'penci-update-notice-link',
+				'id'     => 'goso-update-notice-link',
 				'title'  => 'Some Plugins Need to Update',
 				'href'   => admin_url( 'themes.php?page=tgmpa-install-plugins&plugin_status=update' ),
-				'parent' => 'penci-update-notice',
+				'parent' => 'goso-update-notice',
 				'meta'   => array(
-					'class' => 'penci-update-notice-btn',
+					'class' => 'goso-update-notice-btn',
 					'title' => 'Some Plugins Need to Update'
 				)
 			);
@@ -294,4 +294,4 @@ function penci_update_toolbar_link( $wp_admin_bar ) {
 	}
 }
 
-add_action( 'admin_bar_menu', 'penci_update_toolbar_link', 50 );
+add_action( 'admin_bar_menu', 'goso_update_toolbar_link', 50 );

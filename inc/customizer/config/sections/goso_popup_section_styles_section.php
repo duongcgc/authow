@@ -1,15 +1,15 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_popup_bgimg',
+	'id'        => 'goso_popup_bgimg',
 	'default'   => '',
 	'transport' => 'refresh',
 	'type'      => 'authow-fw-image',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Popup Background Image',
 );
 $options[] = array(
-	'id'          => 'penci_popup_bgcolor',
+	'id'          => 'goso_popup_bgcolor',
 	'default'     => '',
 	'sanitize'    => 'sanitize_hex_color',
 	'type'        => 'authow-fw-color',
@@ -17,9 +17,9 @@ $options[] = array(
 	'description' => 'Set background image or color for promo popup',
 );
 $options[] = array(
-	'id'       => 'penci_popup_bgrepeat',
+	'id'       => 'goso_popup_bgrepeat',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Repeat',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -32,9 +32,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_popup_bgposition',
+	'id'       => 'goso_popup_bgposition',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Position',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -50,9 +50,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_popup_bgsize',
+	'id'       => 'goso_popup_bgsize',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Size',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -65,9 +65,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_popup_bgscroll',
+	'id'       => 'goso_popup_bgscroll',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Scroll',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -81,19 +81,19 @@ $options[] = array(
 $options[] = array(
 	'label'       => '',
 	'description' => '',
-	'id'          => 'penci_popup_width_mobile',
+	'id'          => 'goso_popup_width_mobile',
 	'type'        => 'authow-fw-hidden',
 	'sanitize'    => 'absint',
 );
 $options[] = array(
 	'label'       => 'Popup Width',
 	'description' => 'Set width of the promo popup in pixels.',
-	'id'          => 'penci_popup_width_desktop',
+	'id'          => 'goso_popup_width_desktop',
 	'type'        => 'authow-fw-size',
 	'sanitize'    => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_popup_width_desktop',
-		'mobile'  => 'penci_popup_width_mobile',
+		'desktop' => 'goso_popup_width_desktop',
+		'mobile'  => 'goso_popup_width_mobile',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -113,21 +113,21 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_popup_txtcolor',
+	'id'       => 'goso_popup_txtcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'        => 'authow-fw-color',
 	'label'    => 'Popup Text Color',
 );
 $options[] = array(
-	'id'       => 'penci_popup_bordercolor',
+	'id'       => 'goso_popup_bordercolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'        => 'authow-fw-color',
 	'label'    => 'Popup Border Color',
 );
 $options[] = array(
-	'id'       => 'penci_popup_closecolor',
+	'id'       => 'goso_popup_closecolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'        => 'authow-fw-color',
@@ -136,18 +136,18 @@ $options[] = array(
 $options[] = array(
 	'label'       => '',
 	'description' => '',
-	'id'          => 'penci_popup_txt_msize',
+	'id'          => 'goso_popup_txt_msize',
 	'type'        => 'authow-fw-hidden',
 	'sanitize'    => 'absint',
 );
 $options[] = array(
 	'label'       => 'Popup Text Size',
-	'id'          => 'penci_popup_txt_size',
+	'id'          => 'goso_popup_txt_size',
 	'type'        => 'authow-fw-size',
 	'sanitize'    => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_popup_txt_size',
-		'mobile'  => 'penci_popup_txt_msize',
+		'desktop' => 'goso_popup_txt_size',
+		'mobile'  => 'goso_popup_txt_msize',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -167,9 +167,9 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_popup_spacing',
+	'id'       => 'goso_popup_spacing',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-box-model',
 	'label'    => __( 'Popup Spacing', 'authow' ),
 	'choices'  => array(

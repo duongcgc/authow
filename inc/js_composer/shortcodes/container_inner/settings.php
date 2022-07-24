@@ -1,15 +1,15 @@
 <?php
 vc_map( array(
-	'base'                    => 'penci_container_inner',
+	'base'                    => 'goso_container_inner',
 	'icon'                    => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'                => penci_get_theme_name('Authow'),
-	'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/penci_container_inner/frontend.php',
-	'name'                    => penci_get_theme_name('Goso').' '.__( 'Container', 'authow' ),
+	'category'                => goso_get_theme_name('Authow'),
+	'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/goso_container_inner/frontend.php',
+	'name'                    => goso_get_theme_name('Goso').' '.__( 'Container', 'authow' ),
 	'description'             => esc_html__( 'Place content elements inside the container', 'js_composer' ),
 	'weight'                  => 1000,
 	'is_container'            => true,
 	'show_settings_on_create' => false,
-	'as_child'                => array( 'only' => 'penci_column_inner' ),
+	'as_child'                => array( 'only' => 'goso_column_inner' ),
 	'params'                  => array(
 		array(
 			'type'       => 'hidden',
@@ -35,5 +35,5 @@ vc_map( array(
 		),
 	),
 	'js_view'          => 'VcGosoContainerView',
-	'default_content'  => '[penci_column_inner width="1/3"][/penci_column_inner][penci_column_inner width="2/3"][/penci_column_inner]',
+	'default_content'  => '[goso_column_inner width="1/3"][/goso_column_inner][goso_column_inner width="2/3"][/goso_column_inner]',
 ) );

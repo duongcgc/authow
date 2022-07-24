@@ -9,7 +9,7 @@
 get_header();
 
 /* Sidebar position */
-$sidebar_position = penci_get_sidebar_position_archive();
+$sidebar_position = goso_get_sidebar_position_archive();
 
 $category_oj  = get_queried_object();
 $fea_cat_id   = $category_oj->term_id;
@@ -25,20 +25,20 @@ if ( $sidebar_opts == 'left' ) {
 }
 
 $show_sidebar = false;
-if ( ( penci_get_setting( 'penci_sidebar_archive' ) && $sidebar_opts != 'no' ) || $sidebar_opts == 'left' || $sidebar_opts == 'right' || $sidebar_opts == 'two' ) {
+if ( ( goso_get_setting( 'goso_sidebar_archive' ) && $sidebar_opts != 'no' ) || $sidebar_opts == 'left' || $sidebar_opts == 'right' || $sidebar_opts == 'two' ) {
 	$show_sidebar = true;
 } else {
 	/* Use $template to detect sidebar for category - use this value for load correct sidebar in content templates */
 	$template = 'no-sidebar';
 }
 
-$archive_desc_align = get_theme_mod( 'penci_archive_descalign', '' );
+$archive_desc_align = get_theme_mod( 'goso_archive_descalign', '' );
 if ( $archive_desc_align ) {
 	$archive_desc_align = ' pcdesc-' . $archive_desc_align;
 }
 
 /* Categories layout */
-$layout_this = get_theme_mod( 'penci_archive_layout' );
+$layout_this = get_theme_mod( 'goso_archive_layout' );
 if ( ! isset( $layout_this ) || empty( $layout_this ) ): $layout_this = 'standard'; endif;
 
 $category_oj = get_queried_object();
@@ -55,23 +55,23 @@ $two_sidebar_class = '';
 if ( 'two-sidebar' == $sidebar_position ): $two_sidebar_class = ' two-sidebar'; endif;
 ?>
 
-<?php if ( ! get_theme_mod( 'penci_disable_breadcrumb' ) && ! get_theme_mod( 'penci_move_breadcrumbs' ) ): ?>
+<?php if ( ! get_theme_mod( 'goso_disable_breadcrumb' ) && ! get_theme_mod( 'goso_move_breadcrumbs' ) ): ?>
 	<?php
 	$yoast_breadcrumb = '';
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
-		$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb' . $two_sidebar_class . '">', '</div>', false );
+		$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb' . $two_sidebar_class . '">', '</div>', false );
 	}
 
 	if ( $yoast_breadcrumb ) {
 		echo $yoast_breadcrumb;
 	} else { ?>
-        <div class="container penci-breadcrumb<?php echo $two_sidebar_class; ?>">
+        <div class="container goso-breadcrumb<?php echo $two_sidebar_class; ?>">
             <span><a class="crumb"
-                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
+                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
 			<?php
-			$parent_ID = penci_get_category_parent_id( $fea_cat_id );
+			$parent_ID = goso_get_category_parent_id( $fea_cat_id );
 			if ( $parent_ID ):
-				echo penci_get_category_parents( $parent_ID );
+				echo goso_get_category_parents( $parent_ID );
 			endif;
 			?>
             <span><?php single_cat_title( '', true ); ?></span>
@@ -79,50 +79,50 @@ if ( 'two-sidebar' == $sidebar_position ): $two_sidebar_class = ' two-sidebar'; 
 	<?php } ?>
 <?php endif; ?>
 
-<?php if ( penci_featured_exclude_posts() ): ?>
+<?php if ( goso_featured_exclude_posts() ): ?>
 
     <div class="archive-box">
         <div class="title-bar">
-			<?php if ( ! get_theme_mod( 'penci_remove_cat_words' ) ): ?>
-                <span><?php echo penci_get_setting( 'penci_trans_category' ); ?></span> <?php endif; ?>
+			<?php if ( ! get_theme_mod( 'goso_remove_cat_words' ) ): ?>
+                <span><?php echo goso_get_setting( 'goso_trans_category' ); ?></span> <?php endif; ?>
             <h1><?php printf( esc_html__( '%s', 'authow' ), single_cat_title( '', false ) ); ?></h1>
         </div>
     </div>
 
 
-	<?php if ( category_description() && ! get_theme_mod( 'penci_archive_move_desc' ) ) : // Show an optional category description ?>
+	<?php if ( category_description() && ! get_theme_mod( 'goso_archive_move_desc' ) ) : // Show an optional category description ?>
         <div class="container <?php echo $two_sidebar_class; ?>">
-        <div class="post-entry penci-category-description<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
+        <div class="post-entry goso-category-description<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
         </div>
 	<?php endif; ?>
 
 <?php endif; ?>
 
-<?php do_action( 'penci_featured_archive_posts' ); ?>
+<?php do_action( 'goso_featured_archive_posts' ); ?>
 
 <div class="container<?php echo esc_attr( $class_layout );
-if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position ); ?><?php endif; ?>">
+if ( $show_sidebar ) : ?> goso_sidebar <?php echo esc_attr( $sidebar_position ); ?><?php endif; ?>">
     <div id="main"
-         class="penci-layout-<?php echo esc_attr( $layout_this ); ?><?php if ( get_theme_mod( 'penci_sidebar_sticky' ) ): ?> penci-main-sticky-sidebar<?php endif; ?>">
+         class="goso-layout-<?php echo esc_attr( $layout_this ); ?><?php if ( get_theme_mod( 'goso_sidebar_sticky' ) ): ?> goso-main-sticky-sidebar<?php endif; ?>">
         <div class="theiaStickySidebar">
 
-			<?php if ( ! get_theme_mod( 'penci_disable_breadcrumb' ) && get_theme_mod( 'penci_move_breadcrumbs' ) ): ?>
+			<?php if ( ! get_theme_mod( 'goso_disable_breadcrumb' ) && get_theme_mod( 'goso_move_breadcrumbs' ) ): ?>
 				<?php
 				$yoast_breadcrumb = '';
 				if ( function_exists( 'yoast_breadcrumb' ) ) {
-					$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb penci-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
+					$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb goso-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
 				}
 
 				if ( $yoast_breadcrumb ) {
 					echo $yoast_breadcrumb;
 				} else { ?>
-                    <div class="container penci-breadcrumb penci-crumb-inside<?php echo $two_sidebar_class; ?>">
+                    <div class="container goso-breadcrumb goso-crumb-inside<?php echo $two_sidebar_class; ?>">
                             <span><a class="crumb"
-                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
+                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
 						<?php
-						$parent_ID = penci_get_category_parent_id( $fea_cat_id );
+						$parent_ID = goso_get_category_parent_id( $fea_cat_id );
 						if ( $parent_ID ):
-							echo penci_get_category_parents( $parent_ID );
+							echo goso_get_category_parents( $parent_ID );
 						endif;
 						?>
                         <span><?php single_cat_title( '', true ); ?></span>
@@ -130,35 +130,35 @@ if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position )
 				<?php } ?>
 			<?php endif; ?>
 
-			<?php if ( ! penci_featured_exclude_posts() ) { ?>
+			<?php if ( ! goso_featured_exclude_posts() ) { ?>
 
                 <div class="archive-box">
                     <div class="title-bar">
-						<?php if ( ! get_theme_mod( 'penci_remove_cat_words' ) ): ?>
-                            <span><?php echo penci_get_setting( 'penci_trans_category' ); ?></span> <?php endif; ?>
+						<?php if ( ! get_theme_mod( 'goso_remove_cat_words' ) ): ?>
+                            <span><?php echo goso_get_setting( 'goso_trans_category' ); ?></span> <?php endif; ?>
                         <h1><?php printf( esc_html__( '%s', 'authow' ), single_cat_title( '', false ) ); ?></h1>
                     </div>
                 </div>
 
-				<?php if ( category_description() && ! get_theme_mod( 'penci_archive_move_desc' ) ) : // Show an optional category description ?>
-                    <div class="post-entry penci-category-description<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
+				<?php if ( category_description() && ! get_theme_mod( 'goso_archive_move_desc' ) ) : // Show an optional category description ?>
+                    <div class="post-entry goso-category-description<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
 				<?php endif; ?>
 
 			<?php } else {
 
-				$format_title = penci_get_setting( 'penci_arf_title' );
-				if ( $format_title && ! penci_featured_title_check() ) {
-					$heading_widget_title = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-					$heading_widget_align = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
-					$heading_title        = get_theme_mod( 'penci_featured_cat_style' ) ? get_theme_mod( 'penci_featured_cat_style' ) : $heading_widget_title;
-					$heading_align        = get_theme_mod( 'penci_featured_cat_align' ) ? get_theme_mod( 'penci_featured_cat_align' ) : $heading_widget_align;
-					$sb_icon_pos          = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-					$sidebar_icon_pos     = get_theme_mod( 'penci_homep_icon_align' ) ? get_theme_mod( 'penci_homep_icon_align' ) : $sb_icon_pos;
-					$sb_icon_design       = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
-					$sidebar_icon_design  = get_theme_mod( 'penci_homep_icon_design' ) ? get_theme_mod( 'penci_homep_icon_design' ) : $sb_icon_design;
-					$heading_title  = get_theme_mod( 'penci_arf_title_style',$heading_title );
+				$format_title = goso_get_setting( 'goso_arf_title' );
+				if ( $format_title && ! goso_featured_title_check() ) {
+					$heading_widget_title = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+					$heading_widget_align = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
+					$heading_title        = get_theme_mod( 'goso_featured_cat_style' ) ? get_theme_mod( 'goso_featured_cat_style' ) : $heading_widget_title;
+					$heading_align        = get_theme_mod( 'goso_featured_cat_align' ) ? get_theme_mod( 'goso_featured_cat_align' ) : $heading_widget_align;
+					$sb_icon_pos          = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+					$sidebar_icon_pos     = get_theme_mod( 'goso_homep_icon_align' ) ? get_theme_mod( 'goso_homep_icon_align' ) : $sb_icon_pos;
+					$sb_icon_design       = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
+					$sidebar_icon_design  = get_theme_mod( 'goso_homep_icon_design' ) ? get_theme_mod( 'goso_homep_icon_design' ) : $sb_icon_design;
+					$heading_title  = get_theme_mod( 'goso_arf_title_style',$heading_title );
                     ?>
-                    <div class="featured-list-title penci-border-arrow penci-homepage-title penci-magazine-title <?php echo esc_attr( $heading_title . ' ' . $heading_align . ' ' . $sidebar_icon_pos . ' ' . $sidebar_icon_design ); ?>">
+                    <div class="featured-list-title goso-border-arrow goso-homepage-title goso-magazine-title <?php echo esc_attr( $heading_title . ' ' . $heading_align . ' ' . $sidebar_icon_pos . ' ' . $sidebar_icon_design ); ?>">
                         <h2 class="inner-arrow">
 							<?php
 							echo str_replace( '{name}', single_cat_title( '', false ), $format_title );
@@ -169,7 +169,7 @@ if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position )
 				<?php }
 			} ?>
 
-			<?php echo penci_render_google_adsense( 'penci_archive_ad_above' ); ?>
+			<?php echo goso_render_google_adsense( 'goso_archive_ad_above' ); ?>
 
 			<?php if ( have_posts() ) : ?>
 				<?php
@@ -200,16 +200,16 @@ if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position )
 					'magazine-2'
 				);
 				if ( in_array( $layout_this, $class_grid_arr ) ) {
-					echo '<ul class="penci-wrapper-data penci-grid">';
+					echo '<ul class="goso-wrapper-data goso-grid">';
 				} elseif ( in_array( $layout_this, array( 'masonry', 'masonry-2' ) ) ) {
-					echo '<div class="penci-wrap-masonry"><div class="penci-wrapper-data masonry penci-masonry">';
-				} elseif ( get_theme_mod( 'penci_archive_nav_ajax' ) || get_theme_mod( 'penci_archive_nav_scroll' ) ) {
-					echo '<div class="penci-wrapper-data">';
+					echo '<div class="goso-wrap-masonry"><div class="goso-wrapper-data masonry goso-masonry">';
+				} elseif ( get_theme_mod( 'goso_archive_nav_ajax' ) || get_theme_mod( 'goso_archive_nav_scroll' ) ) {
+					echo '<div class="goso-wrapper-data">';
 				}
 				/* The loop */
-				$infeed_ads  = get_theme_mod( 'penci_infeedads_archi_code' ) ? get_theme_mod( 'penci_infeedads_archi_code' ) : '';
-				$infeed_num  = get_theme_mod( 'penci_infeedads_archi_num' ) ? get_theme_mod( 'penci_infeedads_archi_num' ) : 3;
-				$infeed_full = get_theme_mod( 'penci_infeedads_archi_layout' ) ? get_theme_mod( 'penci_infeedads_archi_layout' ) : '';
+				$infeed_ads  = get_theme_mod( 'goso_infeedads_archi_code' ) ? get_theme_mod( 'goso_infeedads_archi_code' ) : '';
+				$infeed_num  = get_theme_mod( 'goso_infeedads_archi_num' ) ? get_theme_mod( 'goso_infeedads_archi_num' ) : 3;
+				$infeed_full = get_theme_mod( 'goso_infeedads_archi_layout' ) ? get_theme_mod( 'goso_infeedads_archi_layout' ) : '';
 				while ( have_posts() ) : the_post();
 					include( locate_template( 'content-' . $layout_this . '.php' ) );
 				endwhile;
@@ -218,19 +218,19 @@ if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position )
 					echo '</ul>';
 				} elseif ( in_array( $layout_this, array( 'masonry', 'masonry-2' ) ) ) {
 					echo '</div></div>';
-				} elseif ( get_theme_mod( 'penci_archive_nav_ajax' ) || get_theme_mod( 'penci_archive_nav_scroll' ) ) {
+				} elseif ( get_theme_mod( 'goso_archive_nav_ajax' ) || get_theme_mod( 'goso_archive_nav_scroll' ) ) {
 					echo '</div>';
 				}
-				penci_authow_archive_pag_style( $layout_this );
+				goso_authow_archive_pag_style( $layout_this );
 				?>
 			<?php endif;
 			wp_reset_postdata(); /* End if of the loop */ ?>
 
-			<?php if ( category_description() && get_theme_mod( 'penci_archive_move_desc' ) ) : // Show an optional category description ?>
-                <div class="post-entry penci-category-description penci-acdes-below<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
+			<?php if ( category_description() && get_theme_mod( 'goso_archive_move_desc' ) ) : // Show an optional category description ?>
+                <div class="post-entry goso-category-description goso-acdes-below<?php echo $archive_desc_align; ?>"><?php echo do_shortcode( category_description() ); ?></div>
 			<?php endif; ?>
 
-			<?php echo penci_render_google_adsense( 'penci_archive_ad_below' ); ?>
+			<?php echo goso_render_google_adsense( 'goso_archive_ad_below' ); ?>
 
         </div>
     </div>
@@ -239,7 +239,7 @@ if ( $show_sidebar ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position )
 	if ( $show_sidebar ) {
 		get_sidebar();
 
-		$category_layout_sidebar = get_theme_mod( 'penci_two_sidebar_archive' );
+		$category_layout_sidebar = get_theme_mod( 'goso_two_sidebar_archive' );
 		if ( $sidebar_opts ) {
 			$category_layout_sidebar = $sidebar_opts;
 		}

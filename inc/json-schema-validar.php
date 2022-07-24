@@ -14,14 +14,14 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 
 		public static function pre_data_schema() {
 			$data = array();
-			if( ! get_theme_mod( 'penci_schema_organization' ) ){
+			if( ! get_theme_mod( 'goso_schema_organization' ) ){
 				$data['organization'] = self::generate_data();
 			}
-			if( ! get_theme_mod( 'penci_schema_website' ) ){
+			if( ! get_theme_mod( 'goso_schema_website' ) ){
 				$data['website'] = self::website_data();
 			}
 
-			if ( is_singular() && ! is_front_page() && ! get_theme_mod( 'penci_schema_single' ) ) {
+			if ( is_singular() && ! is_front_page() && ! get_theme_mod( 'goso_schema_single' ) ) {
 
 				if ( is_page() ) {
 					$data['page'] = self::page_data();
@@ -45,11 +45,11 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 				}
 			}
 
-			if ( ! is_front_page() &&  ! $breadcrumbs_enabled && ! get_theme_mod( 'penci_schema_breadcrumbs' ) ) {
+			if ( ! is_front_page() &&  ! $breadcrumbs_enabled && ! get_theme_mod( 'goso_schema_breadcrumbs' ) ) {
 				$data['BreadcrumbList'] = self::BreadcrumbList_data();
 			}
 			
-			if( is_singular('post') && get_theme_mod('penci_post_use_newsarticle') ){
+			if( is_singular('post') && get_theme_mod('goso_post_use_newsarticle') ){
 				$data['NewsArticle'] = self::newsarticle_data();
 			}
 
@@ -172,8 +172,8 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 			$permalink = get_permalink( $post_id );
 
 			$post_title   = isset( $post->post_title ) ? $post->post_title : '';
-			$excerpt_length = get_theme_mod( 'penci_post_excerpt_length', 30 );
-			$post_excerpt = ! get_theme_mod( 'penci_excerptcharac' ) ? get_the_excerpt() : penci_get_the_excerpt( null, $excerpt_length );
+			$excerpt_length = get_theme_mod( 'goso_post_excerpt_length', 30 );
+			$post_excerpt = ! get_theme_mod( 'goso_excerptcharac' ) ? get_the_excerpt() : goso_get_the_excerpt( null, $excerpt_length );
 			
 			$featured_image   = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
 			$featured_image_0 = isset( $featured_image[0] ) ? $featured_image[0] : get_template_directory_uri() . '/images/no-image.jpg';
@@ -231,8 +231,8 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 			$permalink = get_permalink( $post_id );
 
 			$post_title   = isset( $post->post_title ) ? $post->post_title : '';
-			$excerpt_length = get_theme_mod( 'penci_post_excerpt_length', 30 );
-			$post_excerpt = ! get_theme_mod( 'penci_excerptcharac' ) ? get_the_excerpt() : penci_get_the_excerpt( null, $excerpt_length );
+			$excerpt_length = get_theme_mod( 'goso_post_excerpt_length', 30 );
+			$post_excerpt = ! get_theme_mod( 'goso_excerptcharac' ) ? get_the_excerpt() : goso_get_the_excerpt( null, $excerpt_length );
 			$post_excerpt = $post_excerpt ? $post_excerpt : $post_title;
 			$post_type    = isset( $post->post_type ) ? $post->post_type : '';
 
@@ -338,11 +338,11 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 
 		public static function get_url_logo() {
 			$logo = get_template_directory_uri() . '/images/logo.png';
-			if( get_theme_mod( 'penci_logo' ) ) {
-				$logo = get_theme_mod( 'penci_logo' );
+			if( get_theme_mod( 'goso_logo' ) ) {
+				$logo = get_theme_mod( 'goso_logo' );
 			}
-			if( get_theme_mod('penci_logo_schema') ) {
-				$logo = get_theme_mod( 'penci_logo_schema' );
+			if( get_theme_mod('goso_logo_schema') ) {
+				$logo = get_theme_mod( 'goso_logo_schema' );
 			}
 
 			return $logo;
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 			$itemListElement = array();
 			$items           = array();
 
-			$items[] = array( 'id' => home_url(), 'name' => penci_get_setting( 'penci_trans_home' ) );
+			$items[] = array( 'id' => home_url(), 'name' => goso_get_setting( 'goso_trans_home' ) );
 
 			if ( is_home() && ! is_front_page() ) {
 				$page    = get_option( 'page_for_posts' );
@@ -363,7 +363,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 
 				$current_term     = get_queried_object();
 				$current_term_tax = isset( $current_term->taxonomy ) ? $current_term->taxonomy : '';
-				$terms            = penci_get_term_parents( get_queried_object_id(), $current_term_tax );
+				$terms            = goso_get_term_parents( get_queried_object_id(), $current_term_tax );
 
 				foreach ( (array) $terms as $term_id ) {
 					$term    = get_term( $term_id, $current_term->taxonomy );
@@ -380,8 +380,8 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 				$terms = get_the_terms( get_the_ID(), 'category' );
 
 				if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-					$term    = penci_bread_primary_term( current( $terms ), 'category' );
-					$terms   = penci_get_term_parents( $term->term_id, 'category' );
+					$term    = goso_bread_primary_term( current( $terms ), 'category' );
+					$terms   = goso_get_term_parents( $term->term_id, 'category' );
 					$terms[] = $term->term_id;
 					foreach ( $terms as $term_id ) {
 						$term = get_term( $term_id, 'category' );
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 					$items[] = array( 'id' => get_permalink(), 'name' => get_the_title() );
 				}
 			} elseif ( is_page() ) {
-				$pages = penci_get_post_parents( get_queried_object_id() );
+				$pages = goso_get_post_parents( get_queried_object_id() );
 				foreach ( $pages as $page ) {
 					$items[] = array( 'id' => get_permalink( $page ), 'name' => get_the_title( $page ) );
 				}
@@ -400,7 +400,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 				$items[] = array( 'id' => '', 'name' => get_the_title() );
 			} elseif ( is_tax() || is_category() || is_tag() ) {
 				$current_term = get_queried_object();
-				$terms        = penci_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
+				$terms        = goso_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
 
 				foreach ( $terms as $term_id ) {
 					$term = get_term( $term_id, $current_term->taxonomy );
@@ -412,7 +412,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 
 				$items[] = array( 'id' => get_category_link( $current_term_id ), 'name' => $current_term->name );
 			} elseif ( is_search() ) {
-				$items[] = array( 'id' => get_search_link( get_search_query() ), 'name' => sprintf( esc_html__( '%s &quot;%s&quot;', 'authow' ), penci_get_setting( 'penci_trans_search' ), get_search_query() ) );
+				$items[] = array( 'id' => get_search_link( get_search_query() ), 'name' => sprintf( esc_html__( '%s &quot;%s&quot;', 'authow' ), goso_get_setting( 'goso_trans_search' ), get_search_query() ) );
 			} elseif ( is_404() ) {
 				$items[] = array( 'id' => '', 'name' => esc_html__( 'Not Found', 'authow' ) );
 			} elseif ( is_author() ) {
@@ -433,7 +433,7 @@ if ( ! class_exists( 'Goso_JSON_Schema_Validator' ) ) {
 			} elseif ( is_year() ) {
 				$items[] = array( 'id' => home_url( add_query_arg( array(), $wp->request ) ), 'name' => sprintf( esc_html__( '%s %s', 'authow' ), esc_html__( 'Yearly Archives:', 'authow' ), get_the_date( 'Y' ) ) );
 			} else {
-				$items[] = array( 'id' => home_url( add_query_arg( array(), $wp->request ) ),'', 'name' => penci_get_setting( 'penci_trans_archives' ) );
+				$items[] = array( 'id' => home_url( add_query_arg( array(), $wp->request ) ),'', 'name' => goso_get_setting( 'goso_trans_archives' ) );
 			}
 
 			$pos_item = 1;
@@ -474,8 +474,8 @@ new Goso_JSON_Schema_Validator;
  *
  * @return array Array of parent posts' IDs.
  */
-if ( ! function_exists( 'penci_get_post_parents' ) ) {
-	function penci_get_post_parents( $post_id = '' ) {
+if ( ! function_exists( 'goso_get_post_parents' ) ) {
+	function goso_get_post_parents( $post_id = '' ) {
 		// Set up some default array.
 		$list = array();
 
@@ -501,9 +501,9 @@ if ( ! function_exists( 'penci_get_post_parents' ) ) {
 }
 
 
-if ( ! function_exists( 'penci_bread_primary_term' ) ) {
+if ( ! function_exists( 'goso_bread_primary_term' ) ) {
 
-	function penci_bread_primary_term( $term, $taxonomy ) {
+	function goso_bread_primary_term( $term, $taxonomy ) {
 		if ( class_exists( 'WPSEO_Primary_Term' ) ) {
 			$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, get_the_id() );
 			$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
@@ -528,8 +528,8 @@ if ( ! function_exists( 'penci_bread_primary_term' ) ) {
  *
  * @return array Array of parent terms' IDs.
  */
-if ( ! function_exists( 'penci_get_term_parents' ) ) {
-	function penci_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
+if ( ! function_exists( 'goso_get_term_parents' ) ) {
+	function goso_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
 		// Set up some default arrays.
 		$list = array();
 
@@ -554,15 +554,15 @@ if ( ! function_exists( 'penci_get_term_parents' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_authow_entry_footer' ) ) :
-	function penci_authow_entry_footer() {
+if ( ! function_exists( 'goso_authow_entry_footer' ) ) :
+	function goso_authow_entry_footer() {
 
 		$separate_meta = __( ', ', 'twentyseventeen' );
 		$categories_list = get_the_category_list( $separate_meta );
 
 		$tags_list = get_the_tag_list( '', $separate_meta );
 
-		echo '<div class="entry-footer penci-entry-footer">';
+		echo '<div class="entry-footer goso-entry-footer">';
 
 		if ( 'post' === get_post_type() ) {
 			if ( ( $categories_list && twentyseventeen_categorized_blog() ) || $tags_list ) {

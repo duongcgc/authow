@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoTextBlock extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-text-block';
+		return 'goso-text-block';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Text Block', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Text Block', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoTextBlock extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -148,7 +148,7 @@ class GosoTextBlock extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class      = 'penci-block-vc penci-text-editor';
+		$css_class      = 'goso-block-vc goso-text-editor';
 		$editor_content = $this->get_settings_for_display( 'editor' );
 
 		$editor_content = $this->parse_text_editor( $editor_content );
@@ -159,7 +159,7 @@ class GosoTextBlock extends Base_Widget {
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
+			<div class="goso-block_content">
 				<div <?php echo $this->get_render_attribute_string( 'editor' ); ?>><?php echo $editor_content; ?></div>
 			</div>
 		</div>

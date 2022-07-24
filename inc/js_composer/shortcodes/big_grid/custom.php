@@ -1,9 +1,9 @@
-<div class="penci-bgitem<?php if ( 'style-2' == $biggid_style ) {
+<div class="goso-bgitem<?php if ( 'style-2' == $biggid_style ) {
 	echo ' item-masonry';
 }
-echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
-    <div class="penci-bgitin">
-        <div class="penci-bgmain">
+echo $is_big_item . goso_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
+    <div class="goso-bgitin">
+        <div class="goso-bgmain">
             <div class="pcbg-thumb">
                 <div class="pcbg-thumbin">
                     <a class="pcbg-bgoverlay<?php if ( 'whole' == $overlay_type && 'on' != $bgcontent_pos ): echo ' active-overlay'; endif; ?>"
@@ -11,12 +11,12 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_i
 					echo $title_external . $title_nofollow . $title_attr; ?>
                        title="<?php echo wp_strip_all_tags( $title ); ?>"></a>
 					<?php if ( ! $disable_lazy ) { ?>
-                        <div class="penci-image-holder penci-lazy"<?php if ( 'style-2' == $biggid_style ) {
+                        <div class="goso-image-holder goso-lazy"<?php if ( 'style-2' == $biggid_style ) {
 							echo ' style="padding-bottom: ' . $image_ratio . '%"';
 						} ?> data-bgset="<?php echo $image_url; ?>">
                         </div>
 					<?php } else { ?>
-                        <div class="penci-image-holder"
+                        <div class="goso-image-holder"
                              style="background-image: url('<?php echo $image_url; ?>');<?php if ( 'style-2' == $biggid_style ) {
 							     echo 'padding-bottom: ' . $image_ratio . '%';
 						     } ?>">
@@ -73,7 +73,7 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_i
 									<?php if ( $readmore_icon ):
 										vc_icon_element_fonts_enqueue( 'fontawesome' );
 										if ( $readmore_icon ) {
-											$icon .= '<i class="penci-cup_iconn--i ' . $readmore_icon . '"></i>';
+											$icon .= '<i class="goso-cup_iconn--i ' . $readmore_icon . '"></i>';
 											echo $icon;
 										}
 									endif; ?>
@@ -120,9 +120,9 @@ if ( isset( $setting['text_align'] ) ) {
 }
 
 if ( isset( $setting['subtitle_color'] ) ) {
-	$child_css .= $block_id . ' .penci-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above{color: ' . $setting['subtitle_color'] . '}';
-	$child_css .= $block_id . ' .penci-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above span{color: ' . $setting['subtitle_color'] . '}';
-	$child_css .= $block_id . ' .penci-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above a{color: ' . $setting['subtitle_color'] . '}';
+	$child_css .= $block_id . ' .goso-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above{color: ' . $setting['subtitle_color'] . '}';
+	$child_css .= $block_id . ' .goso-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above span{color: ' . $setting['subtitle_color'] . '}';
+	$child_css .= $block_id . ' .goso-bgrid-based-custom ' . $item_id . ' .pcbg-content-inner .pcbg-above a{color: ' . $setting['subtitle_color'] . '}';
 }
 
 if ( isset( $setting['title_color'] ) ) {

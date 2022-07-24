@@ -51,7 +51,7 @@ $typo_params = array(
 		'heading'          => esc_html__( 'Popular cats', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -68,7 +68,7 @@ $typo_params = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'pcat_item_size',
 		'heading'    => __( 'Font size for Link', 'authow' ),
 		'value'      => '',
@@ -87,12 +87,12 @@ $typo_params = array(
 );
 
 vc_map( array(
-	'base'          => "penci_popular_cat",
+	'base'          => "goso_popular_cat",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/popular_cat/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.__( 'Popular Cat', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.__( 'Popular Cat', 'authow' ),
 	'description'   => __( 'Popular Cat Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge( $main_params, $params_heading, $param_heading_typo_color, $typo_params, $extra_params )

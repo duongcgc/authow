@@ -30,17 +30,17 @@ export const edit = ( props ) => {
 			</PanelBody>
 		</InspectorControls>
         <ServerSideRender
-            block="penci-gutenberg/review"
+            block="goso-gutenberg/review"
             attributes={ props.attributes }
         />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/review', {
+registerBlockType( 'goso-gutenberg/review', {
 	title: __( 'Goso: Review' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

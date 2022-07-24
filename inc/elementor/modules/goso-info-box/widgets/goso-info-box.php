@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoInfoBox extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-info-box';
+		return 'goso-info-box';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Info Box', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Info Box', 'authow' );
 	}
 
 	public function get_icon() {
@@ -29,7 +29,7 @@ class GosoInfoBox extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -202,8 +202,8 @@ class GosoInfoBox extends Base_Widget {
 					),
 				),
 				'selectors'            => array(
-					'{{WRAPPER}} .penci-ibox-float-left .penci-ibox-inner' => 'align-items: {{VALUE}}',
-					'{{WRAPPER}} .penci-ibox-float-right .penci-ibox-inner' => 'align-items: {{VALUE}}',
+					'{{WRAPPER}} .goso-ibox-float-left .goso-ibox-inner' => 'align-items: {{VALUE}}',
+					'{{WRAPPER}} .goso-ibox-float-right .goso-ibox-inner' => 'align-items: {{VALUE}}',
 				),
 				'selectors_dictionary' => array(
 					'top'    => 'flex-start',
@@ -220,7 +220,7 @@ class GosoInfoBox extends Base_Widget {
 				'condition' => array( 'icon_view!' => 'default' ),
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-ibox-icon' => 'width: {{SIZE}}px;height:{{SIZE}}px;display: flex;',
+					'{{WRAPPER}} .goso-ibox-icon' => 'width: {{SIZE}}px;height:{{SIZE}}px;display: flex;',
 				),
 			)
 		);
@@ -258,7 +258,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Custom Height of Line', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-ibox-line' => 'height: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-ibox-line' => 'height: {{SIZE}}px' ),
 				'condition' => array( '_use_line!' => '' ),
 			)
 		);
@@ -267,7 +267,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Custom Width of Line', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-ibox-line' => 'width: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-ibox-line' => 'width: {{SIZE}}px' ),
 				'condition' => array( '_use_line!' => '' ),
 			)
 		);
@@ -337,7 +337,7 @@ class GosoInfoBox extends Base_Widget {
 				'label_block' => true,
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-info-box .penci-ibox-stit' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box .goso-ibox-stit' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		
@@ -348,7 +348,7 @@ class GosoInfoBox extends Base_Widget {
 				'label_block' => true,
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-icon' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-icon' => 'margin-bottom: {{SIZE}}px' ),
 				'condition' => array( 'icon_position!' => array( 'float-left', 'float-right' ) ),
 			)
 		);
@@ -358,7 +358,7 @@ class GosoInfoBox extends Base_Widget {
 				'label_block' => true,
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-float-right .penci-ibox-icon' => 'margin-left: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-float-right .goso-ibox-icon' => 'margin-left: {{SIZE}}px' ),
 				'condition' => array( 'icon_position' => array( 'float-right' ) ),
 			)
 		);
@@ -368,7 +368,7 @@ class GosoInfoBox extends Base_Widget {
 				'label_block' => true,
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-float-left .penci-ibox-icon' => 'margin-right: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-float-left .goso-ibox-icon' => 'margin-right: {{SIZE}}px' ),
 				'condition' => array( 'icon_position' => array( 'float-left' ) ),
 			)
 		);
@@ -377,7 +377,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Title Padding Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-title' => 'padding-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-title' => 'padding-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -385,7 +385,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Title Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-title' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-title' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -393,7 +393,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Description Margin Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-content' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-content' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -402,7 +402,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Read More Button Margin Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-readmore' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-readmore' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -440,7 +440,7 @@ class GosoInfoBox extends Base_Widget {
 				'name'      => 'ib_bg',
 				'label'     => __( 'Infor Box Background', 'authow' ),
 				'types'     => array( 'classic', 'gradient' ),
-				'selector'  => '{{WRAPPER}} .penci-info-box',
+				'selector'  => '{{WRAPPER}} .goso-info-box',
 			)
 		);
 		
@@ -449,7 +449,7 @@ class GosoInfoBox extends Base_Widget {
 			array(
 				'name' => 'box_shadow',
 				'label' => __( 'Box Shadow', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-info-box',
+				'selector' => '{{WRAPPER}} .goso-info-box',
 			)
 		);
 		
@@ -467,7 +467,7 @@ class GosoInfoBox extends Base_Widget {
 				'name'      => 'ib_hbg',
 				'label'     => __( 'Infor Box Hover Background', 'authow' ),
 				'types'     => array( 'classic', 'gradient' ),
-				'selector'  => '{{WRAPPER}} .penci-info-box:hover',
+				'selector'  => '{{WRAPPER}} .goso-info-box:hover',
 			)
 		);
 		
@@ -476,7 +476,7 @@ class GosoInfoBox extends Base_Widget {
 			array(
 				'name' => 'hbox_shadow',
 				'label' => __( 'Box Shadow', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-info-box:hover',
+				'selector' => '{{WRAPPER}} .goso-info-box:hover',
 			)
 		);
 		
@@ -490,7 +490,7 @@ class GosoInfoBox extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -501,7 +501,7 @@ class GosoInfoBox extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-info-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -520,7 +520,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Sub Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box .penci-ibox-stit' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box .goso-ibox-stit' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -530,7 +530,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Sub Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-stit' => 'color: {{VALUE}}; transition: color 0.3s;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-stit' => 'color: {{VALUE}}; transition: color 0.3s;' ),
 			)
 		);
 
@@ -538,7 +538,7 @@ class GosoInfoBox extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'stitle_typo',
 				'label'    => __( 'Sub Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-info-box .penci-ibox-stit',
+				'selector' => '{{WRAPPER}} .goso-info-box .goso-ibox-stit',
 			)
 		);
 
@@ -556,7 +556,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-title' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-title' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -566,7 +566,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-title' => 'color: {{VALUE}}; transition: color 0.3s;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-title' => 'color: {{VALUE}}; transition: color 0.3s;' ),
 			)
 		);
 
@@ -574,7 +574,7 @@ class GosoInfoBox extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'title_typo',
 				'label'    => __( 'Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-ibox-title',
+				'selector' => '{{WRAPPER}} .goso-ibox-title',
 			)
 		);
 		$this->add_control(
@@ -583,7 +583,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Line Below The Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-line' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-line' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		
@@ -593,7 +593,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Line Below The Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-line' => 'background-color: {{VALUE}}; transition: background-color 0.3s;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-line' => 'background-color: {{VALUE}}; transition: background-color 0.3s;' ),
 			)
 		);
 
@@ -611,7 +611,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Description Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-content' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-content' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -621,7 +621,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Description Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-content' => 'color: {{VALUE}}; transition: color 0.3s;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-content' => 'color: {{VALUE}}; transition: color 0.3s;' ),
 			)
 		);
 		
@@ -631,7 +631,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Description Links Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-content a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-content a' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -639,7 +639,7 @@ class GosoInfoBox extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'desc_typo',
 				'label'    => __( 'Description Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-ibox-content, {{WRAPPER}} .penci-ibox-content p',
+				'selector' => '{{WRAPPER}} .goso-ibox-content, {{WRAPPER}} .goso-ibox-content p',
 			)
 		);
 		$this->add_control(
@@ -656,7 +656,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Icon Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-ibox-icon, {{WRAPPER}} .penci-ibox-icon a, {{WRAPPER}} .penci-ibox-icon svg' => 'color: {{VALUE}}; fill: {{VALUE}}' ),
+				'selectors' => array( '{{WRAPPER}} .goso-ibox-icon, {{WRAPPER}} .goso-ibox-icon a, {{WRAPPER}} .goso-ibox-icon svg' => 'color: {{VALUE}}; fill: {{VALUE}}' ),
 			)
 		);
 
@@ -668,11 +668,11 @@ class GosoInfoBox extends Base_Widget {
 				'default'   => '',
 				'condition' => array( 'icon_view' => array( 'stacked', 'framed' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-view-stacked .penci-ibox-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-framed .penci-ibox-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-3 .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-4 .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-5 .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-ibox-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-framed .goso-ibox-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-3 .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-4 .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-5 .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -684,13 +684,13 @@ class GosoInfoBox extends Base_Widget {
 				'default'   => '',
 				'condition' => array( 'icon_view' => array( 'stacked', 'framed' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-view-stacked .penci-icon' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-framed .penci-icon' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-3 .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-4 .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-5 .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-2 .penci-ibox-icon:after' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-5 .penci-ibox-icon:after' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-icon' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-framed .goso-icon' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-3 .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-4 .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-5 .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-2 .goso-ibox-icon:after' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-5 .goso-ibox-icon:after' => 'border-color: {{VALUE}}',
 				),
 			)
 		);
@@ -700,7 +700,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Icon Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-icon, {{WRAPPER}} .penci-ibox-inner:hover .penci-ibox-icon a, {{WRAPPER}} .penci-ibox-inner:hover .penci-ibox-icon svg' => 'color: {{VALUE}}; fill: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-icon, {{WRAPPER}} .goso-ibox-inner:hover .goso-ibox-icon a, {{WRAPPER}} .goso-ibox-inner:hover .goso-ibox-icon svg' => 'color: {{VALUE}}; fill: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -711,12 +711,12 @@ class GosoInfoBox extends Base_Widget {
 				'default'   => '',
 				'condition' => array( 'icon_view' => array( 'stacked', 'framed' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-view-stacked .penci-ibox-inner:hover .penci-ibox-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-framed .penci-ibox-inner:hover .penci-ibox-icon' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-3:hover .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-4:hover .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-5:hover .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-1 .penci-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-ibox-inner:hover .goso-ibox-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-framed .goso-ibox-inner:hover .goso-ibox-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-3:hover .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-4:hover .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-5:hover .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-1 .goso-ibox-icon:after' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -728,16 +728,16 @@ class GosoInfoBox extends Base_Widget {
 				'default'   => '',
 				'condition' => array( 'icon_view' => array( 'stacked', 'framed' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-view-stacked .penci-ibox-inner:hover .penci-ibox-icon'         => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-framed .penci-ibox-inner:hover .penci-ibox-icon'          => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-2 .penci-ibox-icon:after'       => 'box-shadow: 0 0 0 3px {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-1 .penci-ibox-icon:after'       => 'box-shadow: 0 0 0 3px {{VALUE}};',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-3:hover .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-4:hover .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-stacked .penci-animation-custom-5:hover .penci-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-2:hover  .penci-ibox-icon:after' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-5:hover  .penci-ibox-icon:after' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-view-framed .penci-animation-custom-5:hover .penci-ibox-icon' => 'box-shadow: 0 0 0 6px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-ibox-inner:hover .goso-ibox-icon'         => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-framed .goso-ibox-inner:hover .goso-ibox-icon'          => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-2 .goso-ibox-icon:after'       => 'box-shadow: 0 0 0 3px {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-1 .goso-ibox-icon:after'       => 'box-shadow: 0 0 0 3px {{VALUE}};',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-3:hover .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-4:hover .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-stacked .goso-animation-custom-5:hover .goso-ibox-icon' => 'box-shadow: inset 0 0 0 3px {{VALUE}}',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-2:hover  .goso-ibox-icon:after' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-5:hover  .goso-ibox-icon:after' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-view-framed .goso-animation-custom-5:hover .goso-ibox-icon' => 'box-shadow: 0 0 0 6px {{VALUE}}',
 				),
 			)
 		);
@@ -748,8 +748,8 @@ class GosoInfoBox extends Base_Widget {
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
 				'condition' => array( 'icon_type!' => 'text' ),
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-ibox-icon--icon' => 'font-size: {{SIZE}}px',
-					'{{WRAPPER}} .penci-ibox-icon svg' => 'width: {{SIZE}}px; height: auto;',
+					'{{WRAPPER}} .goso-ibox-icon--icon' => 'font-size: {{SIZE}}px',
+					'{{WRAPPER}} .goso-ibox-icon svg' => 'width: {{SIZE}}px; height: auto;',
 				),
 			)
 		);
@@ -758,7 +758,7 @@ class GosoInfoBox extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pibtext_typo',
 				'label'    => __( 'Icon Text Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-info-box .penci-ibox-readmore a',
+				'selector' => '{{WRAPPER}} .goso-info-box .goso-ibox-readmore a',
 				'condition' => array( 'icon_type' => 'text' ),
 			)
 		);
@@ -770,7 +770,7 @@ class GosoInfoBox extends Base_Widget {
 				'size_units' => array( 'px', 'em' ),
 				'condition' => array( 'icon_view' => array( 'stacked', 'framed' ) ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-view-framed .penci-icon, {{WRAPPER}} .penci-view-stacked .penci-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-view-framed .goso-icon, {{WRAPPER}} .goso-view-stacked .goso-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -790,7 +790,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'background-color: {{VALUE}};' ),
 				'condition' => array( 'addrm' => 'yes' ),
 			)
 		);
@@ -800,7 +800,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Hover Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-readmore a' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-readmore a' => 'background-color: {{VALUE}};' ),
 				'condition' => array( 'addrm' => 'yes' ),
 			)
 		);
@@ -810,7 +810,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'color: {{VALUE}};' ),
 				'condition' => array( 'addrm' => 'yes' ),
 			)
 		);
@@ -820,7 +820,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Hover Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-readmore a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-readmore a' => 'color: {{VALUE}};' ),
 				'condition' => array( 'addrm' => 'yes' ),
 			)
 		);
@@ -829,7 +829,7 @@ class GosoInfoBox extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'rm_typo',
 				'label'    => __( 'Button Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-info-box .penci-ibox-readmore a',
+				'selector' => '{{WRAPPER}} .goso-info-box .goso-ibox-readmore a',
 				'condition' => array( 'addrm' => 'yes' ),
 			)
 		);
@@ -841,7 +841,7 @@ class GosoInfoBox extends Base_Widget {
 				'size_units' => array( 'px', '%', 'em' ),
 				'condition' => array( 'addrm' => 'yes' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -853,7 +853,7 @@ class GosoInfoBox extends Base_Widget {
 				'size_units' => array( 'px', 'em' ),
 				'condition' => array( 'addrm' => 'yes' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -876,7 +876,7 @@ class GosoInfoBox extends Base_Widget {
 				'size_units' => array( 'px', 'em' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -887,7 +887,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box .penci-ibox-readmore a' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box .goso-ibox-readmore a' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 			)
 		);
@@ -897,7 +897,7 @@ class GosoInfoBox extends Base_Widget {
 				'label'     => __( 'Button Hover Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-info-box:hover .penci-ibox-readmore a' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-info-box:hover .goso-ibox-readmore a' => 'border-color: {{VALUE}};' ),
 				'condition' => array( 'addrmborder' => 'yes' ),
 			)
 		);
@@ -908,15 +908,15 @@ class GosoInfoBox extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$block_id = 'penci_info_box_' . rand( 1000, 100000 );
-		$css_class = 'penci-block-vc penci-info-box';
-		$css_class .= $settings['icon_position'] ? ' penci-ibox-' . $settings['icon_position'] : 'penci-ibox-float-left';
-		$css_class .= $settings['icon_view'] ? ' penci-view-' . $settings['icon_view'] : '';
-		$css_class .= $settings['icon_shape'] ? ' penci-shape-' . $settings['icon_shape'] : '';
-		$inner_class = $settings['icon_hover_animation'] ? ' penci-animation-' . $settings['icon_hover_animation'] : '';
+		$block_id = 'goso_info_box_' . rand( 1000, 100000 );
+		$css_class = 'goso-block-vc goso-info-box';
+		$css_class .= $settings['icon_position'] ? ' goso-ibox-' . $settings['icon_position'] : 'goso-ibox-float-left';
+		$css_class .= $settings['icon_view'] ? ' goso-view-' . $settings['icon_view'] : '';
+		$css_class .= $settings['icon_shape'] ? ' goso-shape-' . $settings['icon_shape'] : '';
+		$inner_class = $settings['icon_hover_animation'] ? ' goso-animation-' . $settings['icon_hover_animation'] : '';
 
 
-		$a_before = '<span class="penci-ibox-icon-fa">';
+		$a_before = '<span class="goso-ibox-icon-fa">';
 		$a_after  = '</span>';
 		$button_link_before = $button_link_after = $wrap_link_open = $wrap_link_close = '';
 
@@ -931,20 +931,20 @@ class GosoInfoBox extends Base_Widget {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}
 
-			$a_before = '<a class="penci-ibox-icon-fa-fix" ' . $this->get_render_attribute_string( 'link' ) . '></a>';
-			$a_before .= '<a class="penci-ibox-icon-fa" ' . $this->get_render_attribute_string( 'link' ) . '>';
+			$a_before = '<a class="goso-ibox-icon-fa-fix" ' . $this->get_render_attribute_string( 'link' ) . '></a>';
+			$a_before .= '<a class="goso-ibox-icon-fa" ' . $this->get_render_attribute_string( 'link' ) . '>';
 			$a_after  = $button_link_after = $wrap_link_close = '</a>';
-			$button_link_before = '<a class="penci-ibox-btn" ' . $this->get_render_attribute_string( 'link' ) . '>';
-			$wrap_link_open = '<a class="penci-iboxwrap-overlay" ' . $this->get_render_attribute_string( 'link' ) . '>';
+			$button_link_before = '<a class="goso-ibox-btn" ' . $this->get_render_attribute_string( 'link' ) . '>';
+			$wrap_link_open = '<a class="goso-iboxwrap-overlay" ' . $this->get_render_attribute_string( 'link' ) . '>';
 		}
 		?>
 		<div id="<?php echo esc_attr( $block_id ) ?>" class="<?php echo esc_attr( $css_class ); ?>">
-			<div class="penci-ibox-inner<?php echo $inner_class; ?>">
+			<div class="goso-ibox-inner<?php echo $inner_class; ?>">
 				<?php if( 'yes' == $settings['wraplink'] ){ echo $wrap_link_open . $wrap_link_close; } ?>
 				<?php
 				$icon_type = $settings['icon_type'] ? $settings['icon_type'] : 'icon';
 				if ( in_array( $icon_type, array( 'icon', 'svg', 'text' ) ) ) {
-					echo '<div class="penci-ibox-icon penci-ibox-icon--icon penci-icon penci-tibox-'. $icon_type .'">';
+					echo '<div class="goso-ibox-icon goso-ibox-icon--icon goso-icon goso-tibox-'. $icon_type .'">';
 					echo $a_before;
 					if( 'text' == $icon_type ){
 						$ctext = $settings['ctext'] ? $settings['ctext'] : '';
@@ -954,7 +954,7 @@ class GosoInfoBox extends Base_Widget {
 					} else if( 'svg' == $icon_type ) {
 						\Elementor\Icons_Manager::render_icon( $settings['csvg'], [ 'aria-hidden' => 'true' ] );
 					} else {
-						$this->add_render_attribute( 'i', 'class', 'penci-ibox-icon--i ' . $settings['icon'] );
+						$this->add_render_attribute( 'i', 'class', 'goso-ibox-icon--i ' . $settings['icon'] );
 						$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
 						echo '<i ' . $this->get_render_attribute_string( 'i' ) . '></i>';
 					}
@@ -976,9 +976,9 @@ class GosoInfoBox extends Base_Widget {
 						$image_src = $settings['image']['url'];
 					}
 
-					echo '<div class="penci-ibox-icon penci-ibox-icon--image">';
+					echo '<div class="goso-ibox-icon goso-ibox-icon--image">';
 					echo $a_before;
-					echo '<img class="' . ( $settings['image_hover'] ? 'penci-ibox-img_active' : '' ) . '" src="' . esc_url( $image_src ) . '" width="'. $image_width .'" height="'. $image_height .'">';
+					echo '<img class="' . ( $settings['image_hover'] ? 'goso-ibox-img_active' : '' ) . '" src="' . esc_url( $image_src ) . '" width="'. $image_width .'" height="'. $image_height .'">';
 
 					if ( $settings['image_hover'] ) {
 						$image_hover_src = '';
@@ -994,18 +994,18 @@ class GosoInfoBox extends Base_Widget {
 							$image_hover_src = $settings['image_hover']['url'];
 						}
 
-						echo '<img class="penci-ibox-img_hover" src="' . esc_url( $image_hover_src ) . '" width="'. $image_hwidth .'" height="'. $image_hheight .'">';
+						echo '<img class="goso-ibox-img_hover" src="' . esc_url( $image_hover_src ) . '" width="'. $image_hwidth .'" height="'. $image_hheight .'">';
 					}
 
 					echo $a_after;
 					echo '</div>';
 				}
 				?>
-				<div class="penci-ibox-content-wrap">
-					<?php if( $settings['subtitle'] ): ?><div class="penci-ibox-stit"><?php echo $settings['subtitle']; ?></div><?php endif; ?>
-					<?php if( $settings['title_text'] ): ?><h3 class="penci-ibox-title"><?php echo $settings['title_text']; ?></h3><?php endif; ?>
-					<?php if( $settings['_use_line'] ): ?><div class="pc-ibox-wpline"><span class="penci-ibox-line"></span></div><?php endif; ?>
-					<?php if( $settings['description_text'] ): ?><div class="penci-ibox-content"><?php echo do_shortcode( wpautop( $settings['description_text'] ) ); ?></div><?php endif; ?>
+				<div class="goso-ibox-content-wrap">
+					<?php if( $settings['subtitle'] ): ?><div class="goso-ibox-stit"><?php echo $settings['subtitle']; ?></div><?php endif; ?>
+					<?php if( $settings['title_text'] ): ?><h3 class="goso-ibox-title"><?php echo $settings['title_text']; ?></h3><?php endif; ?>
+					<?php if( $settings['_use_line'] ): ?><div class="pc-ibox-wpline"><span class="goso-ibox-line"></span></div><?php endif; ?>
+					<?php if( $settings['description_text'] ): ?><div class="goso-ibox-content"><?php echo do_shortcode( wpautop( $settings['description_text'] ) ); ?></div><?php endif; ?>
 					<?php 
 					$add_rm = $settings['addrm'] ? $settings['addrm'] : '';
 					$addrmborder = $settings['addrmborder'] ? $settings['addrmborder'] : '';
@@ -1014,14 +1014,14 @@ class GosoInfoBox extends Base_Widget {
 						if( 'yes' == $addrmborder ){
 							$btn_class = ' pc-ibox-borders';
 						}
-						echo '<div class="penci-ibox-readmore'. $btn_class .'">';
+						echo '<div class="goso-ibox-readmore'. $btn_class .'">';
 						$treadmore = $settings['treadmore'] ? $settings['treadmore'] : '';
 						if ( ! empty( $settings['link']['url'] ) ) {
 							echo $button_link_before;
 							echo do_shortcode( $treadmore );
 							echo $button_link_after;
 						} else {
-							echo '<a class="penci-ibox-btn">';
+							echo '<a class="goso-ibox-btn">';
 							echo do_shortcode( $treadmore );
 							echo '</a>';
 						}

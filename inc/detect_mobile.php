@@ -2,8 +2,8 @@
 if ( ! class_exists( 'Goso_Mobile_Detect' ) ){
 	require_once ( 'Mobile_Detect.php' );
 }
-if ( ! function_exists( 'penci_is_mobile' ) ) {
-	function penci_is_mobile(){
+if ( ! function_exists( 'goso_is_mobile' ) ) {
+	function goso_is_mobile(){
 		if ( ! wp_is_mobile() ) {
 			return false;
 		}
@@ -20,8 +20,8 @@ if ( ! function_exists( 'penci_is_mobile' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_is_tablet' ) ) {
-	function penci_is_tablet(){
+if ( ! function_exists( 'goso_is_tablet' ) ) {
+	function goso_is_tablet(){
 		
 		$return = false;
 		if ( class_exists( 'Goso_Mobile_Detect' ) ){

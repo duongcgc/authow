@@ -1,16 +1,16 @@
 (function ($) {
-    $(document).on('penci_select2_init', function (event, obj) {
+    $(document).on('goso_select2_init', function (event, obj) {
         var ID = '#elementor-control-default-' + obj.data._cid;
         setTimeout(function () {
             $(ID).select2({
                 minimumInputLength: 3,
                 ajax: {
-                    url: penci_select2_localize.ajaxurl + "?action=penci_select2_search_post&post_type=" + obj.data.source_type + '&source_name=' + obj.data.source_name,
+                    url: goso_select2_localize.ajaxurl + "?action=goso_select2_search_post&post_type=" + obj.data.source_type + '&source_name=' + obj.data.source_name,
                     dataType: 'json'
                 },
                 initSelection: function (element, callback) {
                     if (!obj.multiple) {
-                        callback({id: '', text: penci_select2_localize.search_text});
+                        callback({id: '', text: goso_select2_localize.search_text});
                     }else{
 						callback({id: '', text: ''});
 					}
@@ -28,7 +28,7 @@
                         label.after('<span class="elementor-control-spinner">&nbsp;<i class="eicon-spinner eicon-animation-spin"></i>&nbsp;</span>');
                         $.ajax({
                             method: "POST",
-                            url: penci_select2_localize.ajaxurl + "?action=penci_select2_get_title",
+                            url: goso_select2_localize.ajaxurl + "?action=goso_select2_get_title",
                             data: {post_type: obj.data.source_type, source_name: obj.data.source_name, id: ids}
                         }).done(function (response) {
                             if (response.success && typeof response.data.results != 'undefined') {

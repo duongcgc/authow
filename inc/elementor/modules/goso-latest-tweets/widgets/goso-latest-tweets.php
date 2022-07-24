@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoLatestTweets extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-latest-tweets';
+		return 'goso-latest-tweets';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Latest Tweets', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Latest Tweets', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoLatestTweets extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -42,7 +42,7 @@ class GosoLatestTweets extends Base_Widget {
 		) );
 		$this->add_control( 'note_important', array(
 			'type'            => Controls_Manager::RAW_HTML,
-			'raw'             => sprintf( __( 'Note Important: To use this widget you need to connect your Twitter account <a target="_blank" href="%s">here</a>', 'authow' ), admin_url( 'admin.php?page=penci_twitter_token' ) ),
+			'raw'             => sprintf( __( 'Note Important: To use this widget you need to connect your Twitter account <a target="_blank" href="%s">here</a>', 'authow' ), admin_url( 'admin.php?page=goso_twitter_token' ) ),
 			'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 
 		) );
@@ -113,39 +113,39 @@ class GosoLatestTweets extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'condition' => [ 'tweets_style' => 'slider' ],
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-widget-content .icon-tweets' => 'margin-bottom: {{SIZE}}px;' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-widget-content .icon-tweets' => 'margin-bottom: {{SIZE}}px;' )
 		) );
 		$this->add_control( 'tweets_date_spacing', array(
 			'label'     => __( 'Tweet Date Spacing', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-widget-content .tweet-date' => 'margin-bottom: {{SIZE}}px;' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-widget-content .tweet-date' => 'margin-bottom: {{SIZE}}px;' )
 		) );
 		$this->add_control( 'tweets_title_spacing', array(
 			'label'     => __( 'Tweet Title Spacing', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-widget-content .tweet-text' => 'margin-bottom: {{SIZE}}px;' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-widget-content .tweet-text' => 'margin-bottom: {{SIZE}}px;' )
 		) );
 		$this->add_control( 'tweets_iconp_spacing', array(
 			'label'     => __( 'Reply / Retweet/ Favorite Links & Icons', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-widget-content .tweet-intents' => 'margin-top: {{SIZE}}px!important;' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-widget-content .tweet-intents' => 'margin-top: {{SIZE}}px!important;' )
 		) );
 		$this->add_control( 'tweets_nav_spacing', array(
 			'label'     => __( 'Tweet Dots Spacing', 'authow' ),
 			'condition' => [ 'tweets_style' => 'slider' ],
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-owl-carousel.penci-tweets-slider .owl-dots' => 'margin-top: {{SIZE}}px!important;' )
+			'selectors' => array( '{{WRAPPER}} .goso-owl-carousel.goso-tweets-slider .owl-dots' => 'margin-top: {{SIZE}}px!important;' )
 		) );
 		$this->add_control( 'tweets_items_spacing', array(
 			'label'     => __( 'Spacing Between Tweets Items', 'authow' ),
 			'condition' => [ 'tweets_style!' => 'slider' ],
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-lists .penci-tweet:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px / 2);padding-bottom:calc({{SIZE}}px / 2)' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-lists .goso-tweet:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px / 2);padding-bottom:calc({{SIZE}}px / 2)' )
 		) );
 		$this->end_controls_section();
 
@@ -157,7 +157,7 @@ class GosoLatestTweets extends Base_Widget {
 			'label'     => __( 'General Border Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-lists .penci-tweet:not(:last-child)' => 'border-color: {{VALUE}};' )
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-lists .goso-tweet:not(:last-child)' => 'border-color: {{VALUE}};' )
 		) );
 		$this->add_control( 'tweets_text_headings', array(
 			'label' => __( 'Text', 'authow' ),
@@ -212,16 +212,16 @@ class GosoLatestTweets extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-tweets-widget-content .tweet-intents-inner:after'                                                                                                                                                         => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-tweets-widget-content .tweet-intents-inner:before'                                                                                                                                                        => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-tweets-widget-content .icon-tweets, {{WRAPPER}} .penci-tweets-widget-content .tweet-intents span:after, {{WRAPPER}} .penci-tweets-widget-content .tweet-intents a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-tweets-widget-content .tweet-intents-inner:after'                                                                                                                                                         => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-tweets-widget-content .tweet-intents-inner:before'                                                                                                                                                        => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-tweets-widget-content .icon-tweets, {{WRAPPER}} .goso-tweets-widget-content .tweet-intents span:after, {{WRAPPER}} .goso-tweets-widget-content .tweet-intents a' => 'color: {{VALUE}};',
 			)
 		) );
 		$this->add_responsive_control( 'tweets_link_size', array(
 			'label'     => __( 'Font size', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci-tweets-widget-content .tweet-intents a' => 'font-size: {{SIZE}}px' ),
+			'selectors' => array( '{{WRAPPER}} .goso-tweets-widget-content .tweet-intents a' => 'font-size: {{SIZE}}px' ),
 		) );
 		$this->add_control( 'tweets_dots_headings', array(
 			'label'     => __( 'Dots', 'authow' ),
@@ -233,14 +233,14 @@ class GosoLatestTweets extends Base_Widget {
 			'condition' => [ 'tweets_style' => 'slider' ],
 			'label'     => __( 'Background Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
-			'selectors' => array( '{{WRAPPER}} .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot span' => 'border-color: {{VALUE}};background-color:{{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot span' => 'border-color: {{VALUE}};background-color:{{VALUE}};' ),
 		) );
 		$this->add_control( 'tweets_dot_hcolor', array(
 			'condition' => [ 'tweets_style' => 'slider' ],
 			'label'     => __( 'Border and Background Active Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot:hover span,' . '{{WRAPPER}} .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}};background-color:{{VALUE}};'
+				'{{WRAPPER}} .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot:hover span,' . '{{WRAPPER}} .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}};background-color:{{VALUE}};'
 			),
 		) );
 
@@ -252,8 +252,8 @@ class GosoLatestTweets extends Base_Widget {
 
 	protected function render() {
 		$settings = $this->get_settings();
-		if ( function_exists( 'penci_getTweets' ) ) {
-			$tweets = penci_getTweets( 5 );
+		if ( function_exists( 'goso_getTweets' ) ) {
+			$tweets = goso_getTweets( 5 );
 			if ( empty( $tweets ) ) {
 				return;
 			}
@@ -262,13 +262,13 @@ class GosoLatestTweets extends Base_Widget {
 			$retweet  = $settings['tweets_retweet'];
 			$favorite = $settings['tweets_favorite'];
 
-			$css_class = 'penci-latest-tweets-widget';
+			$css_class = 'goso-latest-tweets-widget';
 			$style     = isset( $settings['tweets_style'] ) && $settings['tweets_style'] ? $settings['tweets_style'] : 'slider';
-			$classes   = 'slider' == $style ? 'penci-owl-carousel penci-owl-carousel-slider penci-tweets-slider' : 'penci-tweets-lists';
+			$classes   = 'slider' == $style ? 'goso-owl-carousel goso-owl-carousel-slider goso-tweets-slider' : 'goso-tweets-lists';
 			?>
             <div class="<?php echo esc_attr( $css_class ); ?>">
 				<?php $this->markup_block_title( $settings, $this ); ?>
-                <div class="penci-block_content">
+                <div class="goso-block_content">
 					<?php
 					if ( isset( $tweets['error'] ) ) {
 						echo 'Missing Twitter API Keys - please connect your Twitter Account by go to admin > Authow > Connect Twitter';
@@ -276,9 +276,9 @@ class GosoLatestTweets extends Base_Widget {
 						$rtl_align = is_rtl() ? 'pc_alignright' : 'pc_alignleft';
 						$align     = $style == 'slider' ? $settings['tweets_align'] : $rtl_align;
 						?>
-                        <div class="penci-tweets-widget-content <?php echo esc_attr( $align ); ?>">
+                        <div class="goso-tweets-widget-content <?php echo esc_attr( $align ); ?>">
 							<?php if ( $style == 'slider' ): ?>
-                                <span class="icon-tweets"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></span>
+                                <span class="icon-tweets"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></span>
 							<?php endif; ?>
                             <div class="<?php echo esc_attr( $classes ); ?>" data-dots="true"
                                  data-nav="false" data-auto="<?php if ( $settings['tweets_dis_auto'] ) {
@@ -301,7 +301,7 @@ class GosoLatestTweets extends Base_Widget {
 										}
 									}
 									?>
-                                    <div class="penci-tweet">
+                                    <div class="goso-tweet">
 
 										<?php if ( $style == 'list' ):
 											$reply = '<i class="fa fa-reply" aria-hidden="true"></i>';

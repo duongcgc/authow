@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $title_page          = $page_url = $page_height = $hide_faces = $hide_stream = '';
 $heading_title_style = $heading = $heading_title_link = $heading_title_align = '';
@@ -10,13 +10,13 @@ extract( $atts );
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
 
-$css_class = 'penci-block-vc penci_instagram_widget-sc penci_instagram_widget penci_insta-' .  ( isset( $atts['template'] ) ? $atts['template'] : '' );
+$css_class = 'goso-block-vc goso_instagram_widget-sc goso_instagram_widget goso_insta-' .  ( isset( $atts['template'] ) ? $atts['template'] : '' );
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'instagram' );
 ?>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 	<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-	<div class="penci-block_content">
+	<div class="goso-block_content">
 		<?php
 		$defaults = array(
 			'title'            => '',

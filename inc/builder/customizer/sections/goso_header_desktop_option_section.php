@@ -1,9 +1,9 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => "penci_header_overlap_setting",
+	'id'       => "goso_header_overlap_setting",
 	'default'  => 'disable',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
 		'disable' => 'No',
@@ -12,9 +12,9 @@ $options[] = array(
 	'label'    => __( 'Enable Transparent Header( Overlap Header )', 'authow' ),
 );
 $options[] = array(
-	'id'       => "penci_header_wrap_all",
+	'id'       => "goso_header_wrap_all",
 	'default'  => 'disable',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
 		'disable' => 'No',
@@ -23,10 +23,10 @@ $options[] = array(
 	'label'    => __( 'Enable Boxed Header ?', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_shadow",
+	'id'        => "goso_header_shadow",
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'choices'   => [
 		'disable' => 'No',
@@ -35,10 +35,10 @@ $options[] = array(
 	'label'     => __( 'Enable Header Shadow ?', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_wrap_width",
+	'id'        => "goso_header_wrap_width",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'choices'   => [
 		'container-normal' => '1170px',
@@ -47,12 +47,12 @@ $options[] = array(
 	],
 	'label'     => __( 'Select Width for Boxed Header', 'authow' ),
 );
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_overlap_setting', array(
-	'selector'            => ".penci_header.penci-header-builder",
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_overlap_setting', array(
+	'selector'            => ".goso_header.goso-header-builder",
 	'settings'            => [
-		'penci_header_wrap_width',
-		'penci_header_shadow',
-		'penci_header_overlap_setting'
+		'goso_header_wrap_width',
+		'goso_header_shadow',
+		'goso_header_overlap_setting'
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {
@@ -61,14 +61,14 @@ $options[] = array(
 	'fallback_refresh'    => false,
 ) );*/
 $options[] = array(
-	'id'        => "penci_header_wrap_custom_width",
+	'id'        => "goso_header_wrap_custom_width",
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Boxed Header Custom Width', 'authow' ),
 	'ids'       => array(
-		'desktop' => "penci_header_wrap_custom_width",
+		'desktop' => "goso_header_wrap_custom_width",
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -81,11 +81,11 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_spacing_setting',
+	'id'        => 'goso_header_spacing_setting',
 	'type'      => 'authow-fw-box-model',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_custom_sanitization',
+	'sanitize'  => 'goso_custom_sanitization',
 	'label'     => esc_html__( 'Spacing & Borders', 'authow' ),
 	'choices'   => array(
 		'margin'        => array(
@@ -115,18 +115,18 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_border_color',
+	'id'        => 'goso_header_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => __( 'Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_border_style',
+	'id'        => 'goso_header_border_style',
 	'default'   => 'solid',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( ' Borders Style', 'authow' ),
 	'choices'   => [

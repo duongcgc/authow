@@ -15,10 +15,10 @@ class Goso_Gutenberg_Authow_Popular_Posts {
 			}
 		}
 
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Popular Posts', esc_html__( 'Click to edit this block', 'authow' ) );
 		$output .= do_shortcode( '[popular_posts  ' . $param . ']' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .= '</div><!--endgoso-block-->';
 
 		return $output;
 	}

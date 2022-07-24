@@ -1,13 +1,13 @@
 <?php
 /**
- * Callback for new param 'penci_heading_title'.
+ * Callback for new param 'goso_heading_title'.
  *
  * @param array $settings
  * @param string $value
  *
  * @return string
  */
-function penci_vc_param_heading_title( $settings, $value ) {
+function goso_vc_param_heading_title( $settings, $value ) {
 	$heading     = isset( $settings['heading'] ) ? esc_attr( $settings['heading'] ) : '';
 	$description = isset( $settings['description'] ) ? esc_attr( $settings['description'] ) : '';
 	$type        = isset( $settings['type'] ) ? esc_attr( $settings['type'] ) : '';
@@ -15,7 +15,7 @@ function penci_vc_param_heading_title( $settings, $value ) {
 
 	$out = '';
 
-	$out .= '<div class="penci-vc-heading-title ' . esc_attr( $type ) . '">';
+	$out .= '<div class="goso-vc-heading-title ' . esc_attr( $type ) . '">';
 
 	if ( $heading ) {
 		$out .= '<h4 class="heading">' . esc_attr( $heading ) . '</h4>';

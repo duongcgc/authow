@@ -31,7 +31,7 @@ class GosoProductHotspot extends Widget_Base {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_product_hotspot';
+		return 'goso_product_hotspot';
 	}
 
 	/**
@@ -43,7 +43,7 @@ class GosoProductHotspot extends Widget_Base {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' - Product Hotspot', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' - Product Hotspot', 'authow' );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class GosoProductHotspot extends Widget_Base {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -247,9 +247,9 @@ class GosoProductHotspot extends Widget_Base {
 			'product_id',
 			[
 				'label'       => esc_html__( 'Select product', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_posts_by_query',
-				'render'      => 'penci_get_posts_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_posts_by_query',
+				'render'      => 'goso_get_posts_title_by_id',
 				'post_type'   => 'product',
 				'multiple'    => false,
 				'label_block' => true,
@@ -284,7 +284,7 @@ class GosoProductHotspot extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}}.penci-image-hotspot' => 'left: {{SIZE}}%;',
+					'{{WRAPPER}} {{CURRENT_ITEM}}.goso-image-hotspot' => 'left: {{SIZE}}%;',
 				],
 			]
 		);
@@ -305,7 +305,7 @@ class GosoProductHotspot extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}}.penci-image-hotspot' => 'top: {{SIZE}}%;',
+					'{{WRAPPER}} {{CURRENT_ITEM}}.goso-image-hotspot' => 'top: {{SIZE}}%;',
 				],
 			]
 		);
@@ -414,7 +414,7 @@ class GosoProductHotspot extends Widget_Base {
 				'label'     => __( 'Hotspot Shadow Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-image-hotspot' => 'box-shadow: 0 0 3px {{VALUE}};',
+					'{{WRAPPER}} .goso-image-hotspot' => 'box-shadow: 0 0 3px {{VALUE}};',
 				],
 			)
 		);
@@ -431,7 +431,7 @@ class GosoProductHotspot extends Widget_Base {
 			'item_title_color', array(
 				'label'     => __( 'Product Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .hotspot-content .penci-product-title a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .hotspot-content .goso-product-title a' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -439,7 +439,7 @@ class GosoProductHotspot extends Widget_Base {
 			'item_title_hover_color', array(
 				'label'     => __( 'Product Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .hotspot-content .penci-product-title a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .hotspot-content .goso-product-title a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -447,7 +447,7 @@ class GosoProductHotspot extends Widget_Base {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'item_title_typo',
 				'label'    => __( 'Product Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .hotspot-content .penci-product-title',
+				'selector' => '{{WRAPPER}} .hotspot-content .goso-product-title',
 			)
 		);
 
@@ -534,7 +534,7 @@ class GosoProductHotspot extends Widget_Base {
 			[
 				'wrapper' => [
 					'class' => [
-						'penci-image-hotspot-wrapper',
+						'goso-image-hotspot-wrapper',
 						'hotspot-action-' . $settings['action'],
 						'hotspot-icon-' . $settings['icon'],
 					],
@@ -543,15 +543,15 @@ class GosoProductHotspot extends Widget_Base {
 		);
 
 		if ( isset( $settings['image']['id'] ) && $settings['image']['id'] ) {
-			$image_url    = penci_get_image_url( $settings['image']['id'], 'image', $settings );
-			$image_output = '<img class="penci-image-hotspot-img" src="' . esc_url( $image_url ) . '">';
+			$image_url    = goso_get_image_url( $settings['image']['id'], 'image', $settings );
+			$image_output = '<img class="goso-image-hotspot-img" src="' . esc_url( $image_url ) . '">';
 		} elseif ( isset( $settings['image']['url'] ) ) {
-			$image_output = '<img class="penci-image-hotspot-img" src="' . esc_url( $settings['image']['url'] ) . '">';
+			$image_output = '<img class="goso-image-hotspot-img" src="' . esc_url( $settings['image']['url'] ) . '">';
 		}
 
 		?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-            <div class="penci-image-hotspot-hotspots">
+            <div class="goso-image-hotspot-hotspots">
 				<?php if ( $image_output ) : ?>
 					<?php echo $image_output; // phpcs:ignore ?>
 				<?php endif; ?>
@@ -603,18 +603,18 @@ class GosoProductHotspot extends Widget_Base {
 					}
 
 					if ( 'text' === $settings['hotspot_type'] && ( $settings['title'] || $settings['content'] || $settings['link_text'] || isset( $settings['image']['id'] ) ) ) {
-						$attributes   = penci_get_link_attrs( $settings['link'] );
+						$attributes   = goso_get_link_attrs( $settings['link'] );
 						$image_output = '';
 
 						if ( isset( $settings['image']['id'] ) && $settings['image']['id'] ) {
-							$image_output = penci_get_image_html( $settings, 'image' );
+							$image_output = goso_get_image_html( $settings, 'image' );
 						}
 					}
 
 					?>
-                    <div class="woocommerce penci-image-hotspot hotspot-type-<?php echo esc_attr( $settings['hotspot_type'] ); ?> elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
+                    <div class="woocommerce goso-image-hotspot hotspot-type-<?php echo esc_attr( $settings['hotspot_type'] ); ?> elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
                         <span class="hotspot-sonar"></span>
-                        <div class="hotspot-btn penci-fill"></div>
+                        <div class="hotspot-btn goso-fill"></div>
 
 						<?php if ( 'product' === $settings['hotspot_type'] && isset( $product ) && $product ) : ?>
                             <div class="hotspot-product hotspot-content hotspot-dropdown-<?php echo esc_attr( $settings['hotspot_dropdown_side'] ); ?>">
@@ -624,7 +624,7 @@ class GosoProductHotspot extends Widget_Base {
                                     </a>
                                 </div>
 
-                                <h4 class="penci-product-title">
+                                <h4 class="goso-product-title">
                                     <a href="<?php echo esc_url( get_permalink( $product->get_ID() ) ); ?>">
 										<?php echo esc_html( $product->get_title() ); ?>
                                     </a>
@@ -649,7 +649,7 @@ class GosoProductHotspot extends Widget_Base {
 									<?php echo $image_output; ?>
                                 </div>
 
-                                <h4 class="penci-product-title">
+                                <h4 class="goso-product-title">
 									<?php echo esc_html( $settings['title'] ); ?>
                                 </h4>
 

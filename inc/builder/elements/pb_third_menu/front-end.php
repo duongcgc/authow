@@ -1,7 +1,7 @@
 <?php
-$menu_id = penci_get_builder_mod( 'penci_header_pb_third_menu_name', false );
+$menu_id = goso_get_builder_mod( 'goso_header_pb_third_menu_name', false );
 if ( is_page() ) {
-	$pmeta_page_header = get_post_meta( get_the_ID(), 'penci_pmeta_page_header', true );
+	$pmeta_page_header = get_post_meta( get_the_ID(), 'goso_pmeta_page_header', true );
 	if ( isset( $pmeta_page_header['main_nav_menu'] ) && $pmeta_page_header['main_nav_menu'] ) {
 		$menu_id = $pmeta_page_header['main_nav_menu'];
 	}
@@ -9,16 +9,16 @@ if ( is_page() ) {
 $classes = [];
 
 $classes[] = 'navigation';
-$classes[] = get_theme_mod( 'penci_header_menu_style', 'menu-style-1' );
-$classes[] = penci_get_builder_mod( 'penci_header_pb_third_menu_class', 'no-class' );
-$classes[] = 'enable' == penci_get_builder_mod( 'penci_header_pb_third_menu_penci_header_enable_padding', false ) ? 'menu-item-padding' : 'menu-item-normal';
-$classes[] = 'enable' == penci_get_builder_mod( 'penci_header_pb_third_menu_penci_header_remove_line_hover' ) ? 'pcremove-lineh' : '';
+$classes[] = get_theme_mod( 'goso_header_menu_style', 'menu-style-1' );
+$classes[] = goso_get_builder_mod( 'goso_header_pb_third_menu_class', 'no-class' );
+$classes[] = 'enable' == goso_get_builder_mod( 'goso_header_pb_third_menu_goso_header_enable_padding', false ) ? 'menu-item-padding' : 'menu-item-normal';
+$classes[] = 'enable' == goso_get_builder_mod( 'goso_header_pb_third_menu_goso_header_remove_line_hover' ) ? 'pcremove-lineh' : '';
 
 if ( $menu_id || is_customize_preview() ) {
 	?>
     <div class="pc-builder-element pc-builder-menu pc-third-menu">
         <nav class="<?php echo implode( ' ', $classes ); ?>" role="navigation"
-		     <?php if ( ! penci_get_builder_mod( 'penci_schema_sitenav' ) ): ?>itemscope
+		     <?php if ( ! goso_get_builder_mod( 'goso_schema_sitenav' ) ): ?>itemscope
              itemtype="https://schema.org/SiteNavigationElement"<?php endif; ?>>
 
 			<?php
@@ -27,8 +27,8 @@ if ( $menu_id || is_customize_preview() ) {
 					'menu'        => $menu_id,
 					'container'   => false,
 					'menu_class'  => 'menu',
-					'fallback_cb' => 'penci_menu_fallback',
-					'walker'      => new penci_menu_walker_nav_menu()
+					'fallback_cb' => 'goso_menu_fallback',
+					'walker'      => new goso_menu_walker_nav_menu()
 				) );
 			}
 			?>

@@ -1,13 +1,13 @@
 <?php
 vc_map(
 	array(
-		'name'                    => penci_get_theme_name('Goso').' '.esc_html__( 'Product Tabs', 'authow' ),
-		'base'                    => 'penci_product_tabs',
-		'as_parent'               => array( 'only' => 'penci_product_tab' ),
+		'name'                    => goso_get_theme_name('Goso').' '.esc_html__( 'Product Tabs', 'authow' ),
+		'base'                    => 'goso_product_tabs',
+		'as_parent'               => array( 'only' => 'goso_product_tab' ),
 		'content_element'         => true,
 		'show_settings_on_create' => true,
 		'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/product_tabs/frontend.php',
-		'category'                => penci_get_theme_name('Authow'),
+		'category'                => goso_get_theme_name('Authow'),
 		'description'             => esc_html__( 'Product tabs for your marketplace', 'authow' ),
 		'icon'                    => get_template_directory_uri() . '/images/vc-icon.png',
 		'params'                  => array(
@@ -296,14 +296,14 @@ vc_map(
 				'param_name' => 'hide_sale_label',
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'group'      => 'Product Style',
 				'heading'    => __( 'Product Item Vertical Spacing', 'authow' ),
 				'value'      => '',
 				'param_name' => 'item_vertical_spacing',
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'group'      => 'Product Style',
 				'heading'    => __( 'Product Item Horizontal Spacing', 'authow' ),
 				'value'      => '',

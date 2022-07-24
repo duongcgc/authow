@@ -139,17 +139,17 @@ export const edit = ( props ) => {
 				</PanelBody>
 			</InspectorControls>
 	        <ServerSideRender
-	            block="penci-gutenberg/portfolio"
+	            block="goso-gutenberg/portfolio"
 	            attributes={ props.attributes }
 	        />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/portfolio', {
+registerBlockType( 'goso-gutenberg/portfolio', {
 	title: __( 'Goso: Portfolio' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

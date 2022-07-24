@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSocialCounter extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-social-counter';
+		return 'goso-social-counter';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Social Counter', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Social Counter', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoSocialCounter extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -216,7 +216,7 @@ class GosoSocialCounter extends Base_Widget {
 					'label_off'   => __( 'Hide', 'authow' ),
 					'default'     => $pmeta['default'],
 					'separator'   => '',
-					'description' => __( 'Setup ' . esc_attr( $pmeta['label'] ) . ' counter data <a target="_blank" href="' . esc_url( admin_url( 'admin.php?page=penci_social_counter_settings#tab-' . $key ) ) . '">here</a>.' ),
+					'description' => __( 'Setup ' . esc_attr( $pmeta['label'] ) . ' counter data <a target="_blank" href="' . esc_url( admin_url( 'admin.php?page=goso_social_counter_settings#tab-' . $key ) ) . '">here</a>.' ),
 				)
 			);
 		}
@@ -462,7 +462,7 @@ class GosoSocialCounter extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class     = 'penci-block-vc penci-social-counter';
+		$css_class     = 'goso-block-vc goso-social-counter';
 		$wrapper_class = 'pcsoc-wrapper';
 		$social_style  = isset( $settings['social_style'] ) && $settings['social_style'] && in_array( $settings['social_style'], array(
 			's1',
@@ -555,7 +555,7 @@ class GosoSocialCounter extends Base_Widget {
 					$social_url      = isset( $social_info['url'] ) && $social_info['url'] ? $social_info['url'] : '';
 					// $count = '10000';
 					// $social_follower = 'Fans';
-					// $social_icon = '<i class="penci-faicon fa fa-facebook"></i>';
+					// $social_icon = '<i class="goso-faicon fa fa-facebook"></i>';
 					// $social_url = '#';
 					// $social_follow = 'Like';
 					?>
@@ -563,7 +563,7 @@ class GosoSocialCounter extends Base_Widget {
                         <a class="pcsoc-item pcsoci-<?php echo $social . $brand_class; ?><?php if ( ! $count ) {
 							echo ' empty-count';
 						} ?>" href="<?php echo esc_url( $social_url ); ?>"
-                           target="_blank" <?php echo penci_reltag_social_icons(); ?>>
+                           target="_blank" <?php echo goso_reltag_social_icons(); ?>>
                             <span class="pcsoc-icon pcsoci-<?php echo $social . $brand_class_icon; ?>"><?php echo $social_icon; ?></span>
 							<?php if ( $count && 'yes' != $settings['hide_count'] ) { ?>
                                 <span class="pcsoc-counter"><?php echo $count; ?></span>

@@ -24,7 +24,7 @@ class GosoProductCategories extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_product_categories';
+		return 'goso_product_categories';
 	}
 
 	/**
@@ -36,7 +36,7 @@ class GosoProductCategories extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Product Categories', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Product Categories', 'authow' );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class GosoProductCategories extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -129,9 +129,9 @@ class GosoProductCategories extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Categories', 'authow' ),
 				'description' => esc_html__( 'List of product categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'product_cat',
 				'multiple'    => true,
 				'label_block' => true,
@@ -403,7 +403,7 @@ class GosoProductCategories extends Base_Widget {
 			'style'                   => 'default',
 
 			// Design.
-			'categories_design'       => get_theme_mod( 'penci_woocommerce_product_cat_style', 'style-1' ),
+			'categories_design'       => get_theme_mod( 'goso_woocommerce_product_cat_style', 'style-1' ),
 
 			// Extra.
 			'slides_per_view'         => 3,
@@ -419,7 +419,7 @@ class GosoProductCategories extends Base_Widget {
 		$settings = wp_parse_args( $this->get_settings_for_display(), $default_settings );
 
 		if ( ! $settings['spacing'] ) {
-			$settings['spacing'] = get_theme_mod( 'penci-products_spacing' );
+			$settings['spacing'] = get_theme_mod( 'goso-products_spacing' );
 		}
 
 		// Query.
@@ -443,7 +443,7 @@ class GosoProductCategories extends Base_Widget {
 
 		$columns = 'default' == $settings['style'] ? $settings['columns'] : 1;
 
-		$style_class = ( 'default' == $settings['style'] || 'carousel' == $settings['style'] ) ? 'normal-grid' : 'penci-cat-grid';
+		$style_class = ( 'default' == $settings['style'] || 'carousel' == $settings['style'] ) ? 'normal-grid' : 'goso-cat-grid';
 
 		$loop_by_class = array(
 			'default'  => 1,
@@ -463,13 +463,13 @@ class GosoProductCategories extends Base_Widget {
 		wc_set_loop_prop( 'cat-loop-style', $settings['categories_design'] );
 		wc_set_loop_prop( 'elementor', true );
 
-		$carousel_id = 'penci_categories_' . rand( 1000, 9999 );
+		$carousel_id = 'goso_categories_' . rand( 1000, 9999 );
 
 		if ( 'carousel' === $settings['style'] ) {
 			$settings['scroll_per_page'] = 'yes';
 			$settings['carousel_id']     = $carousel_id;
 
-			$this->add_render_attribute( 'wrapper', 'class', 'penci-owl-carousel penci-owl-carousel-slider ' );
+			$this->add_render_attribute( 'wrapper', 'class', 'goso-owl-carousel goso-owl-carousel-slider ' );
 			$this->add_render_attribute( 'wrapper', 'data-item', isset( $settings['slides_per_view']['size'] ) ? $settings['slides_per_view']['size'] : 3 );
 			$this->add_render_attribute( 'wrapper', 'data-desktop', isset( $settings['slides_per_view']['size'] ) ? $settings['slides_per_view']['size'] : 3 );
 			$this->add_render_attribute( 'wrapper', 'data-dots', $settings['hide_pagination_control'] );
@@ -484,7 +484,7 @@ class GosoProductCategories extends Base_Widget {
 				$this->add_render_attribute( 'wrapper', 'class', 'scroll-init' );
 			}
 
-			if ( get_theme_mod( 'penci_disable_owl_mobile_devices' ) ) {
+			if ( get_theme_mod( 'goso_disable_owl_mobile_devices' ) ) {
 				$this->add_render_attribute( 'wrapper', 'class', 'disable-owl-mobile' );
 			}
 		}
@@ -506,7 +506,7 @@ class GosoProductCategories extends Base_Widget {
 		);
 		if ( $categories ) :
 			?>
-            <div class="woocommerce penci-product-categories">
+            <div class="woocommerce goso-product-categories">
 				<?php $this->markup_block_title( $this->get_settings(), $this ); ?>
                 <ul <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 					<?php if ( ! in_array( $settings['style'], array( 'default', 'carousel' ) ) )  { ?>

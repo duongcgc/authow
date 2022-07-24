@@ -60,17 +60,17 @@ class Size extends Control_Abstract {
 	 */
 	protected function content_template() {
 		?>
-        <div class="pencidesign-range-slider-control">
-            <div class="pencidesign-range-inner<# if ( ! data.choices['desktop']['unit'] ) { #> penci-wider-width<# } #>">
-                <div class="penci-range-lableparent">
+        <div class="gosodesign-range-slider-control">
+            <div class="gosodesign-range-inner<# if ( ! data.choices['desktop']['unit'] ) { #> goso-wider-width<# } #>">
+                <div class="goso-range-lableparent">
                     <# if ( data.label || data.description ) { #>
-                    <div class="penci-range-title-info">
+                    <div class="goso-range-title-info">
                         <# if ( data.label ) { #>
                         <span class="customize-control-title">{{{ data.label }}}</span>
                         <# } #>
 
                         <# if ( data.description ) { #>
-                        <p class="description penci-range-lable">{{{ data.description }}}</p>
+                        <p class="description goso-range-lable">{{{ data.description }}}</p>
                         <# } #>
                     </div>
                     <# } #>
@@ -79,31 +79,31 @@ class Size extends Control_Abstract {
                     <# } #>
                 </div>
 
-                <div class="penci-control-process">
-                    <div class="penci-range-title-area">
-                        <div class="penci-range-slider-controls">
-								<span class="penci-device-controls">
+                <div class="goso-control-process">
+                    <div class="goso-range-title-area">
+                        <div class="goso-range-slider-controls">
+								<span class="goso-device-controls">
 									<# if ( 'undefined' !== typeof ( data.desktop ) ) { #>
-										<span class="pencidesign-device-desktop dashicons dashicons-desktop"
+										<span class="gosodesign-device-desktop dashicons dashicons-desktop"
                                               data-option="desktop" title="{{ data.desktop_label }}"></span>
 									<# } #>
 
 									<# if ( 'undefined' !== typeof (data.mobile) ) { #>
-										<span class="pencidesign-device-mobile dashicons dashicons-smartphone"
+										<span class="gosodesign-device-mobile dashicons dashicons-smartphone"
                                               data-option="mobile" title="{{ data.mobile_label }}"></span>
 									<# } #>
 								</span>
 
                             <span title="{{ data.reset_label }}"
-                                  class="pencidesign-reset dashicons dashicons-image-rotate"></span>
+                                  class="gosodesign-reset dashicons dashicons-image-rotate"></span>
                         </div>
                     </div>
 
-                    <div class="penci-range-slider-areas">
+                    <div class="goso-range-slider-areas">
                         <# if ( 'undefined' !== typeof ( data.desktop ) ) { #>
                         <label class="range-option-area" data-option="desktop" style="display: none;">
                             <div class="wrapper <# if ( '' !== data.choices['desktop']['unit'] ) { #>has-unit<# } #>">
-                                <div class="penci_range_value <# if ( '' == data.choices['desktop']['unit'] && ! data.choices['desktop']['edit'] ) { #>hide-value<# } #>">
+                                <div class="goso_range_value <# if ( '' == data.choices['desktop']['unit'] && ! data.choices['desktop']['edit'] ) { #>hide-value<# } #>">
                                     <input <# if ( data.choices['desktop']['edit'] ) { #>style="display:inline-block;"<#
                                     } else { #>style="display:none;"<# } #> type="number" step="{{
                                     data.choices['desktop']['step'] }}" class="desktop-range value" value="{{
@@ -124,7 +124,7 @@ class Size extends Control_Abstract {
                         <# if ( 'undefined' !== typeof ( data.mobile ) ) { #>
                         <label class="range-option-area" data-option="mobile" style="display:none;">
                             <div class="wrapper <# if ( '' !== data.choices['mobile']['unit'] ) { #>has-unit<# } #>">
-                                <div class="penci_range_value <# if ( '' == data.choices['mobile']['unit'] && ! data.choices['desktop']['edit'] ) { #>hide-value<# } #>">
+                                <div class="goso_range_value <# if ( '' == data.choices['mobile']['unit'] && ! data.choices['desktop']['edit'] ) { #>hide-value<# } #>">
                                     <input <# if ( data.choices['mobile']['edit'] ) { #>style="display:inline-block;"<#
                                     } else { #>style="display:none;"<# } #> type="number" step="{{
                                     data.choices['mobile']['step'] }}" class="mobile-range value" value="{{

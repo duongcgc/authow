@@ -1,9 +1,9 @@
 <?php
-$vertical_line_section = 'penci_header_pb_vertical_line_1_section';
-$general_config        = 'penci_builder_mods';
+$vertical_line_section = 'goso_header_pb_vertical_line_1_section';
+$general_config        = 'goso_builder_mods';
 $options               = [];
 $options[]             = array(
-	'id'        => 'penci_header_pb_vertical_line1_width',
+	'id'        => 'goso_header_pb_vertical_line1_width',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
@@ -11,7 +11,7 @@ $options[]             = array(
 	'label'     => esc_html__( 'Vertical Line Width', 'authow' ),
 );
 $options[]             = array(
-	'id'        => 'penci_header_pb_vertical_line1_height',
+	'id'        => 'goso_header_pb_vertical_line1_height',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
@@ -19,7 +19,7 @@ $options[]             = array(
 	'label'     => esc_html__( 'Vertical Line Height', 'authow' ),
 );
 $options[]             = array(
-	'id'        => 'penci_header_pb_vertical_line1_color',
+	'id'        => 'goso_header_pb_vertical_line1_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -27,10 +27,10 @@ $options[]             = array(
 	'label'     => __( 'Vertical Line Color', 'authow' ),
 );
 $options[]             = array(
-	'id'        => 'penci_header_pb_vertical_line1_spacing',
+	'id'        => 'goso_header_pb_vertical_line1_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -43,22 +43,22 @@ $options[]             = array(
 	),
 );
 $options[]             = array(
-	'id'        => 'penci_header_pb_vertical_line1_class',
+	'id'        => 'goso_header_pb_vertical_line1_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );
 
 return $options;
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_pb_vertical_line1_width', array(
-	'selector'            => '.penci-vertical-line.vertical-line-1',
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_pb_vertical_line1_width', array(
+	'selector'            => '.goso-vertical-line.vertical-line-1',
 	'settings'            => [
-		'penci_header_pb_vertical_line1_width',
-		'penci_header_pb_vertical_line1_height',
-		'penci_header_pb_vertical_line1_color',
-		'penci_header_pb_vertical_line1_class',
+		'goso_header_pb_vertical_line1_width',
+		'goso_header_pb_vertical_line1_height',
+		'goso_header_pb_vertical_line1_color',
+		'goso_header_pb_vertical_line1_class',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

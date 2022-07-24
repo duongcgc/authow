@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_mailchimp",
+	'base'          => "goso_mailchimp",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/mailchimp/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Mailchimp', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Mailchimp', 'authow' ),
 	'description'   => 'Mailchimp Block',
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -26,7 +26,7 @@ vc_map( array(
 				'description' => sprintf( __( 'You can edit your sign-up form in the <a href="%s">MailChimp for WordPress form settings</a>.', 'authow' ), admin_url( 'admin.php?page=mailchimp-for-wp-forms' ) ),
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'mc4wp_des_width',
 				'heading'    => esc_html__( 'Description width', 'authow' ),
 				'value'      => '',
@@ -34,7 +34,7 @@ vc_map( array(
 				'min'        => 1,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'mc4wp_des_martop',
 				'heading'          => esc_html__( 'Margin top', 'authow' ),
 				'value'            => '',
@@ -43,7 +43,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'mc4wp_des_marbottom',
 				'heading'          => esc_html__( 'Margin bottom', 'authow' ),
 				'value'            => '',
@@ -61,7 +61,7 @@ vc_map( array(
 				'heading'          => esc_html__( ' Sign-up form colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',

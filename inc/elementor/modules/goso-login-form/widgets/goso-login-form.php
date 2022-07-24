@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoLoginForm extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-login-form';
+		return 'goso-login-form';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Login/Register Form', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Login/Register Form', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoLoginForm extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -80,14 +80,14 @@ class GosoLoginForm extends Base_Widget {
 				'label'     => __( 'Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-user-login' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-user-login' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pformtext_typo',
 				'label'    => __( 'Description Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-user-login',
+				'selector' => '{{WRAPPER}} .goso-user-login',
 			)
 		);
 		$this->add_control(
@@ -97,14 +97,14 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="text"]'     => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="email"]'    => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="url"]'      => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="password"]' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="text"]'        => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="email"]'       => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="url"]'         => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="password"]'    => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="text"]'     => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="email"]'    => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="url"]'      => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="password"]' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="text"]'        => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="email"]'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="url"]'         => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="password"]'    => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -129,14 +129,14 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="text"]'     => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="email"]'    => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="url"]'      => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="password"]' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="text"]'        => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="email"]'       => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="url"]'         => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="password"]'    => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="text"]'     => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="email"]'    => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="url"]'      => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="password"]' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="text"]'        => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="email"]'       => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="url"]'         => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="password"]'    => 'border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -147,14 +147,14 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="text"]'     => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="email"]'    => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="url"]'      => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-register-wrap input[type="password"]' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="text"]'        => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="email"]'       => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="url"]'         => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="password"]'    => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="text"]'     => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="email"]'    => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="url"]'      => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="password"]' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="text"]'        => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="email"]'       => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="url"]'         => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="password"]'    => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -162,7 +162,7 @@ class GosoLoginForm extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pinput_typo',
 				'label'    => __( 'Input Typography', 'authow' ),
-				'selector' => '{{WRAPPER}}  .penci-register-wrap input[type="text"],{{WRAPPER}}  .penci-register-wrap input[type="email"],{{WRAPPER}}  .penci-register-wrap input[type="password"],{{WRAPPER}}  .penci-user-login input[type="text"],{{WRAPPER}}  .penci-user-login input[type="email"],{{WRAPPER}}  .penci-user-login input[type="password"]'
+				'selector' => '{{WRAPPER}}  .goso-register-wrap input[type="text"],{{WRAPPER}}  .goso-register-wrap input[type="email"],{{WRAPPER}}  .goso-register-wrap input[type="password"],{{WRAPPER}}  .goso-user-login input[type="text"],{{WRAPPER}}  .goso-user-login input[type="email"],{{WRAPPER}}  .goso-user-login input[type="password"]'
 			)
 		);
 		$this->add_control(
@@ -171,7 +171,7 @@ class GosoLoginForm extends Base_Widget {
 				'label'     => __( 'Button Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-register-wrap input[type="submit"],{{WRAPPER}} .penci-user-login input[type="submit"], .penci-user-logged-in .penci-user-action-links a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-register-wrap input[type="submit"],{{WRAPPER}} .goso-user-login input[type="submit"], .goso-user-logged-in .goso-user-action-links a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -181,9 +181,9 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="submit"]'        => 'background-color: {{VALUE}};border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="submit"]'           => 'background-color: {{VALUE}};border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-logged-in .penci-user-action-links a' => 'background-color: {{VALUE}};border-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-register-wrap input[type="submit"]'        => 'background-color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="submit"]'           => 'background-color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-logged-in .goso-user-action-links a' => 'background-color: {{VALUE}};border-color: {{VALUE}};'
 				),
 			)
 		);
@@ -194,9 +194,9 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="submit"]:hover'        => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="submit"]:hover'           => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-logged-in .penci-user-action-links a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-register-wrap input[type="submit"]:hover'        => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="submit"]:hover'           => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-logged-in .goso-user-action-links a:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -207,9 +207,9 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-register-wrap input[type="submit"]:hover'        => 'background-color: {{VALUE}};border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-login input[type="submit"]:hover'           => 'background-color: {{VALUE}};border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-user-logged-in .penci-user-action-links a:hover' => 'background-color: {{VALUE}};border-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-register-wrap input[type="submit"]:hover'        => 'background-color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-login input[type="submit"]:hover'           => 'background-color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-user-logged-in .goso-user-action-links a:hover' => 'background-color: {{VALUE}};border-color: {{VALUE}};'
 				),
 			)
 		);
@@ -218,7 +218,7 @@ class GosoLoginForm extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'psubmitbtn_typo',
 				'label'    => __( 'Button Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-register-wrap input[type="submit"],{{WRAPPER}} .penci-user-login input[type="submit"],{{WRAPPER}} .penci-user-logged-in .penci-user-action-links a'
+				'selector' => '{{WRAPPER}} .goso-register-wrap input[type="submit"],{{WRAPPER}} .goso-user-login input[type="submit"],{{WRAPPER}} .goso-user-logged-in .goso-user-action-links a'
 			)
 		);
 		
@@ -229,7 +229,7 @@ class GosoLoginForm extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-loginform-extra a'        => 'color: {{VALUE}};border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-loginform-extra a'        => 'color: {{VALUE}};border-color: {{VALUE}};',
 				),
 			)
 		);
@@ -245,32 +245,32 @@ class GosoLoginForm extends Base_Widget {
 
 		$form_type = $settings['form_style'];
 
-		$css_class  = 'penci-block-vc penci-login-register';
+		$css_class  = 'goso-block-vc goso-login-register';
 
 		$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 		if( ! is_user_logged_in() || ( $form_type != 'register' && is_user_logged_in() ) ){
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
-				<div class="penci-login-wrap penci-user-login clearfix<?php echo( 'login' != $form_type ? ' hidden' : '' ); ?>">
+			<div class="goso-block_content">
+				<div class="goso-login-wrap goso-user-login clearfix<?php echo( 'login' != $form_type ? ' hidden' : '' ); ?>">
 					<?php
 					if ( ! is_user_logged_in() ) {
 						\Goso_Vc_Helper::_login_form();
 					} else {
 						$current_user = wp_get_current_user();
 						?>
-						<div class="penci-user-logged-in">
-							<div class="penci-login-header">
-								<div class="penci-login-avatar">
+						<div class="goso-user-logged-in">
+							<div class="goso-login-header">
+								<div class="goso-login-avatar">
 									<?php echo get_avatar( $current_user->ID, 85 ); ?>
 								</div>
 								<p>
-									<span class="penci-text-hello"><?php echo penci_get_setting( 'penci_trans_hello_text' ); ?></span>
-									<span class="penci-display_name"><?php echo $current_user->display_name; ?></span>
+									<span class="goso-text-hello"><?php echo goso_get_setting( 'goso_trans_hello_text' ); ?></span>
+									<span class="goso-display_name"><?php echo $current_user->display_name; ?></span>
 								</p>
 							</div>
-							<div class="penci-user-action-links">
+							<div class="goso-user-action-links">
 								<?php
 								if ( class_exists( 'bbpress' ) ) {
 									$profile_url = bbp_get_user_profile_url( bbp_get_current_user_id() );
@@ -278,8 +278,8 @@ class GosoLoginForm extends Base_Widget {
 									$profile_url = get_edit_user_link();
 								}
 								?>
-								<a class="penci-button penci-button-ptofile" href="<?php echo $profile_url; ?>"><?php penci_fawesome_icon('far fa-user-circle'); ?> <?php echo penci_get_setting( 'penci_trans_profile_text' ); ?></a>
-								<a class="penci-button penci-button-logout" href="<?php echo wp_logout_url( $current_url ); ?>"><?php penci_fawesome_icon('fas fa-sign-out-alt'); ?> <?php echo penci_get_setting( 'penci_trans_logout_text' ); ?></a>
+								<a class="goso-button goso-button-ptofile" href="<?php echo $profile_url; ?>"><?php goso_fawesome_icon('far fa-user-circle'); ?> <?php echo goso_get_setting( 'goso_trans_profile_text' ); ?></a>
+								<a class="goso-button goso-button-logout" href="<?php echo wp_logout_url( $current_url ); ?>"><?php goso_fawesome_icon('fas fa-sign-out-alt'); ?> <?php echo goso_get_setting( 'goso_trans_logout_text' ); ?></a>
 							</div>
 						</div>
 						<?php
@@ -287,40 +287,40 @@ class GosoLoginForm extends Base_Widget {
 					?>
 				</div>
 				<?php if( ! is_user_logged_in() && get_option( 'users_can_register' ) ){ ?>
-				<div class="penci-register-wrap clearfix<?php echo( 'register' != $form_type ? ' hidden' : '' ); ?>">
-					<div class="penci-register-container">
-						<form name="form" id="penci-registration-form" class="penci-registration-form" action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post" novalidate="novalidate">
-							<input type="hidden" name="_wpnonce" class="penci_form_nonce" value="<?php echo wp_create_nonce( 'register' ); ?>">
+				<div class="goso-register-wrap clearfix<?php echo( 'register' != $form_type ? ' hidden' : '' ); ?>">
+					<div class="goso-register-container">
+						<form name="form" id="goso-registration-form" class="goso-registration-form" action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post" novalidate="novalidate">
+							<input type="hidden" name="_wpnonce" class="goso_form_nonce" value="<?php echo wp_create_nonce( 'register' ); ?>">
 							<p class="register-input">
-								<input class="penci_first_name penci-input" name="penci_first_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_first_name' ); ?>"/>
+								<input class="goso_first_name goso-input" name="goso_first_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_first_name' ); ?>"/>
 							</p>
 							<p class="register-input">
-								<input class="penci_last_name penci-input" name="penci_last_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_last_name' ); ?>"/>
+								<input class="goso_last_name goso-input" name="goso_last_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_last_name' ); ?>"/>
 							</p>
 							<p class="register-input">
-								<input class="penci_user_name penci-input" name="penci_user_name" type="text" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_name' ); ?>"/>
+								<input class="goso_user_name goso-input" name="goso_user_name" type="text" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_name' ); ?>"/>
 							</p>
 							<p class="register-input">
-								<input class="penci_user_email penci-input" name="penci_user_email" type="email" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_email' ); ?>"/>
+								<input class="goso_user_email goso-input" name="goso_user_email" type="email" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_email' ); ?>"/>
 							</p>
 							<p class="register-input">
-								<input class="penci_user_pass penci-input" name="penci_user_pass" type="password" placeholder="<?php echo penci_get_setting( 'penci_pregister_user_pass' ); ?>"/>
+								<input class="goso_user_pass goso-input" name="goso_user_pass" type="password" placeholder="<?php echo goso_get_setting( 'goso_pregister_user_pass' ); ?>"/>
 							</p>
 							<p class="register-input">
-								<input class="penci_user_pass_confirm penci-input" name="penci_user_pass_confirm" type="password" placeholder="<?php echo penci_get_setting( 'penci_pregister_pass_confirm' ); ?>"/>
+								<input class="goso_user_pass_confirm goso-input" name="goso_user_pass_confirm" type="password" placeholder="<?php echo goso_get_setting( 'goso_pregister_pass_confirm' ); ?>"/>
 							</p>
 							<?php do_action( 'register_form' ); ?>
 							<p class="register-input">
-								<input type="submit" name="penci_submit" class="button" value="<?php echo penci_get_setting( 'penci_pregister_button_submit' ); ?>"/>
+								<input type="submit" name="goso_submit" class="button" value="<?php echo goso_get_setting( 'goso_pregister_button_submit' ); ?>"/>
 							</p>
 						</form>
 						<?php
-						echo '<div class="penci-loginform-extra"><a class="penci-user-login-here" href="' . esc_url( wp_login_url() ) . '">' . penci_get_setting( 'penci_pregister_label_registration' ) . '</a></div>';
+						echo '<div class="goso-loginform-extra"><a class="goso-user-login-here" href="' . esc_url( wp_login_url() ) . '">' . goso_get_setting( 'goso_pregister_label_registration' ) . '</a></div>';
 						?>
 					</div>
 				</div>
 				<?php } ?>
-				<div class="penci-loading-icon"><?php penci_fawesome_icon('fas fa-spinner fa-pulse fa-3x fa-fw'); ?></div>
+				<div class="goso-loading-icon"><?php goso_fawesome_icon('fas fa-spinner fa-pulse fa-3x fa-fw'); ?></div>
 			</div>
 		</div>
 		<?php

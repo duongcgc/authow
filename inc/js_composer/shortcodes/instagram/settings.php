@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_instagram",
+	'base'          => "goso_instagram",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/instagram/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Instagram Feed', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Instagram Feed', 'authow' ),
 	'description'   => 'Instagram Block',
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -18,7 +18,7 @@ vc_map( array(
 				'param_name'       => 'heading_meta_settings',
 				'heading'          => esc_html__( 'You need to connect to your Instagram account via "Dashboard > Authow > Connect Instagram" first.', 'authow' ),
 				'value'            => '',
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'       => 'dropdown',

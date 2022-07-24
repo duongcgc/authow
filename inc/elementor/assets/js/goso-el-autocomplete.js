@@ -81,5 +81,5 @@ jQuery(window).on('elementor:init', function () {
             this.$el.remove();
         },
     });
-    elementor.addControlView('penci_el_autocomplete', postSearch);
+    elementor.addControlView('goso_el_autocomplete', postSearch);
 });

@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoMap extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-map';
+		return 'goso-map';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Map', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Map', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoMap extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -48,10 +48,10 @@ class GosoMap extends Base_Widget {
 			'map_api', array(
 				'label'   => __( 'Google Map API key', 'authow' ),
 				'type'    => Controls_Manager::HIDDEN,
-				'default' => get_theme_mod( 'penci_map_api_key', '' ),
+				'default' => get_theme_mod( 'goso_map_api_key', '' ),
 			)
 		);
-		$query['autofocus[control]'] = 'penci_map_api_key';
+		$query['autofocus[control]'] = 'goso_map_api_key';
 		$google_map_api_link         = add_query_arg( $query, admin_url( 'customize.php' ) );
 		$this->add_control(
 			'map_desc',
@@ -204,7 +204,7 @@ class GosoMap extends Base_Widget {
 
 
 		$default = array(
-			'penci_block_width' => '3',
+			'goso_block_width' => '3',
 			'shortcode_id'      => 'map',
 			'map_using'         => '',
 			'address'           => '',
@@ -229,7 +229,7 @@ class GosoMap extends Base_Widget {
 
 		$atts = shortcode_atts( $default, $settings );
 
-		$css_class = 'penci-block-vc penci-google-map';
+		$css_class = 'goso-block-vc goso-google-map';
 
 		$width  = isset( $settings['map_width']['size'] ) && $settings['map_width']['size'] ? $settings['map_width']['size'] . $settings['map_width']['unit'] : '100%';
 		$height = intval( $settings['map_height'] ) ? $settings['map_height'] . 'px' : '500px';
@@ -239,9 +239,9 @@ class GosoMap extends Base_Widget {
 
 		$option = htmlentities( json_encode( $atts ), ENT_QUOTES, "UTF-8" );
 
-		$block_id = 'penci_map_' . rand( 1000, 100000 );
+		$block_id = 'goso_map_' . rand( 1000, 100000 );
 
-		$map_api = get_theme_mod( 'penci_map_api_key' );
+		$map_api = get_theme_mod( 'goso_map_api_key' );
 
 		if ( 'address' == $settings['map_using'] ) {
 			$map_address = $settings['address'];
@@ -259,7 +259,7 @@ class GosoMap extends Base_Widget {
 			];
 			$map_url   = 'https://maps.google.com/maps?q=%1$s&amp;t=m&amp;z=%2$d&amp;output=embed&amp;iwloc=near&amp;maptype=%3$s';
 			$map_url   = esc_url( vsprintf( $map_url, $params ) );
-			$css_class = 'penci-block-vc penci-lazy no-api';
+			$css_class = 'goso-block-vc goso-lazy no-api';
 			printf( '<iframe style="width:%s;height:%s" id="%s" class="%s" data-src="%s"></iframe>', $width, $height, $block_id, $css_class, $map_url );
 		}
 	}

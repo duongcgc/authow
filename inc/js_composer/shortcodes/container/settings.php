@@ -1,11 +1,11 @@
 <?php
 vc_map( array(
-	'base'                    => 'penci_container',
+	'base'                    => 'goso_container',
 	'class'                   => '',
 	'icon'                    => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'                => penci_get_theme_name('Authow'),
+	'category'                => goso_get_theme_name('Authow'),
 	'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/container/frontend.php',
-	'name'                    => penci_get_theme_name('Goso').' '.__( 'Container', 'authow' ),
+	'name'                    => goso_get_theme_name('Goso').' '.__( 'Container', 'authow' ),
 	'description'             => esc_html__( 'Place content elements inside the container', 'js_composer' ),
 	'weight'                  => 1000,
 	'is_container'            => true,
@@ -66,5 +66,5 @@ vc_map( array(
 		),
 	),
 	'js_view'                 => 'VcGosoContainerView',
-	'default_content'         => '[penci_column width="11"][/penci_column]',
+	'default_content'         => '[goso_column width="11"][/goso_column]',
 ) );

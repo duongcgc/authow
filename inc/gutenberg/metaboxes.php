@@ -13,10 +13,10 @@ if ( ! class_exists( 'Goso_Gutenberg_Post_Format' ) ):
 		}
 
 		public function add_metabox( $post_type ) {
-			add_meta_box( 'penci-gutenberg-format', esc_html__( 'Post Format Data', 'authow' ), array( $this, 'render_metabox' ), array( 'post' ), 'side', 'high' );
+			add_meta_box( 'goso-gutenberg-format', esc_html__( 'Post Format Data', 'authow' ), array( $this, 'render_metabox' ), array( 'post' ), 'side', 'high' );
 
 			if ( post_type_supports( $post_type, 'post-formats' ) && current_theme_supports( 'post-formats' ) ) {
-				wp_enqueue_script( 'penci-gutenberg-formats-ui', get_template_directory_uri() . '/inc/gutenberg/admin.js', array( 'vp-post-formats-ui' ), '1.7' );
+				wp_enqueue_script( 'goso-gutenberg-formats-ui', get_template_directory_uri() . '/inc/gutenberg/admin.js', array( 'vp-post-formats-ui' ), '1.7' );
 			}
 		}
 

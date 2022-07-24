@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPortfolio extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-portfolio';
+		return 'goso-portfolio';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Portfolio', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Portfolio', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoPortfolio extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -46,7 +46,7 @@ class GosoPortfolio extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_style', array(
+			'goso_style', array(
 				'label'   => __( 'Choose Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'masonry',
@@ -58,7 +58,7 @@ class GosoPortfolio extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_item_style', array(
+			'goso_item_style', array(
 				'label'   => __( 'Choose Item Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'text_overlay',
@@ -70,7 +70,7 @@ class GosoPortfolio extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_column', array(
+			'goso_column', array(
 				'label'   => __( 'Number Columns', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '3',
@@ -81,7 +81,7 @@ class GosoPortfolio extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_image_type', array(
+			'goso_image_type', array(
 				'label'       => __( 'Image Type', 'authow' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'landscape',
@@ -95,7 +95,7 @@ class GosoPortfolio extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_filter', array(
+			'goso_filter', array(
 				'label'     => __( 'Display Filter?', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'label_on'  => __( 'Show', 'authow' ),
@@ -104,14 +104,14 @@ class GosoPortfolio extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_all_text', array(
+			'goso_all_text', array(
 				'label' => __( 'All Portfolio Text', 'authow' ),
 				'type'  => Controls_Manager::TEXT,
 			)
 		);
 
 		$this->add_control(
-			'penci_pagination', array(
+			'goso_pagination', array(
 				'label'   => __( 'Pagination', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'number',
@@ -125,15 +125,15 @@ class GosoPortfolio extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_numbermore', array(
+			'goso_numbermore', array(
 				'label'     => __( 'Number of Posts Each Time Load More Posts', 'elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 6,
-				'condition' => array( 'penci_pagination' => array( 'load_more', 'infinite' ) )
+				'condition' => array( 'goso_pagination' => array( 'load_more', 'infinite' ) )
 			)
 		);
 		$this->add_control(
-			'penci_lightbox', array(
+			'goso_lightbox', array(
 				'label'     => __( 'Enable Click on Thumbnails to Open Lightbox?', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'label_on'  => __( 'Yes', 'authow' ),
@@ -150,7 +150,7 @@ class GosoPortfolio extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_filter_heading',
+			'goso_filter_heading',
 			array(
 				'label' => __( 'Filter', 'authow' ),
 				'type'  => Controls_Manager::HEADING,
@@ -162,7 +162,7 @@ class GosoPortfolio extends Base_Widget {
 				'label'     => __( 'Link Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} post-entry .penci-portfolio-filter ul li a,{{WRAPPER}} .penci-portfolio-filter ul li a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} post-entry .goso-portfolio-filter ul li a,{{WRAPPER}} .goso-portfolio-filter ul li a' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -172,17 +172,17 @@ class GosoPortfolio extends Base_Widget {
 				'label'     => __( 'Link Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} post-entry .penci-portfolio-filter ul li a:hover'  => 'color: {{VALUE}};',
-					'{{WRAPPER}} post-entry .penci-portfolio-filter ul li.active a' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-portfolio-filter ul li a:hover'             => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-portfolio-filter ul li.active a'            => 'color: {{VALUE}};'
+					'{{WRAPPER}} post-entry .goso-portfolio-filter ul li a:hover'  => 'color: {{VALUE}};',
+					'{{WRAPPER}} post-entry .goso-portfolio-filter ul li.active a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-portfolio-filter ul li a:hover'             => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-portfolio-filter ul li.active a'            => 'color: {{VALUE}};'
 				),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pfilter_typo',
-				'selector' => '{{WRAPPER}} post-entry .penci-portfolio-filter ul li a,{{WRAPPER}} .penci-portfolio-filter ul li a',
+				'selector' => '{{WRAPPER}} post-entry .goso-portfolio-filter ul li a,{{WRAPPER}} .goso-portfolio-filter ul li a',
 			)
 		);
 
@@ -191,7 +191,7 @@ class GosoPortfolio extends Base_Widget {
 			array(
 				'label'     => __( 'Portfolio Background Overlay Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-portfolio-thumbnail a:after' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-portfolio-thumbnail a:after' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		// Title
@@ -279,20 +279,20 @@ class GosoPortfolio extends Base_Widget {
 		$atts_shortcode = array();
 
 		foreach ( $atts as $att ) {
-			if ( empty( $settings[ 'penci_' . $att ] ) ) {
+			if ( empty( $settings[ 'goso_' . $att ] ) ) {
 				continue;
 			}
 
-			$atts_shortcode[ $att ] = $settings[ 'penci_' . $att ];
+			$atts_shortcode[ $att ] = $settings[ 'goso_' . $att ];
 		}
 
-		if ( 'yes' == $settings['penci_filter'] ) {
+		if ( 'yes' == $settings['goso_filter'] ) {
 			$atts_shortcode['filter'] = 'true';
 		} else {
 			$atts_shortcode['filter'] = 'false';
 		}
 
-		if ( 'yes' == $settings['penci_lightbox'] ) {
+		if ( 'yes' == $settings['goso_lightbox'] ) {
 			$atts_shortcode['lightbox'] = 'true';
 		} else {
 			$atts_shortcode['lightbox'] = 'false';

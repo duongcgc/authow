@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoRecentPosts extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-recent-posts';
+		return 'goso-recent-posts';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Widget Recent/Popular Posts', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Widget Recent/Popular Posts', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GosoRecentPosts extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -44,7 +44,7 @@ class GosoRecentPosts extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_size', array(
+			'goso_size', array(
 				'label'                => __( 'Image Size Type', 'authow' ),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => '',
@@ -55,7 +55,7 @@ class GosoRecentPosts extends Base_Widget {
 					'vertical'   => esc_html__( 'Vertical Size', 'authow' ),
 					'custom'     => esc_html__( 'Custom', 'authow' ),
 				),
-				'selectors'            => array( '{{WRAPPER}} .penci-image-holder:before' => '{{VALUE}}', ),
+				'selectors'            => array( '{{WRAPPER}} .goso-image-holder:before' => '{{VALUE}}', ),
 				'selectors_dictionary' => array(
 					'horizontal' => 'padding-top: 66.6667%;',
 					'square'     => 'padding-top: 100%;',
@@ -64,7 +64,7 @@ class GosoRecentPosts extends Base_Widget {
 			)
 		);
 		$this->add_responsive_control(
-			'penci_img_ratio', array(
+			'goso_img_ratio', array(
 				'label'          => __( 'Image Ratio', 'authow' ),
 				'type'           => Controls_Manager::SLIDER,
 				'default'        => array( 'size' => 0.66 ),
@@ -72,9 +72,9 @@ class GosoRecentPosts extends Base_Widget {
 				'mobile_default' => array( 'size' => 0.5 ),
 				'range'          => array( 'px' => array( 'min' => 0.1, 'max' => 2, 'step' => 0.01 ) ),
 				'selectors'      => array(
-					'{{WRAPPER}} .penci-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
+					'{{WRAPPER}} .goso-image-holder:before' => 'padding-top: calc( {{SIZE}} * 100% );',
 				),
-				'condition'      => array( 'penci_size' => 'custom' ),
+				'condition'      => array( 'goso_size' => 'custom' ),
 			)
 		);
 		$this->add_control(
@@ -83,7 +83,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => $this->get_list_image_sizes( true ),
-				'condition' => array( 'penci_size' => 'custom' ),
+				'condition' => array( 'goso_size' => 'custom' ),
 			)
 		);
 
@@ -93,7 +93,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
 				'options'   => $this->get_list_image_sizes( true ),
-				'condition' => array( 'penci_size' => 'custom' ),
+				'condition' => array( 'goso_size' => 'custom' ),
 			)
 		);
 
@@ -212,7 +212,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
 				'selectors'   => array(
-					'{{WRAPPER}} ul.side-newsfeed li .penci-image-holder.small-fix-size' => 'width: {{SIZE}}px'
+					'{{WRAPPER}} ul.side-newsfeed li .goso-image-holder.small-fix-size' => 'width: {{SIZE}}px'
 				),
 				'condition'   => array( 'hide_thumb!' => 'yes' ),
 			)
@@ -223,7 +223,7 @@ class GosoRecentPosts extends Base_Widget {
 				'label'     => __( 'Remove Border at The Bottom?', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array(
-					'{{WRAPPER}} ul.side-newsfeed:not(.penci-feed-2columns) li' => 'border-bottom: none'
+					'{{WRAPPER}} ul.side-newsfeed:not(.goso-feed-2columns) li' => 'border-bottom: none'
 				)
 			)
 		);
@@ -235,8 +235,8 @@ class GosoRecentPosts extends Base_Widget {
 				'range'              => array( 'px' => array( 'min' => 0, 'max' => 200 ) ),
 				'frontend_available' => true,
 				'selectors'          => array(
-					'{{WRAPPER}} ul.side-newsfeed:not(.penci-feed-2columns) li' => 'margin-bottom: calc({{SIZE}}{{UNIT}}/2); padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} ul.penci-feed-2columns li'                     => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} ul.side-newsfeed:not(.goso-feed-2columns) li' => 'margin-bottom: calc({{SIZE}}{{UNIT}}/2); padding-bottom: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} ul.goso-feed-2columns li'                     => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -257,7 +257,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ul.side-newsfeed li, {{WRAPPER}} .side-newsfeed.pctlst' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .penci-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .penci-feed:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .goso-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .goso-feed:before' => 'background-color: {{VALUE}};',
 				)
 			)
 		);
@@ -277,7 +277,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'condition'      => array( 'dotstyle!' => '' ),
 				'selectors' => array(
-					'{{WRAPPER}} .side-newsfeed.pctlst .penci-feed:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .side-newsfeed.pctlst .goso-feed:before' => 'background-color: {{VALUE}};',
 				)
 			)
 		);
@@ -288,7 +288,7 @@ class GosoRecentPosts extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'condition'      => array( 'dotstyle' => array( 's2', 's3' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .penci-feed:hover:before,{{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .penci-feed:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .goso-feed:hover:before,{{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .goso-feed:after' => 'background-color: {{VALUE}};',
 				)
 			)
 		);
@@ -453,13 +453,13 @@ class GosoRecentPosts extends Base_Widget {
 
 	protected function render() {
 		$settings      = $this->get_settings();
-		$penci_size    = $settings['penci_size'] ? $settings['penci_size'] : '';
+		$goso_size    = $settings['goso_size'] ? $settings['goso_size'] : '';
 		$dotstyle    = $settings['dotstyle'] ? $settings['dotstyle'] : '';
 		$thumb_size    = $settings['thumb_size'] ? $settings['thumb_size'] : '';
 		$thumb_bigsize = $settings['thumb_bigsize'] ? $settings['thumb_bigsize'] : '';
 		$original_postype   = $settings['posts_post_type'];
 
-		if ( in_array($original_postype,['current_query','related_posts']) && penci_elementor_is_edit_mode() && penci_is_builder_template() ) {
+		if ( in_array($original_postype,['current_query','related_posts']) && goso_elementor_is_edit_mode() && goso_is_builder_template() ) {
 			$settings['posts_post_type'] = 'post';
 		}
 
@@ -508,22 +508,22 @@ class GosoRecentPosts extends Base_Widget {
 		$ordernum     = 'yes' == $settings['ordernum'] ? true : false;
 
 
-		$css_class = 'penci-block-vc penci_recent-posts-sc';
+		$css_class = 'goso-block-vc goso_recent-posts-sc';
 		$rand      = rand( 1000, 10000 );
 		?>
         <div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-block_content">
-                <ul id="penci-latestwg-<?php echo sanitize_text_field( $rand ); ?>"
-                    class="side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' penci-feed-2columns';
+            <div class="goso-block_content">
+                <ul id="goso-latestwg-<?php echo sanitize_text_field( $rand ); ?>"
+                    class="side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' goso-feed-2columns';
 					    if ( $featured ) {
-						    echo ' penci-2columns-featured';
+						    echo ' goso-2columns-featured';
 					    } else {
-						    echo ' penci-2columns-feed';
+						    echo ' goso-2columns-feed';
 					    } endif; if ( $dotstyle ) { echo ' pctlst pctl-' . $dotstyle; } ?>">
 					<?php $num = 1;
 					while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                        <li class="penci-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
+                        <li class="goso-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
 							if ( $featured2 ): echo ' featured-news2'; endif; endif; ?><?php if ( $allfeatured ): echo ' all-featured-news'; endif; ?>">
 							<?php if ( $ordernum && has_post_thumbnail() && ! $settings['hide_thumb'] ): ?>
                                 <span class="order-border-number<?php if ( $thumbright && ! $twocolumn ): echo ' right-side'; endif; ?>">
@@ -535,55 +535,55 @@ class GosoRecentPosts extends Base_Widget {
                                     <div class="side-image<?php if ( $thumbright ): echo ' thumbnail-right'; endif; ?>">
 										<?php
 										/* Display Review Piechart  */
-										if ( function_exists( 'penci_display_piechart_review_html' ) ) {
+										if ( function_exists( 'goso_display_piechart_review_html' ) ) {
 											$size_pie = 'small';
 											if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $size_pie = 'normal'; endif;
-											penci_display_piechart_review_html( get_the_ID(), $size_pie );
+											goso_display_piechart_review_html( get_the_ID(), $size_pie );
 										}
 
-										$thumb = penci_featured_images_size( 'small' );
-										if ( 'horizontal' == $penci_size ) {
-											$thumb = 'penci-thumb-small';
-										} else if ( 'square' == $penci_size ) {
-											$thumb = 'penci-thumb-square';
-										} else if ( 'vertical' == $penci_size ) {
-											$thumb = 'penci-thumb-vertical';
-										} else if ( 'custom' == $penci_size ) {
+										$thumb = goso_featured_images_size( 'small' );
+										if ( 'horizontal' == $goso_size ) {
+											$thumb = 'goso-thumb-small';
+										} else if ( 'square' == $goso_size ) {
+											$thumb = 'goso-thumb-square';
+										} else if ( 'vertical' == $goso_size ) {
+											$thumb = 'goso-thumb-vertical';
+										} else if ( 'custom' == $goso_size ) {
 											if ( $thumb_size ) {
 												$thumb = $thumb_size;
 											}
 										}
 										if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
-											$thumb = penci_featured_images_size();
-											if ( 'horizontal' == $penci_size ) {
-												$thumb = 'penci-thumb';
-											} else if ( 'square' == $penci_size ) {
-												$thumb = 'penci-thumb-square';
-											} else if ( 'vertical' == $penci_size ) {
-												$thumb = 'penci-thumb-vertical';
-											} else if ( 'custom' == $penci_size ) {
+											$thumb = goso_featured_images_size();
+											if ( 'horizontal' == $goso_size ) {
+												$thumb = 'goso-thumb';
+											} else if ( 'square' == $goso_size ) {
+												$thumb = 'goso-thumb-square';
+											} else if ( 'vertical' == $goso_size ) {
+												$thumb = 'goso-thumb-vertical';
+											} else if ( 'custom' == $goso_size ) {
 												if ( $thumb_bigsize ) {
 													$thumb = $thumb_bigsize;
 												}
 											}
 										}
 										?>
-										<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                                            <a class="penci-image-holder penci-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+										<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                                            <a class="goso-image-holder goso-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 												echo '';
 											} else {
 												echo ' small-fix-size';
 											} ?>" rel="bookmark"
-                                               data-bgset="<?php echo penci_image_srcset( get_the_ID(),$thumb ); ?>"
+                                               data-bgset="<?php echo goso_image_srcset( get_the_ID(),$thumb ); ?>"
                                                href="<?php the_permalink(); ?>"
                                                title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 										<?php } else { ?>
-                                            <a class="penci-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+                                            <a class="goso-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 												echo '';
 											} else {
 												echo ' small-fix-size';
 											} ?>" rel="bookmark"
-                                               style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
+                                               style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
                                                href="<?php the_permalink(); ?>"
                                                title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 										<?php } ?>
@@ -591,44 +591,44 @@ class GosoRecentPosts extends Base_Widget {
 										<?php if ( $icon ): ?>
 											<?php if ( has_post_format( 'video' ) ) : ?>
                                                 <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                   aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-play' ); ?></a>
+                                                   aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-play' ); ?></a>
 											<?php endif; ?>
 											<?php if ( has_post_format( 'audio' ) ) : ?>
                                                 <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                   aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-music' ); ?></a>
+                                                   aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-music' ); ?></a>
 											<?php endif; ?>
 											<?php if ( has_post_format( 'link' ) ) : ?>
                                                 <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                   aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-link' ); ?></a>
+                                                   aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-link' ); ?></a>
 											<?php endif; ?>
 											<?php if ( has_post_format( 'quote' ) ) : ?>
                                                 <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                   aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-quote-left' ); ?></a>
+                                                   aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-quote-left' ); ?></a>
 											<?php endif; ?>
 											<?php if ( has_post_format( 'gallery' ) ) : ?>
                                                 <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                   aria-label="Icon"><?php penci_fawesome_icon( 'far fa-image' ); ?></a>
+                                                   aria-label="Icon"><?php goso_fawesome_icon( 'far fa-image' ); ?></a>
 											<?php endif; ?>
 										<?php endif; ?>
                                     </div>
 								<?php endif; ?>
                                 <div class="side-item-text">
 									<?php if ( $movemeta && ( ! $postdate || $showauthor || $showcomment || $showviews ) ): ?>
-                                        <div class="grid-post-box-meta penci-side-item-meta pcsnmt-above">
+                                        <div class="grid-post-box-meta goso-side-item-meta pcsnmt-above">
 											<?php if ( $showauthor ): ?>
-                                                <span class="side-item-meta side-wauthor"><?php echo penci_get_setting( 'penci_trans_by' ); ?> <a
+                                                <span class="side-item-meta side-wauthor"><?php echo goso_get_setting( 'goso_trans_by' ); ?> <a
                                                             class="url fn n"
                                                             href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
 											<?php endif; ?>
 											<?php if ( ! $postdate ): ?>
-                                                <span class="side-item-meta side-wdate"><?php penci_authow_time_link(); ?></span>
+                                                <span class="side-item-meta side-wdate"><?php goso_authow_time_link(); ?></span>
 											<?php endif; ?>
 											<?php if ( $showcomment ): ?>
                                                 <span class="side-item-meta side-wcomments"><a
-                                                            href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a></span>
+                                                            href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a></span>
 											<?php endif; ?>
 											<?php if ( $showviews ): ?>
-                                                <span class="side-item-meta side-wviews"><?php echo penci_get_post_views( get_the_ID() ) . ' ' . penci_get_setting( 'penci_trans_countviews' ); ?></span>
+                                                <span class="side-item-meta side-wviews"><?php echo goso_get_post_views( get_the_ID() ) . ' ' . goso_get_setting( 'goso_trans_countviews' ); ?></span>
 											<?php endif; ?>
                                         </div>
 									<?php endif; ?>
@@ -649,21 +649,21 @@ class GosoRecentPosts extends Base_Widget {
                                         </a>
                                     </h4>
 									<?php if ( ! $movemeta && ( ! $postdate || $showauthor || $showcomment || $showviews ) ): ?>
-                                        <div class="grid-post-box-meta penci-side-item-meta pcsnmt-below">
+                                        <div class="grid-post-box-meta goso-side-item-meta pcsnmt-below">
 											<?php if ( $showauthor ): ?>
-                                                <span class="side-item-meta side-wauthor"><?php echo penci_get_setting( 'penci_trans_by' ); ?> <a
+                                                <span class="side-item-meta side-wauthor"><?php echo goso_get_setting( 'goso_trans_by' ); ?> <a
                                                             class="url fn n"
                                                             href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
 											<?php endif; ?>
 											<?php if ( ! $postdate ): ?>
-                                                <span class="side-item-meta side-wdate"><?php penci_authow_time_link(); ?></span>
+                                                <span class="side-item-meta side-wdate"><?php goso_authow_time_link(); ?></span>
 											<?php endif; ?>
 											<?php if ( $showcomment ): ?>
                                                 <span class="side-item-meta side-wcomments"><a
-                                                            href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a></span>
+                                                            href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a></span>
 											<?php endif; ?>
 											<?php if ( $showviews ): ?>
-                                                <span class="side-item-meta side-wviews"><?php echo penci_get_post_views( get_the_ID() ) . ' ' . penci_get_setting( 'penci_trans_countviews' ); ?></span>
+                                                <span class="side-item-meta side-wviews"><?php echo goso_get_post_views( get_the_ID() ) . ' ' . goso_get_setting( 'goso_trans_countviews' ); ?></span>
 											<?php endif; ?>
                                         </div>
 									<?php endif; ?>

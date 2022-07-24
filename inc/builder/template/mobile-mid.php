@@ -1,27 +1,27 @@
 <?php
 $classes        = '';
-$stick_class    = penci_get_builder_mod( 'penci_header_mobile_midbar_sticky_setting', '' );
-$middle_content = penci_get_builder_mod( 'penci_header_mobile_midbar_middle_column', 'enable' );
+$stick_class    = goso_get_builder_mod( 'goso_header_mobile_midbar_sticky_setting', '' );
+$middle_content = goso_get_builder_mod( 'goso_header_mobile_midbar_middle_column', 'enable' );
 $classes        .= 'enable' == $stick_class ? 'sticky-enable' : 'sticky-disable';
 $classes        .= 'enable' == $middle_content ? ' pcmiddle-center' : ' pcmiddle-normal';
-$classes        .= penci_can_render_header( 'mobile', 'mid' ) ? ' pc-hasel' : ' pc-noel';
+$classes        .= goso_can_render_header( 'mobile', 'mid' ) ? ' pc-hasel' : ' pc-noel';
 ?>
-<div class="penci_mobile_midbar penci-mobile-midbar penci_container <?php echo esc_attr( $classes ); ?>">
+<div class="goso_mobile_midbar goso-mobile-midbar goso_container <?php echo esc_attr( $classes ); ?>">
     <div class="container">
-        <div class="penci_nav_row">
+        <div class="goso_nav_row">
 			<?php
 			$columns = array( 'left', 'center', 'right' );
 
 			foreach ( $columns as $column ) {
-				$setting_align = "penci_hb_align_mobile_mid_{$column}";
-				$align         = penci_get_builder_mod( $setting_align, $column );
+				$setting_align = "goso_hb_align_mobile_mid_{$column}";
+				$align         = goso_get_builder_mod( $setting_align, $column );
 
-				$setting_element = "penci_hb_element_mobile_mid_{$column}";
-				$elements        = penci_get_builder_mod( $setting_element, penci_header_default( "mobile_element_mid_{$column}" ) );
+				$setting_element = "goso_hb_element_mobile_mid_{$column}";
+				$elements        = goso_get_builder_mod( $setting_element, goso_header_default( "mobile_element_mid_{$column}" ) );
 				$elements        = $elements ? explode( ',', $elements ) : '';
 				?>
 
-                <div class="penci_nav_col penci_nav_<?php echo esc_attr( $column ); ?> penci_nav_align<?php echo esc_attr( $align ); ?>">
+                <div class="goso_nav_col goso_nav_<?php echo esc_attr( $column ); ?> goso_nav_align<?php echo esc_attr( $align ); ?>">
 
 					<?php
 					if ( ! empty( $elements ) ) {

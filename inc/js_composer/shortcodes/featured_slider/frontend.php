@@ -4,14 +4,14 @@ extract( $atts );
 
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'featured_pslider' );
 
-$query_args = penci_build_args_query( $atts['build_query'] );
+$query_args = goso_build_args_query( $atts['build_query'] );
 $feat_query = new \WP_Query( $query_args );
 
 if ( ! $feat_query->have_posts() ) {
 	if ( is_user_logged_in() ) {
-		echo '<div class="penci-missing-settings">';
+		echo '<div class="goso-missing-settings">';
 		echo '<span>Featured Slider</span>';
-		echo penci_get_setting( 'penci_ajaxsearch_no_post' );
+		echo goso_get_setting( 'goso_ajaxsearch_no_post' );
 		echo '</div>';
 	}
 }
@@ -51,7 +51,7 @@ if ( $atts['enable_flat_overlay'] && in_array( $slider_style, array(
 		'style-27',
 		'style-28'
 	) ) ) {
-	$slider_class .= ' penci-flat-overlay';
+	$slider_class .= ' goso-flat-overlay';
 }
 
 $disable_lazyload    = $atts['disable_lazyload_slider'];
@@ -88,11 +88,11 @@ if ( $slider_style == 'style-7' || $slider_style == 'style-8' ) {
 ?>
     <div id="<?php echo esc_attr( $block_id ) ?>">
 		<?php
-		echo '<div class="penci-block-el featured-area featured-' . $slider_class . '">';
+		echo '<div class="goso-block-el featured-area featured-' . $slider_class . '">';
 		if ( $slider_style == 'style-37' ):
-			echo '<div class="penci-featured-items-left">';
+			echo '<div class="goso-featured-items-left">';
 		endif;
-		echo '<div class="penci-owl-carousel penci-owl-featured-area elsl-' . $slider_class . '"' . $slider_data . '>';
+		echo '<div class="goso-owl-carousel goso-owl-featured-area elsl-' . $slider_class . '"' . $slider_data . '>';
 		include dirname( __FILE__ ) . "/{$slider_style}.php";
 		echo '</div>';
 		echo '</div>';
@@ -103,23 +103,23 @@ $block_id_css = '#' . $block_id;
 $css_custom   = '';
 
 if ( ! empty( $atts['img_border_radius'] ) ) {
-	$css_custom .= $block_id_css . ' .penci-slider38-overlay,';
+	$css_custom .= $block_id_css . ' .goso-slider38-overlay,';
 	$css_custom .= $block_id_css . ' .featured-style-29 .featured-slider-overlay,';
-	$css_custom .= $block_id_css . ' .featured-area .penci-slide-overlay .overlay-link,';
-	$css_custom .= $block_id_css . ' .featured-area .penci-image-holder';
-	$css_custom .= $block_id_css . ' .featured-area .penci-image-holder{ border-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';-webkit-border-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
+	$css_custom .= $block_id_css . ' .featured-area .goso-slide-overlay .overlay-link,';
+	$css_custom .= $block_id_css . ' .featured-area .goso-image-holder';
+	$css_custom .= $block_id_css . ' .featured-area .goso-image-holder{ border-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';-webkit-border-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
 
-	$css_custom .= $block_id_css . ' .penci-featured-content-right:before{border-top-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';border-bottom-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
-	$css_custom .= $block_id_css . ' .penci-flat-overlay .penci-slide-overlay .penci-mag-featured-content:before{ border-bottom-left-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';border-bottom-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
+	$css_custom .= $block_id_css . ' .goso-featured-content-right:before{border-top-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';border-bottom-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
+	$css_custom .= $block_id_css . ' .goso-flat-overlay .goso-slide-overlay .goso-mag-featured-content:before{ border-bottom-left-radius: ' . esc_attr( $atts['img_border_radius'] ) . ';border-bottom-right-radius: ' . esc_attr( $atts['img_border_radius'] ) . '; }';
 }
 
 if ( ! empty( $atts['img_ratio'] ) ) {
-	$css_custom .= $block_id_css . ' .penci-owl-carousel:not(.elsl-style-19):not(.elsl-style-27) .penci-image-holder{ height: auto !important; }';
-	$css_custom .= $block_id_css . ' .penci-owl-carousel:not(.elsl-style-19):not(.elsl-style-27) .penci-image-holder:before{ content:"";padding-top:' . esc_attr( $atts['img_ratio'] ) . ';height: auto; }';
+	$css_custom .= $block_id_css . ' .goso-owl-carousel:not(.elsl-style-19):not(.elsl-style-27) .goso-image-holder{ height: auto !important; }';
+	$css_custom .= $block_id_css . ' .goso-owl-carousel:not(.elsl-style-19):not(.elsl-style-27) .goso-image-holder:before{ content:"";padding-top:' . esc_attr( $atts['img_ratio'] ) . ';height: auto; }';
 
-	$css_custom .= $block_id_css . ' .featured-style-13 .penci-owl-carousel .penci-item-1 .penci-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' / 2 ); }';
-	$css_custom .= $block_id_css . ' .featured-style-15 .penci-owl-carousel .penci-item-2 .penci-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' / 2 ); }';
-	$css_custom .= $block_id_css . ' .featured-style-25 .penci-owl-carousel .penci-item-1 .penci-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' * 3/2 ); }';
+	$css_custom .= $block_id_css . ' .featured-style-13 .goso-owl-carousel .goso-item-1 .goso-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' / 2 ); }';
+	$css_custom .= $block_id_css . ' .featured-style-15 .goso-owl-carousel .goso-item-2 .goso-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' / 2 ); }';
+	$css_custom .= $block_id_css . ' .featured-style-25 .goso-owl-carousel .goso-item-1 .goso-image-holder:before{ padding-top:calc( ' . esc_attr( $atts['img_ratio'] ) . ' * 3/2 ); }';
 }
 
 // Title
@@ -141,8 +141,8 @@ $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'template'   => "{$block_id_css} .feat-text h3, {$block_id_css} .feat-text h3 a,{$block_id_css} .feat-text-right h3, {$block_id_css} .feat-text-right h3 a{ %s }",
 ) );
 if ( ! empty( $atts['bptitle_fsize'] ) ) {
-	$css_custom .= $block_id_css . ' .featured-area .penci-pitem-big .feat-text h3,';
-	$css_custom .= $block_id_css . ' .featured-area .penci-pitem-big .feat-text h3 a{ color:' . esc_attr( $atts['bptitle_fsize'] ) . ' !important; }';
+	$css_custom .= $block_id_css . ' .featured-area .goso-pitem-big .feat-text h3,';
+	$css_custom .= $block_id_css . ' .featured-area .goso-pitem-big .feat-text h3 a{ color:' . esc_attr( $atts['bptitle_fsize'] ) . ' !important; }';
 }
 
 // Category
@@ -200,25 +200,25 @@ $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 
 //  Read More
 if ( ! empty( $atts['readmore_color'] ) ) {
-	$css_custom .= $block_id_css . ' .penci-featured-slider-button a{ color:' . esc_attr( $atts['readmore_color'] ) . ' !important;border-color:' . esc_attr( $atts['readmore_color'] ) . ' !important; }';
+	$css_custom .= $block_id_css . ' .goso-featured-slider-button a{ color:' . esc_attr( $atts['readmore_color'] ) . ' !important;border-color:' . esc_attr( $atts['readmore_color'] ) . ' !important; }';
 }
 
 if ( ! empty( $atts['readmore_hcolor'] ) ) {
-	$css_custom .= $block_id_css . ' .penci-featured-slider-button a:hover{ color:' . esc_attr( $atts['readmore_hcolor'] ) . ' !important; }';
+	$css_custom .= $block_id_css . ' .goso-featured-slider-button a:hover{ color:' . esc_attr( $atts['readmore_hcolor'] ) . ' !important; }';
 }
 if ( ! empty( $atts['readmore_hbgcolor'] ) ) {
-	$css_custom .= $block_id_css . ' .penci-featured-slider-button a:hover{ border-color:' . esc_attr( $atts['readmore_hbgcolor'] ) . ' !important;background-color:' . esc_attr( $atts['readmore_hbgcolor'] ) . ' !important; }';
+	$css_custom .= $block_id_css . ' .goso-featured-slider-button a:hover{ border-color:' . esc_attr( $atts['readmore_hbgcolor'] ) . ' !important;background-color:' . esc_attr( $atts['readmore_hbgcolor'] ) . ' !important; }';
 }
 
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $atts['readmore_fsize'],
 	'font_style' => $atts['use_readmore_typo'] ? $atts['readmore_typo'] : '',
-	'template'   => "{$block_id_css} .penci-featured-slider-button a{ %s }",
+	'template'   => "{$block_id_css} .goso-featured-slider-button a{ %s }",
 ) );
 
 if ( isset( $atts['speed'] ) && $atts['speed'] ) {
 	$delay_time = $atts['speed'] / 1000 - 0.2;
-	$css_custom .= $block_id_css . ' .penci-owl-carousel{--pcfs-delay:' . $delay_time . 's;}';
+	$css_custom .= $block_id_css . ' .goso-owl-carousel{--pcfs-delay:' . $delay_time . 's;}';
 }
 
 

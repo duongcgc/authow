@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-count-down';
+		return 'goso-count-down';
 	}
 
 	public function get_widgets() {

@@ -3,7 +3,7 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 	class Goso_White_Lable {
 		public function __construct() {
 
-			if ( penci_is_show_white_label_panel() ) {
+			if ( goso_is_show_white_label_panel() ) {
 				add_filter( 'mb_settings_pages', array( $this, 'options_page' ), 999 );
 				add_filter( 'rwmb_meta_boxes', array( $this, 'options_meta_boxes' ), 999 );
 			}
@@ -87,24 +87,24 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 			}
 
 			// From
-			$flogin_bgimage        = get_theme_mod( 'penci_flogin_bgimage' );
-			$flogin_bgcolor        = get_theme_mod( 'penci_flogin_bgcolor' );
-			$flogin_padding        = get_theme_mod( 'penci_flogin_padding' );
-			$flogin_shadow         = get_theme_mod( 'penci_flogin_shadow' );
-			$flogin_field_bg       = get_theme_mod( 'penci_flogin_field_bg' );
-			$flogin_field_borcolor = get_theme_mod( 'penci_flogin_field_borcolor' );
-			$flogin_field_color    = get_theme_mod( 'penci_flogin_field_color' );
-			$flogin_label_color    = get_theme_mod( 'penci_flogin_label_color' );
+			$flogin_bgimage        = get_theme_mod( 'goso_flogin_bgimage' );
+			$flogin_bgcolor        = get_theme_mod( 'goso_flogin_bgcolor' );
+			$flogin_padding        = get_theme_mod( 'goso_flogin_padding' );
+			$flogin_shadow         = get_theme_mod( 'goso_flogin_shadow' );
+			$flogin_field_bg       = get_theme_mod( 'goso_flogin_field_bg' );
+			$flogin_field_borcolor = get_theme_mod( 'goso_flogin_field_borcolor' );
+			$flogin_field_color    = get_theme_mod( 'goso_flogin_field_color' );
+			$flogin_label_color    = get_theme_mod( 'goso_flogin_label_color' );
 
-			$flogin_btn_bgcolor  = get_theme_mod( 'penci_flogin_btn_bgcolor' );
-			$flogin_btn_color    = get_theme_mod( 'penci_flogin_btn_color' );
-			$flogin_btn_bocolor  = get_theme_mod( 'penci_flogin_btn_bocolor' );
-			$flogin_btn_hbgcolor = get_theme_mod( 'penci_flogin_btn_hbgcolor' );
-			$flogin_btn_hcolor   = get_theme_mod( 'penci_flogin_btn_hcolor' );
-			$flogin_btn_hbocolor = get_theme_mod( 'penci_flogin_btn_hbocolor' );
+			$flogin_btn_bgcolor  = get_theme_mod( 'goso_flogin_btn_bgcolor' );
+			$flogin_btn_color    = get_theme_mod( 'goso_flogin_btn_color' );
+			$flogin_btn_bocolor  = get_theme_mod( 'goso_flogin_btn_bocolor' );
+			$flogin_btn_hbgcolor = get_theme_mod( 'goso_flogin_btn_hbgcolor' );
+			$flogin_btn_hcolor   = get_theme_mod( 'goso_flogin_btn_hcolor' );
+			$flogin_btn_hbocolor = get_theme_mod( 'goso_flogin_btn_hbocolor' );
 
-			$flogin_link_color  = get_theme_mod( 'penci_flogin_link_color' );
-			$flogin_link_hcolor = get_theme_mod( 'penci_flogin_link_hcolor' );
+			$flogin_link_color  = get_theme_mod( 'goso_flogin_link_color' );
+			$flogin_link_hcolor = get_theme_mod( 'goso_flogin_link_hcolor' );
 
 
 			if ( $flogin_bgimage ) {
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 				),
 				array(
 					'name'             => esc_html__( 'Form background image', 'authow' ),
-					'id'               => 'penci_flogin_bgimage',
+					'id'               => 'goso_flogin_bgimage',
 					'type'             => 'image_advanced',
 					'max_file_uploads' => 1,
 					'max_status'       => 'false',
@@ -264,19 +264,19 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 				),
 				array(
 					'name' => esc_html__( 'Form background color', 'authow' ),
-					'id'   => 'penci_flogin_bgcolor',
+					'id'   => 'goso_flogin_bgcolor',
 					'type' => 'color',
 					'desc' => __( 'This will change the background color property.', 'authow' ),
 				),
 				array(
-					'id'   => 'penci_flogin_padding',
+					'id'   => 'goso_flogin_padding',
 					'type' => 'text',
 					'std'  => '26px 24px 46px;',
 					'name' => esc_html__( 'Form padding', 'authow' ),
 					'desc' => __( 'This will change the padding property. Example: 26px 24px 46px 30px or none', 'authow' ),
 				),
 				array(
-					'id'   => 'penci_flogin_shadow',
+					'id'   => 'goso_flogin_shadow',
 					'type' => 'text',
 					'std'  => '0 1px 3px rgba(0,0,0,.13)',
 					'name' => esc_html__( 'Form shadow', 'authow' ),
@@ -284,63 +284,63 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 				),
 				array(
 					'name' => esc_html__( 'Form field background', 'authow' ),
-					'id'   => 'penci_flogin_field_bg',
+					'id'   => 'goso_flogin_field_bg',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Form field border color', 'authow' ),
-					'id'   => 'penci_flogin_field_borcolor',
+					'id'   => 'goso_flogin_field_borcolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Form field color', 'authow' ),
-					'id'   => 'penci_flogin_field_color',
+					'id'   => 'goso_flogin_field_color',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Form label color', 'authow' ),
-					'id'   => 'penci_flogin_label_color',
+					'id'   => 'goso_flogin_label_color',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button background color', 'authow' ),
-					'id'   => 'penci_flogin_btn_bgcolor',
+					'id'   => 'goso_flogin_btn_bgcolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button text color', 'authow' ),
-					'id'   => 'penci_flogin_btn_color',
+					'id'   => 'goso_flogin_btn_color',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button border color', 'authow' ),
-					'id'   => 'penci_flogin_btn_bocolor',
+					'id'   => 'goso_flogin_btn_bocolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button background  hover color', 'authow' ),
-					'id'   => 'penci_flogin_btn_hbgcolor',
+					'id'   => 'goso_flogin_btn_hbgcolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button text hover color', 'authow' ),
-					'id'   => 'penci_flogin_btn_hcolor',
+					'id'   => 'goso_flogin_btn_hcolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Submit button border hover color', 'authow' ),
-					'id'   => 'penci_flogin_btn_hbocolor',
+					'id'   => 'goso_flogin_btn_hbocolor',
 					'type' => 'color',
 				),
 				array(
 					'name' => esc_html__( 'Link color ', 'authow' ),
-					'id'   => 'penci_flogin_link_color',
+					'id'   => 'goso_flogin_link_color',
 					'type' => 'color',
 					'desc' => __( 'This will change the text color of links that are underneath the login form', 'authow' ),
 				),
 				array(
 					'name' => esc_html__( 'Link color hover', 'authow' ),
-					'id'   => 'penci_flogin_link_hcolor',
+					'id'   => 'goso_flogin_link_hcolor',
 					'type' => 'color',
 					'desc' => __( 'This will change the text color of links, that are underneath the login form, on hover', 'authow' ),
 				),
@@ -355,7 +355,7 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 					'id'   => 'admin_wel_page_title',
 					'type' => 'text',
 					'name' => esc_html__( 'Theme Name', 'authow' ),
-					'desc' => __( 'The theme name will display <a rel="nofollow" href="https://authow.pencidesign.net/authow-document/images/white-lable.png" target="_blank">here</a> - So, please do not fill it too long.', 'authow' ),
+					'desc' => __( 'The theme name will display <a rel="nofollow" href="https://authow.gosodesign.net/authow-document/images/white-lable.png" target="_blank">here</a> - So, please do not fill it too long.', 'authow' ),
 				),
 				array(
 					'id'   => 'admin_wel_page_sname',
@@ -443,8 +443,8 @@ if ( ! class_exists( 'Goso_White_Lable' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_is_show_white_label_panel' ) ) {
-	function penci_is_show_white_label_panel() {
+if ( ! function_exists( 'goso_is_show_white_label_panel' ) ) {
+	function goso_is_show_white_label_panel() {
 		$output = true;
 
 		$id_show = get_theme_mod( 'show_white_lable_user' );
@@ -460,8 +460,8 @@ if ( ! function_exists( 'penci_is_show_white_label_panel' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_theme_name' ) ) {
-	function penci_get_theme_name( $name = 'Goso', $dot = false ) {
+if ( ! function_exists( 'goso_get_theme_name' ) ) {
+	function goso_get_theme_name( $name = 'Goso', $dot = false ) {
 
 		$theme_name = get_theme_mod( 'admin_wel_page_sname' );
 
@@ -473,8 +473,8 @@ if ( ! function_exists( 'penci_get_theme_name' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_theme_author' ) ) {
-	function penci_get_theme_author( $name = 'GosoDesign' ) {
+if ( ! function_exists( 'goso_get_theme_author' ) ) {
+	function goso_get_theme_author( $name = 'GosoDesign' ) {
 
 		$theme_author = get_theme_mod( 'admin_wel_page_author' );
 

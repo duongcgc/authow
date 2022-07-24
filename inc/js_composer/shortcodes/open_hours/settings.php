@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_open_hours",
+	'base'          => "goso_open_hours",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/open_hours/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Open Hours', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Open Hours', 'authow' ),
 	'description'   => 'Open Hours Block',
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -65,7 +65,7 @@ vc_map( array(
 				)
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => esc_html__( 'Space Item', 'authow' ),
 				'param_name' => 'row_gap',
 				'value'      => 0,
@@ -74,7 +74,7 @@ vc_map( array(
 				'suffix'     => 'px',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'subtitle_martop',
 				'heading'    => __( 'Subtitle margin top', 'authow' ),
 				'value'      => '',
@@ -92,7 +92,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Icon of Open Hour', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -102,7 +102,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'ophour_icon_size',
 				'heading'          => __( 'Font size for Icon', 'authow' ),
 				'value'            => '',
@@ -119,7 +119,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Title of Open Hour', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -135,7 +135,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'ophour_title_size',
 				'heading'    => __( 'Font Size for Title', 'authow' ),
 				'value'      => '',
@@ -152,7 +152,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Subtitle of Open Hour', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -168,7 +168,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'ophour_subtitle_size',
 				'heading'          => __( 'Font Size for Subtitle', 'authow' ),
 				'value'            => '',
@@ -184,7 +184,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Hours or Price of Open Hour', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -200,7 +200,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'ophour_hour_size',
 				'heading'          => __( 'Font size for Hours or Price', 'authow' ),
 				'value'            => '',

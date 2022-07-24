@@ -8,30 +8,30 @@
 get_header();
 
 /* Sidebar position */
-$sidebar_position = penci_get_sidebar_position_archive();
+$sidebar_position = goso_get_sidebar_position_archive();
 
 /* Archive layout */
-$layout_this = get_theme_mod( 'penci_archive_layout' );
+$layout_this = get_theme_mod( 'goso_archive_layout' );
 if ( ! isset( $layout_this ) || empty( $layout_this ) ): $layout_this = 'standard'; endif;
 $class_layout = '';
 if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 ?>
 
-<?php if ( ! get_theme_mod( 'penci_disable_breadcrumb' ) && ! get_theme_mod( 'penci_move_breadcrumbs' ) ): ?>
+<?php if ( ! get_theme_mod( 'goso_disable_breadcrumb' ) && ! get_theme_mod( 'goso_move_breadcrumbs' ) ): ?>
 	<?php
 	$yoast_breadcrumb = '';
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
-		$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb">', '</div>', false );
+		$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb">', '</div>', false );
 	}
 
 	if ( $yoast_breadcrumb ) {
 		echo $yoast_breadcrumb;
 	} else { ?>
-        <div class="container penci-breadcrumb">
-				<span><a class="crumb" href="<?php echo esc_url( home_url('/') ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon('fas fa-angle-right'); ?>
+        <div class="container goso-breadcrumb">
+				<span><a class="crumb" href="<?php echo esc_url( home_url('/') ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon('fas fa-angle-right'); ?>
 				<?php
 				echo '<span>';
-				echo penci_get_setting( 'penci_trans_author' );
+				echo goso_get_setting( 'goso_trans_author' );
 				echo '</span>';
 				?>
         </div>
@@ -39,27 +39,27 @@ if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 <?php endif; ?>
 
     <div class="container<?php echo esc_attr( $class_layout );
-	if ( penci_get_setting( 'penci_sidebar_archive' ) ) : ?> penci_sidebar <?php echo esc_attr( $sidebar_position ); ?><?php endif; ?>">
+	if ( goso_get_setting( 'goso_sidebar_archive' ) ) : ?> goso_sidebar <?php echo esc_attr( $sidebar_position ); ?><?php endif; ?>">
         <div id="main"
-             class="penci-layout-<?php echo esc_attr( $layout_this ); ?><?php if ( get_theme_mod( 'penci_sidebar_sticky' ) ): ?> penci-main-sticky-sidebar<?php endif; ?>">
+             class="goso-layout-<?php echo esc_attr( $layout_this ); ?><?php if ( get_theme_mod( 'goso_sidebar_sticky' ) ): ?> goso-main-sticky-sidebar<?php endif; ?>">
             <div class="theiaStickySidebar">
 
-				<?php if ( ! get_theme_mod( 'penci_disable_breadcrumb' ) && get_theme_mod( 'penci_move_breadcrumbs' ) ): ?>
+				<?php if ( ! get_theme_mod( 'goso_disable_breadcrumb' ) && get_theme_mod( 'goso_move_breadcrumbs' ) ): ?>
 					<?php
 					$yoast_breadcrumb = '';
 					if ( function_exists( 'yoast_breadcrumb' ) ) {
-						$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb penci-crumb-inside">', '</div>', false );
+						$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb goso-crumb-inside">', '</div>', false );
 					}
 
 					if ( $yoast_breadcrumb ) {
 						echo $yoast_breadcrumb;
 					} else { ?>
-                        <div class="container penci-breadcrumb penci-crumb-inside">
+                        <div class="container goso-breadcrumb goso-crumb-inside">
                             <span><a class="crumb"
-                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
+                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
 							<?php
 							echo '<span>';
-							echo penci_get_setting( 'penci_trans_author' );
+							echo goso_get_setting( 'goso_trans_author' );
 							echo '</span>';
 							?>
                         </div>
@@ -76,7 +76,7 @@ if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 							$author_name = get_the_author_meta( 'display_name', $author_id );
 						}
 						echo '<span>';
-							echo penci_get_setting( 'penci_trans_author' );
+							echo goso_get_setting( 'goso_trans_author' );
 							echo ' </span>';
 							printf( __( '<h1 class="page-title">%s</h1>', 'authow' ), $author_name );
 							?>
@@ -85,7 +85,7 @@ if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 
 					<?php get_template_part( 'inc/templates/about_author' ); ?>
 
-					<?php echo penci_render_google_adsense( 'penci_archive_ad_above' ); ?>
+					<?php echo goso_render_google_adsense( 'goso_archive_ad_above' ); ?>
 
 					<?php if ( have_posts() ) : ?>
 						<?php
@@ -116,16 +116,16 @@ if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 							'magazine-2'
 						);
 						if( in_array( $layout_this, $class_grid_arr ) ) {
-							echo '<ul class="penci-wrapper-data penci-grid">';
+							echo '<ul class="goso-wrapper-data goso-grid">';
 						}elseif( in_array( $layout_this, array( 'masonry', 'masonry-2' ) ) ) {
-							echo '<div class="penci-wrap-masonry"><div class="penci-wrapper-data masonry penci-masonry">';
-						}elseif( get_theme_mod( 'penci_archive_nav_ajax' ) || get_theme_mod( 'penci_archive_nav_scroll' ) ) {
-							echo '<div class="penci-wrapper-data">';
+							echo '<div class="goso-wrap-masonry"><div class="goso-wrapper-data masonry goso-masonry">';
+						}elseif( get_theme_mod( 'goso_archive_nav_ajax' ) || get_theme_mod( 'goso_archive_nav_scroll' ) ) {
+							echo '<div class="goso-wrapper-data">';
 						}
 						
-						$infeed_ads = get_theme_mod( 'penci_infeedads_archi_code' ) ? get_theme_mod( 'penci_infeedads_archi_code' ) : '';
-						$infeed_num = get_theme_mod( 'penci_infeedads_archi_num' ) ? get_theme_mod( 'penci_infeedads_archi_num' ) : 3;
-						$infeed_full = get_theme_mod( 'penci_infeedads_archi_layout' ) ? get_theme_mod( 'penci_infeedads_archi_layout' ) : '';
+						$infeed_ads = get_theme_mod( 'goso_infeedads_archi_code' ) ? get_theme_mod( 'goso_infeedads_archi_code' ) : '';
+						$infeed_num = get_theme_mod( 'goso_infeedads_archi_num' ) ? get_theme_mod( 'goso_infeedads_archi_num' ) : 3;
+						$infeed_full = get_theme_mod( 'goso_infeedads_archi_layout' ) ? get_theme_mod( 'goso_infeedads_archi_layout' ) : '';
 						while ( have_posts() ) : the_post();
 							include( locate_template( 'content-' . $layout_this . '.php' ) );
 						endwhile;
@@ -134,22 +134,22 @@ if ( $layout_this == 'classic' ): $class_layout = ' classic-layout'; endif;
 							echo '</ul>';
 						}elseif( in_array( $layout_this, array( 'masonry', 'masonry-2' ) ) ) {
 							echo '</div></div>';
-						}elseif( get_theme_mod( 'penci_archive_nav_ajax' ) || get_theme_mod( 'penci_archive_nav_scroll' ) ) {
+						}elseif( get_theme_mod( 'goso_archive_nav_ajax' ) || get_theme_mod( 'goso_archive_nav_scroll' ) ) {
 							echo '</div>';
 						}
 
-						penci_authow_archive_pag_style( $layout_this );
+						goso_authow_archive_pag_style( $layout_this );
 						?>
 					<?php endif; wp_reset_postdata(); /* End if of the loop */ ?>
 
-					<?php echo penci_render_google_adsense( 'penci_archive_ad_below' ); ?>
+					<?php echo goso_render_google_adsense( 'goso_archive_ad_below' ); ?>
 
 				</div>
 			</div>
 
-			<?php if ( penci_get_setting( 'penci_sidebar_archive' ) ) : ?>
+			<?php if ( goso_get_setting( 'goso_sidebar_archive' ) ) : ?>
 				<?php get_sidebar(); ?>
-				<?php if ( get_theme_mod( 'penci_two_sidebar_archive' ) ) : get_sidebar( 'left' ); endif; ?>
+				<?php if ( get_theme_mod( 'goso_two_sidebar_archive' ) ) : get_sidebar( 'left' ); endif; ?>
 			<?php endif; ?>
 		</div>
 <?php get_footer(); ?>

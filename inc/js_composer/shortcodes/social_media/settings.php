@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => 'penci_social_media',
+	'base'          => 'goso_social_media',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/social_media/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Social Media', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Social Media', 'authow' ),
 	'description'   => __( 'Social Media Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -50,7 +50,7 @@ vc_map( array(
 				'value'      => array( __( 'Yes', 'authow' ) => 'yes' ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'size_icon',
 				'heading'          => __( 'Custom Font Size for Icons', 'authow' ),
 				'value'            => '',
@@ -66,7 +66,7 @@ vc_map( array(
 				'value'      => array( __( 'Yes', 'authow' ) => 'yes' ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'size_text',
 				'heading'          => __( 'Custom Font Size for Text on Right Icons', 'authow' ),
 				'value'            => '',
@@ -86,7 +86,7 @@ vc_map( array(
 			array(
 				'type'             => "checkbox",
 				'heading'          => ' ',
-				'edit_field_class' => 'penci-show-social',
+				'edit_field_class' => 'goso-show-social',
 				'param_name'       => 'show_socials',
 				'std'              => 'facebook,twitter,instagram,pinterest',
 				'value'            => array(
@@ -160,7 +160,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Social Media', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',

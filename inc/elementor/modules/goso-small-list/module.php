@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-small-list';
+		return 'goso-small-list';
 	}
 
 	public function get_widgets() {

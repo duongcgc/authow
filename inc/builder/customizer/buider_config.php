@@ -1,6 +1,6 @@
 <?php
-$builder_settings            = 'penci_builder_mods';
-$builder_section             = 'penci_header_builder_block';
+$builder_settings            = 'goso_builder_mods';
+$builder_section             = 'goso_header_builder_block';
 $builder_rows_desktop        = [ 'topblock', 'top', 'mid', 'bottom', 'bottomblock' ];
 $builder_rows_desktop_sticky = [
 	'top'    => 'Sticky Top',
@@ -13,21 +13,21 @@ $builder_columns_mobile      = [ 'left', 'center', 'right' ];
 $builder_row_sidebar         = [ 'top', 'bottom' ];
 $builder_columns_sidebar     = [ 'center' ];
 $partial_refresh_id          = [
-	'topblock'    => '.penci_topblock.penci-desktop-topblock',
-	'top'         => '.penci-desktop-topbar',
-	'mid'         => '.penci-desktop-midbar',
-	'bottom'      => '.penci-desktop-bottombar',
-	'bottomblock' => '.penci-desktop-bottomblock',
+	'topblock'    => '.goso_topblock.goso-desktop-topblock',
+	'top'         => '.goso-desktop-topbar',
+	'mid'         => '.goso-desktop-midbar',
+	'bottom'      => '.goso-desktop-bottombar',
+	'bottomblock' => '.goso-desktop-bottomblock',
 ];
 $partial_mobile_refresh_id   = [
-	'top'    => '.penci-mobile-topbar',
-	'mid'    => '.penci-mobile-midbar',
-	'bottom' => '.penci-mobile-bottombar',
+	'top'    => '.goso-mobile-topbar',
+	'mid'    => '.goso-mobile-midbar',
+	'bottom' => '.goso-mobile-bottombar',
 ];
 $partial_sticky_refresh_id   = [
-	'top'    => '.penci-desktop-sticky-top',
-	'mid'    => '.penci-desktop-sticky-mid',
-	'bottom' => '.penci-desktop-sticky-bottom',
+	'top'    => '.goso-desktop-sticky-top',
+	'mid'    => '.goso-desktop-sticky-mid',
+	'bottom' => '.goso-desktop-sticky-bottom',
 ];
 
 /* General Set up*/
@@ -44,30 +44,30 @@ $wp_customize->add_section( $builder_section, array(
 	'priority'    => 900,
 ) );
 
-$wp_customize->add_section( 'penci_header_desktop_sticky_section', array(
+$wp_customize->add_section( 'goso_header_desktop_sticky_section', array(
 	'title'    => esc_html__( 'Sticky Header', 'authow' ),
 	'panel'    => 'header_builder_config',
 	'priority' => 20,
 ) );
 
-$wp_customize->add_section( 'penci_header_mobile_option_section', array(
+$wp_customize->add_section( 'goso_header_mobile_option_section', array(
 	'title'    => esc_html__( 'Mobile Header', 'authow' ),
 	'panel'    => 'header_builder_config',
 	'priority' => 20,
 ) );
 
-$wp_customize->add_section( 'penci_header_drawer_container_section', array(
+$wp_customize->add_section( 'goso_header_drawer_container_section', array(
 	'title'    => esc_html__( 'Mobile Sidebar', 'authow' ),
 	'panel'    => 'header_builder_config',
 	'priority' => 20,
 ) );
 
 /* Main Builder Section */
-$wp_customize->add_setting( 'penci_hb_arrange_bar', array(
+$wp_customize->add_setting( 'goso_hb_arrange_bar', array(
 	'default'           => 'topblock,top,mid,bottom,bottomblock',
-	'sanitize_callback' => 'penci_text_sanitization',
+	'sanitize_callback' => 'goso_text_sanitization',
 ) );
-$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, 'penci_hb_arrange_bar', [
+$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, 'goso_hb_arrange_bar', [
 	'label'       => esc_html__( 'Desktop Element Sort', 'authow' ),
 	'section'     => $builder_section,
 	'input_attrs' => array(
@@ -84,16 +84,16 @@ $wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_custom
 
 foreach ( $builder_rows_desktop as $row ) {
 	foreach ( $builder_columns_desktop as $column ) {
-		$wp_customize->add_setting( "penci_hb_align_desktop_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_align_desktop_{$row}_{$column}", array(
 			'default'           => $column,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_sanitize_choices_field'
+			'sanitize_callback' => 'goso_sanitize_choices_field'
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "penci_hb_align_desktop_{$row}_{$column}", [
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "goso_hb_align_desktop_{$row}_{$column}", [
 			'type'     => 'select',
 			'label'    => ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Align', 'authow' ),
 			'section'  => $builder_section,
-			'settings' => "penci_hb_align_desktop_{$row}_{$column}",
+			'settings' => "goso_hb_align_desktop_{$row}_{$column}",
 			'choices'  => [
 				'left'   => esc_attr__( 'Left', 'authow' ),
 				'center' => esc_attr__( 'Center', 'authow' ),
@@ -102,12 +102,12 @@ foreach ( $builder_rows_desktop as $row ) {
 		] ) );
 
 
-		$wp_customize->add_setting( "penci_hb_element_desktop_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_element_desktop_{$row}_{$column}", array(
 			'default'           => '',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_text_sanitization'
+			'sanitize_callback' => 'goso_text_sanitization'
 		) );
-		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "penci_hb_element_desktop_{$row}_{$column}", [
+		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "goso_hb_element_desktop_{$row}_{$column}", [
 			'label'       => ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Element', 'authow' ),
 			'section'     => $builder_section,
 			'input_attrs' => array(
@@ -116,14 +116,14 @@ foreach ( $builder_rows_desktop as $row ) {
 			'choices'     => HeaderBuilder::desktop_header_element(),
 		] ) );
 
-		$wp_customize->selective_refresh->add_partial( "penci_hb_element_desktop_{$row}_{$column}", array(
+		$wp_customize->selective_refresh->add_partial( "goso_hb_element_desktop_{$row}_{$column}", array(
 			'selector'            => $partial_refresh_id[ $row ],
 			'settings'            => [
-				"penci_hb_align_desktop_{$row}_{$column}",
-				"penci_hb_element_desktop_{$row}_{$column}",
+				"goso_hb_align_desktop_{$row}_{$column}",
+				"goso_hb_element_desktop_{$row}_{$column}",
 			],
 			'container_inclusive' => true,
-			'render_callback'     => "penci_hb_element_desktop_{$row}_preview_render",
+			'render_callback'     => "goso_hb_element_desktop_{$row}_preview_render",
 			'fallback_refresh'    => false,
 		) );
 	}
@@ -132,12 +132,12 @@ foreach ( $builder_rows_desktop as $row ) {
 /* Mobile Elements*/
 foreach ( $builder_rows_mobile as $row ) {
 	foreach ( $builder_columns_mobile as $column ) {
-		$wp_customize->add_setting( "penci_hb_align_mobile_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_align_mobile_{$row}_{$column}", array(
 			'default'           => $column,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_sanitize_choices_field'
+			'sanitize_callback' => 'goso_sanitize_choices_field'
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "penci_hb_align_mobile_{$row}_{$column}", [
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "goso_hb_align_mobile_{$row}_{$column}", [
 			'type'    => 'select',
 			'label'   => 'Mobile ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Align', 'authow' ),
 			'section' => $builder_section,
@@ -148,12 +148,12 @@ foreach ( $builder_rows_mobile as $row ) {
 			],
 		] ) );
 
-		$wp_customize->add_setting( "penci_hb_element_mobile_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_element_mobile_{$row}_{$column}", array(
 			'default'           => '',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_text_sanitization'
+			'sanitize_callback' => 'goso_text_sanitization'
 		) );
-		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "penci_hb_element_mobile_{$row}_{$column}", [
+		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "goso_hb_element_mobile_{$row}_{$column}", [
 			'label'       => 'Mobile ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Element', 'authow' ),
 			'section'     => $builder_section,
 			'input_attrs' => array(
@@ -162,14 +162,14 @@ foreach ( $builder_rows_mobile as $row ) {
 			'choices'     => HeaderBuilder::mobile_header_element(),
 		] ) );
 
-		$wp_customize->selective_refresh->add_partial( "penci_hb_element_mobile_{$row}_{$column}", array(
+		$wp_customize->selective_refresh->add_partial( "goso_hb_element_mobile_{$row}_{$column}", array(
 			'selector'            => $partial_mobile_refresh_id[ $row ],
 			'setttings'           => [
-				"penci_hb_align_mobile_{$row}_{$column}",
-				"penci_hb_element_mobile_{$row}_{$column}"
+				"goso_hb_align_mobile_{$row}_{$column}",
+				"goso_hb_element_mobile_{$row}_{$column}"
 			],
 			'container_inclusive' => true,
-			'render_callback'     => "penci_hb_element_mobile_{$row}_preview_render",
+			'render_callback'     => "goso_hb_element_mobile_{$row}_preview_render",
 			'fallback_refresh'    => false,
 		) );
 	}
@@ -178,12 +178,12 @@ foreach ( $builder_rows_mobile as $row ) {
 /* Header Sticky Elements*/
 foreach ( $builder_rows_desktop_sticky as $row => $row_name ) {
 	foreach ( $builder_columns_desktop as $column ) {
-		$wp_customize->add_setting( "penci_hb_align_desktop_sticky_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_align_desktop_sticky_{$row}_{$column}", array(
 			'default'           => $column,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_sanitize_choices_field'
+			'sanitize_callback' => 'goso_sanitize_choices_field'
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "penci_hb_align_desktop_sticky_{$row}_{$column}", [
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "goso_hb_align_desktop_sticky_{$row}_{$column}", [
 			'type'    => 'select',
 			'label'   => 'Desktop Sticky ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Align', 'authow' ),
 			'section' => $builder_section,
@@ -195,12 +195,12 @@ foreach ( $builder_rows_desktop_sticky as $row => $row_name ) {
 		] ) );
 
 
-		$wp_customize->add_setting( "penci_hb_element_desktop_sticky_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_element_desktop_sticky_{$row}_{$column}", array(
 			'default'           => '',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_text_sanitization'
+			'sanitize_callback' => 'goso_text_sanitization'
 		) );
-		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "penci_hb_element_desktop_sticky_{$row}_{$column}", [
+		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "goso_hb_element_desktop_sticky_{$row}_{$column}", [
 			'label'       => 'Desktop Sticky ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Element', 'authow' ),
 			'section'     => $builder_section,
 			'input_attrs' => array(
@@ -209,14 +209,14 @@ foreach ( $builder_rows_desktop_sticky as $row => $row_name ) {
 			'choices'     => HeaderBuilder::desktop_header_element(),
 		] ) );
 
-		$wp_customize->selective_refresh->add_partial( "penci_hb_element_desktop_sticky_{$row}_{$column}", array(
+		$wp_customize->selective_refresh->add_partial( "goso_hb_element_desktop_sticky_{$row}_{$column}", array(
 			'selector'            => $partial_sticky_refresh_id[ $row ],
 			'setttings'           => [
-				"penci_hb_align_desktop_sticky_{$row}_{$column}",
-				"penci_hb_element_desktop_sticky_{$row}_{$column}"
+				"goso_hb_align_desktop_sticky_{$row}_{$column}",
+				"goso_hb_element_desktop_sticky_{$row}_{$column}"
 			],
 			'container_inclusive' => true,
-			'render_callback'     => "penci_hb_element_desktop_sticky_{$row}_preview_render",
+			'render_callback'     => "goso_hb_element_desktop_sticky_{$row}_preview_render",
 			'fallback_refresh'    => false,
 		) );
 	}
@@ -225,12 +225,12 @@ foreach ( $builder_rows_desktop_sticky as $row => $row_name ) {
 /* Mobile Sidebar Elements*/
 foreach ( $builder_row_sidebar as $row ) {
 	foreach ( $builder_columns_sidebar as $column ) {
-		$wp_customize->add_setting( "penci_hb_align_mobile_drawer_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_align_mobile_drawer_{$row}_{$column}", array(
 			'default'           => $column,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_sanitize_choices_field'
+			'sanitize_callback' => 'goso_sanitize_choices_field'
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "penci_hb_align_mobile_drawer_{$row}_{$column}", [
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, "goso_hb_align_mobile_drawer_{$row}_{$column}", [
 			'type'    => 'select',
 			'label'   => 'Mobile Sidebar ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Align', 'authow' ),
 			'section' => $builder_section,
@@ -241,12 +241,12 @@ foreach ( $builder_row_sidebar as $row ) {
 			],
 		] ) );
 
-		$wp_customize->add_setting( "penci_hb_element_mobile_drawer_{$row}_{$column}", array(
+		$wp_customize->add_setting( "goso_hb_element_mobile_drawer_{$row}_{$column}", array(
 			'default'           => '',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'penci_text_sanitization'
+			'sanitize_callback' => 'goso_text_sanitization'
 		) );
-		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "penci_hb_element_mobile_drawer_{$row}_{$column}", [
+		$wp_customize->add_control( new Goso_Dropdown_Select2_Custom_Control( $wp_customize, "goso_hb_element_mobile_drawer_{$row}_{$column}", [
 			'label'       => 'Mobile Sidebar ' . ucfirst( $row ) . ' ' . ucfirst( $column ) . ' ' . esc_html__( 'Element', 'authow' ),
 			'section'     => $builder_section,
 			'input_attrs' => array(
@@ -255,11 +255,11 @@ foreach ( $builder_row_sidebar as $row ) {
 			'choices'     => HeaderBuilder::mobile_header_element(),
 		] ) );
 
-		$wp_customize->selective_refresh->add_partial( "penci_hb_element_mobile_drawer_{$row}_{$column}", array(
-			'selector'            => '.penci-mobile-sidebar-content-wrapper',
+		$wp_customize->selective_refresh->add_partial( "goso_hb_element_mobile_drawer_{$row}_{$column}", array(
+			'selector'            => '.goso-mobile-sidebar-content-wrapper',
 			'settings'            => [
-				"penci_hb_align_mobile_drawer_{$row}_{$column}",
-				"penci_hb_element_mobile_drawer_{$row}_{$column}"
+				"goso_hb_align_mobile_drawer_{$row}_{$column}",
+				"goso_hb_element_mobile_drawer_{$row}_{$column}"
 			],
 			'container_inclusive' => true,
 			'render_callback'     => function () {

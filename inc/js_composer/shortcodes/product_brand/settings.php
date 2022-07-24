@@ -1,12 +1,12 @@
 <?php
 $group_color = 'Typo & Color';
 vc_map( array(
-	'base'          => 'penci_product_brand',
+	'base'          => 'goso_product_brand',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/product_brand/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Product Brand', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Product Brand', 'authow' ),
 	'description'   => __( 'Show the product brand list', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(

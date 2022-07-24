@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 $group = 'Slider settings';
 vc_map( array(
-	'base'          => 'penci_custom_sliders',
+	'base'          => 'goso_custom_sliders',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/custom_sliders/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Custom Slider', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Custom Slider', 'authow' ),
 	'description'   => __( 'Custom Slider Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -16,7 +16,7 @@ vc_map( array(
 			array(
 				'type'       => 'param_group',
 				'heading'    => 'Slider',
-				'param_name' => 'penci_slides',
+				'param_name' => 'goso_slides',
 				'value'      => urlencode( json_encode( array(
 					array(
 						'heading'             => __( 'Slide 1 Heading', 'authow' ),
@@ -184,7 +184,7 @@ vc_map( array(
 						'param_name' => 'bgoverlay_color',
 					),
 					array(
-						'type'             => 'penci_number',
+						'type'             => 'goso_number',
 						'param_name'       => 'bgoverlay_padding',
 						'heading'          => __( 'Overlay Background Padding', 'authow' ),
 						'value'            => '',
@@ -196,7 +196,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => esc_html__( 'Slides Height', 'authow' ),
 				'param_name'       => 'slides_height',
 				'value'            => '',
@@ -207,7 +207,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => esc_html__( 'Ratio Height/Width .Unit is %. E.g: 50', 'authow' ),
 				'param_name'       => 'slides_img_ratio',
 				'value'            => '',
@@ -218,7 +218,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'content_max_width',
 				'heading'          => __( 'Content Width', 'authow' ),
 				'value'            => '',
@@ -228,7 +228,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'slides_paddingl',
 				'heading'          => __( 'Content Padding Left', 'authow' ),
 				'value'            => '',
@@ -238,7 +238,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'slides_paddingr',
 				'heading'          => __( 'Content Padding Right', 'authow' ),
 				'value'            => '',
@@ -248,7 +248,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'slides_paddingt',
 				'heading'          => __( 'Content Padding Top', 'authow' ),
 				'value'            => '',
@@ -258,7 +258,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'slides_paddingb',
 				'heading'          => __( 'Content Padding Bottom', 'authow' ),
 				'value'            => '',
@@ -336,10 +336,10 @@ vc_map( array(
 				'heading'          => esc_html__( 'Text', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'heading_spacing',
 				'heading'    => __( 'Margin bottom', 'authow' ),
 				'value'      => '',
@@ -356,7 +356,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'heading_size',
 				'heading'          => __( 'Font Size', 'authow' ),
 				'value'            => '',
@@ -380,7 +380,7 @@ vc_map( array(
 			),
 			array(
 				'type'       => 'dropdown',
-				'heading'    => esc_html__( 'Overlay Background Opacity', 'penci-framework' ),
+				'heading'    => esc_html__( 'Overlay Background Opacity', 'goso-framework' ),
 				'param_name' => 'heading_bgoverlay_opacity',
 				'value'      => array(
 					'0'    => '0',
@@ -415,7 +415,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'heading_bgoverlay_padding',
 				'heading'          => __( 'Overlay Background Padding', 'authow' ),
 				'value'            => '',
@@ -430,10 +430,10 @@ vc_map( array(
 				'heading'          => esc_html__( 'Description', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'desc_spacing',
 				'heading'    => __( 'Margin bottom', 'authow' ),
 				'value'      => '',
@@ -450,7 +450,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'desc_size',
 				'heading'          => __( 'Font Size', 'authow' ),
 				'value'            => '',
@@ -475,7 +475,7 @@ vc_map( array(
 			),
 			array(
 				'type'       => 'dropdown',
-				'heading'    => esc_html__( 'Overlay Background Opacity', 'penci-framework' ),
+				'heading'    => esc_html__( 'Overlay Background Opacity', 'goso-framework' ),
 				'param_name' => 'desc_bgoverlay_opacity',
 				'value'      => array(
 					'0'    => '0',
@@ -510,7 +510,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'desc_bgoverlay_padding',
 				'heading'          => __( 'Overlay Background Padding', 'authow' ),
 				'value'            => '',
@@ -527,10 +527,10 @@ vc_map( array(
 				'heading'          => esc_html__( 'Button 1', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button1_width',
 				'heading'          => __( 'Button Width', 'authow' ),
 				'value'            => '',
@@ -541,7 +541,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button1_height',
 				'heading'          => __( 'Button Height', 'authow' ),
 				'value'            => '',
@@ -552,7 +552,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button1_border_width',
 				'heading'          => __( 'Border Width', 'authow' ),
 				'value'            => '',
@@ -563,7 +563,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button1_border_radius',
 				'heading'          => __( 'Border Radius', 'authow' ),
 				'value'            => '',
@@ -574,7 +574,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button1_size',
 				'heading'          => __( 'Font Size', 'authow' ),
 				'value'            => '',
@@ -641,10 +641,10 @@ vc_map( array(
 				'heading'          => esc_html__( 'Button 2', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button2_width',
 				'heading'          => __( 'Button Width', 'authow' ),
 				'value'            => '',
@@ -655,7 +655,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button2_height',
 				'heading'          => __( 'Button Height', 'authow' ),
 				'value'            => '',
@@ -666,7 +666,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button2_border_width',
 				'heading'          => __( 'Border Width', 'authow' ),
 				'value'            => '',
@@ -677,7 +677,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button2_border_radius',
 				'heading'          => __( 'Border Radius', 'authow' ),
 				'value'            => '',
@@ -688,7 +688,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'button2_size',
 				'heading'          => __( 'Font size', 'authow' ),
 				'value'            => '',

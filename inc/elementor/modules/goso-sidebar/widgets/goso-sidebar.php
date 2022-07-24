@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSidebar extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-sidebar';
+		return 'goso-sidebar';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Sidebar', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Sidebar', 'authow' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GosoSidebar extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -42,7 +42,7 @@ class GosoSidebar extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_sidebar', array(
+			'goso_sidebar', array(
 				'label'   => __( 'Sidebar to Display', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'main-sidebar',
@@ -50,7 +50,7 @@ class GosoSidebar extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_htitle_layout', array(
+			'goso_htitle_layout', array(
 				'label'   => __( 'Select Sidebar Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
@@ -63,7 +63,7 @@ class GosoSidebar extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_htitle_style', array(
+			'goso_htitle_style', array(
 				'label'   => __( 'Sidebar Widget Heading Style', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
@@ -93,7 +93,7 @@ class GosoSidebar extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_htitle_align', array(
+			'goso_htitle_align', array(
 				'label'   => __( 'Sidebar Widget Heading Align', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
@@ -107,7 +107,7 @@ class GosoSidebar extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_htitle_iconpo', array(
+			'goso_htitle_iconpo', array(
 				'label'     => __( 'Align Icon on Style 15', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
@@ -116,12 +116,12 @@ class GosoSidebar extends Base_Widget {
 					'pciconp-right' => esc_html__( 'Right', 'authow' ),
 					'pciconp-left'  => esc_html__( 'Left', 'authow' ),
 				),
-				'condition' => array( 'penci_htitle_style' => 'style-15' ),
+				'condition' => array( 'goso_htitle_style' => 'style-15' ),
 			)
 		);
 
 		$this->add_control(
-			'penci_htitle_icon', array(
+			'goso_htitle_icon', array(
 				'label'     => __( 'Custom Icon on Style 15', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
@@ -137,7 +137,7 @@ class GosoSidebar extends Base_Widget {
 					'pcicon-fire'  => esc_html__( 'Fire', 'authow' ),
 					'pcicon-book'  => esc_html__( 'Book', 'authow' ),
 				),
-				'condition' => array( 'penci_htitle_style' => 'style-15' ),
+				'condition' => array( 'goso_htitle_style' => 'style-15' ),
 			)
 		);
 
@@ -147,18 +147,18 @@ class GosoSidebar extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$heading_title       = get_theme_mod( 'penci_sidebar_heading_style' ) ? get_theme_mod( 'penci_sidebar_heading_style' ) : 'style-1';
-		$heading_align       = get_theme_mod( 'penci_sidebar_heading_align' ) ? get_theme_mod( 'penci_sidebar_heading_align' ) : 'pcalign-center';
-		$sidebar_style       = get_theme_mod( 'penci_sidebar_style' ) ? get_theme_mod( 'penci_sidebar_style' ) : '';
-		$sidebar_icon_pos    = get_theme_mod( 'penci_sidebar_icon_align' ) ? get_theme_mod( 'penci_sidebar_icon_align' ) : 'pciconp-right';
-		$sidebar_icon_design = get_theme_mod( 'penci_sidebar_icon_design' ) ? get_theme_mod( 'penci_sidebar_icon_design' ) : 'pcicon-right';
+		$heading_title       = get_theme_mod( 'goso_sidebar_heading_style' ) ? get_theme_mod( 'goso_sidebar_heading_style' ) : 'style-1';
+		$heading_align       = get_theme_mod( 'goso_sidebar_heading_align' ) ? get_theme_mod( 'goso_sidebar_heading_align' ) : 'pcalign-center';
+		$sidebar_style       = get_theme_mod( 'goso_sidebar_style' ) ? get_theme_mod( 'goso_sidebar_style' ) : '';
+		$sidebar_icon_pos    = get_theme_mod( 'goso_sidebar_icon_align' ) ? get_theme_mod( 'goso_sidebar_icon_align' ) : 'pciconp-right';
+		$sidebar_icon_design = get_theme_mod( 'goso_sidebar_icon_design' ) ? get_theme_mod( 'goso_sidebar_icon_design' ) : 'pcicon-right';
 
-		$sidebar  = $settings['penci_sidebar'] ? $settings['penci_sidebar'] : 'main-sidebar';
-		$style    = $settings['penci_htitle_style'] ? $settings['penci_htitle_style'] : $heading_title;
-		$align    = $settings['penci_htitle_align'] ? $settings['penci_htitle_align'] : $heading_align;
-		$layout   = $settings['penci_htitle_layout'] ? $settings['penci_htitle_layout'] : $sidebar_style;
-		$icon_pos = $settings['penci_htitle_iconpo'] ? $settings['penci_htitle_iconpo'] : $sidebar_icon_pos;
-		$icon     = $settings['penci_htitle_icon'] ? $settings['penci_htitle_icon'] : $sidebar_icon_design;
+		$sidebar  = $settings['goso_sidebar'] ? $settings['goso_sidebar'] : 'main-sidebar';
+		$style    = $settings['goso_htitle_style'] ? $settings['goso_htitle_style'] : $heading_title;
+		$align    = $settings['goso_htitle_align'] ? $settings['goso_htitle_align'] : $heading_align;
+		$layout   = $settings['goso_htitle_layout'] ? $settings['goso_htitle_layout'] : $sidebar_style;
+		$icon_pos = $settings['goso_htitle_iconpo'] ? $settings['goso_htitle_iconpo'] : $sidebar_icon_pos;
+		$icon     = $settings['goso_htitle_icon'] ? $settings['goso_htitle_icon'] : $sidebar_icon_design;
 
 		if ( ! isset( $sidebar ) ): $sidebar = 'main-sidebar'; endif;
 		if ( ! isset( $style ) ): $style = 'style-1'; endif;
@@ -170,7 +170,7 @@ class GosoSidebar extends Base_Widget {
 		?>
 
         <div id="sidebar"
-             class="penci-sidebar-content penci-sidebar-content-vc <?php echo esc_attr( $style . ' ' . $align . ' ' . $layout . ' ' . $icon_pos . ' ' . $icon ); ?>">
+             class="goso-sidebar-content goso-sidebar-content-vc <?php echo esc_attr( $style . ' ' . $align . ' ' . $layout . ' ' . $icon_pos . ' ' . $icon ); ?>">
             <div class="theiaStickySidebar">
 				<?php
 				if ( is_active_sidebar( $sidebar ) ) {

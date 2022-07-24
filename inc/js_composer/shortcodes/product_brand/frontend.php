@@ -14,17 +14,17 @@ $default_settings = [
 	'hide_empty'           => 0,
 	'order'                => 'ASC',
 	'scroll_carousel_init' => 'no',
-	'custom_sizes'         => apply_filters( 'penci_brands_shortcode_custom_sizes', false ),
+	'custom_sizes'         => apply_filters( 'goso_brands_shortcode_custom_sizes', false ),
 ];
 
 $settings = wp_parse_args( $atts, $settings );
 
 $carousel_id = 'brands_' . rand( 1000, 9999 );
 
-$attribute = get_theme_mod( 'penci_woocommerce_brand_attr' );
+$attribute = get_theme_mod( 'goso_woocommerce_brand_attr' );
 
 if ( empty( $attribute ) || ! taxonomy_exists( $attribute ) ) {
-	echo '<div class="penci-notice penci-info">' . esc_html__( 'You must select your brand attribute in Appearance -> Customize -> WooCommerce > Brands', 'authow' ) . '</div>';
+	echo '<div class="goso-notice goso-info">' . esc_html__( 'You must select your brand attribute in Appearance -> Customize -> WooCommerce > Brands', 'authow' ) . '</div>';
 
 	return;
 }
@@ -54,8 +54,8 @@ if ( 'carousel' === $settings['style'] ) {
 	$settings['carousel_id']     = $carousel_id;
 	$owl_attributes              = '';
 
-	$wrapper_class[]       = 'penci-carousel-container';
-	$items_wrapper_class[] = 'penci-owl-carousel penci-owl-carousel-slider';
+	$wrapper_class[]       = 'goso-carousel-container';
+	$items_wrapper_class[] = 'goso-owl-carousel goso-owl-carousel-slider';
 
 
 	$items_wrapper_data[] = 'data-item="' . ( isset( $settings['slides_per_view'] ) ? $settings['slides_per_view'] : 3 ) . '"';
@@ -70,13 +70,13 @@ if ( 'carousel' === $settings['style'] ) {
 		$wrapper_class[] = 'scroll-init';
 	}
 
-	if ( get_theme_mod( 'penci_disable_owl_mobile_devices' ) ) {
+	if ( get_theme_mod( 'goso_disable_owl_mobile_devices' ) ) {
 		$wrapper_class[] = 'disable-owl-mobile';
 
 	}
 } else {
 	$item_class[]          = 'column-item';
-	$items_wrapper_class[] = 'penci-custom-row row-' . $settings['columns'];
+	$items_wrapper_class[] = 'goso-custom-row row-' . $settings['columns'];
 }
 
 $args = array(
@@ -117,7 +117,7 @@ if ( 'random' === $settings['orderby'] ) {
 	shuffle( $brands );
 }
 
-if ( penci_is_shop_on_front() ) {
+if ( goso_is_shop_on_front() ) {
 	$link = home_url();
 } else {
 	$link = get_post_type_archive_link( 'product' );
@@ -139,7 +139,7 @@ if ( penci_is_shop_on_front() ) {
 						$attr_link = add_query_arg( $filter_name, $brand->slug, $link );
 					}
 
-					$url_to_id = penci_get_imageid_from_url( $image );
+					$url_to_id = goso_get_imageid_from_url( $image );
 					?>
 
                     <div <?php echo implode( ' ', $item_class ); ?>>
@@ -149,7 +149,7 @@ if ( penci_is_shop_on_front() ) {
                                 <span class="brand-title-wrap">
 										<?php echo esc_html( $brand->name ); ?>
 									</span>
-							<?php elseif ( apply_filters( 'penci_brands_element_images_with_attributes', true ) && $url_to_id ) : ?>
+							<?php elseif ( apply_filters( 'goso_brands_element_images_with_attributes', true ) && $url_to_id ) : ?>
 								<?php
 								echo wp_get_attachment_image(
 									$url_to_id,

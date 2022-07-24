@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoButtonPopup extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-button-popup';
+		return 'goso-button-popup';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Button Popup', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Button Popup', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,22 +28,22 @@ class GosoButtonPopup extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
-		return array( 'button', 'click', 'penci', 'authow' );
+		return array( 'button', 'click', 'goso', 'authow' );
 	}
 
 	public function get_script_depends() {
-		return array( 'penci-button-popup' );
+		return array( 'goso-button-popup' );
 	}
 
 	protected function register_controls() {
 
 
 		$this->start_controls_section( 'section_general', array(
-				'label' => penci_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' ),
+				'label' => goso_get_theme_name('Goso').' '.esc_html__( ' Button', 'authow' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			) );
 
@@ -263,7 +263,7 @@ class GosoButtonPopup extends Base_Widget {
 				'label'     => __( 'Popup Block:', 'authow' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '',
-				'options'   => penci_builder_block_list(),
+				'options'   => goso_builder_block_list(),
 				'condition' => array( 'popup_cstyle' => array( 'block' ) ),
 			) );
 
@@ -272,7 +272,7 @@ class GosoButtonPopup extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 400, 'max' => 1170, ) ),
 				'selectors' => [
-					'#penci-btn-popup-{{ID}} .button-popup-content' => 'max-width: {{SIZE}}px'
+					'#goso-btn-popup-{{ID}} .button-popup-content' => 'max-width: {{SIZE}}px'
 				]
 			) );
 
@@ -281,7 +281,7 @@ class GosoButtonPopup extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 400, 'max' => 1170, ) ),
 				'selectors' => [
-					'#penci-btn-popup-{{ID}} .button-popup-content' => 'max-height: {{SIZE}}px'
+					'#goso-btn-popup-{{ID}} .button-popup-content' => 'max-height: {{SIZE}}px'
 				]
 			) );
 
@@ -302,7 +302,7 @@ class GosoButtonPopup extends Base_Widget {
 
 		// Design
 		$this->start_controls_section( 'section_design_content', array(
-				'label' => penci_get_theme_name('Goso').' '.esc_html__( 'Button', 'authow' ),
+				'label' => goso_get_theme_name('Goso').' '.esc_html__( 'Button', 'authow' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			) );
 
@@ -491,7 +491,7 @@ class GosoButtonPopup extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'#penci-btn-popup-{{ID}}.button-popup-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'#goso-btn-popup-{{ID}}.button-popup-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			) );
 
@@ -499,14 +499,14 @@ class GosoButtonPopup extends Base_Widget {
 				'name'     => 'btn_popup_bg',
 				'label'    => __( 'Background Settings', 'authow' ),
 				'types'    => [ 'classic', 'gradient', 'video' ],
-				'selector' => '#penci-btn-popup-{{ID}}.button-popup-content'
+				'selector' => '#goso-btn-popup-{{ID}}.button-popup-content'
 			) );
 
 		$this->add_control( 'btn_popup_cl', array(
 				'label'     => __( 'Content Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#penci-btn-popup-{{ID}}.button-popup-content' => 'color:{{VALUE}}'
+					'#goso-btn-popup-{{ID}}.button-popup-content' => 'color:{{VALUE}}'
 				]
 			) );
 
@@ -514,7 +514,7 @@ class GosoButtonPopup extends Base_Widget {
 				'label'     => __( 'Close Button Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#penci-btn-popup-{{ID}}.button-popup-content .mfp-close' => 'color:{{VALUE}}'
+					'#goso-btn-popup-{{ID}}.button-popup-content .mfp-close' => 'color:{{VALUE}}'
 				]
 			) );
 
@@ -560,11 +560,11 @@ class GosoButtonPopup extends Base_Widget {
 		if ( $settings['hover_animation'] ) {
 			$button_classes .= ' elementor-animation-' . $settings['hover_animation'];
 		}
-		$id           = 'penci-btn-popup-' . $this->get_id();
+		$id           = 'goso-btn-popup-' . $this->get_id();
 		$anistyle     = isset( $settings['popup_anityle'] ) && $settings['popup_anityle'] ? $settings['popup_anityle'] : 'move-to-top';
 		$popup_cstyle = isset( $settings['popup_cstyle'] ) && $settings['popup_cstyle'] ? $settings['popup_cstyle'] : 'text';
 		?>
-        <div class="pcbtn-wrapper penci-button-popup <?php echo $align_class; ?>">
+        <div class="pcbtn-wrapper goso-button-popup <?php echo $align_class; ?>">
             <a data-popup="<?php echo $id; ?>" class="<?php echo $button_classes; ?>"
                href="#<?php echo $id; ?>"<?php
 			echo $button_id_attr; ?>>
@@ -582,7 +582,7 @@ class GosoButtonPopup extends Base_Widget {
 				echo do_shortcode( $settings['popup_content'] );
 			} else if ( 'block' == $popup_cstyle && $settings['popup_block'] ) {
 				$popup_render_content = '';
-				$popup_block_id       = get_page_by_path( $settings['popup_block'], OBJECT, 'penci-block' )->ID;
+				$popup_block_id       = get_page_by_path( $settings['popup_block'], OBJECT, 'goso-block' )->ID;
 				if ( did_action( 'elementor/loaded' ) && \Elementor\Plugin::$instance->documents->get( $popup_block_id )->is_built_with_elementor() ) {
 					$popup_render_content .= \Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $popup_block_id );
 				} else {

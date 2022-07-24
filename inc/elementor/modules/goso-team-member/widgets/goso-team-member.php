@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoTeamMember extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-team-member';
+		return 'goso-team-member';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Team Members', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Team Members', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoTeamMember extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -232,8 +232,8 @@ class GosoTeamMember extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			array(
-				'name'      => 'penci_img',
-				'default'   => 'penci-masonry-thumb',
+				'name'      => 'goso_img',
+				'default'   => 'goso-masonry-thumb',
 				'separator' => 'none',
 			)
 		);
@@ -244,8 +244,8 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-teammb-bsc .penci-teammb-img:before' => 'padding-top: {{SIZE}}%;',
-					'{{WRAPPER}} .penci-teammb-bsc .penci-teammb-img:before' => 'height: auto;',
+					'{{WRAPPER}} .goso-teammb-bsc .goso-teammb-img:before' => 'padding-top: {{SIZE}}%;',
+					'{{WRAPPER}} .goso-teammb-bsc .goso-teammb-img:before' => 'height: auto;',
 				),
 			)
 		);
@@ -254,7 +254,7 @@ class GosoTeamMember extends Base_Widget {
 			'width_img', array(
 				'label'     => __( 'Custom Image Width', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-teammb-item .penci-teammb-img' => 'max-width: {{SIZE}}px;width: 100%; height: auto;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-teammb-item .goso-teammb-img' => 'max-width: {{SIZE}}px;width: 100%; height: auto;' ),
 			)
 		);
 		
@@ -263,7 +263,7 @@ class GosoTeamMember extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-teammb-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition' => array( 'style' => array( 's1', 's2', 's3' ) ),
 		) );
@@ -335,7 +335,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Member Items Rows Gap', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}}  .pencisc-grid' => 'grid-row-gap: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .gososc-grid' => 'grid-row-gap: {{SIZE}}px' ),
 			)
 		);
 		
@@ -344,7 +344,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Member Items Columns Gap', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}}  .pencisc-grid' => 'grid-column-gap: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .gososc-grid' => 'grid-column-gap: {{SIZE}}px' ),
 			)
 		);
 		
@@ -354,8 +354,8 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-teammb-s2 .penci-teammb-img'       => 'margin-bottom: {{SIZE}}px',
-					'{{WRAPPER}} .penci-teammb-s1 .penci-teammb-img'       => 'margin-bottom: {{SIZE}}px',
+					'{{WRAPPER}} .goso-teammb-s2 .goso-teammb-img'       => 'margin-bottom: {{SIZE}}px',
+					'{{WRAPPER}} .goso-teammb-s1 .goso-teammb-img'       => 'margin-bottom: {{SIZE}}px',
 				),
 				'condition' => array( 'style' => array( 's1', 's2' ) ),
 			)
@@ -367,7 +367,7 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-teammb-bsc .penci-team_member_name' => 'margin-top: {{SIZE}}px',
+					'{{WRAPPER}} .goso-teammb-bsc .goso-team_member_name' => 'margin-top: {{SIZE}}px',
 				),
 			)
 		);
@@ -377,7 +377,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Position Text Top Spacing', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_pos, {{WRAPPER}} .penci-team_member_name + .penci-team_member_pos' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_pos, {{WRAPPER}} .goso-team_member_name + .goso-team_member_pos' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -386,7 +386,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Description Top Spacing', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_desc' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_desc' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -395,7 +395,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Spacing Between Icons', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_socails .penci-social-item' => 'margin-left: calc( {{SIZE}}px / 2 );margin-right: calc( {{SIZE}}px / 2 );' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_socails .goso-social-item' => 'margin-left: calc( {{SIZE}}px / 2 );margin-right: calc( {{SIZE}}px / 2 );' ),
 			)
 		);
 		
@@ -404,7 +404,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Top Spacing', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_socails' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_socails' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		
@@ -433,9 +433,9 @@ class GosoTeamMember extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-teammb-s1 .penci-teammb-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-teammb-s2 .penci-teammb-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-teammb-s3 .penci-team_item__info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-s1 .goso-teammb-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-s2 .goso-teammb-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-s3 .goso-team_item__info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition' => array( 'style' => array( 's1', 's2', 's3' ) ),
 		) );
@@ -446,7 +446,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-teammb-inner' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-teammb-inner' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		
@@ -456,7 +456,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-teammb-inner' => 'border:1px solid {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-teammb-inner' => 'border:1px solid {{VALUE}};' ),
 			)
 		);
 		
@@ -465,8 +465,8 @@ class GosoTeamMember extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-teammb-s1 .penci-teammb-inner' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-teammb-s2 .penci-teammb-inner' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-s1 .goso-teammb-inner' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-teammb-s2 .goso-teammb-inner' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition' => array( 'style' => array( 's1', 's2' ) ),
 		) );
@@ -485,13 +485,13 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_name' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_name' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'team_name_typo',
-				'selector' => '{{WRAPPER}} .penci-team_member_name',
+				'selector' => '{{WRAPPER}} .goso-team_member_name',
 			)
 		);
 		
@@ -509,13 +509,13 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_pos' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_pos' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'team_pos_typo',
-				'selector' => '{{WRAPPER}} .penci-team_member_pos',
+				'selector' => '{{WRAPPER}} .goso-team_member_pos',
 			)
 		);
 
@@ -534,14 +534,14 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Description Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-team_member_desc' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-team_member_desc' => 'color: {{VALUE}};' ),
 			)
 		);
 		
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'team_desc_typo',
-				'selector' => '{{WRAPPER}} .penci-team_member_desc',
+				'selector' => '{{WRAPPER}} .goso-team_member_desc',
 			)
 		);
 
@@ -559,7 +559,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item, {{WRAPPER}} .penci-social-wrap .penci-social-item i' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item, {{WRAPPER}} .goso-social-wrap .goso-social-item i' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -569,7 +569,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item:hover, {{WRAPPER}} .penci-social-wrap .penci-social-item:hover i' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item:hover, {{WRAPPER}} .goso-social-wrap .goso-social-item:hover i' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -579,7 +579,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item i' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item i' => 'background-color: {{VALUE}};' ),
 			)
 		);
 
@@ -589,7 +589,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Hover Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item:hover i' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item:hover i' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		
@@ -599,7 +599,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item i' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item i' => 'border-color: {{VALUE}};' ),
 			)
 		);
 
@@ -609,7 +609,7 @@ class GosoTeamMember extends Base_Widget {
 				'label'     => __( 'Social Icons Hover Borders Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-social-wrap .penci-social-item:hover i' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-social-wrap .goso-social-item:hover i' => 'border-color: {{VALUE}};' ),
 			)
 		);
 		
@@ -619,7 +619,7 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-social-wrap .penci-social-item i' => 'font-size: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-social-wrap .goso-social-item i' => 'font-size: {{SIZE}}px;'
 				),
 			)
 		);
@@ -630,7 +630,7 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-teammb-bsc' => '--pcteammb-w: {{SIZE}}px;'
+					'{{WRAPPER}} .goso-teammb-bsc' => '--pcteammb-w: {{SIZE}}px;'
 				),
 			)
 		);
@@ -641,7 +641,7 @@ class GosoTeamMember extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}} .pcteam-shape .penci-social-item i' => 'border-width: {{SIZE}}px;'
+					'{{WRAPPER}} .pcteam-shape .goso-social-item i' => 'border-width: {{SIZE}}px;'
 				),
 			)
 		);
@@ -661,7 +661,7 @@ class GosoTeamMember extends Base_Widget {
 		$social_colorcss = '';
 		$team_members = (array) $settings['teammembers'];
 		$style   = isset( $settings['style'] ) ? $settings['style'] : 's1';
-		$image_size   = isset( $settings['penci_img_size'] ) ? $settings['penci_img_size'] : 'penci-masonry-thumb';
+		$image_size   = isset( $settings['goso_img_size'] ) ? $settings['goso_img_size'] : 'goso-masonry-thumb';
 		$social_shape   = isset( $settings['social_shape'] ) ? $settings['social_shape'] : 'default';
 		$social_style   = isset( $settings['social_style'] ) ? $settings['social_style'] : 'default';
 		$social_colors   = isset( $settings['social_colors'] ) ? $settings['social_colors'] : 'default';
@@ -670,21 +670,21 @@ class GosoTeamMember extends Base_Widget {
 		}
 		$titpos   = isset( $settings['titpos'] ) ? $settings['titpos'] : 'default';
 		if( 'brandbg' == $social_colors ){
-			$social_colorcss = ' penci-social-colored';
+			$social_colorcss = ' goso-social-colored';
 		} else if ( 'brandtext' == $social_colors ){
-			$social_colorcss = ' penci-social-textcolored';
+			$social_colorcss = ' goso-social-textcolored';
 		}
 		
-		$css_class     = 'penci-block-vc penci-teammb-bsc';
+		$css_class     = 'goso-block-vc goso-teammb-bsc';
 		if( 's5' == $style ){
-			$css_class     .= ' penci-teammb-s4';
+			$css_class     .= ' goso-teammb-s4';
 		}
-		$css_class     .= ' penci-teammb-' . $style;
-		$css_class     .= ' pencisc-grid-' . $settings['columns'];
+		$css_class     .= ' goso-teammb-' . $style;
+		$css_class     .= ' gososc-grid-' . $settings['columns'];
 		$column_tablet = isset( $settings['columns_tablet'] ) ? $settings['columns_tablet'] : '2';
 		$column_mobile = isset( $settings['columns_mobile'] ) ? $settings['columns_mobile'] : '1';
-		$css_class     .= ' pencisc-grid-tablet-' . $column_tablet;
-		$css_class     .= ' pencisc-grid-mobile-' . $column_mobile;
+		$css_class     .= ' gososc-grid-tablet-' . $column_tablet;
+		$css_class     .= ' gososc-grid-mobile-' . $column_mobile;
 		if( 'default' != $social_shape || 'default' != $social_style ){
 			$css_class     .= ' pcteam-shape';
 		}
@@ -700,11 +700,11 @@ class GosoTeamMember extends Base_Widget {
 		?>
         <div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-block_content pencisc-grid">
+            <div class="goso-block_content gososc-grid">
 				<?php
 				$link_target = 'target="_blank"';
 
-				if ( ! get_theme_mod( 'penci_dis_noopener' ) ) {
+				if ( ! get_theme_mod( 'goso_dis_noopener' ) ) {
 					$link_target .= ' rel="noopener"';
 				}
 				foreach ( (array) $team_members as $item ) {
@@ -734,73 +734,73 @@ class GosoTeamMember extends Base_Widget {
 						}
 					}
 					?>
-                    <div class="penci-teammb-item pencisc-grid-item">
-                        <div class="penci-teammb-inner">
+                    <div class="goso-teammb-item gososc-grid-item">
+                        <div class="goso-teammb-inner">
 							<?php
 							if ( $url_img_item ) {
-								$dis_lazy = get_theme_mod( 'penci_disable_lazyload_layout' );
+								$dis_lazy = get_theme_mod( 'goso_disable_lazyload_layout' );
 								if ( $dis_lazy ) {
-									echo '<span class="penci-image-holder penci-teammb-img penci-disable-lazy" style="background-image: url(' . esc_url( $url_img_item ) . ');"></span>';
+									echo '<span class="goso-image-holder goso-teammb-img goso-disable-lazy" style="background-image: url(' . esc_url( $url_img_item ) . ');"></span>';
 								} else {
-									echo '<span class="penci-image-holder penci-teammb-img penci-lazy" data-bgset="' . esc_url( $url_img_item ) . '"></span>';
+									echo '<span class="goso-image-holder goso-teammb-img goso-lazy" data-bgset="' . esc_url( $url_img_item ) . '"></span>';
 								}
 							}
 							?>
-                            <div class="penci-team_item__info">
+                            <div class="goso-team_item__info">
 								<?php if ( $position_item && ( 'below' == $title_pos ) ): ?>
-                                    <div class="penci-team_member_pos"><?php echo $position_item; ?></div>
+                                    <div class="goso-team_member_pos"><?php echo $position_item; ?></div>
 								<?php endif; ?>
 								<?php if ( $name_item ): ?>
-                                    <h5 class="penci-team_member_name"><?php echo $name_item; ?></h5>
+                                    <h5 class="goso-team_member_name"><?php echo $name_item; ?></h5>
 								<?php endif; ?>
 								<?php if ( $position_item && ( 'above' == $title_pos ) ): ?>
-                                    <div class="penci-team_member_pos"><?php echo $position_item; ?></div>
+                                    <div class="goso-team_member_pos"><?php echo $position_item; ?></div>
 								<?php endif; ?>
 								<?php if ( $desc_item ): ?>
-                                    <div class="penci-team_member_desc"><?php echo $desc_item; ?></div>
+                                    <div class="goso-team_member_desc"><?php echo $desc_item; ?></div>
 								<?php endif; ?>
-                                <div class="penci-team_member_socails penci-social-wrap<?php echo $social_colorcss; ?>">
+                                <div class="goso-team_member_socails goso-social-wrap<?php echo $social_colorcss; ?>">
 									<?php if ( $link_website_item ): ?>
-                                        <a <?php echo $link_target ?>class="penci-social-item penci-social-item website"
-                                                                     href="<?php echo esc_url( $link_website_item ); ?>"><?php penci_fawesome_icon( 'fas fa-globe' ); ?></a>
+                                        <a <?php echo $link_target ?>class="goso-social-item goso-social-item website"
+                                                                     href="<?php echo esc_url( $link_website_item ); ?>"><?php goso_fawesome_icon( 'fas fa-globe' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_facebook_item ): ?>
                                         <a <?php echo $link_target ?>
-                                                class="penci-social-item penci-social-item facebook-f"
-                                                href="<?php echo esc_url( $link_facebook_item ); ?>"><?php penci_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
+                                                class="goso-social-item goso-social-item facebook-f"
+                                                href="<?php echo esc_url( $link_facebook_item ); ?>"><?php goso_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_twitter_item ): ?>
-                                        <a <?php echo $link_target ?>class="penci-social-item penci-social-item twitter"
-                                                                     href="<?php echo esc_url( $link_twitter_item ); ?>"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></a>
+                                        <a <?php echo $link_target ?>class="goso-social-item goso-social-item twitter"
+                                                                     href="<?php echo esc_url( $link_twitter_item ); ?>"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></a>
 									<?php endif; ?>
 
 									<?php if ( $link_linkedin_item ): ?>
                                         <a <?php echo $link_target ?>
-                                                class="penci-social-item penci-social-item linkedin"
-                                                href="<?php echo esc_url( $link_linkedin_item ); ?>"><?php penci_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
+                                                class="goso-social-item goso-social-item linkedin"
+                                                href="<?php echo esc_url( $link_linkedin_item ); ?>"><?php goso_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_instagram_item ): ?>
                                         <a <?php echo $link_target ?>
-                                                class="penci-social-item penci-social-item instagram"
-                                                href="<?php echo esc_url( $link_instagram_item ); ?>"><?php penci_fawesome_icon( 'fab fa-instagram' ); ?></a>
+                                                class="goso-social-item goso-social-item instagram"
+                                                href="<?php echo esc_url( $link_instagram_item ); ?>"><?php goso_fawesome_icon( 'fab fa-instagram' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_youtube_item ): ?>
-                                        <a <?php echo $link_target ?>class="penci-social-item penci-social-item youtube"
-                                                                     href="<?php echo esc_url( $link_youtube_item ); ?>"><?php penci_fawesome_icon( 'fab fa-youtube' ); ?></a>
+                                        <a <?php echo $link_target ?>class="goso-social-item goso-social-item youtube"
+                                                                     href="<?php echo esc_url( $link_youtube_item ); ?>"><?php goso_fawesome_icon( 'fab fa-youtube' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_vimeo_item ): ?>
-                                        <a <?php echo $link_target ?> class="penci-social-item penci-social-item vimeo"
-                                                                      href="<?php echo esc_url( $link_vimeo_item ); ?>"><?php penci_fawesome_icon( 'fab fa-vimeo-v' ); ?></a>
+                                        <a <?php echo $link_target ?> class="goso-social-item goso-social-item vimeo"
+                                                                      href="<?php echo esc_url( $link_vimeo_item ); ?>"><?php goso_fawesome_icon( 'fab fa-vimeo-v' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_pinterest_item ): ?>
                                         <a <?php echo $link_target ?>
-                                                class="penci-social-item penci-social-item pinterest"
-                                                href="<?php echo esc_url( $link_pinterest_item ); ?>"><?php penci_fawesome_icon( 'fab fa-pinterest' ); ?></a>
+                                                class="goso-social-item goso-social-item pinterest"
+                                                href="<?php echo esc_url( $link_pinterest_item ); ?>"><?php goso_fawesome_icon( 'fab fa-pinterest' ); ?></a>
 									<?php endif; ?>
 									<?php if ( $link_dribbble_item ): ?>
                                         <a <?php echo $link_target ?>
-                                                class="penci-social-item penci-social-item dribbble"
-                                                href="<?php echo esc_url( $link_dribbble_item ); ?>"><?php penci_fawesome_icon( 'fab fa-dribbble' ); ?></a>
+                                                class="goso-social-item goso-social-item dribbble"
+                                                href="<?php echo esc_url( $link_dribbble_item ); ?>"><?php goso_fawesome_icon( 'fab fa-dribbble' ); ?></a>
 									<?php endif; ?>
                                 </div>
                             </div>

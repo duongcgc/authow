@@ -55,18 +55,18 @@ foreach ( $list_block_social as $social_id => $social_label ) {
 		'label'       => $social_label[0],
 		'description' => $social_label[1],
 		'type'        => 'authow-fw-toggle',
-		'id'          => 'penci__hide_share_' . $social_id,
-		'sanitize'    => 'penci_sanitize_checkbox_field',
+		'id'          => 'goso__hide_share_' . $social_id,
+		'sanitize'    => 'goso_sanitize_checkbox_field',
 		'default'     => $default
 	);
 }
 $options[] = array(
 	'label'       => 'Custom Sharing Text for Twitter',
 	'description' => __( 'Custom prefix text on preview share of Twitter', 'authow' ),
-	'id'          => 'penci_post_twitter_share_text',
+	'id'          => 'goso_post_twitter_share_text',
 	'type'        => 'authow-fw-textarea',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field'
+	'sanitize'    => 'goso_sanitize_textarea_field'
 );
 
 return $options;

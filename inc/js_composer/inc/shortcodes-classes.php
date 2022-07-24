@@ -50,7 +50,7 @@ class WPBakeryShortCode_Goso_Google_Map extends WPBakeryShortCode {
 	}
 
 	public function jsCssScripts() {
-		$api = get_theme_mod( 'penci_map_api_key' );
+		$api = get_theme_mod( 'goso_map_api_key' );
 
 		if ( ! $api ) {
 			$api = 'AIzaSyBzbXkmI1iibQGKhyS_YbIDEyDEfBK5_bI';
@@ -219,7 +219,7 @@ class WPBakeryShortCode_Goso_Container extends WPBakeryShortCode {
 	}
 
 	public function getColumnControls( $controls, $extended_css = '' ) {
-		$output       = '<div class="penci_container_controls vc_controls vc_controls-row controls_row vc_clearfix">';
+		$output       = '<div class="goso_container_controls vc_controls vc_controls-row controls_row vc_clearfix">';
 		$controls_end = '</div>';
 
 		$icon     = $this->settings( 'icon' );
@@ -339,7 +339,7 @@ class WPBakeryShortCode_Goso_Container extends WPBakeryShortCode {
 		);
 		$controls_layout = '<span class="vc_row_layouts vc_control">';
 		foreach ( $vc_row_layouts as $layout ) {
-			$controls_layout .= '<a class="vc_control-set-column penci_set_layout cell-' . $layout['cells'] . ' " data-cells="' . $layout['cells'] . '" data-cells-mask="' . $layout['mask'] . '" data-hint="' . $layout['title'] . '"><i class="vc-composer-icon vc-c-icon-' . $layout['icon_class'] . '"></i></a> ';
+			$controls_layout .= '<a class="vc_control-set-column goso_set_layout cell-' . $layout['cells'] . ' " data-cells="' . $layout['cells'] . '" data-cells-mask="' . $layout['mask'] . '" data-hint="' . $layout['title'] . '"><i class="vc-composer-icon vc-c-icon-' . $layout['icon_class'] . '"></i></a> ';
 		}
 		$controls_layout .= '</span>';
 
@@ -746,7 +746,7 @@ class WPBakeryShortCode_Goso_Container_Inner extends WPBakeryShortCode {
 	}
 
 	public function getColumnControls( $controls, $extended_css = '' ) {
-		$output       = '<div class="penci_container_controls vc_controls vc_controls-row controls_row vc_clearfix">';
+		$output       = '<div class="goso_container_controls vc_controls vc_controls-row controls_row vc_clearfix">';
 		$controls_end = '</div>';
 
 		$icon     = $this->settings( 'icon' );
@@ -830,7 +830,7 @@ class WPBakeryShortCode_Goso_Container_Inner extends WPBakeryShortCode {
 		);
 		$controls_layout = '<span class="vc_row_layouts vc_control">';
 		foreach ( $vc_row_layouts as $layout ) {
-			$controls_layout .= '<a class="vc_control-set-column penci_set_layout cell-' . $layout['cells'] . ' " data-cells="' . $layout['cells'] . '" data-cells-mask="' . $layout['mask'] . '" data-hint="' . $layout['title'] . '"><i class="vc-composer-icon vc-c-icon-' . $layout['icon_class'] . '"></i></a> ';
+			$controls_layout .= '<a class="vc_control-set-column goso_set_layout cell-' . $layout['cells'] . ' " data-cells="' . $layout['cells'] . '" data-cells-mask="' . $layout['mask'] . '" data-hint="' . $layout['title'] . '"><i class="vc-composer-icon vc-c-icon-' . $layout['icon_class'] . '"></i></a> ';
 		}
 		$controls_layout .= '</span>';
 

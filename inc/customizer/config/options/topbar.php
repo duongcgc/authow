@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class TopbarOption extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_topbar_panel';
+	public $panelID = 'goso_topbar_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -27,8 +27,8 @@ class TopbarOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'pencidesign_new_section_topbar_section', esc_html__( 'General Settings', 'authow' ), $this->panelID, __( 'Please check <a target="_blank" href="https://imgresources.s3.amazonaws.com/topbar.png">this image</a> to know what is TopBar', 'authow' ));
-		$this->add_lazy_section( 'pencidesign_topbar_section_fontsize_section', esc_html__( 'Font Size', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'pencidesign_topbar_section_colors_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_new_section_topbar_section', esc_html__( 'General Settings', 'authow' ), $this->panelID, __( 'Please check <a target="_blank" href="https://imgresources.s3.amazonaws.com/topbar.png">this image</a> to know what is TopBar', 'authow' ));
+		$this->add_lazy_section( 'gosodesign_topbar_section_fontsize_section', esc_html__( 'Font Size', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_topbar_section_colors_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
 	}
 }

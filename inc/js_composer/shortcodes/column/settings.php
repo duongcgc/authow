@@ -1,6 +1,6 @@
 <?php
 vc_map( array(
-	'base'                      => "penci_column",
+	'base'                      => "goso_column",
 	'icon'                      => get_template_directory_uri() . '/images/vc-icon.png',
 	'category'                  => 'Authow',
 	'html_template'             => get_template_directory() . '/inc/js_composer/shortcodes/column/frontend.php',

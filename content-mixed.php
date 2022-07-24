@@ -5,7 +5,7 @@
 ?>
 <?php
 
-$penci_mixed_style = isset( $penci_mixed_style ) ? $penci_mixed_style : '';
+$goso_mixed_style = isset( $goso_mixed_style ) ? $goso_mixed_style : '';
 /**
 * Create var $jj to count order posts
 * If $jj = 1, to show mixed post, $jj > 1 to show grid post
@@ -14,7 +14,7 @@ $penci_mixed_style = isset( $penci_mixed_style ) ? $penci_mixed_style : '';
 */
 $k = 3;
 if ( ! isset ( $jj ) ) { $jj = 1; } else { $jj = $jj; }
-if( ( is_home() && ! penci_get_setting( 'penci_sidebar_home' ) ) || ( is_archive() && ! penci_get_setting( 'penci_sidebar_archive' ) ) || is_page_template( 'page-vc.php' ) || is_page_template( 'page-penci-full-width.php' ) ):
+if( ( is_home() && ! goso_get_setting( 'goso_sidebar_home' ) ) || ( is_archive() && ! goso_get_setting( 'goso_sidebar_archive' ) ) || is_page_template( 'page-vc.php' ) || is_page_template( 'page-goso-full-width.php' ) ):
 	$k = 4;
 endif;
 
@@ -22,9 +22,9 @@ if( isset( $template ) && $template == 'no-sidebar' ) {
 	$k = 4;
 }
 
-if( 's1' == $penci_mixed_style ) {
+if( 's1' == $goso_mixed_style ) {
 	$k = 4;
-} elseif( 's2' == $penci_mixed_style ) {
+} elseif( 's2' == $goso_mixed_style ) {
 	$k = 3;
 }
 

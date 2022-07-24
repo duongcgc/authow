@@ -1,18 +1,18 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'              => 'penci_header_pb_dropdown_menu_name',
+	'id'              => 'goso_header_pb_dropdown_menu_name',
 	'default'         => '',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-select',
 	
 	'label'           => esc_html__( 'Select Menu', 'authow' ),
 	'placeholder'     => esc_html__( 'Select an the menu', 'authow' ),
-	'choices'         => penci_builder_menu_list(),
+	'choices'         => goso_builder_menu_list(),
 	'description'     => sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to add new or edit your menus.', 'authow' ), admin_url( 'nav-menus.php' ) ),
 	'partial_refresh' => [
-		'penci_header_pb_dropdown_menu_name' => [
+		'goso_header_pb_dropdown_menu_name' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -21,19 +21,19 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_font_for_menu',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_font_for_menu',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Custom Font For Menu Items',
 	'type'      => 'authow-fw-select',
-	'choices'   => penci_all_fonts( 'select' )
+	'choices'   => goso_all_fonts( 'select' )
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_font_weight_menu',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_font_weight_menu',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font Weight For Dropdown Menu Items',
 	
 	'type'      => 'authow-fw-select',
@@ -55,10 +55,10 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_menu_uppercase',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_menu_uppercase',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Turn Off Uppercase on Menu items',
 	'type'      => 'authow-fw-select',
 	'choices'   => [
@@ -67,9 +67,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_dropdown_menu_penci_vernav_click_parent',
+	'id'          => 'goso_header_pb_dropdown_menu_goso_vernav_click_parent',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Enable click on Parent Menu Item to open Child Menu Items',
 	'description' => 'By default, you need to click to the arrow on the right side to open child menu items - this option will help you click on the parent menu items to open child menu items',
 	'type'        => 'authow-fw-select',
@@ -79,14 +79,14 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_font_size_lv1',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_font_size_lv1',
 	'default'   => '12',
 	'sanitize'  => 'absint',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Font Size for Menu Items Level 1', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_dropdown_menu_penci_font_size_lv1',
+		'desktop' => 'goso_header_pb_dropdown_menu_goso_font_size_lv1',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -99,14 +99,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_font_size_drop',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_font_size_drop',
 	'default'   => '12',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-size',
 	'sanitize'  => 'absint',
 	'label'     => __( 'Font Size for Dropdown Menu Items', 'authow' ),
 	'ids'  => array(
-		'desktop' => 'penci_header_pb_dropdown_menu_penci_font_size_drop',
+		'desktop' => 'goso_header_pb_dropdown_menu_goso_font_size_drop',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -119,10 +119,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_spacing',
+	'id'        => 'goso_header_pb_dropdown_menu_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -141,7 +141,7 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_menu_color',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_menu_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -149,7 +149,7 @@ $options[] = array(
 	'label'     => 'Menu Items Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_menu_hv_color',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_menu_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -157,7 +157,7 @@ $options[] = array(
 	'label'     => 'Menu Items Hover & Active Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_penci_menu_border_color',
+	'id'        => 'goso_header_pb_dropdown_menu_goso_menu_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -165,10 +165,10 @@ $options[] = array(
 	'label'     => 'Menu Items Borders Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_dropdown_menu_class',
+	'id'        => 'goso_header_pb_dropdown_menu_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPricingTable extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-pricing-table';
+		return 'goso-pricing-table';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Pricing Table', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Pricing Table', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoPricingTable extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -97,7 +97,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Image Width', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 600, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-image' => 'max-width: {{SIZE}}px; width: 100%;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-image' => 'max-width: {{SIZE}}px; width: 100%;' ),
 				'condition' => array( '_use_img' => 'yes' ),
 			)
 		);
@@ -106,7 +106,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Image Height', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-image' => 'height: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-image' => 'height: {{SIZE}}px;' ),
 				'condition' => array( '_use_img' => 'yes' ),
 			)
 		);
@@ -115,7 +115,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Image margin top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-image' => 'margin-top: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-image' => 'margin-top: {{SIZE}}px;' ),
 				'condition' => array( '_use_img' => 'yes' )
 			)
 		);
@@ -124,7 +124,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Image margin bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-image' => 'margin-bottom: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-image' => 'margin-bottom: {{SIZE}}px;' ),
 				'condition' => array( '_use_img' => 'yes' ),
 				'separator' => 'after',
 			)
@@ -156,7 +156,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Icon margin top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-icon' => 'margin-top: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-icon' => 'margin-top: {{SIZE}}px;' ),
 				'condition' => array( '_use_icon' => 'yes' )
 			)
 		);
@@ -166,7 +166,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Icon margin bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-icon' => 'margin-bottom: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-icon' => 'margin-bottom: {{SIZE}}px;' ),
 				'condition' => array( '_use_icon' => 'yes' ),
 				'separator' => 'after',
 			)
@@ -312,7 +312,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Minimum height for pricing item', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-item' => 'min-height: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-item' => 'min-height: {{SIZE}}px' ),
 			)
 		);
 
@@ -329,14 +329,14 @@ class GosoPricingTable extends Base_Widget {
 			'_bg_color', array(
 				'label'     => __( 'Background Color for Pricing Table', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-item' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-item' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
 			'_pborder_color', array(
 				'label'     => __( 'Border Color for Pricing Table', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-item' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-item' => 'border-color: {{VALUE}};' ),
 			)
 		);
 
@@ -344,7 +344,7 @@ class GosoPricingTable extends Base_Widget {
 			'_featured_header_bg', array(
 				'label'     => __( 'Featured Header Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-fheader .penci-pricing-header' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-fheader .goso-pricing-header' => 'background-color: {{VALUE}};' ),
 				'condition' => array( '_featured_header' => 'yes' ),
 			)
 		);
@@ -362,7 +362,7 @@ class GosoPricingTable extends Base_Widget {
 			'_icon_color', array(
 				'label'     => __( 'Icon Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-icon' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-icon' => 'color: {{VALUE}};' ),
 				'condition' => array( '_use_icon' => 'yes' ),
 			)
 		);
@@ -372,7 +372,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Icon Font Size', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-icon' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-icon' => 'font-size: {{SIZE}}px' ),
 				'condition' => array( '_use_icon' => 'yes' ),
 			)
 		);
@@ -389,14 +389,14 @@ class GosoPricingTable extends Base_Widget {
 			'_heading_color', array(
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-title' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-title' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => '_heading_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-title',
+				'selector' => '{{WRAPPER}} .goso-pricing-title',
 			)
 		);
 		$this->add_responsive_control(
@@ -404,7 +404,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-title' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-title' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -420,14 +420,14 @@ class GosoPricingTable extends Base_Widget {
 			'_subheading_color', array(
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-subtitle' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-subtitle' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => '_subheading_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-subtitle',
+				'selector' => '{{WRAPPER}} .goso-pricing-subtitle',
 			)
 		);
 		$this->add_responsive_control(
@@ -435,7 +435,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-subtitle' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-subtitle' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -451,14 +451,14 @@ class GosoPricingTable extends Base_Widget {
 			'_price_color', array(
 				'label'     => __( 'Price Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-price' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-price' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => '_price_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-price',
+				'selector' => '{{WRAPPER}} .goso-pricing-price',
 			)
 		);
 		$this->add_responsive_control(
@@ -466,7 +466,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200 ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-price' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-price' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -482,14 +482,14 @@ class GosoPricingTable extends Base_Widget {
 			'_unit_color', array(
 				'label'     => __( 'Price Unit Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-unit' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-unit' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => '_unit_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-unit',
+				'selector' => '{{WRAPPER}} .goso-pricing-unit',
 			)
 		);
 		$this->add_responsive_control(
@@ -497,7 +497,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-unit' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-unit' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -513,14 +513,14 @@ class GosoPricingTable extends Base_Widget {
 			'features_color', array(
 				'label'     => __( 'Features Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-featured' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-featured' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'features_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-featured',
+				'selector' => '{{WRAPPER}} .goso-pricing-featured',
 			)
 		);
 		$this->add_responsive_control(
@@ -528,7 +528,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-featured' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-featured' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -536,7 +536,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Item of list features margin bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-featured li, .penci-pricing-featured p' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-featured li, .goso-pricing-featured p' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -544,7 +544,7 @@ class GosoPricingTable extends Base_Widget {
 			'_ribbon_color', array(
 				'label'     => __( 'Ribbon Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing_featured .penci-pricing-ribbon, {{WRAPPER}} .penci-pricing_featured .penci-pricing-ribbon-text' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing_featured .goso-pricing-ribbon, {{WRAPPER}} .goso-pricing_featured .goso-pricing-ribbon-text' => 'background-color: {{VALUE}};' ),
 				'condition' => array(
 					'add_ribb' => array( 'rib_text', 'rib_icon' )
 				)
@@ -555,7 +555,7 @@ class GosoPricingTable extends Base_Widget {
 			'_ribbon_tcolor', array(
 				'label'     => __( 'Ribbon Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-pricing_featured .penci-pricing-ribbon, {{WRAPPER}} .penci-pricing_featured .penci-pricing-ribbon-text' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing_featured .goso-pricing-ribbon, {{WRAPPER}} .goso-pricing_featured .goso-pricing-ribbon-text' => 'color: {{VALUE}};' ),
 				'condition' => array(
 					'add_ribb' => array( 'rib_text', 'rib_icon' )
 				)
@@ -566,7 +566,7 @@ class GosoPricingTable extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'      => 'ribbon_typo',
 				'label'     => __( 'Ribbon Text Typography', 'authow' ),
-				'selector'  => '{{WRAPPER}} .penci-pricing_featured .penci-pricing-ribbon-text',
+				'selector'  => '{{WRAPPER}} .goso-pricing_featured .goso-pricing-ribbon-text',
 				'condition' => array(
 					'add_ribb' => 'rib_text',
 				)
@@ -600,7 +600,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -609,7 +609,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button Background & Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn' => 'background-color: {{VALUE}};border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn' => 'background-color: {{VALUE}};border-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -618,7 +618,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button Hover Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -627,14 +627,14 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button Background & Border Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn:hover' => 'background-color: {{VALUE}};border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn:hover' => 'background-color: {{VALUE}};border-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'psubmitbtn_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-pricing-btn',
+				'selector' => '{{WRAPPER}} .goso-pricing-btn',
 			)
 		);
 
@@ -644,7 +644,7 @@ class GosoPricingTable extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-pricing-item .penci-pricing-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-pricing-item .goso-pricing-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -655,7 +655,7 @@ class GosoPricingTable extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-pricing-item .penci-pricing-btn' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-pricing-item .goso-pricing-btn' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -665,7 +665,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button margin top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -673,7 +673,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button margin bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -682,7 +682,7 @@ class GosoPricingTable extends Base_Widget {
 				'label'     => __( 'Button width', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-pricing-btn' => 'width: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-pricing-btn' => 'width: {{SIZE}}px' ),
 			)
 		);
 
@@ -692,7 +692,7 @@ class GosoPricingTable extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-pricing-btn' => 'line-height: {{SIZE}}px; padding-top: 0; padding-bottom: 0;',
+					'{{WRAPPER}} .goso-pricing-btn' => 'line-height: {{SIZE}}px; padding-top: 0; padding-bottom: 0;',
 				),
 			)
 		);
@@ -703,14 +703,14 @@ class GosoPricingTable extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		$class_block    = 'penci-block-vc penci-pricing-table penci-pricing-item';
-		$class_block    .= $settings['_featured'] ? ' penci-pricing_featured' : '';
-		$class_block    .= $settings['pricing_oneline'] ? ' penci-pricing-oneline' : '';
-		$class_block    .= 'bordered' == $settings['button_style'] ? ' penci-pricing-btn-borders' : '';
-		$class_block    .= $settings['_featured_style'] ? ' penci-pricing-f-' . $settings['_featured_style'] : ' penci-pricing-f-hheight';
-		$class_block    .= $settings['_btn_pos'] ? ' penci-pricing-btn-' . $settings['_btn_pos'] : ' penci-pricing-btn-below';
-		$class_block    .= 'yes' == $settings['_featured_header'] ? ' penci-pricing-fheader' : '';
-		$class_block    .= $settings['_design_style'] ? ' penci-pricing-' . esc_attr( $settings['_design_style'] ) : '';
+		$class_block    = 'goso-block-vc goso-pricing-table goso-pricing-item';
+		$class_block    .= $settings['_featured'] ? ' goso-pricing_featured' : '';
+		$class_block    .= $settings['pricing_oneline'] ? ' goso-pricing-oneline' : '';
+		$class_block    .= 'bordered' == $settings['button_style'] ? ' goso-pricing-btn-borders' : '';
+		$class_block    .= $settings['_featured_style'] ? ' goso-pricing-f-' . $settings['_featured_style'] : ' goso-pricing-f-hheight';
+		$class_block    .= $settings['_btn_pos'] ? ' goso-pricing-btn-' . $settings['_btn_pos'] : ' goso-pricing-btn-below';
+		$class_block    .= 'yes' == $settings['_featured_header'] ? ' goso-pricing-fheader' : '';
+		$class_block    .= $settings['_design_style'] ? ' goso-pricing-' . esc_attr( $settings['_design_style'] ) : '';
 		$_btn_pos       = isset( $settings['_btn_pos'] ) ? $settings['_btn_pos'] : 'below';
 		$featured_style = isset( $settings['_featured_style'] ) ? $settings['_featured_style'] : 'hheight';
 		$add_ribb       = isset( $settings['add_ribb'] ) ? $settings['add_ribb'] : '';
@@ -720,22 +720,22 @@ class GosoPricingTable extends Base_Widget {
 			<?php
 			if ( 'rib_icon' == $add_ribb ) {
 				if ( ! empty( $settings['ribb_icon'] ) ) {
-					echo '<span class="penci-pricing-ribbon">';
+					echo '<span class="goso-pricing-ribbon">';
 					\Elementor\Icons_Manager::render_icon( $settings['ribb_icon'] );
 					echo '</span>';
 				} else {
-					echo '<span class="penci-pricing-ribbon">' . penci_icon_by_ver( 'fas fa-star' ) . '</span>';
+					echo '<span class="goso-pricing-ribbon">' . goso_icon_by_ver( 'fas fa-star' ) . '</span>';
 				}
 			}
 			if ( 'rib_text' == $add_ribb ) {
-				echo '<span class="penci-pricing-ribbon-text">' . do_shortcode( $ribb_text ) . '</span>';
+				echo '<span class="goso-pricing-ribbon-text">' . do_shortcode( $ribb_text ) . '</span>';
 			}
 			?>
-            <div class="penci-block_content penci-pricing-inner">
+            <div class="goso-block_content goso-pricing-inner">
 				<?php
 				$button_html = '';
 				if ( $settings['_btn_text'] ) {
-					$a_before = '<a class="penci-pricing-btn penci-button">';
+					$a_before = '<a class="goso-pricing-btn goso-button">';
 					$a_after  = '</a>';
 
 					if ( ! empty( $settings['_btn_link']['url'] ) ) {
@@ -749,49 +749,49 @@ class GosoPricingTable extends Base_Widget {
 							$this->add_render_attribute( '_btn_link', 'rel', 'nofollow' );
 						}
 
-						$a_before = '<a class="penci-pricing-btn penci-button" ' . $this->get_render_attribute_string( '_btn_link' ) . '>';
+						$a_before = '<a class="goso-pricing-btn goso-button" ' . $this->get_render_attribute_string( '_btn_link' ) . '>';
 						$a_after  = '</a>';
 					}
 
-					$button_html = '<div class="penci-pricing-pbutton">' . $a_before . do_shortcode( $settings['_btn_text'] ) . $a_after . '</div>';
+					$button_html = '<div class="goso-pricing-pbutton">' . $a_before . do_shortcode( $settings['_btn_text'] ) . $a_after . '</div>';
 				}
 
-				echo '<div class="penci-pricing-header">';
+				echo '<div class="goso-pricing-header">';
 				if ( ! empty( $settings['_image']['url'] ) && $settings['_use_img'] ) {
 					$this->add_render_attribute( 'image', 'src', $settings['_image']['url'] );
 					$this->add_render_attribute( 'image', 'alt', Control_Media::get_image_alt( $settings['_image'] ) );
 					$this->add_render_attribute( 'image', 'title', Control_Media::get_image_title( $settings['_image'] ) );
 
-					echo '<div class="penci-pricing-image">';
+					echo '<div class="goso-pricing-image">';
 					echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', '_image' );
 					echo '</div>';
 				}
 
 				if ( ! empty( $settings['_icon'] ) && ( 'yes' == $settings['_use_icon'] ) ) {
-					echo '<div class="penci-pricing-icon">';
+					echo '<div class="goso-pricing-icon">';
 					\Elementor\Icons_Manager::render_icon( $settings['_icon'] );
 					echo '</div>';
 				}
 
 				if ( $settings['_heading'] ) {
-					echo '<div class="penci-pricing-title">' . do_shortcode( $settings['_heading'] ) . '</div>';
+					echo '<div class="goso-pricing-title">' . do_shortcode( $settings['_heading'] ) . '</div>';
 				}
 
 				if ( $settings['_subheading'] ) {
-					echo '<div class="penci-pricing-subtitle">' . do_shortcode( $settings['_subheading'] ) . '</div>';
+					echo '<div class="goso-pricing-subtitle">' . do_shortcode( $settings['_subheading'] ) . '</div>';
 				}
 
 				echo '</div>';
 
 				if ( $settings['_price'] || $settings['_unit'] ) {
-					echo '<div class="penci-price-unit">';
+					echo '<div class="goso-price-unit">';
 
 					if ( $settings['_price'] ) {
-						echo '<span class="penci-pricing-price">' . do_shortcode( $settings['_price'] ) . '</span>';
+						echo '<span class="goso-pricing-price">' . do_shortcode( $settings['_price'] ) . '</span>';
 					}
 
 					if ( $settings['_unit'] ) {
-						echo '<span class="penci-pricing-unit">' . do_shortcode( $settings['_unit'] ) . '</span>';
+						echo '<span class="goso-pricing-unit">' . do_shortcode( $settings['_unit'] ) . '</span>';
 					}
 
 					echo '</div>';
@@ -806,7 +806,7 @@ class GosoPricingTable extends Base_Widget {
 					$content = do_shortcode( shortcode_unautop( $content ) );
 
 
-					echo '<div class="penci-pricing-featured">' . $content . '</div>';
+					echo '<div class="goso-pricing-featured">' . $content . '</div>';
 				}
 
 				if ( 'below' == $_btn_pos ) {

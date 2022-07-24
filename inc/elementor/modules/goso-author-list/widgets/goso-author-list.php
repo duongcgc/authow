@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoAuthorList extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-author-list';
+		return 'goso-author-list';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Author List', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Author List', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoAuthorList extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -193,7 +193,7 @@ class GosoAuthorList extends Base_Widget {
 					<?php foreach ( $users as $user ):
 						$total_post = count_user_posts( $user->ID );
 						$author_link = get_author_posts_url( $user->ID );
-						$text = $total_post > 1 ? penci_get_setting( 'penci_trans_posts' ) : penci_get_setting( 'penci_trans_post' );
+						$text = $total_post > 1 ? goso_get_setting( 'goso_trans_posts' ) : goso_get_setting( 'goso_trans_post' );
 						?>
                         <li>
 							<?php if ( ! $avatar ): ?>

@@ -113,17 +113,17 @@ export const edit = ( props ) => {
 				</PanelBody>
 			</InspectorControls>
 	        <ServerSideRender
-	            block="penci-gutenberg/featured-cat"
+	            block="goso-gutenberg/featured-cat"
 	            attributes={ props.attributes }
 	        />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/featured-cat', {
+registerBlockType( 'goso-gutenberg/featured-cat', {
 	title: __( 'Goso: Featured Categories' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

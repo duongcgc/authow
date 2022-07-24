@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
@@ -13,22 +13,22 @@ if ( ! $team_members ) {
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-teammb-bsc';
-$css_class .= ' penci-teammb-' . $atts['style'];
-$css_class .= ' pencisc-grid-' . $atts['columns'];
-$css_class .= ' pencisc-grid-tablet-1';
-$css_class .= ' pencisc-grid-mobile-1';
+$css_class = 'goso-block-vc goso-teammb-bsc';
+$css_class .= ' goso-teammb-' . $atts['style'];
+$css_class .= ' gososc-grid-' . $atts['columns'];
+$css_class .= ' gososc-grid-tablet-1';
+$css_class .= ' gososc-grid-mobile-1';
 
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'team_member' );
 ?>
     <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-        <div class="penci-block_content pencisc-grid">
+        <div class="goso-block_content gososc-grid">
 			<?php
 			$link_target = 'target="_blank"';
 
-			if ( ! get_theme_mod( 'penci_dis_noopener' ) ) {
+			if ( ! get_theme_mod( 'goso_dis_noopener' ) ) {
 				$link_target .= ' rel="noopener"';
 			}
 
@@ -56,68 +56,68 @@ $block_id  = Goso_Vc_Helper::get_unique_id_block( 'team_member' );
 				}
 
 				?>
-                <div class="penci-teammb-item pencisc-grid-item">
-                    <div class="penci-teammb-inner">
+                <div class="goso-teammb-item gososc-grid-item">
+                    <div class="goso-teammb-inner">
 						<?php
 						if ( $url_img_item ) {
-							$dis_lazy = get_theme_mod( 'penci_disable_lazyload_layout' );
+							$dis_lazy = get_theme_mod( 'goso_disable_lazyload_layout' );
 							if ( $dis_lazy ) {
-								echo '<span class="penci-image-holder penci-teammb-img  penci-disable-lazy style="background-image: url(' . esc_url( $url_img_item ) . ');"></span>';
+								echo '<span class="goso-image-holder goso-teammb-img  goso-disable-lazy style="background-image: url(' . esc_url( $url_img_item ) . ');"></span>';
 							} else {
-								echo '<span class="penci-image-holder penci-teammb-img penci-lazy" data-bgset="' . esc_url( $url_img_item ) . '"></span>';
+								echo '<span class="goso-image-holder goso-teammb-img goso-lazy" data-bgset="' . esc_url( $url_img_item ) . '"></span>';
 							}
 						}
 						?>
-                        <div class="penci-team_item__info">
+                        <div class="goso-team_item__info">
 							<?php if ( $position_item && in_array( $atts['style'], array( 's2', 's3', 's4' ) ) ): ?>
-                                <div class="penci-team_member_pos"><?php echo $position_item; ?></div>
+                                <div class="goso-team_member_pos"><?php echo $position_item; ?></div>
 							<?php endif; ?>
 							<?php if ( $name_item ): ?>
-                                <h5 class="penci-team_member_name"><?php echo $name_item; ?></h5>
+                                <h5 class="goso-team_member_name"><?php echo $name_item; ?></h5>
 							<?php endif; ?>
 							<?php if ( $position_item && 's1' == $atts['style'] ): ?>
-                                <div class="penci-team_member_pos"><?php echo $position_item; ?></div>
+                                <div class="goso-team_member_pos"><?php echo $position_item; ?></div>
 							<?php endif; ?>
 							<?php if ( $desc_item ): ?>
-                                <div class="penci-team_member_desc"><?php echo $desc_item; ?></div>
+                                <div class="goso-team_member_desc"><?php echo $desc_item; ?></div>
 							<?php endif; ?>
-                            <div class="penci-team_member_socails penci-social-wrap">
+                            <div class="goso-team_member_socails goso-social-wrap">
 								<?php if ( $link_website_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item website"
-                                                                  href="<?php echo esc_url( $link_website_item ); ?>"><?php penci_fawesome_icon( 'fas fa-globe' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item website"
+                                                                  href="<?php echo esc_url( $link_website_item ); ?>"><?php goso_fawesome_icon( 'fas fa-globe' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_facebook_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item facebook-f"
-                                                                  href="<?php echo esc_url( $link_facebook_item ); ?>"><?php penci_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item facebook-f"
+                                                                  href="<?php echo esc_url( $link_facebook_item ); ?>"><?php goso_fawesome_icon( 'fab fa-facebook-f' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_twitter_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item twitter"
-                                                                  href="<?php echo esc_url( $link_twitter_item ); ?>"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item twitter"
+                                                                  href="<?php echo esc_url( $link_twitter_item ); ?>"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></a>
 								<?php endif; ?>
 
 								<?php if ( $link_linkedin_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item linkedin"
-                                                                  href="<?php echo esc_url( $link_linkedin_item ); ?>"><?php penci_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item linkedin"
+                                                                  href="<?php echo esc_url( $link_linkedin_item ); ?>"><?php goso_fawesome_icon( 'fab fa-linkedin-in' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_instagram_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item instagram"
-                                                                  href="<?php echo esc_url( $link_instagram_item ); ?>"><?php penci_fawesome_icon( 'fab fa-instagram' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item instagram"
+                                                                  href="<?php echo esc_url( $link_instagram_item ); ?>"><?php goso_fawesome_icon( 'fab fa-instagram' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_youtube_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item youtube"
-                                                                  href="<?php echo esc_url( $link_youtube_item ); ?>"><?php penci_fawesome_icon( 'fab fa-youtube' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item youtube"
+                                                                  href="<?php echo esc_url( $link_youtube_item ); ?>"><?php goso_fawesome_icon( 'fab fa-youtube' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_vimeo_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item vimeo"
-                                                                  href="<?php echo esc_url( $link_vimeo_item ); ?>"><?php penci_fawesome_icon( 'fab fa-vimeo-v' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item vimeo"
+                                                                  href="<?php echo esc_url( $link_vimeo_item ); ?>"><?php goso_fawesome_icon( 'fab fa-vimeo-v' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_pinterest_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item pinterest"
-                                                                  href="<?php echo esc_url( $link_pinterest_item ); ?>"><?php penci_fawesome_icon( 'fab fa-pinterest' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item pinterest"
+                                                                  href="<?php echo esc_url( $link_pinterest_item ); ?>"><?php goso_fawesome_icon( 'fab fa-pinterest' ); ?></a>
 								<?php endif; ?>
 								<?php if ( $link_dribbble_item ): ?>
-                                    <a <?php echo $link_target ?> class="penci-social-item penci-social-item dribbble"
-                                                                  href="<?php echo esc_url( $link_dribbble_item ); ?>"><?php penci_fawesome_icon( 'fab fa-dribbble' ); ?></a>
+                                    <a <?php echo $link_target ?> class="goso-social-item goso-social-item dribbble"
+                                                                  href="<?php echo esc_url( $link_dribbble_item ); ?>"><?php goso_fawesome_icon( 'fab fa-dribbble' ); ?></a>
 								<?php endif; ?>
                             </div>
                         </div>
@@ -148,7 +148,7 @@ if ( $atts['team_borderhcolor'] ) {
 	$css_height_border .= 'border-color:' . esc_attr( $atts['team_borderhcolor'] ) . ';';
 }
 if ( $atts['border_width_team'] ) {
-	$css_custom .= $id_team_members . ' .penci-teammb-item .penci-teammb-inner{ ' . $css_height_border . ' }';
+	$css_custom .= $id_team_members . ' .goso-teammb-item .goso-teammb-inner{ ' . $css_height_border . ' }';
 }
 
 $css_width_height = '';
@@ -159,8 +159,8 @@ if ( $atts['height_img'] ) {
 	$css_width_height .= 'height:' . esc_attr( $atts['height_img'] ) . ';';
 }
 if ( $css_width_height ) {
-	$css_custom .= $id_team_members . '.penci-teammb-s2 .penci-teammb-img,';
-	$css_custom .= $id_team_members . '.penci-teammb-s1 .penci-teammb-img{ ' . $css_width_height . ' }';
+	$css_custom .= $id_team_members . '.goso-teammb-s2 .goso-teammb-img,';
+	$css_custom .= $id_team_members . '.goso-teammb-s1 .goso-teammb-img{ ' . $css_width_height . ' }';
 }
 
 $css_row_gap = '';
@@ -171,62 +171,62 @@ if ( $atts['col_gap'] ) {
 	$css_row_gap .= 'grid-column-gap:' . esc_attr( $atts['col_gap'] ) . ';';
 }
 if ( $css_row_gap ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .pencisc-grid{ ' . $css_row_gap . ' }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .gososc-grid{ ' . $css_row_gap . ' }';
 }
 
 // Name
 if ( $atts['team_name_color'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_name{ color:' . esc_attr( $atts['team_name_color'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_name{ color:' . esc_attr( $atts['team_name_color'] ) . '; }';
 }
 if ( $atts['team_name_martop'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_name{ margin-top:' . esc_attr( $atts['team_name_martop'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_name{ margin-top:' . esc_attr( $atts['team_name_martop'] ) . '; }';
 }
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $atts['team_name_size'],
 	'font_style' => $atts['team_name_typo'],
-	'template'   => $id_team_members . '.penci-teammb-bsc .penci-team_member_name{ %s }',
+	'template'   => $id_team_members . '.goso-teammb-bsc .goso-team_member_name{ %s }',
 ) );
 
 // Position
 if ( $atts['team_pos_color'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_pos{ color:' . esc_attr( $atts['team_pos_color'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_pos{ color:' . esc_attr( $atts['team_pos_color'] ) . '; }';
 }
 if ( $atts['team_pos_martop'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_pos{ margin-top:' . esc_attr( $atts['team_pos_martop'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_pos{ margin-top:' . esc_attr( $atts['team_pos_martop'] ) . '; }';
 }
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $atts['team_pos_size'],
 	'font_style' => $atts['team_pos_typo'],
-	'template'   => $id_team_members . '.penci-teammb-bsc .penci-team_member_pos{ %s }',
+	'template'   => $id_team_members . '.goso-teammb-bsc .goso-team_member_pos{ %s }',
 ) );
 
 // Description
 if ( $atts['team_des_color'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_desc{ color:' . esc_attr( $atts['team_des_color'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_desc{ color:' . esc_attr( $atts['team_des_color'] ) . '; }';
 }
 if ( $atts['team_des_martop'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-team_member_desc{ margin-top:' . esc_attr( $atts['team_des_martop'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-team_member_desc{ margin-top:' . esc_attr( $atts['team_des_martop'] ) . '; }';
 }
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $atts['team_des_size'],
 	'font_style' => $atts['team_des_typo'],
-	'template'   => $id_team_members . '.penci-teammb-bsc .penci-team_member_desc{ %s }',
+	'template'   => $id_team_members . '.goso-teammb-bsc .goso-team_member_desc{ %s }',
 ) );
 // Social
 if ( $atts['team_social_color'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-social-item{ color:' . esc_attr( $atts['team_social_color'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-social-item{ color:' . esc_attr( $atts['team_social_color'] ) . '; }';
 }
 if ( $atts['team_social_bgcolor'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-social-item{ background-color:' . esc_attr( $atts['team_social_bgcolor'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-social-item{ background-color:' . esc_attr( $atts['team_social_bgcolor'] ) . '; }';
 }
 if ( $atts['team_social_hcolor'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-penci-social-item:hover{ color:' . esc_attr( $atts['team_social_hcolor'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-goso-social-item:hover{ color:' . esc_attr( $atts['team_social_hcolor'] ) . '; }';
 }
 if ( $atts['team_social_bghcolor'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-social-item:hover{ background-color:' . esc_attr( $atts['team_social_bghcolor'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-social-item:hover{ background-color:' . esc_attr( $atts['team_social_bghcolor'] ) . '; }';
 }
 if ( $atts['team_social_martop'] ) {
-	$css_custom .= $id_team_members . '.penci-teammb-bsc .penci-social-item{ margin-top:' . esc_attr( $atts['team_social_martop'] ) . '; }';
+	$css_custom .= $id_team_members . '.goso-teammb-bsc .goso-social-item{ margin-top:' . esc_attr( $atts['team_social_martop'] ) . '; }';
 }
 
 if ( $css_custom ) {

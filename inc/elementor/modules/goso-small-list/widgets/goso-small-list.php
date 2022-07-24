@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSmallList extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-small-list';
+		return 'goso-small-list';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Small List', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Small List', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoSmallList extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -35,7 +35,7 @@ class GosoSmallList extends Base_Widget {
 	}
 
 	public function get_script_depends() {
-		return [ 'penci_ajax_filter_slist' ];
+		return [ 'goso_ajax_filter_slist' ];
 	}
 
 	protected function register_controls() {
@@ -105,7 +105,7 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-smalllist' => '--pcsl-hgap: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-smalllist' => '--pcsl-hgap: {{SIZE}}px;',
 			),
 			'condition' => array( 'type!' => array( 'nlist' ) ),
 		) );
@@ -115,7 +115,7 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-smalllist' => '--pcsl-bgap: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-smalllist' => '--pcsl-bgap: {{SIZE}}px;',
 			),
 			'condition' => array( 'type' => array( 'grid', 'nlist' ) ),
 		) );
@@ -125,7 +125,7 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci-smalllist' => '--pcsl-between: {{SIZE}}px;',
+				'{{WRAPPER}} .goso-smalllist' => '--pcsl-between: {{SIZE}}px;',
 			),
 		) );
 
@@ -310,7 +310,7 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 0.5 ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .pcsl-inner .penci-image-holder:before' => 'padding-top: {{SIZE}}%;',
+				'{{WRAPPER}} .pcsl-inner .goso-image-holder:before' => 'padding-top: {{SIZE}}%;',
 			),
 			'condition' => array( 'nocrop!' => 'yes' ),
 		) );
@@ -454,7 +454,7 @@ class GosoSmallList extends Base_Widget {
 				'unit' => '%',
 			],
 			'selectors'  => [
-				'{{WRAPPER}} .penci-smalllist' => '--pcsl-dwidth: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .goso-smalllist' => '--pcsl-dwidth: {{SIZE}}{{UNIT}};',
 			],
 			'condition'  => array( 'type' => array( 'nlist' ) ),
 		] );
@@ -785,20 +785,20 @@ class GosoSmallList extends Base_Widget {
 			'label'     => __( 'Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .cat > a.penci-cat-name' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .cat > a.goso-cat-name' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'cat_hcolor', array(
 			'label'     => __( 'Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .cat > a.penci-cat-name:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .cat > a.goso-cat-name:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'cat_typo',
 			'label'    => __( 'Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .cat > a.penci-cat-name',
+			'selector' => '{{WRAPPER}} .cat > a.goso-cat-name',
 		) );
 
 		$this->add_control( 'heading_ptitle', array(
@@ -1062,7 +1062,7 @@ class GosoSmallList extends Base_Widget {
 				'paging' => array( 'loadmore', 'scroll' ),
 			),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-pagination.penci-ajax-more a.penci-ajax-more-button' => 'max-width: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination.goso-ajax-more a.goso-ajax-more-button' => 'max-width: {{SIZE}}{{UNIT}};',
 			),
 		) );
 
@@ -1071,8 +1071,8 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1084,9 +1084,9 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1098,8 +1098,8 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'border-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1111,9 +1111,9 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'border-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'border-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'border-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1125,8 +1125,8 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a'                    => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a'                    => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a' => 'background-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1138,9 +1138,9 @@ class GosoSmallList extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'selectors' => array(
-				'{{WRAPPER}} .penci-pagination a:hover'                         => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li a:hover'      => 'background-color: {{VALUE}};',
-				'{{WRAPPER}} .penci-pagination ul.page-numbers li span.current' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination a:hover'                         => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li a:hover'      => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .goso-pagination ul.page-numbers li span.current' => 'background-color: {{VALUE}};',
 			),
 			'condition' => array(
 				'paging!' => 'none',
@@ -1150,7 +1150,7 @@ class GosoSmallList extends Base_Widget {
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'      => 'bgpagi_typo',
 			'label'     => __( 'Typography', 'authow' ),
-			'selector'  => '{{WRAPPER}} .penci-pagination a, {{WRAPPER}} .penci-pagination span.current',
+			'selector'  => '{{WRAPPER}} .goso-pagination a, {{WRAPPER}} .goso-pagination span.current',
 			'condition' => array(
 				'paging!' => 'none',
 			),
@@ -1163,7 +1163,7 @@ class GosoSmallList extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!' => 'none',
@@ -1177,7 +1177,7 @@ class GosoSmallList extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!' => 'none',
@@ -1191,7 +1191,7 @@ class GosoSmallList extends Base_Widget {
 			'selectors'  => array(
 				'{{WRAPPER}} ul.page-numbers li a'         => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				'{{WRAPPER}} ul.page-numbers span.current' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				'{{WRAPPER}} .penci-pagination a'          => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-pagination a'          => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 			'condition'  => array(
 				'paging!' => 'none',
@@ -1264,7 +1264,7 @@ class GosoSmallList extends Base_Widget {
 		$tab_column           = $settings['tab_column'] ? $settings['tab_column'] : '2';
 		$mb_column            = $settings['mb_column'] ? $settings['mb_column'] : '1';
 		$imgpos               = $settings['imgpos'] ? $settings['imgpos'] : 'left';
-		$thumb_size_imgtop    = 'top' == $imgpos ? 'penci-thumb' : 'penci-thumb-small';
+		$thumb_size_imgtop    = 'top' == $imgpos ? 'goso-thumb' : 'goso-thumb-small';
 		$thumb_size           = $settings['thumb_size'] ? $settings['thumb_size'] : $thumb_size_imgtop;
 		$mthumb_size          = $settings['mthumb_size'] ? $settings['mthumb_size'] : $thumb_size_imgtop;
 		$post_meta            = $settings['post_meta'] ? $settings['post_meta'] : array();
@@ -1281,14 +1281,14 @@ class GosoSmallList extends Base_Widget {
 		$excerpt_length = $settings['excerpt_length'] ? $settings['excerpt_length'] : 15;
 
 		$thumbnail = $thumb_size;
-		if ( penci_is_mobile() ) {
+		if ( goso_is_mobile() ) {
 			$thumbnail = $mthumb_size;
 		}
 
-		$inner_wrapper_class = 'pcsl-inner penci-clearfix';
+		$inner_wrapper_class = 'pcsl-inner goso-clearfix';
 		$inner_wrapper_class .= ' pcsl-' . $type;
 		if ( 'crs' == $type ) {
-			$inner_wrapper_class .= ' penci-owl-carousel penci-owl-carousel-slider';
+			$inner_wrapper_class .= ' goso-owl-carousel goso-owl-carousel-slider';
 		}
 		if ( 'nlist' == $type ) {
 			$column     = '1';
@@ -1342,7 +1342,7 @@ class GosoSmallList extends Base_Widget {
 
 		$original_postype = $settings['posts_post_type'];
 
-		if ( in_array($original_postype,['current_query','related_posts']) && penci_elementor_is_edit_mode() && penci_is_builder_template() ) {
+		if ( in_array($original_postype,['current_query','related_posts']) && goso_elementor_is_edit_mode() && goso_is_builder_template() ) {
 			$settings['posts_post_type'] = 'post';
 		}
 
@@ -1377,7 +1377,7 @@ class GosoSmallList extends Base_Widget {
 
 		$settings['blockid'] = $block_id;
 
-		add_action( 'penci_block_title_extra_' . $block_id, function () use ( $settings, $args, $query_smalllist ) {
+		add_action( 'goso_block_title_extra_' . $block_id, function () use ( $settings, $args, $query_smalllist ) {
 			$link_group_cats       = $settings['biggrid_ajaxfilter_cat'];
 			$link_group_tags       = $settings['biggrid_ajaxfilter_tag'];
 			$link_group_author     = $settings['biggrid_ajaxfilter_author'];
@@ -1434,8 +1434,8 @@ class GosoSmallList extends Base_Widget {
 
 			if ( 'nextprev' == $settings['paging'] ) {
 				$link_group_out .= '</ul><ul class="pcflx-nav">';
-				$link_group_out .= '<li class="pcaj-nav-item pcaj-prev"><a class="disable pc-ajaxfil-link pcaj-nav-link prev" data-id="" href="#"><i class="penciicon-left-chevron"></i></a></li>';
-				$link_group_out .= '<li class="pcaj-nav-item pcaj-next"><a class="pc-ajaxfil-link pcaj-nav-link next" data-id="" href="#"><i class="penciicon-right-chevron"></i></a></li>';
+				$link_group_out .= '<li class="pcaj-nav-item pcaj-prev"><a class="disable pc-ajaxfil-link pcaj-nav-link prev" data-id="" href="#"><i class="gosoicon-left-chevron"></i></a></li>';
+				$link_group_out .= '<li class="pcaj-nav-item pcaj-next"><a class="pc-ajaxfil-link pcaj-nav-link next" data-id="" href="#"><i class="gosoicon-right-chevron"></i></a></li>';
 			}
 
 			if ( $link_group_out ) {
@@ -1446,7 +1446,7 @@ class GosoSmallList extends Base_Widget {
 				}
                 $link_group_out_before  .= '<li class="all ' . $first_class . '"><a '.$df_datamax.'data-paged="1" class="pc-ajaxfil-link current-item" data-id="default" href="#">' . $settings['group_more_defaultab_text'] . '</a></li>';
 
-				wp_enqueue_script( 'penci_ajax_filter_slist' );
+				wp_enqueue_script( 'goso_ajax_filter_slist' );
 				echo $link_group_out_before . $link_group_out . $link_group_out_after;
 			}
 		} );
@@ -1458,19 +1458,19 @@ class GosoSmallList extends Base_Widget {
 		}
 
 		?>
-        <div class="penci-wrapper-smalllist">
+        <div class="goso-wrapper-smalllist">
 			<?php $this->markup_block_title( $settings, $this ); ?>
 			<?php
 			if ( ! $query_smalllist->have_posts() ) {
-				echo $this->show_missing_settings( 'Small List', penci_get_setting( 'penci_ajaxsearch_no_post' ) );
+				echo $this->show_missing_settings( 'Small List', goso_get_setting( 'goso_ajaxsearch_no_post' ) );
 			}
 
 			?>
-            <div class="penci-smalllist-wrapper">
+            <div class="goso-smalllist-wrapper">
 				<?php
 				if ( $query_smalllist->have_posts() ) {
 					?>
-                    <div class="penci-smalllist pcsl-wrapper pwsl-id-default">
+                    <div class="goso-smalllist pcsl-wrapper pwsl-id-default">
                         <div class="<?php echo $inner_wrapper_class; ?>"<?php echo $data_slider; ?>>
 							<?php while ( $query_smalllist->have_posts() ) : $query_smalllist->the_post(); ?>
                                 <div class="pcsl-item<?php if ( 'yes' == $settings['hide_thumb'] || ! has_post_thumbnail() ) {
@@ -1480,7 +1480,7 @@ class GosoSmallList extends Base_Widget {
                                         <div class="pcsl-iteminer">
 											<?php if ( in_array( 'date', $post_meta ) && 'nlist' == $type ) { ?>
                                                 <div class="pcsl-date pcsl-dpos-<?php echo $date_pos; ?>">
-                                                    <span class="sl-date"><?php penci_authow_time_link( null, $dformat ); ?></span>
+                                                    <span class="sl-date"><?php goso_authow_time_link( null, $dformat ); ?></span>
                                                 </div>
 											<?php } ?>
 
@@ -1488,45 +1488,45 @@ class GosoSmallList extends Base_Widget {
                                                 <div class="pcsl-thumb">
 													<?php
 													/* Display Review Piechart  */
-													if ( 'yes' == $settings['show_reviewpie'] && function_exists( 'penci_display_piechart_review_html' ) ) {
-														penci_display_piechart_review_html( get_the_ID(), 'small' );
+													if ( 'yes' == $settings['show_reviewpie'] && function_exists( 'goso_display_piechart_review_html' ) ) {
+														goso_display_piechart_review_html( get_the_ID(), 'small' );
 													}
 													?>
 													<?php if ( 'yes' == $settings['show_formaticon'] ): ?>
 														<?php if ( has_post_format( 'video' ) ) : ?>
                                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-play' ); ?></a>
+                                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-play' ); ?></a>
 														<?php endif; ?>
 														<?php if ( has_post_format( 'gallery' ) ) : ?>
                                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                               aria-label="Icon"><?php penci_fawesome_icon( 'far fa-image' ); ?></a>
+                                                               aria-label="Icon"><?php goso_fawesome_icon( 'far fa-image' ); ?></a>
 														<?php endif; ?>
 														<?php if ( has_post_format( 'audio' ) ) : ?>
                                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-music' ); ?></a>
+                                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-music' ); ?></a>
 														<?php endif; ?>
 														<?php if ( has_post_format( 'link' ) ) : ?>
                                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-link' ); ?></a>
+                                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-link' ); ?></a>
 														<?php endif; ?>
 														<?php if ( has_post_format( 'quote' ) ) : ?>
                                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-quote-left' ); ?></a>
+                                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-quote-left' ); ?></a>
 														<?php endif; ?>
 													<?php endif; ?>
 													<?php if ( 'yes' != $settings['disable_lazy'] ) { ?>
                                                         <a href="<?php the_permalink(); ?>"
                                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"
-                                                           class="penci-image-holder penci-lazy"<?php if ( 'yes' == $settings['nocrop'] ) {
-															echo ' style="padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
+                                                           class="goso-image-holder goso-lazy"<?php if ( 'yes' == $settings['nocrop'] ) {
+															echo ' style="padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
 														} ?>
-                                                           data-bgset="<?php echo penci_get_featured_image_size( get_the_ID(), $thumbnail ); ?>">
+                                                           data-bgset="<?php echo goso_get_featured_image_size( get_the_ID(), $thumbnail ); ?>">
                                                         </a>
 													<?php } else { ?>
                                                         <a title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"
-                                                           href="<?php the_permalink(); ?>" class="penci-image-holder"
-                                                           style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'yes' == $settings['nocrop'] ) {
-															   echo 'padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
+                                                           href="<?php the_permalink(); ?>" class="goso-image-holder"
+                                                           style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'yes' == $settings['nocrop'] ) {
+															   echo 'padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
 														   } ?>">
                                                         </a>
 													<?php } ?>
@@ -1535,7 +1535,7 @@ class GosoSmallList extends Base_Widget {
                                             <div class="pcsl-content">
 												<?php if ( in_array( 'cat', $post_meta ) ) : ?>
                                                     <div class="cat pcsl-cat">
-														<?php penci_category( '', $primary_cat ); ?>
+														<?php goso_category( '', $primary_cat ); ?>
                                                     </div>
 												<?php endif; ?>
 
@@ -1564,45 +1564,45 @@ class GosoSmallList extends Base_Widget {
                                                     <div class="grid-post-box-meta pcsl-meta">
 														<?php if ( in_array( 'author', $post_meta ) ) : ?>
                                                             <span class="sl-date-author author-italic">
-													<?php echo penci_get_setting( 'penci_trans_by' ); ?> <a
+													<?php echo goso_get_setting( 'goso_trans_by' ); ?> <a
                                                                         class="url fn n"
                                                                         href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
 													</span>
 														<?php endif; ?>
 														<?php if ( in_array( 'date', $post_meta ) && 'nlist' != $type ) : ?>
-                                                            <span class="sl-date"><?php penci_authow_time_link( null, $dformat ); ?></span>
+                                                            <span class="sl-date"><?php goso_authow_time_link( null, $dformat ); ?></span>
 														<?php endif; ?>
 														<?php if ( in_array( 'comment', $post_meta ) ) : ?>
                                                             <span class="sl-comment">
-												<a href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a>
+												<a href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a>
 											</span>
 														<?php endif; ?>
 														<?php
 														if ( in_array( 'views', $post_meta ) ) {
 															echo '<span class="sl-views">';
-															echo penci_get_post_views( get_the_ID() );
-															echo ' ' . penci_get_setting( 'penci_trans_countviews' );
+															echo goso_get_post_views( get_the_ID() );
+															echo ' ' . goso_get_setting( 'goso_trans_countviews' );
 															echo '</span>';
 														}
 														?>
 														<?php
 														$hide_readtime = in_array( 'reading', $post_meta ) ? false : true;
-														if ( penci_isshow_reading_time( $hide_readtime ) ): ?>
-                                                            <span class="sl-readtime"><?php penci_reading_time(); ?></span>
+														if ( goso_isshow_reading_time( $hide_readtime ) ): ?>
+                                                            <span class="sl-readtime"><?php goso_reading_time(); ?></span>
 														<?php endif; ?>
                                                     </div>
 												<?php } ?>
 
 												<?php if ( 'yes' == $settings['show_excerpt'] && 'side' == $excerpt_pos ) { ?>
                                                     <div class="pcbg-pexcerpt pcsl-pexcerpt">
-														<?php penci_the_excerpt( $excerpt_length ); ?>
+														<?php goso_the_excerpt( $excerpt_length ); ?>
                                                     </div>
 												<?php } ?>
 												<?php if ( 'yes' == $settings['show_readmore'] && 'side' == $excerpt_pos ) { ?>
                                                     <div class="pcsl-readmore">
                                                         <a href="<?php the_permalink(); ?>"
                                                            class="pcsl-readmorebtn pcsl-btns-<?php echo $rmstyle; ?>">
-															<?php echo penci_get_setting( 'penci_trans_read_more' ); ?>
+															<?php echo goso_get_setting( 'goso_trans_read_more' ); ?>
                                                         </a>
                                                     </div>
 												<?php } ?>
@@ -1612,14 +1612,14 @@ class GosoSmallList extends Base_Widget {
                                                 <div class="pcsl-flex-full">
 													<?php if ( 'yes' == $settings['show_excerpt'] ) { ?>
                                                         <div class="pcbg-pexcerpt pcsl-pexcerpt">
-															<?php penci_the_excerpt( $excerpt_length ); ?>
+															<?php goso_the_excerpt( $excerpt_length ); ?>
                                                         </div>
 													<?php } ?>
 													<?php if ( 'yes' == $settings['show_readmore'] ) { ?>
                                                         <div class="pcsl-readmore">
                                                             <a href="<?php the_permalink(); ?>"
                                                                class="pcsl-readmorebtn pcsl-btns-<?php echo $rmstyle; ?>">
-																<?php echo penci_get_setting( 'penci_trans_read_more' ); ?>
+																<?php echo goso_get_setting( 'goso_trans_read_more' ); ?>
                                                             </a>
                                                         </div>
 													<?php } ?>
@@ -1639,18 +1639,18 @@ class GosoSmallList extends Base_Widget {
 
 							$data_settings_ajax = htmlentities( json_encode( $data_settings ), ENT_QUOTES, "UTF-8" );
 
-							$button_class = ' penci-ajax-more penci-slajax-more-click';
+							$button_class = ' goso-ajax-more goso-slajax-more-click';
 							if ( 'loadmore' == $paging ):
-								wp_enqueue_script( 'penci_slajax_more_posts' );
-								wp_localize_script( 'penci_slajax_more_posts', 'ajax_var_more', array(
+								wp_enqueue_script( 'goso_slajax_more_posts' );
+								wp_localize_script( 'goso_slajax_more_posts', 'ajax_var_more', array(
 									'url'   => admin_url( 'admin-ajax.php' ),
 									'nonce' => wp_create_nonce( 'ajax-nonce' ),
 								) );
 							endif;
 							if ( 'scroll' == $paging ):
-								$button_class = ' penci-ajax-more penci-slajax-more-scroll';
-								wp_enqueue_script( 'penci_slajax_more_scroll' );
-								wp_localize_script( 'penci_slajax_more_scroll', 'ajax_var_more', array(
+								$button_class = ' goso-ajax-more goso-slajax-more-scroll';
+								wp_enqueue_script( 'goso_slajax_more_scroll' );
+								wp_localize_script( 'goso_slajax_more_scroll', 'ajax_var_more', array(
 									'url'   => admin_url( 'admin-ajax.php' ),
 									'nonce' => wp_create_nonce( 'ajax-nonce' ),
 								) );
@@ -1707,8 +1707,8 @@ class GosoSmallList extends Base_Widget {
 								}
 							endif;
 							?>
-                            <div class="pcbg-paging penci-pagination <?php echo 'pcbg-paging-' . $paging_align . $button_class; ?>">
-                                <a class="penci-ajax-more-button" href="#"
+                            <div class="pcbg-paging goso-pagination <?php echo 'pcbg-paging-' . $paging_align . $button_class; ?>">
+                                <a class="goso-ajax-more-button" href="#"
 									<?php if ( $data_archive_type && $data_archive_value ): ?>
                                         data-archivetype="<?php echo $data_archive_type; ?>"
                                         data-archivevalue="<?php echo $data_archive_value; ?>"
@@ -1718,14 +1718,14 @@ class GosoSmallList extends Base_Widget {
                                    data-query_type="<?php echo $archive_buider_check; ?>"
                                    data-settings="<?php echo $data_settings_ajax; ?>"
                                    data-pagednum="<?php echo( (int) $data_paged + 1 ); ?>"
-                                   data-mes="<?php echo penci_get_setting( 'penci_trans_no_more_posts' ); ?>">
-                                    <span class="ajax-more-text"><?php echo penci_get_setting( 'penci_trans_load_more_posts' ); ?></span><span
-                                            class="ajaxdot"></span><?php penci_fawesome_icon( 'fas fa-sync' ); ?>
+                                   data-mes="<?php echo goso_get_setting( 'goso_trans_no_more_posts' ); ?>">
+                                    <span class="ajax-more-text"><?php echo goso_get_setting( 'goso_trans_load_more_posts' ); ?></span><span
+                                            class="ajaxdot"></span><?php goso_fawesome_icon( 'fas fa-sync' ); ?>
                                 </a>
                             </div>
 							<?php
 						} elseif ( 'numbers' == $paging ) {
-							echo penci_pagination_numbers( $query_smalllist, $paging_align );
+							echo goso_pagination_numbers( $query_smalllist, $paging_align );
 						}
 						?>
 
@@ -1733,7 +1733,7 @@ class GosoSmallList extends Base_Widget {
 					<?php
 				} /* End check if query exists posts */
 				if ($settings['biggrid_ajaxfilter_cat'] || $settings['biggrid_ajaxfilter_tag'] || $settings['biggrid_ajaxfilter_author'] || 'nextprev' == $settings['paging'] ) {
-					echo penci_get_html_animation_loading( $settings['biggrid_ajax_loading_style'] );
+					echo goso_get_html_animation_loading( $settings['biggrid_ajax_loading_style'] );
 				}
 				?>
             </div>
@@ -1787,7 +1787,7 @@ class GosoSmallList extends Base_Widget {
 	public static function show_missing_settings( $label, $mess ) {
 		$output = '';
 		if ( current_user_can( 'manage_options' ) ) {
-			$output .= '<div class="penci-missing-settings">';
+			$output .= '<div class="goso-missing-settings">';
 			$output .= '<p style="margin-bottom: 4px;">This message appears for administrator users only</p>';
 			$output .= '<span>' . $label . '</span>';
 			$output .= $mess;

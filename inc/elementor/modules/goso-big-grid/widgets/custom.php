@@ -1,9 +1,9 @@
-<div class="penci-bgitem<?php if ( 'style-2' == $biggid_style ) {
+<div class="goso-bgitem<?php if ( 'style-2' == $biggid_style ) {
 	echo ' item-masonry';
 }
-echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
-    <div class="penci-bgitin">
-        <div class="penci-bgmain">
+echo $is_big_item . goso_big_grid_count_classes( $bg, $biggid_style ) . $item_id; ?>">
+    <div class="goso-bgitin">
+        <div class="goso-bgmain">
             <div class="pcbg-thumb">
                 <div class="pcbg-thumbin">
                     <a class="pcbg-bgoverlay<?php if ( 'whole' == $overlay_type && 'on' != $bgcontent_pos ): echo ' active-overlay'; endif; ?>"
@@ -11,12 +11,12 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ) . $item_i
 					echo $title_external . $title_nofollow . $title_attr; ?>
                        title="<?php echo wp_strip_all_tags( $title ); ?>"></a>
 					<?php if ( ! $disable_lazy ) { ?>
-                        <div class="penci-image-holder penci-lazy"<?php if ( 'style-2' == $biggid_style ) {
+                        <div class="goso-image-holder goso-lazy"<?php if ( 'style-2' == $biggid_style ) {
 							echo ' style="padding-bottom: ' . $image_ratio . '%"';
 						} ?> data-bgset="<?php echo $image_url; ?>">
                         </div>
 					<?php } else { ?>
-                        <div class="penci-image-holder"
+                        <div class="goso-image-holder"
                              style="background-image: url('<?php echo $image_url; ?>');<?php if ( 'style-2' == $biggid_style ) {
 							     echo 'padding-bottom: ' . $image_ratio . '%';
 						     } ?>">

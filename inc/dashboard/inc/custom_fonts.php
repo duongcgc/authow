@@ -1,33 +1,33 @@
 <?php
-if ( ! function_exists( 'penci_authow_add_custom_fonts' ) ) {
-	function penci_authow_add_custom_fonts() {
-		$font_1      = penci_get_option( 'authow_custom_font1' );
-		$fontfamily1 = penci_get_option( 'authow_custom_fontfamily1' );
-		$font_2      = penci_get_option( 'authow_custom_font2' );
-		$fontfamily2 = penci_get_option( 'authow_custom_fontfamily2' );
-		$font_3      = penci_get_option( 'authow_custom_font3' );
-		$fontfamily3 = penci_get_option( 'authow_custom_fontfamily3' );
+if ( ! function_exists( 'goso_authow_add_custom_fonts' ) ) {
+	function goso_authow_add_custom_fonts() {
+		$font_1      = goso_get_option( 'authow_custom_font1' );
+		$fontfamily1 = goso_get_option( 'authow_custom_fontfamily1' );
+		$font_2      = goso_get_option( 'authow_custom_font2' );
+		$fontfamily2 = goso_get_option( 'authow_custom_fontfamily2' );
+		$font_3      = goso_get_option( 'authow_custom_font3' );
+		$fontfamily3 = goso_get_option( 'authow_custom_fontfamily3' );
 
-		$font_4      = penci_get_option( 'authow_custom_font4' );
-		$fontfamily4 = penci_get_option( 'authow_custom_fontfamily4' );
+		$font_4      = goso_get_option( 'authow_custom_font4' );
+		$fontfamily4 = goso_get_option( 'authow_custom_fontfamily4' );
 
-		$font_5      = penci_get_option( 'authow_custom_font5' );
-		$fontfamily5 = penci_get_option( 'authow_custom_fontfamily5' );
+		$font_5      = goso_get_option( 'authow_custom_font5' );
+		$fontfamily5 = goso_get_option( 'authow_custom_fontfamily5' );
 
-		$font_6      = penci_get_option( 'authow_custom_font6' );
-		$fontfamily6 = penci_get_option( 'authow_custom_fontfamily6' );
+		$font_6      = goso_get_option( 'authow_custom_font6' );
+		$fontfamily6 = goso_get_option( 'authow_custom_fontfamily6' );
 
-		$font_7      = penci_get_option( 'authow_custom_font7' );
-		$fontfamily7 = penci_get_option( 'authow_custom_fontfamily7' );
+		$font_7      = goso_get_option( 'authow_custom_font7' );
+		$fontfamily7 = goso_get_option( 'authow_custom_fontfamily7' );
 
-		$font_8      = penci_get_option( 'authow_custom_font8' );
-		$fontfamily8 = penci_get_option( 'authow_custom_fontfamily8' );
+		$font_8      = goso_get_option( 'authow_custom_font8' );
+		$fontfamily8 = goso_get_option( 'authow_custom_fontfamily8' );
 
-		$font_9      = penci_get_option( 'authow_custom_font9' );
-		$fontfamily9 = penci_get_option( 'authow_custom_fontfamily9' );
+		$font_9      = goso_get_option( 'authow_custom_font9' );
+		$fontfamily9 = goso_get_option( 'authow_custom_fontfamily9' );
 
-		$font_10      = penci_get_option( 'authow_custom_font10' );
-		$fontfamily10 = penci_get_option( 'authow_custom_fontfamily10' );
+		$font_10      = goso_get_option( 'authow_custom_font10' );
+		$fontfamily10 = goso_get_option( 'authow_custom_fontfamily10' );
 
 		$output = '';
 
@@ -95,29 +95,29 @@ if ( ! function_exists( 'penci_authow_add_custom_fonts' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_authow_list_self_fonts' ) ) {
-	function penci_authow_list_self_fonts() {
-		if ( ! get_theme_mod( 'penci_disable_default_fonts' ) || get_theme_mod( 'penci_disable_all_fonts' ) ) {
+if ( ! function_exists( 'goso_authow_list_self_fonts' ) ) {
+	function goso_authow_list_self_fonts() {
+		if ( ! get_theme_mod( 'goso_disable_default_fonts' ) || get_theme_mod( 'goso_disable_all_fonts' ) ) {
 			return;
 		}
 
 		$array_fonts = [];
 
-		if ( ! get_theme_mod( 'penci_font_for_title' ) ) {
+		if ( ! get_theme_mod( 'goso_font_for_title' ) ) {
 			$array_fonts[] = array_merge( $array_fonts, array( '"Raleway", "100:200:300:regular:500:600:700:800:900", sans-serif' ) );
 		} else {
-			$array_fonts[] = get_theme_mod( 'penci_font_for_title' );
+			$array_fonts[] = get_theme_mod( 'goso_font_for_title' );
 		}
-		if ( get_theme_mod( 'penci_font_for_body' ) ) {
-			$array_fonts[] = get_theme_mod( 'penci_font_for_body' );
+		if ( get_theme_mod( 'goso_font_for_body' ) ) {
+			$array_fonts[] = get_theme_mod( 'goso_font_for_body' );
 		} else {
 			$array_fonts[] = array_merge( $array_fonts, array( '"PT Serif", "regular:italic:700:700italic", serif' ) );
 		}
-		if ( get_theme_mod( 'penci_font_for_slogan' ) ) {
-			$array_fonts[] = get_theme_mod( 'penci_font_for_slogan' );
+		if ( get_theme_mod( 'goso_font_for_slogan' ) ) {
+			$array_fonts[] = get_theme_mod( 'goso_font_for_slogan' );
 		}
-		if ( get_theme_mod( 'penci_font_for_menu' ) ) {
-			$array_fonts[] = get_theme_mod( 'penci_font_for_menu' );
+		if ( get_theme_mod( 'goso_font_for_menu' ) ) {
+			$array_fonts[] = get_theme_mod( 'goso_font_for_menu' );
 		}
 
 		$font_url = get_template_directory_uri() . '/fonts';

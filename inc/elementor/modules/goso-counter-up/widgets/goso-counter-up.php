@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoCounterUp extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-counter-up';
+		return 'goso-counter-up';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Counter Up', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Counter Up', 'authow' );
 	}
 
 	public function get_icon() {
@@ -27,7 +27,7 @@ class GosoCounterUp extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -51,7 +51,7 @@ class GosoCounterUp extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_block_width', array(
+			'goso_block_width', array(
 				'label'   => __( 'Element Columns', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 1,
@@ -157,7 +157,7 @@ class GosoCounterUp extends Base_Widget {
 					'dashed' => esc_html__( 'Dashed', 'authow' ),
 					'dotted' => esc_html__( 'Dotted', 'authow' ),
 				),
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon--icon' => 'border-style: {{VALUE}}' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon--icon' => 'border-style: {{VALUE}}' ),
 				'condition' => array( 'cup_icon_type' => 'icon' ),
 			)
 		);
@@ -166,7 +166,7 @@ class GosoCounterUp extends Base_Widget {
 			'icon_border_width', array(
 				'label'     => __( 'Border width for Icon', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon--icon' => 'border-width: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon--icon' => 'border-width: {{SIZE}}px' ),
 				'condition' => array( 'icon_border_style' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			)
 		);
@@ -174,7 +174,7 @@ class GosoCounterUp extends Base_Widget {
 			'icon_border_radius', array(
 				'label'     => __( 'Border radius for Icon', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon--icon' => 'border-radius: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon--icon' => 'border-radius: {{SIZE}}px' ),
 				'condition' => array( 'icon_border_style' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			)
 		);
@@ -182,14 +182,14 @@ class GosoCounterUp extends Base_Widget {
 			'icon_padding', array(
 				'label'     => __( 'Padding for Icon', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon--icon' => 'padding: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon--icon' => 'padding: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
 			'_image_width_height', array(
 				'label'     => __( 'Image With/Height', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon--image' => 'width: {{SIZE}}px;height: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon--image' => 'width: {{SIZE}}px;height: {{SIZE}}px;' ),
 				'condition' => array( 'cup_icon_type' => 'image' ),
 			)
 		);
@@ -197,14 +197,14 @@ class GosoCounterUp extends Base_Widget {
 			'icon_margin_bottom', array(
 				'label'     => __( 'Margin Bottom for Icon or Image', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup_icon' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup_icon' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
 			'title_margin_top', array(
 				'label'     => __( 'Margin Top for Title', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
-				'selectors' => array( '{{WRAPPER}} .penci-cup-title' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup-title' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -236,7 +236,7 @@ class GosoCounterUp extends Base_Widget {
 			'cup_icon_color', array(
 				'label'     => __( 'Icon color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-counter-up .penci-cup_icon' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-counter-up .goso-cup_icon' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -244,7 +244,7 @@ class GosoCounterUp extends Base_Widget {
 				'label'     => __( 'Font size for Icon', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-counter-up .penci-cup_icon' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-counter-up .goso-cup_icon' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 
@@ -252,28 +252,28 @@ class GosoCounterUp extends Base_Widget {
 			'cup_number_color', array(
 				'label'     => __( 'Number Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-counterup-number' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-counterup-number' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),array(
 				'name' => 'cup_number_typo',
 				'label'     => __( 'Typography for Number', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-counterup-number',
+				'selector' => '{{WRAPPER}} .goso-counterup-number',
 			)
 		);
 		$this->add_control(
 			'cup_frefix_color', array(
 				'label'     => __( 'Prefix and Suffix Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-cup-postfix,{{WRAPPER}} .penci-cup-prefix' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup-postfix,{{WRAPPER}} .goso-cup-prefix' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),array(
 				'name' => 'cup_frefix_typo',
 				'label'     => __( 'Typography for Prefix and Suffix', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-cup-postfix,{{WRAPPER}} .penci-cup-prefix',
+				'selector' => '{{WRAPPER}} .goso-cup-postfix,{{WRAPPER}} .goso-cup-prefix',
 			)
 		);
 
@@ -281,7 +281,7 @@ class GosoCounterUp extends Base_Widget {
 			'cup_title_color', array(
 				'label'     => __( 'Title color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-cup-title' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-cup-title' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -289,7 +289,7 @@ class GosoCounterUp extends Base_Widget {
 			Group_Control_Typography::get_type(),array(
 				'name' => 'cup_title_typo',
 				'label'     => __( 'Typography for Title', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-cup-title',
+				'selector' => '{{WRAPPER}} .goso-cup-title',
 			)
 		);
 
@@ -461,7 +461,7 @@ class GosoCounterUp extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
 				'condition' => array(
 					'show_block_heading' => 'yes'
 				),
@@ -476,9 +476,9 @@ class GosoCounterUp extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class = 'penci-counter-up';
-		$css_class .= ' penci-style-' . $settings['cup_style'];
-		$css_class .= ' penci-counterup-' . $settings['cup_align'];
+		$css_class = 'goso-counter-up';
+		$css_class .= ' goso-style-' . $settings['cup_style'];
+		$css_class .= ' goso-counterup-' . $settings['cup_align'];
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php
@@ -486,15 +486,15 @@ class GosoCounterUp extends Base_Widget {
 				$this->markup_block_title( $settings, $this );
 			}
 			?>
-			<div class="penci-counter-up_inner">
+			<div class="goso-counter-up_inner">
 				<?php
 				if ( 'icon' == $settings['cup_icon_type'] ) {
 
 					if( ! empty( $settings['cup_icon'] ) ) {
-						$this->add_render_attribute( 'i', 'class', 'penci-cup_iconn--i ' . $settings['cup_icon'] );
+						$this->add_render_attribute( 'i', 'class', 'goso-cup_iconn--i ' . $settings['cup_icon'] );
 						$this->add_render_attribute( 'i', 'aria-hidden', 'true' );
 
-						echo '<div class="penci-cup_icon penci-cup_icon--icon">';
+						echo '<div class="goso-cup_icon goso-cup_icon--icon">';
 						echo '<i ' . $this->get_render_attribute_string( 'i' ) . '></i>';
 						echo '</div>';
 					}
@@ -503,7 +503,7 @@ class GosoCounterUp extends Base_Widget {
 					$this->add_render_attribute( 'image', 'alt', Control_Media::get_image_alt( $settings['cup_image'] ) );
 					$this->add_render_attribute( 'image', 'title', Control_Media::get_image_title( $settings['cup_image'] ) );
 
-					echo '<div class="penci-cup_icon penci-cup_icon--image">';
+					echo '<div class="goso-cup_icon goso-cup_icon--image">';
 					echo  Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'cup_image' );
 					echo  '</div>';
 				}
@@ -511,16 +511,16 @@ class GosoCounterUp extends Base_Widget {
 				$data_time   = $settings['cup_time'] ? $settings['cup_time'] : 2000;
 				$data_number = $settings['cup_number'] ? $settings['cup_number'] : 0;
 				?>
-				<div class="penci-cup-info">
-					<div class="penci-cup-number-wrapper">
-				<span class="penci-span-inner">
-				<?php if ( $settings['cup_prefix_number'] ): ?><span class="penci-cup-label penci-cup-prefix"><?php echo do_shortcode( $settings['cup_prefix_number'] ); ?></span><?php endif; ?>
-					<span class="penci-counterup-number" data-delay="<?php echo $data_delay; ?>" data-time="<?php echo $data_time; ?>" data-count="<?php echo $data_number; ?>">0</span>
-					<?php if ( $settings['cup_suffix_number'] ): ?><span class="penci-cup-label penci-cup-postfix"><?php echo do_shortcode( $settings['cup_suffix_number'] ); ?></span><?php endif; ?>
+				<div class="goso-cup-info">
+					<div class="goso-cup-number-wrapper">
+				<span class="goso-span-inner">
+				<?php if ( $settings['cup_prefix_number'] ): ?><span class="goso-cup-label goso-cup-prefix"><?php echo do_shortcode( $settings['cup_prefix_number'] ); ?></span><?php endif; ?>
+					<span class="goso-counterup-number" data-delay="<?php echo $data_delay; ?>" data-time="<?php echo $data_time; ?>" data-count="<?php echo $data_number; ?>">0</span>
+					<?php if ( $settings['cup_suffix_number'] ): ?><span class="goso-cup-label goso-cup-postfix"><?php echo do_shortcode( $settings['cup_suffix_number'] ); ?></span><?php endif; ?>
 				</span>
 					</div>
 					<?php if ( $settings['cup_title'] ): ?>
-						<div class="penci-cup-title"><?php echo $settings['cup_title']; ?></div><?php endif; ?>
+						<div class="goso-cup-title"><?php echo $settings['cup_title']; ?></div><?php endif; ?>
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
 <?php
-$general_config = 'penci_builder_mods';
+$general_config = 'goso_builder_mods';
 $options        = [];
 $options[]      = array(
-	'id'        => 'penci_header_pb_vertical_line4_width',
+	'id'        => 'goso_header_pb_vertical_line4_width',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
@@ -10,7 +10,7 @@ $options[]      = array(
 	'label'     => esc_html__( 'Vertical Line Width', 'authow' ),
 );
 $options[]      = array(
-	'id'        => 'penci_header_pb_vertical_line4_height',
+	'id'        => 'goso_header_pb_vertical_line4_height',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
@@ -18,7 +18,7 @@ $options[]      = array(
 	'label'     => esc_html__( 'Vertical Line Height', 'authow' ),
 );
 $options[]      = array(
-	'id'        => 'penci_header_pb_vertical_line4_color',
+	'id'        => 'goso_header_pb_vertical_line4_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -26,10 +26,10 @@ $options[]      = array(
 	'label'     => __( 'Vertical Line Color', 'authow' ),
 );
 $options[]      = array(
-	'id'        => 'penci_header_pb_vertical_line4_spacing',
+	'id'        => 'goso_header_pb_vertical_line4_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -42,22 +42,22 @@ $options[]      = array(
 	),
 );
 $options[]      = array(
-	'id'        => 'penci_header_pb_vertical_line4_class',
+	'id'        => 'goso_header_pb_vertical_line4_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );
 
 return $options;
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_pb_vertical_line4_width', array(
-	'selector'            => '.penci-vertical-line.vertical-line-1',
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_pb_vertical_line4_width', array(
+	'selector'            => '.goso-vertical-line.vertical-line-1',
 	'settings'            => [
-		'penci_header_pb_vertical_line4_width',
-		'penci_header_pb_vertical_line4_height',
-		'penci_header_pb_vertical_line4_color',
-		'penci_header_pb_vertical_line4_class',
+		'goso_header_pb_vertical_line4_width',
+		'goso_header_pb_vertical_line4_height',
+		'goso_header_pb_vertical_line4_color',
+		'goso_header_pb_vertical_line4_class',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

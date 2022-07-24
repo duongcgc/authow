@@ -11,16 +11,16 @@ use Elementor\Base_Data_Control;
 
 class Select2 extends Base_Data_Control {
 	public function get_type() {
-		return 'penci-select2';
+		return 'goso-select2';
 	}
 
 	public function enqueue() {
-		wp_register_script( 'penci-select2', PENCI_ELEMENTOR_URL . 'assets/js/penci-select2.js', [ 'jquery-elementor-select2' ], '1.0.0', true );
-		wp_localize_script( 'penci-select2', 'penci_select2_localize', [
+		wp_register_script( 'goso-select2', PENCI_ELEMENTOR_URL . 'assets/js/goso-select2.js', [ 'jquery-elementor-select2' ], '1.0.0', true );
+		wp_localize_script( 'goso-select2', 'goso_select2_localize', [
 				'ajaxurl'     => admin_url( 'admin-ajax.php' ),
 				'search_text' => esc_html__( 'Search', 'authow' ),
 			] );
-		wp_enqueue_script( 'penci-select2' );
+		wp_enqueue_script( 'goso-select2' );
 	}
 
 	public function content_template() {
@@ -34,13 +34,13 @@ class Select2 extends Base_Data_Control {
             <# } #>
             <div class="elementor-control-input-wrapper elementor-control-unit-5">
                 <# var multiple = ( data.multiple ) ? 'multiple' : ''; #>
-                <select id="<?php echo $control_uid; ?>" {{ multiple }} class="penci-select2"
+                <select id="<?php echo $control_uid; ?>" {{ multiple }} class="goso-select2"
                         data-setting="{{ data.name }}"></select>
             </div>
         </div>
         <#
         ( function( $ ) {
-        $( document.body ).trigger( 'penci_select2_init',{currentID:currentID,data:data,controlUID:controlUID,multiple:data.multiple} );
+        $( document.body ).trigger( 'goso_select2_init',{currentID:currentID,data:data,controlUID:controlUID,multiple:data.multiple} );
         }( jQuery ) );
         #>
 		<?php

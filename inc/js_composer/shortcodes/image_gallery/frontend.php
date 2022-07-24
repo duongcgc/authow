@@ -4,7 +4,7 @@ $el_class  = $css_animation = $css = '';
 $heading_title_style = $heading = $heading_title_link = $heading_title_align = $caption_source = '';
 $style_gallery = $images = $auto_play = $disable_loop = $auto_time = $speed =  $gallery_height = '';
 
-$penci_img_size = $penci_img_size_bitem = $penci_img_type = $gallery_columns = $slider_autoplay = '';
+$goso_img_size = $goso_img_size_bitem = $goso_img_type = $gallery_columns = $slider_autoplay = '';
 $row_gap = $col_gap = '';
 
 $p_icon_color = $p_icon_size = $p_overlay_bgcolor = '';
@@ -22,17 +22,17 @@ $images = explode( ',', $images );
 $class_to_filter = '';
 $class_to_filter .= vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-image-gallery';
-$css_class .= ' penci-image-gallery-' . $style_gallery;
+$css_class = 'goso-block-vc goso-image-gallery';
+$css_class .= ' goso-image-gallery-' . $style_gallery;
 
 if ( 's1' == $style_gallery ) {
-	$css_class .= ' pencisc-grid-' . $gallery_columns;
+	$css_class .= ' gososc-grid-' . $gallery_columns;
 }
 
 if( 'img' == $caption_source ) {
 	$caption_source = 'attachment';
 }else{
-	$css_class .= ' penci-image-not-caption';
+	$css_class .= ' goso-image-not-caption';
 }
 
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
@@ -41,7 +41,7 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 ?>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 	<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-	<div class="penci-block_content <?php echo esc_attr( 's1' == $style_gallery ? ' pencisc-grid' : '' ); ?>">
+	<div class="goso-block_content <?php echo esc_attr( 's1' == $style_gallery ? ' gososc-grid' : '' ); ?>">
 		<?php
 		$total_img = is_array( $images ) ? count( (array) $images ) : 0;
 		$gal_2_i   = $gal_count = 0;
@@ -55,17 +55,17 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 					continue;
 				}
 
-				$class_item = 'penci-gallery-small-item';
-				$penci_img_size_pre = $penci_img_size;
+				$class_item = 'goso-gallery-small-item';
+				$goso_img_size_pre = $goso_img_size;
 				if ( $gal_count == 1 ) {
-					$penci_img_size_pre = $penci_img_size_bitem;
-					$class_item = 'penci-gallery-big-item';
+					$goso_img_size_pre = $goso_img_size_bitem;
+					$class_item = 'goso-gallery-big-item';
 				}
 
-				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $penci_img_size_pre, $penci_img_type,true, $gal_count, $class_item, $caption_source );
+				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $goso_img_size_pre, $goso_img_type,true, $gal_count, $class_item, $caption_source );
 
 				if ( $gal_count == 1 ) {
-					echo '<div class="penci-post-smalls">';
+					echo '<div class="goso-post-smalls">';
 				}
 
 				if( 5 == $gal_count || $gal_2_i == $total_img ) {
@@ -82,13 +82,13 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 					continue;
 				}
 
-				$class_item = 'penci-gallery-small-item';
+				$class_item = 'goso-gallery-small-item';
 				if ( $gal_count == 1 || $gal_count == 2 ) {
-					$penci_img_size = $penci_img_size_bitem;
-					$class_item = 'penci-gallery-big-item';
+					$goso_img_size = $goso_img_size_bitem;
+					$class_item = 'goso-gallery-big-item';
 				}
 
-				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $penci_img_size, $penci_img_type,true, $gal_count, $class_item,$caption_source );
+				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $goso_img_size, $goso_img_type,true, $gal_count, $class_item,$caption_source );
 
 				if( 5 == $gal_count || $gal_2_i == $total_img ) {
 					$gal_count = 0;
@@ -101,14 +101,14 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 				$data_height = $gallery_height;
 			}
 
-			echo '<div class="penci-post-gallery-container ' . $style_gallery . ' column-' . $gallery_columns . '" data-height="' . $data_height . '" data-margin="3">';
+			echo '<div class="goso-post-gallery-container ' . $style_gallery . ' column-' . $gallery_columns . '" data-height="' . $data_height . '" data-margin="3">';
 
 			if ( 'masonry' == $style_gallery ) {
 				echo '<div class="inner-gallery-masonry-container">';
 			}
 
 			if ( 'single-slider' == $style_gallery ) {
-				echo '<div class="penci-owl-carousel penci-owl-carousel-slider penci-nav-visible" data-auto="' . ( 'yes' == $slider_autoplay ? 'true' : 'false' ) . '" data-lazy="true">';
+				echo '<div class="goso-owl-carousel goso-owl-carousel-slider goso-nav-visible" data-auto="' . ( 'yes' == $slider_autoplay ? 'true' : 'false' ) . '" data-lazy="true">';
 			}
 
 			$posts = get_posts( array( 'include' => $images, 'post_type' => 'attachment' ) );
@@ -124,15 +124,15 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 					}
 
 					$get_full    = wp_get_attachment_image_src( $imagePost->ID, 'full' );
-					$get_masonry = wp_get_attachment_image_src( $imagePost->ID, 'penci-masonry-thumb' );
-					$thumbsize = 'penci-masonry-thumb';
+					$get_masonry = wp_get_attachment_image_src( $imagePost->ID, 'goso-masonry-thumb' );
+					$thumbsize = 'goso-masonry-thumb';
 					
-					$image_alt        = penci_get_image_alt( $imagePost->ID, get_the_ID() );
-					$image_title_html = penci_get_image_title( $imagePost->ID );
+					$image_alt        = goso_get_image_alt( $imagePost->ID, get_the_ID() );
+					$image_title_html = goso_get_image_title( $imagePost->ID );
 
-					$class_a_item = 'penci-gallery-ite';
+					$class_a_item = 'goso-gallery-ite';
 					if ( 'masonry' != $style_gallery ) {
-						$class_a_item = 'penci-gallery-ite item-gallery-' . $style_gallery;
+						$class_a_item = 'goso-gallery-ite item-gallery-' . $style_gallery;
 					}
 					
 					if( $style_gallery == 'masonry' || $style_gallery == 'single-slider' ){
@@ -141,21 +141,21 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 
 					if ( 'single-slider' == $style_gallery ) {
 						echo '<figure>';
-						$get_masonry = wp_get_attachment_image_src( $imagePost->ID, 'penci-full-thumb' );
-						$thumbsize = 'penci-full-thumb';
+						$get_masonry = wp_get_attachment_image_src( $imagePost->ID, 'goso-full-thumb' );
+						$thumbsize = 'goso-full-thumb';
 					}
 					if ( 'masonry' == $style_gallery ) {
 						echo '<div class="item-gallery-' . $style_gallery . '">';
 					}
 
-					echo '<a class="' . $class_a_item . ( 'attachment' != $caption_source ? ' added-caption' : '' ) . '" href="' . $get_full[0] . '"' . $gallery_title . ' data-rel="penci-gallery-image-content">';
+					echo '<a class="' . $class_a_item . ( 'attachment' != $caption_source ? ' added-caption' : '' ) . '" href="' . $get_full[0] . '"' . $gallery_title . ' data-rel="goso-gallery-image-content">';
 
 					if ( 'masonry' == $style_gallery ) {
 						echo '<div class="inner-item-masonry-gallery">';
 					}
 					
 					if( $style_gallery == 'masonry' || $style_gallery == 'single-slider' ){
-						echo penci_get_ratio_img_basedid( $imagePost->ID, $thumbsize );
+						echo goso_get_ratio_img_basedid( $imagePost->ID, $thumbsize );
 					}
 					echo '<img class="" src="' . $get_masonry[0] . '" alt="' . $image_alt . '"' . $image_title_html . '>';
 
@@ -175,7 +175,7 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 
 					if ( 'single-slider' == $style_gallery ) {
 						if ( $caption ) {
-							echo '<p class="penci-single-gallery-captions">' . $caption . '</p>';
+							echo '<p class="goso-single-gallery-captions">' . $caption . '</p>';
 						}
 						echo '</figure>';
 					}
@@ -194,7 +194,7 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'image_gallery' );
 				if ( $image_item < 0 ) {
 					continue;
 				}
-				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $penci_img_size, $penci_img_type,true, $gal_count, '', $caption_source );
+				echo Goso_Vc_Helper::get_image_holder_gal( $image_item, $goso_img_size, $goso_img_type,true, $gal_count, '', $caption_source );
 			}
 		}
 
@@ -213,24 +213,24 @@ if ( $col_gap ) {
 	$row_col_gap .= 'grid-column-gap: ' . esc_attr( $col_gap ) . ';';
 }
 if ( $row_col_gap ) {
-	$css_custom .= $id_image_gallery . ' .pencisc-grid{' . esc_attr( $row_col_gap ) . '}';
+	$css_custom .= $id_image_gallery . ' .gososc-grid{' . esc_attr( $row_col_gap ) . '}';
 }
 if ( $p_icon_color ) {
-	$css_custom .= $id_image_gallery . ' .penci-gallery-item i{ color:' . esc_attr( $p_icon_color ) . '; }';
+	$css_custom .= $id_image_gallery . ' .goso-gallery-item i{ color:' . esc_attr( $p_icon_color ) . '; }';
 }
 if ( $p_icon_size ) {
-	$css_custom .= $id_image_gallery . ' .penci-gallery-item i{ font-size:' . esc_attr( $p_icon_size ) . '; }';
+	$css_custom .= $id_image_gallery . ' .goso-gallery-item i{ font-size:' . esc_attr( $p_icon_size ) . '; }';
 }
 if ( $p_overlay_bgcolor ) {
-	$css_custom .= $id_image_gallery . ' .penci-gallery-item a::after{ background-color:' . esc_attr( $p_overlay_bgcolor ) . '; }';
+	$css_custom .= $id_image_gallery . ' .goso-gallery-item a::after{ background-color:' . esc_attr( $p_overlay_bgcolor ) . '; }';
 }
-if( $penci_img_type ) {
-	if( 'square' == $penci_img_type ){
-		$css_custom .= $id_image_gallery . ' .penci-image-holder:before{ padding-top: 100%; }';
-	}elseif( 'vertical' == $penci_img_type ){
-		$css_custom .= $id_image_gallery . ' .penci-image-holder:before{ padding-top: 135.4%; }';
+if( $goso_img_type ) {
+	if( 'square' == $goso_img_type ){
+		$css_custom .= $id_image_gallery . ' .goso-image-holder:before{ padding-top: 100%; }';
+	}elseif( 'vertical' == $goso_img_type ){
+		$css_custom .= $id_image_gallery . ' .goso-image-holder:before{ padding-top: 135.4%; }';
 	}else{
-		$css_custom .= $id_image_gallery . ' .penci-image-holder:before{ padding-top: 66.6667%; }';
+		$css_custom .= $id_image_gallery . ' .goso-image-holder:before{ padding-top: 66.6667%; }';
 	}
 }
 

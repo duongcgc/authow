@@ -35,10 +35,10 @@ $preview_url = add_query_arg( [ 'view-header-layout' => $_GET['layout_id'] ], ho
 
     <div class="desktop-mode header-tab">
         <ul>
-            <li class="normal" data-desktop-mode="normal" data-section="penci_header_desktop_option">
+            <li class="normal" data-desktop-mode="normal" data-section="goso_header_desktop_option">
                 <i class="fa fa-cog"></i> <?php esc_html_e( 'Normal Header', 'authow' ); ?>
             </li>
-            <li class="sticky" data-desktop-mode="sticky" data-section="penci_header_desktop_sticky">
+            <li class="sticky" data-desktop-mode="sticky" data-section="goso_header_desktop_sticky">
                 <i class="fa fa-cog"></i> <?php esc_html_e( 'Sticky Header', 'authow' ); ?>
             </li>
         </ul>
@@ -47,10 +47,10 @@ $preview_url = add_query_arg( [ 'view-header-layout' => $_GET['layout_id'] ], ho
 
     <div class="mobile-mode header-tab">
         <ul>
-            <li class="menu" data-mobile-mode="mobile_menu" data-section="penci_header_mobile_option">
+            <li class="menu" data-mobile-mode="mobile_menu" data-section="goso_header_mobile_option">
                 <i class="fa fa-cog"></i> <?php esc_html_e( 'Mobile Header', 'authow' ); ?>
             </li>
-            <li class="drawer" data-mobile-mode="drawer" data-section="penci_header_drawer_container">
+            <li class="drawer" data-mobile-mode="drawer" data-section="goso_header_drawer_container">
                 <i class="fa fa-cog"></i> <?php esc_html_e( 'Mobile Sidebar', 'authow' ); ?>
             </li>
         </ul>
@@ -65,7 +65,7 @@ $preview_url = add_query_arg( [ 'view-header-layout' => $_GET['layout_id'] ], ho
 				<?php
 
 				$default_rows = 'topblock,top,bottom,mid, bottomblock';
-				$rows         = penci_get_builder_mod( 'penci_hb_arrange_bar', $default_rows );
+				$rows         = goso_get_builder_mod( 'goso_hb_arrange_bar', $default_rows );
 				$rows         = explode( ',', $rows );
 				if ( is_array( $rows ) ) {
 					foreach ( $rows as $row ) {

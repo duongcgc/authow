@@ -2,14 +2,14 @@
 $options   = [];
 $options[] = array(
 	'label'    => 'Disable Footer Widget Area',
-	'id'       => 'penci_footer_widget_area',
+	'id'       => 'goso_footer_widget_area',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Footer Widget Area Columns Layout',
-	'id'       => 'penci_footer_widget_area_layout',
+	'id'       => 'goso_footer_widget_area_layout',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'style-1'  => '1/3 + 1/3 + 1/3',
@@ -24,17 +24,17 @@ $options[] = array(
 		'style-10' => '1/2 + 1/2',
 	),
 	'default'  => 'style-1',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
-	'id'       => 'penci_footer_widget_padding',
+	'id'       => 'goso_footer_widget_padding',
 	'label'    => __( 'Footer Widget Area Padding Top & Bottom', 'authow' ),
-	'desktop'  => 'penci_footer_widget_padding',
+	'desktop'  => 'goso_footer_widget_padding',
 	'default'  => '60',
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_footer_widget_padding',
+		'desktop' => 'goso_footer_widget_padding',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -49,16 +49,16 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => 'Align Center Footer Widget Title',
-	'id'       => 'penci_footer_widget_title_center',
+	'id'       => 'goso_footer_widget_title_center',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => __( 'Font Size for Footer Widget Titles', 'authow' ),
-	'id'       => 'penci_footer_widget_titlefsize',
+	'id'       => 'goso_footer_widget_titlefsize',
 	'ids'      => [
-		'desktop' => 'penci_footer_widget_titlefsize'
+		'desktop' => 'goso_footer_widget_titlefsize'
 	],
 	'default'  => '14',
 	'sanitize' => 'absint',

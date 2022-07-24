@@ -1,53 +1,53 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => 'penci_agepopup_enable',
+	'id'       => 'goso_agepopup_enable',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable age verification popup ',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'          => 'penci_agepopup_message',
+	'id'          => 'goso_agepopup_message',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field',
+	'sanitize'    => 'goso_sanitize_textarea_field',
 	'label'       => 'Popup Message',
 	'description' => 'Write a message warning your visitors about age restriction on your website',
 	'type'        => 'authow-fw-textarea',
 );
 $options[] = array(
-	'id'          => 'penci_agepopup_error_message',
+	'id'          => 'goso_agepopup_error_message',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field',
+	'sanitize'    => 'goso_sanitize_textarea_field',
 	'label'       => 'Error Message',
 	'description' => 'This message will be displayed when the visitor don\'t verify his age.',
 	'type'        => 'authow-fw-textarea',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_agree_text',
+	'id'       => 'goso_agepopup_agree_text',
 	'default'  => 'I am 18 or Older',
-	'sanitize' => 'penci_sanitize_tex_field',
+	'sanitize' => 'goso_sanitize_tex_field',
 	'label'    => 'Agree Text',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_cancel_text',
+	'id'       => 'goso_agepopup_cancel_text',
 	'default'  => 'I am Under 18',
-	'sanitize' => 'penci_sanitize_tex_field',
+	'sanitize' => 'goso_sanitize_tex_field',
 	'label'    => 'Cancel Text',
 	'type'     => 'authow-fw-text',
 );
 /* Style & Size */
 $options[] = array(
-	'id'       => 'penci_heading_ageverify',
+	'id'       => 'goso_heading_ageverify',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => esc_html__( 'Popup Content Styles', 'authow' ),
 	'type'     => 'authow-fw-header',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_animation',
+	'id'       => 'goso_agepopup_animation',
 	'default'  => 'move-to-top',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Open Animation',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -59,14 +59,14 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bgimg',
+	'id'       => 'goso_agepopup_bgimg',
 	'default'  => '',
 	'type'     => 'authow-fw-image',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Image',
 );
 $options[] = array(
-	'id'          => 'penci_agepopup_bgcolor',
+	'id'          => 'goso_agepopup_bgcolor',
 	'default'     => '',
 	'sanitize'    => 'sanitize_hex_color',
 	'label'       => 'Popup Background Color',
@@ -74,9 +74,9 @@ $options[] = array(
 	'description' => 'Set background image or color for age popup',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bgrepeat',
+	'id'       => 'goso_agepopup_bgrepeat',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Repeat',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -89,9 +89,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bgposition',
+	'id'       => 'goso_agepopup_bgposition',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Position',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -107,9 +107,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bgsize',
+	'id'       => 'goso_agepopup_bgsize',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Size',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -122,9 +122,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bgscroll',
+	'id'       => 'goso_agepopup_bgscroll',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Background Scroll',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -138,19 +138,19 @@ $options[] = array(
 $options[] = array(
 	'label'       => '',
 	'description' => '',
-	'id'          => 'penci_agepopup_width_mobile',
+	'id'          => 'goso_agepopup_width_mobile',
 	'type'        => 'authow-fw-hidden',
 	'sanitize'    => 'absint',
 );
 $options[] = array(
 	'label'       => 'Popup Width',
 	'description' => 'Set width of the age popup in pixels.',
-	'id'          => 'penci_agepopup_width_desktop',
+	'id'          => 'goso_agepopup_width_desktop',
 	'type'        => 'authow-fw-size',
 	'sanitize'    => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_agepopup_width_desktop',
-		'mobile'  => 'penci_agepopup_width_mobile',
+		'desktop' => 'goso_agepopup_width_desktop',
+		'mobile'  => 'goso_agepopup_width_mobile',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -170,28 +170,28 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_txtcolor',
+	'id'       => 'goso_agepopup_txtcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Popup Text Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_txt_msize',
+	'id'       => 'goso_agepopup_txt_msize',
 	'default'  => '',
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-hidden',
 	'label'    => 'Popup Text Size on Mobile',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_txt_size',
+	'id'       => 'goso_agepopup_txt_size',
 	'default'  => '',
 	'sanitize' => 'absint',
 	'label'    => 'Popup Text Size',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_agepopup_txt_size',
-		'mobile'  => 'penci_agepopup_txt_msize',
+		'desktop' => 'goso_agepopup_txt_size',
+		'mobile'  => 'goso_agepopup_txt_msize',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -211,72 +211,72 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_bordercolor',
+	'id'       => 'goso_agepopup_bordercolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Popup Border Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn1_color',
+	'id'       => 'goso_agepopup_btn1_color',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Agree Button Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn1_hcolor',
+	'id'       => 'goso_agepopup_btn1_hcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Agree Button Hover Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn1_bgcolor',
+	'id'       => 'goso_agepopup_btn1_bgcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Agree Button Background Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn1_hbgcolor',
+	'id'       => 'goso_agepopup_btn1_hbgcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Agree Button Hover Background Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn2_color',
+	'id'       => 'goso_agepopup_btn2_color',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Cancel Button Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn2_hcolor',
+	'id'       => 'goso_agepopup_btn2_hcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Cancel Button Hover Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn2_bgcolor',
+	'id'       => 'goso_agepopup_btn2_bgcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Cancel Button Background Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_btn2_hbgcolor',
+	'id'       => 'goso_agepopup_btn2_hbgcolor',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Cancel Button Hover Background Color',
 );
 $options[] = array(
-	'id'       => 'penci_agepopup_spacing',
+	'id'       => 'goso_agepopup_spacing',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-box-model',
 	'label'    => __( 'Popup Spacing', 'authow' ),
 	'choices'  => array(

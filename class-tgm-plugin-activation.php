@@ -653,38 +653,38 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				if ( ! empty( $this->message ) && is_string( $this->message ) ) {
 					echo wp_kses_post( $this->message );
 				}
-				$penci_note = isset( $_GET['penci-dismis'] ) ? $_GET['penci-dismis'] : '';
-				if(  'penci_dismiss_notices' == $penci_note ){
-					if( ! get_option('penci_dismiss_notices') ){
-						add_option( 'penci_dismiss_notices', 'yes' );
+				$goso_note = isset( $_GET['goso-dismis'] ) ? $_GET['goso-dismis'] : '';
+				if(  'goso_dismiss_notices' == $goso_note ){
+					if( ! get_option('goso_dismiss_notices') ){
+						add_option( 'goso_dismiss_notices', 'yes' );
 					}
-					update_option( 'penci_dismiss_notices', 'yes' );
-				} else if( 'penci_dismiss_notices_show' == $penci_note ) {
-					if( ! get_option('penci_dismiss_notices') ){
-						add_option( 'penci_dismiss_notices', 'no' );
+					update_option( 'goso_dismiss_notices', 'yes' );
+				} else if( 'goso_dismiss_notices_show' == $goso_note ) {
+					if( ! get_option('goso_dismiss_notices') ){
+						add_option( 'goso_dismiss_notices', 'no' );
 					}
-					update_option( 'penci_dismiss_notices', 'no' );
+					update_option( 'goso_dismiss_notices', 'no' );
 				}
-				$penci_dismis_notes = get_option( 'penci_dismiss_notices', '' );
+				$goso_dismis_notes = get_option( 'goso_dismiss_notices', '' );
 				?>
-				<?php if( 'yes' != $penci_dismis_notes ): ?>
-				<style>.dis-missnote p{ font-size: 16px; }.penci-plugins-notice{ padding: 0 20px 0px; border: 1px solid #cccccc; margin-bottom: 20px; } .penci-notice-head{ display: inline-block; background: #02CA02; padding: 0 5px; color: #fff; font-weight: 500; }</style>
-				<div class="penci-plugins-notice">
+				<?php if( 'yes' != $goso_dismis_notes ): ?>
+				<style>.dis-missnote p{ font-size: 16px; }.goso-plugins-notice{ padding: 0 20px 0px; border: 1px solid #cccccc; margin-bottom: 20px; } .goso-notice-head{ display: inline-block; background: #02CA02; padding: 0 5px; color: #fff; font-weight: 500; }</style>
+				<div class="goso-plugins-notice">
 					<h3 style="font-size: 20px; line-height: 1.3;"><?php _e( 'Please note that this theme does not require any plugin - you can pick plugins you want to use and activate it.<br>For normal sites, you just need to install 2 plugins "Goso Shortcodes & Performance" and "Elementor" is enough.<br>All recommend plugins are add-on features. Below is more detail about features of each plugin:', 'tgmpa' ); ?></h3>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Shortcodes & Performance:</span> <?php esc_html_e( 'You should activate this plugin. It provide some shortcodes inside the editor & language shortcodes to help you can build multiple languages website. You need this plugin to optimize your site speed also.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Vafpress Post Formats UI:</span> <?php esc_html_e( 'It is a plugin to help you can create different post formats: video, gallery, links, quote..', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Elementor Page Builder:</span> <?php esc_html_e( 'A page builder - helps you can build your pages with multiple customization options.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Slider:</span> <?php esc_html_e( 'A plugin to help you build a custom slider does not based on Posts when you use Customize to config the homepage. If you are using Elementor or WPBakery - you do not need to use this plugin.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Recipe:</span> <?php esc_html_e( 'A plugin to help you can create Food Recipes.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Review:</span> <?php esc_html_e( 'A plugin to help you can create reviews for your posts.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Authow Demo Importer:</span> <?php esc_html_e( 'A plugin to help you can import any demo from our demos. After the installed demo, you can deactivate & delete it if you want.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Goso Social Feed:</span> <?php esc_html_e( 'A plugin to help you connect to some socials media ( like Twitter ) to show the Feed of those socials media.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">Contact Form 7:</span> <?php esc_html_e( 'A plugin to help you create Contact Forms.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">MailChimp for WordPress:</span> <?php esc_html_e( 'A plugin to help you create subscribe forms for your readers.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">WPForms:</span> <?php esc_html_e( 'A plugin allows you to create contact forms, feedback form, subscription forms, payment forms, and other types of forms. It is more extensive than "Contact Form 7" plugin above. If you just need to create Contact Forms, you can use plugin "Contact Form 7" only.', 'tgmpa' ); ?></p>
-					<p class="penci-dplugins"><span class="penci-notice-head">HubSpot:</span> <?php _e( 'HubSpot is a platform with all the tools and integrations you need for marketing, sales, and customer service. You can check more detail <a target="_blank" href="https://wordpress.org/plugins/leadin/">here</a>', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Shortcodes & Performance:</span> <?php esc_html_e( 'You should activate this plugin. It provide some shortcodes inside the editor & language shortcodes to help you can build multiple languages website. You need this plugin to optimize your site speed also.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Vafpress Post Formats UI:</span> <?php esc_html_e( 'It is a plugin to help you can create different post formats: video, gallery, links, quote..', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Elementor Page Builder:</span> <?php esc_html_e( 'A page builder - helps you can build your pages with multiple customization options.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Slider:</span> <?php esc_html_e( 'A plugin to help you build a custom slider does not based on Posts when you use Customize to config the homepage. If you are using Elementor or WPBakery - you do not need to use this plugin.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Recipe:</span> <?php esc_html_e( 'A plugin to help you can create Food Recipes.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Review:</span> <?php esc_html_e( 'A plugin to help you can create reviews for your posts.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Authow Demo Importer:</span> <?php esc_html_e( 'A plugin to help you can import any demo from our demos. After the installed demo, you can deactivate & delete it if you want.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Goso Social Feed:</span> <?php esc_html_e( 'A plugin to help you connect to some socials media ( like Twitter ) to show the Feed of those socials media.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">Contact Form 7:</span> <?php esc_html_e( 'A plugin to help you create Contact Forms.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">MailChimp for WordPress:</span> <?php esc_html_e( 'A plugin to help you create subscribe forms for your readers.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">WPForms:</span> <?php esc_html_e( 'A plugin allows you to create contact forms, feedback form, subscription forms, payment forms, and other types of forms. It is more extensive than "Contact Form 7" plugin above. If you just need to create Contact Forms, you can use plugin "Contact Form 7" only.', 'tgmpa' ); ?></p>
+					<p class="goso-dplugins"><span class="goso-notice-head">HubSpot:</span> <?php _e( 'HubSpot is a platform with all the tools and integrations you need for marketing, sales, and customer service. You can check more detail <a target="_blank" href="https://wordpress.org/plugins/leadin/">here</a>', 'tgmpa' ); ?></p>
 					<div class="dis-missnote">
-						<p><?php esc_html_e( 'Understand it?', 'tgmpa' ); ?> <a href="?page=tgmpa-install-plugins&penci-dismis=penci_dismiss_notices"><?php esc_html_e( 'Click here to hide this note.', 'tgmpa' ); ?></a></p>
+						<p><?php esc_html_e( 'Understand it?', 'tgmpa' ); ?> <a href="?page=tgmpa-install-plugins&goso-dismis=goso_dismiss_notices"><?php esc_html_e( 'Click here to hide this note.', 'tgmpa' ); ?></a></p>
 					</div>
 				</div>
 				<?php endif; ?>

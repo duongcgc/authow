@@ -16,6 +16,6 @@ class CustomCSSOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'pencidesign_new_section_custom_css_section', esc_html__( 'Custom CSS', 'authow' ), '', esc_html__( 'Add your custom CSS which will overwrite the theme CSS', 'authow' ) );
+		$this->add_lazy_section( 'gosodesign_new_section_custom_css_section', esc_html__( 'Custom CSS', 'authow' ), '', esc_html__( 'Add your custom CSS which will overwrite the theme CSS', 'authow' ) );
 	}
 }

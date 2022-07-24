@@ -3,12 +3,12 @@ $group_color = 'Typo & Color';
 $group_trans = 'Strings Translation';
 
 vc_map( array(
-	'base'          => 'penci_count_down',
+	'base'          => 'goso_count_down',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/count_down/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Count Down', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Count Down', 'authow' ),
 	'description'   => __( 'Count Down Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -86,16 +86,16 @@ vc_map( array(
 			array(
 				"type"       => "checkbox",
 				"class"      => "",
-				"heading"    => esc_html__( "Select time units to display in countdown timer", "penci-framework" ),
+				"heading"    => esc_html__( "Select time units to display in countdown timer", "goso-framework" ),
 				"param_name" => "countdown_opts",
 				"value"      => array(
-					esc_html__( "Years", "penci-framework" )   => "Y",
-					esc_html__( "Months", "penci-framework" )  => "O",
-					esc_html__( "Weeks", "penci-framework" )   => "W",
-					esc_html__( "Days", "penci-framework" )    => "D",
-					esc_html__( "Hours", "penci-framework" )   => "H",
-					esc_html__( "Minutes", "penci-framework" ) => "M",
-					esc_html__( "Seconds", "penci-framework" ) => "S",
+					esc_html__( "Years", "goso-framework" )   => "Y",
+					esc_html__( "Months", "goso-framework" )  => "O",
+					esc_html__( "Weeks", "goso-framework" )   => "W",
+					esc_html__( "Days", "goso-framework" )    => "D",
+					esc_html__( "Hours", "goso-framework" )   => "H",
+					esc_html__( "Minutes", "goso-framework" ) => "M",
+					esc_html__( "Seconds", "goso-framework" ) => "S",
 				)
 			),
 			array(
@@ -112,7 +112,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'count_down_style', 'value' => array( 's1' ) ),
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'digit_border_width',
 				'heading'    => __( 'Timer digit border width', 'authow' ),
 				'value'      => '',
@@ -123,7 +123,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'digit_border', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'digit_border_radius',
 				'heading'    => __( 'Timer digit border radius', 'authow' ),
 				'value'      => '',
@@ -134,7 +134,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'digit_border', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'digit_padding',
 				'heading'          => __( 'Timer digit padding', 'authow' ),
 				'value'            => '',
@@ -144,7 +144,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'unit_margin_top',
 				'heading'          => __( 'Timer unit margin top', 'authow' ),
 				'value'            => '',
@@ -154,7 +154,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'countdown_item_width',
 				'heading'          => __( 'Width of Countdown Section', 'authow' ),
 				'value'            => '',
@@ -164,7 +164,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'countdown_item_height',
 				'heading'          => __( 'Height of Countdown Section', 'authow' ),
 				'value'            => '',
@@ -314,7 +314,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Timer digit', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -346,7 +346,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'time_digit_size',
 				'heading'    => __( 'Font Size for Timer Digit', 'authow' ),
 				'value'      => '',
@@ -384,7 +384,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Timer unit', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -400,7 +400,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'unit_size',
 				'heading'    => __( 'Font Size for Timer Unit', 'authow' ),
 				'value'      => '',

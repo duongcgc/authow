@@ -1,6 +1,6 @@
 <?php
-$setting_element = "penci_hb_element_mobile_drawer_{$row}_{$column}";
-$default_element = penci_get_builder_mod( $setting_element );
+$setting_element = "goso_hb_element_mobile_drawer_{$row}_{$column}";
+$default_element = goso_get_builder_mod( $setting_element );
 $default_element = explode( ',', $default_element );
 ?>
 <div class="header-builder-<?php echo esc_html( $column ); ?> header-builder-column"

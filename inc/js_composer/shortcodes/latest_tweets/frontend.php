@@ -1,8 +1,8 @@
 <?php
-if ( ! function_exists( 'penci_getTweets' ) ) {
+if ( ! function_exists( 'goso_getTweets' ) ) {
 	return;
 }
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 $date   = $auto = $reply = $retweet = $favorite = $align = $style = '';
 
 $tweets_text_color = $tweets_text_size = $tweets_date_color = $tweets_date_size = '';
@@ -11,21 +11,21 @@ $tweets_link_color = $tweets_link_size = $tweets_dot_color = $tweets_dot_hcolor 
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 extract( $atts );
 
-$tweets = penci_getTweets( 5 );
+$tweets = goso_getTweets( 5 );
 if ( empty( $tweets ) ) {
 	return;
 }
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-latest-tweets-widget';
+$css_class = 'goso-block-vc goso-latest-tweets-widget';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'latest_tweets' );
-$classes   = 'slider' == $style ? 'penci-owl-carousel penci-owl-carousel-slider penci-tweets-slider' : 'penci-tweets-lists';
+$classes   = 'slider' == $style ? 'goso-owl-carousel goso-owl-carousel-slider goso-tweets-slider' : 'goso-tweets-lists';
 ?>
     <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-        <div class="penci-block_content">
+        <div class="goso-block_content">
 			<?php
 			if ( isset( $tweets['error'] ) ) {
 				echo 'Missing Twitter API Keys - please connect your Twitter Account by go to admin > Authow > Connect Twitter';
@@ -33,9 +33,9 @@ $classes   = 'slider' == $style ? 'penci-owl-carousel penci-owl-carousel-slider 
 				$rtl_align = is_rtl() ? 'pc_alignright' : 'pc_alignleft';
 				$align     = $style == 'slider' ? $align : $rtl_align;
 				?>
-                <div class="penci-tweets-widget-content <?php echo $align; ?>">
+                <div class="goso-tweets-widget-content <?php echo $align; ?>">
 					<?php if ( $style == 'slider' ): ?>
-                        <span class="icon-tweets"><?php penci_fawesome_icon( 'fab fa-twitter' ); ?></span>
+                        <span class="icon-tweets"><?php goso_fawesome_icon( 'fab fa-twitter' ); ?></span>
 					<?php endif; ?>
                     <div class="<?php echo esc_attr( $classes ); ?>" data-dots="true"
                          data-nav="false" data-auto="<?php if ( $auto ) {
@@ -58,7 +58,7 @@ $classes   = 'slider' == $style ? 'penci-owl-carousel penci-owl-carousel-slider 
 								}
 							}
 							?>
-                            <div class="penci-tweet">
+                            <div class="goso-tweet">
 
 								<?php if ( $style == 'list' ):
 									$reply = '<i class="fa fa-reply" aria-hidden="true"></i>';
@@ -120,23 +120,23 @@ if ( $tweets_text_size ) {
 	$css_custom .= $id_latest_tweets . ' .tweet-date{ font-size:' . esc_attr( $tweets_text_size ) . ' }';
 }
 if ( $tweets_link_color ) {
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .tweet-intents-inner:after,';
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .tweet-intents-inner:before{background-color:' . esc_attr( $tweets_link_color ) . '}';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .tweet-intents-inner:after,';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .tweet-intents-inner:before{background-color:' . esc_attr( $tweets_link_color ) . '}';
 
 	$css_custom .= $id_latest_tweets . ' .tweet-text a,';
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .icon-tweets,';
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .tweet-intents span:after,';
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .tweet-intents a{ color:' . esc_attr( $tweets_link_color ) . ' }';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .icon-tweets,';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .tweet-intents span:after,';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .tweet-intents a{ color:' . esc_attr( $tweets_link_color ) . ' }';
 }
 if ( $tweets_link_size ) {
-	$css_custom .= $id_latest_tweets . ' .penci-tweets-widget-content .tweet-intents a{ font-size:' . esc_attr( $tweets_text_size ) . ' }';
+	$css_custom .= $id_latest_tweets . ' .goso-tweets-widget-content .tweet-intents a{ font-size:' . esc_attr( $tweets_text_size ) . ' }';
 }
 if ( $tweets_dot_color ) {
-	$css_custom .= $id_latest_tweets . ' .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot span{ border-color:' . esc_attr( $tweets_dot_color ) . ';background-color:' . esc_attr( $tweets_dot_color ) . ' }';
+	$css_custom .= $id_latest_tweets . ' .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot span{ border-color:' . esc_attr( $tweets_dot_color ) . ';background-color:' . esc_attr( $tweets_dot_color ) . ' }';
 }
 if ( $tweets_dot_hcolor ) {
-	$css_custom .= $id_latest_tweets . ' .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot:hover span,';
-	$css_custom .= $id_latest_tweets . ' .penci-owl-carousel.penci-tweets-slider .owl-dots .owl-dot.active span{ border-color:' . esc_attr( $tweets_dot_hcolor ) . ';background-color:' . esc_attr( $tweets_dot_hcolor ) . '}';
+	$css_custom .= $id_latest_tweets . ' .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot:hover span,';
+	$css_custom .= $id_latest_tweets . ' .goso-owl-carousel.goso-tweets-slider .owl-dots .owl-dot.active span{ border-color:' . esc_attr( $tweets_dot_hcolor ) . ';background-color:' . esc_attr( $tweets_dot_hcolor ) . '}';
 }
 
 if ( $css_custom ) {

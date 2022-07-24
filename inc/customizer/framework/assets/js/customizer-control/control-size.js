@@ -13,14 +13,14 @@
                 footerControl = jQuery('#customize-footer-actions');
 
             // Calling range slider
-            jQuery('.pencidesign-range-slider').each(function () {
+            jQuery('.gosodesign-range-slider').each(function () {
                 var _this = jQuery(this);
                 var _input = _this.closest('label').find('input[type="number"]');
                 var _text = _input.next('.value');
             });
 
             // Update the range value
-            jQuery(controlClass + ' .penci_range_value input[type=number]').on('input', function () {
+            jQuery(controlClass + ' .goso_range_value input[type=number]').on('input', function () {
                 value = jQuery(this).attr('value');
                 if ('' == value) {
                     value = -1;
@@ -28,12 +28,12 @@
             });
 
             // Reset button
-            jQuery(controlClass + ' .pencidesign-reset').on('click', function () {
+            jQuery(controlClass + ' .gosodesign-reset').on('click', function () {
                 var icon = jQuery(this),
-                    visible_area = icon.closest('.penci-range-title-area').next('.penci-range-slider-areas').children('label:visible'),
+                    visible_area = icon.closest('.goso-range-title-area').next('.goso-range-slider-areas').children('label:visible'),
                     input = visible_area.find('input[type=number]'),
-                    slider_value = visible_area.find('.pencidesign-range-slider'),
-                    visual_value = visible_area.find('.penci_range_value'),
+                    slider_value = visible_area.find('.gosodesign-range-slider'),
+                    visual_value = visible_area.find('.goso_range_value'),
                     reset_value = input.attr('data-reset_value');
 
                 input.val(reset_value).change();
@@ -46,17 +46,17 @@
             });
 
             // Activate icon when click
-            jQuery(controlClass + ' .pencidesign-range-slider-control').each(function () {
+            jQuery(controlClass + ' .gosodesign-range-slider-control').each(function () {
                 var _this = jQuery(this);
-                _this.find('.penci-device-controls').children('span:first-child').addClass('selected');
+                _this.find('.goso-device-controls').children('span:first-child').addClass('selected');
                 _this.find('.range-option-area:first-child').show();
             });
 
             // Click on icons
-            jQuery(controlClass + ' .penci-device-controls > span').on('click', function (event) {
+            jQuery(controlClass + ' .goso-device-controls > span').on('click', function (event) {
                 var device = jQuery(this).data('option');
 
-                jQuery(controlClass + ' .penci-device-controls span').each(function () {
+                jQuery(controlClass + ' .goso-device-controls span').each(function () {
                     var _this = jQuery(this);
                     if (device == _this.attr('data-option')) {
                         _this.addClass('selected');
@@ -64,7 +64,7 @@
                     }
                 });
 
-                jQuery(controlClass + ' .penci-range-slider-areas label').each(function () {
+                jQuery(controlClass + ' .goso-range-slider-areas label').each(function () {
                     var _this = jQuery(this);
                     if (device == _this.attr('data-option')) {
                         _this.show();
@@ -79,7 +79,7 @@
             // Change devices on footer
             footerControl.find('.devices button').on('click', function () {
                 var device = jQuery(this).data('device');
-                jQuery(controlClass + ' .penci-device-controls span').each(function () {
+                jQuery(controlClass + ' .goso-device-controls span').each(function () {
                     var _this = jQuery(this);
                     if (device == _this.attr('data-option')) {
                         _this.addClass('selected');
@@ -87,7 +87,7 @@
                     }
                 });
 
-                jQuery(controlClass + ' .penci-range-slider-areas label').each(function () {
+                jQuery(controlClass + ' .goso-range-slider-areas label').each(function () {
                     var _this = jQuery(this);
                     if (device == _this.attr('data-option')) {
                         _this.show();

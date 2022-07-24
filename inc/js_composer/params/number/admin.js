@@ -1,10 +1,10 @@
 jQuery( function ( $ ) {
 	'use strict';
 
-	$( document ).on( 'change', '.penci-number-input, .penci-number-suffix', function () {
+	$( document ).on( 'change', '.goso-number-input, .goso-number-suffix', function () {
 		var $number = $( this ).parent(),
-			input = $number.find( '.penci-number-input' ).val(),
-			unit = $number.find( '.penci-number-suffix' ).val();
+			input = $number.find( '.goso-number-input' ).val(),
+			unit = $number.find( '.goso-number-suffix' ).val();
 
 		$number.find( '.wpb_vc_param_value' ).val( input + unit );
 	} );

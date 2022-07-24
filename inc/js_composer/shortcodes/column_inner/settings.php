@@ -1,9 +1,9 @@
 <?php
 vc_map( array(
-	'base'                      => 'penci_column_inner',
+	'base'                      => 'goso_column_inner',
 	'icon'                      => get_template_directory_uri() . '/images/vc-icon.png',
 	'category'                  => 'Authow',
-	'html_template'             => get_template_directory() . '/inc/js_composer/shortcodes/penci_column_inner/frontend.php',
+	'html_template'             => get_template_directory() . '/inc/js_composer/shortcodes/goso_column_inner/frontend.php',
 	'name'                      => __( 'Column Inner', 'authow' ),
 	'class'                     => '',
 	'wrapper_class'             => '',
@@ -11,7 +11,7 @@ vc_map( array(
 	'allowed_container_element' => false,
 	'content_element'           => false,
 	'is_container'              => true,
-	'as_child'                  => array( 'only' => 'penci_container_inner' ),
+	'as_child'                  => array( 'only' => 'goso_container_inner' ),
 	'params'                    => array(
 		array(
 			'type'       => 'hidden',

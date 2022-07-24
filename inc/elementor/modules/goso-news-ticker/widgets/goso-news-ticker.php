@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoNewsTicker extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-news-ticker';
+		return 'goso-news-ticker';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' News Ticker', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' News Ticker', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoNewsTicker extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -70,8 +70,8 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Display Next/Prev Icons as Buttons', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-trending-nav a' => 'height: 24px; line-height: 24px; top: 4px; background: #313131; color: #fff; float: left;',
-					'{{WRAPPER}} .penci-trending-nav a:first-child' => 'margin-right: 4px;',
+					'{{WRAPPER}} .goso-trending-nav a' => 'height: 24px; line-height: 24px; top: 4px; background: #313131; color: #fff; float: left;',
+					'{{WRAPPER}} .goso-trending-nav a:first-child' => 'margin-right: 4px;',
 				),
 			)
 		);
@@ -81,11 +81,11 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Move Next/Prev Icons/Buttons To The Right Side', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-topbar-trending .penci-trending-nav' => 'float: right;',
+					'{{WRAPPER}} .goso-topbar-trending .goso-trending-nav' => 'float: right;',
 					'{{WRAPPER}} .headline-title' => 'margin-right: 10px;',
 					'{{WRAPPER}} .headline-title.nticker-style-2' => 'margin-right: 18px;',
 					'{{WRAPPER}} .headline-title.nticker-style-4' => 'margin-right: 19px;',
-					'body.rtl {{WRAPPER}} .penci-topbar-trending .penci-trending-nav' => 'float: left;',
+					'body.rtl {{WRAPPER}} .goso-topbar-trending .goso-trending-nav' => 'float: left;',
 					'body.rtl {{WRAPPER}} .headline-title' => 'margin-right: 0; margin-left: 10px;',
 					'body.rtl {{WRAPPER}} .headline-title.nticker-style-2' => 'margin-left: 18px; margin-right:0;',
 					'body.rtl {{WRAPPER}} .headline-title.nticker-style-4' => 'margin-left: 19px; margin-right:0;',
@@ -114,7 +114,7 @@ class GosoNewsTicker extends Base_Widget {
 			'titles_upper', array(
 				'label'     => __( 'Turn off Uppercase for Post Titles', 'authow' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'selectors' => array( '{{WRAPPER}} a.penci-topbar-post-title' => 'text-transform: none;' ),
+				'selectors' => array( '{{WRAPPER}} a.goso-topbar-post-title' => 'text-transform: none;' ),
 			)
 		);
 		
@@ -177,7 +177,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Set Borders Around The News Ticker', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-enews-ticker.penci-topbar-trending' => 'border: 1px solid {{VALUE}};',
+					'{{WRAPPER}} .goso-enews-ticker.goso-topbar-trending' => 'border: 1px solid {{VALUE}};',
 				),
 			)
 		);
@@ -188,8 +188,8 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array( 
-					'{{WRAPPER}} .penci-topbar-trending' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-owl-carousel .owl-item' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-topbar-trending' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-owl-carousel .owl-item' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .headline-title.nticker-style-3:after' => 'border-color: {{VALUE}};'
 				),
 			)
@@ -240,7 +240,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Font size for Next/Prev Icons', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-trending-nav a' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-trending-nav a' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 		
@@ -250,7 +250,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Next/Prev Icons Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-trending-nav a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-trending-nav a' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -261,7 +261,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Next/Prev Icons Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .penci-trending-nav a:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .goso-trending-nav a:hover' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -273,7 +273,7 @@ class GosoNewsTicker extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'condition' => array( 'navs_buttons' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-trending-nav a' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-trending-nav a' => 'background-color: {{VALUE}};'
 				),
 			)
 		);
@@ -285,7 +285,7 @@ class GosoNewsTicker extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'condition' => array( 'navs_buttons' => 'yes' ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-trending-nav a:hover' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-trending-nav a:hover' => 'background-color: {{VALUE}};'
 				),
 			)
 		);
@@ -302,7 +302,7 @@ class GosoNewsTicker extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'ptitle_typo',
-				'selector' => '{{WRAPPER}} a.penci-topbar-post-title',
+				'selector' => '{{WRAPPER}} a.goso-topbar-post-title',
 			)
 		);
 		
@@ -312,7 +312,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Post Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} a.penci-topbar-post-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} a.goso-topbar-post-title' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -323,7 +323,7 @@ class GosoNewsTicker extends Base_Widget {
 				'label'     => __( 'Post Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} a.penci-topbar-post-title:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} a.goso-topbar-post-title:hover' => 'color: {{VALUE}};'
 				),
 			)
 		);
@@ -343,7 +343,7 @@ class GosoNewsTicker extends Base_Widget {
 		$rand = rand( 100, 5000 );
 	?>	
 		<?php $this->markup_block_title( $settings, $this ); ?>
-		<div class="penci-enews-ticker penci-topbar-trending penci-enews-ticker-<?php echo $rand; ?>">
+		<div class="goso-enews-ticker goso-topbar-trending goso-enews-ticker-<?php echo $rand; ?>">
 			
 			<?php if( $toptext ) {
 			$toptext_style = $settings['headline_style'] ? $settings['headline_style'] : 'nticker-style-1';
@@ -360,14 +360,14 @@ class GosoNewsTicker extends Base_Widget {
 				$animation = $settings['headline_anim'] ? $settings['headline_anim'] : 'slideInUp';
 				$navs_buttons = isset( $settings['navs_buttons'] ) ? $settings['navs_buttons'] : false;
 			?>
-				<span class="penci-trending-nav<?php if( $navs_buttons ): echo ' penci-navs-buttons'; endif; ?>">
-					<a class="penci-slider-prev" href="#"><?php penci_fawesome_icon('fas fa-angle-left'); ?></a>
-					<a class="penci-slider-next" href="#"><?php penci_fawesome_icon('fas fa-angle-right'); ?></a>
+				<span class="goso-trending-nav<?php if( $navs_buttons ): echo ' goso-navs-buttons'; endif; ?>">
+					<a class="goso-slider-prev" href="#"><?php goso_fawesome_icon('fas fa-angle-left'); ?></a>
+					<a class="goso-slider-next" href="#"><?php goso_fawesome_icon('fas fa-angle-right'); ?></a>
 				</span>
-				<div class="penci-owl-carousel penci-owl-carousel-slider penci-headline-posts" data-auto="<?php echo $auto_play; ?>" data-nav="false" data-autotime="<?php echo $auto_time; ?>" data-speed="<?php echo $auto_speed; ?>" data-anim="<?php echo $animation; ?>">
+				<div class="goso-owl-carousel goso-owl-carousel-slider goso-headline-posts" data-auto="<?php echo $auto_play; ?>" data-nav="false" data-autotime="<?php echo $auto_time; ?>" data-speed="<?php echo $auto_speed; ?>" data-anim="<?php echo $animation; ?>">
 					<?php while( $news->have_posts() ): $news->the_post(); ?>
 						<div>
-							<a class="penci-topbar-post-title" href="<?php the_permalink(); ?>"><?php echo sanitize_text_field( wp_trim_words( get_the_title(), $title_length, '...' ) ); ?></a>
+							<a class="goso-topbar-post-title" href="<?php the_permalink(); ?>"><?php echo sanitize_text_field( wp_trim_words( get_the_title(), $title_length, '...' ) ); ?></a>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
 				</div>
@@ -376,7 +376,7 @@ class GosoNewsTicker extends Base_Widget {
 	<?php
 		if( $auto_speed && '300' != $auto_speed ){
 			$auto_speed_num = (int)$auto_speed / 1000;
-			echo '<style>.penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.slideOutUp, .penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.slideInUp, .penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.TickerslideOutRight, .penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.TickerslideInRight, .penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.fadeOut, .penci-topbar-trending.penci-enews-ticker-'. $rand .' .animated.fadeIn{ -webkit-animation-duration : '. $auto_speed_num .'s; animation-duration : '. $auto_speed_num .'s; }</style>';
+			echo '<style>.goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.slideOutUp, .goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.slideInUp, .goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.TickerslideOutRight, .goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.TickerslideInRight, .goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.fadeOut, .goso-topbar-trending.goso-enews-ticker-'. $rand .' .animated.fadeIn{ -webkit-animation-duration : '. $auto_speed_num .'s; animation-duration : '. $auto_speed_num .'s; }</style>';
 		}
 	}
 }

@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Direct access not allowed.
 }
 
-if ( ! function_exists( 'penci_elementor_products_tabs_template' ) ) {
-	function penci_elementor_products_tabs_template( $settings ) {
-		$settings = wp_parse_args( $settings, penci_custom_product_query_default_args() );
+if ( ! function_exists( 'goso_elementor_products_tabs_template' ) ) {
+	function goso_elementor_products_tabs_template( $settings ) {
+		$settings = wp_parse_args( $settings, goso_custom_product_query_default_args() );
 
 		$image_output    = '';
 		$wrapper_classes = '';
@@ -51,8 +51,8 @@ if ( ! function_exists( 'penci_elementor_products_tabs_template' ) ) {
 			),
 		);
 		?>
-        <div class="woocommerce penci-products-tabs <?php echo esc_attr( $wrapper_classes ); ?>">
-            <div class="penci-tabs-header <?php echo esc_attr( $header_classes ); ?>">
+        <div class="woocommerce goso-products-tabs <?php echo esc_attr( $wrapper_classes ); ?>">
+            <div class="goso-tabs-header <?php echo esc_attr( $header_classes ); ?>">
 				<?php if ( $settings['title'] ) : ?>
                     <h4 class="tabs-name title">
 						<?php if ( $image_output ) : ?>
@@ -77,14 +77,14 @@ if ( ! function_exists( 'penci_elementor_products_tabs_template' ) ) {
 							$li_classes        = '';
 							$icon_output       = '';
 							$item['elementor'] = true;
-							$encoded_settings  = wp_json_encode( array_intersect_key( array_merge( $settings, $item ), penci_custom_product_query_default_args() ) );
+							$encoded_settings  = wp_json_encode( array_intersect_key( array_merge( $settings, $item ), goso_custom_product_query_default_args() ) );
 
 							if ( 0 === $key ) {
 								$li_classes .= ' active-tab-title';
 							}
 
 							if ( isset( $item['image']['id'] ) && $item['image']['id'] ) {
-								$icon_output = '<span class="img-wrapper">' . penci_get_image_html( $item, 'image' ) . '</span>';
+								$icon_output = '<span class="img-wrapper">' . goso_get_image_html( $item, 'image' ) . '</span>';
 							}
 
 							$unique_title = md5( $item['title'] );
@@ -111,12 +111,12 @@ if ( ! function_exists( 'penci_elementor_products_tabs_template' ) ) {
 			if ( isset( $settings['tabs_items'][0] ) ) :
 				$settings['class'] = 'active';
 				?>
-                <div class="penci-tab-content-container">
-                    <div class="penci-products-preloader">
-                        <span class="penci-loading-icon"><span class="bubble"></span><span class="bubble"></span><span
+                <div class="goso-tab-content-container">
+                    <div class="goso-products-preloader">
+                        <span class="goso-loading-icon"><span class="bubble"></span><span class="bubble"></span><span
                                     class="bubble"></span></span>
                     </div>
-					<?php penci_elementor_products_template( array_merge( $settings, $settings['tabs_items'][0] ) ); ?>
+					<?php goso_elementor_products_template( array_merge( $settings, $settings['tabs_items'][0] ) ); ?>
                 </div>
 			<?php endif; ?>
         </div>

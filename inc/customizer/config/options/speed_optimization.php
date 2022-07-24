@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class SpeedOptimizationOption extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_speed_section_panel';
+	public $panelID = 'goso_speed_section_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -26,9 +26,9 @@ class SpeedOptimizationOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'penci_section_speed_general_section', esc_html__( 'General & Lazyload', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.pencidesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
-		$this->add_lazy_section( 'penci_section_speed_css_section', esc_html__( 'Optimize CSS', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.pencidesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
-		$this->add_lazy_section( 'penci_section_speed_javascript_section', esc_html__( 'Optimize JavaScript', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.pencidesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
-		$this->add_lazy_section( 'penci_section_speed_html_section', esc_html__( 'Optimize HTML', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.pencidesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
+		$this->add_lazy_section( 'goso_section_speed_general_section', esc_html__( 'General & Lazyload', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.gosodesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
+		$this->add_lazy_section( 'goso_section_speed_css_section', esc_html__( 'Optimize CSS', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.gosodesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
+		$this->add_lazy_section( 'goso_section_speed_javascript_section', esc_html__( 'Optimize JavaScript', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.gosodesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
+		$this->add_lazy_section( 'goso_section_speed_html_section', esc_html__( 'Optimize HTML', 'authow' ), $this->panelID, __( 'To use options here in the right way - please check <a target="_blank" href="https://authow.gosodesign.net/authow-document/#speed-optimization">this guide</a> first - on <strong>Speed Optimization</strong> section', 'authow' ) );
 	}
 }

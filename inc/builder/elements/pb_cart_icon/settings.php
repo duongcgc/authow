@@ -1,10 +1,10 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_btn_style',
+	'id'        => 'goso_header_pb_cart_icon_section_btn_style',
 	'default'   => 'customize',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Cart Icon Button Pre-define Style', 'authow' ),
 	'choices'   => [
@@ -15,7 +15,7 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_color',
+	'id'        => 'goso_header_pb_cart_icon_section_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -23,7 +23,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_hv_color',
+	'id'        => 'goso_header_pb_cart_icon_section_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -31,10 +31,10 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_btnbstyle',
+	'id'        => 'goso_header_pb_cart_icon_section_btnbstyle',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Button Borders Style', 'authow' ),
 	'choices'   => [
@@ -47,7 +47,7 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_bcolor',
+	'id'        => 'goso_header_pb_cart_icon_section_bcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -55,7 +55,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_bhcolor',
+	'id'        => 'goso_header_pb_cart_icon_section_bhcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -63,7 +63,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Hover Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_bgcolor',
+	'id'        => 'goso_header_pb_cart_icon_section_bgcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -71,7 +71,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_bghcolor',
+	'id'        => 'goso_header_pb_cart_icon_section_bghcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -79,7 +79,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Cart Icon Hover Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_item_count_txt',
+	'id'        => 'goso_header_pb_cart_icon_section_item_count_txt',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -87,7 +87,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Number Count Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_item_count_bg',
+	'id'        => 'goso_header_pb_cart_icon_section_item_count_bg',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -95,10 +95,10 @@ $options[] = array(
 	'label'     => esc_html__( 'Number Count Text Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_btnspacing',
+	'id'        => 'goso_header_pb_cart_icon_section_btnspacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Button Spacing', 'authow' ),
 	'choices'   => array(
@@ -129,14 +129,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_size',
+	'id'        => 'goso_header_pb_cart_icon_section_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Icon Size',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_cart_icon_section_size',
+		'desktop' => 'goso_header_pb_cart_icon_section_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -149,10 +149,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_cart_icon_section_spacing',
+	'id'        => 'goso_header_pb_cart_icon_section_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Item Spacing', 'authow' ),
 	'choices'   => array(

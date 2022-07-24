@@ -36,7 +36,7 @@ function GosoSetSettingValue(control, value) {
 
     console.log(controlType);
 
-    if ('penci-toggle' === controlType) {
+    if ('goso-toggle' === controlType) {
 
         if (1 === value || '1' === value || true === value) {
 
@@ -56,7 +56,7 @@ function GosoSetSettingValue(control, value) {
 
         }
 
-    } else if ('penci-select' === controlType || 'penci-preset' === controlType) {
+    } else if ('goso-select' === controlType || 'goso-preset' === controlType) {
 
         // Update the value visually in the control
         $select = container.find('select').selectize();
@@ -68,7 +68,7 @@ function GosoSetSettingValue(control, value) {
         // Update the value in the customizer object
         setting.set(value);
 
-    } else if ('penci-slider' === controlType) {
+    } else if ('goso-slider' === controlType) {
 
         // Update the value visually in the control (slider)
         container.find('input').prop('value', value);
@@ -79,7 +79,7 @@ function GosoSetSettingValue(control, value) {
         // Update the value in the customizer object
         setting.set(value);
 
-    } else if ('penci-generic' === controlType && undefined !== subControl.choices && undefined !== subControl.choices.element && 'textarea' === subControl.choices.element) {
+    } else if ('goso-generic' === controlType && undefined !== subControl.choices && undefined !== subControl.choices.element && 'textarea' === subControl.choices.element) {
 
         // Update the value visually in the control
         container.find('textarea').prop('value', value);
@@ -87,15 +87,15 @@ function GosoSetSettingValue(control, value) {
         // Update the value in the customizer object
         setting.set(value);
 
-    } else if ('penci-color' === controlType) {
+    } else if ('goso-color' === controlType) {
 
-        alphaColorControl = container.find('.penci-color-control');
+        alphaColorControl = container.find('.goso-color-control');
 
         alphaColorControl.val(value).trigger('change');
 
         setting.set(value);
 
-    } else if ('penci-multicheck' === controlType) {
+    } else if ('goso-multicheck' === controlType) {
 
         // Update the value in the customizer object
         setting.set(value);
@@ -116,7 +116,7 @@ function GosoSetSettingValue(control, value) {
             container.find('input[value="' + value[i] + '"]').prop('checked', true);
         });
 
-    } else if ('penci-radio-buttonset' === controlType || 'penci-radio-image' === controlType || 'penci-radio' === controlType || 'penci-dashicons' === controlType || 'penci-color-palette' === controlType || 'penci-palette' === controlType) {
+    } else if ('goso-radio-buttonset' === controlType || 'goso-radio-image' === controlType || 'goso-radio' === controlType || 'goso-dashicons' === controlType || 'goso-color-palette' === controlType || 'goso-palette' === controlType) {
 
         // Update the value visually in the control
         container.find('input[value="' + value + '"]').prop('checked', true);
@@ -124,7 +124,7 @@ function GosoSetSettingValue(control, value) {
         // Update the value in the customizer object
         setting.set(value);
 
-    } else if ('penci-typography' === controlType) {
+    } else if ('goso-typography' === controlType) {
 
         if (undefined !== value['font-family']) {
 
@@ -189,7 +189,7 @@ function GosoSetSettingValue(control, value) {
         if (undefined !== value.color) {
 
             // Update the value visually in the control
-            typographyColor = container.find('.penci-color-control');
+            typographyColor = container.find('.goso-color-control');
 
             typographyColor
                 .attr('data-default-color', value)

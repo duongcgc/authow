@@ -2,12 +2,12 @@
 $group_color  = 'Typo & Color';
 $group_custom = 'Custom Grid Items';
 vc_map( array(
-	'base'          => 'penci_big_grid',
+	'base'          => 'goso_big_grid',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/big_grid/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Big Grid', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Big Grid', 'authow' ),
 	'description'   => __( 'Posts Big Grid', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -249,27 +249,27 @@ vc_map( array(
 				'param_name' => 'bgcontent_pos',
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Gap Between Grid & Masonry Items', 'authow' ),
 				'std'        => '',
 				'param_name' => 'bg_gap',
 				'dependency' => array( 'element' => 'style', 'value' => array( 'style-1', 'style-2' ) ),
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Gap Between Items', 'authow' ),
 				'std'        => '',
 				'param_name' => 'bg_othergap',
 				'dependency' => array( 'element' => 'style', 'value_not_equal_to' => array( 'style-1', 'style-2' ) ),
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Adjust Ratio of Images( Unit % )', 'authow' ),
 				'std'        => '',
-				'param_name' => 'penci_img_ratio',
+				'param_name' => 'goso_img_ratio',
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Custom Big Grid Height (Unit is px)', 'authow' ),
 				'std'        => '',
 				'param_name' => 'bg_height',
@@ -307,7 +307,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'bgquery_type', 'value' => array( 'post' ) ),
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Margin Top for Page Navigation', 'authow' ),
 				'std'        => '',
 				'param_name' => 'paging_matop',
@@ -322,12 +322,12 @@ vc_map( array(
 		array(
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_cs_items',
+				'param_name'       => 'goso_separator_cs_items',
 				'heading'          => __( 'Custom Grid Items', 'authow' ),
 				'description'      => __( 'Add your custom grid item here', 'authow' ),
 				'group'            => $group_custom,
 				'dependency'       => array( 'element' => 'bgquery_type', 'value' => array( 'post' ) ),
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'       => 'param_group',
@@ -578,7 +578,7 @@ vc_map( array(
 				'type'       => 'dropdown',
 				'heading'    => __( 'Custom Image Size', 'authow' ),
 				'param_name' => 'thumb_size',
-				'std'        => 'penci-masonry-thumb',
+				'std'        => 'goso-masonry-thumb',
 				'group'      => 'Other',
 				'value'      => Goso_Vc_Params_Helper::get_list_image_sizes( true ),
 			),
@@ -587,7 +587,7 @@ vc_map( array(
 				'type'       => 'dropdown',
 				'heading'    => __( 'Image Size for Big Items', 'authow' ),
 				'param_name' => 'bthumb_size',
-				'std'        => 'penci-masonry-thumb',
+				'std'        => 'goso-masonry-thumb',
 				'group'      => 'Other',
 				'value'      => Goso_Vc_Params_Helper::get_list_image_sizes( true ),
 			),
@@ -596,7 +596,7 @@ vc_map( array(
 				'type'       => 'dropdown',
 				'heading'    => __( 'Custom Image Size for Mobile', 'authow' ),
 				'param_name' => 'mthumb_size',
-				'std'        => 'penci-masonry-thumb',
+				'std'        => 'goso-masonry-thumb',
 				'group'      => 'Other',
 				'value'      => Goso_Vc_Params_Helper::get_list_image_sizes( true ),
 			),
@@ -606,11 +606,11 @@ vc_map( array(
 		array(
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_bgstyle_',
+				'param_name'       => 'goso_separator_bgstyle_',
 				'heading'          => esc_html__( 'Big Grid Style', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'       => 'dropdown',
@@ -662,21 +662,21 @@ vc_map( array(
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Content Text Max-Width', 'authow' ),
 				'param_name' => 'content_width',
 				'group'      => $group_color,
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Content Text Padding', 'authow' ),
 				'param_name' => 'content_padding',
 				'group'      => $group_color,
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Content Text Margin', 'authow' ),
 				'param_name' => 'content_margin',
 				'group'      => $group_color,
@@ -684,10 +684,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_bgoverlay',
+				'param_name'       => 'goso_separator_bgoverlay',
 				'heading'          => __( 'Big Grid Overlay', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -703,14 +703,14 @@ vc_map( array(
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Overlay Opacity(%)', 'authow' ),
 				'param_name' => 'overlay_opacity',
 				'group'      => $group_color,
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Overlay Hover Opacity(%)', 'authow' ),
 				'param_name' => 'overlay_hopacity',
 				'group'      => $group_color,
@@ -790,10 +790,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_hover_effect',
+				'param_name'       => 'goso_separator_hover_effect',
 				'heading'          => __( 'Big Grid Hover Effects', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -850,10 +850,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_typo_color',
+				'param_name'       => 'goso_separator_typo_color',
 				'heading'          => __( 'Big Grid Typo & Color', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -871,14 +871,14 @@ vc_map( array(
 			),
 
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'heading'    => __( 'Borders Width', 'authow' ),
 				'param_name' => 'bgitem_borderwidth',
 				'group'      => $group_color,
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Padding', 'authow' ),
 				'param_name' => 'bgitem_padding',
 				'group'      => $group_color,
@@ -886,10 +886,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_bgtitle_design',
+				'param_name'       => 'goso_separator_bgtitle_design',
 				'heading'          => __( 'Big Grid Title Design', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -930,10 +930,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_bgtitle',
+				'param_name'       => 'goso_separator_bgtitle',
 				'heading'          => __( 'Big Grid Title', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -996,10 +996,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_post_meta',
+				'param_name'       => 'goso_separator_post_meta',
 				'heading'          => __( 'Post Meta & Description Text', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -1047,10 +1047,10 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_readmore',
+				'param_name'       => 'goso_separator_readmore',
 				'heading'          => __( 'Read More Button', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
@@ -1118,7 +1118,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Borders Width', 'authow' ),
 				'param_name'       => 'bgreadmore_borderwidth',
 				'group'            => $group_color,
@@ -1126,7 +1126,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Borders Radius', 'authow' ),
 				'param_name'       => 'bgreadmore_borderradius',
 				'group'            => $group_color,
@@ -1134,7 +1134,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Padding', 'authow' ),
 				'param_name'       => 'bgreadmore_padding',
 				'group'            => $group_color,
@@ -1170,14 +1170,14 @@ vc_map( array(
 
 			array(
 				'type'             => 'textfield',
-				'param_name'       => 'penci_separator_pagenavi',
+				'param_name'       => 'goso_separator_pagenavi',
 				'heading'          => __( 'Page Navigation', 'authow' ),
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'heading'    => __( 'Load More Posts Button Max Width', 'authow' ),
 				'param_name' => 'pagi_mwidth',
 				'group'      => $group_color,
@@ -1248,7 +1248,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Borders Width', 'authow' ),
 				'param_name'       => 'bgreadmore_borderwidth',
 				'group'            => $group_color,
@@ -1256,7 +1256,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Borders Radius', 'authow' ),
 				'param_name'       => 'bgreadmore_borderradius',
 				'group'            => $group_color,
@@ -1264,7 +1264,7 @@ vc_map( array(
 			),
 
 			array(
-				'type'             => 'penci_only_number',
+				'type'             => 'goso_only_number',
 				'heading'          => __( 'Padding', 'authow' ),
 				'param_name'       => 'bgpagi_padding',
 				'group'            => $group_color,

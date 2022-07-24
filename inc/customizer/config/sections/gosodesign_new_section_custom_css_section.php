@@ -1,7 +1,7 @@
 <?php
 $options   = [];
 $options[] = [
-	'id'          => 'penci_custom_css',
+	'id'          => 'goso_custom_css',
 	'transport'   => 'refresh',
 	'type'        => 'authow-fw-textarea',
 	'label'       => esc_html__( 'Custom CSS', 'authow' ),

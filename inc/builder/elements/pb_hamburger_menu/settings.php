@@ -1,17 +1,17 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => 'penci_header_pb_hamburger_menu_desc',
+	'id'       => 'goso_header_pb_hamburger_menu_desc',
 	'type'     => 'authow-fw-alert',
 	'label'    => 'You can go to "Appearance > Customize > Vertical Navigation & Menu Hamburger" to adjust the sidebar hamburger.',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'default'  => 'notice-bg'
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_btn_style',
+	'id'        => 'goso_header_pb_hamburger_menu_btn_style',
 	'default'   => 'customize',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Hamburger Button Pre-define Style', 'authow' ),
 	'choices'   => [
@@ -22,14 +22,14 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_size',
+	'id'        => 'goso_header_pb_hamburger_menu_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => 'Custom Size',
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_hamburger_menu_size',
+		'desktop' => 'goso_header_pb_hamburger_menu_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -42,26 +42,26 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_color',
+	'id'        => 'goso_header_pb_hamburger_menu_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-color',
 	'label'     => esc_html__( 'Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_hv_color',
+	'id'        => 'goso_header_pb_hamburger_menu_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-color',
 	'label'     => esc_html__( 'Text Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_btnbstyle',
+	'id'        => 'goso_header_pb_hamburger_menu_btnbstyle',
 	'default'   => 'none',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Borders Style', 'authow' ),
 	'choices'   => [
@@ -73,7 +73,7 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_bcolor',
+	'id'        => 'goso_header_pb_hamburger_menu_bcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -81,7 +81,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_bhcolor',
+	'id'        => 'goso_header_pb_hamburger_menu_bhcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -89,7 +89,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Menu Hover Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_bgcolor',
+	'id'        => 'goso_header_pb_hamburger_menu_bgcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -97,7 +97,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_bghcolor',
+	'id'        => 'goso_header_pb_hamburger_menu_bghcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -105,10 +105,10 @@ $options[] = array(
 	'label'     => esc_html__( 'Hover Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_btnspacing',
+	'id'        => 'goso_header_pb_hamburger_menu_btnspacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Button Spacing', 'authow' ),
 	'choices'   => array(
@@ -139,10 +139,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_spacing',
+	'id'        => 'goso_header_pb_hamburger_menu_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -161,10 +161,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_hamburger_menu_class',
+	'id'        => 'goso_header_pb_hamburger_menu_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

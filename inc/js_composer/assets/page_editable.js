@@ -14,8 +14,8 @@ var vc_iframe = vc_iframe || {};
 
 				PENCI.sticky.headerSticky();
 
-				if ( ! $( '.penci-header-mobile' ).hasClass( 'mobile' ) ) {
-					$( '.penci-header-mobile' ).unstick();
+				if ( ! $( '.goso-header-mobile' ).hasClass( 'mobile' ) ) {
+					$( '.goso-header-mobile' ).unstick();
 					PENCI.sticky.headerMobileSticky();
 				}
 			} );
@@ -40,7 +40,7 @@ var vc_iframe = vc_iframe || {};
 			}
 			var offset = $( '#wpadminbar' ).length && $( window ).width() > 480 ? $( '#wpadminbar' ).height() : 0;
 
-			$( '.penci-header-mobile' ).sticky( {
+			$( '.goso-header-mobile' ).sticky( {
 				topSpacing: offset,
 				className: 'mobile-is-sticky',
 				wrapperClassName: 'mobile-sticky-wrapper',
@@ -50,23 +50,23 @@ var vc_iframe = vc_iframe || {};
 		},
 		stickySidebar: function () {
 
-			if ( ! $( 'body' ).hasClass( 'penci_sticky_content_sidebar' ) || ! $().theiaStickySidebar || $( window ).width() < 992 ) {
+			if ( ! $( 'body' ).hasClass( 'goso_sticky_content_sidebar' ) || ! $().theiaStickySidebar || $( window ).width() < 992 ) {
 				return false;
 			}
 
 			var top_margin = $( '.site-header' ).data( 'height' );
 
-			$( '.penci-sticky-sidebar, .penci-sticky-content, .penci_vc_sticky_sidebar .penci-content-main, .penci_vc_sticky_sidebar .widget-area' ).theiaStickySidebar( {
+			$( '.goso-sticky-sidebar, .goso-sticky-content, .goso_vc_sticky_sidebar .goso-content-main, .goso_vc_sticky_sidebar .widget-area' ).theiaStickySidebar( {
 				// settings
 				additionalMarginTop: top_margin,
 				additionalMarginBottom: 0
 			} );
 		}
 	};
-	PENCI.penciVideo = function () {
+	PENCI.gosoVideo = function () {
 
 		if ( $().magnificPopup ) {
-			$( '.penci-popup-video' ).magnificPopup( {
+			$( '.goso-popup-video' ).magnificPopup( {
 				type: 'iframe',
 				mainClass: 'mfp-fade'
 			} );
@@ -75,7 +75,7 @@ var vc_iframe = vc_iframe || {};
 	};
 	PENCI.toggleSocialMedia = function () {
 		var $socialToggle = $( ".social-buttons__toggle" ),
-			socialButtons = $( '.penci-block-vc .social-buttons' );
+			socialButtons = $( '.goso-block-vc .social-buttons' );
 
 		$socialToggle.on( 'click', function ( e ) {
 			e.preventDefault();
@@ -118,7 +118,7 @@ var vc_iframe = vc_iframe || {};
 			return false;
 		}
 
-		$('.penci-image-popup-no-margins').magnificPopup({
+		$('.goso-image-popup-no-margins').magnificPopup({
 			type: 'image',
 			closeOnContentClick: true,
 			closeBtnInside: false,
@@ -138,7 +138,7 @@ var vc_iframe = vc_iframe || {};
 		} );
 
 
-		$( '.penci-popup-gallery' ).each( function () {
+		$( '.goso-popup-gallery' ).each( function () {
 			var $this = $( this ),
 				id = $this.attr( 'id' );
 
@@ -171,16 +171,16 @@ var vc_iframe = vc_iframe || {};
 		},
 		megamenu: function () {
 
-			$( 'body' ).on( 'click', '.penci-mega-pag', function ( event ) {
+			$( 'body' ).on( 'click', '.goso-mega-pag', function ( event ) {
 				event.preventDefault();
 
-				if ( $( this ).hasClass( 'penci-pag-disabled' ) ) {
+				if ( $( this ).hasClass( 'goso-pag-disabled' ) ) {
 					return false;
 				}
 
 				var currentBlockObj = $( this ).data( 'block_id' ),
 					$currentBlockObj = $( '#' + currentBlockObj ),
-					$blockVC = $currentBlockObj.closest( '.penci-mega-row' ),
+					$blockVC = $currentBlockObj.closest( '.goso-mega-row' ),
 					dataFilter = $blockVC.data( 'atts_json' ),
 					paged = $blockVC.attr( 'data-current' ),
 					blockHeight = $currentBlockObj.height(),
@@ -189,21 +189,21 @@ var vc_iframe = vc_iframe || {};
 				var OBjBlockData = PENCI.ajaxDoBlockRequest.getOBjBlockData( $blockVC.attr( 'data-blockUid' ) );
 				dataFilter = OBjBlockData.atts_json ? JSON.parse( OBjBlockData.atts_json ) : OBjBlockData.atts_json;
 
-				if ( $( this ).hasClass( 'penci-slider-next' ) ) {
+				if ( $( this ).hasClass( 'goso-slider-next' ) ) {
 					paged ++;
 				}
 
-				if ( $( this ).hasClass( 'penci-slider-prev' ) ) {
+				if ( $( this ).hasClass( 'goso-slider-prev' ) ) {
 					paged --;
 				}
 
-				$blockVC.find( '.penci-block-pag' ).removeClass( 'penci-pag-disabled' );
+				$blockVC.find( '.goso-block-pag' ).removeClass( 'goso-pag-disabled' );
 
 				// Fix height block
 				$currentBlockObj.css( 'min-height', blockHeight + 'px' );
 
 				var data = {
-					action: 'penci_ajax_mega_menu',
+					action: 'goso_ajax_mega_menu',
 					datafilter: dataFilter,
 					paged: paged.toString(),
 					styleAction: 'next_prev',
@@ -244,7 +244,7 @@ var vc_iframe = vc_iframe || {};
 				if ( 1 === paged - 1 ) {
 
 					var dataFirstItems = {
-						action: 'penci_ajax_mega_menu',
+						action: 'goso_ajax_mega_menu',
 						datafilter: dataFilter,
 						paged: '1',
 						styleAction: 'next_prev',
@@ -259,7 +259,7 @@ var vc_iframe = vc_iframe || {};
 			} );
 		},
 		link: function () {
-			$( '.penci-subcat-link' ).click( function ( event ) {
+			$( '.goso-subcat-link' ).click( function ( event ) {
 				event.preventDefault();
 
 				if ( $( this ).hasClass( 'active' ) ) {
@@ -268,11 +268,11 @@ var vc_iframe = vc_iframe || {};
 
 				var currentBlockObj = $( this ).data( 'block_id' ),
 					$currentBlockObj = $( '#' + currentBlockObj ),
-					$blockVC = $currentBlockObj.closest( '.penci-block-vc' ),
+					$blockVC = $currentBlockObj.closest( '.goso-block-vc' ),
 					blockHeight = $currentBlockObj.height(),
 					$is_cache = false;
 
-				$blockVC.find( '.penci-subcat-link' ).removeClass( 'active' );
+				$blockVC.find( '.goso-subcat-link' ).removeClass( 'active' );
 				$( this ).addClass( 'active clicked' );
 
 				var dataFilter = $blockVC.data( 'atts_json' ),
@@ -288,7 +288,7 @@ var vc_iframe = vc_iframe || {};
 				}
 
 				var data = {
-					action: 'penci_ajax_block',
+					action: 'goso_ajax_block',
 					datafilter: dataFilter,
 					datacontent: dataContent,
 					styleAction: 'link',
@@ -329,11 +329,11 @@ var vc_iframe = vc_iframe || {};
 				} );
 
 				// Save items page 1 of block
-				var preFilterValue = $blockVC.find( '.penci-subcat-item-1' ).data( 'filter_value' );
+				var preFilterValue = $blockVC.find( '.goso-subcat-item-1' ).data( 'filter_value' );
 				dataFilter['category_ids'] = preFilterValue ? preFilterValue.toString() : '';
 
 				var dataFirstItems = {
-					action: 'penci_ajax_block',
+					action: 'goso_ajax_block',
 					datafilter: dataFilter,
 					datacontent: dataContent,
 					styleAction: 'link',
@@ -351,21 +351,21 @@ var vc_iframe = vc_iframe || {};
 			} );
 		},
 		nextPrev: function () {
-			$( 'body' ).on( 'click', '.penci-block-pag', function ( event ) {
+			$( 'body' ).on( 'click', '.goso-block-pag', function ( event ) {
 				event.preventDefault();
 
 				var start = new Date().getTime();
-				if ( $( this ).hasClass( 'penci-pag-disabled' ) ) {
+				if ( $( this ).hasClass( 'goso-pag-disabled' ) ) {
 					return false;
 				}
 
 				var currentBlockObj = $( this ).data( 'block_id' ),
 					$currentBlockObj = $( '#' + currentBlockObj ),
-					$blockVC = $currentBlockObj.closest( '.penci-block-vc' ),
+					$blockVC = $currentBlockObj.closest( '.goso-block-vc' ),
 					dataContent = $blockVC.data( 'content' ),
 					dataFilter = $blockVC.data( 'atts_json' ),
 					paged = $blockVC.attr( 'data-current' ),
-					filterValue = $blockVC.find( '.penci-subcat-link.active' ).data( 'filter_value' ),
+					filterValue = $blockVC.find( '.goso-subcat-link.active' ).data( 'filter_value' ),
 					blockHeight = $currentBlockObj.height(),
 					$is_cache = false;
 
@@ -379,21 +379,21 @@ var vc_iframe = vc_iframe || {};
 					dataFilter['category_ids'] = filterValue.toString();
 				}
 
-				if ( $( this ).hasClass( 'penci-slider-next' ) ) {
+				if ( $( this ).hasClass( 'goso-slider-next' ) ) {
 					paged ++;
 				}
 
-				if ( $( this ).hasClass( 'penci-slider-prev' ) ) {
+				if ( $( this ).hasClass( 'goso-slider-prev' ) ) {
 					paged --;
 				}
 
-				$blockVC.find( '.penci-block-pag' ).removeClass( 'penci-pag-disabled' );
+				$blockVC.find( '.goso-block-pag' ).removeClass( 'goso-pag-disabled' );
 
 				// Fix height block
 				$currentBlockObj.css( 'min-height', blockHeight + 'px' );
 
 				var data = {
-					action: 'penci_ajax_block',
+					action: 'goso_ajax_block',
 					datafilter: dataFilter,
 					paged: paged.toString(),
 					styleAction: 'next_prev',
@@ -437,7 +437,7 @@ var vc_iframe = vc_iframe || {};
 				if ( 1 === paged - 1 ) {
 
 					var dataFirstItems = {
-						action: 'penci_ajax_block',
+						action: 'goso_ajax_block',
 						datafilter: dataFilter,
 						paged: '1',
 						styleAction: 'next_prev',
@@ -453,13 +453,13 @@ var vc_iframe = vc_iframe || {};
 			} );
 		},
 		loadMore: function () {
-			$( 'body' ).on( 'click', '.penci-block-ajax-more-button', function ( event ) {
+			$( 'body' ).on( 'click', '.goso-block-ajax-more-button', function ( event ) {
 				PENCI.ajaxDoBlockRequest.actionLoadMore( $( this ) );
 			} );
 		},
 
 		infinityScroll: function () {
-			var $this_scroll = $( '.penci-block-ajax-more-button.infinite_scroll' );
+			var $this_scroll = $( '.goso-block-ajax-more-button.infinite_scroll' );
 
 			if ( ! $this_scroll.length ) {
 				return false;
@@ -480,11 +480,11 @@ var vc_iframe = vc_iframe || {};
 			} ).trigger('scroll');
 		},
 		getOBjBlockData: function ( $blockID ) {
-			var $obj = new penciBlock();
-			$.each( penciBlocksArray, function ( index, block ) {
+			var $obj = new gosoBlock();
+			$.each( gosoBlocksArray, function ( index, block ) {
 
 				if ( block.blockID === $blockID ) {
-					$obj = penciBlocksArray[index];
+					$obj = gosoBlocksArray[index];
 				}
 			} );
 
@@ -500,12 +500,12 @@ var vc_iframe = vc_iframe || {};
 			var mes = $this.data( 'mes' ),
 				currentBlockObj = $this.data( 'block_id' ),
 				$currentBlockObj = $( '#' + currentBlockObj ),
-				$ajaxLoading = $currentBlockObj.find( '.penci-loader-effect' ),
-				$blockVC = $currentBlockObj.closest( '.penci-block-vc' ),
-				$contentItems = $currentBlockObj.find( '.penci-block_content__items' ),
+				$ajaxLoading = $currentBlockObj.find( '.goso-loader-effect' ),
+				$blockVC = $currentBlockObj.closest( '.goso-block-vc' ),
+				$contentItems = $currentBlockObj.find( '.goso-block_content__items' ),
 				dataFilter = $blockVC.data( 'atts_json' ),
 				dataContent = $blockVC.data( 'content' ),
-				filterValue = $blockVC.find( '.penci-subcat-link.active' ).data( 'filter_value' ),
+				filterValue = $blockVC.find( '.goso-subcat-link.active' ).data( 'filter_value' ),
 				paged = $blockVC.attr( 'data-current' ),
 				$is_cache = false;
 
@@ -522,7 +522,7 @@ var vc_iframe = vc_iframe || {};
 			$this.addClass( 'loading-posts' );
 
 			var data = {
-				action: 'penci_ajax_block',
+				action: 'goso_ajax_block',
 				datafilter: dataFilter,
 				styleAction: 'load_more',
 				paged: paged,
@@ -543,7 +543,7 @@ var vc_iframe = vc_iframe || {};
 					$this.find( "i" ).remove();
 					$this.removeClass( 'loading-posts' );
 					setTimeout( function () {
-						$this.parent( '.penci-ajax-more' ).remove();
+						$this.parent( '.goso-ajax-more' ).remove();
 					}, 1200 );
 				}
 
@@ -553,12 +553,12 @@ var vc_iframe = vc_iframe || {};
 		},
 
 		animateLoadITems: function ( $currentBlockObj, currentPage, $is_cache ) {
-			var theBlockListPostItem = $currentBlockObj.find( '.penci-block-items__' + currentPage );
+			var theBlockListPostItem = $currentBlockObj.find( '.goso-block-items__' + currentPage );
 
 			// Animate the loaded items
-			theBlockListPostItem.find( '.penci-post-item' ).velocity( {opacity: 0} );
+			theBlockListPostItem.find( '.goso-post-item' ).velocity( {opacity: 0} );
 			$currentBlockObj.removeClass( 'ajax-loading' );
-			theBlockListPostItem.find( '.penci-post-item' ).velocity( 'stop' ).velocity( 'transition.slideUpIn', {
+			theBlockListPostItem.find( '.goso-post-item' ).velocity( 'stop' ).velocity( 'transition.slideUpIn', {
 				stagger: 100,
 				duration: 500,
 				complete: function () {
@@ -570,9 +570,9 @@ var vc_iframe = vc_iframe || {};
 		},
 		animateMegaLoadITems: function ( $currentBlockObj, $is_cache ) {
 			// Animate the loaded items
-			$currentBlockObj.find( '.penci-mega-post' ).velocity( {opacity: 0} );
+			$currentBlockObj.find( '.goso-mega-post' ).velocity( {opacity: 0} );
 			$currentBlockObj.removeClass( 'ajax-loading' );
-			$currentBlockObj.find( '.penci-mega-post' ).velocity( 'stop' ).velocity( 'transition.slideUpIn', {
+			$currentBlockObj.find( '.goso-mega-post' ).velocity( 'stop' ).velocity( 'transition.slideUpIn', {
 				stagger: 100,
 				duration: 200,
 				complete: function () {
@@ -584,34 +584,34 @@ var vc_iframe = vc_iframe || {};
 
 		hidePag: function ( $blockVC, responseData ) {
 
-			var $pagNext = $blockVC.find( '.penci-slider-next' ),
-				$pagPrev = $blockVC.find( '.penci-slider-prev' ),
-				$pagination = $blockVC.find( '.penci-pagination' );
+			var $pagNext = $blockVC.find( '.goso-slider-next' ),
+				$pagPrev = $blockVC.find( '.goso-slider-prev' ),
+				$pagination = $blockVC.find( '.goso-pagination' );
 
 			if ( responseData.hidePagNext ) {
-				$pagNext.addClass( 'penci-pag-disabled' );
-				$pagination.addClass( 'penci-ajax-more-disabled' );
+				$pagNext.addClass( 'goso-pag-disabled' );
+				$pagination.addClass( 'goso-ajax-more-disabled' );
 			} else {
-				$pagNext.removeClass( 'penci-pag-disabled' );
-				$pagination.removeClass( 'penci-ajax-more-disabled' );
+				$pagNext.removeClass( 'goso-pag-disabled' );
+				$pagination.removeClass( 'goso-ajax-more-disabled' );
 			}
 
 			if ( responseData.hidePagPrev ) {
-				$pagPrev.addClass( 'penci-pag-disabled' );
+				$pagPrev.addClass( 'goso-pag-disabled' );
 			} else {
-				$pagPrev.removeClass( 'penci-pag-disabled' );
+				$pagPrev.removeClass( 'goso-pag-disabled' );
 			}
 		},
 
 		ajaxSuccess: function ( $currentBlockObj, $is_cache ) {
 			if ( ! $is_cache ) {
-				PENCI.penciLazy();
+				PENCI.gosoLazy();
 			}
 
 			PENCI.general.fitvids( $currentBlockObj );
 			PENCI.toggleSocialMedia();
 			PENCI.popupGallery();
-			PENCI.penciVideo();
+			PENCI.gosoVideo();
 			PENCI.sticky.stickySidebar();
 			PENCI.EasyPieChart();
 		},
@@ -631,9 +631,9 @@ var vc_iframe = vc_iframe || {};
 			PENCILOCALCACHE.set( key, data );
 		}
 	};
-	PENCI.penciLazy = function () {
+	PENCI.gosoLazy = function () {
 
-		/*$( '.penci-lazy' ).Lazy( {
+		/*$( '.goso-lazy' ).Lazy( {
 			effect: 'fadeIn',
 			effectTime: 300,
 			scrollDirection: 'both'
@@ -643,10 +643,10 @@ var vc_iframe = vc_iframe || {};
 	PENCI.sliderOwl = function ( $item ) {
 		$item.each( function () {
 			var $this = $( this ),
-				$penciBlock = $this.closest( '.penci-block-vc' ),
-				$penciNav = $penciBlock.find( '.penci-slider-nav' ),
-				$customNext = $penciBlock.find( '.penci-slider-next' ),
-				$customPrev = $penciBlock.find( '.penci-slider-prev' ),
+				$gosoBlock = $this.closest( '.goso-block-vc' ),
+				$gosoNav = $gosoBlock.find( '.goso-slider-nav' ),
+				$customNext = $gosoBlock.find( '.goso-slider-next' ),
+				$customPrev = $gosoBlock.find( '.goso-slider-prev' ),
 				$dataStyle = $this.data( 'style' ),
 				$dataItems = $this.data( 'items' ),
 				$dataAutoWidth = $this.data( 'autowidth' ),
@@ -671,7 +671,7 @@ var vc_iframe = vc_iframe || {};
 			}
 
 			if ( (
-				     3 === $dataItems || $this.hasClass( 'penci-related-carousel' )
+				     3 === $dataItems || $this.hasClass( 'goso-related-carousel' )
 			     ) && 'style-27' !== $dataStyle ) {
 				$dataReponsive = {
 					0: {items: 1, autoWidth: false},
@@ -728,7 +728,7 @@ var vc_iframe = vc_iframe || {};
 				dotsSpeed: $dataSpeed,
 				nav: 1 === $dataNav ? true : false,
 				dots: 1 === $dataDots ? true : false,
-				navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+				navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
 				autoplay: 1 === $dataAuto ? true : false,
 				autoplayTimeout: $dataAutoTime,
 				autoHeight: false,
@@ -743,23 +743,23 @@ var vc_iframe = vc_iframe || {};
 				responsive: $dataReponsive,
 			};
 
-			if( $this.hasClass( 'penci-slider-fullscreen' ) ){
+			if( $this.hasClass( 'goso-slider-fullscreen' ) ){
 				var slideHeight = parseFloat( $(window).height() ),
 					slidewidth = parseFloat( $(window).width() ),
 					sliderRatio = slideHeight / slidewidth * 100,
 					sliderRatio = sliderRatio.toFixed(2) + '%';
 
-				$this.find( '.penci-slider__item' ).css('padding-top',sliderRatio);
+				$this.find( '.goso-slider__item' ).css('padding-top',sliderRatio);
 			}
 
-			$this.imagesLoaded( { background: '.penci-slider__item' }, function () {
+			$this.imagesLoaded( { background: '.goso-slider__item' }, function () {
 				$this.owlCarousel( owl_args );
 			} );
 
 			$this.on( 'initialized.owl.carousel', function ( event ) {
-				PENCI.penciLazy();
+				PENCI.gosoLazy();
 
-				var $jarallax = $this.find( '.penci-jarallax-slider' );
+				var $jarallax = $this.find( '.goso-jarallax-slider' );
 
 				if( $jarallax.length ){
 					$jarallax.jarallax({elementInViewport: $this, imgPosition : '30% 50%' }  );
@@ -784,16 +784,16 @@ var vc_iframe = vc_iframe || {};
 		} );
 	},
 	PENCI.Jarallax = function () {
-		if ( ! $.fn.jarallax || ! $( '.penci-jarallax' ).length ) {
+		if ( ! $.fn.jarallax || ! $( '.goso-jarallax' ).length ) {
 			return false;
 		}
 
-		$( '.penci-jarallax' ).each( function () {
+		$( '.goso-jarallax' ).each( function () {
 			var $this = $( this ),
 				$jarallaxArgs = {};
 
-			if ( $this.hasClass( 'penci-jarallax-inviewport' ) ) {
-				var $parent = $this.closest( '.penci-owl-featured-area' );
+			if ( $this.hasClass( 'goso-jarallax-inviewport' ) ) {
+				var $parent = $this.closest( '.goso-owl-featured-area' );
 				$jarallaxArgs = {elementInViewport: $parent, imgPosition : '30% 50%' };
 			}
 
@@ -809,7 +809,7 @@ var vc_iframe = vc_iframe || {};
 				return false;
 			}
 
-			$( '.penci-slider-sync' ).each( function () {
+			$( '.goso-slider-sync' ).each( function () {
 				var $this = $( this ),
 					$dataAuto = $this.data( 'auto' ),
 					$dataAutoTime = $this.data( 'autotime' ),
@@ -839,8 +839,8 @@ var vc_iframe = vc_iframe || {};
 					};
 				}
 
-				var sync1 = $this.find( '.penci-big_items' );
-				var sync2 = $this.find( '.penci-small_items' );
+				var sync1 = $this.find( '.goso-big_items' );
+				var sync2 = $this.find( '.goso-small_items' );
 
 				if ( sync1.hasClass( 'popup-gallery' ) ) {
 					sync1.magnificPopup( {
@@ -848,7 +848,7 @@ var vc_iframe = vc_iframe || {};
 						type: 'image',
 						closeOnContentClick: false,
 						closeBtnInside: false,
-						mainClass: 'penci-with-zoom',
+						mainClass: 'goso-with-zoom',
 						gallery: {
 							enabled: true,
 							navigateByImgClick: true,
@@ -874,12 +874,12 @@ var vc_iframe = vc_iframe || {};
 						lazyLoad: true,
 						autoplayHoverPause: true,
 						autoHeight: 1 === $dataAutoHeight1 ? false : true,
-						navText: ['<i class="penciicon-left-chevron"></i>', '<i class="penciicon-right-chevron"></i>'],
+						navText: ['<i class="gosoicon-left-chevron"></i>', '<i class="gosoicon-right-chevron"></i>'],
 					} ).on( 'changed.owl.carousel', syncPosition );
 				} );
 
 				sync1.on( 'changed.owl.carousel', function ( event ) {
-					PENCI.penciLazy();
+					PENCI.gosoLazy();
 				} );
 
 				sync2.imagesLoaded( function () {
@@ -956,18 +956,18 @@ var vc_iframe = vc_iframe || {};
 
 		};
 	PENCI.postLike = function () {
-		$( 'body' ).on( 'click', '.penci-post-like', function ( event ) {
+		$( 'body' ).on( 'click', '.goso-post-like', function ( event ) {
 			event.preventDefault();
 			var $this = $( this ),
 				post_id = $this.data( "post_id" ),
 				like_text = $this.data( "like" ),
 				unlike_text = $this.data( "unlike" ),
-				$selector = $this.children( '.penci-share-number' );
+				$selector = $this.children( '.goso-share-number' );
 
 			var $like = parseInt( $selector.text() );
 
 			if ( $this.hasClass( 'single-like-button' ) ) {
-				$selector = $( '.single-like-button .penci-share-number' );
+				$selector = $( '.single-like-button .goso-share-number' );
 				$this = $( '.single-like-button' );
 			}
 
@@ -987,9 +987,9 @@ var vc_iframe = vc_iframe || {};
 			}
 
 			var data = {
-				action: 'penci_post_like',
+				action: 'goso_post_like',
 				post_id: post_id,
-				penci_post_like: '',
+				goso_post_like: '',
 				nonce: PENCILOCALIZE.nonce
 			};
 
@@ -998,10 +998,10 @@ var vc_iframe = vc_iframe || {};
 		} );
 	};
 	PENCI.gallery = function () {
-		var $justified_gallery = $( '.penci-post-gallery-container.justified' );
-		var $masonry_gallery = $( '.penci-post-gallery-container.masonry' );
+		var $justified_gallery = $( '.goso-post-gallery-container.justified' );
+		var $masonry_gallery = $( '.goso-post-gallery-container.masonry' );
 		if ( $().justifiedGallery && $justified_gallery.length ) {
-			$( '.penci-post-gallery-container.justified' ).each( function () {
+			$( '.goso-post-gallery-container.justified' ).each( function () {
 				var $this = $( this );
 				$this.justifiedGallery( {
 					rowHeight: $this.data( 'height' ),
@@ -1009,12 +1009,12 @@ var vc_iframe = vc_iframe || {};
 					margins: $this.data( 'margin' ),
 					randomize: false
 				} );
-			} ); // each .penci-post-gallery-container
+			} ); // each .goso-post-gallery-container
 		}
 
 		if ( $().isotope && $masonry_gallery.length ) {
 
-			$( '.penci-post-gallery-container.masonry .item-gallery-masonry' ).each( function () {
+			$( '.goso-post-gallery-container.masonry .item-gallery-masonry' ).each( function () {
 				var $this = $( this );
 				if ( $this.attr( 'title' ) ) {
 					var $title = $this.attr( 'title' );
@@ -1035,7 +1035,7 @@ var vc_iframe = vc_iframe || {};
 
 						$this.addClass( 'loaded' );
 
-						$( '.penci-post-gallery-container.masonry .item-gallery-masonry' ).each( function () {
+						$( '.goso-post-gallery-container.masonry .item-gallery-masonry' ).each( function () {
 							var $this = $( this );
 							$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 								$this.addClass( 'animated' );
@@ -1049,7 +1049,7 @@ var vc_iframe = vc_iframe || {};
 	};
 	PENCI.EasyPieChart = function () {
 
-		$( '.penci-review-process' ).each( function () {
+		$( '.goso-review-process' ).each( function () {
 			var $this = $( this ),
 				$bar = $this.children(),
 				$bar_w = $bar.data( 'width' ) * 10;
@@ -1058,11 +1058,11 @@ var vc_iframe = vc_iframe || {};
 			} ); // bind inview
 		} ); // each
 
-		if ( ! $.fn.easyPieChart || ! $( '.penci-piechart' ).length ) {
+		if ( ! $.fn.easyPieChart || ! $( '.goso-piechart' ).length ) {
 			return false;
 		}
 
-		$( '.penci-piechart' ).each( function () {
+		$( '.goso-piechart' ).each( function () {
 			var $this = $( this );
 			$this.one( 'inview', function ( event, isInView, visiblePartX, visiblePartY ) {
 				var chart_args = {
@@ -1078,13 +1078,13 @@ var vc_iframe = vc_iframe || {};
 		} ); // each
 	};
 
-	vc_iframe.penciSliders = function(model_id) {
+	vc_iframe.gosoSliders = function(model_id) {
 		var $el = $("[data-model-id=" + model_id + "]")
 			, $carousel = ($el.find("img").length,
-			$el.find('[data-ride="penci_sliders"]'));
+			$el.find('[data-ride="goso_sliders"]'));
 
 		return $carousel.find("img:first").length ? $carousel.find("img:first").prop("complete") ? void PENCI.sliderOwl( $carousel ) : void window.setTimeout(function() {
-			vc_iframe.penciSliders(model_id)
+			vc_iframe.gosoSliders(model_id)
 		}, 500) : PENCI.sliderOwl( $carousel )
 	}
 }(window.jQuery);

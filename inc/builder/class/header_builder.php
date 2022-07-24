@@ -23,10 +23,10 @@ class HeaderBuilder {
 		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
 		add_action( 'admin_init', array( $this, 'clear_settings' ) );
 		add_action( 'admin_init', array( $this, 'preview_customize' ) );
-		add_action( 'edit_form_after_title', [ $this, 'penci_builder_editpost_link' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'penci_builder_admin_css' ] );
+		add_action( 'edit_form_after_title', [ $this, 'goso_builder_editpost_link' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'goso_builder_admin_css' ] );
 		add_filter( 'customize_loaded_components', [ $this, 'customizer_cleaner' ] );
-		add_filter( 'display_post_states', [ $this, 'penci_dashboard_title' ], 10, 2 );
+		add_filter( 'display_post_states', [ $this, 'goso_dashboard_title' ], 10, 2 );
 		add_filter( 'post_type_link', [ $this, 'change_link' ], 10, 2 );
 		add_filter( 'post_row_actions', [ $this, 'add_edit_link' ], 10, 2 );
 		add_filter( 'template_include', [ $this, 'header_template' ] );
@@ -46,7 +46,7 @@ class HeaderBuilder {
 	}
 
 	public static function remain_desktop_header_element() {
-		return self::remain_desktop( 'penci_hb_element_desktop' );
+		return self::remain_desktop( 'goso_hb_element_desktop' );
 	}
 
 	public static function remain_desktop( $setting_prefix ) {
@@ -55,7 +55,7 @@ class HeaderBuilder {
 		$rows_desktop    = array( 'topblock', 'top', 'mid', 'bottom', 'bottomblock' );
 		$columns_desktop = array( 'left', 'center', 'right' );
 
-		if ( $setting_prefix === 'penci_hb_element_desktop_sticky' ) {
+		if ( $setting_prefix === 'goso_hb_element_desktop_sticky' ) {
 			$rows_desktop = array( 'top', 'mid', 'bottom' );
 		}
 
@@ -75,7 +75,7 @@ class HeaderBuilder {
 		foreach ( $rows_desktop as $row ) {
 			foreach ( $columns_desktop as $column ) {
 				$setting_element = "{$setting_prefix}_{$row}_{$column}";
-				$default_element = penci_get_builder_mod( $setting_element, '' );
+				$default_element = goso_get_builder_mod( $setting_element, '' );
 				$default_element = $default_element ? explode( ',', $default_element ) : $default_element;
 				if ( is_array( $default_element ) ) {
 					$default_element = array_merge( $default_element, $mobile_element );
@@ -130,7 +130,7 @@ class HeaderBuilder {
 	}
 
 	public static function remain_sticky_header_element() {
-		return self::remain_desktop( 'penci_hb_element_desktop_sticky' );
+		return self::remain_desktop( 'goso_hb_element_desktop_sticky' );
 	}
 
 	public static function remain_mobile_header_element() {
@@ -143,8 +143,8 @@ class HeaderBuilder {
 
 		foreach ( $blocks as $row => $columns ) {
 			foreach ( $columns as $column ) {
-				$setting_element = "penci_hb_element_mobile_{$row}_{$column}";
-				$default_element = penci_get_builder_mod( $setting_element, array() );
+				$setting_element = "goso_hb_element_mobile_{$row}_{$column}";
+				$default_element = goso_get_builder_mod( $setting_element, array() );
 				$default_element = $default_element ? explode( ',', $default_element ) : '';
 
 				if ( is_array( $default_element ) ) {
@@ -197,8 +197,8 @@ class HeaderBuilder {
 
 		foreach ( $blocks as $row => $columns ) {
 			foreach ( $columns as $column ) {
-				$setting_element = "penci_hb_element_mobile_drawer_{$row}_{$column}";
-				$default_element = penci_get_builder_mod( $setting_element, array() );
+				$setting_element = "goso_hb_element_mobile_drawer_{$row}_{$column}";
+				$default_element = goso_get_builder_mod( $setting_element, array() );
 				$default_element = $default_element ? explode( ',', $default_element ) : '';
 
 				if ( is_array( $default_element ) ) {
@@ -227,9 +227,9 @@ class HeaderBuilder {
 		);
 	}
 
-	public static function penci_dashboard_title( $post_states, $post ) {
+	public static function goso_dashboard_title( $post_states, $post ) {
 
-		if ( $post->post_type !== 'penci_builder' ) {
+		if ( $post->post_type !== 'goso_builder' ) {
 			return $post_states;
 		}
 
@@ -332,7 +332,7 @@ class HeaderBuilder {
 				}
 			}
 			foreach ( $sections as $section_id => $object ) {
-				if ( strpos( $section_id, 'penci_header_' ) === false ) {
+				if ( strpos( $section_id, 'goso_header_' ) === false ) {
 					$wp_customize->remove_section( $section_id );
 				}
 			}
@@ -368,7 +368,7 @@ class HeaderBuilder {
 			$uncover_data = self::exclude_settings();
 
 			foreach ( $mods as $theme_mod_id => $theme_mod_value ) {
-				if ( strpos( $theme_mod_id, 'penci_header' ) !== false && ! in_array( $theme_mod_id, $uncover_data ) ) {
+				if ( strpos( $theme_mod_id, 'goso_header' ) !== false && ! in_array( $theme_mod_id, $uncover_data ) ) {
 					unset( $mods[ $theme_mod_id ] );
 				}
 			}
@@ -398,30 +398,30 @@ class HeaderBuilder {
 
 		foreach ( $builder_rows_desktop as $row ) {
 			foreach ( $builder_columns_desktop as $column ) {
-				$default_element_data["penci_hb_element_desktop_{$row}_{$column}"] = "";
-				$default_element_data["penci_hb_align_desktop_{$row}_{$column}"]   = $column;
+				$default_element_data["goso_hb_element_desktop_{$row}_{$column}"] = "";
+				$default_element_data["goso_hb_align_desktop_{$row}_{$column}"]   = $column;
 			}
 		}
 
 
 		foreach ( $builder_rows_mobile as $row ) {
 			foreach ( $builder_columns_mobile as $column ) {
-				$default_element_data["penci_hb_element_mobile_{$row}_{$column}"] = "";
-				$default_element_data["penci_hb_align_mobile_{$row}_{$column}"]   = $column;
+				$default_element_data["goso_hb_element_mobile_{$row}_{$column}"] = "";
+				$default_element_data["goso_hb_align_mobile_{$row}_{$column}"]   = $column;
 			}
 		}
 
 		foreach ( $builder_rows_desktop_sticky as $row => $row_name ) {
 			foreach ( $builder_columns_desktop as $column ) {
-				$default_element_data["penci_hb_element_desktop_sticky_{$row}_{$column}"] = "";
-				$default_element_data["penci_hb_align_desktop_sticky_{$row}_{$column}"]   = $column;
+				$default_element_data["goso_hb_element_desktop_sticky_{$row}_{$column}"] = "";
+				$default_element_data["goso_hb_align_desktop_sticky_{$row}_{$column}"]   = $column;
 			}
 		}
 
 		foreach ( $builder_row_sidebar as $row ) {
 			foreach ( $builder_columns_sidebar as $column ) {
-				$default_element_data["penci_hb_element_mobile_drawer_{$row}_{$column}"] = "";
-				$default_element_data["penci_hb_align_mobile_drawer_{$row}_{$column}"]   = $column;
+				$default_element_data["goso_hb_element_mobile_drawer_{$row}_{$column}"] = "";
+				$default_element_data["goso_hb_align_mobile_drawer_{$row}_{$column}"]   = $column;
 			}
 		}
 
@@ -430,62 +430,62 @@ class HeaderBuilder {
 
 	public function exclude_settings() {
 		return array(
-			'penci_header_enable_transparent',
-			'penci_header_padding',
-			'penci_header_layout',
-			'penci_header_menu_ani_style',
-			'penci_header_ctwidth',
-			'penci_header_3_banner',
-			'penci_header_3_banner_url',
-			'penci_header_3_adsense',
-			'penci_header_social_check',
-			'penci_header_social_brand',
-			'penci_header_slogan_text',
-			'penci_header_remove_line_slogan',
-			'penci_header_menu_style',
-			'penci_header_enable_padding',
-			'penci_header_remove_line_hover',
-			'penci_header_social_nav',
-			'penci_header_hidesocial_nav',
-			'penci_header_logo_mobile',
-			'penci_header_logo_mobile_center',
-			'penci_header_signup_padding',
-			'penci_header_signup_fdesc',
-			'penci_header_signup_finput',
-			'penci_header_signup_fsubmit',
-			'penci_header_signup_bg',
-			'penci_header_signup_color',
-			'penci_header_signup_input_border',
-			'penci_header_signup_input_color',
-			'penci_header_signup_submit_bg',
-			'penci_header_signup_submit_color',
-			'penci_header_signup_submit_bg_hover',
-			'penci_header_signup_submit_color_hover',
-			'penci_header_logo_vertical',
-			'penci_header_social_vertical',
-			'penci_header_social_vertical_brand',
-			'penci_header_background_color',
-			'penci_header_background_image',
-			'penci_header_social_color',
-			'penci_header_social_color_hover',
-			'penci_header_slogan_color',
-			'penci_header_slogan_line_color',
-			'penci_header_tran_social_color',
-			'penci_header_tran_social_color_hover',
-			'penci_header_tran_slogan_color',
-			'penci_header_tran_slogan_line_color',
-            'penci_hbg_logo_max_width'
+			'goso_header_enable_transparent',
+			'goso_header_padding',
+			'goso_header_layout',
+			'goso_header_menu_ani_style',
+			'goso_header_ctwidth',
+			'goso_header_3_banner',
+			'goso_header_3_banner_url',
+			'goso_header_3_adsense',
+			'goso_header_social_check',
+			'goso_header_social_brand',
+			'goso_header_slogan_text',
+			'goso_header_remove_line_slogan',
+			'goso_header_menu_style',
+			'goso_header_enable_padding',
+			'goso_header_remove_line_hover',
+			'goso_header_social_nav',
+			'goso_header_hidesocial_nav',
+			'goso_header_logo_mobile',
+			'goso_header_logo_mobile_center',
+			'goso_header_signup_padding',
+			'goso_header_signup_fdesc',
+			'goso_header_signup_finput',
+			'goso_header_signup_fsubmit',
+			'goso_header_signup_bg',
+			'goso_header_signup_color',
+			'goso_header_signup_input_border',
+			'goso_header_signup_input_color',
+			'goso_header_signup_submit_bg',
+			'goso_header_signup_submit_color',
+			'goso_header_signup_submit_bg_hover',
+			'goso_header_signup_submit_color_hover',
+			'goso_header_logo_vertical',
+			'goso_header_social_vertical',
+			'goso_header_social_vertical_brand',
+			'goso_header_background_color',
+			'goso_header_background_image',
+			'goso_header_social_color',
+			'goso_header_social_color_hover',
+			'goso_header_slogan_color',
+			'goso_header_slogan_line_color',
+			'goso_header_tran_social_color',
+			'goso_header_tran_social_color_hover',
+			'goso_header_tran_slogan_color',
+			'goso_header_tran_slogan_line_color',
+            'goso_hbg_logo_max_width'
 		);
 	}
 
 	public function header_builder_js() {
 		if ( isset( $_GET['layout_id'] ) && ! empty( $_GET['layout_id'] ) ) {
 			wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' );
-			wp_enqueue_style( 'penci-header-builder', PENCI_BUILDER_URL . 'assets/css/header-builder.css' );
+			wp_enqueue_style( 'goso-header-builder', PENCI_BUILDER_URL . 'assets/css/header-builder.css' );
 			wp_enqueue_script( 'selectize', PENCI_BUILDER_URL . 'assets/js/selectize.min.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'penci-builder-saved', PENCI_BUILDER_URL . 'assets/js/control-saved.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'penci-header-builder', PENCI_BUILDER_URL . 'assets/js/header-builder.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
-			wp_enqueue_script( 'penci-customizer-builder', PENCI_BUILDER_URL . 'assets/js/customizer.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-builder-saved', PENCI_BUILDER_URL . 'assets/js/control-saved.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-header-builder', PENCI_BUILDER_URL . 'assets/js/header-builder.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
+			wp_enqueue_script( 'goso-customizer-builder', PENCI_BUILDER_URL . 'assets/js/customizer.js', array( 'jquery', ), PENCI_SOLEDAD_VERSION, true );
 		}
 	}
 
@@ -495,7 +495,7 @@ class HeaderBuilder {
 	}
 
 	public function builder_post_type() {
-		register_post_type( 'penci_builder', array(
+		register_post_type( 'goso_builder', array(
 			'labels'              => array(
 				'name'           => 'Header Builder',
 				'name_admin_bar' => _x( 'Header Builder', 'Add New on Toolbar', 'textdomain' ),
@@ -571,14 +571,14 @@ class HeaderBuilder {
 		wp_die();
 	}
 
-	public function penci_builder_editpost_link( $post ) {
-		if ( 'penci_builder' === $post->post_type ) {
+	public function goso_builder_editpost_link( $post ) {
+		if ( 'goso_builder' === $post->post_type ) {
 			$query['autofocus[panel]'] = 'header_builder_config';
 			$query['layout_id']        = $post->ID;
 			$query['url']              = site_url( '/?layout_id=' . $post->ID );
 			$link                      = add_query_arg( $query, admin_url( 'customize.php' ) );
 			?>
-            <div class="penci-builder-button customize">
+            <div class="goso-builder-button customize">
                 <a data-id="<?php echo esc_attr( $post->ID ); ?>"
                    class="button"
                    data-href="<?php echo esc_url( $link ); ?>"
@@ -591,7 +591,7 @@ class HeaderBuilder {
 	public function add_edit_link( $actions, $post ) {
 
 		$export_posttype = [
-			'penci_builder',
+			'goso_builder',
 		];
 
 		if ( in_array( $post->post_type, $export_posttype ) ) {
@@ -601,7 +601,7 @@ class HeaderBuilder {
 			$query['url']              = site_url( '/?layout_id=' . $post->ID );
 			$link                      = add_query_arg( $query, admin_url( 'customize.php' ) );
 
-			$actions['penci-builder-edit-link'] = '<a href="' . esc_url( $link ) . '" class="penci-builder-edit-link">' . __( 'Edit with Goso Header Builder', 'authow' ) . '</a>';
+			$actions['goso-builder-edit-link'] = '<a href="' . esc_url( $link ) . '" class="goso-builder-edit-link">' . __( 'Edit with Goso Header Builder', 'authow' ) . '</a>';
 		}
 
 		return $actions;
@@ -626,7 +626,7 @@ class HeaderBuilder {
 		if ( ! empty( $pages ) && isset( $pages[0] ) ) {
 			$page_link = get_page_link( $pages[0]->ID );
 		}
-		if ( $post->post_type == 'penci_builder' ) {
+		if ( $post->post_type == 'goso_builder' ) {
 
 			$arg_query         = [
 				'view-header-layout' => $post->ID
@@ -666,14 +666,14 @@ class HeaderBuilder {
 		return $template;
 	}
 
-	public function penci_builder_admin_css() {
-		wp_enqueue_style( 'penci-builder-admin', get_template_directory_uri() . '/inc/builder/assets/css/admin.css', array(), PENCI_SOLEDAD_VERSION );
-		wp_enqueue_script( 'penci-builder-admin', get_template_directory_uri() . '/inc/builder/assets/js/admin.js', array(), PENCI_SOLEDAD_VERSION, true );
+	public function goso_builder_admin_css() {
+		wp_enqueue_style( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/css/admin.css', array(), PENCI_SOLEDAD_VERSION );
+		wp_enqueue_script( 'goso-builder-admin', get_template_directory_uri() . '/inc/builder/assets/js/admin.js', array(), PENCI_SOLEDAD_VERSION, true );
 	}
 
 	public function preview_body_class( $class ) {
 		if ( is_customize_preview() && isset( $_GET['layout_id'] ) ) {
-			$class[] = 'penci-header-preview-layout';
+			$class[] = 'goso-header-preview-layout';
 		}
 
 		return $class;
@@ -681,13 +681,13 @@ class HeaderBuilder {
 
 	public function live_preview() {
 		wp_enqueue_script( 'web-font-loader', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', '', '1.0', true );
-		wp_enqueue_script( 'penci-builder-preview', get_template_directory_uri() . '/inc/builder/assets/js/customizer-preview.js', // Define the path to the JS file
+		wp_enqueue_script( 'goso-builder-preview', get_template_directory_uri() . '/inc/builder/assets/js/customizer-preview.js', // Define the path to the JS file
 			array( 'jquery', 'customize-preview' ), PENCI_SOLEDAD_VERSION, true );
 	}
 
 	public function get_css() {
-		echo '<style type="text/css" id="penci-live-preview">';
-		penci_builder_customizer_css();
+		echo '<style type="text/css" id="goso-live-preview">';
+		goso_builder_customizer_css();
 		echo '</style>';
 		wp_die();
 	}

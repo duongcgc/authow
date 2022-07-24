@@ -18,9 +18,9 @@ class PENCI_SINGLE_LOAD_POSTS {
 	function posts_hook(){
 
 		// Make sure on single posts & the option is enabled
-		if( get_theme_mod( 'penci_loadnp_posts' ) && is_single() ){
+		if( get_theme_mod( 'goso_loadnp_posts' ) && is_single() ){
 			// Hook for the posts loads after scroll down and the current viewing posts
-			if( function_exists( 'penci_is_single_npload' ) && penci_is_single_npload() ){
+			if( function_exists( 'goso_is_single_npload' ) && goso_is_single_npload() ){
 				$this->hooks_loads_posts();
 			} else{
 				$this->hooks_current_posts();
@@ -35,14 +35,14 @@ class PENCI_SINGLE_LOAD_POSTS {
 	function hooks_current_posts(){
 
 		// Insert the iframe code after the post content
-		add_action( 'penci_action_after_post_content', array( $this, 'get_previous_in_iframe' ), 100 );
+		add_action( 'goso_action_after_post_content', array( $this, 'get_previous_in_iframe' ), 100 );
 
 		// Insert the iframe Js code at the footer after loading jQuery
 		add_action( 'wp_footer', array( $this, 'enque_js_current_post' ), 99999 );
 
 		// Custom body class in the Ajax loaded posts
 		add_action('body_class', function( $classes ){
-			$classes[] = 'penci-current-single-loadmore';
+			$classes[] = 'goso-current-single-loadmore';
 			return $classes;
 		});
 	}
@@ -89,10 +89,10 @@ class PENCI_SINGLE_LOAD_POSTS {
 
 			echo '
 				<script>var GosoLoadNextPrevPosts = '. wp_json_encode( $prev_posts ) .';</script>
-				<div id="penci-wrapper-single-loadmore">
-					<div id="penci-wrapper-iframe-data">
+				<div id="goso-wrapper-single-loadmore">
+					<div id="goso-wrapper-iframe-data">
 					</div>
-					<div class="penci-single-loadmore-anim"><div class="penci-loadmore-horizontal">Loading...</div></div>
+					<div class="goso-single-loadmore-anim"><div class="goso-loadmore-horizontal">Loading...</div></div>
 				</div>
 			';
 		}
@@ -108,8 +108,8 @@ class PENCI_SINGLE_LOAD_POSTS {
 		add_filter('show_admin_bar', '__return_false');
 
 		// Remove header & footer
-		add_filter( 'penci_filter_hide_header', function(){ return true; } );
-		add_filter( 'penci_filter_hide_footer', function(){ return true; } );
+		add_filter( 'goso_filter_hide_header', function(){ return true; } );
+		add_filter( 'goso_filter_hide_footer', function(){ return true; } );
 
 		// Modify header and footer of next/prev posts
 		add_action( 'wp_head', array( $this, 'loads_posts_header' ), 200 );
@@ -119,8 +119,8 @@ class PENCI_SINGLE_LOAD_POSTS {
 		add_action( 'body_class', array( $this, 'loads_posts_bodyclass' ) );
 		
 		// Add custom class for the main post div, same class will be used for the iframe
-		add_action('penci_post_class', function( $return ){
-			$return .= ' penci-postclass-loadmore';
+		add_action('goso_post_class', function( $return ){
+			$return .= ' goso-postclass-loadmore';
 			echo $return;
 		} );
 
@@ -134,9 +134,9 @@ class PENCI_SINGLE_LOAD_POSTS {
 				<style>
 					html body + *:not(script):not(link),
 					html body ~ *:not(script):not(link),
-					html body div#penci-iframe-loadnp-footer *:not(script):not(link),
-					html body div#penci-iframe-loadnp-footer + *:not(script):not(link),
-					html body div#penci-iframe-loadnp-footer ~ *:not(script):not(link){
+					html body div#goso-iframe-loadnp-footer *:not(script):not(link),
+					html body div#goso-iframe-loadnp-footer + *:not(script):not(link),
+					html body div#goso-iframe-loadnp-footer ~ *:not(script):not(link){
 						display: none !important;
 						visibility: hidden !important;
 						z-index: -1 !important;
@@ -146,7 +146,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 					}
 				</style>
 			';
-			echo '<div id="penci-iframe-loadnp-footer">';
+			echo '<div id="goso-iframe-loadnp-footer">';
 		}, 0 );
 
 		add_action( 'wp_footer', function(){
@@ -167,7 +167,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 		echo '<script type="text/javascript" src="'. get_template_directory_uri() . '/js/loadnp_next_posts.js"></script>';
 
 		// CSS
-		$css_codes = apply_filters( 'penci_css_loaded_posts', '
+		$css_codes = apply_filters( 'goso_css_loaded_posts', '
 			html{
 				overflow: hidden !important;
 			}
@@ -176,7 +176,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 				padding: 0 !important;
 				margin 0 !important;
 			}
-			.penci-rlt-popup, .penci-wrap-gprd-law{
+			.goso-rlt-popup, .goso-wrap-gprd-law{
 				display: none !important;
 			}
 			.fb-comments > span {
@@ -251,7 +251,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 	 */
 	function loads_posts_bodyclass( $classes ){
 
-		$classes[] = 'penci-single-loaded-posts';
+		$classes[] = 'goso-single-loaded-posts';
 
 		return $classes;
 	}
@@ -346,7 +346,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 
 		$op    = $previous ? '<' : '>';
 		$order = $previous ? 'DESC' : 'ASC';
-		$limit = get_theme_mod( 'penci_loadnp_number') ? get_theme_mod( 'penci_loadnp_number') : 4;
+		$limit = get_theme_mod( 'goso_loadnp_number') ? get_theme_mod( 'goso_loadnp_number') : 4;
 
 		$where = $wpdb->prepare( "WHERE p.post_date $op %s AND p.post_type = %s $where", $current_post_date, $post->post_type );
 
@@ -382,7 +382,7 @@ class PENCI_SINGLE_LOAD_POSTS {
 					'url'      => $post_url,
 					'edit_url' => $edit_url,
 					'title'    => get_the_title( $postdata ),
-					'src'      => add_query_arg( 'penci-sload-ajax', '1', $post_url ),
+					'src'      => add_query_arg( 'goso-sload-ajax', '1', $post_url ),
 				);
 
 			}
@@ -397,18 +397,18 @@ class PENCI_SINGLE_LOAD_POSTS {
 	 * Comment redirect
 	 */
 	function comment_redirect(){
-		if( get_theme_mod( 'penci_loadnp_posts' ) && is_single() ){
+		if( get_theme_mod( 'goso_loadnp_posts' ) && is_single() ){
 			add_filter( 'comment_post_redirect', array( $this, 'comment_redirect_hook' ) );
 		}
 	}
 
 	/**
-	 * Add parameter ?penci-sload-ajax to the comment URL to refresh page after someone commented.
+	 * Add parameter ?goso-sload-ajax to the comment URL to refresh page after someone commented.
 	 */
 	function comment_redirect_hook( $url ){
 
-		if ( strpos( $_SERVER["HTTP_REFERER"], 'penci-sload-ajax' ) !== false ) {
-			$url = add_query_arg( 'penci-sload-ajax', 'true', $url );
+		if ( strpos( $_SERVER["HTTP_REFERER"], 'goso-sload-ajax' ) !== false ) {
+			$url = add_query_arg( 'goso-sload-ajax', 'true', $url );
 		}
 
 		return $url;

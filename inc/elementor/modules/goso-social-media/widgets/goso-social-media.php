@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSocialMedia extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-social-media';
+		return 'goso-social-media';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Widget Social Media', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Widget Social Media', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoSocialMedia extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -228,7 +228,7 @@ class GosoSocialMedia extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$css_class = 'penci-block-vc penci-social-media';
+		$css_class = 'goso-block-vc goso-social-media';
 
 		$class_socials = ' widget-social';
 		$class_socials .= $settings['alignment'] ? ' ' . $settings['alignment'] : '';
@@ -237,23 +237,23 @@ class GosoSocialMedia extends Base_Widget {
 		$class_socials .= $settings['dis_border_radius'] ? ' remove-border-radius' : '';
 
 		if ( $settings['brand_color'] && ! $settings['dis_circle'] ) {
-			$class_socials .= ' penci-social-colored';
+			$class_socials .= ' goso-social-colored';
 		} elseif ( $settings['brand_color'] && $settings['dis_circle'] ) {
-			$class_socials .= ' penci-social-textcolored';
+			$class_socials .= ' goso-social-textcolored';
 		}
 
 		$style_icon_svg = '';
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content<?php echo esc_attr( $class_socials ); ?>">
+			<div class="goso-block_content<?php echo esc_attr( $class_socials ); ?>">
 				<?php
-				$social_data = penci_social_media_array();
+				$social_data = goso_social_media_array();
 				foreach( $social_data as $name => $sdata ){
 					if( $settings[$name] ){
-						$icon_html = penci_icon_by_ver( $sdata[1] );
+						$icon_html = goso_icon_by_ver( $sdata[1] );
 						?>
-						<a href="<?php echo esc_url( do_shortcode( $sdata[0] ) ); ?>" aria-label="<?php echo ucwords( $name ); ?>" <?php echo penci_reltag_social_icons(); ?> target="_blank"><?php echo $icon_html; ?><span><?php echo ucwords( $name ); ?></span></a>
+						<a href="<?php echo esc_url( do_shortcode( $sdata[0] ) ); ?>" aria-label="<?php echo ucwords( $name ); ?>" <?php echo goso_reltag_social_icons(); ?> target="_blank"><?php echo $icon_html; ?><span><?php echo ucwords( $name ); ?></span></a>
 						<?php
 					}
 				}

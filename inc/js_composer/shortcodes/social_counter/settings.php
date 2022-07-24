@@ -41,12 +41,12 @@ foreach ( $pmetas as $key => $pmeta ) {
 }
 
 vc_map( array(
-	'base'          => 'penci_social_counter',
+	'base'          => 'goso_social_counter',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/social_counter/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Social Counter', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Social Counter', 'authow' ),
 	'description'   => __( 'Social Counter Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -146,14 +146,14 @@ vc_map( array(
 				),
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'heading'    => esc_html__( 'Horizontal Spacing Between Social Icons', 'authow' ),
 				'param_name' => 'hospace',
 				'std'        => '',
 				'value'      => '',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'heading'    => esc_html__( 'Vertical Spacing Between Social Icons', 'authow' ),
 				'param_name' => 'verspace',
 				'std'        => '',
@@ -163,7 +163,7 @@ vc_map( array(
 		$meta_params,
 		array(
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'social_name_size',
 				'heading'    => __( 'Icon Size', 'authow' ),
 				'value'      => '',
@@ -172,7 +172,7 @@ vc_map( array(
 				'min'        => 1,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'countersize',
 				'heading'    => __( 'Font Size for Counter Number', 'authow' ),
 				'value'      => '',
@@ -181,7 +181,7 @@ vc_map( array(
 				'min'        => 1,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'fansize',
 				'heading'    => __( 'Font Size for Fans/Like text', 'authow' ),
 				'value'      => '',

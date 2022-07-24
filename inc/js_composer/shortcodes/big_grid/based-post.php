@@ -1,51 +1,51 @@
-<div class="penci-bgitem<?php if ( 'style-2' == $biggid_style ) {
+<div class="goso-bgitem<?php if ( 'style-2' == $biggid_style ) {
 	echo ' item-masonry';
 }
-echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ); ?>">
-    <div class="penci-bgitin">
-        <div class="penci-bgmain">
+echo $is_big_item . goso_big_grid_count_classes( $bg, $biggid_style ); ?>">
+    <div class="goso-bgitin">
+        <div class="goso-bgmain">
             <div class="pcbg-thumb">
 				<?php
 				/* Display Review Piechart  */
-				if ( 'yes' == $show_reviewpie && function_exists( 'penci_display_piechart_review_html' ) ) {
-					penci_display_piechart_review_html( get_the_ID() );
+				if ( 'yes' == $show_reviewpie && function_exists( 'goso_display_piechart_review_html' ) ) {
+					goso_display_piechart_review_html( get_the_ID() );
 				}
 				?>
 				<?php if ( 'yes' == $show_formaticon ): ?>
 					<?php if ( has_post_format( 'video' ) ) : ?>
                         <a href="<?php the_permalink() ?>" class="icon-post-format"
-                           aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-play' ); ?></a>
+                           aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-play' ); ?></a>
 					<?php endif; ?>
 					<?php if ( has_post_format( 'gallery' ) ) : ?>
                         <a href="<?php the_permalink() ?>" class="icon-post-format"
-                           aria-label="Icon"><?php penci_fawesome_icon( 'far fa-image' ); ?></a>
+                           aria-label="Icon"><?php goso_fawesome_icon( 'far fa-image' ); ?></a>
 					<?php endif; ?>
 					<?php if ( has_post_format( 'audio' ) ) : ?>
                         <a href="<?php the_permalink() ?>" class="icon-post-format"
-                           aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-music' ); ?></a>
+                           aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-music' ); ?></a>
 					<?php endif; ?>
 					<?php if ( has_post_format( 'link' ) ) : ?>
                         <a href="<?php the_permalink() ?>" class="icon-post-format"
-                           aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-link' ); ?></a>
+                           aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-link' ); ?></a>
 					<?php endif; ?>
 					<?php if ( has_post_format( 'quote' ) ) : ?>
                         <a href="<?php the_permalink() ?>" class="icon-post-format"
-                           aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-quote-left' ); ?></a>
+                           aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-quote-left' ); ?></a>
 					<?php endif; ?>
 				<?php endif; ?>
                 <div class="pcbg-thumbin">
                     <a class="pcbg-bgoverlay<?php if ( 'whole' == $overlay_type && 'on' != $bgcontent_pos ): echo ' active-overlay'; endif; ?>"
                        href="<?php the_permalink(); ?>" title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 					<?php if ( ! $disable_lazy ) { ?>
-                        <div class="penci-image-holder penci-lazy"<?php if ( 'style-2' == $biggid_style ) {
-							echo ' style="padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
+                        <div class="goso-image-holder goso-lazy"<?php if ( 'style-2' == $biggid_style ) {
+							echo ' style="padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
 						} ?>
-                             data-bgset="<?php echo penci_image_srcset( get_the_ID(),$thumbnail ); ?>">
+                             data-bgset="<?php echo goso_image_srcset( get_the_ID(),$thumbnail ); ?>">
                         </div>
 					<?php } else { ?>
-                        <div class="penci-image-holder"
-                             style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'style-2' == $biggid_style ) {
-							     echo 'padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
+                        <div class="goso-image-holder"
+                             style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'style-2' == $biggid_style ) {
+							     echo 'padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
 						     } ?>">
                         </div>
 					<?php } ?>
@@ -65,7 +65,7 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ); ?>">
 						<?php if ( in_array( 'cat', $post_meta ) && ! $hide_cat_small_flag ) : ?>
                             <div class="pcbg-above item-hover">
 							<span class="cat pcbg-sub-title">
-								<?php penci_category( '', $primary_cat ); ?>
+								<?php goso_category( '', $primary_cat ); ?>
 							</span>
                             </div>
 						<?php endif; ?>
@@ -92,30 +92,30 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ); ?>">
                                 <div class="pcbg-meta-desc">
 									<?php if ( in_array( 'author', $post_meta ) ) : ?>
                                         <span class="bg-date-author author-italic author vcard">
-										<?php echo penci_get_setting( 'penci_trans_by' ); ?> <a class="url fn n"
+										<?php echo goso_get_setting( 'goso_trans_by' ); ?> <a class="url fn n"
                                                                                                 href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
 									</span>
 									<?php endif; ?>
 									<?php if ( in_array( 'date', $post_meta ) ) : ?>
-                                        <span class="bg-date"><?php penci_authow_time_link(); ?></span>
+                                        <span class="bg-date"><?php goso_authow_time_link(); ?></span>
 									<?php endif; ?>
 									<?php if ( in_array( 'comment', $post_meta ) ) : ?>
                                         <span class="bg-comment">
-										<a href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a>
+										<a href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a>
 									</span>
 									<?php endif; ?>
 									<?php
 									if ( in_array( 'views', $post_meta ) ) {
 										echo '<span>';
-										echo penci_get_post_views( get_the_ID() );
-										echo ' ' . penci_get_setting( 'penci_trans_countviews' );
+										echo goso_get_post_views( get_the_ID() );
+										echo ' ' . goso_get_setting( 'goso_trans_countviews' );
 										echo '</span>';
 									}
 									?>
 									<?php
 									$hide_readtime = in_array( 'reading', $post_meta ) ? false : true;
-									if ( penci_isshow_reading_time( $hide_readtime ) ): ?>
-                                        <span class="bg-readtime"><?php penci_reading_time(); ?></span>
+									if ( goso_isshow_reading_time( $hide_readtime ) ): ?>
+                                        <span class="bg-readtime"><?php goso_reading_time(); ?></span>
 									<?php endif; ?>
                                 </div>
                             </div>
@@ -125,11 +125,11 @@ echo $is_big_item . penci_big_grid_count_classes( $bg, $biggid_style ); ?>">
                             <div class="pcbg-readmore-sec item-hover">
                                 <a href="<?php the_permalink(); ?>"
                                    class="pcbg-readmorebtn <?php echo 'pcreadmore-icon-' . $readmore_icon_pos; ?>">
-                                    <span class="pcrm-text"><?php echo penci_get_setting( 'penci_trans_read_more' ); ?></span>
+                                    <span class="pcrm-text"><?php echo goso_get_setting( 'goso_trans_read_more' ); ?></span>
 									<?php if ( $readmore_icon ):
 										vc_icon_element_fonts_enqueue( 'fontawesome' );
 										if ( $readmore_icon ) {
-											$icon .= '<i class="penci-cup_iconn--i ' . $readmore_icon . '"></i>';
+											$icon .= '<i class="goso-cup_iconn--i ' . $readmore_icon . '"></i>';
 											echo $icon;
 										}
 									endif; ?>

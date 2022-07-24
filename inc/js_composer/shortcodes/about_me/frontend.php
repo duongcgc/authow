@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $image              = $thumbnail_size = $link = $link_external = $link_nofollow = '';
 $about_us_heading   = $align_block = $title_size = '';
@@ -13,7 +13,7 @@ extract( $atts );
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-about-me';
+$css_class = 'goso-block-vc goso-about-me';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'about_us' );
 
@@ -42,20 +42,20 @@ endif;
 ?>
     <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-        <div class="penci-block_content about-widget<?php if ( $align_block ): echo ' pc_align' . $align_block; endif; ?>">
+        <div class="goso-block_content about-widget<?php if ( $align_block ): echo ' pc_align' . $align_block; endif; ?>">
 			<?php if ( $image_src ) :
-				$image_width_data = penci_get_image_data_basedurl( $image_src, 'w' );
-				$image_height_data = penci_get_image_data_basedurl( $image_src, 'h' );
+				$image_width_data = goso_get_image_data_basedurl( $image_src, 'w' );
+				$image_height_data = goso_get_image_data_basedurl( $image_src, 'h' );
 				?>
 				<?php echo $open_image; ?>
 				<?php if ( ! $dis_lazyload ) { ?>
-                <img class="penci-widget-about-image nopin penci-lazy" nopin="nopin"
+                <img class="goso-widget-about-image nopin goso-lazy" nopin="nopin"
                      width="<?php echo $image_width_data; ?>" height="<?php echo $image_height_data; ?>"
-                     src="<?php echo penci_holder_image_base( $image_width_data, $image_height_data ); ?>"
+                     src="<?php echo goso_holder_image_base( $image_width_data, $image_height_data ); ?>"
                      data-src="<?php echo esc_url( $image_src ); ?>"
                      alt="<?php echo esc_attr( $about_us_heading ); ?>"/>
 			<?php } else { ?>
-                <img class="penci-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width_data; ?>"
+                <img class="goso-widget-about-image nopin" nopin="nopin" width="<?php echo $image_width_data; ?>"
                      height="<?php echo $image_height_data; ?>" src="<?php echo esc_url( $image_src ); ?>"
                      alt="<?php echo esc_attr( $about_us_heading ); ?>"/>
 			<?php } ?>
@@ -68,7 +68,7 @@ endif;
 	<?php endif; ?>
 
 		<?php if ( $content ) : ?>
-            <div class="penci-aboutme-content"><?php echo do_shortcode( $content ); ?></div>
+            <div class="goso-aboutme-content"><?php echo do_shortcode( $content ); ?></div>
 		<?php endif; ?>
     </div>
     </div>
@@ -94,7 +94,7 @@ if ( $title_color ) {
 	$css_custom .= $id_about_me . ' .about-me-heading{ color:' . esc_attr( $title_color ) . ';}';
 }
 if ( $content_color ) {
-	$css_custom .= $id_about_me . ' .penci-aboutme-content{ color:' . esc_attr( $content_color ) . ';}';
+	$css_custom .= $id_about_me . ' .goso-aboutme-content{ color:' . esc_attr( $content_color ) . ';}';
 }
 
 if ( $css_custom ) {

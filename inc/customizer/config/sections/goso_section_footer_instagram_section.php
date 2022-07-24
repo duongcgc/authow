@@ -2,35 +2,35 @@
 $options   = [];
 $options[] = array(
 	'label'    => 'Display Footer Instagram Widget Title Overlay Images',
-	'id'       => 'penci_footer_insta_title_overlay',
+	'id'       => 'goso_footer_insta_title_overlay',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Instagram Icon on Footer Instagram',
-	'id'       => 'penci_footer_insta_hide_icon',
+	'id'       => 'goso_footer_insta_hide_icon',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => '',
 	'description' => '',
-	'id'          => 'penci_footer_insta_title_mobile',
+	'id'          => 'goso_footer_insta_title_mobile',
 	'type'        => 'authow-fw-hidden',
 	'sanitize'    => 'absint',
 	'default'   => '14',
 );
 $options[] = array(
 	'label'     => 'Font Size for Widget Title',
-	'id'        => 'penci_footer_insta_title',
+	'id'        => 'goso_footer_insta_title',
 	'type'      => 'authow-fw-size',
 	'default' => '16',
 	'sanitize'  => 'absint',
 	'ids'       => array(
-		'desktop' => 'penci_footer_insta_title',
-		'mobile'  => 'penci_footer_insta_title_mobile',
+		'desktop' => 'goso_footer_insta_title',
+		'mobile'  => 'goso_footer_insta_title_mobile',
 	),
 	'choices'   => array(
 		'desktop' => array(

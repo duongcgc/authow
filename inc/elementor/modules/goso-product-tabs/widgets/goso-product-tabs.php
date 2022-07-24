@@ -27,7 +27,7 @@ class GosoProductTabs extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_products_tabs';
+		return 'goso_products_tabs';
 	}
 
 	/**
@@ -39,7 +39,7 @@ class GosoProductTabs extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' AJAX Products Tabs', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' AJAX Products Tabs', 'authow' );
 	}
 
 	/**
@@ -63,7 +63,7 @@ class GosoProductTabs extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -106,7 +106,7 @@ class GosoProductTabs extends Base_Widget {
 				'label_off'    => esc_html__( 'No', 'authow' ),
 				'return_value' => 'none',
 				'selectors'    => [
-					'{{WRAPPER}} .penci-authow-product .product-labels .product-label.featured' => 'display:{{VALUE}}',
+					'{{WRAPPER}} .goso-authow-product .product-labels .product-label.featured' => 'display:{{VALUE}}',
 				],
 			]
 		);
@@ -121,7 +121,7 @@ class GosoProductTabs extends Base_Widget {
 				'label_off'    => esc_html__( 'No', 'authow' ),
 				'return_value' => 'none',
 				'selectors'    => [
-					'{{WRAPPER}} .penci-authow-product .product-labels .product-label.new' => 'display:{{VALUE}}',
+					'{{WRAPPER}} .goso-authow-product .product-labels .product-label.new' => 'display:{{VALUE}}',
 				],
 			]
 		);
@@ -136,7 +136,7 @@ class GosoProductTabs extends Base_Widget {
 				'label_off'    => esc_html__( 'No', 'authow' ),
 				'return_value' => 'none',
 				'selectors'    => [
-					'{{WRAPPER}} .penci-authow-product .product-labels .product-label.onsale' => 'display:{{VALUE}}',
+					'{{WRAPPER}} .goso-authow-product .product-labels .product-label.onsale' => 'display:{{VALUE}}',
 				],
 			]
 		);
@@ -188,9 +188,9 @@ class GosoProductTabs extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Include only', 'authow' ),
 				'description' => esc_html__( 'Add products by title.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_posts_by_query',
-				'render'      => 'penci_get_posts_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_posts_by_query',
+				'render'      => 'goso_get_posts_title_by_id',
 				'post_type'   => 'product',
 				'multiple'    => true,
 				'label_block' => true,
@@ -205,9 +205,9 @@ class GosoProductTabs extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Categories or tags', 'authow' ),
 				'description' => esc_html__( 'List of product categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => array_merge( [ 'product_cat', 'product_tag' ], $this->get_product_attributes_array() ),
 				'multiple'    => true,
 				'label_block' => true,
@@ -301,9 +301,9 @@ class GosoProductTabs extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude', 'authow' ),
 				'description' => esc_html__( 'Exclude posts, pages, etc. by title.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_posts_by_query',
-				'render'      => 'penci_get_posts_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_posts_by_query',
+				'render'      => 'goso_get_posts_title_by_id',
 				'post_type'   => 'product',
 				'multiple'    => true,
 				'label_block' => true,
@@ -415,7 +415,7 @@ class GosoProductTabs extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'tab_title_typo',
 				'label'    => __( 'Tab Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-products-tabs .tabs-name > span',
+				'selector' => '{{WRAPPER}} .goso-products-tabs .tabs-name > span',
 			)
 		);
 
@@ -425,7 +425,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs .tabs-name > span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs .tabs-name > span' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -436,7 +436,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Title Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs.tabs-design-simple .tabs-name' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs.tabs-design-simple .tabs-name' => 'border-color: {{VALUE}}',
 				],
 				'condition' => [
 					'design' => [ 'simple' ],
@@ -448,7 +448,7 @@ class GosoProductTabs extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'tab_label_typo',
 				'label'    => __( 'Label Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-products-tabs .products-tabs-title .tab-label',
+				'selector' => '{{WRAPPER}} .goso-products-tabs .products-tabs-title .tab-label',
 			)
 		);
 
@@ -458,7 +458,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Label Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs .products-tabs-title .tab-label, {{WRAPPER}} .penci-products-tabs.tabs-design-alt .products-tabs-title .tab-label' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs .products-tabs-title .tab-label, {{WRAPPER}} .goso-products-tabs.tabs-design-alt .products-tabs-title .tab-label' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -469,7 +469,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Label Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs .products-tabs-title .tab-label:hover, {{WRAPPER}} .penci-products-tabs.tabs-design-alt .products-tabs-title .tab-label:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs .products-tabs-title .tab-label:hover, {{WRAPPER}} .goso-products-tabs.tabs-design-alt .products-tabs-title .tab-label:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -480,7 +480,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Label Hover Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs .products-tabs-title .tab-label:hover:after, {{WRAPPER}} .penci-products-tabs.tabs-design-alt .products-tabs-title .tab-label:hover:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs .products-tabs-title .tab-label:hover:after, {{WRAPPER}} .goso-products-tabs.tabs-design-alt .products-tabs-title .tab-label:hover:after' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'design' => [ 'default', 'alt' ],
@@ -494,7 +494,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Label Active Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .penci-products-tabs .products-tabs-title .active-tab-title .tab-label, {{WRAPPER}} .penci-products-tabs.tabs-design-alt .products-tabs-title .active-tab-title .tab-label' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .goso-products-tabs .products-tabs-title .active-tab-title .tab-label, {{WRAPPER}} .goso-products-tabs.tabs-design-alt .products-tabs-title .active-tab-title .tab-label' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -505,7 +505,7 @@ class GosoProductTabs extends Base_Widget {
 				'label'     => esc_html__( 'Tabs Label Active Border Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .tabs-design-default .products-tabs-title .tab-label:after, {{WRAPPER}} .penci-products-tabs.tabs-design-alt .products-tabs-title .tab-label:after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .tabs-design-default .products-tabs-title .tab-label:after, {{WRAPPER}} .goso-products-tabs.tabs-design-alt .products-tabs-title .tab-label:after' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'design' => [ 'default', 'alt' ],
@@ -598,8 +598,8 @@ class GosoProductTabs extends Base_Widget {
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .product-layout-grid ul.products li.product'                                                                                                                                                                           => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .products.product-list .penci-authow-product .penci-product-loop-inner-content'                                                                                                                                       => 'margin-bottom: {{SIZE}}{{UNIT}};padding-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,{{WRAPPER}} .penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers' => 'margin-top: calc( -25px - {{SIZE}}px );',
+					'{{WRAPPER}} .products.product-list .goso-authow-product .goso-product-loop-inner-content'                                                                                                                                       => 'margin-bottom: {{SIZE}}{{UNIT}};padding-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,{{WRAPPER}} .goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers' => 'margin-top: calc( -25px - {{SIZE}}px );',
 				],
 			]
 		);
@@ -1028,6 +1028,6 @@ class GosoProductTabs extends Base_Widget {
 	 */
 	protected function render() {
 		include dirname( __FILE__ ) . "/products_tabs_temple.php";
-		penci_elementor_products_tabs_template( $this->get_settings_for_display() );
+		goso_elementor_products_tabs_template( $this->get_settings_for_display() );
 	}
 }

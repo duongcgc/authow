@@ -7,10 +7,10 @@
  * @since   1.0
  */
 
-add_action( 'widgets_init', 'penci_instagram_feed_widget' );
+add_action( 'widgets_init', 'goso_instagram_feed_widget' );
 
-if ( ! function_exists( 'penci_instagram_feed_widget' ) ) {
-	function penci_instagram_feed_widget() {
+if ( ! function_exists( 'goso_instagram_feed_widget' ) ) {
+	function goso_instagram_feed_widget() {
 		register_widget( 'Goso_Instagram_Feed_Widget' );
 	}
 }
@@ -40,16 +40,16 @@ if ( ! class_exists( 'Goso_Instagram_Feed_Widget' ) ) {
 			);
 
 			$widget_ops  = array(
-				'classname'   => 'penci-insta-slider',
+				'classname'   => 'goso-insta-slider',
 				'description' => esc_html__( 'A widget that displays thumbnails or a slider with instagram images', 'authow' )
 			);
-			$control_ops = array( 'id_base' => 'penci-insta-slider' );
+			$control_ops = array( 'id_base' => 'goso-insta-slider' );
 
 			global $wp_version;
 			if ( 4.3 > $wp_version ) {
-				$this->WP_Widget( 'penci-insta-slider', penci_get_theme_name( '.Authow', true ) . ' ' . esc_html__( 'Instagram Feed', 'authow' ), $widget_ops, $control_ops );
+				$this->WP_Widget( 'goso-insta-slider', goso_get_theme_name( '.Authow', true ) . ' ' . esc_html__( 'Instagram Feed', 'authow' ), $widget_ops, $control_ops );
 			} else {
-				parent::__construct( 'penci-insta-slider', penci_get_theme_name( '.Authow', true ) . ' ' . esc_html__( 'Instagram Feed', 'authow' ), $widget_ops, $control_ops );
+				parent::__construct( 'goso-insta-slider', goso_get_theme_name( '.Authow', true ) . ' ' . esc_html__( 'Instagram Feed', 'authow' ), $widget_ops, $control_ops );
 			}
 		}
 
@@ -99,9 +99,9 @@ if ( ! class_exists( 'Goso_Instagram_Feed_Widget' ) ) {
 
 			$instance_title = $instance['title'] ? str_replace( '"', '&quot;', $instance['title'] ) : '';
 			?>
-            <div class="penci-instagram-container">
+            <div class="goso-instagram-container">
                 <p><span style="color: #ff0000;">Note Important: </span>Please connect to your Instagram accout on <a
-                            href="<?php echo esc_url( admin_url( 'admin.php?page=penci_instgram_token' ) ); ?>"
+                            href="<?php echo esc_url( admin_url( 'admin.php?page=goso_instgram_token' ) ); ?>"
                             target="_blank">this page</a> first.
                 </p>
                 <p>
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed_Widget' ) ) {
                         <input class="small-text" id="<?php echo $this->get_field_id( 'columns' ); ?>"
                                name="<?php echo $this->get_field_name( 'columns' ); ?>"
                                value="<?php echo $instance['columns']; ?>"/>
-                        <span class='penci-description'><?php _e( 'max is 10 ( only for thumbnails template )', 'authow' ); ?></span>
+                        <span class='goso-description'><?php _e( 'max is 10 ( only for thumbnails template )', 'authow' ); ?></span>
                     </label>
                 </p>
                 <p>
@@ -178,24 +178,24 @@ if ( ! class_exists( 'Goso_Instagram_Feed_Widget' ) ) {
                            value="<?php echo $instance['custom_url']; ?>"/>
                     <span><?php _e( '* use this field only if the above option is set to <strong>Custom Link</strong>', 'authow' ); ?></span>
                 </p>
-                <div class="penci-advanced-input">
-                    <div class="penci-slider-options <?php if ( 'thumbs' == $instance['template'] || 'thumbs-no-border' == $instance['template'] ) {
+                <div class="goso-advanced-input">
+                    <div class="goso-slider-options <?php if ( 'thumbs' == $instance['template'] || 'thumbs-no-border' == $instance['template'] ) {
 						echo 'hidden';
 					} ?>">
-                        <h4 class="penci-advanced-title"><?php _e( 'Advanced Slider Options', 'authow' ); ?></h4>
+                        <h4 class="goso-advanced-title"><?php _e( 'Advanced Slider Options', 'authow' ); ?></h4>
                         <p>
 							<?php _e( 'Slider Navigation Controls:', 'authow' ); ?><br>
-                            <label class="penci-radio"><input type="radio"
+                            <label class="goso-radio"><input type="radio"
                                                               id="<?php echo $this->get_field_id( 'controls' ); ?>"
                                                               name="<?php echo $this->get_field_name( 'controls' ); ?>"
                                                               value="prev_next" <?php checked( 'prev_next', $instance['controls'] ); ?> /> <?php _e( 'Prev & Next', 'authow' ); ?>
                             </label>
-                            <label class="penci-radio"><input type="radio"
+                            <label class="goso-radio"><input type="radio"
                                                               id="<?php echo $this->get_field_id( 'controls' ); ?>"
                                                               name="<?php echo $this->get_field_name( 'controls' ); ?>"
                                                               value="numberless" <?php checked( 'numberless', $instance['controls'] ); ?> /> <?php _e( 'Dotted', 'authow' ); ?>
                             </label>
-                            <label class="penci-radio"><input type="radio"
+                            <label class="goso-radio"><input type="radio"
                                                               id="<?php echo $this->get_field_id( 'controls' ); ?>"
                                                               name="<?php echo $this->get_field_name( 'controls' ); ?>"
                                                               value="none" <?php checked( 'none', $instance['controls'] ); ?> /> <?php _e( 'No Navigation', 'authow' ); ?>
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Goso_Instagram_Feed_Widget' ) ) {
                                        name="<?php echo $this->get_field_name( 'slidespeed' ); ?>"
                                        value="<?php echo $instance['slidespeed']; ?>"/>
                                 <span><?php _e( 'milliseconds', 'authow' ); ?></span>
-                                <span class='penci-description'><?php _e( '1000 milliseconds = 1 second', 'authow' ); ?></span>
+                                <span class='goso-description'><?php _e( '1000 milliseconds = 1 second', 'authow' ); ?></span>
                             </label>
                         </p>
                         <p>

@@ -2,16 +2,16 @@
 
 vc_map(
 	array(
-		'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Simple List', 'authow' ),
-		'base'          => 'penci_simple_list',
+		'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Simple List', 'authow' ),
+		'base'          => 'goso_simple_list',
 		'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/simple_list/frontend.php',
-		'category'      => penci_get_theme_name('Authow'),
+		'category'      => goso_get_theme_name('Authow'),
 		'description'   => esc_html__( 'Display a list with icon', 'authow' ),
 		'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
 		'params'        => array(
 			// General
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'title'      => esc_html__( 'General settings', 'authow' ),
 				'param_name' => 'general_divider',
 			),
@@ -72,7 +72,7 @@ vc_map(
 				'edit_field_class' => 'vc_col-sm-6 vc_column title-align',
 			),
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Extra settings', 'authow' ),
 				'param_name' => 'extra_divider',
@@ -104,7 +104,7 @@ vc_map(
 			),
 			// Icon
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Icon settings', 'authow' ),
 				'group'      => esc_html__( 'Icon', 'authow' ),

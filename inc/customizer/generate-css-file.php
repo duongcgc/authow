@@ -24,7 +24,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 			add_action( 'customize_save_after', array( $this, 'remove_option_render_time' ) );
 
 			if ( ! empty( $_POST ) ) {
-				add_action( 'wp_ajax_penci_render_separate_css_file', array( $this, 'regenerate_css_file' ) );
+				add_action( 'wp_ajax_goso_render_separate_css_file', array( $this, 'regenerate_css_file' ) );
 			}
 		}
 
@@ -32,20 +32,20 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 		 * Check to get correct the regenerate CSS data
 		 */
 		public function regenerate_return() {
-			$option = get_theme_mod( 'penci_spcss_render' );
+			$option = get_theme_mod( 'goso_spcss_render' );
 
 			if ( 'separate_file' == $option ) {
-				$data_time = get_option( 'penci_regenerate_css_time' );
-				$data_version = get_option( 'penci_regenerate_css_time' );
+				$data_time = get_option( 'goso_regenerate_css_time' );
+				$data_version = get_option( 'goso_regenerate_css_time' );
 				if ( ! $data_version ) {
 					// Create a version of Customizer CSS file
-					update_option( 'penci_regenerate_version', time() );
+					update_option( 'goso_regenerate_version', time() );
 				}
 
 				if ( ! $data_time ) {
 					// Created a data saved time - before 5sec to make sure the file can be created
 					$data_time = time() - 5;
-					update_option( 'penci_regenerate_css_time', $data_time );
+					update_option( 'goso_regenerate_css_time', $data_time );
 				}
 
 				// Create 1 file every 5 seconds.
@@ -69,7 +69,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 		 */
 		public function enqueue_customizer_css() {
 			if ( 'separate_file' == $this->regenerate_return() ) {
-				wp_enqueue_style( 'penci-authow-customizer', esc_url( $this->generate_file( 'uri' ) ), array(), null );
+				wp_enqueue_style( 'goso-authow-customizer', esc_url( $this->generate_file( 'uri' ) ), array(), null );
 			}
 		}
 
@@ -79,14 +79,14 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 		public function create_css() {
 			$content = '';
 
-			if( function_exists( 'pencidesign_return_css' ) ){
-				$string_css = pencidesign_return_css();
+			if( function_exists( 'gosodesign_return_css' ) ){
+				$string_css = gosodesign_return_css();
 				$string_render = trim(preg_replace('/\s+/', ' ', $string_css));
 				$content .= $string_render;
 			}
 			
 			/* Add a filter to hook to this content data */
-			$content = apply_filters( 'penci_regenerate_separate_file_hook', $content );
+			$content = apply_filters( 'goso_regenerate_separate_file_hook', $content );
 
 			if ( ! $content ) {
 				return false; /* Return if the $content is empty */
@@ -141,7 +141,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 			$css_file_id = ( is_multisite() && $blog_id > 1 ) ? '_blog-' . $blog_id : null;
 
 			$css_file_name   = '/customizer-style' . $css_file_id . '.min.css';
-			$folder_path = $upload_folder_dir['basedir'] . DIRECTORY_SEPARATOR . 'pencidesign';
+			$folder_path = $upload_folder_dir['basedir'] . DIRECTORY_SEPARATOR . 'gosodesign';
 
 			// Check folder is exists or not
 			if ( file_exists( $folder_path ) ) {
@@ -186,7 +186,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 			$css_file_id = ( is_multisite() && $blog_id > 1 ) ? '_blog-' . $blog_id : null;
 
 			$css_file_name   = 'customizer-style' . $css_file_id . '.min.css';
-			$folder_path = $upload_folder_dir['basedir'] . DIRECTORY_SEPARATOR . 'pencidesign';
+			$folder_path = $upload_folder_dir['basedir'] . DIRECTORY_SEPARATOR . 'gosodesign';
 
 			// File path
 			$css_path = $folder_path . DIRECTORY_SEPARATOR . $css_file_name;
@@ -194,7 +194,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 			// URL directory of customizer CSS
 			$css_folder_uri = $upload_folder_dir['baseurl'];
 
-			$css_uri = trailingslashit( $css_folder_uri ) . 'pencidesign/' . $css_file_name;
+			$css_uri = trailingslashit( $css_folder_uri ) . 'gosodesign/' . $css_file_name;
 
 			// Check if WP Multisite domain mapping is activated - see more: https://wordpress.org/support/article/wordpress-multisite-domain-mapping/
 			if ( defined( 'DOMAIN_MAPPING' ) && DOMAIN_MAPPING ) {
@@ -212,7 +212,7 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 			if ( 'path' === $return ) {
 				return $css_path;
 			} elseif ( 'uri' === $return || 'url' === $return ) {
-				$version = get_option( 'penci_regenerate_version' );
+				$version = get_option( 'goso_regenerate_version' );
 				$savetime = ( file_exists( $css_path ) ) ? '?version=' . $version : '';
 				return $css_uri . $savetime;
 			}
@@ -224,27 +224,27 @@ if( ! class_exists( 'Goso_Generate_Customizer_CSS_File' ) ){
 		public function update_option_render_time() {
 			$data_time = time();
 
-			update_option( 'penci_regenerate_css_time', $data_time );
+			update_option( 'goso_regenerate_css_time', $data_time );
 		}
 
 		/**
 		 * Delete the option saved time
 		 */
 		public function remove_option_render_time() {
-			$data_time = get_option( 'penci_regenerate_css_time' );
+			$data_time = get_option( 'goso_regenerate_css_time' );
 
 			if ( $data_time ) {
-				delete_option( 'penci_regenerate_css_time' );
+				delete_option( 'goso_regenerate_css_time' );
 			}
 			
-			update_option( 'penci_regenerate_version', time() );
+			update_option( 'goso_regenerate_version', time() );
 		}
 
 		/**
 		 * Regenerate the CSS file.
 		 */
 		public function regenerate_css_file() {
-			check_ajax_referer( 'penci_render_separate_css_file', '_nonce' );
+			check_ajax_referer( 'goso_render_separate_css_file', '_nonce' );
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_send_json_error( __( 'User Permission Error', 'authow' ) );

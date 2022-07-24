@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class GosoFooterNavmenu extends Base_Widget {
 	public function get_name() {
-		return 'penci-footer-navmenu';
+		return 'goso-footer-navmenu';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Footer Nav Menu', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Footer Nav Menu', 'authow' );
 	}
 
 	public function get_icon() {
@@ -32,7 +32,7 @@ class GosoFooterNavmenu extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -353,7 +353,7 @@ class GosoFooterNavmenu extends Base_Widget {
 				'menu'            => $menu_id,
 				'container'      => false,
 				'menu_class'     => 'pcfoot-navmenu',
-				'fallback_cb'    => 'penci_menu_fallback',
+				'fallback_cb'    => 'goso_menu_fallback',
 			) );
 			?>
 		</div>

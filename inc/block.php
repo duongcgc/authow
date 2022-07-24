@@ -48,10 +48,10 @@ if ( ! class_exists( 'Goso_Block' ) ):
 			add_action( 'init', array( $this, 'register_portfolio_category' ) );
 
 			// Add Custom Columns to Editor
-			add_filter( 'manage_edit-penci-block_columns', array( $this, 'edit_penci_blocks_columns' ) );
-			add_action( 'manage_penci-block_posts_custom_column', array(
+			add_filter( 'manage_edit-goso-block_columns', array( $this, 'edit_goso_blocks_columns' ) );
+			add_action( 'manage_goso-block_posts_custom_column', array(
 				$this,
-				'manage_penci_blocks_columns'
+				'manage_goso_blocks_columns'
 			), 10, 2 );
 
 			// Register Elementor Support
@@ -65,8 +65,8 @@ if ( ! class_exists( 'Goso_Block' ) ):
 			add_shortcode( 'block_content', array( $this, 'get_block_content_shortcode' ) );
 
 			// Ajax Mega Content
-			add_action( 'wp_ajax_penci_get_ajax_menu_mega_content', [ $this, 'get_ajax_menu_mega_content' ] );
-			add_action( 'wp_ajax_nopriv_penci_get_ajax_menu_mega_content', [ $this, 'get_ajax_menu_mega_content' ] );
+			add_action( 'wp_ajax_goso_get_ajax_menu_mega_content', [ $this, 'get_ajax_menu_mega_content' ] );
+			add_action( 'wp_ajax_nopriv_goso_get_ajax_menu_mega_content', [ $this, 'get_ajax_menu_mega_content' ] );
 		}
 
 		/**
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Goso_Block' ) ):
 				'publicly_queryable' => true,
 				'show_ui'            => true,
 				'show_in_menu'       => true,
-				'query_var'          => 'penci-block',
+				'query_var'          => 'goso-block',
 				'capability_type'    => 'page',
 				'menu_icon'          => 'dashicons-schedule',
 				'has_archive'        => false,
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Goso_Block' ) ):
 				'supports'           => array( 'title', 'editor' )
 			);
 
-			register_post_type( 'penci-block', $args );
+			register_post_type( 'goso-block', $args );
 		}
 
 		/**
@@ -132,18 +132,18 @@ if ( ! class_exists( 'Goso_Block' ) ):
 				'show_ui'           => true,
 				'show_admin_column' => true,
 				'query_var'         => true,
-				'rewrite'           => array( 'slug' => 'penci_block_category' )
+				'rewrite'           => array( 'slug' => 'goso_block_category' )
 			);
 
-			register_taxonomy( 'penci_block_category', array( 'penci-block' ), $args );
+			register_taxonomy( 'goso_block_category', array( 'goso-block' ), $args );
 		}
 
-		public function edit_penci_blocks_columns( $columns ) {
-			unset( $columns['taxonomy-penci_block_category'] );
+		public function edit_goso_blocks_columns( $columns ) {
+			unset( $columns['taxonomy-goso_block_category'] );
 
 			$new_columns = array(
 				'shortcode'        => esc_html__( 'Shortcode', 'authow' ),
-				'penci_categories' => esc_html__( 'Block Categories', 'authow' ),
+				'goso_categories' => esc_html__( 'Block Categories', 'authow' ),
 				'date'             => esc_html__( 'Date', 'authow' ),
 			);
 
@@ -153,13 +153,13 @@ if ( ! class_exists( 'Goso_Block' ) ):
 		}
 
 
-		public function manage_penci_blocks_columns( $column, $post_id ) {
+		public function manage_goso_blocks_columns( $column, $post_id ) {
 			switch ( $column ) {
 				case 'shortcode':
 					echo '<strong>[block_content id="' . $post_id . '"]</strong>';
 					break;
-				case 'penci_categories':
-					$terms = wp_get_post_terms( $post_id, 'penci_block_category' );
+				case 'goso_categories':
+					$terms = wp_get_post_terms( $post_id, 'goso_block_category' );
 					$post_type = get_post_type( $post_id );
 					$keys = array_keys( $terms );
 					$last_key = end( $keys );
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Goso_Block' ) ):
 
 					?>
 
-                    <a href="<?php echo esc_url( 'edit.php?post_type=' . $post_type . '&penci_block_category=' . $term->slug ); ?>">
+                    <a href="<?php echo esc_url( 'edit.php?post_type=' . $post_type . '&goso_block_category=' . $term->slug ); ?>">
 						<?php echo esc_html( $name ); ?>
                     </a>
 				<?php endforeach; ?>
@@ -191,17 +191,17 @@ if ( ! class_exists( 'Goso_Block' ) ):
 		public function add_elementor_support() {
 			$cpt_support = get_option( 'elementor_cpt_support' );
 			if ( ! $cpt_support ) {
-				$cpt_support = [ 'page', 'post', 'penci-block' ];
+				$cpt_support = [ 'page', 'post', 'goso-block' ];
 				update_option( 'elementor_cpt_support', $cpt_support );
-			} else if ( ! in_array( 'penci-block', $cpt_support ) ) {
-				$cpt_support[] = 'penci-block';
+			} else if ( ! in_array( 'goso-block', $cpt_support ) ) {
+				$cpt_support[] = 'goso-block';
 				update_option( 'elementor_cpt_support', $cpt_support );
 			}
 		}
 
 		public function add_wpbakery_support() {
 			if ( function_exists( 'vc_set_default_editor_post_types' ) ) {
-				vc_set_default_editor_post_types( array( 'page', 'post', 'penci-block' ) );
+				vc_set_default_editor_post_types( array( 'page', 'post', 'goso-block' ) );
 			}
 		}
 
@@ -210,10 +210,10 @@ if ( ! class_exists( 'Goso_Block' ) ):
 		}
 
 		public function get_block_content( $id ) {
-			$id      = apply_filters( 'wpml_object_id', $id, 'penci-block', true );
+			$id      = apply_filters( 'wpml_object_id', $id, 'goso-block', true );
 			$post    = get_post( $id );
 			$content = '';
-			if ( ! $post || $post->post_type != 'penci-block' ) {
+			if ( ! $post || $post->post_type != 'goso-block' ) {
 				return false;
 			}
 
@@ -282,8 +282,8 @@ if ( ! class_exists( 'Goso_Block' ) ):
 				$elementor_pro->enqueue_styles();
 			}
 
-			if ( penci_can_render_footer() ) {
-				$footer_id = penci_footer_builder_content_id();
+			if ( goso_can_render_footer() ) {
+				$footer_id = goso_footer_builder_content_id();
 				$css_file  = '';
 				if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
 					$css_file = new \Elementor\Core\Files\CSS\Post( $footer_id );

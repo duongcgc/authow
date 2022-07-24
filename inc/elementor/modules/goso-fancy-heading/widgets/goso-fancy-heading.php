@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoFancyHeading extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-fancy_heading';
+		return 'goso-fancy_heading';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Fancy Heading', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Fancy Heading', 'authow' );
 	}
 
 	public function get_icon() {
@@ -26,11 +26,11 @@ class GosoFancyHeading extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
-		return array( 'fancy_heading', 'block', 'penci', 'heading', 'authow' );
+		return array( 'fancy_heading', 'block', 'goso', 'heading', 'authow' );
 	}
 
 	protected function register_controls() {
@@ -60,7 +60,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Limit Width for Fancy Heading', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 2000, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-fancy-heading' => 'width: 100%; max-width: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-fancy-heading' => 'width: 100%; max-width: {{SIZE}}px;' ),
 			)
 		);
 		
@@ -85,7 +85,7 @@ class GosoFancyHeading extends Base_Widget {
 			),
 			'default' => 'center',
 			'selectors'            => array(
-				'{{WRAPPER}} .penci-fancy-heading' => '{{VALUE}}',
+				'{{WRAPPER}} .goso-fancy-heading' => '{{VALUE}}',
 			),
 			'selectors_dictionary' => array(
 				'left'   => 'margin-right: auto',
@@ -147,7 +147,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Subtitle Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-subtitle' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-subtitle' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -155,7 +155,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Subtitle Spacing Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-subtitle' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-subtitle' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -163,7 +163,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Limit Width for Subtitle', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 2000, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-subtitle' => 'width: 100%; max-width: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-subtitle' => 'width: 100%; max-width: {{SIZE}}px;' ),
 			)
 		);
 
@@ -227,7 +227,7 @@ class GosoFancyHeading extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:after' => 'height: {{SIZE}}px; margin-top: calc( {{SIZE}}px * -1 / 2 );',
+					'{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:after' => 'height: {{SIZE}}px; margin-top: calc( {{SIZE}}px * -1 / 2 );',
 				),
 				'condition' => array( 'add_line' => 'yes' ),
 			)
@@ -239,7 +239,7 @@ class GosoFancyHeading extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 1000, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:after' => 'width: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:after' => 'width: {{SIZE}}px;',
 				),
 				'condition' => array( 'add_line' => 'yes' ),
 			)
@@ -251,7 +251,7 @@ class GosoFancyHeading extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit' => 'padding-left: {{SIZE}}px; padding-right: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit' => 'padding-left: {{SIZE}}px; padding-right: {{SIZE}}px;',
 				),
 				'condition' => array( 'add_line' => 'yes' ),
 			)
@@ -312,8 +312,8 @@ class GosoFancyHeading extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}}  .penci-separator .penci-sep_line'               => 'border-width: {{SIZE}}px;top: calc( -{{SIZE}}px / 2 ); border-bottom: none; border-left: none; border-right: none;',
-					'{{WRAPPER}}  .penci-separator.penci-separator-double:after'  => 'border-top-width: {{SIZE}}px;',
+					'{{WRAPPER}}  .goso-separator .goso-sep_line'               => 'border-width: {{SIZE}}px;top: calc( -{{SIZE}}px / 2 ); border-bottom: none; border-left: none; border-right: none;',
+					'{{WRAPPER}}  .goso-separator.goso-separator-double:after'  => 'border-top-width: {{SIZE}}px;',
 				),
 				'condition' => array( '_use_separator!' => '' ),
 			)
@@ -335,7 +335,7 @@ class GosoFancyHeading extends Base_Widget {
 						'max' => 100,
 					],
 				],
-				'selectors' => array( '{{WRAPPER}}  .penci-separator' => 'max-width: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-separator' => 'max-width: {{SIZE}}px' ),
 				'condition' => array( '_use_separator!' => '' ),
 			)
 		);
@@ -345,7 +345,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Separator Icon Spacing Top & Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-icon' => 'margin-top: {{SIZE}}px;margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-icon' => 'margin-top: {{SIZE}}px;margin-bottom: {{SIZE}}px' ),
 				'condition' => array( '_use_separator!' => '' ),
 			)
 		);
@@ -356,7 +356,7 @@ class GosoFancyHeading extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array( 
-					'{{WRAPPER}}  .penci-heading-icon' => 'margin-left: {{SIZE}}px;margin-right: {{SIZE}}px;',
+					'{{WRAPPER}}  .goso-heading-icon' => 'margin-left: {{SIZE}}px;margin-right: {{SIZE}}px;',
 				),
 				'condition' => array( '_use_separator!' => '' ),
 			)
@@ -367,7 +367,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Separator Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-separator' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-separator' => 'margin-top: {{SIZE}}px' ),
 				'condition' => array( '_use_separator!' => '' ),
 			)
 		);
@@ -392,7 +392,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Content Spacing Top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-content' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-content' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -400,7 +400,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Limit Content Width', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 2000, ) ),
-				'selectors' => array( '{{WRAPPER}}  .penci-heading-content' => 'max-width: {{SIZE}}px;width:100%;' ),
+				'selectors' => array( '{{WRAPPER}}  .goso-heading-content' => 'max-width: {{SIZE}}px;width:100%;' ),
 			)
 		);
 
@@ -421,7 +421,7 @@ class GosoFancyHeading extends Base_Widget {
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%', 'em' ),
 			'selectors'  => array(
-				'{{WRAPPER}} .penci-fancy-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .goso-fancy-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 		
@@ -430,7 +430,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'name' => 'fancy_shadow',
 				'label' => __( 'Add Box Shadow?', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-fancy-heading',
+				'selector' => '{{WRAPPER}} .goso-fancy-heading',
 			)
 		);
 		
@@ -449,14 +449,14 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'SubTitle Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-subtitle' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-subtitle' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'psubtitle_typo',
 				'label'    => __( 'SubTitle Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-heading-subtitle',
+				'selector' => '{{WRAPPER}} .goso-heading-subtitle',
 			)
 		);
 		
@@ -474,7 +474,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-title,{{WRAPPER}} .penci-heading-title a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-title,{{WRAPPER}} .goso-heading-title a' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -482,14 +482,14 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Title Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-title a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-title a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'ptitle_typo',
 				'label'    => __( 'Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-heading-title',
+				'selector' => '{{WRAPPER}} .goso-heading-title',
 			)
 		);
 		
@@ -498,7 +498,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Lines Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .penci-fancy-heading.pc-fctline .inner-tit:after' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:before,{{WRAPPER}} .goso-fancy-heading.pc-fctline .inner-tit:after' => 'background-color: {{VALUE}};' ),
 				'condition' => array( 'add_line' => 'yes' ),
 			)
 		);
@@ -517,7 +517,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Separator Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-separator .penci-sep_line' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-separator .goso-sep_line' => 'border-color: {{VALUE}};' ),
 				'condition' => array( '_use_separator!' => '' ),
 			)
 		);
@@ -526,7 +526,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Icon Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-icon' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-icon' => 'color: {{VALUE}};' ),
 				'condition' => array( 'add_separator_icon!' => '' ),
 			)
 		);
@@ -535,7 +535,7 @@ class GosoFancyHeading extends Base_Widget {
 				'label'     => __( 'Font size for Icon', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-heading-icon' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-icon' => 'font-size: {{SIZE}}px' ),
 				'condition' => array( 'add_separator_icon!' => '' ),
 			)
 		);
@@ -555,7 +555,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Descrition Text Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-content' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-content' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -564,7 +564,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Descrition Links Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-content a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-content a' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -573,7 +573,7 @@ class GosoFancyHeading extends Base_Widget {
 			array(
 				'label'     => __( 'Descrition Links Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-heading-content a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-heading-content a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		
@@ -581,7 +581,7 @@ class GosoFancyHeading extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'pdesc_typo',
 				'label'    => __( 'Descrition Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-heading-content',
+				'selector' => '{{WRAPPER}} .goso-heading-content',
 			)
 		);
 
@@ -595,14 +595,14 @@ class GosoFancyHeading extends Base_Widget {
 		$subtitle_pos    = $settings['subtitle_pos'];
 
 		if ( $settings['p_subtitle'] ) {
-			$markup_subtitle = '<' . esc_attr( $settings['subtitle_tag'] ) . ' class="penci-heading-subtitle">' . $settings['p_subtitle'] . '</' . esc_attr( $settings['subtitle_tag'] ) . '>';
+			$markup_subtitle = '<' . esc_attr( $settings['subtitle_tag'] ) . ' class="goso-heading-subtitle">' . $settings['p_subtitle'] . '</' . esc_attr( $settings['subtitle_tag'] ) . '>';
 		}
 		if( isset( $settings['add_line'] ) && 'yes' == $settings['add_line'] ){
 			$title_line_class = ' pc-fctline';
 		}
 		?>
-		<div class="penci-fancy-heading penci-heading-text-<?php echo esc_attr( $settings['_text_align'] ) . $title_line_class ; ?>">
-			<div class="penci-fancy-heading-inner">
+		<div class="goso-fancy-heading goso-heading-text-<?php echo esc_attr( $settings['_text_align'] ) . $title_line_class ; ?>">
+			<div class="goso-fancy-heading-inner">
 				<?php
 
 				if ( $markup_subtitle && 'above' == $subtitle_pos ) {
@@ -625,7 +625,7 @@ class GosoFancyHeading extends Base_Widget {
 						$title = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $settings['p_title'] );
 					}
 
-					echo '<' . esc_attr( $settings['title_tag'] ) . ' class="penci-heading-title"><span class="inner-tit">' . $title . '</span></' . esc_attr( $settings['title_tag'] ) . '>';
+					echo '<' . esc_attr( $settings['title_tag'] ) . ' class="goso-heading-title"><span class="inner-tit">' . $title . '</span></' . esc_attr( $settings['title_tag'] ) . '>';
 				}
 
 				if ( $markup_subtitle && 'below' == $subtitle_pos ) {
@@ -633,14 +633,14 @@ class GosoFancyHeading extends Base_Widget {
 				}
 
 				if ( $settings['_use_separator'] ) {
-					echo '<div class="penci-separator penci-separator-' . esc_attr( $settings['separator_style'] ) . ' penci-separator-' . $settings['_text_align'] . '">';
-					echo '<span class="penci-sep_holder penci-sep_holder_l"><span class="penci-sep_line"></span></span>';
+					echo '<div class="goso-separator goso-separator-' . esc_attr( $settings['separator_style'] ) . ' goso-separator-' . $settings['_text_align'] . '">';
+					echo '<span class="goso-sep_holder goso-sep_holder_l"><span class="goso-sep_line"></span></span>';
 
 					if ( $settings['add_separator_icon'] ) {
-						echo '<span class="penci-heading-icon ' . esc_attr( $settings['p_icon'] ? $settings['p_icon'] : 'fa fa-adjust' ) . '"></span>';
+						echo '<span class="goso-heading-icon ' . esc_attr( $settings['p_icon'] ? $settings['p_icon'] : 'fa fa-adjust' ) . '"></span>';
 					}
 
-					echo '<span class="penci-sep_holder penci-sep_holder_r"><span class="penci-sep_line"></span></span>';
+					echo '<span class="goso-sep_holder goso-sep_holder_r"><span class="goso-sep_line"></span></span>';
 					echo '</div>';
 				}
 
@@ -652,7 +652,7 @@ class GosoFancyHeading extends Base_Widget {
 					$content = wpautop( preg_replace( '/<\/?p\>/', "\n", $settings['content'] ) . "\n" );
 					$content = do_shortcode( shortcode_unautop( $content ) );
 
-					echo '<div class="penci-heading-content entry-content">' . $content . '</div>';
+					echo '<div class="goso-heading-content entry-content">' . $content . '</div>';
 				}
 				?>
 			</div>

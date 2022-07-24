@@ -6,7 +6,7 @@
             var panel = this.container[1];
 
             if (panel.id === 'sub-accordion-panel-header_builder_config') {
-                $('body').trigger('penci-open-header-builder');
+                $('body').trigger('goso-open-header-builder');
             }
 
             return this._toggleExpanded(true, params);

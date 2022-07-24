@@ -1,8 +1,8 @@
 <?php
-$social_icon_section         = 'penci_header_pb_social_icon_mobile_section';
-$general_config              = 'penci_builder_mods';
+$social_icon_section         = 'goso_header_pb_social_icon_mobile_section';
+$general_config              = 'goso_builder_mods';
 $query                       = [];
-$query['autofocus[section]'] = 'pencidesign_new_section_social';
+$query['autofocus[section]'] = 'gosodesign_new_section_social';
 $options                     = [];
 $options[]                   = array(
 	'id'        => $social_icon_section . '_icon_size',
@@ -71,7 +71,7 @@ $options[]                   = array(
 	'id'        => $social_icon_section . '_icon_style',
 	'default'   => 'simple',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Social Icon Style',
 	
 	'type'      => 'authow-fw-select',
@@ -85,7 +85,7 @@ $options[]                   = array(
 	'id'        => $social_icon_section . '_icon_color',
 	'default'   => 'normal',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Social Icon Color',
 	
 	'type'      => 'authow-fw-select',
@@ -99,7 +99,7 @@ $options[]                   = array(
 	'id'        => $social_icon_section . '_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	
@@ -119,10 +119,10 @@ $options[]                   = array(
 	),
 );
 $options[]                   = array(
-	'id'        => $social_icon_section . '_penci_rel_type_social',
+	'id'        => $social_icon_section . '_goso_rel_type_social',
 	'default'   => 'noreferrer',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Select "rel" Attribute Type for Social Media & Social Share Icons',
 	
 	'type'      => 'authow-fw-select',
@@ -193,23 +193,23 @@ $options[]                   = array(
 );
 
 return $options;
-/*$wp_customize->selective_refresh->add_partial( 'penci_header_pb_social_icon_mobile_section_icon_size', array(
-	'selector'            => '.header-social.penci-builder-element',
+/*$wp_customize->selective_refresh->add_partial( 'goso_header_pb_social_icon_mobile_section_icon_size', array(
+	'selector'            => '.header-social.goso-builder-element',
 	'settings'            => [
-		'penci_header_pb_social_icon_mobile_section_icon_size',
-		'penci_header_pb_social_icon_mobile_section_icon_w',
-		'penci_header_pb_social_icon_mobile_section_icon_h',
-		'penci_header_pb_social_icon_mobile_section_item_spacing',
-		'penci_header_pb_social_icon_mobile_section_icon_style',
-		'penci_header_pb_social_icon_mobile_section_icon_color',
-		'penci_header_pb_social_icon_mobile_section_spacing',
-		'penci_header_pb_social_icon_mobile_section_penci_rel_type_social',
-		'penci_header_pb_social_icon_mobile_section_bg_color',
-		'penci_header_pb_social_icon_mobile_section_bg_hv_color',
-		'penci_header_pb_social_icon_mobile_section_border_color',
-		'penci_header_pb_social_icon_mobile_section_border_hv_color',
-		'penci_header_pb_social_icon_mobile_section_color',
-		'penci_header_pb_social_icon_mobile_section_hv_color',
+		'goso_header_pb_social_icon_mobile_section_icon_size',
+		'goso_header_pb_social_icon_mobile_section_icon_w',
+		'goso_header_pb_social_icon_mobile_section_icon_h',
+		'goso_header_pb_social_icon_mobile_section_item_spacing',
+		'goso_header_pb_social_icon_mobile_section_icon_style',
+		'goso_header_pb_social_icon_mobile_section_icon_color',
+		'goso_header_pb_social_icon_mobile_section_spacing',
+		'goso_header_pb_social_icon_mobile_section_goso_rel_type_social',
+		'goso_header_pb_social_icon_mobile_section_bg_color',
+		'goso_header_pb_social_icon_mobile_section_bg_hv_color',
+		'goso_header_pb_social_icon_mobile_section_border_color',
+		'goso_header_pb_social_icon_mobile_section_border_hv_color',
+		'goso_header_pb_social_icon_mobile_section_color',
+		'goso_header_pb_social_icon_mobile_section_hv_color',
 	],
 	'container_inclusive' => true,
 	'render_callback'     => function () {

@@ -15,7 +15,7 @@ extract( $atts );
 $class_to_filter = '';
 $class_to_filter .= vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-block-popular-cat widget_categories widget widget_categories';
+$css_class = 'goso-block-vc goso-block-popular-cat widget_categories widget widget_categories';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'popular_cat' );
@@ -37,7 +37,7 @@ $cat_args = array(
 ?>
 <div id="<?php echo esc_attr( $block_id ) ?>" class="<?php echo esc_attr( $css_class ); ?>">
 	<?php Goso_Vc_Helper::markup_block_title( $atts );  ?>
-	<div class="penci-div-inner">
+	<div class="goso-div-inner">
 		<ul>
 			<?php
 			wp_list_categories( $cat_args );

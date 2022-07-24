@@ -6,10 +6,10 @@ extract( $atts );
 
 wp_enqueue_script( 'wpb_composer_front_js' );
 
-$width = penci_wpb_translateColumnWidthToSpan( $width, $order );
+$width = goso_wpb_translateColumnWidthToSpan( $width, $order );
 $css_classes = array(
 	$this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation ),
-	'penci-vc-column',
+	'goso-vc-column',
 	$width
 );
 
@@ -20,7 +20,7 @@ if ( ! empty( $el_id ) ) {
 	$wrapper_attributes[] = 'id="' . esc_attr( $el_id ) . '"';
 }
 $output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
-$innerColumnClass = 'penci-column-inner ' . esc_attr( trim( vc_shortcode_custom_css_class( $css ) ) );
+$innerColumnClass = 'goso-column-inner ' . esc_attr( trim( vc_shortcode_custom_css_class( $css ) ) );
 $output .= '<div class="' . trim( $innerColumnClass ) . '">';
 $output .= '<div class="wpb_wrapper">';
 $output .= wpb_js_remove_wpautop( $content );

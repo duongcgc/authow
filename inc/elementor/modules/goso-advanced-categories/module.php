@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 
 	public function get_name() {
-		return 'penci-advanced-categories';
+		return 'goso-advanced-categories';
 	}
 
 	public function get_widgets() {

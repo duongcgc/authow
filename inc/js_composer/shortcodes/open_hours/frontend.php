@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $working_hours         = $row_gap = $subtitle_martop = '';
 $ophour_icon_color     = $ophour_icon_size = '';
@@ -18,14 +18,14 @@ if( ! $working_hours ) {
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-working-hours';
+$css_class = 'goso-block-vc goso-working-hours';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'open_hours' );
 ?>
 	<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-		<div class="penci-block_content">
-			<div class="penci-workingh-lists">
+		<div class="goso-block_content">
+			<div class="goso-workingh-lists">
 				<ul>
 					<?php foreach ( (array)$working_hours as $hour ):
 						$icon = isset( $hour['icon'] ) ? $hour['icon'] : '';
@@ -34,28 +34,28 @@ $block_id = Goso_Vc_Helper::get_unique_id_block( 'open_hours' );
 						$subtitle = isset( $hour['subtitle'] ) ? $hour['subtitle'] : '';
 
 						?>
-						<li class="penci-workingh-item">
-							<div class="penci-workingh-item-inner">
-								<div class="penci-workingh-line1">
-									<div class="penci-icontitle">
+						<li class="goso-workingh-item">
+							<div class="goso-workingh-item-inner">
+								<div class="goso-workingh-line1">
+									<div class="goso-icontitle">
 										<?php
 										if ( $icon ) {
-											echo '<i class="penci-listitem-icon ' . $icon . '"></i>';
+											echo '<i class="goso-listitem-icon ' . $icon . '"></i>';
 										}
 										if ( $title ) {
-											echo '<span class="penci-listitem-title">' . $title . '</span>';
+											echo '<span class="goso-listitem-title">' . $title . '</span>';
 										}
 										?>
 									</div>
 									<?php
 									if ( $hours ) {
-										echo '<span class="penci-listitem-hours">' . $hours . '</span>';
+										echo '<span class="goso-listitem-hours">' . $hours . '</span>';
 									}
 									?>
 								</div>
 								<?php
 								if ( $subtitle ) {
-									echo '<span class="penci-listitem-subtitle">' . $subtitle . '</span>';
+									echo '<span class="goso-listitem-subtitle">' . $subtitle . '</span>';
 								}
 								?>
 							</div>
@@ -72,37 +72,37 @@ $id_open_hours = '#' . $block_id;
 $css_custom = Goso_Vc_Helper::get_heading_block_css( $id_open_hours, $atts );
 
 if ( $row_gap ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-item{ margin-bottom: ' . esc_attr( $row_gap ) . 'px;}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-item{ margin-bottom: ' . esc_attr( $row_gap ) . 'px;}';
 }
 if ( $subtitle_martop ) {
-	$css_custom .= $id_open_hours . ' .penci-listitem-subtitle{ margin-top: ' . esc_attr( $subtitle_martop ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-listitem-subtitle{ margin-top: ' . esc_attr( $subtitle_martop ) . ';}';
 }
 if ( $ophour_icon_color ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-icon{ color: ' . esc_attr( $ophour_icon_color ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-icon{ color: ' . esc_attr( $ophour_icon_color ) . ';}';
 }
 if ( $ophour_icon_size ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-icon{ font-size: ' . esc_attr( $ophour_icon_size ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-icon{ font-size: ' . esc_attr( $ophour_icon_size ) . ';}';
 }
 if ( $ophour_title_color ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-title{ color: ' . esc_attr( $ophour_title_color ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-title{ color: ' . esc_attr( $ophour_title_color ) . ';}';
 }
 if ( $ophour_title_size ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-title{ font-size: ' . esc_attr( $ophour_title_size ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-title{ font-size: ' . esc_attr( $ophour_title_size ) . ';}';
 }
 if ( $ophour_subtitle_color ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-subtitle{ color: ' . esc_attr( $ophour_subtitle_color ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-subtitle{ color: ' . esc_attr( $ophour_subtitle_color ) . ';}';
 }
 if ( $ophour_subtitle_size ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-subtitle{ font-size: ' . esc_attr( $ophour_subtitle_size ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-subtitle{ font-size: ' . esc_attr( $ophour_subtitle_size ) . ';}';
 }
 if ( $ophour_hour_color ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-hours{ color: ' . esc_attr( $ophour_hour_color ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-hours{ color: ' . esc_attr( $ophour_hour_color ) . ';}';
 }
 if ( $ophour_hour_size ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-hours{ font-size: ' . esc_attr( $ophour_hour_size ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-hours{ font-size: ' . esc_attr( $ophour_hour_size ) . ';}';
 }
 if ( $ophour_hour_weight ) {
-	$css_custom .= $id_open_hours . ' .penci-workingh-lists .penci-listitem-hours{ font-weight: ' . esc_attr( $ophour_hour_weight ) . ';}';
+	$css_custom .= $id_open_hours . ' .goso-workingh-lists .goso-listitem-hours{ font-weight: ' . esc_attr( $ophour_hour_weight ) . ';}';
 }
 
 if ( $css_custom ) {

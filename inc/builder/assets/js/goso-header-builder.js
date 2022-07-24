@@ -2,10 +2,10 @@
     "use strict";
     var PENCI = PENCI || {};
     PENCI.sticky_header = function () {
-        var headersticky = $('.penci_header.penci_builder_sticky_header_desktop'),
-            headertop = $('.penci_header.penci-header-builder.main-builder-header'),
+        var headersticky = $('.goso_header.goso_builder_sticky_header_desktop'),
+            headertop = $('.goso_header.goso-header-builder.main-builder-header'),
             headernormal = headertop.outerHeight(),
-            headermobile = $('.penci_navbar_mobile'),
+            headermobile = $('.goso_navbar_mobile'),
             lastScrollTop = 0;
 
         $(window).on('scroll', function () {
@@ -41,21 +41,21 @@
     }
 
     PENCI.main_menu = function () {
-        $('.navigation ul.menu > li.penci-mega-menu').on('mouseenter', function () {
+        $('.navigation ul.menu > li.goso-mega-menu').on('mouseenter', function () {
             var $this = $(this),
                 $row_active = $this.find('.row-active'),
-                $rowsLazy = $row_active.find('.penci-lazy');
+                $rowsLazy = $row_active.find('.goso-lazy');
             $row_active.fadeIn('200').css('display', 'inline-block');
         });
 
-        $('.navigation .penci-mega-child-categories a').on('mouseenter', function () {
+        $('.navigation .goso-mega-child-categories a').on('mouseenter', function () {
             if (!$(this).hasClass('cat-active')) {
                 var $this = $(this),
                     $row_active = $this.data('id'),
                     $parentA = $this.parent().children('a'),
-                    $parent = $this.closest('.penci-megamenu'),
-                    $rows = $this.closest('.penci-megamenu').find('.penci-mega-latest-posts').children('.penci-mega-row'),
-                    $rowsLazy = $rows.find('.penci-lazy');
+                    $parent = $this.closest('.goso-megamenu'),
+                    $rows = $this.closest('.goso-megamenu').find('.goso-mega-latest-posts').children('.goso-mega-row'),
+                    $rowsLazy = $rows.find('.goso-lazy');
                 $parentA.removeClass('cat-active');
                 $this.addClass('cat-active');
                 $rows.hide();
@@ -79,7 +79,7 @@
             $('body').addClass('open-mobile-builder-sidebar-nav');
         });
 
-        $('.pc-builder-element nav.penci-vernav-cparent li.menu-item-has-children > a').on('click', function (e) {
+        $('.pc-builder-element nav.goso-vernav-cparent li.menu-item-has-children > a').on('click', function (e) {
             var $this = $(this);
             e.preventDefault();
             $this.children().children().toggleClass('fa-angle-up');

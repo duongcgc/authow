@@ -1,6 +1,6 @@
 <?php
-if ( ! function_exists( 'penci_header_default' ) ) {
-	function penci_header_default( $option ) {
+if ( ! function_exists( 'goso_header_default' ) ) {
+	function goso_header_default( $option ) {
 		$default = '';
 
 		switch ( $option ) {
@@ -32,7 +32,7 @@ if ( ! function_exists( 'penci_header_default' ) ) {
 }
 
 
-function penci_builder_menu_list() {
+function goso_builder_menu_list() {
 	$menu_list = [ '' => '' ];
 	$menus     = wp_get_nav_menus();
 	if ( ! empty( $menus ) ) {
@@ -44,8 +44,8 @@ function penci_builder_menu_list() {
 	return $menu_list;
 }
 
-if ( ! function_exists( 'penci_can_render_header' ) ) {
-	function penci_can_render_header( $device, $row ) {
+if ( ! function_exists( 'goso_can_render_header' ) ) {
+	function goso_can_render_header( $device, $row ) {
 		$columns    = array();
 		$can_render = false;
 
@@ -60,8 +60,8 @@ if ( ! function_exists( 'penci_can_render_header' ) ) {
 		foreach ( $columns as $column ) {
 
 
-			$setting_element = "penci_hb_element_{$device}_{$row}_{$column}";
-			$default_element = penci_get_builder_mod( $setting_element );
+			$setting_element = "goso_hb_element_{$device}_{$row}_{$column}";
+			$default_element = goso_get_builder_mod( $setting_element );
 			$default_element = ! empty( $default_element ) ? explode( ',', $default_element ) : $default_element;
 
 
@@ -75,46 +75,46 @@ if ( ! function_exists( 'penci_can_render_header' ) ) {
 	}
 }
 
-function penci_hb_element_desktop_top_preview_render() {
+function goso_hb_element_desktop_top_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-top.php' );
 }
 
-function penci_hb_element_desktop_topblock_preview_render() {
+function goso_hb_element_desktop_topblock_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-topblock.php' );
 }
 
-function penci_hb_element_desktop_mid_preview_render() {
+function goso_hb_element_desktop_mid_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-mid.php' );
 }
 
-function penci_hb_element_desktop_bottom_preview_render() {
+function goso_hb_element_desktop_bottom_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-bottom.php' );
 }
 
-function penci_hb_element_desktop_bottomblock_preview_render() {
+function goso_hb_element_desktop_bottomblock_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-bottomblock.php' );
 }
 
-function penci_hb_element_mobile_top_preview_render() {
+function goso_hb_element_mobile_top_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/mobile-top.php' );
 }
 
-function penci_hb_element_mobile_mid_preview_render() {
+function goso_hb_element_mobile_mid_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/mobile-mid.php' );
 }
 
-function penci_hb_element_mobile_bottom_preview_render() {
+function goso_hb_element_mobile_bottom_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/mobile-bottom.php' );
 }
 
-function penci_hb_element_desktop_sticky_top_preview_render() {
+function goso_hb_element_desktop_sticky_top_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-top.php' );
 }
 
-function penci_hb_element_desktop_sticky_mid_preview_render() {
+function goso_hb_element_desktop_sticky_mid_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-mid.php' );
 }
 
-function penci_hb_element_desktop_sticky_bottom_preview_render() {
+function goso_hb_element_desktop_sticky_bottom_preview_render() {
 	load_template( PENCI_BUILDER_PATH . '/template/desktop-sticky-bottom.php' );
 }

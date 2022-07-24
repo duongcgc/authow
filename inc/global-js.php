@@ -3,11 +3,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if( ! function_exists('penci_global_js') ) {
-	function penci_global_js(){
+if( ! function_exists('goso_global_js') ) {
+	function goso_global_js(){
 
 		$output = '<script>' . "\n";
-		$output .= 'var penciBlocksArray=[];' . "\n";
+		$output .= 'var gosoBlocksArray=[];' . "\n";
 		$output .= 'var portfolioDataJs = portfolioDataJs || [];';
 		$output .= 'var PENCILOCALCACHE = {};
 		(function () {
@@ -32,7 +32,7 @@ if( ! function_exists('penci_global_js') ) {
 			}
 		)();';
 
-		$output .= "function penciBlock() {
+		$output .= "function gosoBlock() {
 		    this.atts_json = '';
 		    this.content = '';
 		}";
@@ -42,4 +42,4 @@ if( ! function_exists('penci_global_js') ) {
 	}
 }
 
-add_action('wp_head', 'penci_global_js', 10);
+add_action('wp_head', 'goso_global_js', 10);

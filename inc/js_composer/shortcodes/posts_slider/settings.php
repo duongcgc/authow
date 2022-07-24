@@ -1,12 +1,12 @@
 <?php
 $group_color = 'Typo & Color';
 vc_map( array(
-	'base'          => 'penci_posts_slider',
+	'base'          => 'goso_posts_slider',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/posts_slider/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Widget Posts Slider', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Widget Posts Slider', 'authow' ),
 	'description'   => __( 'Posts Slider Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -31,7 +31,7 @@ vc_map( array(
                     'Style 3' => 'style-3',
                 ),
                 'std' => 'style-1',
-                'param_name' => 'penci_style',
+                'param_name' => 'goso_style',
             ),
             array(
                 'type' => 'dropdown',
@@ -42,7 +42,7 @@ vc_map( array(
                     'Vertical Size' => 'vertical',
                 ),
                 'std' => 'horizontal',
-                'param_name' => 'penci_size',
+                'param_name' => 'goso_size',
             ),
 			array(
 				'type'       => 'checkbox',
@@ -75,7 +75,7 @@ vc_map( array(
                 'heading'          => esc_html__( 'General Posts', 'authow' ),
                 'value'            => '',
                 'group'            => $group_color,
-                'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+                'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
             ),
 
             // Post title
@@ -94,7 +94,7 @@ vc_map( array(
                 'edit_field_class' => 'vc_col-sm-6',
             ),
             array(
-                'type'             => 'penci_number',
+                'type'             => 'goso_number',
                 'param_name'       => 'ptitle_fsize',
                 'heading'          => __( 'Font Size for Post Title', 'authow' ),
                 'value'            => '',
@@ -120,8 +120,8 @@ vc_map( array(
                 'dependency' => array( 'element' => 'use_ptitle_typo', 'value' => 'yes' ),
             ),
             array(
-                'type'       => 'penci_separator',
-                'param_name' => 'penci_separator1',
+                'type'       => 'goso_separator',
+                'param_name' => 'goso_separator1',
                 'group'      => $group_color,
             ),
             // Post meta
@@ -133,7 +133,7 @@ vc_map( array(
                 'edit_field_class' => 'vc_col-sm-6',
             ),
             array(
-                'type'             => 'penci_number',
+                'type'             => 'goso_number',
                 'param_name'       => 'pmeta_fsize',
                 'heading'          => __( 'Font Size for Post Meta', 'authow' ),
                 'value'            => '',

@@ -17,7 +17,7 @@
                     dataType: "json",
                     url: $ajaxurl,
                     data: {
-                        action: "penci_render_separate_css_file",
+                        action: "goso_render_separate_css_file",
                         _nonce: $nonce,
                     },
                     success: function () {
@@ -29,7 +29,7 @@
                 });
             });
 
-            $('[data-type="penci_speed_delete_cache"]').on('click', function (event) {
+            $('[data-type="goso_speed_delete_cache"]').on('click', function (event) {
                 var $this = $(this),
                     $nonce = $this.data('nonce'),
                     $ajaxurl = $this.data('ajaxurl'),
@@ -41,7 +41,7 @@
                     dataType: "json",
                     url: $ajaxurl,
                     data: {
-                        action: "penci_speed_delete_cache",
+                        action: "goso_speed_delete_cache",
                         _nonce: $nonce,
                     },
                     success: function () {

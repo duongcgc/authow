@@ -1,17 +1,17 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'              => 'penci_header_pb_main_menu_name',
+	'id'              => 'goso_header_pb_main_menu_name',
 	'default'         => '',
 	'transport'       => 'postMessage',
-	'sanitize'        => 'penci_sanitize_choices_field',
+	'sanitize'        => 'goso_sanitize_choices_field',
 	'type'            => 'authow-fw-select',
 	
 	'label'           => esc_html__( 'Select Menu', 'authow' ),
-	'choices'         => penci_builder_menu_list(),
+	'choices'         => goso_builder_menu_list(),
 	'description'     => sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to add new or edit your menus.', 'authow' ), admin_url( 'nav-menus.php' ) ),
 	'partial_refresh' => [
-		'penci_header_pb_main_menu_name' => [
+		'goso_header_pb_main_menu_name' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -20,10 +20,10 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_header_enable_padding',
+	'id'        => 'goso_header_pb_main_menu_goso_header_enable_padding',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Enable Padding on Menu Item Level 1',
 	
 	'type'      => 'authow-fw-select',
@@ -33,10 +33,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'          => 'penci_header_pb_main_menu_penci_header_remove_line_hover',
+	'id'          => 'goso_header_pb_main_menu_goso_header_remove_line_hover',
 	'default'     => 'disable',
 	'transport'   => 'postMessage',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Hide Line When Hover on Menu Items Level 1',
 	
 	'description' => __( 'You can change the sub menu style via Customize > Logo & Header > Main Bar & Primary Menu > Sub Menu Style', 'authow' ),
@@ -47,19 +47,19 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_font_for_menu',
+	'id'        => 'goso_header_pb_main_menu_goso_font_for_menu',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Custom Font For Menu Items',
 	'type'      => 'authow-fw-select',
-	'choices'   => penci_all_fonts( 'select' )
+	'choices'   => goso_all_fonts( 'select' )
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_font_weight_menu',
+	'id'        => 'goso_header_pb_main_menu_goso_font_weight_menu',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font Weight For Primary Menu Items',
 	
 	'type'      => 'authow-fw-select',
@@ -81,10 +81,10 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_uppercase',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_uppercase',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Turn Off Uppercase on Menu items',
 	'type'      => 'authow-fw-select',
 	'choices'   => [
@@ -93,7 +93,7 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_section_slogan_heading',
+	'id'        => 'goso_header_pb_main_menu_goso_section_slogan_heading',
 	'sanitize'  => 'sanitize_text_field',
 	'transport' => 'postMessage',
 	'label'     => esc_html__( 'Menu Colors', 'authow' ),
@@ -101,7 +101,7 @@ $options[] = array(
 	'type'      => 'authow-fw-header',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -109,7 +109,7 @@ $options[] = array(
 	'label'     => 'Menu Items Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_hv_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -117,7 +117,7 @@ $options[] = array(
 	'label'     => 'Menu Items Hover Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_active_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_active_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -125,7 +125,7 @@ $options[] = array(
 	'label'     => 'Menu Items Active Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_line_hv_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_line_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -133,7 +133,7 @@ $options[] = array(
 	'label'     => 'Line Hover Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_bg_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -141,7 +141,7 @@ $options[] = array(
 	'label'     => 'Menu Items Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_menu_bg_hv_color',
+	'id'        => 'goso_header_pb_main_menu_goso_menu_bg_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -149,7 +149,7 @@ $options[] = array(
 	'label'     => 'Menu Items Hover Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_submenu_bgcolor',
+	'id'        => 'goso_header_pb_main_menu_goso_submenu_bgcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -157,7 +157,7 @@ $options[] = array(
 	'label'     => 'Sub Menu Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_submenu_color',
+	'id'        => 'goso_header_pb_main_menu_goso_submenu_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -165,7 +165,7 @@ $options[] = array(
 	'label'     => 'Sub Menu Items Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_submenu_hv_color',
+	'id'        => 'goso_header_pb_main_menu_goso_submenu_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -173,7 +173,7 @@ $options[] = array(
 	'label'     => 'Sub Menu Items Hover Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_submenu_activecl',
+	'id'        => 'goso_header_pb_main_menu_goso_submenu_activecl',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -181,7 +181,7 @@ $options[] = array(
 	'label'     => 'Sub Menu Items Active Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_submenu_bordercolor',
+	'id'        => 'goso_header_pb_main_menu_goso_submenu_bordercolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -189,7 +189,7 @@ $options[] = array(
 	'label'     => 'Sub Menu Borders Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_bg_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -197,7 +197,7 @@ $options[] = array(
 	'label'     => 'Category Mega Menu Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_child_cat_bg_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_child_cat_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -205,7 +205,7 @@ $options[] = array(
 	'label'     => 'Category Mega Menu List Child Categories Background Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_post_category_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_post_category_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -213,7 +213,7 @@ $options[] = array(
 	'label'     => 'Mega Menu Post Category Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_post_title_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_post_title_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -221,7 +221,7 @@ $options[] = array(
 	'label'     => 'Category Mega Menu Post Title Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_post_date_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_post_date_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -229,7 +229,7 @@ $options[] = array(
 	'label'     => 'Category Mega Menu Post Date Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_accent_color',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_accent_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -237,7 +237,7 @@ $options[] = array(
 	'label'     => 'Category Mega Menu Accent Color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_mega_border_style2',
+	'id'        => 'goso_header_pb_main_menu_goso_mega_border_style2',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -245,7 +245,7 @@ $options[] = array(
 	'label'     => 'Borders Color for Category Mega on Menu Style2',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_drop_border_style2',
+	'id'        => 'goso_header_pb_main_menu_drop_border_style2',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -253,7 +253,7 @@ $options[] = array(
 	'label'     => 'Dropdown Borders on Hover for Menu Style2',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_section_slogan_heading_1',
+	'id'        => 'goso_header_pb_main_menu_goso_section_slogan_heading_1',
 	'sanitize'  => 'sanitize_text_field',
 	'transport' => 'postMessage',
 	'label'     => esc_html__( 'Menu Font Size', 'authow' ),
@@ -261,14 +261,14 @@ $options[] = array(
 	'type'      => 'authow-fw-header',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_line_height_lv1',
+	'id'        => 'goso_header_pb_main_menu_goso_line_height_lv1',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-size',
 	'sanitize'  => 'absint',
 	'label'     => __( 'Height for Menu Items Level 1', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_main_menu_penci_line_height_lv1',
+		'desktop' => 'goso_header_pb_main_menu_goso_line_height_lv1',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -281,14 +281,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_font_size_lv1',
+	'id'        => 'goso_header_pb_main_menu_goso_font_size_lv1',
 	'default'   => '12',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Font Size for Menu Items Level 1', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_main_menu_penci_font_size_lv1',
+		'desktop' => 'goso_header_pb_main_menu_goso_font_size_lv1',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -301,14 +301,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_font_size_drop',
+	'id'        => 'goso_header_pb_main_menu_goso_font_size_drop',
 	'default'   => '12',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Font Size for Dropdown Menu Items', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_main_menu_penci_font_size_drop',
+		'desktop' => 'goso_header_pb_main_menu_goso_font_size_drop',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -321,14 +321,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_penci_lv1_item_spacing',
+	'id'        => 'goso_header_pb_main_menu_goso_lv1_item_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => __( 'Space Between Menu Items Level 1', 'authow' ),
 	'ids'       => array(
-		'desktop' => 'penci_header_pb_main_menu_penci_lv1_item_spacing',
+		'desktop' => 'goso_header_pb_main_menu_goso_lv1_item_spacing',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -341,10 +341,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_spacing',
+	'id'        => 'goso_header_pb_main_menu_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -363,10 +363,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_main_menu_class',
+	'id'        => 'goso_header_pb_main_menu_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

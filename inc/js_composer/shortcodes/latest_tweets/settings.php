@@ -3,18 +3,18 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_latest_tweets",
+	'base'          => "goso_latest_tweets",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name( 'Authow' ),
+	'category'      => goso_get_theme_name( 'Authow' ),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/latest_tweets/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( 'Latest Tweets', 'authow' ),
+	'name'          => goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( 'Latest Tweets', 'authow' ),
 	'description'   => 'Latest Tweets Block',
 	'controls'      => 'full',
 	'params'        => array_merge( array(
 		array(
 			'param_name' => 'custom_markup',
-			'type'       => 'penci_custom_markup',
+			'type'       => 'goso_custom_markup',
 			'value'      => '<span style="color: #ff0000;">Note Important:</span> To use this widget you need fill complete your twitter information <a target="_blank" href="' . admin_url( 'options-general.php?page=tdf_settings' ) . '">here</a>',
 		),
 		array(
@@ -76,7 +76,7 @@ vc_map( array(
 			'heading'          => esc_html__( 'Tweets colors', 'authow' ),
 			'value'            => '',
 			'group'            => $group_color,
-			'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+			'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 		),
 		array(
 			'type'             => 'colorpicker',
@@ -86,7 +86,7 @@ vc_map( array(
 			'edit_field_class' => 'vc_col-sm-6',
 		),
 		array(
-			'type'             => 'penci_number',
+			'type'             => 'goso_number',
 			'param_name'       => 'tweets_text_size',
 			'heading'          => __( 'Font size for Text', 'authow' ),
 			'value'            => '',
@@ -104,7 +104,7 @@ vc_map( array(
 			'edit_field_class' => 'vc_col-sm-6',
 		),
 		array(
-			'type'             => 'penci_number',
+			'type'             => 'goso_number',
 			'param_name'       => 'tweets_date_size',
 			'heading'          => __( 'Font size for Date', 'authow' ),
 			'value'            => '',
@@ -122,7 +122,7 @@ vc_map( array(
 			'edit_field_class' => 'vc_col-sm-6',
 		),
 		array(
-			'type'             => 'penci_number',
+			'type'             => 'goso_number',
 			'param_name'       => 'tweets_link_size',
 			'heading'          => __( 'Font size for Link', 'authow' ),
 			'value'            => '',

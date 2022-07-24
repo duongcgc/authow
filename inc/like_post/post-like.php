@@ -6,14 +6,14 @@
  * @since 1.0
  */
 
-add_action( 'wp_ajax_nopriv_penci-post-like', 'penci_post_like' );
-add_action( 'wp_ajax_penci-post-like', 'penci_post_like' );
-function penci_post_like() {
+add_action( 'wp_ajax_nopriv_goso-post-like', 'goso_post_like' );
+add_action( 'wp_ajax_goso-post-like', 'goso_post_like' );
+function goso_post_like() {
 	$nonce = $_POST['nonce'];
 	if ( ! wp_verify_nonce( $nonce, 'ajax-nonce' ) )
 		die ( 'Nope!' );
 
-	if ( isset( $_POST['penci_post_like'] ) ) {
+	if ( isset( $_POST['goso_post_like'] ) ) {
 
 		$post_id         = $_POST['post_id']; // post id
 		$post_like_count = get_post_meta( $post_id, "_post_like_count", true ); // post like count
@@ -48,7 +48,7 @@ function penci_post_like() {
 			$liked_USERS['user-' . $user_id] = $user_id; // add user id to post meta array
 			$user_likes                      = count( $liked_POSTS ); // count user likes
 
-			if ( ! penci_AlreadyLiked( $post_id ) ) { // like the post
+			if ( ! goso_AlreadyLiked( $post_id ) ) { // like the post
 				update_post_meta( $post_id, "_user_liked", $liked_USERS ); // Add user ID to post meta
 				update_post_meta( $post_id, "_post_like_count", ++ $post_like_count ); // +1 count post meta
 				update_user_option( $user_id, "_liked_posts", $liked_POSTS ); // Add post ID to user meta
@@ -86,7 +86,7 @@ function penci_post_like() {
 			if ( ! in_array( $ip, $liked_IPS ) ) // if IP not in array
 				$liked_IPS['ip-' . $ip] = $ip; // add IP to array
 
-			if ( ! penci_AlreadyLiked( $post_id ) ) { // like the post
+			if ( ! goso_AlreadyLiked( $post_id ) ) { // like the post
 				update_post_meta( $post_id, "_user_IP", $liked_IPS ); // Add user IP to post meta
 				update_post_meta( $post_id, "_post_like_count", ++ $post_like_count ); // +1 count post meta
 				echo absint( $post_like_count ); // update count on front end
@@ -109,7 +109,7 @@ function penci_post_like() {
 /**
  * Check if user is liked post
  */
-function penci_AlreadyLiked( $post_id ) { // test if user liked before
+function goso_AlreadyLiked( $post_id ) { // test if user liked before
 	if ( is_user_logged_in() ) { // user is logged in
 		$user_id     = get_current_user_id(); // current user
 		$meta_USERS  = get_post_meta( $post_id, "_user_liked" ); // user ids from post meta
@@ -154,15 +154,15 @@ function penci_AlreadyLiked( $post_id ) { // test if user liked before
 /**
  * Front end button like post
  */
-function penci_getPostLikeLink( $post_id ) {
-	if( get_theme_mod( 'penci__hide_share_plike' ) ) {
+function goso_getPostLikeLink( $post_id ) {
+	if( get_theme_mod( 'goso__hide_share_plike' ) ) {
 		return;
 	}
 
 	$like_count = get_post_meta( $post_id, "_post_like_count", true ); // get post likes
 	if( ! $like_count ): $like_count = '0'; endif;
 
-	if ( penci_AlreadyLiked( $post_id ) ) {
+	if ( goso_AlreadyLiked( $post_id ) ) {
 		$class = esc_attr( ' liked' );
 		$title = esc_html__( 'Unlike', 'authow' );
 	}
@@ -170,7 +170,7 @@ function penci_getPostLikeLink( $post_id ) {
 		$class = '';
 		$title = esc_html__( 'Like', 'authow' );
 	}
-	$return = '<a href="#" class="penci-post-like' . $class . '" aria-label="Like this post" data-post_id="' . $post_id . '" title="' . $title . '" data-like="' . esc_html__( 'Like', 'authow' ) . '" data-unlike="' . esc_html__( 'Unlike', 'authow' ) . '">' . penci_icon_by_ver('far fa-heart') . '<span class="dt-share">'. sanitize_text_field( $like_count ) .'</span></a>';
+	$return = '<a href="#" class="goso-post-like' . $class . '" aria-label="Like this post" data-post_id="' . $post_id . '" title="' . $title . '" data-like="' . esc_html__( 'Like', 'authow' ) . '" data-unlike="' . esc_html__( 'Unlike', 'authow' ) . '">' . goso_icon_by_ver('far fa-heart') . '<span class="dt-share">'. sanitize_text_field( $like_count ) .'</span></a>';
 
 	return $return;
 }
@@ -178,11 +178,11 @@ function penci_getPostLikeLink( $post_id ) {
 /**
  * Front end button like post in single
  */
-function penci_single_getPostLikeLink( $post_id ) {
+function goso_single_getPostLikeLink( $post_id ) {
 	$like_count = get_post_meta( $post_id, "_post_like_count", true ); // get post likes
 	if( ! $like_count ): $like_count = '0'; endif;
 
-	if ( penci_AlreadyLiked( $post_id ) ) {
+	if ( goso_AlreadyLiked( $post_id ) ) {
 		$class = esc_attr( ' liked' );
 		$title = esc_html__( 'Unlike', 'authow' );
 	}
@@ -190,7 +190,7 @@ function penci_single_getPostLikeLink( $post_id ) {
 		$class = '';
 		$title = esc_html__( 'Like', 'authow' );
 	}
-	$return = '<span class="count-number-like">'. sanitize_text_field( $like_count ) .'</span><a href="#" aria-label="Like this post" class="penci-post-like single-like-button' . $class . '" data-post_id="' . $post_id . '" title="' . $title . '" data-like="' . esc_html__( 'Like', 'authow' ) . '" data-unlike="' . esc_html__( 'Unlike', 'authow' ) . '">' . penci_icon_by_ver('far fa-heart') . '</a>';
+	$return = '<span class="count-number-like">'. sanitize_text_field( $like_count ) .'</span><a href="#" aria-label="Like this post" class="goso-post-like single-like-button' . $class . '" data-post_id="' . $post_id . '" title="' . $title . '" data-like="' . esc_html__( 'Like', 'authow' ) . '" data-unlike="' . esc_html__( 'Unlike', 'authow' ) . '">' . goso_icon_by_ver('far fa-heart') . '</a>';
 
 	return $return;
 }
@@ -198,7 +198,7 @@ function penci_single_getPostLikeLink( $post_id ) {
 /**
  * Front end count like post
  */
-function penci_getPostCountLike( $post_id ) {
+function goso_getPostCountLike( $post_id ) {
 	$like_count = get_post_meta( $post_id, "_post_like_count", true ); // get post likes
 	$count      = ( ! isset( $like_count ) || empty( $like_count ) ) ? '0' : $like_count;
 

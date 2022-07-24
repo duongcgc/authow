@@ -22,6 +22,6 @@ if ( file_exists( $root . '/wp-load.php' ) ) {
 	return;
 }
 
-pencidesign_get_customizer_css_file();
-pencidesign_customizer_css_page_header_title();
-pencidesign_customizer_css_page_header_transparent();
+gosodesign_get_customizer_css_file();
+gosodesign_customizer_css_page_header_title();
+gosodesign_customizer_css_page_header_transparent();

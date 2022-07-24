@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoMailChimp extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-mail-chimp';
+		return 'goso-mail-chimp';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Mail Chimp', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Mail Chimp', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoMailChimp extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -81,7 +81,7 @@ class GosoMailChimp extends Base_Widget {
 				'condition' => array( 'mailchimp_style' => array( 's2', 's3' ) ),
 				'selectors' => array(
 					'{{WRAPPER}} .footer-subscribe,' .
-					'{{WRAPPER}} .penci-header-signup-form' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-header-signup-form' => 'background-color: {{VALUE}};',
 				),
 
 			)
@@ -100,8 +100,8 @@ class GosoMailChimp extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-header-signup-form .mc4wp-form-fields > p,' .
-					'{{WRAPPER}} .penci-header-signup-form form > p,' .
+					'{{WRAPPER}} .goso-header-signup-form .mc4wp-form-fields > p,' .
+					'{{WRAPPER}} .goso-header-signup-form form > p,' .
 					'{{WRAPPER}} .footer-subscribe .mc4wp-form .mdes,' .
 					'{{WRAPPER}} .mc4wp-form-fields' => 'color: {{VALUE}};'
 				)
@@ -111,7 +111,7 @@ class GosoMailChimp extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'mc4wp_des_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-header-signup-form .mc4wp-form-fields > p,{{WRAPPER}} .penci-header-signup-form form > p,{{WRAPPER}} .footer-subscribe .mc4wp-form .mdes,{{WRAPPER}} .mc4wp-form-fields'
+				'selector' => '{{WRAPPER}} .goso-header-signup-form .mc4wp-form-fields > p,{{WRAPPER}} .goso-header-signup-form form > p,{{WRAPPER}} .footer-subscribe .mc4wp-form .mdes,{{WRAPPER}} .mc4wp-form-fields'
 			)
 		);
 		$this->add_responsive_control(
@@ -283,19 +283,19 @@ class GosoMailChimp extends Base_Widget {
 
 		$mailchimp_style = $settings['mailchimp_style'];
 
-		$css_class = 'penci-block-vc penci-mailchimp-block';
-		$css_class .= ' penci-mailchimp-' . $mailchimp_style;
+		$css_class = 'goso-block-vc goso-mailchimp-block';
+		$css_class .= ' goso-mailchimp-' . $mailchimp_style;
 
 		$class_signup_form = 'widget widget_mc4wp_form_widget';
 		if ( 's2' == $mailchimp_style ) {
-			$class_signup_form .= ' penci-header-signup-form';
+			$class_signup_form .= ' goso-header-signup-form';
 		} elseif ( 's3' == $mailchimp_style ) {
 			$class_signup_form .= ' footer-subscribe';
 		}
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
+			<div class="goso-block_content">
 				<div class="<?php echo esc_attr( $class_signup_form ); ?>">
 					<?php
 					if ( function_exists( 'mc4wp_show_form' ) ) {

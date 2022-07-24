@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class PagesOption extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_single_page_panel';
+	public $panelID = 'goso_single_page_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -26,9 +26,9 @@ class PagesOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'penci_section_spage_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'penci_section_spage_header_section', esc_html__( 'Page Header', 'authow' ), $this->panelID, 'Please check <a target="_blank" href="https://imgresources.s3.amazonaws.com/page-header.png">this image</a> to know what is "Page Header"' );
-		$this->add_lazy_section( 'penci_section_spage_404_section', esc_html__( '404 Page', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'penci_section_spage_colors_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_section_spage_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_section_spage_header_section', esc_html__( 'Page Header', 'authow' ), $this->panelID, 'Please check <a target="_blank" href="https://imgresources.s3.amazonaws.com/page-header.png">this image</a> to know what is "Page Header"' );
+		$this->add_lazy_section( 'goso_section_spage_404_section', esc_html__( '404 Page', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_section_spage_colors_section', esc_html__( 'Colors', 'authow' ), $this->panelID );
 	}
 }

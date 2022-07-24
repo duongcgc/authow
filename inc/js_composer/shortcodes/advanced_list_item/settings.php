@@ -3,8 +3,8 @@
 vc_map(
 	array(
 		'name'            => esc_html__( 'Extra menu list item', 'authow' ),
-		'base'            => 'penci_advanced_list_item',
-		'as_child'        => array( 'only' => 'penci_advanced_list' ),
+		'base'            => 'goso_advanced_list_item',
+		'as_child'        => array( 'only' => 'goso_advanced_list' ),
 		'content_element' => true,
 		'category'        => esc_html__( 'Authow', 'authow' ),
 		'description'     => esc_html__( 'A link for your extra menu list', 'authow' ),
@@ -15,7 +15,7 @@ vc_map(
 			 * Link
 			 */
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Link', 'authow' ),
 				'param_name' => 'link_divider',
@@ -39,7 +39,7 @@ vc_map(
 			 * Label
 			 */
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Label', 'authow' ),
 				'param_name' => 'label_divider',
@@ -61,7 +61,7 @@ vc_map(
 			 * Image
 			 */
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Image', 'authow' ),
 				'param_name' => 'image_divider',
@@ -86,7 +86,7 @@ vc_map(
 			 * Extra
 			 */
 			array(
-				'type'       => 'penci_heading_title',
+				'type'       => 'goso_heading_title',
 				'holder'     => 'div',
 				'title'      => esc_html__( 'Extra options', 'authow' ),
 				'param_name' => 'extra_divider',

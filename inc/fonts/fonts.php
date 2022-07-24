@@ -3,9 +3,9 @@
  * Google fonts array
  * Define google font array
  */
-if ( ! function_exists( 'penci_list_google_fonts_array' ) ) {
-	function penci_list_google_fonts_array() {
-		$penci_authow_google_fonts = array(
+if ( ! function_exists( 'goso_list_google_fonts_array' ) ) {
+	function goso_list_google_fonts_array() {
+		$goso_authow_google_fonts = array(
 			'"ABeeZee", "regular:italic", sans-serif'                                                                                                               => 'ABeeZee',
 			'"Abel", "regular", sans-serif'                                                                                                                         => 'Abel',
 			'"Abril Fatface", "regular", cursive'                                                                                                                   => 'Abril Fatface',
@@ -927,12 +927,12 @@ if ( ! function_exists( 'penci_list_google_fonts_array' ) ) {
 			'"Zeyada", "regular", cursive'                                                                                                                          => 'Zeyada',
 		);
 
-		return $penci_authow_google_fonts;
+		return $goso_authow_google_fonts;
 	}
 }
 
-if( ! function_exists( 'penci_font_google_earlyaccess' ) ){
-	function penci_font_google_earlyaccess(){
+if( ! function_exists( 'goso_font_google_earlyaccess' ) ){
+	function goso_font_google_earlyaccess(){
 		return array(
 			'"Cabin VF Beta", "regular", sans-serif'                    => 'Cabin VF Beta',
 			'"Hannari", "regular", serif'                               => 'Hannari',

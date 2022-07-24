@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class PopupOption extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_popup_section_panel';
+	public $panelID = 'goso_popup_section_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -26,8 +26,8 @@ class PopupOption extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'penci_popup_section_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'penci_popup_section_display_section', esc_html__( 'Popup Display', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'penci_popup_section_styles_section', esc_html__( 'Styles & Colors', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_popup_section_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_popup_section_display_section', esc_html__( 'Popup Display', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'goso_popup_section_styles_section', esc_html__( 'Styles & Colors', 'authow' ), $this->panelID );
 	}
 }

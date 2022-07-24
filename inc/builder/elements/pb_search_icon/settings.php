@@ -1,10 +1,10 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_header_search_style',
+	'id'        => 'goso_header_search_style',
 	'default'   => 'showup',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Search Style', 'authow' ),
 	'choices'   => [
@@ -13,10 +13,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_search_icon_btn_style',
+	'id'        => 'goso_header_search_icon_btn_style',
 	'default'   => 'customize',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Search Button Pre-define Style', 'authow' ),
 	'choices'   => [
@@ -27,7 +27,7 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_search_icon_color',
+	'id'        => 'goso_header_search_icon_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -35,7 +35,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_icon_hv_color',
+	'id'        => 'goso_header_search_icon_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -43,10 +43,10 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_btnborder_style',
+	'id'        => 'goso_header_search_btnborder_style',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Button Borders Style', 'authow' ),
 	'choices'   => [
@@ -59,7 +59,7 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_search_icon_bcolor',
+	'id'        => 'goso_header_search_icon_bcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -67,7 +67,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_icon_bhcolor',
+	'id'        => 'goso_header_search_icon_bhcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -75,7 +75,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Hover Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_bgcolor',
+	'id'        => 'goso_header_search_button_bgcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -83,7 +83,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_bghcolor',
+	'id'        => 'goso_header_search_button_bghcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -91,7 +91,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Icon Hover Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_border_color',
+	'id'        => 'goso_header_search_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -99,7 +99,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_bg_color',
+	'id'        => 'goso_header_search_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -107,7 +107,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_input_border_color',
+	'id'        => 'goso_header_search_input_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -115,7 +115,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Input Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_input_bg_color',
+	'id'        => 'goso_header_search_input_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -123,7 +123,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Input Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_input_color',
+	'id'        => 'goso_header_search_input_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -131,7 +131,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Input Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_bg_color',
+	'id'        => 'goso_header_search_button_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -139,7 +139,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Submit Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_bg_hcolor',
+	'id'        => 'goso_header_search_button_bg_hcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -147,7 +147,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Submit Background Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_color',
+	'id'        => 'goso_header_search_button_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -155,7 +155,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Submit Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_button_hcolor',
+	'id'        => 'goso_header_search_button_hcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -163,7 +163,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Search Form Submit Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_o_bgcolor',
+	'id'        => 'goso_header_search_o_bgcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -171,7 +171,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Overlay Search Form Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_o_bdcolor',
+	'id'        => 'goso_header_search_o_bdcolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -179,7 +179,7 @@ $options[] = array(
 	'label'     => esc_html__( 'Overlay Search Input Border Bottom Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_o_closecolor',
+	'id'        => 'goso_header_search_o_closecolor',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'sanitize_hex_color',
@@ -188,14 +188,14 @@ $options[] = array(
 );
 
 $options[] = array(
-	'id'        => 'penci_header_search_icon_size',
+	'id'        => 'goso_header_search_icon_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Search Icon Size',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_search_icon_size',
+		'desktop' => 'goso_header_search_icon_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -208,14 +208,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_input_size',
+	'id'        => 'goso_header_search_input_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Search Form Input Text Size',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_search_input_size',
+		'desktop' => 'goso_header_search_input_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -228,14 +228,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_btn_size',
+	'id'        => 'goso_header_search_btn_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Search Icon Size',
 	'type'      => 'authow-fw-size',
 	'ids'       => array(
-		'desktop' => 'penci_header_search_btn_size',
+		'desktop' => 'goso_header_search_btn_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -248,10 +248,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_btnspacing',
+	'id'        => 'goso_header_search_btnspacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Button Spacing', 'authow' ),
 	'choices'   => array(
@@ -282,10 +282,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_spacing',
+	'id'        => 'goso_header_search_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -304,10 +304,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_search_css_class',
+	'id'        => 'goso_header_search_css_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

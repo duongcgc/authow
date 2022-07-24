@@ -10,7 +10,7 @@ namespace AuthowFW\Customizer;
  */
 class TocOptions extends CustomizerOptionAbstract {
 
-	public $panelID = 'penci_toc_panel';
+	public $panelID = 'goso_toc_panel';
 
 	public function set_option() {
 		$this->set_panel();
@@ -26,7 +26,7 @@ class TocOptions extends CustomizerOptionAbstract {
 	}
 
 	public function set_section() {
-		$this->add_lazy_section( 'pencidesign_toc_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
-		$this->add_lazy_section( 'pencidesign_toc_styles_section', esc_html__( 'Font Sizes & Colors', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_toc_general_section', esc_html__( 'General', 'authow' ), $this->panelID );
+		$this->add_lazy_section( 'gosodesign_toc_styles_section', esc_html__( 'Font Sizes & Colors', 'authow' ), $this->panelID );
 	}
 }

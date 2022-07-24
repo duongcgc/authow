@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoInstagram extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-instagram';
+		return 'goso-instagram';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Instagram Feed', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Instagram Feed', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoInstagram extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -46,7 +46,7 @@ class GosoInstagram extends Base_Widget {
 			[
 				'type'            => Controls_Manager::RAW_HTML,
 				'raw'             => '<span style="color: #ff0000;">Note Important: </span>Please connect to your Instagram accout on <a
-                            href="' . esc_url( admin_url( 'admin.php?page=penci_instgram_token' ) ) . '"
+                            href="' . esc_url( admin_url( 'admin.php?page=goso_instgram_token' ) ) . '"
                             target="_blank">this page</a> first.',
 				'separator'       => 'after',
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
@@ -209,11 +209,11 @@ class GosoInstagram extends Base_Widget {
 
 		$instance = shortcode_atts( $instance_df, $settings );
 
-		$css_class = 'penci-block-vc penci_instagram_widget-sc penci_instagram_widget penci_insta-' . $instance['template'];
+		$css_class = 'goso-block-vc goso_instagram_widget-sc goso_instagram_widget goso_insta-' . $instance['template'];
 		?>
         <div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-block_content">
+            <div class="goso-block_content">
 				<?php \Goso_Instagram_Feed::display_images( $instance ); ?>
             </div>
         </div>

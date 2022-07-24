@@ -87,7 +87,7 @@ class Goso_Custom_Sidebar {
 			'description'   => '',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h4 class="widget-title penci-border-arrow"><span class="inner-arrow">',
+			'before_title'  => '<h4 class="widget-title goso-border-arrow"><span class="inner-arrow">',
 			'after_title'   => '</span></h4>',
 		);
 
@@ -142,7 +142,7 @@ class Goso_Custom_Sidebar {
 		global $wp_registered_sidebars;
 		?>
         <div class="widgets-holder-wrap">
-            <div id="penci-add-custom-sidebar" class="widgets-sortables">
+            <div id="goso-add-custom-sidebar" class="widgets-sortables">
                 <div class="sidebar-name">
                     <div class="sidebar-name-arrow"><br></div>
                     <h2>
@@ -156,7 +156,7 @@ class Goso_Custom_Sidebar {
                         <table class="form-table">
                             <tr valign="top">
                                 <td>
-                                    <input id="penci-add-custom-sidebar-name" style="width: 100%;" type="text"
+                                    <input id="goso-add-custom-sidebar-name" style="width: 100%;" type="text"
                                            class="text" name="name" value=""
                                            placeholder="<?php esc_attr_e( 'Enter sidebar name', 'authow' ) ?>">
                                 </td>
@@ -284,7 +284,7 @@ class Goso_Custom_Sidebar {
 		$domain  = get_home_url( '/' );
 		$item_id = 12945398;
 
-		$req = wp_remote_post( 'https://license.pencidesign.net/api/check', array(
+		$req = wp_remote_post( 'https://license.gosodesign.net/api/check', array(
 			'headers'     => array(
 				'Content-Type' => 'application/json',
 			),

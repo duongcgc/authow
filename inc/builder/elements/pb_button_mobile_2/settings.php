@@ -1,14 +1,14 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_text_setting',
+	'id'        => 'goso_header_pb_button_mobile_2_text_setting',
 	'default'   => 'Button Text',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-text',
 	'label'     => __( 'Button Text', 'authow' ),
 	'partial_refresh' => [
-		'penci_header_pb_button_mobile_2_text_setting' => [
+		'goso_header_pb_button_mobile_2_text_setting' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -17,19 +17,19 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_link_setting',
+	'id'        => 'goso_header_pb_button_mobile_2_link_setting',
 	'default'   => 'https://your-link.com',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-text',
 	'label'     => __( 'Button Link', 'authow' ),
 	'priority'  => 10,
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_link_target',
+	'id'        => 'goso_header_pb_button_mobile_2_link_target',
 	'default'   => '_blank',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-select',
 	'label'     => __( 'Link Target', 'authow' ),
 	'choices'   => [
@@ -40,10 +40,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_link_rel',
+	'id'        => 'goso_header_pb_button_mobile_2_link_rel',
 	'default'   => 'noreferrer',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Select "rel" Attribute Type for Button Link',
 	'type'      =>  'authow-fw-select',
 	'choices'   => array(
@@ -58,10 +58,10 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_style',
+	'id'        => 'goso_header_pb_button_mobile_2_style',
 	'default'   => 'style-4',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-select',
 	'label'     => __( 'Button Pre-define Style', 'authow' ),
 	'choices'   => [
@@ -73,10 +73,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_shape',
+	'id'        => 'goso_header_pb_button_mobile_2_shape',
 	'default'   => 'ratangle',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-select',
 	'label'     => __( 'Button Shape', 'authow' ),
 	'choices'   => [
@@ -86,10 +86,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_spacing_setting',
+	'id'        => 'goso_header_pb_button_mobile_2_spacing_setting',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      =>  'authow-fw-box-model',
 	
 	'label'     => __( 'Button Spacing', 'authow' ),
@@ -122,20 +122,20 @@ $options[] = array(
 );
 /* start font */
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_font',
+	'id'        => 'goso_header_pb_button_mobile_2_font',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font For Button Text',
 	
 	'type'      =>  'authow-fw-select',
-	'choices'   => penci_all_fonts( 'select' )
+	'choices'   => goso_all_fonts( 'select' )
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_font_w',
+	'id'        => 'goso_header_pb_button_mobile_2_font_w',
 	'default'   => 'bold',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font Weight For Button Text',
 	
 	'type'      =>  'authow-fw-select',
@@ -156,10 +156,10 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_font_s',
+	'id'        => 'goso_header_pb_button_mobile_2_font_s',
 	'default'   => 'normal',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font Style for Button Text',
 	
 	'type'      =>  'authow-fw-select',
@@ -170,66 +170,66 @@ $options[] = array(
 );
 /* end font*/
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_border_color',
+	'id'        => 'goso_header_pb_button_mobile_2_border_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	
 	'label'     => __( 'Borders Color', 'authow' ),
 	'type'      => 'authow-fw-color',
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_border_hv_color',
+	'id'        => 'goso_header_pb_button_mobile_2_border_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	
 	'label'     => __( 'Borders Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_bg_color',
+	'id'        => 'goso_header_pb_button_mobile_2_bg_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => __( 'Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_bg_hv_color',
+	'id'        => 'goso_header_pb_button_mobile_2_bg_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	
 	'label'     => __( 'Background Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_txt_color',
+	'id'        => 'goso_header_pb_button_mobile_2_txt_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => __( 'Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_txt_hv_color',
+	'id'        => 'goso_header_pb_button_mobile_2_txt_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	
 	'label'     => __( 'Text Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_button_mobile_2_txt_size',
+	'id'        => 'goso_header_pb_button_mobile_2_txt_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'label'     => 'Button Font Size',
 	'type'      => 'authow-fw-box-model',
 	'settings'  => array(
-		'desktop' => 'penci_header_pb_button_mobile_2_txt_size',
+		'desktop' => 'goso_header_pb_button_mobile_2_txt_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -242,9 +242,9 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_header_pb_button_mobile_2_txt_css_class',
+	'id'       => 'goso_header_pb_button_mobile_2_txt_css_class',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'type'     =>  'authow-fw-text',
 	'label'    => esc_html__( 'Custom CSS Class', 'authow' ),
 );

@@ -26,7 +26,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_product_categories_grid';
+		return 'goso_product_categories_grid';
 	}
 
 	/**
@@ -38,7 +38,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Categories Grid', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Categories Grid', 'authow' );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 	 *Hide Category Count on Mobile
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -92,7 +92,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'label'   => esc_html__( 'Taxonomy', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'category',
-				'options' => penci_get_all_taxonomies(),
+				'options' => goso_get_all_taxonomies(),
 			]
 		);
 
@@ -178,9 +178,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Categories', 'authow' ),
 				'description' => esc_html__( 'List of product categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'product_cat',
 				'multiple'    => true,
 				'label_block' => true,
@@ -193,9 +193,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Categories', 'authow' ),
 				'description' => esc_html__( 'List of post categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'category',
 				'multiple'    => true,
 				'label_block' => true,
@@ -208,9 +208,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Post Tags', 'authow' ),
 				'description' => esc_html__( 'List of post tags.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'post_tag',
 				'multiple'    => true,
 				'label_block' => true,
@@ -223,9 +223,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Product Tags', 'authow' ),
 				'description' => esc_html__( 'List of product tags.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'product_tag',
 				'multiple'    => true,
 				'label_block' => true,
@@ -238,9 +238,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Portfolio Categories', 'authow' ),
 				'description' => esc_html__( 'List of porfolio categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'portfolio-category',
 				'multiple'    => true,
 				'label_block' => true,
@@ -255,9 +255,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude Product Categories', 'authow' ),
 				'description' => esc_html__( 'List of product categories you want to exclude.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'product_cat',
 				'multiple'    => true,
 				'label_block' => true,
@@ -270,9 +270,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude Categories', 'authow' ),
 				'description' => esc_html__( 'List of post categories you want to exclude.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'category',
 				'multiple'    => true,
 				'label_block' => true,
@@ -285,9 +285,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude Post Tags', 'authow' ),
 				'description' => esc_html__( 'List of post tags you want to exclude.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'post_tag',
 				'multiple'    => true,
 				'label_block' => true,
@@ -300,9 +300,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude Product Tags', 'authow' ),
 				'description' => esc_html__( 'List of product tags you want to exclude.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'product_tag',
 				'multiple'    => true,
 				'label_block' => true,
@@ -315,9 +315,9 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude Portfolio Categories', 'authow' ),
 				'description' => esc_html__( 'List of porfolio categories you want to exclude.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => 'portfolio-category',
 				'multiple'    => true,
 				'label_block' => true,
@@ -485,22 +485,22 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-bgstyle-1 .penci-dflex'                                              => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2); width: calc(100% + {{SIZE}}px);',
-					'{{WRAPPER}} .penci-bgstyle-2 .item-masonry, {{WRAPPER}} .penci-bgstyle-1 .penci-bgitem' => 'padding-left: calc({{SIZE}}px/2); padding-right: calc({{SIZE}}px/2); margin-bottom: {{SIZE}}px',
-					'{{WRAPPER}} .penci-bgstyle-2 .penci-biggrid-data'                                       => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2);',
+					'{{WRAPPER}} .goso-bgstyle-1 .goso-dflex'                                              => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2); width: calc(100% + {{SIZE}}px);',
+					'{{WRAPPER}} .goso-bgstyle-2 .item-masonry, {{WRAPPER}} .goso-bgstyle-1 .goso-bgitem' => 'padding-left: calc({{SIZE}}px/2); padding-right: calc({{SIZE}}px/2); margin-bottom: {{SIZE}}px',
+					'{{WRAPPER}} .goso-bgstyle-2 .goso-biggrid-data'                                       => 'margin-left: calc(-{{SIZE}}px/2); margin-right: calc(-{{SIZE}}px/2);',
 				),
 				'condition' => array( 'style' => array( 'style-1', 'style-2' ) ),
 			)
 		);
 
 		$this->add_responsive_control(
-			'penci_img_ratio', array(
+			'goso_img_ratio', array(
 				'label'     => __( 'Adjust Ratio of Images( Unit % )', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => array( 'size' => 66 ),
 				'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 0.5 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-bgitem .penci-image-holder:before' => 'padding-top: {{SIZE}}%;',
+					'{{WRAPPER}} .goso-bgitem .goso-image-holder:before' => 'padding-top: {{SIZE}}%;',
 				),
 				'condition' => array( 'style' => array( 'style-1' ) ),
 			)
@@ -513,7 +513,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 2000, ) ),
 				'condition' => array( 'style!' => array( 'style-1', 'style-2' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-biggrid .penci-fixh' => '--bgh: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-biggrid .goso-fixh' => '--bgh: {{SIZE}}px;',
 				),
 			)
 		);
@@ -816,8 +816,8 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( '%' => array( 'min' => 0, 'max' => 100, 'step' => 1 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-bgmain:hover .pcbg-bgoverlay.active-overlay'     => 'opacity: calc( {{SIZE}}/100 )',
-					'{{WRAPPER}} .penci-bgmain:hover .pcbg-bgoverlaytext.active-overlay' => 'opacity: calc( {{SIZE}}/100 )',
+					'{{WRAPPER}} .goso-bgmain:hover .pcbg-bgoverlay.active-overlay'     => 'opacity: calc( {{SIZE}}/100 )',
+					'{{WRAPPER}} .goso-bgmain:hover .pcbg-bgoverlaytext.active-overlay' => 'opacity: calc( {{SIZE}}/100 )',
 				),
 			)
 		);
@@ -847,7 +847,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-bgitem:hover .pcbg-title' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-bgitem:hover .pcbg-title' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 				),
 				'condition' => array( 'apply_spe_bg_title' => 'yes' ),
 			)
@@ -975,7 +975,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -986,7 +986,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'border: 1px solid {{VALUE}};',
+					'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'border: 1px solid {{VALUE}};',
 				),
 			)
 		);
@@ -997,7 +997,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -1008,7 +1008,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .penci-biggrid .penci-bgitin' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .goso-biggrid .goso-bgitin' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				),
 			)
 		);
@@ -1166,38 +1166,38 @@ class GosoProductCategoriesGrid extends Base_Widget {
 		$text_overlay_ani = $settings['text_overlay_ani'] ? $settings['text_overlay_ani'] : 'movetop';
 		$onecol_mobile    = $settings['onecol_mobile'] ? $settings['onecol_mobile'] : '';
 		$sameh_mobile     = $settings['sameh_mobile'] ? $settings['sameh_mobile'] : '';
-		$thumb_size       = $settings['thumb_size'] ? $settings['thumb_size'] : 'penci-masonry-thumb';
-		$bthumb_size      = $settings['bthumb_size'] ? $settings['bthumb_size'] : 'penci-full-thumb';
-		$mthumb_size      = $settings['mthumb_size'] ? $settings['mthumb_size'] : 'penci-masonry-thumb';
+		$thumb_size       = $settings['thumb_size'] ? $settings['thumb_size'] : 'goso-masonry-thumb';
+		$bthumb_size      = $settings['bthumb_size'] ? $settings['bthumb_size'] : 'goso-full-thumb';
+		$mthumb_size      = $settings['mthumb_size'] ? $settings['mthumb_size'] : 'goso-masonry-thumb';
 
 		$wrapper_class   = $data_class = '';
 		$flag_style      = false;
-		$clear_fix_class = 'penci-clearfix ';
+		$clear_fix_class = 'goso-clearfix ';
 		if ( in_array( $biggid_style, array( 'style-1' ) ) ) {
-			$data_class .= ' penci-dflex';
+			$data_class .= ' goso-dflex';
 		} else {
-			$data_class .= ' penci-dblock';
+			$data_class .= ' goso-dblock';
 		}
 
 		if ( ! in_array( $biggid_style, array( 'style-1', 'style-2' ) ) ) {
 			$flag_style    = true;
-			$data_class    .= ' penci-fixh';
+			$data_class    .= ' goso-fixh';
 			$bgcontent_pos = 'on';
 		}
 
 		if ( 'style-1' == $biggid_style || 'style-2' == $biggid_style ) {
 			$bg_columns        = $settings['bg_columns'] ? $settings['bg_columns'] : '3';
 			$bg_columns_mobile = $settings['bg_columns_mobile'] ? $settings['bg_columns_mobile'] : '1';
-			$wrapper_class     .= ' penci-grid-col-' . $bg_columns;
-			$wrapper_class     .= ' penci-grid-mcol-' . $bg_columns_mobile;
+			$wrapper_class     .= ' goso-grid-col-' . $bg_columns;
+			$wrapper_class     .= ' goso-grid-mcol-' . $bg_columns_mobile;
 		}
 
-		$wrapper_class .= ' penci-bgrid-based-product-category' . ' penci-bgrid-' . $biggid_style . ' penci-bgrid-content-' . $bgcontent_pos . ' pencibg-imageh-' . $image_hover . ' pencibg-texth-' . $text_overlay . ' pencibg-textani-' . $text_overlay_ani;
+		$wrapper_class .= ' goso-bgrid-based-product-category' . ' goso-bgrid-' . $biggid_style . ' goso-bgrid-content-' . $bgcontent_pos . ' gosobg-imageh-' . $image_hover . ' gosobg-texth-' . $text_overlay . ' gosobg-textani-' . $text_overlay_ani;
 		if ( $flag_style && 'yes' == $onecol_mobile ) {
-			$wrapper_class .= ' penci-bgrid-monecol';
+			$wrapper_class .= ' goso-bgrid-monecol';
 		}
 		if ( $flag_style && 'yes' == $sameh_mobile ) {
-			$wrapper_class .= ' penci-bgrid-msameh';
+			$wrapper_class .= ' goso-bgrid-msameh';
 		}
 
 		if ( 'yes' == $settings['title_anivisi'] ) {
@@ -1222,7 +1222,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 			$wrapper_class .= ' hide-msubtitle';
 		}
 
-		$big_items = penci_big_grid_is_big_items( $biggid_style );
+		$big_items = goso_big_grid_is_big_items( $biggid_style );
 
 		$product_cat_default_settings = [
 			// Query.
@@ -1255,27 +1255,27 @@ class GosoProductCategoriesGrid extends Base_Widget {
 		$text_item          = $settings['text_item'];
 		$text_items         = $settings['text_items'];
 		?>
-        <div class="penci-clearfix penci-biggrid-wrapper<?php echo $wrapper_class; ?>">
+        <div class="goso-clearfix goso-biggrid-wrapper<?php echo $wrapper_class; ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-            <div class="penci-clearfix penci-biggrid penci-bg<?php echo $biggid_style; ?> penci-bgel">
-                <div class="penci-biggrid-inner">
+            <div class="goso-clearfix goso-biggrid goso-bg<?php echo $biggid_style; ?> goso-bgel">
+                <div class="goso-biggrid-inner">
 					<?php
 
-					echo '<div class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+					echo '<div class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 
 					$num_cat = count( $product_categories );
 
 					foreach ( $product_categories as $category ) :
 						$item_id     = ' elementor-repeater-item-' . $category->term_id;
 						$desc        = $category->description;
-						$surplus     = penci_big_grid_count_classes( $bg, $biggid_style, true );
+						$surplus     = goso_big_grid_count_classes( $bg, $biggid_style, true );
 						$thumbnail   = $thumb_size;
 						$is_big_item = '';
 						if ( ! empty( $big_items ) && in_array( $surplus, $big_items ) ) {
 							$thumbnail   = $bthumb_size;
 							$is_big_item = ' pcbg-big-item';
 						}
-						if ( penci_is_mobile() ) {
+						if ( goso_is_mobile() ) {
 							$thumbnail = $mthumb_size;
 						}
 
@@ -1286,7 +1286,7 @@ class GosoProductCategoriesGrid extends Base_Widget {
 
 						include dirname( __FILE__ ) . "/product-category.php";
 						if ( $flag_style && $surplus == 0 && $bg < $num_cat ) {
-							echo '</div><div class="penci-clearfix penci-biggrid-data' . $data_class . '">';
+							echo '</div><div class="goso-clearfix goso-biggrid-data' . $data_class . '">';
 						}
 
 						$bg ++;

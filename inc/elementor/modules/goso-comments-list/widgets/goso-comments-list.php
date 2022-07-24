@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoCommentsList extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-comments-list';
+		return 'goso-comments-list';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Comments Listing', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Comments Listing', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoCommentsList extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -68,7 +68,7 @@ class GosoCommentsList extends Base_Widget {
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => [ '%' ],
 			'selectors'  => array(
-				'{{WRAPPER}} .penci_comments_widget.el .author-avatar img' => 'border-radius: {{SIZE}}%;'
+				'{{WRAPPER}} .goso_comments_widget.el .author-avatar img' => 'border-radius: {{SIZE}}%;'
 			),
 		) );
 
@@ -99,7 +99,7 @@ class GosoCommentsList extends Base_Widget {
 				'unit' => 'px',
 			),
 			'selectors'      => array(
-				'{{WRAPPER}} .penci_comments_widget.el ul li:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px / 2);padding-bottom: calc({{SIZE}}px / 2);'
+				'{{WRAPPER}} .goso_comments_widget.el ul li:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px / 2);padding-bottom: calc({{SIZE}}px / 2);'
 			),
 		) );
 
@@ -107,55 +107,55 @@ class GosoCommentsList extends Base_Widget {
 			'label'     => __( 'Divider Border Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .penci_comments_widget.el ul li:not(:last-child)' => 'border-bottom:1px solid {{VALUE}};'
+				'{{WRAPPER}} .goso_comments_widget.el ul li:not(:last-child)' => 'border-bottom:1px solid {{VALUE}};'
 			),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'author_name_typo',
 			'label'    => __( 'Author Name Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci_comments_widget.el .comment-author',
+			'selector' => '{{WRAPPER}} .goso_comments_widget.el .comment-author',
 		) );
 
 		$this->add_control( 'name_color', array(
 			'label'     => __( 'Name Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_comments_widget.el .comment-author' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_comments_widget.el .comment-author' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'name_hcolor', array(
 			'label'     => __( 'Name Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_comments_widget.el .comment-author:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_comments_widget.el .comment-author:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'comment_text_typo',
 			'label'    => __( 'Comment Text Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci_comments_widget.el .comment-body p',
+			'selector' => '{{WRAPPER}} .goso_comments_widget.el .comment-body p',
 		) );
 
 		$this->add_control( 'comment_text_color', array(
 			'label'     => __( 'Comment Text Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_comments_widget.el .comment-body p' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_comments_widget.el .comment-body p' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'comment_text_lcolor', array(
 			'label'     => __( 'Comment Text Links Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_comments_widget.el .comment-body p a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_comments_widget.el .comment-body p a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'comment_text_lhcolor', array(
 			'label'     => __( 'Comment Text Links Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_comments_widget.el .comment-body p a:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_comments_widget.el .comment-body p a:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->end_controls_section();
@@ -170,7 +170,7 @@ class GosoCommentsList extends Base_Widget {
 		$length      = $settings['length'] ? $settings['length'] : 12;
 		$this->markup_block_title( $settings, $this );
 		if ( $comments ) {
-			echo '<div class="penci_comments_widget el"><ul>';
+			echo '<div class="goso_comments_widget el"><ul>';
 			foreach ( $comments as $comment ) { ?>
                 <li>
 					<?php

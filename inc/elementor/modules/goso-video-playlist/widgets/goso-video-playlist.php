@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoVideoPlaylist extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-video-playlist';
+		return 'goso-video-playlist';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Video Playlist', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Video Playlist', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoVideoPlaylist extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -41,7 +41,7 @@ class GosoVideoPlaylist extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'penci_block_width', array(
+			'goso_block_width', array(
 				'label'   => __( 'Element Columns', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 3,
@@ -119,7 +119,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Background list videos', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-nav' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-nav' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -128,7 +128,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Video title color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-playlist-item .penci-video-title' => 'color: {{VALUE}};', ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-playlist-item .goso-video-title' => 'color: {{VALUE}};', ),
 			)
 		);
 		$this->add_control(
@@ -137,7 +137,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Video title hover color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-playlist-item .penci-video-title:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-playlist-item .goso-video-title:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -146,7 +146,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Video duration color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video-playlist-item .penci-video-duration' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video-playlist-item .goso-video-duration' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -155,7 +155,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Video order number color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-nav .playlist-panel-item' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-nav .playlist-panel-item' => 'color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -164,7 +164,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Video order number background color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-nav .playlist-panel-item' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-nav .playlist-panel-item' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -173,7 +173,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Item video border color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-nav .penci-video-playlist-item' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-nav .goso-video-playlist-item' => 'border-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -182,7 +182,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Item video hover background and border color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-video-nav .penci-video-playlist-item:hover' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-video-nav .goso-video-playlist-item:hover' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -191,7 +191,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Scroll bar background color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-video_playlist .penci-custom-scroll::-webkit-scrollbar-thumb' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-video_playlist .goso-custom-scroll::-webkit-scrollbar-thumb' => 'background-color: {{VALUE}};' ),
 			)
 		);
 
@@ -346,7 +346,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'label'     => __( 'Margin Bottom', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-homepage-title' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -368,9 +368,9 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-border-arrow .inner-arrow'   => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-border-arrow .inner-arrow a' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-video_playlist .penci-playlist-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-border-arrow .inner-arrow'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-border-arrow .inner-arrow a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-video_playlist .goso-playlist-title' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -380,8 +380,8 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .penci-video_playlist .penci-playlist-title a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-border-arrow .inner-arrow a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .goso-video_playlist .goso-playlist-title a:hover' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -391,17 +391,17 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-border-arrow .inner-arrow,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:before,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow:after,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:before,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:after,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:after,' .
-					'{{WRAPPER}} .style-4.penci-border-arrow .inner-arrow > span:before,' .
-					'{{WRAPPER}} .style-5.penci-border-arrow,' .
-					'{{WRAPPER}} .style-7.penci-border-arrow,' .
-					'{{WRAPPER}} .style-9.penci-border-arrow' => 'border-color: {{VALUE}}',
-					'{{WRAPPER}} .penci-border-arrow:before'  => 'border-top-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-border-arrow .inner-arrow,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:before,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow:after,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:before,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:after,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:after,' .
+					'{{WRAPPER}} .style-4.goso-border-arrow .inner-arrow > span:before,' .
+					'{{WRAPPER}} .style-5.goso-border-arrow,' .
+					'{{WRAPPER}} .style-7.goso-border-arrow,' .
+					'{{WRAPPER}} .style-9.goso-border-arrow' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .goso-border-arrow:before'  => 'border-top-color: {{VALUE}}',
 				)
 			)
 		);
@@ -411,7 +411,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}}  .penci-border-arrow:after' => 'border-color: {{VALUE}};'
+					'{{WRAPPER}}  .goso-border-arrow:after' => 'border-color: {{VALUE}};'
 				)
 			)
 		);
@@ -421,7 +421,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-homepage-title.style-10' => 'border-top-color: {{VALUE}};'
 				),
 				'condition' => array( 'heading_title_style' => 'style-10' ),
 			)
@@ -432,11 +432,11 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .style-5.penci-border-arrow' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-homepage-title.style-10' => 'border-bottom-color: {{VALUE}};',
-					'{{WRAPPER}} .style-12.penci-border-arrow' => 'border-bottom-color: {{VALUE}};',
-					'{{WRAPPER}} .style-11.penci-border-arrow' => 'border-bottom-color: {{VALUE}};',
-					'{{WRAPPER}} .style-5.penci-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .style-5.goso-border-arrow' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-homepage-title.style-10' => 'border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .style-12.goso-border-arrow' => 'border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .style-11.goso-border-arrow' => 'border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .style-5.goso-border-arrow .inner-arrow' => 'border-bottom-color: {{VALUE}};',
 				),
 				'condition' => array( 'heading_title_style' => array( 'style-5','style-10','style-11','style-12' ) ),
 			)
@@ -447,8 +447,8 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .style-7.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .style-9.penci-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .style-7.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .style-9.goso-border-arrow .inner-arrow:before' => 'background-color: {{VALUE}};'
 				),
 				'condition' => array( 'heading_title_style' => array( 'style-7', 'style-8' ) ),
 			)
@@ -474,7 +474,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'default'     => '',
 				'description' => __( 'For Icon on Style 15', 'authow' ),
 				'selectors'   => array(
-					'{{WRAPPER}} .style-15.penci-border-arrow:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .style-15.goso-border-arrow:before' => 'background-color: {{VALUE}};',
 				),
 				'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 			)
@@ -486,7 +486,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'default'     => '',
 				'description' => __( 'For Icon on Style 15', 'authow' ),
 				'selectors'   => array(
-					'{{WRAPPER}} .style-15.penci-border-arrow:after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .style-15.goso-border-arrow:after' => 'color: {{VALUE}};',
 				),
 				'condition'   => array( 'heading_title_style' => array( 'style-15' ) ),
 			)
@@ -498,7 +498,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'default'     => '',
 				'description' => __( 'For Lines on Style 18, 19, 20', 'authow' ),
 				'selectors'   => array(
-					'{{WRAPPER}} .style-18.penci-border-arrow:after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .style-18.goso-border-arrow:after' => 'color: {{VALUE}};',
 				),
 				'condition'   => array(
 					'heading_title_style' => array(
@@ -515,9 +515,9 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .style-2.penci-border-arrow:after'           => 'border-color: transparent;border-top-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-border-arrow .inner-arrow'            => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-video_playlist .penci-playlist-title' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .style-2.goso-border-arrow:after'           => 'border-color: transparent;border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-border-arrow .inner-arrow'            => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-video_playlist .goso-playlist-title' => 'background-color: {{VALUE}};',
 				)
 			)
 		);
@@ -527,7 +527,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-border-arrow:after' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-border-arrow:after' => 'background-color: {{VALUE}};'
 				)
 			)
 		);
@@ -539,7 +539,7 @@ class GosoVideoPlaylist extends Base_Widget {
 				'dynamic'     => array( 'active' => true ),
 				'responsive'  => true,
 				'render_type' => 'template',
-				'selectors'   => array( '{{WRAPPER}} .style-8.penci-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
+				'selectors'   => array( '{{WRAPPER}} .style-8.goso-border-arrow .inner-arrow' => 'background-image: url("{{URL}}");' ),
 				'condition' => array( 'heading_title_style' => 'style-8' ),
 			)
 		);
@@ -548,7 +548,7 @@ class GosoVideoPlaylist extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'btitle_typo',
 				'label'    => __( 'Block Title Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-border-arrow .inner-arrow, {{WRAPPER}} .penci-video_playlist .penci-playlist-title h2',
+				'selector' => '{{WRAPPER}} .goso-border-arrow .inner-arrow, {{WRAPPER}} .goso-video_playlist .goso-playlist-title h2',
 			)
 		);
 		$this->end_controls_section();
@@ -562,32 +562,32 @@ class GosoVideoPlaylist extends Base_Widget {
 			return;
 		}
 		
-		$css_class = 'penci-block-vc penci-video_playlist';
-		$css_class .= ' pencisc-column-' . $settings['penci_block_width'];
+		$css_class = 'goso-block-vc goso-video_playlist';
+		$css_class .= ' gososc-column-' . $settings['goso_block_width'];
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
+			<div class="goso-block_content">
 				<?php
-				if ( ! get_theme_mod( 'penci_youtube_api_key' ) && preg_match( "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $settings['videos_list'], $matches ) ) {
+				if ( ! get_theme_mod( 'goso_youtube_api_key' ) && preg_match( "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $settings['videos_list'], $matches ) ) {
 					echo '<strong>Youtube Api key</strong> is empty. Please go to Customize > General > Extra Options > YouTube API Key and enter an api key :)';
 				}
 
 				$videos = preg_split( '/\r\n|[\r\n]/', $settings['videos_list'] );;
-				$videos_list     = get_transient( 'penci-shortcode-playlist-' . $settings['block_id'] );
-				$videos_list_key = get_transient( 'penci-shortcode-playlist-key' . $settings['block_id'] );
+				$videos_list     = get_transient( 'goso-shortcode-playlist-' . $settings['block_id'] );
+				$videos_list_key = get_transient( 'goso-shortcode-playlist-key' . $settings['block_id'] );
 				$rand_video_list = rand( 1000, 100000 );
 
 
 				if ( empty( $videos_list ) || $settings['videos_list'] != $videos_list_key ) {
 					$videos_list = \Goso_Video_List::get_video_infos( $videos );
-					set_transient( 'penci-shortcode-playlist-' . $settings['block_id'], $videos_list, 18000 );
-					set_transient( 'penci-shortcode-playlist-key' . $settings['block_id'], $settings['videos_list'], 18000 );
+					set_transient( 'goso-shortcode-playlist-' . $settings['block_id'], $videos_list, 18000 );
+					set_transient( 'goso-shortcode-playlist-key' . $settings['block_id'], $settings['videos_list'], 18000 );
 				}
 				$videos_count = is_array( $videos_list ) ? count( (array) $videos_list ) : 0;
 
 				if ( ! empty( $videos_list ) ): ?>
-					<div class="penci-video-play">
+					<div class="goso-video-play">
 						<?php foreach ( (array) $videos_list as $key => $video ): ?>
 							<?php
 							if ( $key > 0 ) {
@@ -595,14 +595,14 @@ class GosoVideoPlaylist extends Base_Widget {
 							}
 							?>
 							<div class="fluid-width-video-wrapper">
-								<iframe class="penci-video-frame" id="video-<?php echo esc_attr( $rand_video_list ) ?>-1" src="<?php echo esc_attr( $video['id'] ) ?>" width="770" height="434" allowfullscreen></iframe>
+								<iframe class="goso-video-frame" id="video-<?php echo esc_attr( $rand_video_list ) ?>-1" src="<?php echo esc_attr( $video['id'] ) ?>" width="770" height="434" allowfullscreen></iframe>
 							</div>
 						<?php endforeach; ?>
 					</div>
-					<div class="penci-video-nav">
+					<div class="goso-video-nav">
 						<?php if ( ! empty( $settings['heading'] ) && 'video_list' == $settings['heading_title_style'] ): ?>
-							<div class="penci-playlist-title">
-								<div class="playlist-title-icon"><?php penci_fawesome_icon('fas fa-play'); ?></span></div>
+							<div class="goso-playlist-title">
+								<div class="playlist-title-icon"><?php goso_fawesome_icon('fas fa-play'); ?></span></div>
 								<h2>
 									<?php
 									$attr_link = ' href="#"';
@@ -624,12 +624,12 @@ class GosoVideoPlaylist extends Base_Widget {
 									echo( ! empty( $settings['heading_title_link'] ) ? '</a >' : '</span>' );
 									?>
 								</h2>
-								<span class="penci-videos-number">
-								<span class="penci-video-playing">1</span> /
-								<span class="penci-video-total"><?php echo( $videos_count ) ?></span>
+								<span class="goso-videos-number">
+								<span class="goso-video-playing">1</span> /
+								<span class="goso-video-total"><?php echo( $videos_count ) ?></span>
 									<?php
-									if ( function_exists( 'penci_get_tran_setting' ) ) {
-										echo penci_get_tran_setting( 'penci_social_video_text' );
+									if ( function_exists( 'goso_get_tran_setting' ) ) {
+										echo goso_get_tran_setting( 'goso_social_video_text' );
 									} else {
 										esc_html_e( 'Videos', 'authow' );
 									}
@@ -639,49 +639,49 @@ class GosoVideoPlaylist extends Base_Widget {
 						<?php endif; ?>
 						<?php
 						$class_nav = ( ! empty( $settings['title'] ) && 'video_list' == $settings['heading_title_style'] ) ? ' playlist-has-title' : '';
-						$class_nav .= $videos_count > 3 ? ' penci-custom-scroll' : '';
+						$class_nav .= $videos_count > 3 ? ' goso-custom-scroll' : '';
 
 						$direction = is_rtl() ? ' dir="rtl"' : '';
 						?>
-						<div class="penci-video-playlist-nav<?php echo esc_attr( $class_nav ); ?>"<?php echo( $direction ); ?>>
+						<div class="goso-video-playlist-nav<?php echo esc_attr( $class_nav ); ?>"<?php echo( $direction ); ?>>
 							<?php
 							$video_number = 0;
 							foreach ( $videos_list as $video ):
 								$video_number ++;
 								?>
 								<a data-name="video-<?php echo esc_attr( $rand_video_list . '-' . $video_number ) ?>" data-src="<?php echo esc_attr( $video['id'] ) ?>"
-								   class="penci-video-playlist-item penci-video-playlist-item-<?php echo esc_attr( $video_number ); ?>">
-							<span class="penci-media-obj">
-								<span class="penci-mobj-img">
+								   class="goso-video-playlist-item goso-video-playlist-item-<?php echo esc_attr( $video_number ); ?>">
+							<span class="goso-media-obj">
+								<span class="goso-mobj-img">
 									<?php if ( ! $settings['hide_order_number'] ): ?>
-										<span class="playlist-panel-item penci-video-number"><?php echo esc_attr( $video_number ) ?></span>
-										<span class="playlist-panel-item penci-video-play-icon"><?php penci_fawesome_icon('fas fa-play'); ?></span>
-										<span class="playlist-panel-item penci-video-paused-icon"><?php penci_fawesome_icon('fas fa-pause'); ?></span>
+										<span class="playlist-panel-item goso-video-number"><?php echo esc_attr( $video_number ) ?></span>
+										<span class="playlist-panel-item goso-video-play-icon"><?php goso_fawesome_icon('fas fa-play'); ?></span>
+										<span class="playlist-panel-item goso-video-paused-icon"><?php goso_fawesome_icon('fas fa-pause'); ?></span>
 										<?php
 									endif;
 
 
 									$class_lazy = $data_src = '';
-									$dis_lazy   = get_theme_mod( 'penci_disable_lazyload_layout' );
+									$dis_lazy   = get_theme_mod( 'goso_disable_lazyload_layout' );
 									if ( $dis_lazy ) {
-										$class_lazy = ' penci-disable-lazy';
+										$class_lazy = ' goso-disable-lazy';
 										$data_src   = 'style="background-image: url(' . esc_url( $video['thumb'] ) . ');"';
 									} else {
-										$class_lazy = ' penci-lazy';
+										$class_lazy = ' goso-lazy';
 										$data_src   = 'data-bgset="' . esc_url( $video['thumb'] ) . '"';
 									}
 
-									printf( '<span class="penci-image-holder penci-video-thumbnail%s" %s><span class="screen-reader-text">%s</span></span>',
+									printf( '<span class="goso-image-holder goso-video-thumbnail%s" %s><span class="screen-reader-text">%s</span></span>',
 										$class_lazy,
 										$data_src,
 										esc_html__( 'Thumbnail youtube', 'authow' )
 									);
 									?>
 								</span>
-								<span class="penci-mobj-body">
-									<span class="penci-video-title" title="<?php echo esc_attr( $video['title'] ); ?>"><?php echo wp_trim_words( $video['title'], $settings['video_title_length'], '...' ); ?></span>
+								<span class="goso-mobj-body">
+									<span class="goso-video-title" title="<?php echo esc_attr( $video['title'] ); ?>"><?php echo wp_trim_words( $video['title'], $settings['video_title_length'], '...' ); ?></span>
 									<?php if ( ! $settings['hide_duration'] ): ?>
-										<span class="penci-video-duration"><?php echo esc_attr( $video['duration'] ) ?></span>
+										<span class="goso-video-duration"><?php echo esc_attr( $video['duration'] ) ?></span>
 									<?php endif; ?>
 								</span>
 							</span>

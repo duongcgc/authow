@@ -5,9 +5,9 @@ $options[] = array(
 	'sanitize'    => 'absint',
 	'type'        => 'authow-fw-size',
 	'label' => __( 'Custom Space Between Widgets', 'authow' ),
-	'id'          => 'penci_mhbg_widget_margin',
+	'id'          => 'goso_mhbg_widget_margin',
 	'ids'         => array(
-		'desktop' => 'penci_mhbg_widget_margin',
+		'desktop' => 'goso_mhbg_widget_margin',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -21,9 +21,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase Widget Heading',
-	'id'       => 'penci_mhbgwidget_heading_lowcase',
+	'id'       => 'goso_mhbgwidget_heading_lowcase',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
@@ -31,9 +31,9 @@ $options[] = array(
 	'sanitize'    => 'absint',
 	'type'        => 'authow-fw-size',
 	'label' => __( 'Custom Widget Heading Text Size', 'authow' ),
-	'id'          => 'penci_mhbgwidget_heading_size',
+	'id'          => 'goso_mhbgwidget_heading_size',
 	'ids'         => array(
-		'desktop' => 'penci_mhbgwidget_heading_size',
+		'desktop' => 'goso_mhbgwidget_heading_size',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -47,9 +47,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sidebar Widget Heading Style',
-	'id'       => 'penci_mhbgwidget_heading_style',
+	'id'       => 'goso_mhbgwidget_heading_style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''                  => 'Default',
@@ -80,13 +80,13 @@ $options[] = array(
 	'sanitize' => 'esc_url_raw',
 	'type'     => 'authow-fw-image',
 	'label'    => 'Custom Background Image for Style 9',
-	'id'       => 'penci_mhbgwidget_heading_image_9',
+	'id'       => 'goso_mhbgwidget_heading_image_9',
 );
 $options[] = array(
 	'default'  => 'no-repeat',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Background Image Repeat for Style 9',
-	'id'       => 'penci_mhbgwidget_heading9_repeat',
+	'id'       => 'goso_mhbgwidget_heading9_repeat',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'no-repeat' => 'No Repeat',
@@ -95,9 +95,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sidebar Widget Heading Align',
-	'id'       => 'penci_mhbgwidget_heading_align',
+	'id'       => 'goso_mhbgwidget_heading_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''               => 'Default',
@@ -108,9 +108,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Align Icon on Style 15',
-	'id'       => 'penci_hbg_icon_align',
+	'id'       => 'goso_hbg_icon_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''              => 'Default( follow Sidebar )',
@@ -120,9 +120,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Custom Icon on Style 15',
-	'id'       => 'penci_hbg_icon_design',
+	'id'       => 'goso_hbg_icon_design',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''             => 'Default( follow Sidebar )',
@@ -139,16 +139,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Border Outer on Widget Heading',
-	'id'       => 'penci_mhbgwidget_remove_border_outer',
+	'id'       => 'goso_mhbgwidget_remove_border_outer',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Arrow Down on Widget Heading',
-	'id'       => 'penci_mhbgwidget_remove_arrow_down',
+	'id'       => 'goso_mhbgwidget_remove_arrow_down',
 	'type'     => 'authow-fw-toggle',
 );
 

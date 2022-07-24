@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_login_form",
+	'base'          => "goso_login_form",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/login_form/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Login/Register Form', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Login/Register Form', 'authow' ),
 	'description'   => 'Login/Register Form Block',
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -34,7 +34,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Form colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',

@@ -39,14 +39,14 @@
 
     if (changeID.length > 0) {
         $('#customize-save-button-wrapper').hide();
-        $('#customize-header-actions').append('<input type="submit" name="penci_save_header" id="penci_save_header" class="button button-primary penci_save_header" value="Save Header" disabled="">');
+        $('#customize-header-actions').append('<input type="submit" name="goso_save_header" id="goso_save_header" class="button button-primary goso_save_header" value="Save Header" disabled="">');
     }
 
     api.bind('change', function () {
-        $('#customize-header-actions').find('.penci_save_header').prop('disabled', false);
+        $('#customize-header-actions').find('.goso_save_header').prop('disabled', false);
     });
 
-    $(document).on('click', '#customize-header-actions .penci_save_header', function (eventt) {
+    $(document).on('click', '#customize-header-actions .goso_save_header', function (eventt) {
         eventt.preventDefault();
         $(window).off('beforeunload');
         var setting_value = api._value,
@@ -65,7 +65,7 @@
                 parseID = settingtext.match(/\)\((.*)\)/);
             if (parseID !== null) {
                 dataex[parseID[1]] = ev._value;
-            } else if (settingtext.indexOf("penci_header") >= 0 || settingtext.indexOf("penci_hb") >= 0) {
+            } else if (settingtext.indexOf("goso_header") >= 0 || settingtext.indexOf("goso_hb") >= 0) {
                 dataex[ev.id] = ev._value;
             }
         });

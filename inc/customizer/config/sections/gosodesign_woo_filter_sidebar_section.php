@@ -2,16 +2,16 @@
 $options = [];
 /*Filter Sidebar*/
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_enable',
+	'id'       => 'gosodesign_woo_filter_widget_enable',
 	'default'  => true,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Slidebar Filter ?',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'penci_woo_fw_panel_pst',
+	'id'       => 'goso_woo_fw_panel_pst',
 	'default'  => 'side-right',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Slidebar Filter Position',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
@@ -20,13 +20,13 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_margin',
+	'id'       => 'gosodesign_woo_filter_widget_margin',
 	'default'  => '',
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Custom Space Between Widgets', 'authow' ),
 	'ids'         => array(
-		'desktop' => 'pencidesign_woo_filter_widget_margin',
+		'desktop' => 'gosodesign_woo_filter_widget_margin',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -39,20 +39,20 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading_lowcase',
+	'id'       => 'gosodesign_woo_filter_widget_heading_lowcase',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase Widget Heading',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading_size',
+	'id'       => 'gosodesign_woo_filter_widget_heading_size',
 	'default'  => '',
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Custom Widget Heading Text Size', 'authow' ),
 	'ids'         => array(
-		'desktop' => 'pencidesign_woo_filter_widget_heading_size',
+		'desktop' => 'gosodesign_woo_filter_widget_heading_size',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -66,9 +66,9 @@ $options[] = array(
 
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading_style',
+	'id'       => 'gosodesign_woo_filter_widget_heading_style',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sidebar Widget Heading Style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
@@ -96,16 +96,16 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading_image_9',
+	'id'       => 'gosodesign_woo_filter_widget_heading_image_9',
 	'default'  => '',
 	'sanitize' => 'esc_url_raw',
 	'type'     => 'authow-fw-image',
 	'label'    => 'Custom Background Image for Style 9',
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading9_repeat',
+	'id'       => 'gosodesign_woo_filter_widget_heading9_repeat',
 	'default'  => 'no-repeat',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Background Image Repeat for Style 9',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
@@ -114,9 +114,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_heading_align',
+	'id'       => 'gosodesign_woo_filter_widget_heading_align',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sidebar Widget Heading Align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
@@ -127,16 +127,16 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_remove_border_outer',
+	'id'       => 'gosodesign_woo_filter_widget_remove_border_outer',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Border Outer on Widget Heading',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'pencidesign_woo_filter_widget_remove_arrow_down',
+	'id'       => 'gosodesign_woo_filter_widget_remove_arrow_down',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Arrow Down on Widget Heading',
 	'type'     => 'authow-fw-toggle',
 );

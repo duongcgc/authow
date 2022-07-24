@@ -2,19 +2,19 @@
 
 $group = 'Addtional Options';
 vc_map( array(
-	'base'          => 'penci_media_carousel',
+	'base'          => 'goso_media_carousel',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/media_carousel/frontend.php',
 	'weight'        => 700,
-	'as_parent'     => array( 'except' => 'penci_media_carousel' ),
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Advanced Carousel', 'authow' ),
+	'as_parent'     => array( 'except' => 'goso_media_carousel' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Advanced Carousel', 'authow' ),
 	'description'   => __( 'Media Advanced Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array(
 		array(
-			'type'             => 'penci_only_number',
-			'heading'          => esc_html__( 'Gap', 'penci-framework' ),
+			'type'             => 'goso_only_number',
+			'heading'          => esc_html__( 'Gap', 'goso-framework' ),
 			'param_name'       => 'slides_item_gap',
 			'class'            => '',
 			'value'            => 10,
@@ -23,8 +23,8 @@ vc_map( array(
 			'step'             => 1,
 		),
 		array(
-			'type'       => 'penci_only_number',
-			'heading'    => esc_html__( 'On desktop', 'penci-framework' ),
+			'type'       => 'goso_only_number',
+			'heading'    => esc_html__( 'On desktop', 'goso-framework' ),
 			'param_name' => 'limit_desk',
 			'class'      => '',
 			'value'      => 3,
@@ -34,8 +34,8 @@ vc_map( array(
 			'edit_field_class' => 'vc_col-sm-4',
 		),
 		array(
-			'type'       => 'penci_only_number',
-			'heading'    => esc_html__( 'On tab', 'penci-framework' ),
+			'type'       => 'goso_only_number',
+			'heading'    => esc_html__( 'On tab', 'goso-framework' ),
 			'param_name' => 'limit_tab',
 			'class'      => '',
 			'value'      => 2,
@@ -45,8 +45,8 @@ vc_map( array(
 			'edit_field_class' => 'vc_col-sm-4',
 		),
 		array(
-			'type'       => 'penci_only_number',
-			'heading'    => esc_html__( 'On mobile', 'penci-framework' ),
+			'type'       => 'goso_only_number',
+			'heading'    => esc_html__( 'On mobile', 'goso-framework' ),
 			'param_name' => 'limit_mobile',
 			'class'      => '',
 			'value'      => 1,

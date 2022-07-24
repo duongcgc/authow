@@ -64,18 +64,18 @@ export const edit = ( props ) => {
 				</PanelBody>
 			</InspectorControls>
 			 <ServerSideRender
-	            block="penci-gutenberg/blockquote"
+	            block="goso-gutenberg/blockquote"
 	            attributes={ props.attributes }
 	        />
 		</Fragment>
 	)
 }
 
-registerBlockType( 'penci-gutenberg/blockquote', {
+registerBlockType( 'goso-gutenberg/blockquote', {
 	title: __( 'Goso: Blockquote' ),
 	description: __( 'Maybe someone else said it better -- add some quoted text.' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

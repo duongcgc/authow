@@ -30,17 +30,17 @@ export const edit = ( props ) => {
 			</PanelBody>
 		</InspectorControls>
         <ServerSideRender
-            block="penci-gutenberg/recipe"
+            block="goso-gutenberg/recipe"
             attributes={ props.attributes }
         />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/recipe', {
+registerBlockType( 'goso-gutenberg/recipe', {
 	title: __( 'Goso: Recipe' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

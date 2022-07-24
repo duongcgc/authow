@@ -10,15 +10,15 @@ namespace GosoAuthowElementor\Controls;
 use Elementor\Base_Data_Control;
 
 /**
- * Elementor penci_el_autocomplete control.
+ * Elementor goso_el_autocomplete control.
  *
  * @since 1.0.0
  */
 class Autocomplete extends Base_Data_Control {
 	/**
-	 * Get penci_el_autocomplete control type.
+	 * Get goso_el_autocomplete control type.
 	 *
-	 * Retrieve the control type, in this case `penci_el_autocomplete`.
+	 * Retrieve the control type, in this case `goso_el_autocomplete`.
 	 *
 	 * @return string Control type.
 	 * @since  1.0.0
@@ -26,7 +26,7 @@ class Autocomplete extends Base_Data_Control {
 	 *
 	 */
 	public function get_type() {
-		return 'penci_el_autocomplete';
+		return 'goso_el_autocomplete';
 	}
 
 	/**
@@ -36,11 +36,11 @@ class Autocomplete extends Base_Data_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'penci_el_autocomplete-control', get_template_directory_uri() . '/inc/elementor/assets/js/penci-el-autocomplete.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, false );
+		wp_enqueue_script( 'goso_el_autocomplete-control', get_template_directory_uri() . '/inc/elementor/assets/js/goso-el-autocomplete.js', array( 'jquery' ), PENCI_SOLEDAD_VERSION, false );
 	}
 
 	/**
-	 * Render penci_el_autocomplete control output in the editor.
+	 * Render goso_el_autocomplete control output in the editor.
 	 *
 	 * Used to generate the control HTML in the editor using Underscore JS
 	 * template. The variables for the class are available using `data` JS
@@ -82,10 +82,10 @@ class Autocomplete extends Base_Data_Control {
 	}
 
 	/**
-	 * Get penci_el_autocomplete control default settings.
+	 * Get goso_el_autocomplete control default settings.
 	 *
-	 * Retrieve the default settings of the penci_el_autocomplete control. Used to return the
-	 * default settings while initializing the penci_el_autocomplete control.
+	 * Retrieve the default settings of the goso_el_autocomplete control. Used to return the
+	 * default settings while initializing the goso_el_autocomplete control.
 	 *
 	 * @return array Control default settings.
 	 * @since  1.8.0

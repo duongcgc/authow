@@ -1,5 +1,5 @@
 <?php
-$penci_block_width = $el_class = $css_animation = $css = '';
+$goso_block_width = $el_class = $css_animation = $css = '';
 
 $count_down_style     = $count_down_posttion = $count_year = $count_month = $count_day = $count_hour = $count_minus = $count_sec = '';
 $countdown_opts       = $digit_border = $digit_border_width = $digit_border_radius = $digit_padding = $unit_margin_top = '';
@@ -17,10 +17,10 @@ extract( $atts );
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-countdown-bsc';
-$css_class .= ' penci-countdown-' . $count_down_style;
-$css_class .= ' penci-style-' . $count_down_posttion;
-$css_class .= $cdtitle_upper ? ' penci-period-upper' : '';
+$css_class = 'goso-countdown-bsc';
+$css_class .= ' goso-countdown-' . $count_down_style;
+$css_class .= ' goso-style-' . $count_down_posttion;
+$css_class .= $cdtitle_upper ? ' goso-period-upper' : '';
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 
 $block_id = Goso_Vc_Helper::get_unique_id_block( 'count_down' );
@@ -71,68 +71,68 @@ $css_custom   = '';
 
 if ( 's1' == $count_down_style ) {
 	if ( $digit_border ) {
-		$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { border-style: ' . ( $digit_border ) . ' }';
+		$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { border-style: ' . ( $digit_border ) . ' }';
 
 		if ( ! $digit_border_width ) {
-			$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { border-width: 1px; }';
+			$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { border-width: 1px; }';
 		}
 	}
 
 	if ( $digit_border_width ) {
-		$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { border-width: ' . ( $digit_border_width ) . ' }';
+		$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { border-width: ' . ( $digit_border_width ) . ' }';
 	}
 	if ( $digit_border_radius ) {
-		$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { border-radius: ' . ( $digit_border_radius ) . ' }';
+		$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { border-radius: ' . ( $digit_border_radius ) . ' }';
 	}
 
 	if ( $time_digit_bordercolor ) {
-		$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { border-color: ' . ( $time_digit_bordercolor ) . ' }';
+		$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { border-color: ' . ( $time_digit_bordercolor ) . ' }';
 	}
 
 	if ( $time_digit_bgcolor ) {
-		$css_custom .= $id_countdown . '.penci-countdown-s1 .penci-countdown-amount { background-color: ' . ( $time_digit_bgcolor ) . ' }';
+		$css_custom .= $id_countdown . '.goso-countdown-s1 .goso-countdown-amount { background-color: ' . ( $time_digit_bgcolor ) . ' }';
 	}
 } else {
 	if ( $time_bgcolor ) {
-		$css_custom .= $id_countdown . ' .penci-span-inner { background-color: ' . ( $time_bgcolor ) . ' }';
+		$css_custom .= $id_countdown . ' .goso-span-inner { background-color: ' . ( $time_bgcolor ) . ' }';
 	}
 	if ( $time_bordercolor ) {
-		$css_custom .= $id_countdown . ' .penci-span-inner{ border-color: ' . ( $time_bordercolor ) . ' }';
+		$css_custom .= $id_countdown . ' .goso-span-inner{ border-color: ' . ( $time_bordercolor ) . ' }';
 	}
 }
 
 if ( $digit_padding ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-amount { padding: ' . ( $digit_padding ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-amount { padding: ' . ( $digit_padding ) . ' }';
 }
 if ( $unit_margin_top ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-period { margin-top: ' . ( $digit_padding ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-period { margin-top: ' . ( $digit_padding ) . ' }';
 }
 
 if ( $countdown_item_width ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-section { width: ' . ( $countdown_item_width ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-section { width: ' . ( $countdown_item_width ) . ' }';
 }
 if ( $countdown_item_height ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-section{ height: ' . ( $countdown_item_height ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-section{ height: ' . ( $countdown_item_height ) . ' }';
 }
 
 
 if ( $time_digit_color ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-amount { color:' . ( $time_digit_color ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-amount { color:' . ( $time_digit_color ) . ' }';
 }
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $time_digit_size,
 	'font_style' => $time_digit_typo,
-	'template'   => $id_countdown . ' .penci-countdown-amount{ %s }',
+	'template'   => $id_countdown . ' .goso-countdown-amount{ %s }',
 ) );
 
 
 if ( $unit_color ) {
-	$css_custom .= $id_countdown . ' .penci-countdown-period{ color: ' . ( $unit_color ) . ' }';
+	$css_custom .= $id_countdown . ' .goso-countdown-period{ color: ' . ( $unit_color ) . ' }';
 }
 $css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 	'font_size'  => $unit_size,
 	'font_style' => $unit_typo,
-	'template'   => $id_countdown . ' .penci-countdown-period{ %s }',
+	'template'   => $id_countdown . ' .goso-countdown-period{ %s }',
 ) );
 
 if ( $css_custom ) {

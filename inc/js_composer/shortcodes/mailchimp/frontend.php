@@ -1,5 +1,5 @@
 <?php
-$output              = $penci_block_width = $el_class = $css_animation = $css = '';
+$output              = $goso_block_width = $el_class = $css_animation = $css = '';
 $mailchimp_style     = $mc4wp_bg_color = '';
 $mc4wp_des_color     = $mc4wp_bg_input_color = $mc4wp_border_input_color = $mc4wp_text_input = $mc4wp_placeh_input = '';
 $mc4wp_submit_color  = $mc4wp_submit_bgcolor = $mc4wp_submit_border_color = '';
@@ -12,21 +12,21 @@ extract( $atts );
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-mailchimp-block';
-$css_class .= ' penci-mailchimp-' . $mailchimp_style;
+$css_class = 'goso-block-vc goso-mailchimp-block';
+$css_class .= ' goso-mailchimp-' . $mailchimp_style;
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'mailchimp' );
 
 $class_signup_form = 'widget widget_mc4wp_form_widget';
 if ( 's2' == $mailchimp_style ) {
-	$class_signup_form .= ' penci-header-signup-form';
+	$class_signup_form .= ' goso-header-signup-form';
 } elseif ( 's3' == $mailchimp_style ) {
 	$class_signup_form .= ' footer-subscribe';
 }
 ?>
 <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 <?php Goso_Vc_Helper::markup_block_title( $atts ); ?>
-	<div class="penci-block_content">
+	<div class="goso-block_content">
 		<div class="<?php echo esc_attr( $class_signup_form ); ?>">
 		<?php
 		if ( function_exists( 'mc4wp_show_form' ) ) {
@@ -43,16 +43,16 @@ $css_custom   = Goso_Vc_Helper::get_heading_block_css( $id_mailchimp, $atts );
 
 if ( $mc4wp_bg_color ) {
 	$css_custom .= $id_mailchimp . ' .footer-subscribe,';
-	$css_custom .= $id_mailchimp . ' .penci-header-signup-form{ background-color: ' . esc_attr( $mc4wp_bg_color ) . '; }';
+	$css_custom .= $id_mailchimp . ' .goso-header-signup-form{ background-color: ' . esc_attr( $mc4wp_bg_color ) . '; }';
 }
 if ( $mc4wp_bg_color ) {
 	$css_custom .= $id_mailchimp . ' .footer-subscribe,';
-	$css_custom .= $id_mailchimp . ' .penci-header-signup-form{ background-color: ' . esc_attr( $mc4wp_bg_color ) . '; }';
+	$css_custom .= $id_mailchimp . ' .goso-header-signup-form{ background-color: ' . esc_attr( $mc4wp_bg_color ) . '; }';
 }
 
 if ( $mc4wp_des_color ) {
-	$css_custom .= $id_mailchimp . ' .penci-header-signup-form .mc4wp-form-fields > p,';
-	$css_custom .= $id_mailchimp . ' .penci-header-signup-form form > p,';
+	$css_custom .= $id_mailchimp . ' .goso-header-signup-form .mc4wp-form-fields > p,';
+	$css_custom .= $id_mailchimp . ' .goso-header-signup-form form > p,';
 	$css_custom .= $id_mailchimp . ' .footer-subscribe .mc4wp-form .mdes,';
 	$css_custom .= $id_mailchimp . ' .mc4wp-form-fields{ color: ' . esc_attr( $mc4wp_des_color ) . '; }';
 }

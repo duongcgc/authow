@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoSearchForm extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-search-form';
+		return 'goso-search-form';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Search Box', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Search Box', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoSearchForm extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -229,15 +229,15 @@ class GosoSearchForm extends Base_Widget {
 		$style    = isset( $settings['style'] ) && $settings['style'] ? $settings['style'] : 'default';
 		$this->markup_block_title( $settings, $this );
 		?>
-        <div class="pcwg-widget el pc-widget-searchform penci-builder-element pc-search-form search-style-<?php echo $style; ?>">
+        <div class="pcwg-widget el pc-widget-searchform goso-builder-element pc-search-form search-style-<?php echo $style; ?>">
             <form role="search" method="get" class="pc-searchform"
                   action="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <div class="pc-searchform-inner">
                     <input type="text" class="search-input"
-                           placeholder="<?php echo penci_get_setting( 'penci_trans_type_and_hit' ); ?>" name="s"/>
-                    <i class="penciicon-magnifiying-glass"></i>
+                           placeholder="<?php echo goso_get_setting( 'goso_trans_type_and_hit' ); ?>" name="s"/>
+                    <i class="gosoicon-magnifiying-glass"></i>
                     <button type="submit"
-                            class="searchsubmit"><?php echo penci_get_setting( 'penci_trans_search' ); ?></button>
+                            class="searchsubmit"><?php echo goso_get_setting( 'goso_trans_search' ); ?></button>
                 </div>
             </form>
         </div>

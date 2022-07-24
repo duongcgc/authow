@@ -122,17 +122,17 @@ export const edit = ( props ) => {
 			</PanelBody>
 		</InspectorControls>
         <ServerSideRender
-            block="penci-gutenberg/recipe-index"
+            block="goso-gutenberg/recipe-index"
             attributes={ props.attributes }
         />
         </Fragment>
     );
 }
 
-registerBlockType( 'penci-gutenberg/recipe-index', {
+registerBlockType( 'goso-gutenberg/recipe-index', {
 	title: __( 'Goso: Recipe Index' ),
 	icon: GosoIcon,
-	category: 'penci-blocks',
+	category: 'goso-blocks',
 	edit: edit,
 	save: save,
 } );

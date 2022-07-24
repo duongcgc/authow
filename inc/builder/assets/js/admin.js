@@ -1,5 +1,5 @@
 !function (e, $) {
-    $(document).on('click', '.penci-builder-button.customize .button', function (e) {
+    $(document).on('click', '.goso-builder-button.customize .button', function (e) {
         var href = $(this).data('href');
         e.preventDefault();
         $(window).off('beforeunload');

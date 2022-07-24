@@ -7,9 +7,9 @@ if(  ! class_exists( 'Goso_Gutenberg_Authow_Blockquote' ) ):
 class Goso_Gutenberg_Authow_Blockquote {
 
 	public function render( $attributes, $content ) {
-		if( ! function_exists( 'penci_blockquote_shortcode' ) ){
+		if( ! function_exists( 'goso_blockquote_shortcode' ) ){
 			$mess = esc_html__( 'Please active Goso Shortcodes plugin', 'authow' );
-			return  '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Blockquote', $mess ) . '</div>';
+			return  '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Blockquote', $mess ) . '</div>';
 		}
 
 		$param = ' wpblock="true"';
@@ -21,11 +21,11 @@ class Goso_Gutenberg_Authow_Blockquote {
 			}
 		}
 		
-		$block_style = get_theme_mod('penci_blockquote_style') ? get_theme_mod('penci_blockquote_style') : 'style-1';
-		$output = '<div class="penci-wpblock blockquote-' . $block_style . '">';
+		$block_style = get_theme_mod('goso_blockquote_style') ? get_theme_mod('goso_blockquote_style') : 'style-1';
+		$output = '<div class="goso-wpblock blockquote-' . $block_style . '">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Block Quote', esc_html__( 'Click to edit this block', 'authow' ) );
 		$output .=  do_shortcode( '[blockquote  ' . $param . ']' . ( $attributes['content'] ? $attributes['content'] : '' ) . '[/blockquote]' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .= '</div><!--endgoso-block-->';
 
 		return $output;
 	}

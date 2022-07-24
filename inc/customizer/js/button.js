@@ -12,7 +12,7 @@ jQuery( document ).ready( function( $ ) {
 			dataType : "json",
 			url : $ajaxurl,
 			data : {
-				action: "penci_render_separate_css_file",
+				action: "goso_render_separate_css_file",
 				_nonce : $nonce,
 			},
 			success: function() {

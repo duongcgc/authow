@@ -1,5 +1,5 @@
 <?php
-$output = $penci_block_width = $el_class = $css_animation = $css = '';
+$output = $goso_block_width = $el_class = $css_animation = $css = '';
 
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 extract( $atts );
@@ -11,8 +11,8 @@ if ( ! $testimonails ) {
 }
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 
-$css_class = 'penci-block-vc penci-testimonails';
-$css_class .= ' penci-testi-' . $atts['style'];
+$css_class = 'goso-block-vc goso-testimonails';
+$css_class .= ' goso-testi-' . $atts['style'];
 
 $css_class .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
 $block_id  = Goso_Vc_Helper::get_unique_id_block( 'testimonails' );
@@ -28,7 +28,7 @@ $data_slider .= ' data-margin="30"';
 
 ?>
 	<div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
-		<div class="penci-block_content penci-owl-carousel penci-owl-carousel-slider" <?php echo $data_slider; ?>>
+		<div class="goso-block_content goso-owl-carousel goso-owl-carousel-slider" <?php echo $data_slider; ?>>
 			<?php
 			foreach ( (array) $testimonails as $_testi ) {
 				$_testi_image   = isset( $_testi['testi_image'] ) ? $_testi['testi_image'] : '';
@@ -40,22 +40,22 @@ $data_slider .= ' data-margin="30"';
 
 				if ( $_testi_name || $_testi_company || $_testi_desc ) {
 					?>
-					<div class="penci-testimonail">
+					<div class="goso-testimonail">
 						<?php
 
 						if ( 's2' == $atts['style'] ) {
 							if ( $_testi_desc ) {
-								echo '<div class="penci-testi-blockquote">';
-								echo '<div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div>';
+								echo '<div class="goso-testi-blockquote">';
+								echo '<div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div>';
 
 								if ( $_testi_rating ) {
 									$rating_item = '';
 									for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-										$rating_item .= penci_icon_by_ver('fas fa-star');
+										$rating_item .= goso_icon_by_ver('fas fa-star');
 									}
 
 									if ( $rating_item ) {
-										echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+										echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 									}
 								}
 
@@ -65,17 +65,17 @@ $data_slider .= ' data-margin="30"';
 
 						} else {
 							if ( $_testi_desc ) {
-								echo '<div class="penci-testi-blockquote"><div class="penci-testi-bq-inner"><span class="penci-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
+								echo '<div class="goso-testi-blockquote"><div class="goso-testi-bq-inner"><span class="goso-testi-bq-icon"></span><span>' . $_testi_desc . '</span></div></div>';
 							}
 
 							if ( $_testi_rating ) {
 								$rating_item = '';
 								for ( $i = 1; $i <= $_testi_rating; $i ++ ) {
-									$rating_item .= penci_icon_by_ver('fas fa-star');
+									$rating_item .= goso_icon_by_ver('fas fa-star');
 								}
 
 								if ( $rating_item ) {
-									echo '<div class="penci-testi-rating">' . $rating_item . '</div>';
+									echo '<div class="goso-testi-rating">' . $rating_item . '</div>';
 								}
 							}
 						}
@@ -83,14 +83,14 @@ $data_slider .= ' data-margin="30"';
 
 						$url_img_item = wp_get_attachment_url( $_testi_image );
 						if ( $url_img_item ) {
-							$thumbnailsize = penci_get_image_size_url( $url_img_item, 'thumbnail' );
-							echo '<div class="penci-testi-avatar">';
+							$thumbnailsize = goso_get_image_size_url( $url_img_item, 'thumbnail' );
+							echo '<div class="goso-testi-avatar">';
 							echo '<img src="' . esc_url( $thumbnailsize ) . '" alt="' . esc_attr( $_testi_name ) . '"/>';
 							echo '</div>';
 						}
 
-						echo '<h3 class="penci-testi-name">' . $_testi_name . '</h3>';
-						echo '<div class="penci-testi-company">' . $_testi_company . '</div>';
+						echo '<h3 class="goso-testi-name">' . $_testi_name . '</h3>';
+						echo '<div class="goso-testi-company">' . $_testi_company . '</div>';
 
 
 						?>
@@ -108,64 +108,64 @@ $id_testimonails = '#' . $block_id;
 $css_custom      = Goso_Vc_Helper::get_heading_block_css( $id_testimonails, $atts );
 
 if ( $atts['p_name_marbottom'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-name{ margin-bottom:' . esc_attr( $atts['p_name_marbottom'] ) . ' }';
+	$css_custom .= $id_testimonails . ' .goso-testi-name{ margin-bottom:' . esc_attr( $atts['p_name_marbottom'] ) . ' }';
 }
 if ( $atts['p_company_marbottom'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-company{ margin-bottom:' . esc_attr( $atts['p_company_marbottom'] ) . ' }';
+	$css_custom .= $id_testimonails . ' .goso-testi-company{ margin-bottom:' . esc_attr( $atts['p_company_marbottom'] ) . ' }';
 }
 if ( $atts['p_rating_marbottom'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-rating{ margin-bottom:' . esc_attr( $atts['p_rating_marbottom'] ) . ' }';
+	$css_custom .= $id_testimonails . ' .goso-testi-rating{ margin-bottom:' . esc_attr( $atts['p_rating_marbottom'] ) . ' }';
 }
 if ( $atts['p_desc_marbottom'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-blockquote{ margin-bottom:' . esc_attr( $atts['p_desc_marbottom'] ) . ' }';
+	$css_custom .= $id_testimonails . ' .goso-testi-blockquote{ margin-bottom:' . esc_attr( $atts['p_desc_marbottom'] ) . ' }';
 }
 if ( $atts['p_desc_padding'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-blockquote{ margin-bottom:' . esc_attr( $atts['p_desc_padding'] ) . ' }';
+	$css_custom .= $id_testimonails . ' .goso-testi-blockquote{ margin-bottom:' . esc_attr( $atts['p_desc_padding'] ) . ' }';
 }
 
 
 
 // Icon
 if( $atts['icon_quote_color'] ) {
-	$css_custom .= $id_testimonails . '.penci-testi-s1 .penci-testimonail .penci-testi-bq-icon:before{ color:' . esc_attr( $atts['icon_quote_color'] ) . ' }';
+	$css_custom .= $id_testimonails . '.goso-testi-s1 .goso-testimonail .goso-testi-bq-icon:before{ color:' . esc_attr( $atts['icon_quote_color'] ) . ' }';
 }
 if( $atts['icon_quote_bgcolor'] ) {
-	$css_custom .= $id_testimonails . '.penci-testi-s1 .penci-testimonail .penci-testi-bq-icon:before{ background-color:' . esc_attr( $atts['icon_quote_bgcolor'] ) . ' }';
+	$css_custom .= $id_testimonails . '.goso-testi-s1 .goso-testimonail .goso-testi-bq-icon:before{ background-color:' . esc_attr( $atts['icon_quote_bgcolor'] ) . ' }';
 }
 
 // Name
 if ( $atts['name_color'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-name{ color:' . esc_attr( $atts['name_color'] ) . '; }';
+	$css_custom .= $id_testimonails . ' .goso-testi-name{ color:' . esc_attr( $atts['name_color'] ) . '; }';
 }
 if( $atts['use_name_typo'] ) {
 	$css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 		'font_size'  => $atts['name_size'],
 		'font_style' => $atts['name_typo'],
-		'template'   => $id_testimonails . ' .penci-testi-name{ %s }',
+		'template'   => $id_testimonails . ' .goso-testi-name{ %s }',
 	) );
 }
 
 // Position
 if ( $atts['company_color'] ) {
-	$css_custom .= $id_testimonails . ' .penci-testi-company{ color:' . esc_attr( $atts['name_color'] ) . '; }';
+	$css_custom .= $id_testimonails . ' .goso-testi-company{ color:' . esc_attr( $atts['name_color'] ) . '; }';
 }
 if( $atts['use_company_typo'] ) {
 	$css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 		'font_size'  => $atts['company_size'],
 		'font_style' => $atts['company_typo'],
-		'template'   => $id_testimonails . ' .penci-testi-company{ %s }',
+		'template'   => $id_testimonails . ' .goso-testi-company{ %s }',
 	) );
 }
 
 // Description
 if ( $atts['desc_color'] ) {
-	$css_custom .= $id_testimonails . '.penci-testi-s1 .penci-testimonail .penci-testi-blockquote{ color:' . esc_attr( $atts['desc_color'] ) . '; }';
+	$css_custom .= $id_testimonails . '.goso-testi-s1 .goso-testimonail .goso-testi-blockquote{ color:' . esc_attr( $atts['desc_color'] ) . '; }';
 }
 if( $atts['use_desc_typo'] ) {
 	$css_custom .= Goso_Vc_Helper::vc_google_fonts_parse_attributes( array(
 		'font_size'  => $atts['desc_size'],
 		'font_style' => $atts['desc_typo'],
-		'template'   => $id_testimonails . '.penci-testi-s1 .penci-testimonail .penci-testi-blockquote{ %s }',
+		'template'   => $id_testimonails . '.goso-testi-s1 .goso-testimonail .goso-testi-blockquote{ %s }',
 	) );
 }
 

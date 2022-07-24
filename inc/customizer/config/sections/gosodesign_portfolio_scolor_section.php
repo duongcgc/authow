@@ -5,13 +5,13 @@ $options[] = array(
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Overlay Hover Color',
-	'id'       => 'penci_portfolio_overlay_color',
+	'id'       => 'goso_portfolio_overlay_color',
 );
 $options[] = array(
 	'default'  => '0.85',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Portfolio Overlay Hover Opacity',
-	'id'       => 'penci_portfolio_overlay_opacity',
+	'id'       => 'goso_portfolio_overlay_opacity',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'0.05' => '0.05',
@@ -41,37 +41,37 @@ $options[] = array(
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Post Title Color',
-	'id'       => 'penci_portfolio_title_color',
+	'id'       => 'goso_portfolio_title_color',
 );
 $options[] = array(
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Post Title Hover Color',
-	'id'       => 'penci_portfolio_title_hcolor',
+	'id'       => 'goso_portfolio_title_hcolor',
 );
 $options[] = array(
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Post Categories Color',
-	'id'       => 'penci_portfolio_cate_color',
+	'id'       => 'goso_portfolio_cate_color',
 );
 $options[] = array(
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Post Categories Hover Color',
-	'id'       => 'penci_portfolio_cate_hcolor',
+	'id'       => 'goso_portfolio_cate_hcolor',
 );
 $options[] = array(
 	'sanitize' => 'sanitize_text_field',
 	'label'    => __( 'Single Portfolio Color', 'authow' ),
-	'id'       => 'penci_portfolio_single_color',
+	'id'       => 'goso_portfolio_single_color',
 	'type'     => 'authow-fw-header',
 );
 $options[] = array(
-	'id'       => 'penci_portfolio_single_title_color',
+	'id'       => 'goso_portfolio_single_title_color',
 	'default'  => '',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
@@ -79,98 +79,98 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_text_color',
+	'id'       => 'goso_portfolio_single_text_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio General Text Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_text_link_color',
+	'id'       => 'goso_portfolio_single_text_link_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Text Link Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_text_link_hover_color',
+	'id'       => 'goso_portfolio_single_text_link_hover_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Portfolio Text Link Hover Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_meta_label_color',
+	'id'       => 'goso_portfolio_single_meta_label_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Meta Text: Label Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_meta_value_color',
+	'id'       => 'goso_portfolio_single_meta_value_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Meta Text: Value Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_border_color',
+	'id'       => 'goso_portfolio_single_border_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'General Border Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_relate_title_color',
+	'id'       => 'goso_portfolio_single_relate_title_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Title Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_relate_title_hover_color',
+	'id'       => 'goso_portfolio_single_relate_title_hover_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Title Hover Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_relate_cat_color',
+	'id'       => 'goso_portfolio_single_relate_cat_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Category Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_relate_cat_hover_color',
+	'id'       => 'goso_portfolio_single_relate_cat_hover_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Category Hover Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_carousel_background_color',
+	'id'       => 'goso_portfolio_single_carousel_background_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Carousel Background Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_carousel_border_color',
+	'id'       => 'goso_portfolio_single_carousel_border_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Carousel Border Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_carousel_active_background_color',
+	'id'       => 'goso_portfolio_single_carousel_active_background_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Carousel Active Background Color',
 );
 $options[] = array(
 	'default'  => '',
-	'id'       => 'penci_portfolio_single_carousel_active_border_color',
+	'id'       => 'goso_portfolio_single_carousel_active_border_color',
 	'sanitize' => 'sanitize_hex_color',
 	'type'     => 'authow-fw-color',
 	'label'    => 'Relate Project Carousel Active Border Color',

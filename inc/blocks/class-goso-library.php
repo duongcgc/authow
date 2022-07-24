@@ -17,7 +17,7 @@ class Goso_Library
 	public function inline_styles()
 	{
 ?>
-		<style>.penci-library-modal-btn {margin-left: 5px;background: #33ad67;vertical-align: top;font-size: 0 !important;}.penci-library-modal-btn:before {content: '';width: 16px;height: 16px;background-image: url('<?php echo get_template_directory_uri() . '/images/penci-icon.png';?>');background-position: center;background-size: contain;background-repeat: no-repeat;}#penci-library-modal .penci-elementor-template-library-template-name {text-align: right;flex: 1 0 0%;}</style>
+		<style>.goso-library-modal-btn {margin-left: 5px;background: #33ad67;vertical-align: top;font-size: 0 !important;}.goso-library-modal-btn:before {content: '';width: 16px;height: 16px;background-image: url('<?php echo get_template_directory_uri() . '/images/goso-icon.png';?>');background-position: center;background-size: contain;background-repeat: no-repeat;}#goso-library-modal .goso-elementor-template-library-template-name {text-align: right;flex: 1 0 0%;}</style>
 	<?php
 	}
 
@@ -28,13 +28,13 @@ class Goso_Library
 
 	public function enqueue()
 	{
-		wp_enqueue_script('penci-blocks', get_template_directory_uri() . '/inc/blocks/assets/js/blocks-templates.js', array('jquery'), '1.0.0', true);
+		wp_enqueue_script('goso-blocks', get_template_directory_uri() . '/inc/blocks/assets/js/blocks-templates.js', array('jquery'), '1.0.0', true);
 	}
 
 	public function render()
 	{
 	?>
-		<script type="text/html" id="tmpl-elementor-penci-library-modal-header">
+		<script type="text/html" id="tmpl-elementor-goso-library-modal-header">
 			<div class="elementor-templates-modal__header">
 				<div class="elementor-templates-modal__header__logo-area">
 					<div class="elementor-templates-modal__header__logo">
@@ -45,28 +45,28 @@ class Goso_Library
 				</div>
 
 				<div class="elementor-templates-modal__header__menu-area">
-					<div id="elementor-penci-library-header-menu">
-						<div id="penci-tab-block" class="elementor-component-tab elementor-template-library-menu-item elementor-active" data-tab="block">Blocks</div>
-						<div id="penci-tab-template" class="elementor-component-tab elementor-template-library-menu-item" data-tab="template">Templates</div>
+					<div id="elementor-goso-library-header-menu">
+						<div id="goso-tab-block" class="elementor-component-tab elementor-template-library-menu-item elementor-active" data-tab="block">Blocks</div>
+						<div id="goso-tab-template" class="elementor-component-tab elementor-template-library-menu-item" data-tab="template">Templates</div>
 					</div>
 				</div>
 
 				<div class="elementor-templates-modal__header__items-area">
 					<div class="elementor-templates-modal__header__close elementor-templates-modal__header__close--normal elementor-templates-modal__header__item">
-						<i class="eicon-close" aria-hidden="true" title="<?php echo esc_html__('Close', 'penci'); ?>"></i>
+						<i class="eicon-close" aria-hidden="true" title="<?php echo esc_html__('Close', 'goso'); ?>"></i>
 
 						<span class="elementor-screen-only">
-							<?php echo esc_html__('Close', 'penci'); ?>
+							<?php echo esc_html__('Close', 'goso'); ?>
 						</span>
 					</div>
 				</div>
 			</div>
 		</script>
 
-		<script type="text/html" id="tmpl-elementor-penci-library-modal-order">
+		<script type="text/html" id="tmpl-elementor-goso-library-modal-order">
 			<div id="elementor-template-library-filter">
 				<select id="elementor-template-library-filter-subtype" class="elementor-template-library-filter-select" data-elementor-filter="subtype">
-					<option value="all"><?php echo esc_html__('All', 'penci'); ?></option>
+					<option value="all"><?php echo esc_html__('All', 'goso'); ?></option>
 					<# data.tags.forEach(function(item, i) { #>
 						<option value="{{{item.slug}}}">{{{item.title}}}</option>
 						<# }); #>
@@ -74,20 +74,20 @@ class Goso_Library
 			</div>
 		</script>
 
-		<script type="text/template" id="tmpl-elementor-penci-library-header-menu">
+		<script type="text/template" id="tmpl-elementor-goso-library-header-menu">
 			<# jQuery.each( tabs, ( tab, args ) => { #>	
 				<div class="elementor-component-tab elementor-template-library-menu-item" data-tab="{{{ tab }}}">{{{ args.title }}}</div>
 			<# } ); #>
 		</script>
 
-		<script type="text/html" id="tmpl-elementor-penci-library-modal">
+		<script type="text/html" id="tmpl-elementor-goso-library-modal">
 			<div id="elementor-template-library-templates" data-template-source="remote">
 				<div id="elementor-template-library-toolbar">
 					<div id="elementor-template-library-filter-toolbar-remote" class="elementor-template-library-filter-toolbar"></div>
 
 					<div id="elementor-template-library-filter-text-wrapper">
-						<label for="elementor-template-library-filter-text" class="elementor-screen-only"><?php echo esc_html__('Search Templates:', 'penci'); ?></label>
-						<input id="elementor-template-library-filter-text" placeholder="<?php echo esc_attr__('Search', 'penci'); ?>">
+						<label for="elementor-template-library-filter-text" class="elementor-screen-only"><?php echo esc_html__('Search Templates:', 'goso'); ?></label>
+						<input id="elementor-template-library-filter-text" placeholder="<?php echo esc_attr__('Search', 'goso'); ?>">
 						<i class="eicon-search"></i>
 					</div>
 				</div>
@@ -109,11 +109,11 @@ class Goso_Library
 						<div class="elementor-loader-box"></div>
 					</div>
 				</div>
-				<div class="elementor-loading-title"><?php echo esc_html__('Loading', 'penci'); ?></div>
+				<div class="elementor-loading-title"><?php echo esc_html__('Loading', 'goso'); ?></div>
 			</div>
 		</script>
 
-		<script type="text/html" id="tmpl-elementor-penci-library-modal-item">
+		<script type="text/html" id="tmpl-elementor-goso-library-modal-item">
 			<# data.elements.forEach(function(item, i) { #>
 				
 				<div class="elementor-template-library-template elementor-template-library-template-remote elementor-template-library-template-{{{item.type === 'template' ? 'page' : 'block'}}}" data-slug="{{{item.slug}}}" data-tag="{{{item.class}}}" data-type="{{{item.type}}}">
@@ -135,7 +135,7 @@ class Goso_Library
 							<i class="eicon-file-download" aria-hidden="true"></i>
 							<span class="elementor-button-title">Insert</span>
 						</a>
-						<div class="penci-elementor-template-library-template-name">{{{item.title}}}</div>
+						<div class="goso-elementor-template-library-template-name">{{{item.title}}}</div>
 					</div>
 				</div>
 				<# }); #>

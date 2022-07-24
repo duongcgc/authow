@@ -5,15 +5,15 @@ use Elementor\Icons_Manager;
 use Elementor\Plugin;
 use Elementor\Utils;
 
-require_once get_template_directory() . '/inc/elementor/includes/penci_custom_walker_category.php';
+require_once get_template_directory() . '/inc/elementor/includes/goso_custom_walker_category.php';
 
-if ( ! function_exists( 'penci_get_posts_by_query' ) ) {
+if ( ! function_exists( 'goso_get_posts_by_query' ) ) {
 	/**
 	 * Get post by search
 	 *
 	 * @since 1.0.0
 	 */
-	function penci_get_posts_by_query() {
+	function goso_get_posts_by_query() {
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : ''; // phpcs:ignore
 		$post_type     = isset( $_POST['post_type'] ) ? $_POST['post_type'] : 'post'; // phpcs:ignore
 		$results       = array();
@@ -38,17 +38,17 @@ if ( ! function_exists( 'penci_get_posts_by_query' ) ) {
 		wp_send_json( $results );
 	}
 
-	add_action( 'wp_ajax_penci_get_posts_by_query', 'penci_get_posts_by_query' );
-	add_action( 'wp_ajax_nopriv_penci_get_posts_by_query', 'penci_get_posts_by_query' );
+	add_action( 'wp_ajax_goso_get_posts_by_query', 'goso_get_posts_by_query' );
+	add_action( 'wp_ajax_nopriv_goso_get_posts_by_query', 'goso_get_posts_by_query' );
 }
 
-if ( ! function_exists( 'penci_get_posts_title_by_id' ) ) {
+if ( ! function_exists( 'goso_get_posts_title_by_id' ) ) {
 	/**
 	 * Get post title by ID
 	 *
 	 * @since 1.0.0
 	 */
-	function penci_get_posts_title_by_id() {
+	function goso_get_posts_title_by_id() {
 		$ids       = isset( $_POST['id'] ) ? $_POST['id'] : array(); // phpcs:ignore
 		$post_type = isset( $_POST['post_type'] ) ? $_POST['post_type'] : 'post'; // phpcs:ignore
 		$results   = array();
@@ -71,16 +71,16 @@ if ( ! function_exists( 'penci_get_posts_title_by_id' ) ) {
 		wp_send_json( $results );
 	}
 
-	add_action( 'wp_ajax_penci_get_posts_title_by_id', 'penci_get_posts_title_by_id' );
-	add_action( 'wp_ajax_nopriv_penci_get_posts_title_by_id', 'penci_get_posts_title_by_id' );
+	add_action( 'wp_ajax_goso_get_posts_title_by_id', 'goso_get_posts_title_by_id' );
+	add_action( 'wp_ajax_nopriv_goso_get_posts_title_by_id', 'goso_get_posts_title_by_id' );
 }
-if ( ! function_exists( 'penci_get_taxonomies_title_by_id' ) ) {
+if ( ! function_exists( 'goso_get_taxonomies_title_by_id' ) ) {
 	/**
 	 * Get taxonomies title by id
 	 *
 	 * @since 1.0.0
 	 */
-	function penci_get_taxonomies_title_by_id() {
+	function goso_get_taxonomies_title_by_id() {
 		$ids     = isset( $_POST['id'] ) ? $_POST['id'] : array(); // phpcs:ignore
 		$results = array();
 
@@ -101,17 +101,17 @@ if ( ! function_exists( 'penci_get_taxonomies_title_by_id' ) ) {
 		wp_send_json( $results );
 	}
 
-	add_action( 'wp_ajax_penci_get_taxonomies_title_by_id', 'penci_get_taxonomies_title_by_id' );
-	add_action( 'wp_ajax_nopriv_penci_get_taxonomies_title_by_id', 'penci_get_taxonomies_title_by_id' );
+	add_action( 'wp_ajax_goso_get_taxonomies_title_by_id', 'goso_get_taxonomies_title_by_id' );
+	add_action( 'wp_ajax_nopriv_goso_get_taxonomies_title_by_id', 'goso_get_taxonomies_title_by_id' );
 }
 
-if ( ! function_exists( 'penci_get_taxonomies_by_query' ) ) {
+if ( ! function_exists( 'goso_get_taxonomies_by_query' ) ) {
 	/**
 	 * Get taxonomies by search
 	 *
 	 * @since 1.0.0
 	 */
-	function penci_get_taxonomies_by_query() {
+	function goso_get_taxonomies_by_query() {
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : ''; // phpcs:ignore
 		$taxonomy      = isset( $_POST['taxonomy'] ) ? $_POST['taxonomy'] : ''; // phpcs:ignore
 		$results       = array();
@@ -138,11 +138,11 @@ if ( ! function_exists( 'penci_get_taxonomies_by_query' ) ) {
 		wp_send_json( $results );
 	}
 
-	add_action( 'wp_ajax_penci_get_taxonomies_by_query', 'penci_get_taxonomies_by_query' );
-	add_action( 'wp_ajax_nopriv_penci_get_taxonomies_by_query', 'penci_get_taxonomies_by_query' );
+	add_action( 'wp_ajax_goso_get_taxonomies_by_query', 'goso_get_taxonomies_by_query' );
+	add_action( 'wp_ajax_nopriv_goso_get_taxonomies_by_query', 'goso_get_taxonomies_by_query' );
 }
 
-if ( ! function_exists( 'penci_get_image_html' ) ) {
+if ( ! function_exists( 'goso_get_image_html' ) ) {
 	/**
 	 * Get image url
 	 *
@@ -153,13 +153,13 @@ if ( ! function_exists( 'penci_get_image_html' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function penci_get_image_html( $settings, $image_size_key = '' ) {
+	function goso_get_image_html( $settings, $image_size_key = '' ) {
 
 		return Group_Control_Image_Size::get_attachment_image_html( $settings, $image_size_key );
 	}
 }
 
-if ( ! function_exists( 'penci_get_image_url' ) ) {
+if ( ! function_exists( 'goso_get_image_url' ) ) {
 	/**
 	 * Get image url
 	 *
@@ -171,13 +171,13 @@ if ( ! function_exists( 'penci_get_image_url' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function penci_get_image_url( $id, $image_size_key, $settings ) {
+	function goso_get_image_url( $id, $image_size_key, $settings ) {
 
 		return Group_Control_Image_Size::get_attachment_image_src( $id, $image_size_key, $settings );
 	}
 }
 
-if ( ! function_exists( 'penci_get_link_attrs' ) ) {
+if ( ! function_exists( 'goso_get_link_attrs' ) ) {
 	/**
 	 * Get image url
 	 *
@@ -187,7 +187,7 @@ if ( ! function_exists( 'penci_get_link_attrs' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function penci_get_link_attrs( $link ) {
+	function goso_get_link_attrs( $link ) {
 		$link_attrs = '';
 
 		if ( isset( $link['url'] ) && $link['url'] ) {
@@ -221,7 +221,7 @@ if ( ! function_exists( 'penci_get_link_attrs' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
+if ( ! function_exists( 'goso_elementor_get_render_icon' ) ) {
 	/**
 	 * Render Icon
 	 *
@@ -233,7 +233,7 @@ if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function penci_elementor_get_render_icon( $icon, $attributes = [], $tag = 'i' ) {
+	function goso_elementor_get_render_icon( $icon, $attributes = [], $tag = 'i' ) {
 		ob_start();
 		Icons_Manager::render_icon( $icon, $attributes, $tag );
 
@@ -242,8 +242,8 @@ if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
 }
 
 
-if ( ! function_exists( 'penci_get_all_taxonomies' ) ) {
-	function penci_get_all_taxonomies() {
+if ( ! function_exists( 'goso_get_all_taxonomies' ) ) {
+	function goso_get_all_taxonomies() {
 
 		$out = array(
 			'category' => 'Post Categories',
@@ -263,8 +263,8 @@ if ( ! function_exists( 'penci_get_all_taxonomies' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_taxonomies_image' ) ) {
-	function penci_get_taxonomies_image( $tax, $term, $options = array( 'sort' => '', 'key' => '' ) ) {
+if ( ! function_exists( 'goso_get_taxonomies_image' ) ) {
+	function goso_get_taxonomies_image( $tax, $term, $options = array( 'sort' => '', 'key' => '' ) ) {
 
 		if ( 'field' == $options['sort'] && $options['key'] ) {
 			return get_term_meta( $term, $options['key'], true );;
@@ -313,19 +313,19 @@ if ( ! function_exists( 'penci_get_taxonomies_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_elementor_is_edit_mode' ) ) {
+if ( ! function_exists( 'goso_elementor_is_edit_mode' ) ) {
 	/**
 	 * Whether the edit mode is active.
 	 *
 	 * @since 1.0.0
 	 */
-	function penci_elementor_is_edit_mode() {
+	function goso_elementor_is_edit_mode() {
 		return Plugin::$instance->editor->is_edit_mode();
 	}
 }
 
 
-if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
+if ( ! function_exists( 'goso_elementor_get_render_icon' ) ) {
 	/**
 	 * Render Icon
 	 *
@@ -337,7 +337,7 @@ if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
 	 * @since 1.0.0
 	 *
 	 */
-	function penci_elementor_get_render_icon( $icon, $attributes = [], $tag = 'i' ) {
+	function goso_elementor_get_render_icon( $icon, $attributes = [], $tag = 'i' ) {
 		ob_start();
 		Icons_Manager::render_icon( $icon, $attributes, $tag );
 
@@ -346,9 +346,9 @@ if ( ! function_exists( 'penci_elementor_get_render_icon' ) ) {
 }
 
 
-if ( ! function_exists( 'penci_get_any_svg' ) ) {
-	function penci_get_any_svg( $file, $id = false ) {
-		$content   = function_exists( 'penci_get_any_svg' ) ? penci_get_any_svg( $file ) : '';
+if ( ! function_exists( 'goso_get_any_svg' ) ) {
+	function goso_get_any_svg( $file, $id = false ) {
+		$content   = function_exists( 'goso_get_any_svg' ) ? goso_get_any_svg( $file ) : '';
 		$start_tag = '<svg';
 		if ( $id ) {
 			$pattern = "/id=\"(\w)+\"/";
@@ -365,8 +365,8 @@ if ( ! function_exists( 'penci_get_any_svg' ) ) {
 		return $content;
 	}
 }
-if ( ! function_exists( 'penci_get_terms_list' ) ) {
-	function penci_get_terms_list( $tax ) {
+if ( ! function_exists( 'goso_get_terms_list' ) ) {
+	function goso_get_terms_list( $tax ) {
 		$post_cats_args = get_terms( [ 'taxonomy' => $tax, 'hide_empty' => true ] );
 		$post_terms     = [];
 		if ( $post_cats_args && ! empty( $post_cats_args ) ) {

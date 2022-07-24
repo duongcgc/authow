@@ -12,16 +12,16 @@ $atts              = vc_map_get_attributes( $this->getShortcode(), $atts );
 $atts['elementor'] = false;
 extract( $atts );
 
-$css_class = 'penci-vc_product elementor-widget-container';
+$css_class = 'goso-vc_product elementor-widget-container';
 
 $class_to_filter = vc_shortcode_custom_css_class( $css, ' ' ) . $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
 $css_class       .= ' ' . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $class_to_filter, $this->settings['base'], $atts );
-$block_id        = Goso_Vc_Helper::get_unique_id_block( 'penci_product' );
+$block_id        = Goso_Vc_Helper::get_unique_id_block( 'goso_product' );
 ?>
     <div id="<?php echo esc_attr( $block_id ); ?>" class="<?php echo esc_attr( $css_class ); ?>">
 		<?php
 		Goso_Vc_Helper::markup_block_title( $atts );
-		penci_elementor_products_template( $atts, true );
+		goso_elementor_products_template( $atts, true );
 		?>
     </div>
 
@@ -31,20 +31,20 @@ $id_product = '#' . $block_id;
 $css_custom = Goso_Vc_Helper::get_heading_block_css( $id_product, $atts );
 
 if ( $product_title_color ) {
-	$css_custom .= $id_product . ' ul.products .penci-authow-product .penci-product-loop-title h3{color:' . $product_title_color . '}';
-	$css_custom .= $id_product . ' ul.products .penci-authow-product .penci-product-loop-title h3 a{color:' . $product_title_color . '}';
+	$css_custom .= $id_product . ' ul.products .goso-authow-product .goso-product-loop-title h3{color:' . $product_title_color . '}';
+	$css_custom .= $id_product . ' ul.products .goso-authow-product .goso-product-loop-title h3 a{color:' . $product_title_color . '}';
 }
 
 if ( $product_title_font_size ) {
-	$css_custom .= $id_product . ' ul.products .penci-authow-product .penci-product-loop-title h3{font-size:' . $product_title_font_size . '}';
+	$css_custom .= $id_product . ' ul.products .goso-authow-product .goso-product-loop-title h3{font-size:' . $product_title_font_size . '}';
 }
 
 if ( $product_category_color ) {
-	$css_custom .= $id_product . ' ul.products li.product .penci-product-cats a{color:' . $product_category_color . '}';
+	$css_custom .= $id_product . ' ul.products li.product .goso-product-cats a{color:' . $product_category_color . '}';
 }
 
 if ( $product_category_font_size ) {
-	$css_custom .= $id_product . ' ul.products li.product .penci-product-cats a{font-size:' . $product_category_font_size . '}';
+	$css_custom .= $id_product . ' ul.products li.product .goso-product-cats a{font-size:' . $product_category_font_size . '}';
 }
 
 if ( $product_price_color ) {
@@ -84,19 +84,19 @@ if ( $product_pagination_current_bg_color ) {
 }
 
 if ( $product_pagination_viewmore_bg_color ) {
-	$css_custom .= $id_product . '  .penci-woo-page-container .page-load-button .button{background-color:' . $product_pagination_viewmore_bg_color . '}';
+	$css_custom .= $id_product . '  .goso-woo-page-container .page-load-button .button{background-color:' . $product_pagination_viewmore_bg_color . '}';
 }
 
 if ( $product_pagination_viewmore_text_color ) {
-	$css_custom .= $id_product . '  .penci-woo-page-container .page-load-button .button{color:' . $product_pagination_viewmore_text_color . '}';
+	$css_custom .= $id_product . '  .goso-woo-page-container .page-load-button .button{color:' . $product_pagination_viewmore_text_color . '}';
 }
 
 if ( $product_pagination_viewmore_hover_bg_color ) {
-	$css_custom .= $id_product . '  .penci-woo-page-container .page-load-button .button:hover{background-color:' . $product_pagination_viewmore_hover_bg_color . '}';
+	$css_custom .= $id_product . '  .goso-woo-page-container .page-load-button .button:hover{background-color:' . $product_pagination_viewmore_hover_bg_color . '}';
 }
 
 if ( $product_pagination_viewmore_hover_text_color ) {
-	$css_custom .= $id_product . '  .penci-woo-page-container .page-load-button .button:hover{color:' . $product_pagination_viewmore_hover_text_color . '}';
+	$css_custom .= $id_product . '  .goso-woo-page-container .page-load-button .button:hover{color:' . $product_pagination_viewmore_hover_text_color . '}';
 }
 
 if ( $item_horizontal_spacing ) {
@@ -106,20 +106,20 @@ if ( $item_horizontal_spacing ) {
 
 if ( $item_vertical_spacing ) {
 	$css_custom .= $id_product . '  .product-layout-grid ul.products li.product{margin-bottom:-' . $item_vertical_spacing . '}';
-	$css_custom .= $id_product . '  .products.product-list .penci-authow-product .penci-product-loop-inner-content{margin-bottom:-' . $item_vertical_spacing . '}';
-	$css_custom .= $id_product . '  .penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,.penci-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers{margin-top: calc( -25px -' . $item_vertical_spacing . 'px)}';
+	$css_custom .= $id_product . '  .products.product-list .goso-authow-product .goso-product-loop-inner-content{margin-bottom:-' . $item_vertical_spacing . '}';
+	$css_custom .= $id_product . '  .goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.prev.page-numbers,.goso-woo-page-container.next_previous .woocommerce-pagination .page-numbers li a.next.page-numbers{margin-top: calc( -25px -' . $item_vertical_spacing . 'px)}';
 }
 
 if ($hide_hot_label) {
-	$css_custom .= $id_product . ' .penci-authow-product .product-labels .product-label.featured{display:none}';
+	$css_custom .= $id_product . ' .goso-authow-product .product-labels .product-label.featured{display:none}';
 }
 
 if ($hide_new_label) {
-	$css_custom .= $id_product . ' .penci-authow-product .product-labels .product-label.new{display:none}';
+	$css_custom .= $id_product . ' .goso-authow-product .product-labels .product-label.new{display:none}';
 }
 
 if ($hide_sale_label) {
-	$css_custom .= $id_product . ' .penci-authow-product .product-labels .product-label.onsale{display:none}';
+	$css_custom .= $id_product . ' .goso-authow-product .product-labels .product-label.onsale{display:none}';
 }
 
 

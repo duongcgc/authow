@@ -53,7 +53,7 @@ class Module extends Module_Base {
 
 		$widget->add_control( 'exclude_ids', array(
 			'label'       => __( 'Search by Title & Select', 'authow' ),
-			'type'        => 'penci-select2',
+			'type'        => 'goso-select2',
 			'post_type'   => '',
 			'options'     => Goso_Group_Control_Posts::get_post_list(),
 			'source_name' => 'post_type',
@@ -99,13 +99,13 @@ class Module extends Module_Base {
 
 		$order_by = isset( $settings['orderby'] ) ? $settings['orderby'] : 'date';
 		if ( 'popular' == $order_by ) {
-			$query_args['meta_key'] = penci_get_postviews_key();
+			$query_args['meta_key'] = goso_get_postviews_key();
 			$query_args['orderby']  = 'meta_value_num';
 		} elseif ( 'popular7' == $order_by ) {
-			$query_args['meta_key'] = 'penci_post_week_views_count';
+			$query_args['meta_key'] = 'goso_post_week_views_count';
 			$query_args['orderby']  = 'meta_value_num';
 		} elseif ( 'popular_month' == $order_by ) {
-			$query_args['meta_key'] = 'penci_post_month_views_count';
+			$query_args['meta_key'] = 'goso_post_month_views_count';
 			$query_args['orderby']  = 'meta_value_num';
 		}
 
@@ -127,7 +127,7 @@ class Module extends Module_Base {
 			$post__not_in[]          = $post->ID;
 			$query_args['post_type'] = 'post';
 
-			$related_arg = penci_get_query_related_posts( $post->ID, $settings['posts_related_post_by'], $settings['orderby'], $settings['order'], $settings['posts_per_page'] );
+			$related_arg = goso_get_query_related_posts( $post->ID, $settings['posts_related_post_by'], $settings['orderby'], $settings['order'], $settings['posts_per_page'] );
 			$query_args  = array_merge( $related_arg, $query_args );
 		} else {
 			$query_args['post_type']      = $post_type;
@@ -460,7 +460,7 @@ class Module extends Module_Base {
 			$this,
 			'ajax_posts_control_value_titles'
 		) );
-		$ajax_manager->register_ajax_action( 'penci_panel_posts_control_filter_autocomplete', array(
+		$ajax_manager->register_ajax_action( 'goso_panel_posts_control_filter_autocomplete', array(
 			$this,
 			'ajax_posts_filter_autocomplete'
 		) );

@@ -5,8 +5,8 @@
  * ------------------------------------------------------------------------------------------------
  */
 
-if ( ! function_exists( 'penci_get_products_shortcode_params' ) ) {
-	function penci_get_products_shortcode_params() {
+if ( ! function_exists( 'goso_get_products_shortcode_params' ) ) {
+	function goso_get_products_shortcode_params() {
 		return array(
 			array(
 				'type'             => 'dropdown',
@@ -133,34 +133,34 @@ if ( ! function_exists( 'penci_get_products_shortcode_params' ) ) {
 }
 
 // Necessary hooks for blog autocomplete fields
-add_filter( 'vc_autocomplete_penci_product_include_callback', 'penci_productIdAutocompleteSuggester_new', 10, 1 ); // Get suggestion(find). Must return an array
-add_filter( 'vc_autocomplete_penci_product_include_render', 'penci_productIdAutocompleteRender', 10, 1 ); // Render exact product. Must return an array (label,value)
+add_filter( 'vc_autocomplete_goso_product_include_callback', 'goso_productIdAutocompleteSuggester_new', 10, 1 ); // Get suggestion(find). Must return an array
+add_filter( 'vc_autocomplete_goso_product_include_render', 'goso_productIdAutocompleteRender', 10, 1 ); // Render exact product. Must return an array (label,value)
 
-add_filter( 'vc_autocomplete_penci_product_tab_include_callback', 'penci_productIdAutocompleteSuggester_new', 10, 1 ); // Render exact product. Must return an array (label,value)
-add_filter( 'vc_autocomplete_penci_product_tab_include_render', 'penci_productIdAutocompleteRender', 10, 1 ); // Render exact product. Must return an array (label,value)
+add_filter( 'vc_autocomplete_goso_product_tab_include_callback', 'goso_productIdAutocompleteSuggester_new', 10, 1 ); // Render exact product. Must return an array (label,value)
+add_filter( 'vc_autocomplete_goso_product_tab_include_render', 'goso_productIdAutocompleteRender', 10, 1 ); // Render exact product. Must return an array (label,value)
 
 // Narrow data taxonomies
-add_filter( 'vc_autocomplete_penci_product_taxonomies_callback', 'penci_vc_autocomplete_taxonomies_field_search', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_tab_taxonomies_callback', 'penci_vc_autocomplete_taxonomies_field_search', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_taxonomies_render', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_tab_taxonomies_render', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_taxonomies_callback', 'goso_vc_autocomplete_taxonomies_field_search', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_tab_taxonomies_callback', 'goso_vc_autocomplete_taxonomies_field_search', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_taxonomies_render', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_tab_taxonomies_render', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
 
 // Narrow data taxonomies for exclude_filter
-add_filter( 'vc_autocomplete_penci_product_exclude_filter_callback', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_tab_exclude_filter_callback', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_exclude_filter_render', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
-add_filter( 'vc_autocomplete_penci_product_tab_exclude_filter_render', 'penci_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_exclude_filter_callback', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_tab_exclude_filter_callback', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_exclude_filter_render', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
+add_filter( 'vc_autocomplete_goso_product_tab_exclude_filter_render', 'goso_vc_autocomplete_taxonomies_field_render', 10, 1 );
 
-add_filter( 'vc_autocomplete_penci_product_exclude_callback', 'vc_exclude_field_search', 10, 1 ); // Get suggestion(find). Must return an array
-add_filter( 'vc_autocomplete_penci_product_tab_exclude_callback', 'vc_exclude_field_search', 10, 1 ); // Get suggestion(find). Must return an array
-add_filter( 'vc_autocomplete_penci_product_exclude_render', 'vc_exclude_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
-add_filter( 'vc_autocomplete_penci_product_tab_exclude_render', 'vc_exclude_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
+add_filter( 'vc_autocomplete_goso_product_exclude_callback', 'vc_exclude_field_search', 10, 1 ); // Get suggestion(find). Must return an array
+add_filter( 'vc_autocomplete_goso_product_tab_exclude_callback', 'vc_exclude_field_search', 10, 1 ); // Get suggestion(find). Must return an array
+add_filter( 'vc_autocomplete_goso_product_exclude_render', 'vc_exclude_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
+add_filter( 'vc_autocomplete_goso_product_tab_exclude_render', 'vc_exclude_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
 
-if ( ! function_exists( 'penci_vc_autocomplete_taxonomies_field_render' ) ) {
-	function penci_vc_autocomplete_taxonomies_field_render( $term ) {
+if ( ! function_exists( 'goso_vc_autocomplete_taxonomies_field_render' ) ) {
+	function goso_vc_autocomplete_taxonomies_field_render( $term ) {
 		$vc_taxonomies_types = vc_taxonomies_types();
 
-		$brands_attribute = get_theme_mod( 'penci_woocommerce_brand_attr' );
+		$brands_attribute = get_theme_mod( 'goso_woocommerce_brand_attr' );
 
 		if ( ! empty( $brands_attribute ) && taxonomy_exists( $brands_attribute ) ) {
 			$vc_taxonomies_types[ $brands_attribute ] = $brands_attribute;
@@ -180,8 +180,8 @@ if ( ! function_exists( 'penci_vc_autocomplete_taxonomies_field_render' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_productIdAutocompleteSuggester_new' ) ) {
-	function penci_productIdAutocompleteSuggester_new( $query ) {
+if ( ! function_exists( 'goso_productIdAutocompleteSuggester_new' ) ) {
+	function goso_productIdAutocompleteSuggester_new( $query ) {
 		global $wpdb;
 		$product_id      = (int) $query;
 		$post_meta_infos = $wpdb->get_results( $wpdb->prepare( "SELECT a.ID AS id, a.post_title AS title
@@ -203,8 +203,8 @@ if ( ! function_exists( 'penci_productIdAutocompleteSuggester_new' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_productIdAutocompleteRender' ) ) {
-	function penci_productIdAutocompleteRender( $query ) {
+if ( ! function_exists( 'goso_productIdAutocompleteRender' ) ) {
+	function goso_productIdAutocompleteRender( $query ) {
 		$query = trim( $query['value'] ); // get value from requested
 		if ( ! empty( $query ) ) {
 			// get product
@@ -241,13 +241,13 @@ if ( ! function_exists( 'penci_productIdAutocompleteRender' ) ) {
 }
 
 // Add other product attributes
-if ( ! function_exists( 'penci_vc_autocomplete_taxonomies_field_search' ) ) {
-	function penci_vc_autocomplete_taxonomies_field_search( $search_string ) {
+if ( ! function_exists( 'goso_vc_autocomplete_taxonomies_field_search' ) ) {
+	function goso_vc_autocomplete_taxonomies_field_search( $search_string ) {
 		$data                = array();
 		$vc_filter_by        = vc_post_param( 'vc_filter_by', '' );
 		$vc_taxonomies_types = strlen( $vc_filter_by ) > 0 ? array( $vc_filter_by ) : array_keys( vc_taxonomies_types() );
 
-		$brands_attribute = get_theme_mod( 'penci_woocommerce_brand_attr' );
+		$brands_attribute = get_theme_mod( 'goso_woocommerce_brand_attr' );
 
 		if ( ! empty( $brands_attribute ) && taxonomy_exists( $brands_attribute ) ) {
 			array_push( $vc_taxonomies_types, $brands_attribute );

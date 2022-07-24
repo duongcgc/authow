@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoProgressBar extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-progress-bar';
+		return 'goso-progress-bar';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Progress Bar', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Progress Bar', 'authow' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GosoProgressBar extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -118,7 +118,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Custom Height for Process Bar', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-review-process' => 'height: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process' => 'height: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -126,7 +126,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Border Radius for Process Bar', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-review-process' => 'border-radius: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process' => 'border-radius: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -134,7 +134,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Custom Margin Top for Process Bar', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-review-process' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -142,7 +142,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Custom Margin Bottom for Process Bar', 'authow' ),
 				'type'      => Controls_Manager::NUMBER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-review-process' => 'margin-bottom: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process' => 'margin-bottom: {{SIZE}}px' ),
 			)
 		);
 
@@ -160,7 +160,7 @@ class GosoProgressBar extends Base_Widget {
 			array(
 				'label'     => __( 'Process Bar Title Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-probar-point' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-probar-point' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -169,7 +169,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Font size for Process Bar Title', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-probar-point' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-probar-point' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -177,7 +177,7 @@ class GosoProgressBar extends Base_Widget {
 			array(
 				'label'     => __( 'Process Bar Score Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-probar-score' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-probar-score' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -186,7 +186,7 @@ class GosoProgressBar extends Base_Widget {
 				'label'     => __( 'Font size for Process Bar Score', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-probar-score' => 'font-size: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-probar-score' => 'font-size: {{SIZE}}px' ),
 			)
 		);
 
@@ -195,7 +195,7 @@ class GosoProgressBar extends Base_Widget {
 			array(
 				'label'     => __( 'Process Bar Run Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-review-process span' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process span' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->add_control(
@@ -203,7 +203,7 @@ class GosoProgressBar extends Base_Widget {
 			array(
 				'label'     => __( 'Process Bar Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
-				'selectors' => array( '{{WRAPPER}} .penci-review-process' => 'background-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-review-process' => 'background-color: {{VALUE}};' ),
 			)
 		);
 		$this->end_controls_section();
@@ -218,20 +218,20 @@ class GosoProgressBar extends Base_Widget {
 		$values = (array)$settings['progressbar'];
 
 
-		$css_class = 'penci-block-vc penci-progress-bar';
+		$css_class = 'goso-block-vc goso-progress-bar';
 
 		$bar_options = array();
 		$options     = explode( ',', $settings['options'] );
 		if ( in_array( 'animated', $options ) ) {
-			$bar_options[] = 'animated penci-probar-animated';
+			$bar_options[] = 'animated goso-probar-animated';
 		}
 		if ( in_array( 'striped', $options ) ) {
-			$bar_options[] = 'penci-probar-striped';
+			$bar_options[] = 'goso-probar-striped';
 		}
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
-			<div class="penci-block_content">
-				<ul class="penci-probar-items">
+			<div class="goso-block_content">
+				<ul class="goso-probar-items">
 					<?php
 					$line_output = '';
 
@@ -259,13 +259,13 @@ class GosoProgressBar extends Base_Widget {
 						}
 						$percentage_value = number_format( intval( $percentage_value / 10 ), 1, '.', '' );
 
-						$line_output .= '<li class="penci-probar-item">';
-						$line_output .= '<div class="penci-probar-text"' . $line['txtcolor'] . '>';
-						$line_output .= '<span class="penci-probar-point">' . do_shortcode( $line['label'] ) . '</span>';
-						$line_output .= '<span class="penci-probar-score">' . $line['value'] . ( isset( $settings['units'] ) ? $settings['units'] : '' ) . '</span>';
+						$line_output .= '<li class="goso-probar-item">';
+						$line_output .= '<div class="goso-probar-text"' . $line['txtcolor'] . '>';
+						$line_output .= '<span class="goso-probar-point">' . do_shortcode( $line['label'] ) . '</span>';
+						$line_output .= '<span class="goso-probar-score">' . $line['value'] . ( isset( $settings['units'] ) ? $settings['units'] : '' ) . '</span>';
 						$line_output .= '</div>';
-						$line_output .= '<div class="penci-review-process">';
-						$line_output .= '<span class="penci-probar-run ' . esc_attr( implode( ' ', $bar_options ) ) . '" data-width="' . $percentage_value . '"' . $line['bgcolor'] . '></span>';
+						$line_output .= '<div class="goso-review-process">';
+						$line_output .= '<span class="goso-probar-run ' . esc_attr( implode( ' ', $bar_options ) ) . '" data-width="' . $percentage_value . '"' . $line['bgcolor'] . '></span>';
 						$line_output .= '</div>';
 						$line_output .= '</li>';
 					}

@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoPostsTabs extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-posts-tabs';
+		return 'goso-posts-tabs';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Posts Tabs', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Posts Tabs', 'authow' );
 	}
 
 	public function get_icon() {
@@ -29,7 +29,7 @@ class GosoPostsTabs extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -37,7 +37,7 @@ class GosoPostsTabs extends Base_Widget {
 	}
 
 	public function get_script_depends() {
-		return [ 'penci_widget_tabs' ];
+		return [ 'goso_widget_tabs' ];
 	}
 
 	protected function register_controls() {
@@ -160,7 +160,7 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
 			'selectors' => array(
-				'{{WRAPPER}}  .penci-wdtab-ct .penci-image-holder:before' => 'padding-top: {{SIZE}}%;',
+				'{{WRAPPER}}  .goso-wdtab-ct .goso-image-holder:before' => 'padding-top: {{SIZE}}%;',
 			),
 		) );
 
@@ -169,7 +169,7 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 			'selectors' => array(
-				'{{WRAPPER}}  ul.penci-wdtab-ct li .penci-image-holder.small-fix-size' => 'width: {{SIZE}}px;',
+				'{{WRAPPER}}  ul.goso-wdtab-ct li .goso-image-holder.small-fix-size' => 'width: {{SIZE}}px;',
 			),
 		) );
 
@@ -264,8 +264,8 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 			'selectors' => [
-				'{{WRAPPER}} ul.penci-wdtab-ct.side-newsfeed:not(.penci-feed-2columns) li' => 'margin-bottom:calc({{SIZE}}px/2);padding-bottom:calc({{SIZE}}px/2)',
-				'{{WRAPPER}} ul.penci-wdtab-ct.penci-feed-2columns li'                     => 'margin-bottom:{{SIZE}}px;'
+				'{{WRAPPER}} ul.goso-wdtab-ct.side-newsfeed:not(.goso-feed-2columns) li' => 'margin-bottom:calc({{SIZE}}px/2);padding-bottom:calc({{SIZE}}px/2)',
+				'{{WRAPPER}} ul.goso-wdtab-ct.goso-feed-2columns li'                     => 'margin-bottom:{{SIZE}}px;'
 			]
 		) );
 
@@ -281,35 +281,35 @@ class GosoPostsTabs extends Base_Widget {
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'tab_title',
 			'label'    => __( 'Tab Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a',
+			'selector' => '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a',
 		) );
 
 		$this->add_control( 'tab_title_color', array(
 			'label'     => __( 'Tab Title Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_title_hcolor', array(
 			'label'     => __( 'Tab Title Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_title_acolor', array(
 			'label'     => __( 'Tab Title Active Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li.active a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li.active a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_bd_color', array(
 			'label'     => __( 'Tab Borders Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a,{{WRAPPER}} .penci_posts_tabs_widget .tabs' => 'border-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a,{{WRAPPER}} .goso_posts_tabs_widget .tabs' => 'border-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_bg_color', array(
@@ -317,7 +317,7 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'condition' => [ 'tabs_style' => 'box' ],
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_bg_hcolor', array(
@@ -325,7 +325,7 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'condition' => [ 'tabs_style' => 'box' ],
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li a:hover' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li a:hover' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_bg_acolor', array(
@@ -333,14 +333,14 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
 			'condition' => [ 'tabs_style' => 'box' ],
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li.active a' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li.active a' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'tab_abg_color', array(
 			'label'     => __( 'Tab Active Background Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .tabs ul > li.active a' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .tabs ul > li.active a' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->add_responsive_control( 'tabs_item_size', array(
@@ -348,8 +348,8 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 			'selectors' => array(
-                    '{{WRAPPER}} .penci_posts_tabs_widget .box-tabs .tabs ul > li a' => 'padding-top: {{SIZE}}px;padding-bottom: {{SIZE}}px;',
-                    '{{WRAPPER}} .penci_posts_tabs_widget .default-tabs .tabs' => 'padding-bottom: {{SIZE}}px;',
+                    '{{WRAPPER}} .goso_posts_tabs_widget .box-tabs .tabs ul > li a' => 'padding-top: {{SIZE}}px;padding-bottom: {{SIZE}}px;',
+                    '{{WRAPPER}} .goso_posts_tabs_widget .default-tabs .tabs' => 'padding-bottom: {{SIZE}}px;',
             ),
 		) );
 
@@ -358,7 +358,7 @@ class GosoPostsTabs extends Base_Widget {
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 			'selectors' => array(
-				'{{WRAPPER}} .penci_posts_tabs_widget .tabs' => 'margin-bottom: {{SIZE}}px;',
+				'{{WRAPPER}} .goso_posts_tabs_widget .tabs' => 'margin-bottom: {{SIZE}}px;',
 			),
 		) );
 
@@ -372,66 +372,66 @@ class GosoPostsTabs extends Base_Widget {
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'fpost_title_typo',
 			'label'    => __( 'Featured Post Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} ul.penci-wdtab-ct li.featured-news .side-item .side-item-text h4 a',
+			'selector' => '{{WRAPPER}} ul.goso-wdtab-ct li.featured-news .side-item .side-item-text h4 a',
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'post_title_typo',
 			'label'    => __( 'Post Title Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} ul.penci-wdtab-ct li:not(.featured-news) .side-item .side-item-text h4 a',
+			'selector' => '{{WRAPPER}} ul.goso-wdtab-ct li:not(.featured-news) .side-item .side-item-text h4 a',
 		) );
 
 		$this->add_control( 'post_title_color', array(
 			'label'     => __( 'Post Title Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text h4 a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text h4 a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'post_title_hcolor', array(
 			'label'     => __( 'Post Title Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text h4 a:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text h4 a:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_responsive_control( 'post_title_tm', array(
 			'label'     => __( 'Post Title Top Margin', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text h4' => 'margin-top: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text h4' => 'margin-top: {{SIZE}}px;' ),
 		) );
 
 		$this->add_responsive_control( 'post_title_bm', array(
 			'label'     => __( 'Post Title Bottom Margin', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text h4' => 'margin-bottom: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text h4' => 'margin-bottom: {{SIZE}}px;' ),
 		) );
 
 		$this->add_group_control( Group_Control_Typography::get_type(), array(
 			'name'     => 'post_meta_typo',
 			'label'    => __( 'Post Meta Typography', 'authow' ),
-			'selector' => '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text .side-item-meta',
+			'selector' => '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text .side-item-meta',
 		) );
 
 		$this->add_control( 'post_meta_color', array(
 			'label'     => __( 'Post Meta Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text .side-item-meta,{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text .side-item-meta a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text .side-item-meta,{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text .side-item-meta a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'post_meta_lcolor', array(
 			'label'     => __( 'Post Meta Link Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text .side-item-meta a' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text .side-item-meta a' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'post_meta_hcolor', array(
 			'label'     => __( 'Post Meta Hover Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li .side-item .side-item-text .side-item-meta a:hover' => 'color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li .side-item .side-item-text .side-item-meta a:hover' => 'color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'post_meta_item_spacing', array(
@@ -443,20 +443,20 @@ class GosoPostsTabs extends Base_Widget {
 		$this->add_responsive_control( 'post_meta_tm', array(
 			'label'     => __( 'Post Meta Top Margin', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
-			'selectors' => array( '{{WRAPPER}} .grid-post-box-meta, {{WRAPPER}} .grid-post-box-meta.penci-side-item-meta.pcsnmt-above' => 'margin-top: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} .grid-post-box-meta, {{WRAPPER}} .grid-post-box-meta.goso-side-item-meta.pcsnmt-above' => 'margin-top: {{SIZE}}px;' ),
 		) );
 
 		$this->add_responsive_control( 'post_meta_bm', array(
 			'label'     => __( 'Post Meta Bottom Margin', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
-			'selectors' => array( '{{WRAPPER}} .grid-post-box-meta, {{WRAPPER}} .grid-post-box-meta.penci-side-item-meta.pcsnmt-above' => 'margin-bottom: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} .grid-post-box-meta, {{WRAPPER}} .grid-post-box-meta.goso-side-item-meta.pcsnmt-above' => 'margin-bottom: {{SIZE}}px;' ),
 		) );
 
 		$this->add_control( 'post_list_border_color', array(
 			'label'     => __( 'Post Listing Border Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} ul.penci-wdtab-ct li' => 'border-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} ul.goso-wdtab-ct li' => 'border-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'post_counter_color', array(
@@ -484,14 +484,14 @@ class GosoPostsTabs extends Base_Widget {
 			'label'     => __( 'Timeline Dot Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .side-newsfeed.pctlst .penci-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .penci-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .penci-feed:before' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .side-newsfeed.pctlst .goso-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .goso-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .goso-feed:before' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'timeline_dot_acolor', array(
 			'label'     => __( 'Timeline Dot Active Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .side-newsfeed.pctlst .penci-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .penci-feed:hover:before,{{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .penci-feed:hover:after' => 'background-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .side-newsfeed.pctlst .goso-feed:before, {{WRAPPER}} .side-newsfeed.pctlst.pctl-s2 .goso-feed:hover:before,{{WRAPPER}} .side-newsfeed.pctlst.pctl-s3 .goso-feed:hover:after' => 'background-color: {{VALUE}};' ),
 		) );
 
 		$this->end_controls_section();
@@ -532,14 +532,14 @@ class GosoPostsTabs extends Base_Widget {
 			'label'     => __( 'Comment List Border Color', 'authow' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget.el .tab-comments ul li' => 'border-color: {{VALUE}};' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget.el .tab-comments ul li' => 'border-color: {{VALUE}};' ),
 		) );
 
 		$this->add_control( 'comments_tabs_spacing', array(
 			'label'     => __( 'Comment List Spacing', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget.el .tab-comments ul li:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px/2);padding-bottom: calc({{SIZE}}px/2);' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget.el .tab-comments ul li:not(:last-child)' => 'margin-bottom: calc({{SIZE}}px/2);padding-bottom: calc({{SIZE}}px/2);' ),
 		) );
 
 		$this->add_responsive_control( 'comments_ava_size', array(
@@ -547,14 +547,14 @@ class GosoPostsTabs extends Base_Widget {
 			'type'        => Controls_Manager::SLIDER,
 			'render_type' => 'template',
 			'range'       => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-			'selectors'   => array( '{{WRAPPER}} .penci_posts_tabs_widget .recent-comments .avatar' => 'flex: 0 0 {{SIZE}}px;' ),
+			'selectors'   => array( '{{WRAPPER}} .goso_posts_tabs_widget .recent-comments .avatar' => 'flex: 0 0 {{SIZE}}px;' ),
 		) );
 
 		$this->add_responsive_control( 'comments_ava_bdradius', array(
 			'label'     => __( 'Avatar Image Border Radius', 'authow' ),
 			'type'      => Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 0, 'max' => 300, ) ),
-			'selectors' => array( '{{WRAPPER}} .penci_posts_tabs_widget .recent-comments .avatar img' => 'border-radius: {{SIZE}}px;' ),
+			'selectors' => array( '{{WRAPPER}} .goso_posts_tabs_widget .recent-comments .avatar img' => 'border-radius: {{SIZE}}px;' ),
 		) );
 
 		$this->end_controls_section();
@@ -580,7 +580,7 @@ class GosoPostsTabs extends Base_Widget {
 		$class           = $tabs_style . '-tabs';
 		$this->markup_block_title( $instance, $this );
 		?>
-        <div class="widget penci_posts_tabs_widget el">
+        <div class="widget goso_posts_tabs_widget el">
             <div class="penc-posts-tabs <?php echo esc_attr( $class ); ?>" id="pc-wpt-<?php echo $rand; ?>">
                 <div class="tabs">
                     <ul>
@@ -588,7 +588,7 @@ class GosoPostsTabs extends Base_Widget {
 						foreach ( $tabs_order as $tab ) {
 							if ( isset( $instance[ 'disable_' . $tab ] ) && ! $instance[ 'disable_' . $tab ] ) {
 								$class = $count == 1 ? ' active' : '';
-								echo '<li class="li-tab-' . $tab . $class . '" data-tab="tab-' . $tab . '"><a href="#">' . penci_get_setting( 'penci_trans_' . $tab ) . '</a></li>';
+								echo '<li class="li-tab-' . $tab . $class . '" data-tab="tab-' . $tab . '"><a href="#">' . goso_get_setting( 'goso_trans_' . $tab ) . '</a></li>';
 								$count ++;
 							}
 						} ?>
@@ -710,10 +710,10 @@ class GosoPostsTabs extends Base_Widget {
 		$showcomment   = isset( $instance['show_comment'] ) ? $instance['show_comment'] : false;
 		$showviews     = isset( $instance['show_postviews'] ) ? $instance['show_postviews'] : false;
 		$showborder    = isset( $instance['showborder'] ) ? $instance['showborder'] : false;
-		$thumb_size    = isset( $instance['thumb_size'] ) ? $instance['thumb_size'] : 'penci-thumb-small';
-		$fthumb_size    = isset( $instance['fthumb_size'] ) ? $instance['fthumb_size'] : 'penci-masonry-thumb';
+		$thumb_size    = isset( $instance['thumb_size'] ) ? $instance['thumb_size'] : 'goso-thumb-small';
+		$fthumb_size    = isset( $instance['fthumb_size'] ) ? $instance['fthumb_size'] : 'goso-masonry-thumb';
 		$query         = array(
-			'meta_key'            => penci_get_postviews_key(),
+			'meta_key'            => goso_get_postviews_key(),
 			'orderby'             => 'meta_value_num',
 			'order'               => 'DESC',
 			'posts_per_page'      => $number,
@@ -724,14 +724,14 @@ class GosoPostsTabs extends Base_Widget {
 		if ( $popular_order == 'week' ) {
 			$query = array(
 				'posts_per_page' => $number,
-				'meta_key'       => 'penci_post_week_views_count',
+				'meta_key'       => 'goso_post_week_views_count',
 				'orderby'        => 'meta_value_num',
 				'order'          => 'DESC',
 			);
 		} elseif ( $popular_order == 'month' ) {
 			$query = array(
 				'posts_per_page' => $number,
-				'meta_key'       => 'penci_post_month_views_count',
+				'meta_key'       => 'goso_post_month_views_count',
 				'orderby'        => 'meta_value_num',
 				'order'          => 'DESC',
 			);
@@ -755,23 +755,23 @@ class GosoPostsTabs extends Base_Widget {
 		?>
 
         <div class="tab-<?php echo esc_attr( $type . ' ' . $class ); ?>">
-            <ul class="penci-wdtab-ct side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' penci-feed-2columns';
+            <ul class="goso-wdtab-ct side-newsfeed<?php if ( $twocolumn && ! $allfeatured ): echo ' goso-feed-2columns';
 				if ( $featured ) {
-					echo ' penci-2columns-featured';
+					echo ' goso-2columns-featured';
 				} else {
-					echo ' penci-2columns-feed';
+					echo ' goso-2columns-feed';
 				} endif; ?><?php if ( ! $ordernum ): echo ' display-order-numbers'; endif;
 			if ( $dotstyle ) {
 				echo ' pctlst pctl-' . $dotstyle;
 			}
 			if ( $showborder ) {
-				echo ' penci-rcpw-hborders';
+				echo ' goso-rcpw-hborders';
 			} ?>">
 
 				<?php $num = 1;
 				while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-                    <li class="penci-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
+                    <li class="goso-feed<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): echo ' featured-news';
 						if ( $featured2 ): echo ' featured-news2'; endif; endif; ?><?php if ( $allfeatured ): echo ' all-featured-news'; endif; ?>">
 						<?php if ( ! $ordernum && has_post_thumbnail() && ! $hide_thumb ): ?>
                             <span class="order-border-number<?php if ( $thumbright && ! $twocolumn ): echo ' right-side'; endif; ?>">
@@ -783,30 +783,30 @@ class GosoPostsTabs extends Base_Widget {
                                 <div class="side-image<?php if ( $thumbright ): echo ' thumbnail-right'; endif; ?>">
 									<?php
 									/* Display Review Piechart  */
-									if ( function_exists( 'penci_display_piechart_review_html' ) ) {
+									if ( function_exists( 'goso_display_piechart_review_html' ) ) {
 										$size_pie = 'small';
 										if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $size_pie = 'normal'; endif;
-										penci_display_piechart_review_html( get_the_ID(), $size_pie );
+										goso_display_piechart_review_html( get_the_ID(), $size_pie );
 									}
 									$thumb = $thumb_size;
 									if ( ( ( $num == 1 ) && $featured ) || $allfeatured ): $thumb = $fthumb_size; endif;
 									?>
-									<?php if ( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-                                        <a class="penci-image-holder penci-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+									<?php if ( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+                                        <a class="goso-image-holder goso-lazy<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 											echo '';
 										} else {
 											echo ' small-fix-size';
 										} ?>" rel="bookmark"
-                                           data-bgset="<?php echo penci_image_srcset( get_the_ID(), $thumb ); ?>"
+                                           data-bgset="<?php echo goso_image_srcset( get_the_ID(), $thumb ); ?>"
                                            href="<?php the_permalink(); ?>"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } else { ?>
-                                        <a class="penci-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
+                                        <a class="goso-image-holder<?php if ( ( ( $num == 1 ) && $featured ) || $allfeatured ) {
 											echo '';
 										} else {
 											echo ' small-fix-size';
 										} ?>" rel="bookmark"
-                                           style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
+                                           style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumb ); ?>');"
                                            href="<?php the_permalink(); ?>"
                                            title="<?php echo wp_strip_all_tags( get_the_title() ); ?>"></a>
 									<?php } ?>
@@ -814,44 +814,44 @@ class GosoPostsTabs extends Base_Widget {
 									<?php if ( $icon ): ?>
 										<?php if ( has_post_format( 'video' ) ) : ?>
                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-play' ); ?></a>
+                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-play' ); ?></a>
 										<?php endif; ?>
 										<?php if ( has_post_format( 'audio' ) ) : ?>
                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-music' ); ?></a>
+                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-music' ); ?></a>
 										<?php endif; ?>
 										<?php if ( has_post_format( 'link' ) ) : ?>
                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-link' ); ?></a>
+                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-link' ); ?></a>
 										<?php endif; ?>
 										<?php if ( has_post_format( 'quote' ) ) : ?>
                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                               aria-label="Icon"><?php penci_fawesome_icon( 'fas fa-quote-left' ); ?></a>
+                                               aria-label="Icon"><?php goso_fawesome_icon( 'fas fa-quote-left' ); ?></a>
 										<?php endif; ?>
 										<?php if ( has_post_format( 'gallery' ) ) : ?>
                                             <a href="<?php the_permalink() ?>" class="icon-post-format"
-                                               aria-label="Icon"><?php penci_fawesome_icon( 'far fa-image' ); ?></a>
+                                               aria-label="Icon"><?php goso_fawesome_icon( 'far fa-image' ); ?></a>
 										<?php endif; ?>
 									<?php endif; ?>
                                 </div>
 							<?php endif; ?>
                             <div class="side-item-text">
 								<?php if ( $movemeta && ( ! $postdate || $showauthor || $showcomment || $showviews ) ): ?>
-                                    <div class="grid-post-box-meta penci-side-item-meta pcsnmt-above">
+                                    <div class="grid-post-box-meta goso-side-item-meta pcsnmt-above">
 										<?php if ( $showauthor ): ?>
-                                            <span class="side-item-meta side-wauthor"><?php echo penci_get_setting( 'penci_trans_by' ); ?> <a
+                                            <span class="side-item-meta side-wauthor"><?php echo goso_get_setting( 'goso_trans_by' ); ?> <a
                                                         class="url fn n"
                                                         href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
 										<?php endif; ?>
 										<?php if ( ! $postdate ): ?>
-                                            <span class="side-item-meta side-wdate"><?php penci_authow_time_link(); ?></span>
+                                            <span class="side-item-meta side-wdate"><?php goso_authow_time_link(); ?></span>
 										<?php endif; ?>
 										<?php if ( $showcomment ): ?>
                                             <span class="side-item-meta side-wcomments"><a
-                                                        href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a></span>
+                                                        href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a></span>
 										<?php endif; ?>
 										<?php if ( $showviews ): ?>
-                                            <span class="side-item-meta side-wviews"><?php echo penci_get_post_views( get_the_ID() ) . ' ' . penci_get_setting( 'penci_trans_countviews' ); ?></span>
+                                            <span class="side-item-meta side-wviews"><?php echo goso_get_post_views( get_the_ID() ) . ' ' . goso_get_setting( 'goso_trans_countviews' ); ?></span>
 										<?php endif; ?>
                                     </div>
 								<?php endif; ?>
@@ -872,21 +872,21 @@ class GosoPostsTabs extends Base_Widget {
                                     </a>
                                 </h4>
 								<?php if ( ! $movemeta && ( ! $postdate || $showauthor || $showcomment || $showviews ) ): ?>
-                                    <div class="grid-post-box-meta penci-side-item-meta pcsnmt-below">
+                                    <div class="grid-post-box-meta goso-side-item-meta pcsnmt-below">
 										<?php if ( $showauthor ): ?>
-                                            <span class="side-item-meta side-wauthor"><?php echo penci_get_setting( 'penci_trans_by' ); ?> <a
+                                            <span class="side-item-meta side-wauthor"><?php echo goso_get_setting( 'goso_trans_by' ); ?> <a
                                                         class="url fn n"
                                                         href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
 										<?php endif; ?>
 										<?php if ( ! $postdate ): ?>
-                                            <span class="side-item-meta side-wdate"><?php penci_authow_time_link(); ?></span>
+                                            <span class="side-item-meta side-wdate"><?php goso_authow_time_link(); ?></span>
 										<?php endif; ?>
 										<?php if ( $showcomment ): ?>
                                             <span class="side-item-meta side-wcomments"><a
-                                                        href="<?php comments_link(); ?> "><?php comments_number( '0 ' . penci_get_setting( 'penci_trans_comment' ), '1 ' . penci_get_setting( 'penci_trans_comment' ), '% ' . penci_get_setting( 'penci_trans_comments' ) ); ?></a></span>
+                                                        href="<?php comments_link(); ?> "><?php comments_number( '0 ' . goso_get_setting( 'goso_trans_comment' ), '1 ' . goso_get_setting( 'goso_trans_comment' ), '% ' . goso_get_setting( 'goso_trans_comments' ) ); ?></a></span>
 										<?php endif; ?>
 										<?php if ( $showviews ): ?>
-                                            <span class="side-item-meta side-wviews"><?php echo penci_get_post_views( get_the_ID() ) . ' ' . penci_get_setting( 'penci_trans_countviews' ); ?></span>
+                                            <span class="side-item-meta side-wviews"><?php echo goso_get_post_views( get_the_ID() ) . ' ' . goso_get_setting( 'goso_trans_countviews' ); ?></span>
 										<?php endif; ?>
                                     </div>
 								<?php endif; ?>

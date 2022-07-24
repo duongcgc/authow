@@ -1,14 +1,14 @@
 <?php
 $mobile_row   = 'bottombar';
 $name         = 'Mobile Bottom Bar';
-$section_name = "penci_header_mobile_{$mobile_row}_setting_section";
+$section_name = "goso_header_mobile_{$mobile_row}_setting_section";
 /* Section Settings */
 $options   = [];
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_middle_column",
+	'id'        => "goso_header_mobile_{$mobile_row}_middle_column",
 	'default'   => 'enable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => __( 'Middle Column Position', 'authow' ),
 	'choices'   => [
@@ -17,9 +17,9 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'       => "penci_header_mobile_{$mobile_row}_sticky_setting",
+	'id'       => "goso_header_mobile_{$mobile_row}_sticky_setting",
 	'default'  => 'enable',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
 		'enable'  => 'Yes',
@@ -28,18 +28,18 @@ $options[] = array(
 	'label'    => esc_html__( 'Sticky This Row on Scroll Down?', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_img",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_img",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-image',
 	'label'     => $name . esc_html__( ' Background Image', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_color",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_color",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'choices'   => [
 		'alpha' => true,
@@ -47,10 +47,10 @@ $options[] = array(
 	'label'     => $name . __( ' Background Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_repeat",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_repeat",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Repeat', 'authow' ),
 	'choices'   => [
@@ -63,10 +63,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_position",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_position",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Position', 'authow' ),
 	'choices'   => [
@@ -82,10 +82,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_size",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_size",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Size', 'authow' ),
 	'choices'   => [
@@ -98,10 +98,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_background_attachment",
+	'id'        => "goso_header_mobile_{$mobile_row}_background_attachment",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Background Attachment', 'authow' ),
 	'choices'   => [
@@ -113,10 +113,10 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_spacing_setting",
+	'id'        => "goso_header_mobile_{$mobile_row}_spacing_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_custom_sanitization',
+	'sanitize'  => 'goso_custom_sanitization',
 	'type'      => 'authow-fw-box-model',
 	'label'     => esc_html__( ' Spacing & Borders', 'authow' ),
 	'choices'   => array(
@@ -141,18 +141,18 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_border_setting",
+	'id'        => "goso_header_mobile_{$mobile_row}_border_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-color',
 	'label'     => $name . __( ' Borders Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_border_style_setting",
+	'id'        => "goso_header_mobile_{$mobile_row}_border_style_setting",
 	'default'   => 'solid',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-select',
 	'label'     => $name . __( ' Borders Style', 'authow' ),
 	'choices'   => [
@@ -163,21 +163,21 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_text_color_setting",
+	'id'        => "goso_header_mobile_{$mobile_row}_text_color_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
-	'sanitize'  => 'penci_sanitize_choices_field',
-	'settings'  => "penci_header_mobile_{$mobile_row}_text_color_setting",
+	'sanitize'  => 'goso_sanitize_choices_field',
+	'settings'  => "goso_header_mobile_{$mobile_row}_text_color_setting",
 	'label'     => $name . __( ' Text Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => "penci_header_mobile_{$mobile_row}_maxheight_setting",
+	'id'        => "goso_header_mobile_{$mobile_row}_maxheight_setting",
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-text',
-	'settings'  => "penci_header_mobile_{$mobile_row}_maxheight_setting",
+	'settings'  => "goso_header_mobile_{$mobile_row}_maxheight_setting",
 	'label'     => $name . esc_html__( ' Max Height', 'authow' ),
 );
 

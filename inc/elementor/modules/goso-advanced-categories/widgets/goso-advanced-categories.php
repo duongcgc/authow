@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoAdvancedCategories extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-advanced-categories';
+		return 'goso-advanced-categories';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Advanced Categories', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' Advanced Categories', 'authow' );
 	}
 
 	public function get_icon() {
@@ -28,7 +28,7 @@ class GosoAdvancedCategories extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -59,7 +59,7 @@ class GosoAdvancedCategories extends Base_Widget {
 		$tax_options = [];
 		foreach ( $post_types as $post_type => $type ) {
 			foreach ( get_object_taxonomies( $type->name, 'object' ) as $tax_name => $tax_info ) {
-				if ( ! in_array( $tax_name, [ 'post_format', 'elementor_library_type', 'penci_block_category' ] ) ) {
+				if ( ! in_array( $tax_name, [ 'post_format', 'elementor_library_type', 'goso_block_category' ] ) ) {
 					$tax_options[ $tax_name ] = $type->label . ' - ' . $tax_info->label;
 				}
 			}

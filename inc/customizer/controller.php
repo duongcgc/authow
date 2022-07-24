@@ -5,8 +5,8 @@
  * @package Wordpress
  * @since 1.0
  */
-add_action( 'customize_register', 'pencidesign_customize_register' );
-function pencidesign_customize_register( $wp_customize ) {
+add_action( 'customize_register', 'gosodesign_customize_register' );
+function gosodesign_customize_register( $wp_customize ) {
 	class Customize_Number_Control extends WP_Customize_Control {
 		public $type = 'number';
 
@@ -85,7 +85,7 @@ function pencidesign_customize_register( $wp_customize ) {
 		public $type = 'checkbox-multiple';
 
 		public function enqueue() {
-			wp_enqueue_script( 'penci-customize-controls-multi-checkbox', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/js/multi-select.js', array( 'jquery' ), '0.1', true );
+			wp_enqueue_script( 'goso-customize-controls-multi-checkbox', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/js/multi-select.js', array( 'jquery' ), '0.1', true );
 		}
 
 		public function render_content() {
@@ -151,14 +151,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  * @since 4.0
  *
  */
-add_action( 'customize_controls_enqueue_scripts', 'penci_customizer_documentation' );
+add_action( 'customize_controls_enqueue_scripts', 'goso_customizer_documentation' );
 /**
  * Enqueue script for customizer control
  */
-if ( ! function_exists( 'penci_customizer_documentation' ) ) {
-	function penci_customizer_documentation() {
-		wp_enqueue_script( 'penci-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'jquery' ), '', true );
-		wp_localize_script( 'penci-customizer', 'AuthowCustomizerDoc',
+if ( ! function_exists( 'goso_customizer_documentation' ) ) {
+	function goso_customizer_documentation() {
+		wp_enqueue_script( 'goso-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'jquery' ), '', true );
+		wp_localize_script( 'goso-customizer', 'AuthowCustomizerDoc',
 			array(
 				'docs' => 'View Documentation'
 			)

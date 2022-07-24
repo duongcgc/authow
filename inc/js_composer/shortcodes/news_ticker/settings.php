@@ -100,11 +100,11 @@ $typo_params    = array(
 		'param_name'       => 'heading_fontsize',
 		'heading'          => esc_html__( 'Font Size', 'authow' ),
 		'value'            => '',
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 		'group'            => $group_color,
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'tpost_size',
 		'heading'    => __( 'Font size for "Top Posts" Text', 'authow' ),
 		'value'      => '',
@@ -114,7 +114,7 @@ $typo_params    = array(
 		'group'      => $group_color,
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'navs_size',
 		'heading'    => __( 'Font size for Next/Prev Buttons', 'authow' ),
 		'value'      => '',
@@ -124,7 +124,7 @@ $typo_params    = array(
 		'group'      => $group_color,
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'ptitles_size',
 		'heading'    => __( 'Font size for Post Titles', 'authow' ),
 		'value'      => '',
@@ -141,7 +141,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Colors', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -218,12 +218,12 @@ $typo_params    = array(
 );
 
 vc_map( array(
-	'base'          => 'penci_news_ticker',
+	'base'          => 'goso_news_ticker',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/news_ticker/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.__( 'News Ticker', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.__( 'News Ticker', 'authow' ),
 	'description'   => __( 'News Ticker', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge( $main_params, $typo_params )

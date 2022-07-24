@@ -9,7 +9,7 @@
 /**
  * Base class for any templating that used on the themes
  *
- * @author pencidesign
+ * @author gosodesign
  */
 class Template {
 	private $vars = array();

@@ -3,12 +3,12 @@ $group_color = 'Typo & Color';
 $group_image = 'Image';
 
 vc_map( array(
-	'base'          => 'penci_pricing_table',
+	'base'          => 'goso_pricing_table',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/pricing_table/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Pricing Table', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Pricing Table', 'authow' ),
 	'description'   => __( 'Pricing Table Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -26,7 +26,7 @@ vc_map( array(
 				'group'      => $group_image,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_width',
 				'heading'    => __( 'Image width', 'authow' ),
 				'value'      => '',
@@ -37,7 +37,7 @@ vc_map( array(
 				'group'      => $group_image,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_height',
 				'heading'    => __( 'Image height', 'authow' ),
 				'value'      => '',
@@ -48,7 +48,7 @@ vc_map( array(
 				'group'      => $group_image,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_mar_top',
 				'heading'    => __( 'Image margin top', 'authow' ),
 				'value'      => '',
@@ -59,7 +59,7 @@ vc_map( array(
 				'group'      => $group_image,
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'image_mar_bottom',
 				'heading'    => __( 'Image margin bottom', 'authow' ),
 				'value'      => '',
@@ -122,7 +122,7 @@ vc_map( array(
 				'value'      => array( __( 'Yes', 'authow' ) => 'yes' ),
 			),
 			array(
-				'type'       => 'penci_only_number',
+				'type'       => 'goso_only_number',
 				'param_name' => 'min_height',
 				'heading'    => __( 'Minimum height for pricing item', 'authow' ),
 				'value'      => '',
@@ -132,7 +132,7 @@ vc_map( array(
 				'max'        => 1000,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_heading_mar_bottom',
 				'heading'          => __( 'Pricing title margin bottom', 'authow' ),
 				'value'            => '',
@@ -142,7 +142,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_subheading_mar_b',
 				'heading'          => __( 'Pricing subtitle margin bottom', 'authow' ),
 				'value'            => '',
@@ -152,7 +152,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_price_mar_bottom',
 				'heading'          => __( 'Pricing margin bottom', 'authow' ),
 				'value'            => '',
@@ -162,7 +162,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_unit_mar_bottom',
 				'heading'          => __( 'Price unit margin bottom', 'authow' ),
 				'value'            => '',
@@ -172,7 +172,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_features_martop',
 				'heading'          => __( 'Features margin top', 'authow' ),
 				'value'            => '',
@@ -182,7 +182,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_features_bottom',
 				'heading'          => __( 'Features margin bottom', 'authow' ),
 				'value'            => '',
@@ -192,7 +192,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'item_fea_bottom',
 				'heading'          => __( 'Item of list features margin bottom', 'authow' ),
 				'value'            => '',
@@ -202,7 +202,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'btn_mar_top',
 				'heading'          => __( 'Button margin top', 'authow' ),
 				'value'            => '',
@@ -212,7 +212,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'btn_width',
 				'heading'          => __( 'Button width', 'authow' ),
 				'value'            => '',
@@ -222,7 +222,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'btn_height',
 				'heading'          => __( 'Button Height', 'authow' ),
 				'value'            => '',
@@ -254,7 +254,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Title', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -264,7 +264,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_heading_fsize',
 				'heading'          => __( 'Font Size for Pricing Title', 'authow' ),
 				'value'            => '',
@@ -289,7 +289,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Pricing Subtitle', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -299,7 +299,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_subheading_fsize',
 				'heading'          => __( 'Font Size for Pricing Title', 'authow' ),
 				'value'            => '',
@@ -323,7 +323,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Price', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -333,7 +333,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_price_fsize',
 				'heading'          => __( 'Font Size for Pricing', 'authow' ),
 				'value'            => '',
@@ -357,7 +357,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Price Unit', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -367,7 +367,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_unit_fsize',
 				'heading'          => __( 'Font Size for Price Unit', 'authow' ),
 				'value'            => '',
@@ -390,7 +390,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Features', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -400,7 +400,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'features_fsize',
 				'heading'          => __( 'Font Size for Pricing', 'authow' ),
 				'value'            => '',
@@ -424,7 +424,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Button', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -469,7 +469,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_btn_fsize',
 				'heading'          => __( 'Font Size for Pricing', 'authow' ),
 				'value'            => '',

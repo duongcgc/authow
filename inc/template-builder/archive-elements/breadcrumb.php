@@ -82,14 +82,14 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 		$this->add_control( 'breadcrumb-l-hcolor', [
 			'label'     => 'BreadCrumb Text Hover Color',
 			'type'      => \Elementor\Controls_Manager::COLOR,
-			'selectors' => [ '{{WRAPPER}} .penci-breadcrumb a:hover' => 'color:{{VALUE}} !important' ],
+			'selectors' => [ '{{WRAPPER}} .goso-breadcrumb a:hover' => 'color:{{VALUE}} !important' ],
 		] );
 
 		$this->add_control( 'breadcrumb-spacing', [
 			'label'     => 'BreadCrumb Spacing',
 			'type'      => \Elementor\Controls_Manager::SLIDER,
 			'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 0.5 ) ),
-			'selectors' => [ '{{WRAPPER}} .container.penci-breadcrumb i' => 'margin-left:{{SIZE}}px;margin-right:calc({{SIZE}}px - 4px)' ],
+			'selectors' => [ '{{WRAPPER}} .container.goso-breadcrumb i' => 'margin-left:{{SIZE}}px;margin-right:calc({{SIZE}}px - 4px)' ],
 		] );
 
 		$this->end_controls_section();
@@ -110,7 +110,7 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 
 	protected function builder_category_content() {
 		$settings          = $this->get_settings_for_display();
-		$sidebar_position  = penci_get_sidebar_position_archive();
+		$sidebar_position  = goso_get_sidebar_position_archive();
 		$two_sidebar_class = '';
 		if ( 'two-sidebar' == $sidebar_position ): $two_sidebar_class = ' two-sidebar'; endif;
 		$yoast_breadcrumb = '';
@@ -119,19 +119,19 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 		$fea_cat_id  = $category_oj->term_id;
 
 		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb' . $two_sidebar_class . '">', '</div>', false );
+			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb' . $two_sidebar_class . '">', '</div>', false );
 		}
 
 		if ( $yoast_breadcrumb ) {
 			echo $yoast_breadcrumb;
 		} else { ?>
-            <div class="container penci-breadcrumb<?php echo $two_sidebar_class; ?>">
+            <div class="container goso-breadcrumb<?php echo $two_sidebar_class; ?>">
             <span><a class="crumb"
-                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
+                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
 				<?php
-				$parent_ID = penci_get_category_parent_id( $fea_cat_id );
+				$parent_ID = goso_get_category_parent_id( $fea_cat_id );
 				if ( $parent_ID ):
-					echo penci_get_category_parents( $parent_ID );
+					echo goso_get_category_parents( $parent_ID );
 				endif;
 				?>
                 <span><?php single_cat_title( '', true ); ?></span>
@@ -140,43 +140,43 @@ class GosoArchiveBreadcrumb extends \Elementor\Widget_Base {
 	}
 
 	protected function builder_tag_content() {
-		$sidebar_position  = penci_get_sidebar_position_archive();
+		$sidebar_position  = goso_get_sidebar_position_archive();
 		$two_sidebar_class = '';
 		if ( 'two-sidebar' == $sidebar_position ): $two_sidebar_class = ' two-sidebar'; endif;
 		$yoast_breadcrumb = '';
 		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb penci-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
+			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb goso-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
 		}
 
 		if ( $yoast_breadcrumb ) {
 			echo $yoast_breadcrumb;
 		} else { ?>
-            <div class="container penci-breadcrumb penci-crumb-inside<?php echo $two_sidebar_class; ?>">
+            <div class="container goso-breadcrumb goso-crumb-inside<?php echo $two_sidebar_class; ?>">
                             <span><a class="crumb"
-                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
-                <span><?php echo penci_get_setting( 'penci_trans_tags' ); ?></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
-                <span><?php printf( penci_get_setting( 'penci_trans_posts_tagged' ) . ' "%s"', single_tag_title( '', false ) ); ?></span>
+                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
+                <span><?php echo goso_get_setting( 'goso_trans_tags' ); ?></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
+                <span><?php printf( goso_get_setting( 'goso_trans_posts_tagged' ) . ' "%s"', single_tag_title( '', false ) ); ?></span>
             </div>
 		<?php }
 	}
 
 	protected function builder_archive_content() {
-		$sidebar_position  = penci_get_sidebar_position_archive();
+		$sidebar_position  = goso_get_sidebar_position_archive();
 		$two_sidebar_class = '';
 		if ( 'two-sidebar' == $sidebar_position ): $two_sidebar_class = ' two-sidebar'; endif;
 		$yoast_breadcrumb = '';
 		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container penci-breadcrumb penci-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
+			$yoast_breadcrumb = yoast_breadcrumb( '<div class="container goso-breadcrumb goso-crumb-inside' . $two_sidebar_class . '">', '</div>', false );
 		}
 		if ( $yoast_breadcrumb ) {
 			echo $yoast_breadcrumb;
 		} else { ?>
-            <div class="container penci-breadcrumb penci-crumb-inside">
+            <div class="container goso-breadcrumb goso-crumb-inside">
                             <span><a class="crumb"
-                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo penci_get_setting( 'penci_trans_home' ); ?></a></span><?php penci_fawesome_icon( 'fas fa-angle-right' ); ?>
+                                     href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo goso_get_setting( 'goso_trans_home' ); ?></a></span><?php goso_fawesome_icon( 'fas fa-angle-right' ); ?>
 				<?php
 				echo '<span>';
-				echo penci_get_setting( 'penci_trans_archives' );
+				echo goso_get_setting( 'goso_trans_archives' );
 				echo '</span>';
 				?>
             </div>

@@ -2,132 +2,132 @@
 $options   = [];
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Enable Post Meta Overlay Featured Image',
 	'description' => 'This option just apply for Standard Layout Only',
-	'id'          => 'penci_standard_meta_overlay',
+	'id'          => 'goso_standard_meta_overlay',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Post Thumbnail',
-	'id'       => 'penci_standard_thumbnail',
+	'id'       => 'goso_standard_thumbnail',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Autoplay for Slider on Posts Format Gallery',
-	'id'       => 'penci_standard_disable_autoplay_gallery',
+	'id'       => 'goso_standard_disable_autoplay_gallery',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Make Featured Image Auto Crop',
-	'id'       => 'penci_standard_thumb_crop',
+	'id'       => 'goso_standard_thumb_crop',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Uppercase in Post Categories',
-	'id'       => 'penci_standard_on_uppercase_cat',
+	'id'       => 'goso_standard_on_uppercase_cat',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase in Post Title',
-	'id'       => 'penci_standard_off_uppercase_title',
+	'id'       => 'goso_standard_off_uppercase_title',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Share Box',
-	'id'       => 'penci_standard_share_box',
+	'id'       => 'goso_standard_share_box',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Category',
-	'id'       => 'penci_standard_cat',
+	'id'       => 'goso_standard_cat',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Post Author',
-	'id'       => 'penci_standard_author',
+	'id'       => 'goso_standard_author',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Reading Time',
-	'id'       => 'penci_standard_readingtime',
+	'id'       => 'goso_standard_readingtime',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Post Date',
-	'id'       => 'penci_standard_date',
+	'id'       => 'goso_standard_date',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Comment Count',
-	'id'       => 'penci_standard_comment',
+	'id'       => 'goso_standard_comment',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Show Views Count',
-	'id'       => 'penci_standard_viewcount',
+	'id'       => 'goso_standard_viewcount',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Remove Line Above Post Excerpt',
-	'id'       => 'penci_standard_remove_line',
+	'id'       => 'goso_standard_remove_line',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Display Post Excerpt Instead of Full Content',
-	'id'       => 'penci_standard_auto_excerpt',
+	'id'       => 'goso_standard_auto_excerpt',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Hover Effect on "Continue Reading" Button',
-	'id'       => 'penci_standard_effect_button',
+	'id'       => 'goso_standard_effect_button',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Make "Continue Reading" is A Button',
-	'id'       => 'penci_standard_continue_reading_button',
+	'id'       => 'goso_standard_continue_reading_button',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => '30',
 	'sanitize'    => 'absint',
 	'label' => __( 'Custom Excerpt Length', 'authow' ),
-	'id'          => 'penci_standard_excerpt_length',
+	'id'          => 'goso_standard_excerpt_length',
 	'type'        => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_standard_excerpt_length',
+		'desktop' => 'goso_standard_excerpt_length',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -142,9 +142,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Header Alignment',
-	'id'       => 'penci_stahea_align',
+	'id'       => 'goso_stahea_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''       => esc_html__( 'Default', 'authow' ),
@@ -155,9 +155,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Post Excerpt Alignment',
-	'id'       => 'penci_staex_align',
+	'id'       => 'goso_staex_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''        => esc_html__( 'Default', 'authow' ),
@@ -169,9 +169,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => '"Continue Reading" Button Alignment',
-	'id'       => 'penci_stacoti_align',
+	'id'       => 'goso_stacoti_align',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		''       => esc_html__( 'Default', 'authow' ),

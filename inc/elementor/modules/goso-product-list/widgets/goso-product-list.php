@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoProductList extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-product-list';
+		return 'goso-product-list';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Product List', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Product List', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoProductList extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -110,7 +110,7 @@ class GosoProductList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-smalllist' => '--pcsl-hgap: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-smalllist' => '--pcsl-hgap: {{SIZE}}px;',
 				),
 			)
 		);
@@ -121,7 +121,7 @@ class GosoProductList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-smalllist' => '--pcsl-bgap: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-smalllist' => '--pcsl-bgap: {{SIZE}}px;',
 				),
 				'condition' => array( 'type' => array( 'grid' ) ),
 			)
@@ -133,7 +133,7 @@ class GosoProductList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-smalllist' => '--pcsl-between: {{SIZE}}px;',
+					'{{WRAPPER}} .goso-smalllist' => '--pcsl-between: {{SIZE}}px;',
 				),
 			)
 		);
@@ -228,9 +228,9 @@ class GosoProductList extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Include only', 'authow' ),
 				'description' => esc_html__( 'Add products by title.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_posts_by_query',
-				'render'      => 'penci_get_posts_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_posts_by_query',
+				'render'      => 'goso_get_posts_title_by_id',
 				'post_type'   => 'product',
 				'multiple'    => true,
 				'label_block' => true,
@@ -245,9 +245,9 @@ class GosoProductList extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Categories or tags', 'authow' ),
 				'description' => esc_html__( 'List of product categories.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => array_merge( [ 'product_cat', 'product_tag' ], $this->get_product_attributes_array() ),
 				'multiple'    => true,
 				'label_block' => true,
@@ -350,9 +350,9 @@ class GosoProductList extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Exclude', 'authow' ),
 				'description' => esc_html__( 'Exclude posts, pages, etc. by title.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_posts_by_query',
-				'render'      => 'penci_get_posts_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_posts_by_query',
+				'render'      => 'goso_get_posts_title_by_id',
 				'post_type'   => 'product',
 				'multiple'    => true,
 				'label_block' => true,
@@ -477,7 +477,7 @@ class GosoProductList extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 1, 'max' => 300, 'step' => 0.5 ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .pcsl-inner .penci-image-holder:before' => 'padding-top: {{SIZE}}%;',
+					'{{WRAPPER}} .pcsl-inner .goso-image-holder:before' => 'padding-top: {{SIZE}}%;',
 				),
 				'condition' => array( 'nocrop!' => 'yes' ),
 			)
@@ -734,7 +734,7 @@ class GosoProductList extends Base_Widget {
 				'label'     => __( 'Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-product-cats,{{WRAPPER}} .penci-product-cats > a' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-product-cats,{{WRAPPER}} .goso-product-cats > a' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -744,7 +744,7 @@ class GosoProductList extends Base_Widget {
 				'label'     => __( 'Hover Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-product-cats > a:hover' => 'color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-product-cats > a:hover' => 'color: {{VALUE}};' ),
 			)
 		);
 
@@ -752,7 +752,7 @@ class GosoProductList extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'cat_typo',
 				'label'    => __( 'Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-product-cats,{{WRAPPER}} .penci-product-cats > a',
+				'selector' => '{{WRAPPER}} .goso-product-cats,{{WRAPPER}} .goso-product-cats > a',
 			)
 		);
 
@@ -943,20 +943,20 @@ class GosoProductList extends Base_Widget {
 		$tab_column        = $settings['tab_column'] ? $settings['tab_column'] : '2';
 		$mb_column         = $settings['mb_column'] ? $settings['mb_column'] : '1';
 		$imgpos            = $settings['imgpos'] ? $settings['imgpos'] : 'left';
-		$thumb_size_imgtop = 'top' == $imgpos ? 'penci-thumb' : 'penci-thumb-small';
+		$thumb_size_imgtop = 'top' == $imgpos ? 'goso-thumb' : 'goso-thumb-small';
 		$thumb_size        = $settings['thumb_size'] ? $settings['thumb_size'] : $thumb_size_imgtop;
 		$mthumb_size       = $settings['mthumb_size'] ? $settings['mthumb_size'] : $thumb_size_imgtop;
 		$title_length      = $settings['title_length'] ? $settings['title_length'] : '';
 
 		$thumbnail = $thumb_size;
-		if ( penci_is_mobile() ) {
+		if ( goso_is_mobile() ) {
 			$thumbnail = $mthumb_size;
 		}
 
-		$inner_wrapper_class = 'pcsl-inner penci-clearfix';
+		$inner_wrapper_class = 'pcsl-inner goso-clearfix';
 		$inner_wrapper_class .= ' pcsl-' . $type;
 		if ( 'crs' == $type ) {
-			$inner_wrapper_class .= ' penci-owl-carousel penci-owl-carousel-slider';
+			$inner_wrapper_class .= ' goso-owl-carousel goso-owl-carousel-slider';
 		}
 		$inner_wrapper_class .= ' pcsl-imgpos-' . $imgpos;
 		$inner_wrapper_class .= ' pcsl-col-' . $column;
@@ -983,7 +983,7 @@ class GosoProductList extends Base_Widget {
 
 		// product query
 
-		$settings = wp_parse_args( $settings, penci_custom_product_query_default_args() );
+		$settings = wp_parse_args( $settings, goso_custom_product_query_default_args() );
 
 		$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 		if ( isset( $_GET['product-page'] ) ) { // phpcs:ignore
@@ -1006,8 +1006,8 @@ class GosoProductList extends Base_Widget {
 		);
 
 		if ( 'new' === $settings['post_type'] ) {
-			$new_label = get_theme_mod( 'penci_woo_label_new_product', true );
-			$days      = get_theme_mod( 'penci_woo_label_new_product_period', 7 );
+			$new_label = get_theme_mod( 'goso_woo_label_new_product', true );
+			$days      = get_theme_mod( 'goso_woo_label_new_product_period', 7 );
 			if ( $new_label && $days ) {
 				$query_args['date_query'] = array(
 					'after' => date( 'Y-m-d', strtotime( '-' . $days . ' days' ) ),
@@ -1015,7 +1015,7 @@ class GosoProductList extends Base_Widget {
 			} else {
 				$query_args['meta_query'][] = array(
 					array(
-						'key'     => 'penci_pmeta_product_extra_options',
+						'key'     => 'goso_pmeta_product_extra_options',
 						'value'   => '"permanent_new_label";s:1:"1"',
 						'compare' => 'LIKE',
 					),
@@ -1080,7 +1080,7 @@ class GosoProductList extends Base_Widget {
 				'include_children' => false,
 			);
 		}
-		if ( apply_filters( 'penci_hide_out_of_stock_items', false ) && 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
+		if ( apply_filters( 'goso_hide_out_of_stock_items', false ) && 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
 			$query_args['meta_query'][] = array(
 				'key'     => '_stock_status',
 				'value'   => 'outofstock',
@@ -1143,7 +1143,7 @@ class GosoProductList extends Base_Widget {
 				$date = '+1 month';
 			}
 			$query_args['meta_query'] = apply_filters(
-				'penci_product_deals_meta_query',
+				'goso_product_deals_meta_query',
 				array_merge(
 					WC()->query->get_meta_query(),
 					array(
@@ -1167,7 +1167,7 @@ class GosoProductList extends Base_Widget {
 			);
 		} elseif ( isset( $settings['product_type'] ) && $settings['product_type'] == 'deals' ) {
 			$query_args['meta_query'] = apply_filters(
-				'penci_product_deals_meta_query',
+				'goso_product_deals_meta_query',
 				array_merge(
 					WC()->query->get_meta_query(),
 					array(
@@ -1182,23 +1182,23 @@ class GosoProductList extends Base_Widget {
 		}
 
 		if ( 'top_rated_products' === $settings['post_type'] ) {
-			add_filter( 'posts_clauses', 'penci_order_by_rating_post_clauses' );
-			$products = new \WP_Query( apply_filters( 'penci_product_element_query_args', $query_args ) );
-			remove_filter( 'posts_clauses', 'penci_order_by_rating_post_clauses' );
+			add_filter( 'posts_clauses', 'goso_order_by_rating_post_clauses' );
+			$products = new \WP_Query( apply_filters( 'goso_product_element_query_args', $query_args ) );
+			remove_filter( 'posts_clauses', 'goso_order_by_rating_post_clauses' );
 		} else {
-			$products = new \WP_Query( apply_filters( 'penci_product_element_query_args', $query_args ) );
+			$products = new \WP_Query( apply_filters( 'goso_product_element_query_args', $query_args ) );
 		}
 		?>
-        <div class="penci-wrapper-smalllist">
+        <div class="goso-wrapper-smalllist">
 			<?php $this->markup_block_title( $settings, $this ); ?>
 			<?php
 			if ( ! $products->have_posts() ) {
-				echo $this->show_missing_settings( 'Product List', penci_get_setting( 'penci_ajaxsearch_no_post' ) );
+				echo $this->show_missing_settings( 'Product List', goso_get_setting( 'goso_ajaxsearch_no_post' ) );
 			}
 
 			if ( $products->have_posts() ) {
 				?>
-                <div class="penci-smalllist pcsl-wrapper">
+                <div class="goso-smalllist pcsl-wrapper">
                     <div class="<?php echo $inner_wrapper_class; ?>"<?php echo $data_slider; ?>>
 						<?php while ( $products->have_posts() ) : $products->the_post(); ?>
                             <div class="pcsl-item<?php if ( 'yes' == $settings['hide_thumb'] || ! has_post_thumbnail() ) {
@@ -1210,15 +1210,15 @@ class GosoProductList extends Base_Widget {
                                             <div class="pcsl-thumb">
 												<?php if ( 'yes' != $settings['disable_lazy'] ) { ?>
                                                     <a href="<?php the_permalink(); ?>"
-                                                       class="penci-image-holder penci-lazy"<?php if ( 'yes' == $settings['nocrop'] ) {
-														echo ' style="padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
+                                                       class="goso-image-holder goso-lazy"<?php if ( 'yes' == $settings['nocrop'] ) {
+														echo ' style="padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%"';
 													} ?>
-                                                       data-bgset="<?php echo penci_get_featured_image_size( get_the_ID(), $thumbnail ); ?>">
+                                                       data-bgset="<?php echo goso_get_featured_image_size( get_the_ID(), $thumbnail ); ?>">
                                                     </a>
 												<?php } else { ?>
-                                                    <a href="<?php the_permalink(); ?>" class="penci-image-holder"
-                                                       style="background-image: url('<?php echo penci_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'yes' == $settings['nocrop'] ) {
-														   echo 'padding-bottom: ' . penci_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
+                                                    <a href="<?php the_permalink(); ?>" class="goso-image-holder"
+                                                       style="background-image: url('<?php echo goso_get_featured_image_size( get_the_ID(), $thumbnail ); ?>');<?php if ( 'yes' == $settings['nocrop'] ) {
+														   echo 'padding-bottom: ' . goso_get_featured_image_padding_markup( get_the_ID(), $thumbnail, true ) . '%';
 													   } ?>">
                                                     </a>
 												<?php } ?>
@@ -1270,7 +1270,7 @@ class GosoProductList extends Base_Widget {
 	public static function show_missing_settings( $label, $mess ) {
 		$output = '';
 		if ( current_user_can( 'manage_options' ) ) {
-			$output .= '<div class="penci-missing-settings">';
+			$output .= '<div class="goso-missing-settings">';
 			$output .= '<p style="margin-bottom: 4px;">This message appears for administrator users only</p>';
 			$output .= '<span>' . $label . '</span>';
 			$output .= $mess;
@@ -1321,7 +1321,7 @@ class GosoProductList extends Base_Widget {
 		}
 
 		?>
-        <div class="penci-product-cats">
+        <div class="goso-product-cats">
 			<?php echo implode( ', ', $links ); // phpcs:ignore ?>
         </div>
 		<?php

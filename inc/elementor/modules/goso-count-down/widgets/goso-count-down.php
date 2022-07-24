@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoCountDown extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-count-down';
+		return 'goso-count-down';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Countdown', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Countdown', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoCountDown extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -120,13 +120,13 @@ class GosoCountDown extends Base_Widget {
 		);
 
 		$countdown_opts = array(
-			esc_html__( "Years", "penci-framework" )   => "Y",
-			esc_html__( "Months", "penci-framework" )  => "O",
-			esc_html__( "Weeks", "penci-framework" )   => "W",
-			esc_html__( "Days", "penci-framework" )    => "D",
-			esc_html__( "Hours", "penci-framework" )   => "H",
-			esc_html__( "Minutes", "penci-framework" ) => "M",
-			esc_html__( "Seconds", "penci-framework" ) => "S",
+			esc_html__( "Years", "goso-framework" )   => "Y",
+			esc_html__( "Months", "goso-framework" )  => "O",
+			esc_html__( "Weeks", "goso-framework" )   => "W",
+			esc_html__( "Days", "goso-framework" )    => "D",
+			esc_html__( "Hours", "goso-framework" )   => "H",
+			esc_html__( "Minutes", "goso-framework" ) => "M",
+			esc_html__( "Seconds", "goso-framework" ) => "S",
 		);
 
 		foreach ( $countdown_opts as $countdown_opt_lab => $countdown_opt ) {
@@ -161,8 +161,8 @@ class GosoCountDown extends Base_Widget {
 				'separator'   => 'before',
 				'condition' => array( 'count_down_style' => array( 's1','s2' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-countdown-s1 .penci-countdown-amount' => 'border-style: {{VALUE}};',
-					'{{WRAPPER}} .penci-countdown-s2 .penci-countdown-amount' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .goso-countdown-s1 .goso-countdown-amount' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .goso-countdown-s2 .goso-countdown-amount' => 'border-style: {{VALUE}};',
 				),
 			)
 		);
@@ -173,8 +173,8 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-countdown-s1 .penci-countdown-amount' => 'border-width: {{SIZE}}px',
-					'{{WRAPPER}} .penci-countdown-s2 .penci-countdown-amount' => 'border-width: {{SIZE}}px',
+					'{{WRAPPER}} .goso-countdown-s1 .goso-countdown-amount' => 'border-width: {{SIZE}}px',
+					'{{WRAPPER}} .goso-countdown-s2 .goso-countdown-amount' => 'border-width: {{SIZE}}px',
 				),
 
 				'condition' => array( 'digit_border' => array( 'solid', 'dashed', 'dotted', 'double' ),'count_down_style' => array( 's1','s2') ),
@@ -186,8 +186,8 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 				'selectors' => array(
-                      '{{WRAPPER}} .penci-countdown-s1 .penci-countdown-amount' => 'border-radius: {{SIZE}}px',
-                      '{{WRAPPER}} .penci-countdown-s2 .penci-countdown-amount' => 'border-radius: {{SIZE}}px',
+                      '{{WRAPPER}} .goso-countdown-s1 .goso-countdown-amount' => 'border-radius: {{SIZE}}px',
+                      '{{WRAPPER}} .goso-countdown-s2 .goso-countdown-amount' => 'border-radius: {{SIZE}}px',
 					),
 				'condition' => array( 'digit_border' => array( 'solid', 'dashed', 'dotted', 'double' ),'count_down_style' => array( 's1','s2') ),
 			)
@@ -197,7 +197,7 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer digit padding', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-amount' => 'padding: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-amount' => 'padding: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -205,7 +205,7 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer digit margin top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => -200, 'max' => 200, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-amount' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-amount' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_control(
@@ -213,7 +213,7 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer unit margin top', 'authow' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 100, ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-period' => 'margin-top: {{SIZE}}px' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-period' => 'margin-top: {{SIZE}}px' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -222,7 +222,7 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 				'condition' => array( 'count_down_style' => array( 's3','s4','s5' ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-section' => 'width: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-section' => 'width: {{SIZE}}px;' ),
 			)
 		);
 		$this->add_responsive_control(
@@ -231,7 +231,7 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array( 'px' => array( 'min' => 0, 'max' => 500, ) ),
 				'condition' => array( 'count_down_style' => array( 's3','s4','s5' ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-section' => 'height: {{SIZE}}px;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-section' => 'height: {{SIZE}}px;' ),
 			)
 		);
 		$this->end_controls_section();
@@ -363,7 +363,7 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer Digit Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-amount' => 'color: {{VALUE}} !important;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-amount' => 'color: {{VALUE}} !important;' ),
 			)
 		);
 
@@ -371,7 +371,7 @@ class GosoCountDown extends Base_Widget {
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'time_digit_typo',
 				'label'     => __( 'Timer Digit Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-countdown-amount',
+				'selector' => '{{WRAPPER}} .goso-countdown-amount',
 			)
 		);
 
@@ -382,8 +382,8 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-countdown-s1 .penci-countdown-amount' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-countdown-s2 .penci-countdown-amount' => 'border-color: {{VALUE}};'
+					'{{WRAPPER}} .goso-countdown-s1 .goso-countdown-amount' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-countdown-s2 .goso-countdown-amount' => 'border-color: {{VALUE}};'
 				),
 				'condition' => array( 'count_down_style' => array( 's1','s2' ) ),
 			)
@@ -395,7 +395,7 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer Digit Background Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-s1 .penci-countdown-amount' => 'background-color: {{VALUE}} !important;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-s1 .goso-countdown-amount' => 'background-color: {{VALUE}} !important;' ),
 				'condition' => array( 'count_down_style' => array( 's1' ) ),
 			)
 		);
@@ -405,14 +405,14 @@ class GosoCountDown extends Base_Widget {
 				'label'     => __( 'Timer Unit Color', 'authow' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-period' => 'color: {{VALUE}} !important;' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-period' => 'color: {{VALUE}} !important;' ),
 			)
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(), array(
 				'name'     => 'unit_typo',
 				'label'     => __( 'Timer Unit Typography', 'authow' ),
-				'selector' => '{{WRAPPER}} .penci-countdown-period',
+				'selector' => '{{WRAPPER}} .goso-countdown-period',
 			)
 		);
 		$this->add_control(
@@ -422,8 +422,8 @@ class GosoCountDown extends Base_Widget {
 				'default'   => '',
 				'condition' => array( 'count_down_style' => array( 's3','s4' ) ),
 				'selectors' => array(
-					'{{WRAPPER}} .penci-countdown-s3 .penci-span-inner' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .penci-countdown-s4 .penci-span-inner' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-countdown-s3 .goso-span-inner' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-countdown-s4 .goso-span-inner' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -433,7 +433,7 @@ class GosoCountDown extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'condition' => array( 'count_down_style' => array( 's3' ) ),
-				'selectors' => array( '{{WRAPPER}} .penci-countdown-s3 .penci-span-inner' => 'border-color: {{VALUE}};' ),
+				'selectors' => array( '{{WRAPPER}} .goso-countdown-s3 .goso-span-inner' => 'border-color: {{VALUE}};' ),
 			)
 		);
 		$this->end_controls_section();
@@ -468,11 +468,11 @@ class GosoCountDown extends Base_Widget {
 	protected function render() {
 		$settings              = $this->get_settings();
 
-		$block_id = 'penci_countdown_' . rand( 1000, 100000 );
+		$block_id = 'goso_countdown_' . rand( 1000, 100000 );
 
-		$css_class = 'penci-countdown-bsc';
-		$css_class .= ' penci-countdown-' . $settings['count_down_style'];
-		$css_class .= ' penci-style-' . $settings['count_down_posttion'];
+		$css_class = 'goso-countdown-bsc';
+		$css_class .= ' goso-countdown-' . $settings['count_down_style'];
+		$css_class .= ' goso-style-' . $settings['count_down_posttion'];
 
 		$labels  = sprintf( "['%s', '%s', '%s', '%s', '%s', '%s', '%s']",
 			$settings['str_years2'], $settings['str_weeks2'],

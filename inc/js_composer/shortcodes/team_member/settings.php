@@ -3,12 +3,12 @@ $group_color = 'Typo & Color';
 $group_team  = 'Team Member';
 
 vc_map( array(
-	'base'          => 'penci_team_member',
+	'base'          => 'goso_team_member',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/team_member/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Team Members', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Team Members', 'authow' ),
 	'description'   => __( 'Team Members Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -40,7 +40,7 @@ vc_map( array(
 				'std'        => '3'
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'height_team',
 				'heading'          => esc_html__( 'Set height team member', 'authow' ),
 				'value'            => '',
@@ -49,7 +49,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'border_width_team',
 				'heading'          => esc_html__( 'Set border width team member', 'authow' ),
 				'value'            => '',
@@ -58,7 +58,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'width_img',
 				'heading'          => esc_html__( 'Set width for Image', 'authow' ),
 				'value'            => '',
@@ -67,7 +67,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'height_img',
 				'heading'          => esc_html__( 'Set height for Image', 'authow' ),
 				'value'            => '',
@@ -76,7 +76,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'row_gap',
 				'heading'          => __( 'Rows Gap', 'authow' ),
 				'value'            => '',
@@ -86,7 +86,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'col_gap',
 				'heading'          => __( 'Columns Gap', 'authow' ),
 				'value'            => '',
@@ -222,7 +222,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Team memeber Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -245,7 +245,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Name Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -260,7 +260,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_name_size',
 				'heading'          => __( 'Font Size for Name', 'authow' ),
 				'value'            => '',
@@ -270,7 +270,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_name_martop',
 				'heading'          => __( 'Margin top for Name', 'authow' ),
 				'value'            => '',
@@ -288,7 +288,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Positions Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -303,7 +303,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_pos_size',
 				'heading'          => __( 'Font Size for Position', 'authow' ),
 				'value'            => '',
@@ -313,7 +313,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_pos_martop',
 				'heading'          => __( 'Margin top for Position', 'authow' ),
 				'value'            => '',
@@ -331,7 +331,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Description colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -346,7 +346,7 @@ vc_map( array(
 				'group'            => $group_color,
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_des_size',
 				'heading'          => __( 'Font Size for Desctiption', 'authow' ),
 				'value'            => '',
@@ -357,7 +357,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'team_des_martop',
 				'heading'          => __( 'Margin top for Desctiption', 'authow' ),
 				'value'            => '',
@@ -375,7 +375,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Social Icon Colors', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -406,7 +406,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'team_social_martop',
 				'heading'    => __( 'Margin top for Social Icon', 'authow' ),
 				'value'      => '',

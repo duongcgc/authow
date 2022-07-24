@@ -3,14 +3,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-if( ! function_exists( 'penci_authow_vc_param_loop' ) ):
-function penci_authow_vc_param_loop( $settings, $value ) {
+if( ! function_exists( 'goso_authow_vc_param_loop' ) ):
+function goso_authow_vc_param_loop( $settings, $value ) {
 	$query_builder = new GosoAuthowLoopSettings( $value );
 	$params        = $query_builder->getContent();
 	$loop_info     = '';
 	if ( is_array( $params ) ) {
 		foreach ( $params as $key => $param ) {
-			$param_value = penci_authow_loop_get_value( $param );
+			$param_value = goso_authow_loop_get_value( $param );
 			if ( ! empty( $param_value ) ) {
 				$loop_info .= ' <b>' . $query_builder->getLabel( $key ) . '</b>: ' . $param_value . ';';
 			}
@@ -25,8 +25,8 @@ function penci_authow_vc_param_loop( $settings, $value ) {
 }
 endif;
 
-if( ! function_exists( 'penci_authow_loop_get_value' ) ):
-function penci_authow_loop_get_value( $param ) {
+if( ! function_exists( 'goso_authow_loop_get_value' ) ):
+function goso_authow_loop_get_value( $param ) {
 	$value           = array();
 	$selected_values = (array) $param['value'];
 	if ( isset( $param['options'] ) && is_array( $param['options'] ) ) {
@@ -79,17 +79,17 @@ class GosoAuthowLoopQueryBuilder {
 	protected function parse_order_by( $value ) {
 		switch ( $value ) {
 			case 'popular':
-				$this->args['meta_key'] = penci_get_postviews_key();
+				$this->args['meta_key'] = goso_get_postviews_key();
 				$this->args['orderby']  = 'meta_value_num';
 				$this->args['order']    = 'DESC';
 				break;
 			case 'popular7':
-				$this->args['meta_key'] = 'penci_post_week_views_count';
+				$this->args['meta_key'] = 'goso_post_week_views_count';
 				$this->args['orderby']  = 'meta_value_num';
 				$this->args['order']    = 'DESC';
 				break;
 			case 'popular_month':
-				$this->args['meta_key'] = 'penci_post_month_views_count';
+				$this->args['meta_key'] = 'goso_post_month_views_count';
 				$this->args['orderby']  = 'meta_value_num';
 				$this->args['order']    = 'DESC';
 				break;
@@ -377,7 +377,7 @@ class GosoAuthowLoopSettings {
 		);
 		$post_types = get_post_types( $args );
 		foreach ( $post_types as $post_type ) {
-			if ( 'attachment' !== $post_type && 'penci_slider' !== $post_type ) {
+			if ( 'attachment' !== $post_type && 'goso_slider' !== $post_type ) {
 				$options[] = $post_type;
 			}
 		}
@@ -495,7 +495,7 @@ class GosoAuthowLoopSettings {
 		$post_types    = get_post_types( array( 'public' => true ) );
 
 		foreach ( $post_types as $post_type ) {
-			if ( 'attachment' !== $post_type && 'penci_slider' !== $post_type ) {
+			if ( 'attachment' !== $post_type && 'goso_slider' !== $post_type ) {
 				$post_type_pre[] = $post_type;
 			}
 		}
@@ -736,20 +736,20 @@ class GosoAuthowLoopSuggestions {
 }
 endif;
 
-if ( ! function_exists( 'penci_build_loop_query' ) ) {
-	function penci_build_loop_query( $query, $exclude_id = false ) {
+if ( ! function_exists( 'goso_build_loop_query' ) ) {
+	function goso_build_loop_query( $query, $exclude_id = false ) {
 		return GosoAuthowLoopSettings::buildWpQuery( $query, $exclude_id );
 	}
 }
 
-if ( ! function_exists( 'penci_build_args_query' ) ) {
-	function penci_build_args_query( $query, $exclude_id = false ) {
+if ( ! function_exists( 'goso_build_args_query' ) ) {
+	function goso_build_args_query( $query, $exclude_id = false ) {
 		return GosoAuthowLoopSettings::buildArgsQuery( $query, $exclude_id );
 	}
 }
 
-if ( ! function_exists( 'penci_get_loop_suggestion' ) ) {
-	function penci_get_loop_suggestion() {
+if ( ! function_exists( 'goso_get_loop_suggestion' ) ) {
+	function goso_get_loop_suggestion() {
 		vc_user_access()
 			->checkAdminNonce()
 			->validateDie()
@@ -762,8 +762,8 @@ if ( ! function_exists( 'penci_get_loop_suggestion' ) ) {
 	}
 }
 
-if ( ! function_exists( 'penci_get_loop_settings_json' ) ) {
-	function penci_get_loop_settings_json() {
+if ( ! function_exists( 'goso_get_loop_settings_json' ) ) {
+	function goso_get_loop_settings_json() {
 		vc_user_access()
 			->checkAdminNonce()
 			->validateDie()
@@ -775,18 +775,18 @@ if ( ! function_exists( 'penci_get_loop_settings_json' ) ) {
 		die();
 	}
 }
-add_action( 'wp_ajax_wpb_get_loop_suggestion', 'penci_get_loop_suggestion' );
-add_action( 'wp_ajax_wpb_get_loop_settings', 'penci_get_loop_settings_json' );
+add_action( 'wp_ajax_wpb_get_loop_suggestion', 'goso_get_loop_suggestion' );
+add_action( 'wp_ajax_wpb_get_loop_settings', 'goso_get_loop_settings_json' );
 
-if ( ! function_exists( 'penci_loop_include_templates' ) ) {
-	function penci_loop_include_templates() {
+if ( ! function_exists( 'goso_loop_include_templates' ) ) {
+	function goso_loop_include_templates() {
 		include( trailingslashit( get_template_directory() ) . 'inc/js_composer/params/loop/templates.html' );
 	}
 }
-add_action( 'admin_footer', 'penci_loop_include_templates' );
+add_action( 'admin_footer', 'goso_loop_include_templates' );
 
-if ( ! function_exists( 'penci_set_loop_default_value' ) ) {
-	function penci_set_loop_default_value( $param ) {
+if ( ! function_exists( 'goso_set_loop_default_value' ) ) {
+	function goso_set_loop_default_value( $param ) {
 		if ( empty( $param['value'] ) && isset( $param['settings'] ) ) {
 			$param['value'] = GosoAuthowLoopSettings::buildDefault( $param );
 		}
@@ -794,4 +794,4 @@ if ( ! function_exists( 'penci_set_loop_default_value' ) ) {
 		return $param;
 	}
 }
-add_filter( 'vc_mapper_attribute_build_query', 'penci_set_loop_default_value' );
+add_filter( 'vc_mapper_attribute_build_query', 'goso_set_loop_default_value' );

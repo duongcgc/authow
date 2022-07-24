@@ -2,29 +2,29 @@
 $options   = [];
 $options[] = array(
 	'label'    => 'Enable Featured Slider',
-	'id'       => 'penci_featured_slider',
+	'id'       => 'goso_featured_slider',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Enable Featured Slider on All Page',
-	'id'       => 'penci_featured_slider_all_page',
+	'id'       => 'goso_featured_slider_all_page',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Enable Flat Overlay Replace with Gradient Overlay',
-	'id'          => 'penci_enable_flat_overlay',
+	'id'          => 'goso_enable_flat_overlay',
 	'description' => 'This option does not apply for Slider Styles 1, 2, 3, 4, 5, 29, 30, 35, 36, 37, 38 & Goso Sliders',
 	'type'        => 'authow-fw-toggle',
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field'
+	'sanitize'    => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Border Radius for Images on Featured Slider',
-	'id'          => 'penci_slider_border_radius',
+	'id'          => 'goso_slider_border_radius',
 	'default'     => '',
 	'sanitize'    => 'sanitize_text_field',
 	'type'        => 'authow-fw-text',
@@ -32,9 +32,9 @@ $options[] = array(
 );
 $options[] = array(
 	'label'       => 'Featured Slider Style',
-	'id'          => 'penci_featured_slider_style',
+	'id'          => 'goso_featured_slider_style',
 	'default'     => 'style-1',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'description' => 'If you choose Goso Slider, you need have posts in "Goso Slider" post type',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
@@ -80,7 +80,7 @@ $options[] = array(
 );
 $options[] = array(
 	'label'       => 'Revolution Slider Shortcode',
-	'id'          => 'penci_feature_rev_sc',
+	'id'          => 'goso_feature_rev_sc',
 	'type'        => 'authow-fw-textarea',
 	'default'     => '',
 	'sanitize'    => 'sanitize_text_field',
@@ -88,19 +88,19 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => 'Enable Next/Prev Button for Goso Slider & Slider Styles 35, 36, 37',
-	'section'  => 'penci_section_fslider_general',
-	'id'       => 'penci_enable_next_prev_penci_slider',
+	'section'  => 'goso_section_fslider_general',
+	'id'       => 'goso_enable_next_prev_goso_slider',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Disable Dots for Goso Slider & Slider Styles 35, 36, 37',
-	'section'  => 'penci_section_fslider_general',
-	'id'       => 'penci_disable_dots_penci_slider',
+	'section'  => 'goso_section_fslider_general',
+	'id'       => 'goso_disable_dots_goso_slider',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Custom Image Size on the Slider',
@@ -140,11 +140,11 @@ $options[] = array(
 		return $image_sizes_data;
 	} ),
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'    => 'Custom Image Size for Big Posts on the Slider',
-	'section'  => 'penci_section_fslider_general',
+	'section'  => 'goso_section_fslider_general',
 	'id'       => 'featured_slider_imgbig',
 	'type'     => 'authow-fw-ajax-select',
 	'choices'  => call_user_func( function () {
@@ -181,7 +181,7 @@ $options[] = array(
 		return $image_sizes_data;
 	} ),
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'    => 'Custom Image Size on Mobile',
@@ -221,16 +221,16 @@ $options[] = array(
 		return $image_sizes_data;
 	} ),
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label' => __( 'Custom Words Length for Post Titles', 'authow' ),
-	'id'          => 'penci_slider_title_length',
+	'id'          => 'goso_slider_title_length',
 	'type'        => 'authow-fw-size',
 	'default'     => '12',
 	'sanitize'    => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_slider_title_length',
+		'desktop' => 'goso_slider_title_length',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -256,7 +256,7 @@ $options[] = array(
 		'comment_count' => 'Comment Count'
 	),
 	'default'  => 'date',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'    => 'Sort Order on Featured Slider',
@@ -267,16 +267,16 @@ $options[] = array(
 		'ASC'  => 'Ascending '
 	),
 	'default'  => 'DESC',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'    => __( 'Amount of Slides', 'authow' ),
-	'id'       => 'penci_featured_slider_slides',
+	'id'       => 'goso_featured_slider_slides',
 	'type'     => 'authow-fw-size',
 	'default'  => '6',
 	'sanitize' => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_featured_slider_slides',
+		'desktop' => 'goso_featured_slider_slides',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -291,20 +291,20 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => 'Enable Auto Play Slider',
-	'id'       => 'penci_featured_autoplay',
+	'id'       => 'goso_featured_autoplay',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => __( 'Featured Slider Auto Time', 'authow' ),
 	'description' => __( '1000 = 1 second', 'authow' ),
-	'id'          => 'penci_featured_slider_auto_time',
+	'id'          => 'goso_featured_slider_auto_time',
 	'type'        => 'authow-fw-size',
 	'default'     => '4000',
 	'sanitize'    => 'absint',
 	'ids'         => array(
-		'desktop' => 'penci_featured_slider_auto_time',
+		'desktop' => 'goso_featured_slider_auto_time',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -320,12 +320,12 @@ $options[] = array(
 $options[] = array(
 	'label'       => __( 'Featured Slider Auto Speed', 'authow' ),
 	'description' => __( '1000 = 1 second', 'authow' ),
-	'id'          => 'penci_featured_slider_auto_speed',
+	'id'          => 'goso_featured_slider_auto_speed',
 	'default'     => '600',
 	'sanitize'    => 'absint',
 	'type'        => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_featured_slider_auto_speed',
+		'desktop' => 'goso_featured_slider_auto_speed',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -340,12 +340,12 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => __( 'Featured Goso Slider Height', 'authow' ),
-	'id'       => 'penci_featured_penci_slider_height',
+	'id'       => 'goso_featured_goso_slider_height',
 	'default'  => '',
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_featured_penci_slider_height',
+		'desktop' => 'goso_featured_goso_slider_height',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -360,10 +360,10 @@ $options[] = array(
 $options[] = array(
 	'label'       => __( 'Custom Fixed Ratio Height/Width of Images on Goso Slider', 'authow' ),
 	'description' => __( 'Example: height/width = 0.45 = 45% - let fill 45', 'authow' ),
-	'id'          => 'penci_featured_penci_slider_ratio',
+	'id'          => 'goso_featured_goso_slider_ratio',
 	'type'        => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_featured_penci_slider_ratio',
+		'desktop' => 'goso_featured_goso_slider_ratio',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -377,27 +377,27 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => 'Remove Black Overlay Background on Heading & Captions of Goso Slider',
-	'section'  => 'penci_section_fslider_general',
-	'id'       => 'penci_penci_slider_remove_overlay',
+	'section'  => 'goso_section_fslider_general',
+	'id'       => 'goso_goso_slider_remove_overlay',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Filter Featured Slider By',
-	'section'  => 'penci_section_fslider_general',
-	'id'       => 'penci_featured_slider_filter_type',
+	'section'  => 'goso_section_fslider_general',
+	'id'       => 'goso_featured_slider_filter_type',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'category' => 'Featured Category',
 		'tags'     => 'Featured Tags'
 	),
 	'default'  => 'category',
-	'sanitize' => 'penci_sanitize_choices_field'
+	'sanitize' => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'       => 'Select Featured Category',
-	'id'          => 'penci_featured_cat',
+	'id'          => 'goso_featured_cat',
 	'description' => 'Just apply when you select filter by Featured Category above',
 	'default'     => '0',
 	'type'        => 'authow-fw-ajax-select',
@@ -414,7 +414,7 @@ $options[] = array(
 				$category[ $value->term_id ] = $value->name;
 			}
 		} else {
-			$selected = get_theme_mod( 'penci_top_bar_category' );
+			$selected = get_theme_mod( 'goso_top_bar_category' );
 			if ( ! empty( $selected ) ) {
 				$categories = get_categories( [
 					'hide_empty'   => false,
@@ -430,105 +430,105 @@ $options[] = array(
 
 		return $category;
 	} ),
-	'sanitize'    => 'penci_sanitize_choices_field'
+	'sanitize'    => 'goso_sanitize_choices_field'
 );
 $options[] = array(
 	'label'       => 'Fill List Featured Tags for Featured Slider',
-	'id'          => 'penci_featured_tags',
-	'description' => 'Just apply when you select filter by Featured Tags above. And please fill list featured tags slug here, check <a rel="nofollow" href="https://authow.pencidesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple tags slug, fill:  tag-1, tag-2, tag-3',
+	'id'          => 'goso_featured_tags',
+	'description' => 'Just apply when you select filter by Featured Tags above. And please fill list featured tags slug here, check <a rel="nofollow" href="https://authow.gosodesign.net/authow-document/images/tags.png" target="_blank">this image</a> to know what is tags slug. Example for multiple tags slug, fill:  tag-1, tag-2, tag-3',
 	'type'        => 'authow-fw-textarea',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field'
+	'sanitize'    => 'goso_sanitize_textarea_field'
 );
 $options[] = array(
 	'label'       => 'Hide Featured Category',
-	'id'          => 'penci_featured_cat_hide',
+	'id'          => 'goso_featured_cat_hide',
 	'description' => 'Check this if you want the featured category to be hide on all pages.',
 	'type'        => 'authow-fw-toggle',
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field'
+	'sanitize'    => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Exclude All Posts on the Featured Slider in Latest Posts on Homepage',
 	'description' => 'Let view your site outside customize page to see the changes.',
-	'id'          => 'penci_exclude_featured_cat',
+	'id'          => 'goso_exclude_featured_cat',
 	'type'        => 'authow-fw-toggle',
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field'
+	'sanitize'    => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Center Box on Featured Slider',
-	'id'       => 'penci_featured_center_box',
+	'id'       => 'goso_featured_center_box',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Turn off Uppercase of Heading/Post Titles on Slider',
-	'id'       => 'penci_featured_off_uppercase_title',
+	'id'       => 'goso_featured_off_uppercase_title',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Post Date',
-	'id'       => 'penci_featured_meta_date',
+	'id'       => 'goso_featured_meta_date',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Hide Categories Of Post',
-	'id'          => 'penci_featured_hide_categories',
+	'id'          => 'goso_featured_hide_categories',
 	'description' => '',
 	'type'        => 'authow-fw-toggle',
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field'
+	'sanitize'    => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Display Categories for all Posts on Slider',
-	'id'          => 'penci_featured_show_categories',
+	'id'          => 'goso_featured_show_categories',
 	'description' => 'By default, we disabled categories for some slider styles & some small posts - this option will help you show it if you want.',
 	'type'        => 'authow-fw-toggle',
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field'
+	'sanitize'    => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Comment Count',
-	'id'       => 'penci_featured_meta_comment',
+	'id'       => 'goso_featured_meta_comment',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Show Post Author',
-	'id'       => 'penci_featured_meta_author',
+	'id'       => 'goso_featured_meta_author',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Post Excerpt on Style 35 & 36',
-	'section'  => 'penci_section_fslider_general',
-	'id'       => 'penci_featured_meta_excerpt',
+	'section'  => 'goso_section_fslider_general',
+	'id'       => 'goso_featured_meta_excerpt',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'    => 'Hide Post Format Icons',
-	'id'       => 'penci_featured_slider_icons',
+	'id'       => 'goso_featured_slider_icons',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 $options[] = array(
 	'label'       => 'Add Google Adsense/Custom HTML Code Below Featured Slider',
-	'id'          => 'penci_home_adsense_below_slider',
+	'id'          => 'goso_home_adsense_below_slider',
 	'description' => '',
 	'type'        => 'authow-fw-textarea',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_textarea_field'
+	'sanitize'    => 'goso_sanitize_textarea_field'
 );
 
 return $options;

@@ -64,7 +64,7 @@ class Goso_Group_Control_Posts extends Group_Control_Base {
 
 		$fields['posts_ids'] = array(
 			'label'       => __( 'Search by Title & Select', 'authow' ),
-			'type'        => 'penci-select2',
+			'type'        => 'goso-select2',
 			'options'     => $this->get_post_list(),
 			'source_name' => 'post_type',
 			'source_type' => 'any',
@@ -193,7 +193,7 @@ class Goso_Group_Control_Posts extends Group_Control_Base {
 			$options = array();
 
 			if ( $count > self::INLINE_MAX_RESULTS ) {
-				$taxonomy_args['type'] = 'penci-select2';
+				$taxonomy_args['type'] = 'goso-select2';
 
 				$taxonomy_args['filter_type'] = 'taxonomy';
 			} else {
@@ -232,7 +232,7 @@ class Goso_Group_Control_Posts extends Group_Control_Base {
 			$options = array();
 
 			if ( $count > self::INLINE_MAX_RESULTS ) {
-				$taxonomy_args['type'] = 'penci-select2';
+				$taxonomy_args['type'] = 'goso-select2';
 
 				$taxonomy_args['filter_type'] = 'taxonomy';
 			} else {

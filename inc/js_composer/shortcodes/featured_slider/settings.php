@@ -126,7 +126,7 @@ $main_params = array(
 		'param_name'       => 'heading_slider_settings',
 		'heading'          => esc_html__( 'Slider options', 'authow' ),
 		'value'            => '',
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'       => 'checkbox',
@@ -175,7 +175,7 @@ $typo_params    = array(
 		'param_name'       => 'heading_style_img_settings',
 		'heading'          => esc_html__( 'Image', 'authow' ),
 		'value'            => '',
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 		'group'            => $group_color,
 	),
 	array(
@@ -227,7 +227,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Title', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -244,7 +244,7 @@ $typo_params    = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'ptitle_fsize',
 		'heading'    => __( 'Font size for Post title', 'authow' ),
 		'value'      => '',
@@ -254,7 +254,7 @@ $typo_params    = array(
 		'group'      => $group_color,
 	),
 	array(
-		'type'             => 'penci_number',
+		'type'             => 'goso_number',
 		'param_name'       => 'bptitle_fsize',
 		'heading'          => __( 'Font Size for Post Title of Big Post', 'authow' ),
 		'value'            => '',
@@ -288,7 +288,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Category', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -305,7 +305,7 @@ $typo_params    = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'pcat_fsize',
 		'heading'    => __( 'Font size for Post title', 'authow' ),
 		'value'      => '',
@@ -337,7 +337,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Post Meta', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -354,7 +354,7 @@ $typo_params    = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'pmeta_fsize',
 		'heading'    => __( 'Font size for Post Meta', 'authow' ),
 		'value'      => '',
@@ -386,7 +386,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Category', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -403,7 +403,7 @@ $typo_params    = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'pexcerpt_fsize',
 		'heading'    => __( 'Font size for Post Meta', 'authow' ),
 		'value'      => '',
@@ -435,7 +435,7 @@ $typo_params    = array(
 		'heading'          => esc_html__( 'Read More', 'authow' ),
 		'value'            => '',
 		'group'            => $group_color,
-		'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+		'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 	),
 	array(
 		'type'             => 'colorpicker',
@@ -459,7 +459,7 @@ $typo_params    = array(
 		'edit_field_class' => 'vc_col-sm-6',
 	),
 	array(
-		'type'       => 'penci_number',
+		'type'       => 'goso_number',
 		'param_name' => 'readmore_fsize',
 		'heading'    => __( 'Font size for Read More', 'authow' ),
 		'value'      => '',
@@ -486,12 +486,12 @@ $typo_params    = array(
 );
 
 vc_map( array(
-	'base'          => 'penci_featured_slider',
+	'base'          => 'goso_featured_slider',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/featured_slider/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.__( 'Featured Slider', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.__( 'Featured Slider', 'authow' ),
 	'description'   => __( 'Featured Slider Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge( $main_params, $typo_params )

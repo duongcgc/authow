@@ -1,11 +1,11 @@
 <?php
 vc_map( array(
-	'base'          => "penci_pintersest",
+	'base'          => "goso_pintersest",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/pintersest/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Pintersest', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Pintersest', 'authow' ),
 	'description'   => 'Pintersest Block',
 	'controls'      => 'full',
 	'params'        => array_merge(

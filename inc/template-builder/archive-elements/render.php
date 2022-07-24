@@ -6,9 +6,9 @@ add_filter( 'body_class', function ( $class ) {
 } );
 get_header(); ?>
 <div class="container-archive-page">
-    <div id="main" class="penci-custom-archive-template">
+    <div id="main" class="goso-custom-archive-template">
 		<?php
-		$post_name = penci_should_render_archive_template();
+		$post_name = goso_should_render_archive_template();
 		$post_data = get_page_by_path( $post_name, OBJECT, 'archive-template' );
 		if ( ! empty( $post_data ) && isset( $post_data->ID ) ) {
 			$frontend = \Elementor\Plugin::$instance->frontend;

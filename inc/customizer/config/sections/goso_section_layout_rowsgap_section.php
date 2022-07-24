@@ -5,9 +5,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Rows Gap Between Post Items', 'authow' ),
-	'id'       => 'penci_rgap_pitems',
+	'id'       => 'goso_rgap_pitems',
 	'ids'         => array(
-		'desktop' => 'penci_rgap_pitems',
+		'desktop' => 'goso_rgap_pitems',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -24,9 +24,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Rows Gap for Big Post Items', 'authow' ),
-	'id'       => 'penci_rgap_pbitems',
+	'id'       => 'goso_rgap_pbitems',
 	'ids'         => array(
-		'desktop' => 'penci_rgap_pbitems',
+		'desktop' => 'goso_rgap_pbitems',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -43,9 +43,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Rows Gap for Small List Post Items', 'authow' ),
-	'id'       => 'penci_rgap_psitems',
+	'id'       => 'goso_rgap_psitems',
 	'ids'         => array(
-		'desktop' => 'penci_rgap_psitems',
+		'desktop' => 'goso_rgap_psitems',
 	),
 	'choices'     => array(
 		'desktop' => array(

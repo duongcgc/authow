@@ -29,7 +29,7 @@ class GosoProductFilter extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_product_filters';
+		return 'goso_product_filters';
 	}
 
 	/**
@@ -41,7 +41,7 @@ class GosoProductFilter extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Product filters', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Product filters', 'authow' );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class GosoProductFilter extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -220,9 +220,9 @@ class GosoProductFilter extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Show in categories', 'authow' ),
 				'description' => esc_html__( 'Choose on which categories pages you want to display this filter. Or leave empty to show on all pages.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
 				'taxonomy'    => [ 'product_cat' ],
 				'multiple'    => true,
 				'label_block' => true,
@@ -390,7 +390,7 @@ class GosoProductFilter extends Base_Widget {
 		);
 
 		$this->add_control(
-			'penci_color_scheme',
+			'goso_color_scheme',
 			[
 				'label'   => esc_html__( 'Color Scheme', 'authow' ),
 				'type'    => Controls_Manager::SELECT,
@@ -445,7 +445,7 @@ class GosoProductFilter extends Base_Widget {
 		global $wp;
 
 		$default_settings = [
-			'penci_color_scheme' => 'dark',
+			'goso_color_scheme' => 'dark',
 			'items'              => array(),
 		];
 
@@ -470,7 +470,7 @@ class GosoProductFilter extends Base_Widget {
 				'wrapper' => [
 					'class'  => [
 						'woocommerce',
-						'penci-product-filters',
+						'goso-product-filters',
 					],
 					'action' => [
 						$form_action,
@@ -482,7 +482,7 @@ class GosoProductFilter extends Base_Widget {
 			]
 		);
 
-		if ( penci_is_shop_archive() ) {
+		if ( goso_is_shop_archive() ) {
 			$this->add_render_attribute( 'wrapper', 'class', 'with-ajax' );
 		}
 
@@ -502,7 +502,7 @@ class GosoProductFilter extends Base_Widget {
 				<?php endif; ?>
 			<?php endforeach; ?>
 
-            <div class="penci-pf-btn">
+            <div class="goso-pf-btn">
                 <button class="button" type="submit">
 					<?php esc_html_e( 'Filter', 'authow' ); ?>
                 </button>
@@ -565,17 +565,17 @@ class GosoProductFilter extends Base_Widget {
 		}
 
 		?>
-        <div class="penci-pf-checkboxes penci-pf-categories">
-            <div class="penci-pf-title">
+        <div class="goso-pf-checkboxes goso-pf-categories">
+            <div class="goso-pf-title">
 				<span class="title-text">
 					<?php echo esc_html( $settings['categories_title'] ); ?>
 				</span>
 
-                <ul class="penci-pf-results"></ul>
+                <ul class="goso-pf-results"></ul>
             </div>
 
-            <div class="penci-pf-dropdown penci-scroll">
-                <ul class="penci-scroll-content">
+            <div class="goso-pf-dropdown goso-scroll">
+                <ul class="goso-scroll-content">
 					<?php if ( $settings['show_categories_ancestors'] && isset( $current_cat ) && isset( $is_cat_has_children ) && $is_cat_has_children ) : ?>
                         <li style="display:none;"
                             class="pf-active cat-item cat-item-<?php echo $current_cat->term_id; ?>">
@@ -635,19 +635,19 @@ class GosoProductFilter extends Base_Widget {
 		$settings = wp_parse_args( $settings, $default_settings );
 
 		?>
-        <div class="penci-pf-checkboxes penci-pf-stock multi_select">
+        <div class="goso-pf-checkboxes goso-pf-stock multi_select">
             <input type="hidden" class="result-input" name="stock_status">
 
-            <div class="penci-pf-title">
+            <div class="goso-pf-title">
 				<span class="title-text">
 					<?php echo esc_html( $settings['stock_title'] ); ?>
 				</span>
 
-                <ul class="penci-pf-results"></ul>
+                <ul class="goso-pf-results"></ul>
             </div>
 
-            <div class="penci-pf-dropdown penci-scroll">
-                <ul class="penci-scroll-content">
+            <div class="goso-pf-dropdown goso-scroll">
+                <ul class="goso-scroll-content">
 					<?php if ( $settings['onsale'] ) : ?>
                         <li>
 							<span class="pf-value" data-val="onsale"
@@ -679,7 +679,7 @@ class GosoProductFilter extends Base_Widget {
 		$settings = wp_parse_args( $settings, $default_settings );
 
 		wp_localize_script(
-			'penci-woocommerce',
+			'goso-woocommerce',
 			'woocommerce_price_slider_params',
 			[
 				'currency_format_num_decimals' => 0,
@@ -697,7 +697,7 @@ class GosoProductFilter extends Base_Widget {
 		wp_enqueue_script( 'accounting' );
 		wp_enqueue_script( 'wc-price-slider' );
 
-		$prices = penci_get_filtered_price_new();
+		$prices = goso_get_filtered_price_new();
 
 		$min = apply_filters( 'woocommerce_price_filter_widget_min_amount', floor( $prices->min_price ) );
 		$max = apply_filters( 'woocommerce_price_filter_widget_max_amount', ceil( $prices->max_price ) );
@@ -714,16 +714,16 @@ class GosoProductFilter extends Base_Widget {
 		$max_price = isset( $_GET['max_price'] ) ? wc_clean( wp_unslash( $_GET['max_price'] ) ) : $max;
 
 		?>
-        <div class="penci-pf-checkboxes penci-pf-price-range multi_select widget_price_filter">
-            <div class="penci-pf-title">
+        <div class="goso-pf-checkboxes goso-pf-price-range multi_select widget_price_filter">
+            <div class="goso-pf-title">
 				<span class="title-text">
 					<?php echo esc_html( $settings['price_title'] ); ?>
 				</span>
 
-                <ul class="penci-pf-results"></ul>
+                <ul class="goso-pf-results"></ul>
             </div>
 
-            <div class="penci-pf-dropdown">
+            <div class="goso-pf-dropdown">
                 <div class="price_slider_wrapper">
                     <div class="price_slider_widget" style="display:none;"></div>
 
@@ -755,19 +755,19 @@ class GosoProductFilter extends Base_Widget {
 		);
 
 		?>
-        <div class="penci-pf-checkboxes penci-pf-sortby">
+        <div class="goso-pf-checkboxes goso-pf-sortby">
             <input type="hidden" class="result-input" name="orderby">
 
-            <div class="penci-pf-title">
+            <div class="goso-pf-title">
 				<span class="title-text">
 					<?php echo esc_html__( 'Sort by', 'authow' ); ?>
 				</span>
 
-                <ul class="penci-pf-results"></ul>
+                <ul class="goso-pf-results"></ul>
             </div>
 
-            <div class="penci-pf-dropdown penci-scroll">
-                <ul class="penci-scroll-content">
+            <div class="goso-pf-dropdown goso-scroll">
+                <ul class="goso-scroll-content">
 					<?php foreach ( $options as $key => $value ) : ?>
                         <li>
 							<span class="pf-value" data-val="<?php echo esc_attr( $key ); ?>"

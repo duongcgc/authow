@@ -2,7 +2,7 @@
 $options   = [];
 $options[] = array(
 	'label'       => esc_attr__( 'YouTube API Key', 'authow' ),
-	'id'          => 'penci_youtube_api_key',
+	'id'          => 'goso_youtube_api_key',
 	'type'        => 'authow-fw-text',
 	'default'     => '',
 	'sanitize'    => 'sanitize_text_field',
@@ -10,7 +10,7 @@ $options[] = array(
 );
 $options[] = array(
 	'label'       => esc_attr__( 'Weather API Key', 'authow' ),
-	'id'          => 'penci_api_weather_key',
+	'id'          => 'goso_api_weather_key',
 	'type'        => 'authow-fw-text',
 	'default'     => '',
 	'sanitize'    => 'sanitize_text_field',
@@ -18,7 +18,7 @@ $options[] = array(
 );
 $options[] = array(
 	'label'       => esc_attr__( 'Google Map API Key', 'authow' ),
-	'id'          => 'penci_map_api_key',
+	'id'          => 'goso_map_api_key',
 	'type'        => 'authow-fw-text',
 	'default'     => '',
 	'sanitize'    => 'sanitize_text_field',
@@ -26,9 +26,9 @@ $options[] = array(
 );
 $options[] = array(
 	'label'    => 'Select "rel" Attribute Type for Social Media & Social Share Icons',
-	'id'       => 'penci_rel_type_social',
+	'id'       => 'goso_rel_type_social',
 	'default'  => 'noreferrer',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'none'                         => 'None',
@@ -41,22 +41,22 @@ $options[] = array(
 		'nofollow_noreferrer_noopener' => 'nofollow noreferrer noopener',
 	)
 );
-if ( get_option( 'penci_authow_is_activated' ) ) {
+if ( get_option( 'goso_authow_is_activated' ) ) {
 	$options[] = array(
 		'label'       => 'Disable New Version Update Notice on The Admin Page',
 		'description' => 'You can check <a href="https://imgresources.s3.amazonaws.com/notice-updates.png" target="_blank">this image</a> to understand what\'s "new version update notice on admin page". When a new version released, this notice will appear. This option will help you disable this notice if you want.',
-		'id'          => 'penci_disable_notice_updates',
+		'id'          => 'goso_disable_notice_updates',
 		'type'        => 'authow-fw-toggle',
 		'default'     => false,
-		'sanitize'    => 'penci_sanitize_checkbox_field'
+		'sanitize'    => 'goso_sanitize_checkbox_field'
 	);
 }
 $options[] = array(
 	'label'    => 'Use Fontawesome Version 5',
-	'id'       => 'penci_fontawesome_ver5',
+	'id'       => 'goso_fontawesome_ver5',
 	'type'     => 'authow-fw-toggle',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field'
+	'sanitize' => 'goso_sanitize_checkbox_field'
 );
 
 return $options;

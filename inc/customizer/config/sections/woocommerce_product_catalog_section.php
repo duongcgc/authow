@@ -1,13 +1,13 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => 'penci_woo_post_per_page',
+	'id'       => 'goso_woo_post_per_page',
 	'default'  => '24',
-	'sanitize' => 'penci_sanitize_number_field',
+	'sanitize' => 'goso_sanitize_number_field',
 	'label'    => 'Total Products Display Per Page',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_woo_post_per_page',
+		'desktop' => 'goso_woo_post_per_page',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -21,7 +21,7 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_catalog_heading_1',
+	'id'       => 'goso_catalog_heading_1',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => esc_html__( 'Catalog Tools Settings', 'authow' ),
 	'type'     => 'authow-fw-header',
@@ -30,22 +30,22 @@ $options[] = array(
 	'default'  => '9,24,36',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => 'Products Per Page Variations',
-	'id'       => 'penci_woo_post_per_page_variations',
+	'id'       => 'goso_woo_post_per_page_variations',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
-	'id'       => 'penci_woo_per_row_columns_selector',
+	'id'       => 'goso_woo_per_row_columns_selector',
 	'default'  => true,
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Show Columns Selector on Shop page',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => 'list-grid',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Shop products view',
 	'description' => 'You can set different view mode for the shop page',
-	'id'          => 'penci_shop_product_view',
+	'id'          => 'goso_shop_product_view',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'grid'      => 'Grid',
@@ -56,32 +56,32 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'AJAX shop',
 	'description' => 'Enable AJAX functionality for filter widgets, categories navigation, and pagination on the shop page.',
-	'id'          => 'penci_woocommerce_ajax_shop',
+	'id'          => 'goso_woocommerce_ajax_shop',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Scroll to top after AJAX',
 	'description' => 'Disable - Enable scroll to top after AJAX.',
-	'id'          => 'penci_woocommerce_ajax_shop_auto_top',
+	'id'          => 'goso_woocommerce_ajax_shop_auto_top',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'penci_calalog_heading_1',
+	'id'       => 'goso_calalog_heading_1',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => esc_html__( 'Product Item Settings', 'authow' ),
 	'type'     => 'authow-fw-header',
 );
 $options[] = array(
 	'default'     => 'style-1',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product Category Style',
 	'description' => 'Select the style of the category showing on archive/categories/tags/search',
-	'id'          => 'penci_woocommerce_product_cat_style',
+	'id'          => 'goso_woocommerce_product_cat_style',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'style-1' => 'Style 1',
@@ -93,10 +93,10 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => 'style-1',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Product Item Style',
 	'description' => 'Select the style of the product showing on shop/archive/categories/tags/search<br/>.',
-	'id'          => 'penci_woocommerce_product_style',
+	'id'          => 'goso_woocommerce_product_style',
 	'type'        => 'authow-fw-select',
 	'choices'     => array(
 		'standard' => 'Default',
@@ -110,9 +110,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_woocommerce_product_icon_hover_style',
+	'id'          => 'goso_woocommerce_product_icon_hover_style',
 	'default'     => 'round',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Icon Hover Style',
 	'description' => 'Select icon hover style on Product Item',
 	'type'        => 'authow-fw-select',
@@ -122,9 +122,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_woocommerce_product_icon_hover_position',
+	'id'          => 'goso_woocommerce_product_icon_hover_position',
 	'default'     => 'top-left',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Icon Hover Position',
 	'description' => 'Select icon hover position on Product Item',
 	'type'        => 'authow-fw-select',
@@ -139,9 +139,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_woocommerce_product_icon_hover_animation',
+	'id'          => 'goso_woocommerce_product_icon_hover_animation',
 	'default'     => 'move-right',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Icon Hover Animation',
 	'description' => 'Select icon hover animation on Product Item',
 	'type'        => 'authow-fw-select',
@@ -155,53 +155,53 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'       => 'penci_woocommerce_product_hover_img',
+	'id'       => 'goso_woocommerce_product_hover_img',
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Hover Image on Product Catalog ?',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Show product category ?',
 	'description' => 'Display product category link below the product title.',
-	'id'          => 'penci_woocommerce_loop_category',
+	'id'          => 'goso_woocommerce_loop_category',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'          => 'penci_woocommerce_loop_rating',
+	'id'          => 'goso_woocommerce_loop_rating',
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Show product star rating ?',
 	'description' => 'Display product loop rating below the product title.',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Login to see add to cart and prices',
 	'description' => 'You can restrict shopping functions only for logged in customers.',
-	'id'          => 'penci_woocommerce_restrict_cart_price',
+	'id'          => 'goso_woocommerce_restrict_cart_price',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Enable Quick Select Options on Product',
 	'description' => 'Allow customers purchase product on hover content.',
-	'id'          => 'penci_woocommerce_product_quick_shop',
+	'id'          => 'goso_woocommerce_product_quick_shop',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_number_field',
+	'sanitize' => 'goso_sanitize_number_field',
 	'label'    => 'Limit Product Title Length',
 	'desc'     => 'Enter the custom length of the product title you want to display',
-	'id'       => 'penci_woo_limit_product_title',
+	'id'       => 'goso_woo_limit_product_title',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_woo_limit_product_title',
+		'desktop' => 'goso_woo_limit_product_title',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -214,14 +214,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'       => 'penci_woo_limit_product_excerpt',
+	'id'       => 'goso_woo_limit_product_excerpt',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_number_field',
+	'sanitize' => 'goso_sanitize_number_field',
 	'label'    => 'Limit Product Excerpt Length',
 	'desc'     => 'Enter the custom length of the product summary you want to display',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_woo_limit_product_excerpt',
+		'desktop' => 'goso_woo_limit_product_excerpt',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -233,41 +233,41 @@ $options[] = array(
 		),
 	),
 );
-if ( function_exists( 'penci_product_attributes_array' ) ) {
+if ( function_exists( 'goso_product_attributes_array' ) ) {
 	$options[] = array(
-		'id'          => 'penci_woocommerce_grid_swatch',
+		'id'          => 'goso_woocommerce_grid_swatch',
 		'default'     => false,
-		'sanitize'    => 'penci_sanitize_choices_field',
+		'sanitize'    => 'goso_sanitize_choices_field',
 		'label'       => 'Grid swatch attribute to display',
 		'description' => 'Choose the attribute that will be shown on the product grid.',
 		'type'        => 'authow-fw-ajax-select',
-		'choices'     => penci_product_attributes_array(),
+		'choices'     => goso_product_attributes_array(),
 	);
 }
 $options[] = array(
-	'id'       => 'penci_woocommerce_grid_swatch_limit',
+	'id'       => 'goso_woocommerce_grid_swatch_limit',
 	'default'  => '5',
 	'sanitize' => 'absint',
 	'label'    => 'Limit swatches on grid ',
 );
 $options[] = array(
-	'id'          => 'penci_woocommerce_grid_swatch_cache',
+	'id'          => 'goso_woocommerce_grid_swatch_cache',
 	'default'     => true,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Enable Product Swatches Shop Cache',
 	'description' => 'By default, Authow using cache to speed up Query for swatch image. Uncheck this option to disable/debug.',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'penci_catalog_heading_4',
+	'id'       => 'goso_catalog_heading_4',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => esc_html__( 'Catalog Columns Settings', 'authow' ),
 	'type'     => 'authow-fw-header',
 );
 $options[] = array(
-	'id'          => 'penci_shop_cat_columns',
+	'id'          => 'goso_shop_cat_columns',
 	'default'     => 4,
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Categories Columns',
 	'description' => 'How many category should be shown per row on section ?',
 	'type'        => 'authow-fw-select',
@@ -280,9 +280,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_shop_cat_display_type',
+	'id'          => 'goso_shop_cat_display_type',
 	'default'     => 'grid',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Categories Display Style',
 	'description' => 'Select the category displays style on shop/category page',
 	'type'        => 'authow-fw-select',
@@ -292,9 +292,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_shop_product_columns',
+	'id'          => 'goso_shop_product_columns',
 	'default'     => 3,
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Products per row on Desktop',
 	'description' => 'How many products should be shown per row on desktop ?',
 	'type'        => 'authow-fw-select',
@@ -307,9 +307,9 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'          => 'penci_shop_product_mobile_columns',
+	'id'          => 'goso_shop_product_mobile_columns',
 	'default'     => 2,
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Products per row on Mobile',
 	'description' => 'How many products should be shown per row on mobile ?',
 	'type'        => 'authow-fw-select',

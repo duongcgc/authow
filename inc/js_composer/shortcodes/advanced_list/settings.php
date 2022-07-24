@@ -1,13 +1,13 @@
 <?php
 vc_map(
 	array(
-		'name'                    => penci_get_theme_name('Goso').' '.esc_html__( 'Advanced Menu', 'authow' ),
-		'base'                    => 'penci_advanced_list',
-		'as_parent'               => array( 'only' => 'penci_advanced_list_item' ),
+		'name'                    => goso_get_theme_name('Goso').' '.esc_html__( 'Advanced Menu', 'authow' ),
+		'base'                    => 'goso_advanced_list',
+		'as_parent'               => array( 'only' => 'goso_advanced_list_item' ),
 		'content_element'         => true,
 		'show_settings_on_create' => true,
 		'html_template'           => get_template_directory() . '/inc/js_composer/shortcodes/advanced_list/frontend.php',
-		'category'                => penci_get_theme_name('Authow'),
+		'category'                => goso_get_theme_name('Authow'),
 		'description'             => esc_html__( 'Create a menu list for your mega menu dropdown', 'authow' ),
 		'icon'                    => get_template_directory_uri() . '/images/vc-icon.png',
 		'params'                  => array(

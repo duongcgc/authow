@@ -2,23 +2,23 @@
 $options   = [];
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Related Posts Box',
-	'id'       => 'penci_post_related',
+	'id'       => 'goso_post_related',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Make Related Posts Display in a Grid Layout ( not Slider )',
-	'id'       => 'penci_post_related_grid',
+	'id'       => 'goso_post_related_grid',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => 'categories',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Display Related Posts By:',
-	'id'       => 'penci_related_by',
+	'id'       => 'goso_related_by',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'categories'  => 'Categories',
@@ -28,9 +28,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'date',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Order Related Posts',
-	'id'       => 'penci_related_orderby',
+	'id'       => 'goso_related_orderby',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'rand'          => 'Random Posts',
@@ -46,9 +46,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'DESC',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sort Order Related Posts',
-	'id'       => 'penci_related_sort_order',
+	'id'       => 'goso_related_sort_order',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'DESC' => 'Descending',
@@ -59,10 +59,10 @@ $options[] = array(
 	'default'  => '8',
 	'sanitize' => 'absint',
 	'label'    => __( 'Words Length for Post Titles on Related Posts', 'authow' ),
-	'id'       => 'penci_related_posts_title_length',
+	'id'       => 'goso_related_posts_title_length',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_related_posts_title_length',
+		'desktop' => 'goso_related_posts_title_length',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -79,59 +79,59 @@ $options[] = array(
 	'default'  => 'You may also like',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => 'Related Posts Custom Text',
-	'id'       => 'penci_post_related_text',
+	'id'       => 'goso_post_related_text',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase in Post Titles Related Posts',
-	'id'       => 'penci_off_uppercase_post_title_related',
+	'id'       => 'goso_off_uppercase_post_title_related',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Posts Format Icons in Related Posts',
-	'id'       => 'penci_post_related_icons',
+	'id'       => 'goso_post_related_icons',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Post Date on Related Posts',
-	'id'       => 'penci_hide_date_related',
+	'id'       => 'goso_hide_date_related',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Related Posts Carousel Auto Play',
-	'id'       => 'penci_post_related_autoplay',
+	'id'       => 'goso_post_related_autoplay',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Dots On Carousel Related Posts',
-	'id'       => 'penci_post_related_dots',
+	'id'       => 'goso_post_related_dots',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => true,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Next/Prev Button On Carousel Related Posts',
-	'id'       => 'penci_post_related_arrows',
+	'id'       => 'goso_post_related_arrows',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '10',
 	'sanitize' => 'absint',
 	'label'    => __( 'Amount of Related Posts', 'authow' ),
-	'id'       => 'penci_numbers_related_post',
+	'id'       => 'goso_numbers_related_post',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_numbers_related_post',
+		'desktop' => 'goso_numbers_related_post',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -146,31 +146,31 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Exclude Featured Category from Related Posts based on Categories',
-	'id'          => 'penci_post_related_exclusive_cat',
+	'id'          => 'goso_post_related_exclusive_cat',
 	'description' => 'Featured Category is category you selected to filter slider via Customize > Featured Slider > General. This option will help you remove that category on related posts based on categories',
 	'type'        => 'authow-fw-toggle',
 );
 $options[] = array(
 	'sanitize'    => 'sanitize_text_field',
 	'label'       => esc_html__( 'Related Posts Popup', 'authow' ),
-	'id'          => 'penci_section_related_post_popup',
+	'id'          => 'goso_section_related_post_popup',
 	'description' => 'Please check <a target="_blank" href="https://imgresources.s3.amazonaws.com/related-posts-popup.png">this image</a> to know what is "Related Posts Popup"',
 	'type'        => 'authow-fw-header',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Related Posts Popup',
-	'id'       => 'penci_related_post_popup',
+	'id'       => 'goso_related_post_popup',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => 'left',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Position of Related Posts Popup',
-	'id'       => 'penci_rltpopup_position',
+	'id'       => 'goso_rltpopup_position',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'left'  => 'Left',
@@ -179,9 +179,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'categories',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Display Related Posts Popup By:',
-	'id'       => 'penci_rltpopup_by',
+	'id'       => 'goso_rltpopup_by',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'categories'  => 'Categories',
@@ -191,9 +191,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'date',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Order Related Posts Popup',
-	'id'       => 'penci_rltpopup_orderby',
+	'id'       => 'goso_rltpopup_orderby',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'rand'          => 'Random Posts',
@@ -209,9 +209,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'DESC',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sort Order Related Posts Popup',
-	'id'       => 'penci_rltpopup_sort_order',
+	'id'       => 'goso_rltpopup_sort_order',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'DESC' => 'Descending',
@@ -222,10 +222,10 @@ $options[] = array(
 	'default'  => '6',
 	'sanitize' => 'absint',
 	'label'    => __( 'Words Length for Post Titles on Related Posts Popup', 'authow' ),
-	'id'       => 'penci_rltpopup_title_length',
+	'id'       => 'goso_rltpopup_title_length',
 	'type'     => 'authow-fw-size',
 	'ids'         => array(
-		'desktop' => 'penci_rltpopup_title_length',
+		'desktop' => 'goso_rltpopup_title_length',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -242,7 +242,7 @@ $options[] = array(
 	'default'  => 'Read also',
 	'sanitize' => 'sanitize_text_field',
 	'label'    => 'Custom Heading Text for Related Posts Popup',
-	'id'       => 'penci_rltpopup_heading_text',
+	'id'       => 'goso_rltpopup_heading_text',
 	'type'     => 'authow-fw-text',
 );
 $options[] = array(
@@ -250,9 +250,9 @@ $options[] = array(
 	'sanitize' => 'absint',
 	'type'     => 'authow-fw-size',
 	'label'    => __( 'Amount of Posts Display on Related Posts Popup', 'authow' ),
-	'id'       => 'penci_rltpopup_numpost',
+	'id'       => 'goso_rltpopup_numpost',
 	'ids'         => array(
-		'desktop' => 'penci_rltpopup_numpost',
+		'desktop' => 'goso_rltpopup_numpost',
 	),
 	'choices'     => array(
 		'desktop' => array(
@@ -269,10 +269,10 @@ $options[] = array(
 	'default'  => '',
 	'sanitize' => 'absint',
 	'label'    => __( 'Custom Padding Bottom of Related Posts Popup', 'authow' ),
-	'id'       => 'penci_rltpopup_padding_bottom',
+	'id'       => 'goso_rltpopup_padding_bottom',
 	'type'     => 'authow-fw-size',
 	'ids'      => array(
-		'desktop' => 'penci_rltpopup_padding_bottom',
+		'desktop' => 'goso_rltpopup_padding_bottom',
 	),
 	'choices'  => array(
 		'desktop' => array(
@@ -286,16 +286,16 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Date on Related Posts Popup',
-	'id'       => 'penci_rltpopup_hide_date',
+	'id'       => 'goso_rltpopup_hide_date',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Related Posts Popup on Mobile',
-	'id'       => 'penci_rltpopup_hide_mobile',
+	'id'       => 'goso_rltpopup_hide_mobile',
 	'type'     => 'authow-fw-toggle',
 );
 return $options;

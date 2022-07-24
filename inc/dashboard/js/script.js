@@ -77,12 +77,12 @@
 
 
         function authowEnvatoCodeCheck() {
-            var $checkLicense = jQuery('#penci-check-license'),
+            var $checkLicense = jQuery('#goso-check-license'),
                 $spinner = $checkLicense.find('.spinner'),
                 $activateButton = $checkLicense.find('.pennews-activate-button'),
-                $missing = $checkLicense.find('.penci-err-missing'),
-                $length = $checkLicense.find('.penci-err-length'),
-                $invalid = $checkLicense.find('.penci-err-invalid'),
+                $missing = $checkLicense.find('.goso-err-missing'),
+                $length = $checkLicense.find('.goso-err-length'),
+                $invalid = $checkLicense.find('.goso-err-invalid'),
                 $evatoCode = $checkLicense.find('.evato-code');
 
             $checkLicense.on('submit', function (e) {
@@ -91,18 +91,18 @@
                 var evatoCode = $evatoCode.val();
 
                 $spinner.addClass('active');
-                $missing.removeClass('penci-err-show');
-                $length.removeClass('penci-err-show');
-                $invalid.removeClass('penci-err-show');
+                $missing.removeClass('goso-err-show');
+                $length.removeClass('goso-err-show');
+                $invalid.removeClass('goso-err-show');
 
                 if (!evatoCode) {
-                    $missing.addClass('penci-err-show');
+                    $missing.addClass('goso-err-show');
                     $spinner.removeClass('active');
                     return false;
                 }
 
                 if (evatoCode.length < 20) {
-                    $length.addClass('penci-err-show');
+                    $length.addClass('goso-err-show');
                     $spinner.removeClass('active');
                     return false;
                 }
@@ -111,7 +111,7 @@
                 $evatoCode.prop('disabled', true);
 
                 var data = {
-                    action: 'penci_check_envato_code',
+                    action: 'goso_check_envato_code',
                     code: evatoCode,
                     domain: PENCIDASHBOARD.domain,
                     item_id: 12945398
@@ -123,15 +123,15 @@
                         $activateButton.prop('disabled', false);
                         $evatoCode.prop('disabled', false);
                         var mes = response.data.message;
-                        $invalid.text(mes).addClass('penci-err-show');
+                        $invalid.text(mes).addClass('goso-err-show');
                     } else {
 
-                        if ($('h1.penci-activate-code-title').length) {
-                            $('h1.penci-activate-code-title').html('Successfully Activated');
+                        if ($('h1.goso-activate-code-title').length) {
+                            $('h1.goso-activate-code-title').html('Successfully Activated');
                         }
 
-                        $('.penci-activate-desc').html('Theme successfully activated. Thanks for buying our product.<br>Redirecting...');
-                        $('#penci-check-license, .penci-activate-extra-notes').hide();
+                        $('.goso-activate-desc').html('Theme successfully activated. Thanks for buying our product.<br>Redirecting...');
+                        $('#goso-check-license, .goso-activate-extra-notes').hide();
 
                         setTimeout(function () {
                             window.location.replace('?page=authow_dashboard_welcome');
@@ -153,23 +153,23 @@
         $(document).ready(function ($) {
 
             // Modify options based on template selections
-            $('body').on('change', '.penci-instagram-container select[id$="template"]', function (e) {
+            $('body').on('change', '.goso-instagram-container select[id$="template"]', function (e) {
                 var template = $(this);
                 if (template.val() == 'thumbs' || template.val() == 'thumbs-no-border') {
-                    template.closest('.penci-instagram-container').find('.penci-slider-options').animate({
+                    template.closest('.goso-instagram-container').find('.goso-slider-options').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    template.closest('.penci-instagram-container').find('input[id$="columns"]').closest('p').animate({
+                    template.closest('.goso-instagram-container').find('input[id$="columns"]').closest('p').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
                 } else {
-                    template.closest('.penci-instagram-container').find('.penci-slider-options').animate({
+                    template.closest('.goso-instagram-container').find('.goso-slider-options').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    template.closest('.penci-instagram-container').find('input[id$="columns"]').closest('p').animate({
+                    template.closest('.goso-instagram-container').find('input[id$="columns"]').closest('p').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
@@ -177,73 +177,73 @@
             });
 
             // Modfiy options when search for is changed
-            $('body').on('change', '.penci-instagram-container input:radio[id$="search_for"]', function (e) {
+            $('body').on('change', '.goso-instagram-container input:radio[id$="search_for"]', function (e) {
                 var search_for = $(this);
                 if (search_for.val() != 'username') {
-                    search_for.closest('.penci-instagram-container').find('[id$="attachment"]:checkbox').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('[id$="attachment"]:checkbox').closest('p').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="local_image_url"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="local_image_url"]').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="user_url"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="user_url"]').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="attachment"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="attachment"]').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"]').val('image_url');
-                    search_for.closest('.penci-instagram-container').find('select[id$="description"] option[value="username"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"]').val('image_url');
+                    search_for.closest('.goso-instagram-container').find('select[id$="description"] option[value="username"]').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="blocked_users"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="blocked_users"]').closest('p').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="access_token"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="access_token"]').closest('p').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="insta_user_id"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="insta_user_id"]').closest('p').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
                 } else {
-                    search_for.closest('.penci-instagram-container').find('[id$="attachment"]:checkbox').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('[id$="attachment"]:checkbox').closest('p').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="local_image_url"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="local_image_url"]').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="user_url"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="user_url"]').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"] option[value="attachment"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"] option[value="attachment"]').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('select[id$="images_link"]').val('image_url');
-                    search_for.closest('.penci-instagram-container').find('select[id$="description"] option[value="username"]').animate({
+                    search_for.closest('.goso-instagram-container').find('select[id$="images_link"]').val('image_url');
+                    search_for.closest('.goso-instagram-container').find('select[id$="description"] option[value="username"]').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="blocked_users"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="blocked_users"]').closest('p').animate({
                         opacity: 'hide',
                         height: 'hide'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="access_token"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="access_token"]').closest('p').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
-                    search_for.closest('.penci-instagram-container').find('input[id$="insta_user_id"]').closest('p').animate({
+                    search_for.closest('.goso-instagram-container').find('input[id$="insta_user_id"]').closest('p').animate({
                         opacity: 'show',
                         height: 'show'
                     }, 200);
@@ -252,7 +252,7 @@
             });
 
             // Toggle advanced options
-            $('body').on('click', '.penci-advanced', function (e) {
+            $('body').on('click', '.goso-advanced', function (e) {
                 e.preventDefault();
                 var advanced_container = $(this).parent().next();
 
@@ -264,13 +264,13 @@
                 advanced_container.toggle();
             });
 
-            $(document).on('click', '.penci-reset-social-cache', function (e) {
+            $(document).on('click', '.goso-reset-social-cache', function (e) {
                 e.preventDefault();
                 var button = $(this);
                 $.ajax({
                     url: ajaxurl,
                     data: {
-                        action: 'penci_social_clear_all_caches'
+                        action: 'goso_social_clear_all_caches'
                     },
                     method: 'get',
                     beforeSend: function () {
@@ -289,14 +289,14 @@
 
             var selectoptions = [
                 '.select-button-type',
-                '.penci-metabox-row.pheader_show',
-                '.penci-metabox-row.pheader_hideline',
-                '.penci-metabox-row.pheader_hidebead',
-                '.penci-metabox-row.pheader_turn_offup',
-                '.penci-metabox-row.page_wrap_bg_size',
-                '.penci-metabox-row.page_wrap_bg_repeat',
-                '.penci-metabox-row.penci_hide_fwidget',
-                '.penci-metabox-row.penci_edeader_trans',
+                '.goso-metabox-row.pheader_show',
+                '.goso-metabox-row.pheader_hideline',
+                '.goso-metabox-row.pheader_hidebead',
+                '.goso-metabox-row.pheader_turn_offup',
+                '.goso-metabox-row.page_wrap_bg_size',
+                '.goso-metabox-row.page_wrap_bg_repeat',
+                '.goso-metabox-row.goso_hide_fwidget',
+                '.goso-metabox-row.goso_edeader_trans',
             ];
 
             $.each(selectoptions, function (key, value) {

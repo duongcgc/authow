@@ -27,7 +27,7 @@ class Goso_Gutenberg_Authow_Featured_Boxes {
 
 		if ( ! $featured_boxes ) {
 			$mess = esc_html__( 'Please fill Featured Boxes', 'authow' );
-			return '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Featured Boxes', $mess ) . '</div>';
+			return '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Featured Boxes', $mess ) . '</div>';
 		}
 
 		$style         = isset( $attributes['style'] ) ? $attributes['style'] : 'boxes-style-1';
@@ -38,12 +38,12 @@ class Goso_Gutenberg_Authow_Featured_Boxes {
 		$margin_bottom = isset( $attributes['margin_bottom'] ) ? $attributes['margin_bottom'] : '0';
 
 		$style_css   = ' style="margin-top: ' . $margin_top . 'px; margin-bottom: ' . $margin_bottom . 'px;"';
-		$weight_text = get_theme_mod( 'penci_home_box_weight' ) ? get_theme_mod( 'penci_home_box_weight' ) : 'normal';
-		$thumb       = 'penci-thumb';
+		$weight_text = get_theme_mod( 'goso_home_box_weight' ) ? get_theme_mod( 'goso_home_box_weight' ) : 'normal';
+		$thumb       = 'goso-thumb';
 		if ( $size == 'square' ) {
-			$thumb = 'penci-thumb-square';
+			$thumb = 'goso-thumb-square';
 		} elseif ( $size == 'vertical' ) {
-			$thumb = 'penci-thumb-vertical';
+			$thumb = 'goso-thumb-vertical';
 		}
 		ob_start();
 		?>
@@ -66,30 +66,30 @@ class Goso_Gutenberg_Authow_Featured_Boxes {
 						$close_url = '</a>';
 					}
 					?>
-					<li class="penci-featured-ct">
-						<?php echo wp_kses( $open_url, penci_allow_html() ); ?>
-						<div class="penci-fea-in <?php echo $style; ?>">
-							<?php if( ! get_theme_mod( 'penci_disable_lazyload_layout' ) ) { ?>
-								<div class="fea-box-img penci-image-holder penci-holder-load penci-lazy" data-bgset="<?php echo penci_get_image_size_url( $homepage_box_image, $thumb ); ?>"></div>
+					<li class="goso-featured-ct">
+						<?php echo wp_kses( $open_url, goso_allow_html() ); ?>
+						<div class="goso-fea-in <?php echo $style; ?>">
+							<?php if( ! get_theme_mod( 'goso_disable_lazyload_layout' ) ) { ?>
+								<div class="fea-box-img goso-image-holder goso-holder-load goso-lazy" data-bgset="<?php echo goso_get_image_size_url( $homepage_box_image, $thumb ); ?>"></div>
 							<?php } else { ?>
-								<div class="fea-box-img penci-image-holder" style="background-image: url('<?php echo penci_get_image_size_url( $homepage_box_image, $thumb ); ?>');"></div>
+								<div class="fea-box-img goso-image-holder" style="background-image: url('<?php echo goso_get_image_size_url( $homepage_box_image, $thumb ); ?>');"></div>
 							<?php }?>
 
 							<?php if( $homepage_box_text ): ?>
 								<h4><span class="boxes-text"><span style="font-weight: <?php echo $weight_text; ?>"><?php echo do_shortcode( $homepage_box_text ); ?></span></span></h4>
 							<?php endif; ?>
 						</div>
-						<?php echo wp_kses( $close_url, penci_allow_html() ) ; ?>
+						<?php echo wp_kses( $close_url, goso_allow_html() ) ; ?>
 					</li>
 					<?php
 				}
 				?>
 			</ul>
-		</div><!--endpenci-block-->
+		</div><!--endgoso-block-->
 		<?php
 		$shortcode_content = ob_get_clean();
 
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Featured Boxes', esc_html__( 'Click to edit this block', 'authow' ) );
 		$output .= $shortcode_content;
 		$output .= '</div>';

@@ -1,7 +1,7 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'              => 'penci_header_pb_login_register_penci_tblogin_text',
+	'id'              => 'goso_header_pb_login_register_goso_tblogin_text',
 	'default'         => '',
 	'transport'       => 'postMessage',
 	'sanitize'        => 'sanitize_text_field',
@@ -9,7 +9,7 @@ $options[] = array(
 	'description'     => __( 'Text beside the icon, leave it empty to disable', 'authow' ),
 	'type'            => 'authow-fw-text',
 	'partial_refresh' => [
-		'penci_header_pb_login_register_penci_tblogin_text' => [
+		'goso_header_pb_login_register_goso_tblogin_text' => [
 			'selector'        => '.pc-wrapbuilder-header-inner',
 			'render_callback' => function () {
 				load_template( PENCI_BUILDER_PATH . '/template/desktop-builder.php' );
@@ -18,19 +18,19 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_penci_font_login_text',
+	'id'        => 'goso_header_pb_login_register_goso_font_login_text',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Custom Font for Login Text',
 	'type'      => 'authow-fw-select',
-	'choices'   => penci_all_fonts( 'select' )
+	'choices'   => goso_all_fonts( 'select' )
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_penci_fontw_login_text',
+	'id'        => 'goso_header_pb_login_register_goso_fontw_login_text',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Font Weight for Login Text',
 	
 	'type'      => 'authow-fw-select',
@@ -52,10 +52,10 @@ $options[] = array(
 	)
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_spacing',
+	'id'        => 'goso_header_pb_login_register_spacing',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'type'      => 'authow-fw-box-model',
 	'label'     => __( 'Element Spacing', 'authow' ),
 	'choices'   => array(
@@ -74,10 +74,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_text_uppercase',
+	'id'        => 'goso_header_pb_login_register_text_uppercase',
 	'default'   => 'disable',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_choices_field',
+	'sanitize'  => 'goso_sanitize_choices_field',
 	'label'     => 'Uppercase Text ?',
 	'type'      => 'authow-fw-select',
 	'choices'   => [
@@ -86,7 +86,7 @@ $options[] = array(
 	]
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_color',
+	'id'        => 'goso_header_pb_login_register_color',
 	'default'   => '',
 	'type'      => 'authow-fw-color',
 	'transport' => 'postMessage',
@@ -94,7 +94,7 @@ $options[] = array(
 	'label'     => __( 'Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_hv_color',
+	'id'        => 'goso_header_pb_login_register_hv_color',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-color',
@@ -102,14 +102,14 @@ $options[] = array(
 	'label'     => __( 'Hover Color', 'authow' ),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_size',
+	'id'        => 'goso_header_pb_login_register_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'sanitize'  => 'absint',
 	'type'      => 'authow-fw-size',
 	'label'     => 'Font Size for Icon',
 	'ids'  => array(
-		'desktop' => 'penci_header_pb_login_register_size',
+		'desktop' => 'goso_header_pb_login_register_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -122,14 +122,14 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_txt_size',
+	'id'        => 'goso_header_pb_login_register_txt_size',
 	'default'   => '',
 	'transport' => 'postMessage',
 	'type'      => 'authow-fw-size',
 	'sanitize'  => 'absint',
 	'label'     => 'Font Size for Text',
 	'ids'  => array(
-		'desktop' => 'penci_header_pb_login_register_txt_size',
+		'desktop' => 'goso_header_pb_login_register_txt_size',
 	),
 	'choices'   => array(
 		'desktop' => array(
@@ -142,10 +142,10 @@ $options[] = array(
 	),
 );
 $options[] = array(
-	'id'        => 'penci_header_pb_login_register_css_class',
+	'id'        => 'goso_header_pb_login_register_css_class',
 	'default'   => '',
 	'transport' => 'postMessage',
-	'sanitize'  => 'penci_sanitize_textarea_field',
+	'sanitize'  => 'goso_sanitize_textarea_field',
 	'type'      => 'authow-fw-text',
 	'label'     => esc_html__( 'Custom CSS Class', 'authow' ),
 );

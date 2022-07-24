@@ -1,11 +1,11 @@
 <?php
 vc_map( array(
-	'base'          => 'penci_text_block',
+	'base'          => 'goso_text_block',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/text_block/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Text Block', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Text Block', 'authow' ),
 	'description'   => __( 'A block of text with WYSIWYG editor', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(

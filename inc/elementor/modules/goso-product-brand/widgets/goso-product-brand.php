@@ -25,7 +25,7 @@ class GosoProductBrand extends Base_Widget {
 	 *
 	 */
 	public function get_name() {
-		return 'penci_products_brands';
+		return 'goso_products_brands';
 	}
 
 	/**
@@ -37,7 +37,7 @@ class GosoProductBrand extends Base_Widget {
 	 *
 	 */
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Product Brands', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Product Brands', 'authow' );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class GosoProductBrand extends Base_Widget {
 	 *
 	 */
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	/**
@@ -142,10 +142,10 @@ class GosoProductBrand extends Base_Widget {
 			[
 				'label'       => esc_html__( 'Brands', 'authow' ),
 				'description' => esc_html__( 'List of product brands to show. Leave empty to show all.', 'authow' ),
-				'type'        => 'penci_el_autocomplete',
-				'search'      => 'penci_get_taxonomies_by_query',
-				'render'      => 'penci_get_taxonomies_title_by_id',
-				'taxonomy'    => get_theme_mod( 'penci_woocommerce_brand_attr' ),
+				'type'        => 'goso_el_autocomplete',
+				'search'      => 'goso_get_taxonomies_by_query',
+				'render'      => 'goso_get_taxonomies_title_by_id',
+				'taxonomy'    => get_theme_mod( 'goso_woocommerce_brand_attr' ),
 				'multiple'    => true,
 				'label_block' => true,
 			]
@@ -420,7 +420,7 @@ class GosoProductBrand extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot span' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot span' => 'border-color: {{VALUE}};',
 				),
 				'condition' => [
 					'style' => 'carousel',
@@ -434,7 +434,7 @@ class GosoProductBrand extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot span' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot span' => 'background-color: {{VALUE}};',
 				),
 				'condition' => [
 					'style' => 'carousel',
@@ -448,7 +448,7 @@ class GosoProductBrand extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot.active span' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot.active span' => 'border-color: {{VALUE}};',
 				),
 				'condition' => [
 					'style' => 'carousel',
@@ -462,7 +462,7 @@ class GosoProductBrand extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .penci-owl-carousel-slider .owl-dot.active span' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .goso-owl-carousel-slider .owl-dot.active span' => 'background-color: {{VALUE}};',
 				),
 				'condition' => [
 					'style' => 'carousel',
@@ -499,17 +499,17 @@ class GosoProductBrand extends Base_Widget {
 			'hide_empty'           => 0,
 			'order'                => 'ASC',
 			'scroll_carousel_init' => 'no',
-			'custom_sizes'         => apply_filters( 'penci_brands_shortcode_custom_sizes', false ),
+			'custom_sizes'         => apply_filters( 'goso_brands_shortcode_custom_sizes', false ),
 		];
 
 		$settings = wp_parse_args( $this->get_settings_for_display(), $default_settings );
 
 		$carousel_id = 'brands_' . rand( 1000, 9999 );
 
-		$attribute = get_theme_mod( 'penci_woocommerce_brand_attr' );
+		$attribute = get_theme_mod( 'goso_woocommerce_brand_attr' );
 
 		if ( empty( $attribute ) || ! taxonomy_exists( $attribute ) ) {
-			echo '<div class="penci-notice penci-info">' . esc_html__( 'You must select your brand attribute in Appearance -> Customize -> WooCommerce > Brands', 'authow' ) . '</div>';
+			echo '<div class="goso-notice goso-info">' . esc_html__( 'You must select your brand attribute in Appearance -> Customize -> WooCommerce > Brands', 'authow' ) . '</div>';
 
 			return;
 		}
@@ -547,8 +547,8 @@ class GosoProductBrand extends Base_Widget {
 			$settings['scroll_per_page'] = 'yes';
 			$settings['carousel_id']     = $carousel_id;
 
-			$this->add_render_attribute( 'items_wrapper', 'class', 'penci-owl-carousel penci-owl-carousel-slider ' );
-			$this->add_render_attribute( 'wrapper', 'class', 'penci-carousel-container' );
+			$this->add_render_attribute( 'items_wrapper', 'class', 'goso-owl-carousel goso-owl-carousel-slider ' );
+			$this->add_render_attribute( 'wrapper', 'class', 'goso-carousel-container' );
 
 			$this->add_render_attribute( 'items_wrapper', 'data-item', isset( $settings['slides_per_view'] ) ? $settings['slides_per_view'] : 3 );
 			$this->add_render_attribute( 'items_wrapper', 'data-desktop', isset( $settings['slides_per_view'] ) ? $settings['slides_per_view'] : 3 );
@@ -563,11 +563,11 @@ class GosoProductBrand extends Base_Widget {
 				$this->add_render_attribute( 'wrapper', 'class', 'scroll-init' );
 			}
 
-			if ( get_theme_mod( 'penci_disable_owl_mobile_devices' ) ) {
+			if ( get_theme_mod( 'goso_disable_owl_mobile_devices' ) ) {
 				$this->add_render_attribute( 'wrapper', 'class', 'disable-owl-mobile' );
 			}
 		} else {
-			$this->add_render_attribute( 'items_wrapper', 'class', 'penci-custom-row row-' . $settings['columns'] );
+			$this->add_render_attribute( 'items_wrapper', 'class', 'goso-custom-row row-' . $settings['columns'] );
 			$this->add_render_attribute( 'items', 'class', 'column-item' );
 		}
 
@@ -609,14 +609,14 @@ class GosoProductBrand extends Base_Widget {
 			shuffle( $brands );
 		}
 
-		if ( penci_is_shop_on_front() ) {
+		if ( goso_is_shop_on_front() ) {
 			$link = home_url();
 		} else {
 			$link = get_post_type_archive_link( 'product' );
 		}
 
 		?>
-        <div class="penci-product-brand-wrapper">
+        <div class="goso-product-brand-wrapper">
 			<?php $this->markup_block_title( $this->get_settings(), $this ); ?>
 
             <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
@@ -633,7 +633,7 @@ class GosoProductBrand extends Base_Widget {
 								$attr_link = add_query_arg( $filter_name, $brand->slug, $link );
 							}
 
-							$url_to_id = penci_get_imageid_from_url( $image );
+							$url_to_id = goso_get_imageid_from_url( $image );
 							?>
 
                             <div <?php echo $this->get_render_attribute_string( 'items' ); ?>>
@@ -643,7 +643,7 @@ class GosoProductBrand extends Base_Widget {
                                         <span class="brand-title-wrap">
 										<?php echo esc_html( $brand->name ); ?>
 									</span>
-									<?php elseif ( apply_filters( 'penci_brands_element_images_with_attributes', true ) && $url_to_id ) : ?>
+									<?php elseif ( apply_filters( 'goso_brands_element_images_with_attributes', true ) && $url_to_id ) : ?>
 										<?php
 										echo wp_get_attachment_image(
 											$url_to_id,

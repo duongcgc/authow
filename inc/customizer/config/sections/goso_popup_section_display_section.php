@@ -1,9 +1,9 @@
 <?php
 $options   = [];
 $options[] = array(
-	'id'       => 'penci_popup_show_after',
+	'id'       => 'goso_popup_show_after',
 	'default'  => 'all_pages',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Event',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
@@ -13,23 +13,23 @@ $options[] = array(
 	],
 );
 $options[] = array(
-	'id'       => 'penci_popup_html_content',
+	'id'       => 'goso_popup_html_content',
 	'default'  => '',
-	'sanitize' => 'penci_sanitize_textarea_field',
+	'sanitize' => 'goso_sanitize_textarea_field',
 	'label'    => 'Load Popup Content Using Shortcode/HTML',
 	'type'     => 'authow-fw-textarea',
 );
 $options[] = array(
-	'id'          => 'penci_popup_block',
+	'id'          => 'goso_popup_block',
 	'default'     => '',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Load Popup Content Using Goso Block',
-	'description' => 'You can add new or edit a Goso Block on <a target="_blank" href="' . esc_url( admin_url( '/edit.php?post_type=penci-block' ) ) . '">this page</a>',
+	'description' => 'You can add new or edit a Goso Block on <a target="_blank" href="' . esc_url( admin_url( '/edit.php?post_type=goso-block' ) ) . '">this page</a>',
 	'type'        => 'authow-fw-ajax-select',
 	'choices'     => call_user_func( function () {
 		$builder_layout  = [ '' => '- Select -' ];
 		$builder_layouts = get_posts( [
-			'post_type'      => 'penci-block',
+			'post_type'      => 'goso-block',
 			'posts_per_page' => - 1,
 		] );
 
@@ -41,41 +41,41 @@ $options[] = array(
 	} ),
 );
 $options[] = array(
-	'id'          => 'penci_popup_show_after_time',
+	'id'          => 'goso_popup_show_after_time',
 	'default'     => '2000',
-	'sanitize'    => 'penci_sanitize_text_field',
+	'sanitize'    => 'goso_sanitize_text_field',
 	'label'       => 'Popup Delay',
 	'description' => 'Show popup after some time (in milliseconds). Apply for "Some Time" Setting.',
 	'type'        => 'authow-fw-text'
 );
 $options[] = array(
-	'id'          => 'penci_popup_show_after_time',
+	'id'          => 'goso_popup_show_after_time',
 	'default'     => '7',
-	'sanitize'    => 'penci_sanitize_text_field',
+	'sanitize'    => 'goso_sanitize_text_field',
 	'label'       => 'Show After Fixed Time',
 	'description' => 'Set the number of days expire the popup cookie. Apply for "After Fixed Time" Setting.',
 	'type'        => 'authow-fw-text'
 );
 $options[] = array(
-	'id'          => 'penci_popup_version',
+	'id'          => 'goso_popup_version',
 	'default'     => '1',
-	'sanitize'    => 'penci_sanitize_text_field',
+	'sanitize'    => 'goso_sanitize_text_field',
 	'label'       => 'Popup Version',
 	'description' => 'If you apply any changes to your popup settings or content you might want to force the popup to all visitors who already closed it again. In this case, you just need to increase the banner version.',
 	'type'        => 'authow-fw-text'
 );
 $options[] = array(
-	'id'          => 'penci_popup_show_after_pages',
+	'id'          => 'goso_popup_show_after_pages',
 	'default'     => '0',
-	'sanitize'    => 'penci_sanitize_text_field',
+	'sanitize'    => 'goso_sanitize_text_field',
 	'label'       => 'Show After Number of Pages Visited',
 	'description' => 'You can choose how many pages the user should visit before the popup will be shown.',
 	'type'        => 'authow-fw-text'
 );
 $options[] = array(
-	'id'       => 'penci_popup_animation',
+	'id'       => 'goso_popup_animation',
 	'default'  => 'move-to-top',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Popup Open Animation',
 	'type'     => 'authow-fw-select',
 	'choices'  => [

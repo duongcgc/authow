@@ -17,23 +17,23 @@ if ( empty( $list_items ) ) {
 	return;
 }
 
-$list_id = 'penci-list-' . uniqid();
+$list_id = 'goso-list-' . uniqid();
 
 $icon_class = 'list-icon';
 if ( $list_type == 'icon' ) {
 	$icon_class .= ' ' . ${'icon_' . $icon_library};
 }
 
-$list_class = 'penci-list penci-wpb';
+$list_class = 'goso-list goso-wpb';
 $list_class .= ' color-scheme-' . $color_scheme;
 $list_class .= ' size-' . $size;
-$list_class .= ' penci-list-type-' . $list_type;
-$list_class .= ' penci-list-style-' . $list_style;
-$list_class .= ' penci-justify-' . $align;
+$list_class .= ' goso-list-type-' . $list_type;
+$list_class .= ' goso-list-style-' . $list_style;
+$list_class .= ' goso-justify-' . $align;
 $list_class .= ( $el_class ) ? ' ' . $el_class : '';
 
 if ( $list_style == 'rounded' || $list_style == 'square' ) {
-	$list_class .= ' penci-list-shape-icon';
+	$list_class .= ' goso-list-shape-icon';
 }
 if ( function_exists( 'vc_shortcode_custom_css_class' ) ) {
 	$list_class .= ' ' . vc_shortcode_custom_css_class( $css ) . $this->getCSSAnimation( $css_animation );
@@ -51,7 +51,7 @@ ob_start();
 			}
 
 			if ( isset( $item['link'] ) ) {
-				$link_attrs = penci_get_link_attributes( $item['link'] );
+				$link_attrs = goso_get_link_attributes( $item['link'] );
 			}
 
 			?>
@@ -75,13 +75,13 @@ ob_start();
 				<?php endif ?>
                 <span class="list-content"><?php echo do_shortcode( $item['list-content'] ); ?></span>
 				<?php if ( isset( $item['link'] ) ) : ?>
-                    <a class="penci-fill" <?php echo $link_attrs; ?>></a>
+                    <a class="goso-fill" <?php echo $link_attrs; ?>></a>
 				<?php endif; ?>
             </li>
 		<?php endforeach ?>
     </ul>
 <?php
-if ( ( $icons_color && ! penci_is_css_encode( $icons_color ) ) || ( $icons_bg_color && ! penci_is_css_encode( $icons_bg_color ) ) ) {
+if ( ( $icons_color && ! goso_is_css_encode( $icons_color ) ) || ( $icons_bg_color && ! goso_is_css_encode( $icons_bg_color ) ) ) {
 	$css = '#' . esc_attr( $list_id ) . ' .list-icon {';
 	$css .= 'color: ' . esc_attr( $icons_color ) . ';';
 	$css .= '}';
@@ -92,7 +92,7 @@ if ( ( $icons_color && ! penci_is_css_encode( $icons_color ) ) || ( $icons_bg_co
 		$css .= '}';
 	}
 
-	wp_add_inline_style( 'penci-woocommerce', $css );
+	wp_add_inline_style( 'goso-woocommerce', $css );
 
 }
 ?>

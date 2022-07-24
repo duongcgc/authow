@@ -2,18 +2,18 @@
 $options   = [];
 $options[] = array(
 	'label'    => '',
-	'id'       => 'penci_mainmenu_height_mobile',
+	'id'       => 'goso_mainmenu_height_mobile',
 	'type'     => 'authow-fw-hidden',
 	'sanitize' => 'absint',
 );
 $options[] = array(
 	'label'    => 'Custom Main Bar Height',
-	'id'       => 'penci_mainmenu_height',
+	'id'       => 'goso_mainmenu_height',
 	'type'     => 'authow-fw-size',
 	'sanitize' => 'absint',
 	'ids'      => array(
-		'desktop' => 'penci_mainmenu_height',
-		'mobile'  => 'penci_mainmenu_height_mobile',
+		'desktop' => 'goso_mainmenu_height',
+		'mobile'  => 'goso_mainmenu_height_mobile',
 	),
 	'choices'  => array(
 		'desktop' => array(
@@ -36,10 +36,10 @@ $options[] = array(
 	'default'  => '',
 	'sanitize' => 'absint',
 	'label'    => __( 'Custom Sticky Main Bar Height When Scroll Down ( Min 30px )', 'authow' ),
-	'id'       => 'penci_mainmenu_height_sticky',
+	'id'       => 'goso_mainmenu_height_sticky',
 	'type'     => 'authow-fw-size',
 	'ids'      => array(
-		'desktop' => 'penci_mainmenu_height_sticky',
+		'desktop' => 'goso_mainmenu_height_sticky',
 	),
 	'choices'  => array(
 		'desktop' => array(
@@ -53,9 +53,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'menu-style-1',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Sub Menu Style',
-	'id'       => 'penci_header_menu_style',
+	'id'       => 'goso_header_menu_style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'menu-style-1' => 'Style 1',
@@ -64,18 +64,18 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => '"Raleway", "100:200:300:regular:500:600:700:800:900", sans-serif',
-	'sanitize'    => 'penci_sanitize_choices_field',
+	'sanitize'    => 'goso_sanitize_choices_field',
 	'label'       => 'Custom Font For Primary Menu Items',
-	'id'          => 'penci_font_for_menu',
+	'id'          => 'goso_font_for_menu',
 	'description' => 'Default font is "Raleway"',
 	'type'        => 'authow-fw-select',
-	'choices'     => penci_all_fonts()
+	'choices'     => goso_all_fonts()
 );
 $options[] = array(
 	'default'  => 'normal',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Font Weight For Primary Menu Items',
-	'id'       => 'penci_font_weight_menu',
+	'id'       => 'goso_font_weight_menu',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(
 		'normal'  => 'Normal',
@@ -95,19 +95,19 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Turn Off Uppercase on Menu items',
-	'id'       => 'penci_topbar_menu_uppercase',
+	'id'       => 'goso_topbar_menu_uppercase',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => '12',
 	'sanitize' => 'absint',
 	'label'    => __( 'Font Size for Menu Items Level 1', 'authow' ),
-	'id'       => 'penci_font_size_lv1',
+	'id'       => 'goso_font_size_lv1',
 	'type'     => 'authow-fw-size',
 	'ids'      => array(
-		'desktop' => 'penci_font_size_lv1',
+		'desktop' => 'goso_font_size_lv1',
 	),
 	'choices'  => array(
 		'desktop' => array(
@@ -124,10 +124,10 @@ $options[] = array(
 	'default'  => '12',
 	'sanitize' => 'absint',
 	'label'    => __( 'Font Size for Dropdown Menu Items', 'authow' ),
-	'id'       => 'penci_font_size_drop',
+	'id'       => 'goso_font_size_drop',
 	'type'     => 'authow-fw-size',
 	'ids'      => array(
-		'desktop' => 'penci_font_size_drop',
+		'desktop' => 'goso_font_size_drop',
 	),
 	'choices'  => array(
 		'desktop' => array(
@@ -142,9 +142,9 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => 'slide_down',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Dropdown Menu Animation Style',
-	'id'       => 'penci_header_menu_ani_style',
+	'id'       => 'goso_header_menu_ani_style',
 	'type'     => 'authow-fw-select',
 	'choices'  => [
 		'slide_down'   => esc_html__( 'Slide Down', 'authow' ),
@@ -157,37 +157,37 @@ $options[] = array(
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Padding on Menu Item Level 1',
-	'id'       => 'penci_header_enable_padding',
+	'id'       => 'goso_header_enable_padding',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Line When Hover on Menu Items Level 1',
-	'id'       => 'penci_header_remove_line_hover',
+	'id'       => 'goso_header_remove_line_hover',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Sticky Main Bar When Scroll Down',
-	'id'       => 'penci_disable_sticky_header',
+	'id'       => 'goso_disable_sticky_header',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Enable Social Icons on Main Bar',
-	'id'       => 'penci_header_social_nav',
+	'id'       => 'goso_header_social_nav',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Hide Social Icons on Main Bar for Mobile',
-	'id'       => 'penci_header_hidesocial_nav',
+	'id'       => 'goso_header_hidesocial_nav',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
@@ -231,30 +231,30 @@ $options[] = array(
 );
 $options[] = array(
 	'default'     => false,
-	'sanitize'    => 'penci_sanitize_checkbox_field',
+	'sanitize'    => 'goso_sanitize_checkbox_field',
 	'label'       => 'Display Logo on Main Bar on Mobile Devices',
-	'id'          => 'penci_header_logo_mobile',
+	'id'          => 'goso_header_logo_mobile',
 	'type'        => 'authow-fw-toggle',
 	'description' => 'This option does not apply for Header Style 6 & Style 9',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Move Logo on Main Bar on Mobile to Center',
-	'id'       => 'penci_header_logo_mobile_center',
+	'id'       => 'goso_header_logo_mobile_center',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
 	'default'  => false,
-	'sanitize' => 'penci_sanitize_checkbox_field',
+	'sanitize' => 'goso_sanitize_checkbox_field',
 	'label'    => 'Disable Header Search',
-	'id'       => 'penci_topbar_search_check',
+	'id'       => 'goso_topbar_search_check',
 	'type'     => 'authow-fw-toggle',
 );
 $options[] = array(
-	'id'       => 'penci_topbar_search_style',
+	'id'       => 'goso_topbar_search_style',
 	'default'  => 'default',
-	'sanitize' => 'penci_sanitize_choices_field',
+	'sanitize' => 'goso_sanitize_choices_field',
 	'label'    => 'Header Search Style',
 	'type'     => 'authow-fw-select',
 	'choices'  => array(

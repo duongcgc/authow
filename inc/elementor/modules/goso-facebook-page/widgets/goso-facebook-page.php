@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoFacebookPage extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-facebook-page';
+		return 'goso-facebook-page';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name('Goso').' '.esc_html__( ' Facebook Page', 'authow' );
+		return goso_get_theme_name('Goso').' '.esc_html__( ' Facebook Page', 'authow' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GosoFacebookPage extends Base_Widget {
 	}
 	
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -108,7 +108,7 @@ class GosoFacebookPage extends Base_Widget {
 			return;
 		}
 
-		$css_class = 'penci-block-vc penci_facebook_widget';
+		$css_class = 'goso-block-vc goso_facebook_widget';
 
 		$height = $settings['page_height']['size'] ? $settings['page_height']['size'] : '';
 		$title_page = $settings['heading'] ? $settings['page_height'] : '';
@@ -122,7 +122,7 @@ class GosoFacebookPage extends Base_Widget {
 		?>
 		<div class="<?php echo esc_attr( $css_class ); ?>">
 			<?php $this->markup_block_title( $settings, $this ); ?>
-			<div class="penci-block_content">
+			<div class="goso-block_content">
 				<div id="fb-root"></div>
 				<script data-cfasync="false">(function(d, s, id){
 				  var js, fjs = d.getElementsByTagName(s)[0];

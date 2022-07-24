@@ -1,13 +1,13 @@
 <?php
 /**
- * Callback for new param 'penci_number'.
+ * Callback for new param 'goso_number'.
  *
  * @param array $settings
  * @param string $value
  *
  * @return string
  */
-function penci_vc_param_number( $settings, $value ) {
+function goso_vc_param_number( $settings, $value ) {
 
 	$units = array( 'px', 'em', 'rem', '%' );
 
@@ -18,7 +18,7 @@ function penci_vc_param_number( $settings, $value ) {
 		$input  = $matches[2];
 		$unit   = $matches[3];
 	}
-	$output = '<div class="penci-number">';
+	$output = '<div class="goso-number">';
 
 	// Hidden input
 	$output .= sprintf(
@@ -28,8 +28,8 @@ function penci_vc_param_number( $settings, $value ) {
 	);
 
 	// Input and units
-	$output .= sprintf( '<input type="number" class="penci-number-input" value="%s">',  esc_attr( $prefix ) . esc_attr( $input ) );
-	$output .= '<select class="penci-number-suffix">';
+	$output .= sprintf( '<input type="number" class="goso-number-input" value="%s">',  esc_attr( $prefix ) . esc_attr( $input ) );
+	$output .= '<select class="goso-number-suffix">';
 	foreach ( $units as $v ) {
 		$output .= '<option value="' . esc_attr( $v ) . '" ' . selected( $v, $unit, false ) . '>' . esc_html( $v ) . '</option>';
 	}

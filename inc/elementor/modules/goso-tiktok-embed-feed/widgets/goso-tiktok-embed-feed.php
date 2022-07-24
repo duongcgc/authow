@@ -13,11 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class GosoTiktokEmbedFeed extends Base_Widget {
 
 	public function get_name() {
-		return 'penci-tiktok-embed-feed';
+		return 'goso-tiktok-embed-feed';
 	}
 
 	public function get_title() {
-		return penci_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' TikTok Feed', 'authow' );
+		return goso_get_theme_name( 'Goso' ) . ' ' . esc_html__( ' TikTok Feed', 'authow' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GosoTiktokEmbedFeed extends Base_Widget {
 	}
 
 	public function get_categories() {
-		return [ 'penci-elements' ];
+		return [ 'goso-elements' ];
 	}
 
 	public function get_keywords() {
@@ -33,7 +33,7 @@ class GosoTiktokEmbedFeed extends Base_Widget {
 	}
 
 	public function get_script_depends() {
-		return array( 'penci_tiktok_embed' );
+		return array( 'goso_tiktok_embed' );
 	}
 
 	protected function register_controls() {
@@ -127,13 +127,13 @@ class GosoTiktokEmbedFeed extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings();
 		$username = $settings['username'] ? $settings['username'] : '';
-		wp_enqueue_script( 'penci_tiktok_embed' );
+		wp_enqueue_script( 'goso_tiktok_embed' );
 		?>
         <div class="pc-tiktok-embed-feed-el">
 			<?php
 			$this->markup_block_title( $settings, $this );
 			if ( $username ) {
-				wp_enqueue_script( 'penci_tiktok_embed' );
+				wp_enqueue_script( 'goso_tiktok_embed' );
 				?>
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@<?php echo esc_attr( $username ); ?>"
                             data-unique-id="<?php echo esc_attr( $username ); ?>"

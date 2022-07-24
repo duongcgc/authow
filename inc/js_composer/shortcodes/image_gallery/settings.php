@@ -3,12 +3,12 @@ $group_icon  = 'Icon';
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => "penci_image_gallery",
+	'base'          => "goso_image_gallery",
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/image_gallery/frontend.php',
 	'weight'        => 775,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Image Gallery', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Image Gallery', 'authow' ),
 	'description'   => 'Image Gallery Block',
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -37,7 +37,7 @@ vc_map( array(
 			array(
 				'type'       => 'dropdown',
 				'heading'    => esc_html__( 'Image Size', 'authow' ),
-				'param_name' => 'penci_img_size',
+				'param_name' => 'goso_img_size',
 				'std'        => 'medium_large',
 				'value'      => Goso_Vc_Params_Helper::get_list_image_sizes(),
 				'dependency' => array( 'element' => 'style_gallery', 'value' => array( 's1', 's2', 's3' ) ),
@@ -45,15 +45,15 @@ vc_map( array(
 			array(
 				'type'       => 'dropdown',
 				'heading'    => esc_html__( 'Image Size for Big Image', 'authow' ),
-				'param_name' => 'penci_img_size_bitem',
-				'std'        => 'penci-full-thumb',
+				'param_name' => 'goso_img_size_bitem',
+				'std'        => 'goso-full-thumb',
 				'value'      => Goso_Vc_Params_Helper::get_list_image_sizes(),
 				'dependency' => array( 'element' => 'style_gallery', 'value' => array( 's2', 's3' ) ),
 			),
 			array(
 				'type'       => 'dropdown',
 				'heading'    => esc_html__( 'Image Type', 'authow' ),
-				'param_name' => 'penci_img_type',
+				'param_name' => 'goso_img_type',
 				'value'      => array(
 					__( '-- Default --', 'authow' ) => '',
 					__( 'Landscape', 'authow' )     => 'landscape',
@@ -89,7 +89,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'style_gallery', 'value' => array( 's1', 'masonry' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'row_gap',
 				'heading'          => __( 'Rows Gap', 'authow' ),
 				'value'            => '',
@@ -100,7 +100,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'style_gallery', 'value' => array( 's1' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'col_gap',
 				'heading'          => __( 'Columns Gap', 'authow' ),
 				'value'            => '',
@@ -111,7 +111,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'style_gallery', 'value' => array( 's1' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'gallery_height',
 				'heading'          => __( 'Custom the height of images', 'authow' ),
 				'value'            => '',
@@ -140,7 +140,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Gallery', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -150,7 +150,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'       => 'penci_number',
+				'type'       => 'goso_number',
 				'param_name' => 'p_icon_size',
 				'heading'    => __( 'Size Icon', 'authow' ),
 				'value'      => '',

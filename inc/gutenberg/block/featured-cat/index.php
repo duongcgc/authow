@@ -10,7 +10,7 @@ class Goso_Gutenberg_Authow_Featured_Cat {
 
 		if( ! isset(  $attributes['category'] ) || ! $attributes['category'] ){
 			$mess = esc_html__( 'Please fill the category slug.', 'authow' );
-			return  '<div class="penci-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Featured Cat', $mess ) . '</div>';
+			return  '<div class="goso-wpblock">' . Goso_Authow_Gutenberg::message( 'Goso Featured Cat', $mess ) . '</div>';
 		}
 
 		$param = '';
@@ -22,10 +22,10 @@ class Goso_Gutenberg_Authow_Featured_Cat {
 			}
 		}
 
-		$output = '<div class="penci-wpblock">';
+		$output = '<div class="goso-wpblock">';
 		$output .= Goso_Authow_Gutenberg::message( 'Goso Featured Cat', esc_html__( 'Click to edit this block', 'authow' ) );
 		$output .= do_shortcode( '[featured_cat  ' . $param . ']' );
-		$output .= '</div><!--endpenci-block-->';
+		$output .= '</div><!--endgoso-block-->';
 		return $output;
 	}
 

@@ -2,12 +2,12 @@
 $group_color = 'Typo & Color';
 
 vc_map( array(
-	'base'          => 'penci_counter_up',
+	'base'          => 'goso_counter_up',
 	'icon'          => get_template_directory_uri() . '/images/vc-icon.png',
-	'category'      => penci_get_theme_name('Authow'),
+	'category'      => goso_get_theme_name('Authow'),
 	'html_template' => get_template_directory() . '/inc/js_composer/shortcodes/counter_up/frontend.php',
 	'weight'        => 700,
-	'name'          => penci_get_theme_name('Goso').' '.esc_html__( 'Counter Up', 'authow' ),
+	'name'          => goso_get_theme_name('Goso').' '.esc_html__( 'Counter Up', 'authow' ),
 	'description'   => __( 'Counter Up Block', 'authow' ),
 	'controls'      => 'full',
 	'params'        => array_merge(
@@ -100,7 +100,7 @@ vc_map( array(
 				'dependency' => array( 'element' => 'cup_icon_type', 'value' => 'icon' ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'icon_border_width',
 				'heading'          => __( 'Border width for Icon', 'authow' ),
 				'value'            => '1',
@@ -111,7 +111,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'icon_border_style', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'icon_border_radius',
 				'heading'          => __( 'Border radius for Icon', 'authow' ),
 				'value'            => '',
@@ -122,7 +122,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'icon_border_style', 'value' => array( 'solid', 'dashed', 'dotted', 'double' ) ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'icon_padding',
 				'heading'          => __( 'Padding for Icon', 'authow' ),
 				'value'            => '',
@@ -133,7 +133,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'icon_size', 'value' => 'custom' ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => '_image_width_height',
 				'heading'          => __( 'Image with/height', 'authow' ),
 				'value'            => '',
@@ -144,7 +144,7 @@ vc_map( array(
 				'dependency'       => array( 'element' => 'cup_icon_type', 'value' => 'image' ),
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'icon_margin_bottom',
 				'heading'          => __( 'Custom margin bottom for Icon or Image', 'authow' ),
 				'value'            => '',
@@ -154,7 +154,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'number_margin_top',
 				'heading'          => __( 'Custom margin top for number', 'authow' ),
 				'value'            => '',
@@ -164,7 +164,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'number_padding_lr',
 				'heading'          => __( 'Custom padding left/right for number', 'authow' ),
 				'value'            => '',
@@ -174,7 +174,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'title_margin_top',
 				'heading'          => __( 'Custom margin top for title', 'authow' ),
 				'value'            => '',
@@ -305,7 +305,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Icon', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -322,7 +322,7 @@ vc_map( array(
 				'edit_field_class' => 'vc_col-sm-6',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'cup_icon_size',
 				'heading'          => __( 'Font size for Icon', 'authow' ),
 				'value'            => '',
@@ -338,7 +338,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Number', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -354,7 +354,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'cup_number_size',
 				'heading'          => __( 'Font Size for Number', 'authow' ),
 				'value'            => '',
@@ -393,7 +393,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Prefix and Suffix', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -409,7 +409,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'heading'          => esc_html__( 'Font size for Prefix and Suffix', 'authow' ),
 				'param_name'       => 'cup_frefix_size',
 				'group'            => $group_color,
@@ -421,7 +421,7 @@ vc_map( array(
 				'heading'          => esc_html__( 'Title', 'authow' ),
 				'value'            => '',
 				'group'            => $group_color,
-				'edit_field_class' => 'penci-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
+				'edit_field_class' => 'goso-param-heading-wrapper no-top-margin vc_column vc_col-sm-12',
 			),
 			array(
 				'type'             => 'colorpicker',
@@ -437,7 +437,7 @@ vc_map( array(
 				'value'      => '',
 			),
 			array(
-				'type'             => 'penci_number',
+				'type'             => 'goso_number',
 				'param_name'       => 'cup_title_size',
 				'heading'          => __( 'Font size for Title', 'authow' ),
 				'value'            => '',
